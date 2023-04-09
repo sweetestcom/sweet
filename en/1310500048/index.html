@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Bjarne Stroustrup.
+He is the creator of C&#43;&#43;, a programming language that, after 40 years, is still one of the most
+popular and powerful languages in the world. Its focus on fast, stable, robust code underlies many
+of the biggest systems in the world that we have come to rely on as a society. If you&amp;rsquo;re watching
+this on YouTube, for example, many of the critical back end components of YouTube are written in C&#43;&#43;.'>
+<title>Lex Fridman Podcast - #48 - Bjarne Stroustrup: C&#43;&#43; | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500048/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #48 - Bjarne Stroustrup: C&#43;&#43;'>
+<meta property='og:description' content='The following is a conversation with Bjarne Stroustrup.
+He is the creator of C&#43;&#43;, a programming language that, after 40 years, is still one of the most
+popular and powerful languages in the world. Its focus on fast, stable, robust code underlies many
+of the biggest systems in the world that we have come to rely on as a society. If you&amp;rsquo;re watching
+this on YouTube, for example, many of the critical back end components of YouTube are written in C&#43;&#43;.'>
+<meta property='og:url' content='https://swiest.com/en/1310500048/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-04-17T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-04-17T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #48 - Bjarne Stroustrup: C&#43;&#43;">
+<meta name="twitter:description" content="The following is a conversation with Bjarne Stroustrup.
+He is the creator of C&#43;&#43;, a programming language that, after 40 years, is still one of the most
+popular and powerful languages in the world. Its focus on fast, stable, robust code underlies many
+of the biggest systems in the world that we have come to rely on as a society. If you&amp;rsquo;re watching
+this on YouTube, for example, many of the critical back end components of YouTube are written in C&#43;&#43;.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500048/">Lex Fridman Podcast - #48 - Bjarne Stroustrup: C&#43;&#43;</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-04-17</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    66 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Bjarne Stroustrup.</p>
+<p>He is the creator of C++, a programming language that, after 40 years, is still one of the most</p>
+<p>popular and powerful languages in the world. Its focus on fast, stable, robust code underlies many</p>
+<p>of the biggest systems in the world that we have come to rely on as a society. If you&rsquo;re watching</p>
+<p>this on YouTube, for example, many of the critical back end components of YouTube are written in C++.</p>
+<p>The same goes for Google, Facebook, Amazon, Twitter, most Microsoft applications, Adobe applications,</p>
+<p>most database systems, and most physical systems that operate in the real world, like cars, robots,</p>
+<p>rockets that launch us into space and one day will land us on Mars.</p>
+<p>C++ also happens to be the language that I use more than any other in my life. I&rsquo;ve written</p>
+<p>several hundred thousand lines of C++ source code. Of course, lines of source code don&rsquo;t mean much,</p>
+<p>but they do give hints of my personal journey through the world of software.</p>
+<p>I&rsquo;ve enjoyed watching the development of C++ as a programming language,</p>
+<p>leading up to the big update in the standard in 2011 and those that followed in 14, 17,</p>
+<p>and toward the new C++20 standard hopefully coming out next year.</p>
+<p>TITLE This is the Artificial Intelligence podcast.</p>
+<p>If you enjoy it, subscribe on YouTube, give it five stars on iTunes, support it on Patreon,</p>
+<p>or simply connect with me on Twitter at Lex Friedman, spelled F R I D M A N.</p>
+<p>And now, here&rsquo;s my conversation with Björn Stroustrup.</p>
+<p>What was the first program you&rsquo;ve ever written? Do you remember?</p>
+<p>BJÖRN It was my second year in university, first year of computer science, and it was an Alco 60.</p>
+<p>I calculated the shape of a super ellipse and then connected points on the perimeter,</p>
+<p>creating star patterns. It was with a wet ink on a paper printer.</p>
+<p>TITLE And that was in college, university?</p>
+<p>BJÖRN Yeah, yeah. I learned to program the second year in university.</p>
+<p>TITLE And what was the first programming language,</p>
+<p>if I may ask it this way, that you fell in love with?</p>
+<p>BJÖRN I think Alco 60. And after that, I remember</p>
+<p>Snowball. I remember Fortran, didn&rsquo;t fall in love with that. I remember Pascal,</p>
+<p>didn&rsquo;t fall in love with that. It all got in the way of me. And then I discovered Assembler,</p>
+<p>and that was much more fun. And from there, I went to Micro Code.</p>
+<p>TITLE So you were drawn to the, you found the low level stuff beautiful.</p>
+<p>BJÖRN I went through a lot of languages, and then I spent significant time in Assembler and</p>
+<p>Micro Code. That was sort of the first really profitable things that paid for my masters,</p>
+<p>actually. And then I discovered Simula, which was absolutely great.</p>
+<p>TITLE Simula?</p>
+<p>BJÖRN Simula was the extension of Alco 60,</p>
+<p>done primarily for simulation. But basically, they invented object oriented programming at</p>
+<p>inheritance and runtime polymorphism while they were doing it. And that was the language that</p>
+<p>taught me that you could have the sort of the problems of a program grow with the size of the</p>
+<p>program rather than with the square of the size of the program. That is, you can actually modularize</p>
+<p>very nicely. And that was a surprise to me. It was also a surprise to me that a stricter type</p>
+<p>system than Pascal&rsquo;s was helpful, whereas Pascal&rsquo;s type system got in my way all the time. So you</p>
+<p>need a strong type system to organize your code well, but it has to be extensible and flexible.</p>
+<p>TITLE Let&rsquo;s get into the details a little bit. If you remember, what kind of type system did</p>
+<p>Pascal have? What type system, typing system did Alco 60 have?</p>
+<p>BJÖRN Basically, Pascal was sort of the simplest language that Niklaus Wirth could</p>
+<p>define that served the needs of Niklaus Wirth at the time. And it has a sort of a highly moral</p>
+<p>tone to it. That is, if you can say it in Pascal, it&rsquo;s good. And if you can&rsquo;t, it&rsquo;s not so good.</p>
+<p>Whereas Simula allowed you basically to build your own type system. So instead of trying to fit</p>
+<p>yourself into Niklaus Wirth&rsquo;s world, Christen Nygaard&rsquo;s language and Johan Dahl&rsquo;s language</p>
+<p>allowed you to build your own. So it&rsquo;s sort of close to the original idea of you build a domain</p>
+<p>specific language. As a matter of fact, what you build is a set of types and relations among types</p>
+<p>that allows you to express something that&rsquo;s suitable for an application.</p>
+<p>TITLE So when you say types,</p>
+<p>stuff you&rsquo;re saying has echoes of object oriented programming.</p>
+<p>BJÖRN Yes, they invented it. Every language</p>
+<p>that uses the word class for type is a descendant of Simula, directly or indirectly. Christen Nygaard</p>
+<p>and Ole Johan Dahl were mathematicians and they didn&rsquo;t think in terms of types, but they understood</p>
+<p>sets and classes of elements. And so they called their types classes. And basically in C++,</p>
+<p>as in Simula, classes are user defined type.</p>
+<p>TITLE So can you try the impossible task and give</p>
+<p>a brief history of programming languages from your perspective? So we started with Algol 60,</p>
+<p>Simula, Pascal, but that&rsquo;s just the 60s and 70s. BJÖRN I can try. The most sort of interesting and</p>
+<p>major improvement of programming languages was Fortran, the first Fortran. Because before that,</p>
+<p>all code was written for a specific machine and each specific machine had a language,</p>
+<p>a simple language or a cross simpler or some extension of that idea. But you&rsquo;re writing for</p>
+<p>a specific machine in the language of that machine. And Bacchus and his team at IBM built a language</p>
+<p>that would allow you to write what you really wanted. That is, you could write it in a language</p>
+<p>that was natural for people. Now, these people happen to be engineers and physicists. So the</p>
+<p>language that came out was somewhat unusual for the rest of the world. But basically they said</p>
+<p>formula translation because they wanted to have the mathematical formulas translated into the</p>
+<p>machine. And as a side effect, they got portability because now they&rsquo;re writing in the terms that the</p>
+<p>humans used and the way humans thought. And then they had a program that translated it into the</p>
+<p>machine&rsquo;s needs. And that was new and that was great. And it&rsquo;s something to remember. We want to</p>
+<p>raise the language to the human level, but we don&rsquo;t want to lose the efficiency.</p>
+<p>And that was the first step towards the human. That was the first step. And of course,</p>
+<p>they were a very particular kind of humans. Business people were different, so they got</p>
+<p>cobalt instead, et cetera, et cetera. And Simula came out. No, let&rsquo;s not go to Simula yet. Let&rsquo;s</p>
+<p>go to Algol. Fortran didn&rsquo;t have, at the time, the notions of not a precise notion of type,</p>
+<p>not a precise notion of scope, not a set of translation phases that was what we have today,</p>
+<p>lexical syntax, semantics. It was sort of a bit of a model in the early days, but</p>
+<p>hey, they&rsquo;ve just done the biggest breakthrough in the history of programming, right?</p>
+<p>So you can&rsquo;t criticize them for not having gotten all the technical details right.</p>
+<p>So we got Algol. That was very pretty. And most people in commerce and science considered it</p>
+<p>useless because it was not flexible enough, and it wasn&rsquo;t efficient enough, and et cetera,</p>
+<p>et cetera. But that was a breakthrough from a technical point of view.</p>
+<p>Then Simula came along to make that idea more flexible, and you could define your own types.</p>
+<p>And that&rsquo;s where I got very interested. Christen Nygård was the main idea man behind Simula.</p>
+<p>That was late 60s.</p>
+<p>This was late 60s. Well, I was a visiting professor in Aarhus, and so I learned object</p>
+<p>oriented programming by sitting around and, well, in theory, discussing with Christen Nygård. But</p>
+<p>Christen, once you get started and in full flow, it&rsquo;s very hard to get a word in edgeways.</p>
+<p>Where you just listen.</p>
+<p>So it was great. I learned it from there.</p>
+<p>Not to romanticize the notion, but it seems like a big leap to think about</p>
+<p>object oriented programming. It&rsquo;s really a leap of abstraction.</p>
+<p>Yes.</p>
+<p>And was that as big and beautiful of a leap as it seems from now in retrospect,</p>
+<p>or was it an obvious one at the time?</p>
+<p>It was not obvious, and many people have tried to do something like that,</p>
+<p>and most people didn&rsquo;t come up with something as wonderful as Simula.</p>
+<p>Lots of people got their PhDs and made their careers out of forgetting about Simula or never</p>
+<p>knowing it. For me, the key idea was basically I could get my own types. And that&rsquo;s the idea that</p>
+<p>goes further into C++, where I can get better types and more flexible types and more efficient</p>
+<p>types. But it&rsquo;s still the fundamental idea. When I want to write a program, I want to write it with</p>
+<p>my types that is appropriate to my problem and under the constraints that I&rsquo;m under with hardware,</p>
+<p>software, environment, et cetera. And that&rsquo;s the key idea.</p>
+<p>People picked up on the class hierarchies and the virtual functions and the inheritance,</p>
+<p>and that was only part of it. It was an interesting and major part and still a major</p>
+<p>part and a lot of graphic stuff, but it was not the most fundamental. It was when you wanted to</p>
+<p>relate one type to another. You don&rsquo;t want them all to be independent. The classical example is</p>
+<p>that you don&rsquo;t actually want to write a city simulation with vehicles where you say, well,</p>
+<p>if it&rsquo;s a bicycle, write the code for turning a bicycle to the left. If it&rsquo;s a normal car,</p>
+<p>turn right the normal car way. If it&rsquo;s a fire engine, turn right the fire engine way. You get</p>
+<p>these big case statements and bunches of if statements and such. Instead, you tell the base</p>
+<p>class that that&rsquo;s the vehicle saying, turn left the way you want to. And this is actually a real</p>
+<p>example. They used it to simulate and optimize the emergency services for somewhere in Norway back in</p>
+<p>the 60s. So this was one of the early examples for why you needed inheritance and you needed</p>
+<p>a runtime polymorphism because you wanted to handle this set of vehicles in a manageable way.</p>
+<p>You can&rsquo;t just rewrite your code each time a new kind of vehicle comes along.</p>
+<p>Yeah, that&rsquo;s a beautiful, powerful idea. And of course it stretches through your work</p>
+<p>with C++ as we&rsquo;ll talk about. But I think you&rsquo;ve structured it nicely. What other breakthroughs</p>
+<p>came along in the history of programming languages if we were to tell the history in that way?</p>
+<p>Obviously, I&rsquo;m better at telling the part of the history that is the path I&rsquo;m on as opposed to all</p>
+<p>the paths. Yeah, you skipped the hippie John McCarthy and Lisp, one of my favorite languages.</p>
+<p>Functional.</p>
+<p>But Lisp is not one of my favorite languages. It&rsquo;s obviously important. It&rsquo;s obviously interesting.</p>
+<p>Lots of people write code in it and then they rewrite it into C or C++ when they want to go</p>
+<p>to production. It&rsquo;s in the world I&rsquo;m at, which are constrained by performance, reliability,</p>
+<p>issues, deployability, cost of hardware. I don&rsquo;t like things to be too dynamic.</p>
+<p>It is really hard to write a piece of code that&rsquo;s perfectly flexible that you can also deploy on a</p>
+<p>small computer and that you can also put in, say, a telephone switch in Bogota. What&rsquo;s the chance?</p>
+<p>If you get an error and you find yourself in the debugger that the telephone switch in Bogota on</p>
+<p>late Sunday night has a programmer around, their chance is zero. A lot of the things I think most</p>
+<p>about can&rsquo;t afford that flexibility. I&rsquo;m quite aware that maybe 70%, 80% of all code are not</p>
+<p>under the kind of constraints I&rsquo;m interested in. But somebody has to do the job I&rsquo;m doing</p>
+<p>because you have to get from these high level flexible languages to the hardware.</p>
+<p>The stuff that lasts for 10, 20, 30 years is robust, operates under very constrained conditions.</p>
+<p>Yes, absolutely. That&rsquo;s right. And it&rsquo;s fascinating and beautiful in its own way.</p>
+<p>C++ is one of my favorite languages, and so is Lisp. So I can embody two for different reasons</p>
+<p>as a programmer. I understand why Lisp is popular, and I can see the beauty of the ideas</p>
+<p>and similarly with Smalltalk. It&rsquo;s just not as relevant in my world. And by the way, I distinguish</p>
+<p>between those and the functional languages where I go to things like ML and Haskell. Different kind</p>
+<p>of languages, they have a different kind of beauty and they&rsquo;re very interesting. And I think</p>
+<p>that&rsquo;s interesting. And I actually try to learn from all the languages I encounter to see what is</p>
+<p>there that would make working on the kind of problems I&rsquo;m interested in with the kind of</p>
+<p>constraints that I&rsquo;m interested in, what can actually be done better? Because we can surely</p>
+<p>do better than we do today. You&rsquo;ve said that it&rsquo;s good for any professional programmer to know at</p>
+<p>least five languages as speaking about a variety of languages that you&rsquo;ve taken inspiration from,</p>
+<p>and you&rsquo;ve listed yours as being, at least at the time, C++, obviously, Java, Python, Ruby,</p>
+<p>script. Can you first of all, update that list, modify it? You don&rsquo;t have to be constrained</p>
+<p>to just five, but can you describe what you picked up also from each of these languages?</p>
+<p>How do you see them as inspirations for you when you&rsquo;re working with C++?</p>
+<p>This is a very hard question to answer. So about languages, you should know</p>
+<p>languages. I reckon I knew about 25 or thereabouts when I did C++. It was easier in those days</p>
+<p>because the languages were smaller, and you didn&rsquo;t have to learn a whole programming environment and</p>
+<p>such to do it. You could learn the language quite easily. And it&rsquo;s good to learn so many languages.</p>
+<p>I imagine, just like with natural language for communication, there&rsquo;s different</p>
+<p>paradigms that emerge in all of them, that there&rsquo;s commonalities and so on.</p>
+<p>So I picked five out of a hat. You picked five out of a hat.</p>
+<p>Obviously. The important thing that the number is not one.</p>
+<p>That&rsquo;s right.</p>
+<p>It&rsquo;s like, I don&rsquo;t like, I mean, if you&rsquo;re a monoglot, you are likely to think that your</p>
+<p>own culture is the only one superior to everybody else&rsquo;s. A good learning of a foreign language and</p>
+<p>a foreign culture is important. It helps you think and be a better person. With programming</p>
+<p>languages, you become a better programmer, better designer with the second language.</p>
+<p>Now, once you&rsquo;ve got two, the weight of five is not that long. It&rsquo;s the second one that&rsquo;s</p>
+<p>most important. And then when I had to pick five, I sort of thinking what kinds of languages are</p>
+<p>there? Well, there&rsquo;s a really low level stuff. It&rsquo;s good. It&rsquo;s actually good to know machine code.</p>
+<p>Even still?</p>
+<p>Even today. The C++ optimizers write better machine code than I do.</p>
+<p>Yes. But I don&rsquo;t think I could appreciate them if I actually didn&rsquo;t understand machine code and</p>
+<p>machine architecture. At least in my position, I have to understand a bit of it because you mess</p>
+<p>up the cache and you&rsquo;re off in performance by a factor of 100. It shouldn&rsquo;t be that if you are</p>
+<p>interested in either performance or the size of the computer you have to deploy. So I would</p>
+<p>go as a simpler. I used to mention C, but these days going low level is not actually what gives</p>
+<p>you the performance. It is to express your ideas so cleanly that you can think about it and the</p>
+<p>optimizer can understand what you&rsquo;re up to. My favorite way of optimizing these days is to throw</p>
+<p>away out the clever bits and see if it still runs fast. And sometimes it runs faster. So I need the</p>
+<p>abstraction mechanisms or something like C++ to write compact high performance code. There was a</p>
+<p>beautiful keynote by Jason Turner at the CppCon a couple of years ago where he decided he was going</p>
+<p>to program Pong on Motorola 6800, I think it was. And he says, well, this is relevant because it</p>
+<p>looks like a microcontroller. It has specialized hardware. It has not very much memory and it&rsquo;s</p>
+<p>relatively slow. And so he shows in real time how he writes Pong starting with fairly straightforward</p>
+<p>low level stuff, improving his abstractions and what he&rsquo;s doing. He&rsquo;s writing C++ and it translates</p>
+<p>into 86 assembler, which you can do with Clang and you can see it in real time. It&rsquo;s</p>
+<p>the compiler explorer, which you can use on the web. And then he wrote a little program</p>
+<p>that translated 86 assembler into Motorola assembler. And so he types and you can see this</p>
+<p>thing in real time. Wow. You can see it in real time. And even if you can&rsquo;t read the assembly code,</p>
+<p>you can just see it. His code gets better. The code, the assembler gets smaller.</p>
+<p>He increases the abstraction level, uses C++ 11 as it were better.</p>
+<p>This code gets cleaner. It gets easier maintainable. The code shrinks and it keeps shrinking. And</p>
+<p>I could not in any reasonable amount of time write that assembler as good as the compiler</p>
+<p>generated from really quite nice modern C++. And I&rsquo;ll go as far as to say the thing that looked</p>
+<p>like C was significantly uglier and smaller and larger when it became machine code.</p>
+<p>So the abstractions that can be optimized are important.</p>
+<p>I would love to see that kind of visualization in larger code bases.</p>
+<p>Yeah. That might be beautiful.</p>
+<p>But you can&rsquo;t show a larger code base in a one hour talk and have it fit on screen.</p>
+<p>Right. So that&rsquo;s C and C++.</p>
+<p>So my two languages would be machine code and C++. And then I think you can learn a</p>
+<p>lot from the functional languages. So PIC has gloy ML. I don&rsquo;t care which. I think actually</p>
+<p>you learn the same lessons of expressing especially mathematical notions really clearly</p>
+<p>and having a type system that&rsquo;s really strict. And then you should probably have a language for sort</p>
+<p>of quickly churning out something. You could pick JavaScript. You could pick Python. You could pick</p>
+<p>Ruby. What do you make of JavaScript in general? So you&rsquo;re talking in the platonic sense about</p>
+<p>languages, about what they&rsquo;re good at, what their philosophy of design is. But there&rsquo;s also a large</p>
+<p>user base behind each of these languages and they use it in the way sometimes maybe it wasn&rsquo;t</p>
+<p>really designed for. That&rsquo;s right. JavaScript is used way beyond probably what it was designed for.</p>
+<p>Let me say it this way. When you build a tool, you do not know how it&rsquo;s going to be used.</p>
+<p>You try to improve the tool by looking at how it&rsquo;s being used and when people cut their fingers</p>
+<p>off and try and stop that from happening. But really you have no control over how something</p>
+<p>is used. So I&rsquo;m very happy and proud of some of the things C++ is being used at and some of the</p>
+<p>things I wish people wouldn&rsquo;t do. Bitcoin mining being my favorite example uses as much energy as</p>
+<p>Switzerland and mostly serves criminals. But back to the languages, I actually think that having</p>
+<p>JavaScript run in the browser was an enabling thing for a lot of things. Yes, you could have</p>
+<p>done it better, but people were trying to do it better and they were using more principles,</p>
+<p>language designs, but they just couldn&rsquo;t do it right. And the nonprofessional programmers that</p>
+<p>write lots of that code just couldn&rsquo;t understand them. So it did an amazing job for what it was.</p>
+<p>It&rsquo;s not the prettiest language and I don&rsquo;t think it ever will be the prettiest language, but</p>
+<p>let&rsquo;s not be bigots here. So what was the origin story of C++?</p>
+<p>Yeah, you basically gave a few perspectives of your inspiration of object oriented programming.</p>
+<p>That&rsquo;s you had a connection with C and performance efficiency was an important</p>
+<p>thing you were drawn to. Efficiency and reliability. Reliability. You have to get both.</p>
+<p>What&rsquo;s reliability? I really want my telephone calls to get through and I want the quality</p>
+<p>of what I am talking, coming out at the other end. The other end might be in London or wherever.</p>
+<p>And you don&rsquo;t want the system to be crashing. If you&rsquo;re doing a bank, you mustn&rsquo;t crash. It might</p>
+<p>be your bank account that is in trouble. There&rsquo;s different constraints like in games, it doesn&rsquo;t</p>
+<p>matter too much if there&rsquo;s a crash, nobody dies and nobody gets ruined.</p>
+<p>But I am interested in the combination of performance, partly because of sort of speed</p>
+<p>of things being done, part of being able to do things that is necessary to have reliability</p>
+<p>of larger systems. If you spend all your time interpreting a simple function call,</p>
+<p>a simple function call, you are not going to have enough time to do proper signal processing to get</p>
+<p>the telephone calls to sound right. Either that or you have to have ten times as many computers</p>
+<p>and you can&rsquo;t afford your phone anymore. It&rsquo;s a ridiculous idea in the modern world because</p>
+<p>we have solved all of those problems. I mean, they keep popping up in different ways because</p>
+<p>we tackle bigger and bigger problems. So efficiency remains always an important aspect.</p>
+<p>But you have to think about efficiency, not just as speed, but as an enabler to</p>
+<p>important things. And one of the things it enables is reliability, is dependability.</p>
+<p>When I press the pedal, the brake pedal of a car, it is not actually connected directly</p>
+<p>to anything but a computer. That computer better work.</p>
+<p>Let&rsquo;s talk about reliability just a little bit. So modern cars have ECUs, have millions of lines</p>
+<p>of code today. So this is certainly especially true of autonomous vehicles where some of the</p>
+<p>aspects of the control or driver assistance systems that steer the car, that keep it in the</p>
+<p>lane and so on. So how do you think, you know, I talked to regulators, people in government</p>
+<p>who are very nervous about testing the safety of these systems of software. Ultimately software</p>
+<p>that makes decisions that could lead to fatalities. So how do we test software systems like these?</p>
+<p>First of all, safety, like performance and like security is the system&rsquo;s property.</p>
+<p>People tend to look at one part of a system at a time and saying something like, this is secure.</p>
+<p>That&rsquo;s all right. I don&rsquo;t need to do that. Yeah, that piece of code is secure. I&rsquo;ll buy</p>
+<p>your operator. If you want to have reliability, if you want to have performance, if you want to</p>
+<p>have security, you have to look at the whole system. I did not expect you to say that,</p>
+<p>but that&rsquo;s very true. Yes, I&rsquo;m dealing with one part of the system and I want my part to be really</p>
+<p>good, but I know it&rsquo;s not the whole system. Furthermore, if making an individual part perfect,</p>
+<p>may actually not be the best way of getting the highest degree of reliability and performance and</p>
+<p>such. There&rsquo;s people that say C++ is not type safe. You can break it. Sure. I can break anything</p>
+<p>that runs on a computer. I may not go through your type system. If I wanted to break into your</p>
+<p>computer, I&rsquo;ll probably try SQL injection. And it&rsquo;s very true. If you think about</p>
+<p>safety or even reliability at the system level, especially when a human being is involved,</p>
+<p>it starts becoming hopeless pretty quickly in terms of proving that something is</p>
+<p>safe to a certain level. Yeah. Because there&rsquo;s so many variables. It&rsquo;s so complex. Well, let&rsquo;s get</p>
+<p>back to something we can talk about and actually talk about it. Yeah.</p>
+<p>Talk about and actually make some progress on. Yes. We can look at C++ programs and we can</p>
+<p>try and make sure they crash this often. The way you do that is largely by simplification.</p>
+<p>The first step is to simplify the code, have less code, have code that are less likely to go wrong.</p>
+<p>It&rsquo;s not by runtime testing everything. It is not by big test frameworks that you are using.</p>
+<p>Yes, we do that also. But the first step is actually to make sure that when you want to</p>
+<p>express something, you can express it directly in code rather than going through endless loops</p>
+<p>and convolutions in your head before it gets down the code. The way you are thinking about</p>
+<p>a problem is not in the code. There is a missing piece that&rsquo;s just in your head. And the code,</p>
+<p>you can see what it does, but it cannot see what you thought about it unless you have expressed</p>
+<p>things directly. When you express things directly, you can maintain it. It&rsquo;s easier to find errors.</p>
+<p>It&rsquo;s easier to make modifications. It&rsquo;s actually easier to test it. And lo and behold, it runs</p>
+<p>faster. And therefore, you can use a smaller number of computers, which means there&rsquo;s less</p>
+<p>hardware that could possibly break. So I think the key here is simplification.</p>
+<p>But it has to be, to use the Einstein quote, as simple as possible and no simpler.</p>
+<p>Not simpler.</p>
+<p>There are other areas with under constraints where you can be simpler than you can be in C++.</p>
+<p>But in the domain I&rsquo;m dealing with, that&rsquo;s the simplification I&rsquo;m after.</p>
+<p>So how do you inspire or ensure that the Einstein level of simplification is reached?</p>
+<p>So can you do code review? Can you look at code? If I gave you the code for the Ford F150</p>
+<p>and said, here, is this a mess or is this okay? Is it possible to tell? Is it possible to regulate?</p>
+<p>An experienced developer can look at code and see if it smells. Mixed metaphors deliberately.</p>
+<p>Yes. The point is that it is hard to generate something that is really obviously clean and</p>
+<p>can be appreciated. But you can usually recognize when you haven&rsquo;t reached that point.</p>
+<p>And so I&rsquo;ve never looked at the F150 code, so I wouldn&rsquo;t know. But I know what I ought to be</p>
+<p>looking for. I&rsquo;ll be looking for some tricks that correlate with bugs and elsewhere. And I have tried</p>
+<p>to formulate rules for what good code looks like. And the current version of that is called the C++</p>
+<p>core guidelines. One thing people should remember is there&rsquo;s what you can do in a language and what</p>
+<p>you should do. In a language, you have lots of things that is necessary in some context,</p>
+<p>but not in others. There&rsquo;s things that exist just because there&rsquo;s 30 year old code out there and</p>
+<p>you can&rsquo;t get rid of it. But you can&rsquo;t have rules that says when you create it, try and follow these</p>
+<p>rules. This does not create good programs by themselves, but it limits the damage from mistakes.</p>
+<p>It limits the possibilities of mistakes. And basically, we are trying to say, what is it that</p>
+<p>a good programmer does? At the fairly simple level of where you use the language and how you use it.</p>
+<p>Now, I can put all the rules for chiseling in marble. It doesn&rsquo;t mean that somebody who follows</p>
+<p>all of those rules can do a masterpiece by Michelangelo. That is, there&rsquo;s something else</p>
+<p>to write a good program. Just is there something else to create an important work of art? That is,</p>
+<p>there&rsquo;s some kind of inspiration, understanding, gift. But we can approach the sort of technical,</p>
+<p>the craftsmanship level of it. The famous painters, the famous sculptures was among other things,</p>
+<p>superb craftsmen. They could express their ideas using their tools very well. And so these days,</p>
+<p>I think what I&rsquo;m doing, what a lot of people are doing, we are still trying to figure out how it is</p>
+<p>to use our tools very well. For a really good piece of code, you need a spark of inspiration,</p>
+<p>and you can&rsquo;t, I think, regulate that. You cannot say that I&rsquo;ll take a picture only,</p>
+<p>I&rsquo;ll buy your picture only if you&rsquo;re at least Van Gogh. There are other things you can regulate,</p>
+<p>but not the inspiration. I think that&rsquo;s quite beautifully put. It is true that there is as an</p>
+<p>experienced programmer, when you see code that&rsquo;s inspired, that&rsquo;s like Michelangelo, you know it</p>
+<p>when you see it. And the opposite of that is code that is messy, code that smells, you know,</p>
+<p>when you see it. And I&rsquo;m not sure you can describe it in words, except vaguely through guidelines and</p>
+<p>so on. Yes, it&rsquo;s easier to recognize ugly than to recognize beauty in code. And for the reason is</p>
+<p>that sometimes beauty comes from something that&rsquo;s innovative and unusual. And you have to sometimes</p>
+<p>think reasonably hard to appreciate that. On the other hand, the messes have things that are</p>
+<p>in common. And you can have static checkers and dynamic checkers that find</p>
+<p>a large number of the most common mistakes. You can catch a lot of sloppiness mechanically. I&rsquo;m</p>
+<p>a great fan of static analysis in particular, because you can check for not just the language</p>
+<p>rules, but for the usage of language rules. And I think we will see much more static analysis</p>
+<p>in the coming decade. Can you describe what static analysis is? You represent a piece of code</p>
+<p>so that you can write a program that goes over that representation and look for things that are</p>
+<p>are right and not right. So, for instance, you can analyze a program to see if</p>
+<p>resources are leaked. That&rsquo;s one of my favorite problems. It&rsquo;s not actually all that hard and</p>
+<p>modern C++, but you can do it. If you are writing in the C level, you have to have a malloc and a</p>
+<p>free. And they have to match. If you have them in a single function, you can usually do it very</p>
+<p>easily. If there&rsquo;s a malloc here, there should be a free there. On the other hand, in between can be</p>
+<p>showing complete code and then it becomes impossible. If you pass that pointer to the</p>
+<p>memory out of a function and then want to make sure that the free is done somewhere else,</p>
+<p>now it gets really difficult. And so for static analysis, you can run through a program and you</p>
+<p>can try and figure out if there&rsquo;s any leaks. And what you will probably find is that you will find</p>
+<p>some leaks and you&rsquo;ll find quite a few places where your analysis can&rsquo;t be complete. It might</p>
+<p>depend on runtime. It might depend on the cleverness of your analyzer and it might take a</p>
+<p>long time. Some of these programs run for a long time. But if you combine such analysis</p>
+<p>with a set of rules that says how people could use it, you can actually see why the rules are</p>
+<p>violated. And that stops you from getting into the impossible complexities. You don&rsquo;t want to</p>
+<p>solve the halting problem. So static analysis is looking at the code without running the code.</p>
+<p>Yes. And thereby it&rsquo;s almost not a production code, but it&rsquo;s almost like an education tool</p>
+<p>of how the language should be used. It guides you like it at its best, right? It would</p>
+<p>guide you in how you write future code as well. And you learn together.</p>
+<p>Yes. So basically you need a set of rules for how you use the language. Then you need a static</p>
+<p>analysis that catches your mistakes when you violate the rules or when your code ends up</p>
+<p>doing things that it shouldn&rsquo;t, despite the rules, because there is the language rules.</p>
+<p>We can go further. And again, it&rsquo;s back to my idea that I&rsquo;d much rather find errors before</p>
+<p>I start running the code. If nothing else, once the code runs, if it catches an error at run times,</p>
+<p>I have to have an error handler. And one of the hardest things to write in code is error handling</p>
+<p>code, because you know something went wrong. Do you know really exactly what went wrong?</p>
+<p>Usually not. How can you recover when you don&rsquo;t know what the problem was? You can&rsquo;t be 100% sure</p>
+<p>what the problem was in many, many cases. And this is part of it. So yes, we need good languages,</p>
+<p>we need good type systems, we need rules for how to use them, we need static analysis. And the</p>
+<p>ultimate for static analysis is of course program proof, but that still doesn&rsquo;t scale to the kind</p>
+<p>of systems we deploy. Then we start needing testing and the rest of the stuff.</p>
+<p>So C++ is an object oriented programming language that creates, especially with its newer versions,</p>
+<p>as we&rsquo;ll talk about, higher and higher levels of abstraction. So how do you design?</p>
+<p>Let&rsquo;s even go back to the origin of C++. How do you design something with so much abstraction</p>
+<p>that&rsquo;s still efficient and is still something that you can manage, do static analysis on,</p>
+<p>you can have constraints on, they can be reliable, all those things we&rsquo;ve talked about.</p>
+<p>To me, there&rsquo;s a slight tension between high level abstraction and efficiency.</p>
+<p>That&rsquo;s a good question. I could probably have a year&rsquo;s course just trying to answer it.</p>
+<p>Yes, there&rsquo;s a tension between efficiency and abstraction, but you also get the interesting</p>
+<p>situation that you get the best efficiency out of the best abstraction. And my main tool</p>
+<p>for efficiency for performance actually is abstraction. So let&rsquo;s go back to how C++ was</p>
+<p>got there. You said it was object oriented programming language. I actually never said that.</p>
+<p>It&rsquo;s always quoted, but I never did. I said C++ supports object oriented programming and other</p>
+<p>techniques. And that&rsquo;s important because I think that the best solution to most complex,</p>
+<p>interesting problems require ideas and techniques from things that has been called object oriented</p>
+<p>data abstraction, functional, traditional C style code, all of the above. And so when I was designing</p>
+<p>C++, I soon realized I couldn&rsquo;t just add features. If you just add what looks pretty or what people</p>
+<p>ask for or what you think is good, one by one, you&rsquo;re not going to get a coherent whole. What</p>
+<p>you need is a set of guidelines that that guides your decisions. Should this feature be in or should</p>
+<p>this feature be out? How should a feature be modified before it can go in and such?</p>
+<p>And in the book I wrote about that, the design evolution of C++, there&rsquo;s a whole bunch of rules</p>
+<p>like that. Most of them are not language technical. They&rsquo;re things like don&rsquo;t violate static type</p>
+<p>system because I like static type system for the obvious reason that I like things to be reliable</p>
+<p>on reasonable amounts of hardware. But one of these rules is the zero overhead principle.</p>
+<p>The what kind of principle?</p>
+<p>The zero overhead principle. It basically says that if you have an abstraction,</p>
+<p>it should not cost anything compared to write the equivalent code at a lower level.</p>
+<p>So if I have, say, a matrix multiply, it should be written in such a way that you could not drop to</p>
+<p>the C level of abstraction and use arrays and pointers and such and run faster.</p>
+<p>And so people have written such matrix multiplications, and they&rsquo;ve actually gotten</p>
+<p>code that ran faster than Fortran because once you had the right abstraction, you can eliminate</p>
+<p>temporaries and you can do loop fusion and other good stuff like that. That&rsquo;s quite hard to do by</p>
+<p>hand and in a lower level language. And there&rsquo;s some really nice examples of that.</p>
+<p>And the key here is that that matrix multiplication, the matrix abstraction,</p>
+<p>allows you to write code that&rsquo;s simple and easy. You can do that in any language.</p>
+<p>But with C++, it has the features so that you can also have this thing run faster than if you hand</p>
+<p>coded it. Now, people have given that lecture many times, I and others, and a very common</p>
+<p>question after the talk where you have demonstrated that you can outperform Fortran for</p>
+<p>dense matrix multiplication, people come up and says, yeah, but that was C++.</p>
+<p>If I rewrote your code in C, how much faster would it run? The answer is much slower.</p>
+<p>This happened the first time actually back in the 80s with a friend of mine called Doug McElroy,</p>
+<p>who demonstrated exactly this effect. And so the principle is you should give programmers the tools</p>
+<p>so that the abstractions can follow the zero void principle. Furthermore, when you put in a language</p>
+<p>feature in C++ or a standard library feature, you try to meet this. It doesn&rsquo;t mean it&rsquo;s absolutely</p>
+<p>optimal, but it means if you hand code it with the usual facilities in the language in C++ in C,</p>
+<p>you should not be able to better it. Usually you can do better if you use embedded assembler for</p>
+<p>machine code for some of the details to utilize part of a computer that the compiler doesn&rsquo;t know</p>
+<p>about. But you should get to that point before you beat to the abstraction. So that&rsquo;s a beautiful</p>
+<p>ideal to reach for. And we meet it quite often. Quite often. So where&rsquo;s the magic of that coming</p>
+<p>from? There&rsquo;s some of it is the compilation process. So the implementation of C++, some of it</p>
+<p>is the design of the feature itself, the guidelines. So I think it&rsquo;s important that you</p>
+<p>think about the guidelines. So I&rsquo;ve recently and often talked to Chris Latner, so Clang.</p>
+<p>What, just out of curiosity, is your relationship in general with the different implementations of</p>
+<p>C++ as you think about you and committee and other people in C++, think about the design of</p>
+<p>features or design of previous features. In trying to reach the ideal of zero overhead,</p>
+<p>does the magic come from the design, the guidelines, or from the implementations?</p>
+<p>And not all. You go for programming technique,</p>
+<p>programming language features, and implementation techniques. You need all three.</p>
+<p>And how can you think about all three at the same time?</p>
+<p>It takes some experience, takes some practice, and sometimes you get it wrong. But after a while,</p>
+<p>you sort of get it right. I don&rsquo;t write compilers anymore. But Brian Kernighan pointed out that one</p>
+<p>of the reasons C++ succeeded was some of the craftsmanship I put into the early compilers.</p>
+<p>And of course, I did the language assign. Of course, I wrote a fair amount of code using</p>
+<p>this kind of stuff. And I think most of the successes involve progress in all three areas</p>
+<p>together. A small group of people can do that. Two, three people can work together to do something</p>
+<p>like that. It&rsquo;s ideal if it&rsquo;s one person that has all the skills necessary. But nobody has all the</p>
+<p>skills necessary in all the fields where C++ is used. So if you want to approach my ideal in, say,</p>
+<p>concurrent programming, you need to know about algorithms from current programming. You need to</p>
+<p>know the trigger of lock free programming. You need to know something about compiler techniques.</p>
+<p>And then you have to know some of the application areas where this is, like some forms of graphics</p>
+<p>or some forms of what we call web server kind of stuff. And that&rsquo;s very hard to get into a single</p>
+<p>head. But small groups can do it too. So is there differences in your view, not saying which is</p>
+<p>better or so on, but differences in the different implementations of C++? Why are there several</p>
+<p>sort of maybe naive questions for me? GCC, clang, so on? This is a very reasonable question. When</p>
+<p>I designed C++, most languages had multiple implementations. Because if you run on an IBM,</p>
+<p>if you run on a Sun, if you run on a Motorola, there was just many, many companies and they each</p>
+<p>have their own compilation structure and their own compilers. It was just fairly common that</p>
+<p>there was many of them. And I wrote C Front assuming that other people would write compilers</p>
+<p>with C++ if successful. And furthermore, I wanted to utilize all the backend infrastructures that</p>
+<p>were available. I soon realized that my users were using 25 different linkers. I couldn&rsquo;t write my</p>
+<p>own linker. Yes, I could, but I couldn&rsquo;t write 25 linkers and also get any work done on the language.</p>
+<p>And so it came from a world where there was many linkers, many optimizers, many</p>
+<p>compiler front ends, not to start, but many operating systems. The whole world was not an</p>
+<p>86 and a Linux box or something, whatever is the standard today. In the old days, they set a VAX.</p>
+<p>So basically, I assumed there would be lots of compilers. It was not a decision that there should</p>
+<p>be many compilers. It was just a fact. That&rsquo;s the way the world is. And yes, many compilers</p>
+<p>emerged. And today, there&rsquo;s at least four front ends, Clang, GCC, Microsoft, and EDG,</p>
+<p>it is design group. They supply a lot of the independent organizations and the embedded</p>
+<p>systems industry. And there&rsquo;s lots and lots of backends. We have to think about how many dozen</p>
+<p>backends there are. Because different machines have different things, especially in the embedded</p>
+<p>world, the machines are very different, the architectures are very different. And so having</p>
+<p>a single implementation was never an option. Now, I also happen to dislike monocultures.</p>
+<p>Monocultures.</p>
+<p>They are dangerous. Because whoever owns the monoculture can go stale. And there&rsquo;s no</p>
+<p>competition. And there&rsquo;s no incentive to innovate. There&rsquo;s a lot of incentive to put barriers in the</p>
+<p>way of change. Because hey, we own the world. And it&rsquo;s a very comfortable world for us. And who are</p>
+<p>you to mess with that? So I really am very happy that there&rsquo;s four front ends for C++. Clang&rsquo;s</p>
+<p>great. But GCC was great. But then it got somewhat stale. Clang came along. And GCC is much better</p>
+<p>now. Microsoft is much better now. So at least a low number of front ends puts a lot of pressure on</p>
+<p>standards compliance and also on performance and error messages and compile time speed,</p>
+<p>all this good stuff that we want.</p>
+<p>Do you think, crazy question, there might come along, do you hope there might come along</p>
+<p>implementation of C++ written, given all its history, written from scratch?</p>
+<p>So written today from scratch?</p>
+<p>Well, Clang and the LLVM is more or less written from scratch.</p>
+<p>But there&rsquo;s been C++ 11, 14, 17, 20. You know, there&rsquo;s been a lot of</p>
+<p>I think sooner or later somebody&rsquo;s going to try again. There has been attempts to write</p>
+<p>new C++ compilers and some of them has been used and some of them has been absorbed into</p>
+<p>others and such. Yeah, it&rsquo;ll happen.</p>
+<p>So what are the key features of C++? And let&rsquo;s use that as a way to sort of talk about</p>
+<p>the evolution of C++, the new features. So at the highest level, what are the features</p>
+<p>that were there in the beginning? What features got added?</p>
+<p>Let&rsquo;s first get a principle or an aim in place. C++ is for people who want to use hardware</p>
+<p>really well and then manage the complexity of doing that through abstraction.</p>
+<p>And so the first facility you have is a way of manipulating the machines at a fairly low</p>
+<p>level. That looks very much like C. It has loops, it has variables, it has pointers like</p>
+<p>machine addresses, it can access memory directly, it can allocate stuff in the absolute minimum</p>
+<p>of space needed on the machine. There&rsquo;s a machine facing part of C++ which is roughly</p>
+<p>equivalent to C. I said C++ could beat C and it can. It doesn&rsquo;t mean I dislike C. If I</p>
+<p>disliked C, I wouldn&rsquo;t have built on it. Furthermore, after Dennis Ritchie, I&rsquo;m probably the major</p>
+<p>contributor to modern C. I had lunch with Dennis most days for 16 years and we never</p>
+<p>had a harsh word between us. So these C versus C++ fights are for people who don&rsquo;t quite</p>
+<p>understand what&rsquo;s going on. Then the other part is the abstraction. The key is the class.</p>
+<p>There, the key is the class which is a user defined type. My idea for the class is that</p>
+<p>you should be able to build a type that&rsquo;s just like the building types in the way you</p>
+<p>use them, in the way you declare them, in the way you get the memory and you can do</p>
+<p>just as well. So in C++ there&rsquo;s an int as in C. You should be able to build an abstraction,</p>
+<p>a class which we can call capital int that you can use exactly like an integer and run</p>
+<p>just as fast as an integer. There&rsquo;s the idea right there. And of course you probably don&rsquo;t</p>
+<p>want to use the int itself but it has happened. People have wanted integers that were range</p>
+<p>checked so that you couldn&rsquo;t overflow and such, especially for very safety critical</p>
+<p>applications like the fuel injection for a marine diesel engine for the largest ships.</p>
+<p>This is a real example by the way. This has been done. They built themselves an integer</p>
+<p>that was just like integer except that couldn&rsquo;t overflow. If there was an overflow you went</p>
+<p>into the error handling. And then you built more interesting types. You can build a matrix</p>
+<p>which you need to do graphics or you could build a gnome for a video game.</p>
+<p>And all these are classes and they appear just like the built in types.</p>
+<p>Exactly.</p>
+<p>In terms of efficiency and so on. So what else is there?</p>
+<p>And flexibility.</p>
+<p>So I don&rsquo;t know, for people who are not familiar with object oriented programming there&rsquo;s inheritance.</p>
+<p>There&rsquo;s a hierarchy of classes. You can just like you said create a generic vehicle that can turn</p>
+<p>left.</p>
+<p>So what people found was that you don&rsquo;t actually know. How do I say this? A lot of types are</p>
+<p>related. That is the vehicles, all vehicles are related. Bicycles, cars, fire engines, tanks. They</p>
+<p>have some things in common and some things that differ. And you would like to have the common</p>
+<p>things common and having the differences specific. And when you didn&rsquo;t want to know about</p>
+<p>the differences, just turn left. You don&rsquo;t have to worry about it. That&rsquo;s how you get the traditional</p>
+<p>object oriented programming coming out of Simula adopted by Smalltalk and C++ and all the other</p>
+<p>languages. The other kind of obvious similarity between types comes when you have something like</p>
+<p>a vector. Fortran gave us the vector as called array of doubles. But the minute you have a</p>
+<p>vector of doubles, you want a vector of double precision doubles and for short doubles for</p>
+<p>graphics. And why should you not have a vector of integers while you&rsquo;re added or a vector of</p>
+<p>vectors and a vector of vectors of chess pieces? Now you have a board, right? So this is you</p>
+<p>express the commonality as the idea of a vector and the variations come through parameterization.</p>
+<p>And so here we get the two fundamental ways of abstracting or of having similarities of</p>
+<p>types in C++. There&rsquo;s the inheritance and there&rsquo;s a parameterization. There&rsquo;s the object oriented</p>
+<p>programming and there&rsquo;s the generic programming. With the templates for the generic programming.</p>
+<p>Yep. So you&rsquo;ve presented it very nicely, but now you have to make all that happen and make it</p>
+<p>efficient. So generic programming with templates, there&rsquo;s all kinds of magic going on, especially</p>
+<p>recently that you can help catch up on. But it feels to me like you can do way more than what</p>
+<p>you just said with templates. You can start doing this kind of metaprogramming, this kind of&hellip;</p>
+<p>You can do metaprogramming also. I didn&rsquo;t go there in that explanation. We&rsquo;re trying to be</p>
+<p>very basic, but go back on to the implementation. If you couldn&rsquo;t implement this efficiently,</p>
+<p>if you couldn&rsquo;t use it so that it became efficient, it has no place in C++ because</p>
+<p>it will violate the zero overhead principle. So when I had to get object oriented programming</p>
+<p>inheritance, I took the idea of virtual functions from Simula. Virtual functions is a Simula term,</p>
+<p>class is a Simula term. If you ever use those words, say thanks to Christen Nygaard and Olli</p>
+<p>Høndahl. And I did the simplest implementation I knew of, which was basically a jump table.</p>
+<p>So you get the virtual function table, the function goes in, does an indirection through</p>
+<p>a table and get the right function. That&rsquo;s how you pick the right thing there.</p>
+<p>And I thought that was trivial. It&rsquo;s close to optimal and it was obvious. It turned out the</p>
+<p>Simula had a more complicated way of doing it and therefore was slower. And it turns out that most</p>
+<p>languages have something that&rsquo;s a little bit more complicated, sometimes more flexible,</p>
+<p>but you pay for it. And one of the strengths of C++ was that you could actually do this object</p>
+<p>oriented stuff and your overhead compared to ordinary functions, there&rsquo;s no indirection. It&rsquo;s</p>
+<p>sort of in 5, 10, 25% just the call. It&rsquo;s down there. It&rsquo;s not two. And that means you can</p>
+<p>afford to use it. Furthermore, in C++, you have the distinction between a virtual function and</p>
+<p>a nonvirtual function. If you don&rsquo;t want any overhead, if you don&rsquo;t need the indirection that</p>
+<p>gives you the flexibility in object oriented programming, just don&rsquo;t ask for it. So the idea</p>
+<p>is that you only use virtual functions if you actually need the flexibility. So it&rsquo;s not zero</p>
+<p>overhead, but it&rsquo;s zero overhead compared to any other way of achieving the flexibility.</p>
+<p>Now, auto parameterization. Basically, the compiler looks at the template, say the vector,</p>
+<p>and it looks at the parameter, and then combines the two and generates a piece of code that is</p>
+<p>exactly as if you&rsquo;ve written a vector of that specific type. So that&rsquo;s the minimal overhead.</p>
+<p>If you have many template parameters, you can actually combine code that the compiler couldn&rsquo;t</p>
+<p>usually see at the same time and therefore get code that is faster than if you had handwritten</p>
+<p>the stuff, unless you are very, very clever. So the thing is, parameterized code, the compiler</p>
+<p>fills stuff in during the compilation process, not during runtime. That&rsquo;s right. And furthermore,</p>
+<p>it gives all the information it&rsquo;s gotten, which is the template, the parameter, and the context</p>
+<p>of use. It combines the three and generates good code. But it can generate, now, it&rsquo;s a little</p>
+<p>outside of what I&rsquo;m even comfortable thinking about, but it can generate a lot of code. Yes.</p>
+<p>And how do you, I remember being both amazed at the power of that idea, and</p>
+<p>how ugly the debugging looked? Yes. Debugging can be truly horrid.</p>
+<p>Come back to this, because I have a solution. Anyway, the debugging was ugly.</p>
+<p>The code generated by C++ has always been ugly, because there&rsquo;s these inherent optimizations.</p>
+<p>A modern C++ compiler has front end, middle end, and back end.</p>
+<p>Even C Front, back in 83, had front end and back end optimizations. I actually took the code,</p>
+<p>generated an internal representation, munched that representation to generate good code.</p>
+<p>So people say, it&rsquo;s not a compiler, it generates C. The reason it generated C was I wanted to use</p>
+<p>C&rsquo;s code generator, and I wanted to use C&rsquo;s code generator to generate good code.</p>
+<p>C was I wanted to use C&rsquo;s code generators that was really good at back end optimizations.</p>
+<p>But I needed front end optimizations, and therefore, the C I generated was optimized C.</p>
+<p>The way a really good handcrafted optimizer human could generate it, and it was not meant</p>
+<p>for humans. It was the output of a program, and it&rsquo;s much worse today. And with templates,</p>
+<p>it gets much worse still. So it&rsquo;s hard to combine simple debugging with the optimal code,</p>
+<p>because the idea is to drag in information from different parts of the code to generate good code,</p>
+<p>machine code. And that&rsquo;s not readable. So what people often do for debugging</p>
+<p>is they turn the optimizer off. And so you get code that when something in your source code</p>
+<p>looks like a function call, it is a function call. When the optimizer is turned on, it may disappear,</p>
+<p>the function call, it may inline. And so one of the things you can do is you can actually get code</p>
+<p>that is smaller than the function call, because you eliminate the function preamble and return.</p>
+<p>And there&rsquo;s just the operation there. One of the key things when I did</p>
+<p>templates was I wanted to make sure that if you have, say, a sort algorithm, and you give it a</p>
+<p>sorting criteria, if that sorting criteria is simply comparing things with less than,</p>
+<p>the code generated should be the less than, not an indirect function call to a comparison</p>
+<p>object, which is what it is in the source code. But we really want down to the single instruction.</p>
+<p>But anyway, turn off the optimizer, and you can debug. The first level of debugging can be done,</p>
+<p>and I always do without the optimization on, because then I can see what&rsquo;s going on.</p>
+<p>And then there&rsquo;s this idea of concepts that puts some, now I&rsquo;ve never even,</p>
+<p>I don&rsquo;t know if it was ever available in any form, but it puts some constraints</p>
+<p>on the stuff you can parameterize, essentially.</p>
+<p>Let me try and explain this. So yes, it wasn&rsquo;t there 10 years ago. We have had versions of it</p>
+<p>that actually work for the last four or five years. It was a design by Gabi Dos Reis, Drew</p>
+<p>Sutton and me. We were professors and postdocs in Texas at the time. And the implementation by</p>
+<p>Andrew Sutton has been available for that time. And it is part of C++20. And there&rsquo;s a standard</p>
+<p>library that uses it. So this is becoming really very real. It&rsquo;s available in Clang and GCC. GCC</p>
+<p>for a couple of years, and I believe Microsoft is soon going to do it. We expect all of C++20</p>
+<p>to be available in all the major compilers in 20. But this kind of stuff is available now.</p>
+<p>I&rsquo;m just saying that because otherwise people might think I was talking about science fiction.</p>
+<p>And so what I&rsquo;m going to say is concrete. You can run it today.</p>
+<p>And there&rsquo;s production uses of it. So the basic idea is that when you have a generic component,</p>
+<p>like a sort function, the sort function will require at least two parameters. One is the</p>
+<p>data structure with a given type and a comparison criteria. And these things are related, but</p>
+<p>obviously you can&rsquo;t compare things if you don&rsquo;t know what the type of things you compare.</p>
+<p>And so you want to be able to say, I&rsquo;m going to sort something and it is to be sortable.</p>
+<p>What does it mean to be sortable? You look it up in the standard. It has to have a</p>
+<p>it has to be a sequence with a beginning and an end. There has to be random access to that sequence.</p>
+<p>And there has to be the element types has to be comparable by default.</p>
+<p>Which means less than operator can operate on.</p>
+<p>Yes.</p>
+<p>Less than logical operator can operate.</p>
+<p>Basically what concepts are, they&rsquo;re compile time predicates. They&rsquo;re predicates you can ask,</p>
+<p>are you a sequence? Yes, I have a beginning and end. Are you a random access sequence? Yes,</p>
+<p>I have a subscripting and plus. Is your element type something that has a less than? Yes,</p>
+<p>I have a less than it&rsquo;s and so basically that&rsquo;s the system. And so instead of saying,</p>
+<p>I will take a parameter of any type, it&rsquo;ll say, I&rsquo;ll take something that&rsquo;s sortable.</p>
+<p>And it&rsquo;s well defined. And so we say, okay, you can sort with less than, I don&rsquo;t want less than,</p>
+<p>I want greater than or something I invent. So you have two parameters, the sortable thing and the</p>
+<p>comparison criteria. And the comparison criteria will say, well, I can, you can write it saying it</p>
+<p>should operate on the element type. And then you can say, well, I can sort with less than,</p>
+<p>and it has the comparison operations. So that&rsquo;s just simply the fundamental thing. It&rsquo;s compile</p>
+<p>time predicates. Do you have the properties I need? So it specifies the requirements of the code</p>
+<p>on the parameters that it gets. It&rsquo;s very similar to types actually. But operating in the space of</p>
+<p>concepts. Concepts. The word concept was used by Alex Stefanov, who is sort of the father of generic</p>
+<p>programming in the context of C++. There&rsquo;s other places that use that word, but the way we call</p>
+<p>it generic programming is Alex&rsquo;s. And he called them concepts because he said they are the sort</p>
+<p>of the fundamental concepts of an area. So they should be called concepts. And we&rsquo;ve had</p>
+<p>concepts all the time. If you look at the KNR book about C, C has arithmetic types and it has</p>
+<p>integral types. It says so in the book. And then it lists what they are and they have certain</p>
+<p>properties. The difference today is that we can actually write a concept that will ask a type,</p>
+<p>are you an integral type? Do you have the properties necessary to be an integral type?</p>
+<p>Do you have plus, minus, divide and such? So maybe the story of concepts, because I thought</p>
+<p>it might be part of C++11. C O X or whatever it was at the time. What was the, why didn&rsquo;t it,</p>
+<p>what, like what we&rsquo;ll, we&rsquo;ll talk a little bit about this fascinating process of standards,</p>
+<p>because I think it&rsquo;s really interesting for people. It&rsquo;s interesting for me,</p>
+<p>but why did it take so long? What shapes did the idea of concepts take?</p>
+<p>What were the challenges? Back in 87 or thereabouts. 1987?</p>
+<p>Well, 1987 or thereabouts when I was designing templates, obviously I wanted to express the</p>
+<p>notion of what is required by a template of its arguments. And so I looked at this and basically</p>
+<p>for templates, I wanted three properties. I wanted to be very flexible. It had to be able to express</p>
+<p>things I couldn&rsquo;t imagine because I know I can&rsquo;t imagine everything. And I&rsquo;ve been suffering from</p>
+<p>languages that try to constrain you to only do what the designer thought good. Didn&rsquo;t want to</p>
+<p>do that. Secondly, it had to run faster, as fast or faster than handwritten code. So basically,</p>
+<p>if I have a vector of T and I take a vector of char, it should run as fast as you built a vector</p>
+<p>of char yourself without parameterization. And thirdly, I wanted to be able to express</p>
+<p>the constraints of the arguments, have proper type checking of the interfaces.</p>
+<p>And neither I nor anybody else at the time knew how to get all three. And I thought for C++,</p>
+<p>I must have the two first. Otherwise, it&rsquo;s not C++. And it bothered me for another couple of</p>
+<p>decades that I couldn&rsquo;t solve the third one. I mean, I was the one that put function argument</p>
+<p>type checking into C. I know the value of good interfaces. I didn&rsquo;t invent that idea. It&rsquo;s very</p>
+<p>common, but I did it. And I wanted to do the same for templates, of course, and I couldn&rsquo;t.</p>
+<p>So it bothered me. Then we tried again, 2002, 2003. Gaby DesRays and I started analyzing the</p>
+<p>problem, explained possible solutions. It was not a complete design. A group in University of Indiana,</p>
+<p>an old friend of mine, they started a project at Indiana and we thought we could get</p>
+<p>a good system of concepts in another two or three years that would have made C++ 11 to C++</p>
+<p>06 or 07. Well, it turns out that I think we got a lot of the fundamental ideas wrong. They were</p>
+<p>too conventional. They didn&rsquo;t quite fit C++ in my opinion. Didn&rsquo;t serve implicit conversions very</p>
+<p>well. It didn&rsquo;t serve mixed type arithmetic, mixed type computations very well. A lot of</p>
+<p>stuff came out of the functional community and that community didn&rsquo;t deal with multiple types</p>
+<p>in the same way as C++ does, had more constraints on what you could express and didn&rsquo;t have the</p>
+<p>draconian performance requirements. And basically we tried. We tried very hard. We had some</p>
+<p>successes, but it just in the end wasn&rsquo;t, didn&rsquo;t compile fast enough, was too hard to use and</p>
+<p>didn&rsquo;t run fast enough unless you had optimizers that was beyond the state of the art. They still</p>
+<p>are. So we had to do something else. Basically it was the idea that a set of parameters has</p>
+<p>defined a set of operations and you go through an interaction table just like for virtual functions</p>
+<p>and then you try to optimize the interaction away to get performance. And we just couldn&rsquo;t</p>
+<p>do all of that. But get back to the standardization. We are standardizing C++ under ISO rules,</p>
+<p>which are very open process. People come in, there&rsquo;s no requirements for education or experience.</p>
+<p>So you started to develop C++ and there&rsquo;s a whole, when was the first standard established? What is</p>
+<p>that like? The ISO standard, is there a committee that you&rsquo;re referring to? There&rsquo;s a group of</p>
+<p>people. What was that like? How often do you meet? What&rsquo;s the discussion?</p>
+<p>I&rsquo;ll try and explain that. So sometime in early 1989, two people, one from IBM, one from HP,</p>
+<p>turned up in my office and told me I would like to standardize C++. This was a new idea to me and</p>
+<p>when I pointed out that it wasn&rsquo;t finished yet and it wasn&rsquo;t ready for formal standardization</p>
+<p>and such. And they say, no, Bjarne, you haven&rsquo;t gotten it. You really want to do this.</p>
+<p>Our organizations depend on C++. We cannot depend on something that&rsquo;s owned by another</p>
+<p>corporation that might be a competitor. Of course we could rely on you, but you might get run over</p>
+<p>by a boss. We really need to get this out in the open. It has to be standardized under formal rules</p>
+<p>and we are going to standardize it under ISO rules and you really want to be part of it because</p>
+<p>basically otherwise we&rsquo;ll do it ourselves. And we know you can do it better. So through a combination</p>
+<p>of arm twisting and flattery, it got started. So in late 89, there was a meeting in DC at the,</p>
+<p>actually no, it was not ISO then, it was ANSI, the American National Standard doing.</p>
+<p>We met there. We were lectured on the rules of how to do an ANSI standard. There was about 25 of us</p>
+<p>there, which apparently was a new record for that kind of meeting. And some of the old C guys that</p>
+<p>has been standardized in C was there. So we got some expertise in. So the way this works is that</p>
+<p>it&rsquo;s an open process. Anybody can sign up if they pay the minimal fee, which is about a thousand</p>
+<p>dollars, less than a little bit more now. And I think it&rsquo;s $1,280. It&rsquo;s not going to kill you.</p>
+<p>And we have three meetings a year. This is fairly standard. We tried two meetings a year for a</p>
+<p>couple of years that didn&rsquo;t work too well. So three one week meetings a year and you meet</p>
+<p>and you have technical discussions, and then you bring proposals forward for votes. The votes are</p>
+<p>done one person per, one vote per organization. So you can&rsquo;t have say IBM come in with 10 people</p>
+<p>and dominate things that&rsquo;s not allowed. And these are organizations that extensively UC</p>
+<p>plus plus. Yes. Or individuals or individuals. I mean, it&rsquo;s a bunch of people in the room</p>
+<p>deciding the design of a language based on which a lot of the world&rsquo;s systems run.</p>
+<p>Right. Well, I think most people would agree it&rsquo;s better than if I decided it</p>
+<p>or better than if a single organization like AG&amp;T decides it. I don&rsquo;t know if everyone agrees to</p>
+<p>that, by the way. Bureaucracies have their critics too. Yes. Look, standardization is not pleasant.</p>
+<p>It&rsquo;s horrifying. It&rsquo;s like democracy. Exactly. As Churchill says, democracy is the worst way,</p>
+<p>except for the others. Right. And it&rsquo;s, I would say the same with formal standardization.</p>
+<p>But anyway, so we meet and we have these votes and that determines what the standard is.</p>
+<p>A couple of years later, we extended this so it became worldwide. We have standard organizations</p>
+<p>that are active in currently 15 to 20 countries and another 15 to 20 are sort of looking and voting</p>
+<p>based on the rest of the work on it. And we meet three times a year. Next week I&rsquo;ll be in Cologne,</p>
+<p>Germany, spending a week doing standardization and we&rsquo;ll vote out the committee draft of C++20,</p>
+<p>which goes to the national standards committees for comments and requests for changes and</p>
+<p>improvements. Then we do that and there&rsquo;s a second set of votes where hopefully everybody</p>
+<p>votes in favor. This has happened several times. The first time we finished, we started in the</p>
+<p>first technical meeting was in 1990. The last was in 98. We voted it out. That was the standard</p>
+<p>that people used until 11 or a little bit past 11. And it was an international standard. All the</p>
+<p>countries voted in favor. It took longer with 11. I&rsquo;ll mention why, but all the nations voted in</p>
+<p>favor. And we work on the basis of consensus. That is, we do not want something that passes 6040</p>
+<p>because then we&rsquo;re going to get dialects and opponents and people complain too much. They</p>
+<p>all complain too much, but basically it has no real effect. The standards has been obeyed. They</p>
+<p>have been working to make it easier to use many compilers, many computers and all of that kind of</p>
+<p>stuff. It was traditional with ISO standards to take 10 years. We did the first one in eight,</p>
+<p>brilliant. And we thought we were going to do the next one in six because now we are good at it.</p>
+<p>Right. It took 13. Yeah. It was named OX. It was named OX. Hoping that you would at least get it</p>
+<p>within the single, within the odds, the single digits. I thought we would get, I thought we&rsquo;d</p>
+<p>get six, seven or eight. The confidence of youth. That&rsquo;s right. Well, the point is that this was</p>
+<p>sort of like a second system effect. That is, we now knew how to do it. And so we&rsquo;re going to do</p>
+<p>it much better. And we&rsquo;ve got more ambitious and it took longer. Furthermore, there is this tendency</p>
+<p>because it&rsquo;s a 10 year cycle or it doesn&rsquo;t matter. Just before you&rsquo;re about to ship,</p>
+<p>somebody has a bright idea. And so we really, really must get that in. We did that successfully</p>
+<p>with the STL. We got the standard library that gives us all the STL stuff. That basically,</p>
+<p>I think it saved C++. It was beautiful. And then people tried it with other things</p>
+<p>and it didn&rsquo;t work so well. They got things in, but it wasn&rsquo;t as dramatic and it took longer and</p>
+<p>longer and longer. So after C++ 11, which was a huge improvement and what, basically what most</p>
+<p>people are using today, we decided never again. And so how do you avoid those slips? And the</p>
+<p>answer is that you ship more often. So that if you have a slip on a 10 year cycle, by the time</p>
+<p>you know it&rsquo;s a slip, there&rsquo;s 11 years till you get it. Now with a three year cycle, there is</p>
+<p>about three or four years till you get it. Like the delay between feature freeze and shipping. So</p>
+<p>you always get one or two years more. And so we shipped 14 on time, we shipped 17 on time,</p>
+<p>and we ship, we will ship 20 on time. It&rsquo;ll happen. And furthermore, this gives a predictability</p>
+<p>that allows the implementers, the compiler implementers, the library implementers,</p>
+<p>they have a target and they deliver on it. 11 took two years before most compilers were good</p>
+<p>enough. 14, most compilers were actually getting pretty good in 14. 17, everybody shipped in 17.</p>
+<p>We are going to have at least almost everybody ship almost everything in 20. And I know this</p>
+<p>and I know this because they&rsquo;re shipping in 19. Predictability is good. Delivery on time is good.</p>
+<p>And so yeah. That&rsquo;s great. That&rsquo;s how it works.</p>
+<p>There&rsquo;s a lot of features that came in in C++ 11. There&rsquo;s a lot of features at the birth of C++</p>
+<p>that were amazing and ideas with concepts in 2020. What to you is the most,</p>
+<p>just to you personally, beautiful or just you sit back and think, wow, that&rsquo;s just nice and clean</p>
+<p>feature of C++? I have written two papers for the History of Programming Languages Conference,</p>
+<p>which basically asked me such questions. And I&rsquo;m writing a third one, which I will deliver</p>
+<p>at the History of Programming Languages Conference in London next year. So I&rsquo;ve been thinking about</p>
+<p>that. And there is one clear answer. Constructors and destructors. The way a constructor can</p>
+<p>establish the environment for the use of a type for an object and the destructor that cleans up</p>
+<p>any messes at the end of it. That is key to C++. That&rsquo;s why we don&rsquo;t have to use garbage</p>
+<p>collection. That&rsquo;s how we can get predictable performance. That&rsquo;s how you can get the minimal</p>
+<p>overhead in many, many cases, and have really clean types. It&rsquo;s the idea of constructor destructor</p>
+<p>pairs. Sometimes it comes out under the name RAII. Resource acquisition is initialization,</p>
+<p>which is the idea that you grab resources in the constructor and release them in destructor.</p>
+<p>It&rsquo;s also the best example of why I shouldn&rsquo;t be in advertising. I get the best idea and I call it</p>
+<p>resource acquisition is initialization. Not the greatest naming I&rsquo;ve ever heard.</p>
+<p>Not the greatest naming I&rsquo;ve ever heard. So it&rsquo;s types, abstraction of types.</p>
+<p>You said, I want to create my own types. So types is an essential part of C++ and making them</p>
+<p>efficient is the key part. And to you, this is almost getting philosophical, but the construction</p>
+<p>and the destruction, the creation of an instance of a type and the freeing of resources from that</p>
+<p>instance of a type is what defines the object. It&rsquo;s almost like birth and death is what defines</p>
+<p>human life. That&rsquo;s right. By the way, philosophy is important. You can&rsquo;t do good language design</p>
+<p>without philosophy because what you are determining is what people can express and how.</p>
+<p>This is very important. By the way, constructors destructors came into C++ in 79 in about the</p>
+<p>second week of my work with what was then called C of the classes. It is a fundamental idea.</p>
+<p>Next comes the fact that you need to control copying because once you control, as you said,</p>
+<p>birth and death, you have to control taking copies, which is another way of creating an object.</p>
+<p>And finally, you have to be able to move things around so you get the move operations. And that&rsquo;s</p>
+<p>the set of key operations you can define on a C++ type. And so to you, those things are just</p>
+<p>just a beautiful part of C++ that is at the core of it all. Yes. You mentioned that you hope there</p>
+<p>will be one unified set of guidelines in the future for how to construct a programming language.</p>
+<p>So perhaps not one programming language, but a unification of how we build programming languages,</p>
+<p>if you remember such statements. I have some trouble remembering it, but I know the origin</p>
+<p>of that idea. So maybe you can talk about sort of C++ has been improving. There&rsquo;s been a lot</p>
+<p>of programming language. Do you, where does the arc of history taking us? Do you hope that there</p>
+<p>is a unification about the languages with which we communicate in the digital space?</p>
+<p>Well, I think that languages should be designed not by clobbering language features together and</p>
+<p>and doing slightly different versions of somebody else&rsquo;s ideas, but through the creation of a set of</p>
+<p>principles, rules of thumbs, whatever you call them. I made them for C++. And we&rsquo;re trying to</p>
+<p>teach people in the standards committee about these rules, because a lot of people come in</p>
+<p>and says, I&rsquo;ve got a great idea. Let&rsquo;s put it in the language. And then you have to ask, why does</p>
+<p>it fit in the language? Why does it fit in this language? It may fit in another language and not</p>
+<p>here, or it may fit here and not the other language. So you have to work from a set of</p>
+<p>principles and you have to develop that set of principles. And one example that I sometimes</p>
+<p>remember is I was sitting down with some of the designers of Common Lisp and we were talking about</p>
+<p>languages and language features. And obviously we didn&rsquo;t agree about anything because, well,</p>
+<p>Lisp is not C++ and vice versa. It&rsquo;s too many parentheses. But suddenly we started making</p>
+<p>progress. I said, I had this problem and I developed it according to these ideas. And</p>
+<p>they said, why? We had that problem, different problem, and we developed it with the same kind</p>
+<p>of principles. And so we worked through large chunks of C++ and large chunks of Common Lisp</p>
+<p>and figured out we actually had similar sets of principles of how to do it. But the constraints</p>
+<p>on our designs were very different and the aims for the usage was very different. But there was</p>
+<p>commonality in the way you reason about language features and the fundamental principles you are</p>
+<p>trying to do. So do you think that&rsquo;s possible? So there, just like there is perhaps a unified</p>
+<p>theory of physics, of the fundamental forces of physics, that I&rsquo;m sure there is commonalities</p>
+<p>among the languages, but there&rsquo;s also people involved that help drive the development of these</p>
+<p>languages. Do you have a hope or an optimism that there will be a unification? If you think about</p>
+<p>physics and Einstein towards a simplified language, do you think that&rsquo;s possible?</p>
+<p>Let&rsquo;s remember sort of modern physics, I think, started with Galileo in the 1300s. So they&rsquo;ve had</p>
+<p>700 years to get going. Modern computing started in about 49. We&rsquo;ve got, what is it, 70 years. They</p>
+<p>have 10 times. Furthermore, they are not as bothered with people using physics the way</p>
+<p>we are worried about programming is done by humans. So each have problems and constraints</p>
+<p>the others have, but we are very immature compared to physics. So I would look at sort of the</p>
+<p>philosophical level and look for fundamental principles. Like you don&rsquo;t leak resources,</p>
+<p>you shouldn&rsquo;t. You don&rsquo;t take errors at runtime that you don&rsquo;t need to. You don&rsquo;t violate some</p>
+<p>kind of type system. There&rsquo;s many kinds of type systems, but when you have one, you don&rsquo;t break it,</p>
+<p>etc., etc. There will be quite a few, and it will not be the same for all languages. But I think</p>
+<p>if we step back at some kind of philosophical level, we would be able to agree on sets of</p>
+<p>principles that applied to sets of problem areas. And within an area of use, like in C++&rsquo;s case,</p>
+<p>what used to be called systems programming, the area between the hardware and the fluffier parts</p>
+<p>of the system, you might very well see a convergence. So these days you see Rust having</p>
+<p>adopted RAII and sometimes accuse me for having borrowed it 20 years before they discovered it.</p>
+<p>But we&rsquo;re seeing some kind of convergence here instead of relying on garbage collection all the</p>
+<p>time. The garbage collection languages are doing things like the dispose patterns and such that</p>
+<p>imitate some of the construction destruction stuff. And they&rsquo;re trying not to use the garbage</p>
+<p>collection all the time and things like that. So there&rsquo;s a conversion. But I think we have to step</p>
+<p>back to the philosophical level, agree on principles, and then we&rsquo;ll see some conversions,</p>
+<p>convergences. And it will be application domain specific.</p>
+<p>So a crazy question, but I work a lot with machine learning, with deep learning. I&rsquo;m not sure if you</p>
+<p>touch that world that much, but you could think of programming as a thing that takes some input.</p>
+<p>A programming is the task of creating a program and a program takes some input and produces some</p>
+<p>output. So machine learning systems train on data in order to be able to take an input and produce</p>
+<p>output. But they&rsquo;re messy, fuzzy things, much like we as children grow up. We take some input,</p>
+<p>we make some output, but we&rsquo;re noisy. We mess up a lot. We&rsquo;re definitely not reliable. Biological</p>
+<p>system are a giant mess. So there&rsquo;s a sense in which machine learning is a kind of way of</p>
+<p>programming, but just fuzzy. It&rsquo;s very, very, very different than C++. Because C++ is just like you</p>
+<p>said, it&rsquo;s extremely reliable, it&rsquo;s efficient, you can measure it, you can test it in a bunch of</p>
+<p>different ways. With biological systems or machine learning systems, you can&rsquo;t say much except sort</p>
+<p>of empirically saying that 99.8% of the time, it seems to work. What do you think about this fuzzy</p>
+<p>kind of programming? Do you even see it as programming? Is it totally another kind of world?</p>
+<p>I think it&rsquo;s a different kind of world. And it is fuzzy. And in my domain, I don&rsquo;t like fuzziness.</p>
+<p>That is, people say things like they want everybody to be able to program. But I don&rsquo;t</p>
+<p>want everybody to program my airplane controls or the car controls. I want that to be done by</p>
+<p>engineers. I want that to be done with people that are specifically educated and trained for doing</p>
+<p>building things. And it is not for everybody. Similarly, a language like C++ is not for</p>
+<p>everybody. It is generated to be a sharp and effective tool for professionals, basically,</p>
+<p>and definitely for people who aim at some kind of precision. You don&rsquo;t have people doing</p>
+<p>calculations without understanding math. Counting on your fingers is not going to cut it if you want</p>
+<p>to fly to the moon. And so there are areas where an 84% accuracy rate, 16% false positive rate,</p>
+<p>is perfectly acceptable and where people will probably get no more than 70. You said 98%. What</p>
+<p>I have seen is more like 84. And by really a lot of blood, sweat, and tears, you can get up to 92.5.</p>
+<p>So this is fine if it is, say, prescreening stuff before the human look at it. It is not good enough</p>
+<p>for life threatening situations. And so there&rsquo;s lots of areas where the fuzziness is perfectly</p>
+<p>acceptable and good and better than humans, cheaper than humans, cheaper than humans.</p>
+<p>But it&rsquo;s not the kind of engineering stuff I&rsquo;m mostly interested in. I worry a bit about</p>
+<p>machine learning in the context of cars. You know much more about this than I do.</p>
+<p>I worry too.</p>
+<p>But I&rsquo;m sort of an amateur here. I&rsquo;ve read some of the papers, but I&rsquo;ve not ever done it. And the</p>
+<p>idea that scares me the most is the one I have heard, and I don&rsquo;t know how common it is, that</p>
+<p>you have this AI system, machine learning, all of these trained neural nets. And when there&rsquo;s</p>
+<p>something that&rsquo;s too complicated, they ask the human for help. But the human is reading a book or</p>
+<p>asleep, and he has 30 seconds or three seconds to figure out what the problem was that the AI</p>
+<p>system couldn&rsquo;t handle and do the right thing. This is scary. I mean, how do you do the cutting</p>
+<p>work between the machine and the human? It&rsquo;s very, very difficult. And for the designer of</p>
+<p>one of the most reliable, efficient, and powerful programming languages, C++, I can understand why</p>
+<p>that world is actually unappealing. It is for most engineers. To me, it&rsquo;s extremely</p>
+<p>appealing because we don&rsquo;t know how to get that interaction right. But I think it&rsquo;s possible. But</p>
+<p>it&rsquo;s very, very hard. It is. And I was stating a problem, not a solution. That is impossible.</p>
+<p>I mean, I would much rather never rely on the human. If you&rsquo;re driving a nuclear reactor,</p>
+<p>if you&rsquo;re or an autonomous vehicle, it&rsquo;s much better to design systems written in C++ than</p>
+<p>never ask human for help. Let&rsquo;s just get one fact in. Yeah. All of this AI stuff is on top of C++.</p>
+<p>So that&rsquo;s one reason I have to keep a weather eye out on what&rsquo;s going on in that field. But</p>
+<p>I will never become an expert in that area. But it&rsquo;s a good example of how you separate</p>
+<p>different areas of applications and you have to have different tools, different principles. And</p>
+<p>then they interact. No major system today is written in one language. And there are good</p>
+<p>reasons for that. When you look back at your life work, what is a moment? What is a</p>
+<p>event creation that you&rsquo;re really proud of? They say, damn, I did pretty good there.</p>
+<p>Is it as obvious as the creation of C++? It&rsquo;s obvious. I&rsquo;ve spent a lot of time with C++. And</p>
+<p>there&rsquo;s a combination of a few good ideas, a lot of hard work, and a bit of work that I&rsquo;ve done.</p>
+<p>And I&rsquo;ve tried to get away from it a few times, but I get dragged in again, partly because I&rsquo;m</p>
+<p>most effective in this area and partly because what I do has much more impact if I do it in</p>
+<p>the context of C++. I have four and a half million people that pick it up tomorrow if I</p>
+<p>get something right. If I did it in another field, I would have to start learning, then I have to</p>
+<p>build it and then we&rsquo;ll see if anybody wants to use it. One of the things that has kept me going</p>
+<p>for all of these years is one, the good things that people do with it and the interesting things</p>
+<p>they do with it. And also, I get to see a lot of interesting stuff and talk to a lot of interesting</p>
+<p>people. I mean, if it has just been statements on paper on a screen, I don&rsquo;t think I could have kept</p>
+<p>going. But I get to see the telescopes up on Mauna Kea and I actually went and see how Ford built</p>
+<p>cars and I got to JPL and see how they do the Mars rovers. There&rsquo;s so much cool stuff going on. And</p>
+<p>most of the cool stuff is done by pretty nice people and sometimes in very nice places.</p>
+<p>Cambridge, Sophia, Silicon Valley. There&rsquo;s more to it than just code. But code is central.</p>
+<p>On top of the code are the people in very nice places. Well, I think I speak for millions of</p>
+<p>people, Yaron, in saying thank you for creating this language that so many systems are built on</p>
+<p>top of that make a better world. So thank you and thank you for talking today. Yeah, thanks.</p>
+<p>And we&rsquo;ll make it even better. Good.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

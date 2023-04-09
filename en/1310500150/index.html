@@ -1,0 +1,2982 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Dimitri Dolgov, the CTO of Waymo, which
+is an autonomous driving company that started as Google self driving car
+project in 2009 and became Waymo in 2016.
+Dimitri was there all along.
+Waymo is currently leading in the fully autonomous vehicle space and that they
+actually have an at scale deployment of publicly accessible autonomous vehicles
+driving passengers around with no safety driver, with nobody in the driver&amp;rsquo;s seat.'>
+<title>Lex Fridman Podcast - #147 - Dmitri Dolgov: Waymo and the Future of Self-Driving Cars | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500150/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #147 - Dmitri Dolgov: Waymo and the Future of Self-Driving Cars'>
+<meta property='og:description' content='The following is a conversation with Dimitri Dolgov, the CTO of Waymo, which
+is an autonomous driving company that started as Google self driving car
+project in 2009 and became Waymo in 2016.
+Dimitri was there all along.
+Waymo is currently leading in the fully autonomous vehicle space and that they
+actually have an at scale deployment of publicly accessible autonomous vehicles
+driving passengers around with no safety driver, with nobody in the driver&amp;rsquo;s seat.'>
+<meta property='og:url' content='https://swiest.com/en/1310500150/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-07-28T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-07-28T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #147 - Dmitri Dolgov: Waymo and the Future of Self-Driving Cars">
+<meta name="twitter:description" content="The following is a conversation with Dimitri Dolgov, the CTO of Waymo, which
+is an autonomous driving company that started as Google self driving car
+project in 2009 and became Waymo in 2016.
+Dimitri was there all along.
+Waymo is currently leading in the fully autonomous vehicle space and that they
+actually have an at scale deployment of publicly accessible autonomous vehicles
+driving passengers around with no safety driver, with nobody in the driver&amp;rsquo;s seat.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500150/">Lex Fridman Podcast - #147 - Dmitri Dolgov: Waymo and the Future of Self-Driving Cars</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-07-28</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    115 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Dimitri Dolgov, the CTO of Waymo, which</p>
+<p>is an autonomous driving company that started as Google self driving car</p>
+<p>project in 2009 and became Waymo in 2016.</p>
+<p>Dimitri was there all along.</p>
+<p>Waymo is currently leading in the fully autonomous vehicle space and that they</p>
+<p>actually have an at scale deployment of publicly accessible autonomous vehicles</p>
+<p>driving passengers around with no safety driver, with nobody in the driver&rsquo;s seat.</p>
+<p>This to me is an incredible accomplishment of engineering on one of</p>
+<p>the most difficult and exciting artificial intelligence challenges of</p>
+<p>the 21st century.</p>
+<p>Quick mention of a sponsor, followed by some thoughts related to the episode.</p>
+<p>Thank you to Triolabs, a company that helps businesses apply machine</p>
+<p>learning to solve real world problems.</p>
+<p>Blinkist, an app I use for reading through summaries of books, better</p>
+<p>help, online therapy with a licensed professional, and Cash App, the app</p>
+<p>I use to send money to friends.</p>
+<p>Please check out the sponsors in the description to get a discount</p>
+<p>at the support this podcast.</p>
+<p>As a side note, let me say that autonomous and semi autonomous driving</p>
+<p>was the focus of my work at MIT and as a problem space that I find</p>
+<p>fascinating and full of open questions from both robotics and a human</p>
+<p>psychology perspective.</p>
+<p>There&rsquo;s quite a bit that I could say here about my experiences in academia</p>
+<p>on this topic that revealed to me, let&rsquo;s say the less admirable size of human</p>
+<p>beings, but I choose to focus on the positive, on solutions.</p>
+<p>I&rsquo;m brilliant engineers like Dimitri and the team at Waymo, who work</p>
+<p>tirelessly to innovate and to build amazing technology that will define</p>
+<p>our future.</p>
+<p>Because of Dimitri and others like him, I&rsquo;m excited for this future.</p>
+<p>And who knows, perhaps I too will help contribute something of value to it.</p>
+<p>If you enjoy this thing, subscribe on YouTube, review it with five stars</p>
+<p>and up a podcast, follow on Spotify, support on Patreon, or connect with</p>
+<p>me on Twitter at Lex Friedman.</p>
+<p>And now here&rsquo;s my conversation with Dimitri Dolgov.</p>
+<p>When did you first fall in love with MIT?</p>
+<p>When did you first fall in love with robotics or even computer</p>
+<p>science more in general?</p>
+<p>Computer science first at a fairly young age, then robotics happened much later.</p>
+<p>I think my first interesting introduction to computers was in the late 80s when</p>
+<p>we got our first computer, I think it was an IBM, I think IBM AT.</p>
+<p>Those things that had like a turbo button in the front, the radio</p>
+<p>precedent, you know, make, make the thing goes faster.</p>
+<p>Did that already have floppy disks?</p>
+<p>Yeah.</p>
+<p>Yeah.</p>
+<p>Like the, the 5.4 inch ones.</p>
+<p>I think there was a bigger inch.</p>
+<p>So good.</p>
+<p>When something then five inches and three inches.</p>
+<p>Yeah, I think that was the five.</p>
+<p>I don&rsquo;t, I maybe that was before that was the giant plates and it didn&rsquo;t get that.</p>
+<p>But it was definitely not the, not the three inch ones.</p>
+<p>Anyway, so that, that, you know, we got that computer, I spent the first few</p>
+<p>months just playing video games as you would expect, I got bored of that.</p>
+<p>So I started messing around and trying to figure out how to, you know, make</p>
+<p>the thing do other stuff, got into exploring programming and a couple of</p>
+<p>years later, it got to a point where, I actually wrote a game, a lot of games</p>
+<p>and a game developer, a Japanese game developer actually offered to buy it</p>
+<p>for me for a few hundred bucks.</p>
+<p>But you know, for, for a kid in Russia, that&rsquo;s a big deal.</p>
+<p>That&rsquo;s a big deal.</p>
+<p>Yeah.</p>
+<p>I did not take the deal.</p>
+<p>Wow.</p>
+<p>Integrity.</p>
+<p>Yeah.</p>
+<p>I, I instead, yes, that was not the most acute financial move that I made in my</p>
+<p>life, you know, looking back at it now, I, I instead put it, well, you know, I had</p>
+<p>a reason I put it online, it was, what&rsquo;d you call it back in the days?</p>
+<p>It was a freeware thing, right?</p>
+<p>It was not open source, but you could upload the binaries, you would put the</p>
+<p>game online and the idea was that, you know, people like it and then they, you</p>
+<p>know, contribute on the send you a little donations, right?</p>
+<p>So I did my quick math of like, you know, of course, you know, thousands and</p>
+<p>millions of people are going to play my game, send me a couple of bucks a piece,</p>
+<p>you know, should definitely do that.</p>
+<p>As I said, not, not the best.</p>
+<p>You&rsquo;re already playing with business models at that young age.</p>
+<p>Remember what language it was?</p>
+<p>What programming, it was a Pascal, which what Pascal, Pascal, and that</p>
+<p>a graphical component, so it&rsquo;s not text based.</p>
+<p>Yeah.</p>
+<p>It was, uh, like, uh, I think there are 300, 320 by 200, uh, whatever it was.</p>
+<p>I think that kind of the earlier, that&rsquo;s the resolution, right?</p>
+<p>And I actually think the reason why this company wanted to buy it is not like the</p>
+<p>fancy graphics or the implementation.</p>
+<p>That was maybe the idea, uh, of my actual game, the idea of the game.</p>
+<p>Well, one of the things I, it&rsquo;s so funny.</p>
+<p>I&rsquo;m used to play this game called golden X and the simplicity of the graphics and</p>
+<p>something about the simplicity of the music, like it&rsquo;s still haunts me.</p>
+<p>I don&rsquo;t know if that&rsquo;s a childhood thing.</p>
+<p>I don&rsquo;t know if that&rsquo;s the same thing for call of duty these days for young kids,</p>
+<p>but I still think that the simple one of the games are simple.</p>
+<p>That simple purity makes for like allows your imagination to take over and</p>
+<p>thereby creating a more magical experience.</p>
+<p>Like now with better and better graphics, it feels like your</p>
+<p>imagination doesn&rsquo;t get to, uh, create worlds, which is kind of interesting.</p>
+<p>Um, it could be just an old man on a porch, like way waving at kids</p>
+<p>these days that have no respect.</p>
+<p>But I still think that graphics almost get in the way of the experience.</p>
+<p>I don&rsquo;t know.</p>
+<p>Flip a bird.</p>
+<p>Yeah, I don&rsquo;t know if the imagination is closed.</p>
+<p>I don&rsquo;t yet, but that that&rsquo;s more about games that op like that&rsquo;s more</p>
+<p>like Tetris world where they optimally masterfully, like create a fun, short</p>
+<p>term dopamine experience versus I&rsquo;m more referring to like role playing</p>
+<p>games where there&rsquo;s like a story you can live in it for months or years.</p>
+<p>Um, like, uh, there&rsquo;s an elder scroll series, which is probably my favorite</p>
+<p>set of games that was a magical experience.</p>
+<p>And that the graphics are terrible.</p>
+<p>The characters were all randomly generated, but they&rsquo;re, I don&rsquo;t know.</p>
+<p>That&rsquo;s it pulls you in.</p>
+<p>There&rsquo;s a story.</p>
+<p>It&rsquo;s like an interactive version of an elder scrolls Tolkien world.</p>
+<p>And you get to live in it.</p>
+<p>I don&rsquo;t know.</p>
+<p>I miss it.</p>
+<p>It&rsquo;s one of the things that suck about being an adult is there&rsquo;s no, you have</p>
+<p>to live in the real world as opposed to the elder scrolls world, you know, whatever</p>
+<p>brings you joy, right?</p>
+<p>Minecraft, right?</p>
+<p>Minecraft is a great example.</p>
+<p>You create, like it&rsquo;s not the fancy graphics, but it&rsquo;s the creation of your own worlds.</p>
+<p>Yeah, that one is crazy.</p>
+<p>You know, one of the pitches for being a parent that people tell me is that you</p>
+<p>can like use the excuse of parenting to, to go back into the video game world.</p>
+<p>And like, like that&rsquo;s like, you know, father, son, father, daughter time, but</p>
+<p>really you just get to play video games with your kids.</p>
+<p>So anyway, at that time, did you have any ridiculously ambitious dreams of where as</p>
+<p>a creator, you might go as an engineer?</p>
+<p>Did you, what, what did you think of yourself as, as an engineer, as a tinker,</p>
+<p>or did you want to be like an astronaut or something like that?</p>
+<p>You know, I&rsquo;m tempted to make something up about, you know, robots, uh, engineering</p>
+<p>or, you know, mysteries of the universe, but that&rsquo;s not the actual memory that</p>
+<p>pops into my mind when you, when you asked me about childhood dreams.</p>
+<p>So I&rsquo;ll actually share the, the, the real thing, uh, when I was maybe four or five</p>
+<p>years old, I, you know, as we all do, I thought about, you know, what I wanted</p>
+<p>to do when I grow up and I had this dream of being a traffic control cop.</p>
+<p>Uh, you know, they don&rsquo;t have those today&rsquo;s I think, but you know, back in</p>
+<p>the eighties and in Russia, uh, you probably are familiar with that Lex.</p>
+<p>They had these, uh, you know, police officers that would stand in the middle</p>
+<p>of intersection all day and they would have their like stripe back, black and</p>
+<p>white batons that they would use to control the flow of traffic and, you</p>
+<p>know, for whatever reasons, I was strangely infatuated with this whole</p>
+<p>process and like that, that was my dream.</p>
+<p>Uh, that&rsquo;s what I wanted to do when I grew up and, you know, my parents, uh,</p>
+<p>both physics profs, by the way, I think were, you know, a little concerned, uh,</p>
+<p>with that level of ambition coming from their child.</p>
+<p>Uh, uh, you know, that age.</p>
+<p>Well, that it&rsquo;s an interesting, I don&rsquo;t know if you can relate,</p>
+<p>but I very much love that idea.</p>
+<p>I have a OCD nature that I think lends itself very close to the engineering</p>
+<p>mindset, which is you want to kind of optimize, you know, solve a problem by</p>
+<p>create, creating an automated solution, like a, like a set of rules, that set</p>
+<p>of rules you can follow and then thereby make it ultra efficient.</p>
+<p>I don&rsquo;t know if that&rsquo;s, it was of that nature.</p>
+<p>I certainly have that.</p>
+<p>There&rsquo;s like fact, like SimCity and factory building games, all those</p>
+<p>kinds of things kind of speak to that engineering mindset, or</p>
+<p>did you just like the uniform?</p>
+<p>I think it was more of the latter.</p>
+<p>I think it was the uniform and the, you know, the, the stripe baton that</p>
+<p>made cars go in the right directions.</p>
+<p>But I guess, you know, I, it is, I did end up, uh, I guess, uh,</p>
+<p>you know, working on the transportation industry one way or another uniform.</p>
+<p>No, but that&rsquo;s right.</p>
+<p>Maybe, maybe, maybe it was my, you know, deep inner infatuation with the,</p>
+<p>you know, traffic control batons that led to this career.</p>
+<p>Okay.</p>
+<p>What, uh, when did you, when was the leap from programming to robotics?</p>
+<p>That happened later.</p>
+<p>That was after grad school, uh, after, and I actually, the most self driving</p>
+<p>cars was I think my first real hands on introduction to robotics.</p>
+<p>But I never really had that much hands on experience in school and training.</p>
+<p>I, you know, worked on applied math and physics.</p>
+<p>Then in college, I did more half, uh, abstract computer science.</p>
+<p>And it was after grad school that I really got involved in robotics, which</p>
+<p>was actually self driving cars.</p>
+<p>And, you know, that was a big flip.</p>
+<p>What, uh, what grad school?</p>
+<p>So I went to grad school in Michigan, and then I did a postdoc at Stanford,</p>
+<p>uh, which is, that was the postdoc where I got to play with self driving cars.</p>
+<p>Yeah.</p>
+<p>So we&rsquo;ll return there.</p>
+<p>Let&rsquo;s go back to, uh, to Moscow.</p>
+<p>So, uh, you know, for episode 100, I talked to my dad and also I</p>
+<p>grew up with my dad, I guess.</p>
+<p>Uh, so I had to put up with them for many years and, uh, he, he went to the</p>
+<p>FISTIEG or MIPT, it&rsquo;s weird to say in English, cause I&rsquo;ve heard all this</p>
+<p>in Russian, Moscow Institute of Physics and Technology.</p>
+<p>And to me, that was like, I met some super interesting, as a child, I met</p>
+<p>some super interesting characters.</p>
+<p>It felt to me like the greatest university in the world, the most elite</p>
+<p>university in the world, and just the people that I met that came out of there</p>
+<p>were like, not only brilliant, but also special humans.</p>
+<p>It seems like that place really tested the soul, uh, both like in terms</p>
+<p>of technically and like spiritually.</p>
+<p>So that could be just the romanticization of that place.</p>
+<p>I&rsquo;m not sure, but so maybe you can speak to it, but is it correct to</p>
+<p>say that you spent some time at FISTIEG?</p>
+<p>Yeah, that&rsquo;s right.</p>
+<p>Six years.</p>
+<p>Uh, I got my bachelor&rsquo;s and master&rsquo;s in physics and math there.</p>
+<p>And it&rsquo;s actually interesting cause my, my dad, and actually both my parents,</p>
+<p>uh, went there and I think all the stories that I heard, uh, like, just</p>
+<p>like you, Alex, uh, growing up about the place and, you know, how interesting</p>
+<p>and special and magical it was, I think that was a significant, maybe the</p>
+<p>main reason, uh, I wanted to go there, uh, for college, uh, enough so that</p>
+<p>I actually went back to Russia from the U S I graduated high school in the U S.</p>
+<p>Um, and you went back there.</p>
+<p>I went back there.</p>
+<p>Yeah, that&rsquo;s exactly the reaction most of my peers in college had.</p>
+<p>But, you know, perhaps a little bit stronger that like, you know, point</p>
+<p>me out as this crazy kid, were your parents supportive of that?</p>
+<p>Yeah.</p>
+<p>Yeah.</p>
+<p>My games, your previous question, they, uh, they supported me and, you know,</p>
+<p>letting me kind of pursue my passions and the things that I was interested in.</p>
+<p>That&rsquo;s a bold move.</p>
+<p>Wow.</p>
+<p>What was it like there?</p>
+<p>It was interesting, you know, definitely fairly hardcore on the fundamentals</p>
+<p>of, you know, math and physics and, uh, you know, lots of good memories,</p>
+<p>uh, from, you know, from those times.</p>
+<p>So, okay.</p>
+<p>So Stanford.</p>
+<p>How&rsquo;d you get into autonomous vehicles?</p>
+<p>I had the great fortune, uh, and great honor to join Stanford&rsquo;s</p>
+<p>DARPA urban challenge team.</p>
+<p>And, uh, 2006 there, this was a third in the sequence of the DARPA challenges.</p>
+<p>There were two grand challenges prior to that.</p>
+<p>And then in 2007, they held the DARPA urban challenge.</p>
+<p>So, you know, I was doing my, my postdoc I had, I joined the team and, uh, worked</p>
+<p>on motion planning, uh, for, you know, that, that competition.</p>
+<p>So, okay.</p>
+<p>So for people who might not know, I know from, from certain autonomous vehicles is</p>
+<p>a funny world in a certain circle of people, everybody knows everything.</p>
+<p>And then the certain circle, uh, nobody knows anything in terms of general public.</p>
+<p>So it&rsquo;s interesting.</p>
+<p>It&rsquo;s, it&rsquo;s a good question of what to talk about, but I do think that the urban</p>
+<p>challenge is worth revisiting. It&rsquo;s a fun little challenge.</p>
+<p>One that, first of all, like sparked so much, so many incredible minds to focus</p>
+<p>on one of the hardest problems of our time in artificial intelligence.</p>
+<p>So that&rsquo;s, that&rsquo;s a success from a perspective of a single little challenge.</p>
+<p>But can you talk about like, what did the challenge involve?</p>
+<p>So were there pedestrians, were there other cars, what was the goal?</p>
+<p>Uh, who was on the team?</p>
+<p>How long did it take any fun, fun sort of specs?</p>
+<p>Sure, sure, sure.</p>
+<p>So the way the challenge was constructed and just a little bit of backgrounding,</p>
+<p>as I mentioned, this was the third, uh, competition in that series.</p>
+<p>The first year we&rsquo;re at the grand challenge called the grand challenge.</p>
+<p>The goal there was to just drive in a completely static environment.</p>
+<p>You know, you had to drive in a desert, uh, that was very successful.</p>
+<p>So then DARPA followed with what they called the urban challenge, where the</p>
+<p>goal was to have, you know, build vehicles that could operate in more dynamic</p>
+<p>environments and, you know, share them with other vehicles.</p>
+<p>There were no pedestrians there, but what DARPA did is they took over</p>
+<p>an abandoned air force base.</p>
+<p>Uh, and it was kind of like a little fake city that they built out there.</p>
+<p>And they had a bunch of, uh, robots, uh, you know, cars, uh, that were</p>
+<p>autonomous, uh, in there all at the same time.</p>
+<p>Uh, mixed in with other vehicles driven by professional, uh, drivers and each</p>
+<p>car, uh, had a mission and so there&rsquo;s a crude map that they received, uh,</p>
+<p>beginning and they had a mission and go here and then there and over here.</p>
+<p>Um, and they kind of all were sharing this environment at the same time.</p>
+<p>They had to interact with each other.</p>
+<p>They had to interact with the human drivers.</p>
+<p>There&rsquo;s this very first, very rudimentary, um, version of, uh,</p>
+<p>self driving car that, you know, could operate, uh, and, uh, in a, in an</p>
+<p>environment, you know, shared with other dynamic actors that, as you said,</p>
+<p>you know, really, you know, many ways, you know, kickstarted this whole industry.</p>
+<p>Okay.</p>
+<p>So who was on the team and how&rsquo;d you do?</p>
+<p>I forget.</p>
+<p>Uh, I came in second.</p>
+<p>Uh, perhaps that was my contribution to the team.</p>
+<p>I think the Stanford team came in first in the DARPA challenge.</p>
+<p>Uh, but then I joined the team and, you know, you were the one with the</p>
+<p>bug in the code, I mean, do you have sort of memories of some</p>
+<p>particularly challenging things or, you know, one of the cool things,</p>
+<p>it&rsquo;s not, you know, this isn&rsquo;t a product, this isn&rsquo;t the thing that, uh, you know,</p>
+<p>it there&rsquo;s, you have a little bit more freedom to experiment so you can take</p>
+<p>risks and there&rsquo;s, uh, so you can make mistakes.</p>
+<p>Uh, so is there interesting mistakes?</p>
+<p>Is there interesting challenges that stand out to you as some, like, taught</p>
+<p>you, um, a good technical lesson or a good philosophical lesson from that time?</p>
+<p>Yeah.</p>
+<p>Uh, you know, definitely, definitely a very memorable time, not really</p>
+<p>challenged, but like one of the most vivid memories that I have from the time.</p>
+<p>And I think that was actually one of the days that really got me hooked, uh, on</p>
+<p>this whole field was, uh, the first time I got to run my software and I got to</p>
+<p>software on the car and, uh, I was working on a part of our planning algorithm,</p>
+<p>uh, that had to navigate in parking lots.</p>
+<p>So it was something that, you know, called free space emotion planning.</p>
+<p>So the very first version of that, uh, was, you know, we tried on the car, it</p>
+<p>was on Stanford&rsquo;s campus, uh, in the middle of the night and you had this</p>
+<p>little course constructed with cones, uh, in the middle of a parking lot.</p>
+<p>So we&rsquo;re there in like 3 am, you know, by the time we got the code to, you</p>
+<p>know, uh, uh, you know, compile and turn over, uh, and, you know, it drove, I</p>
+<p>could actually did something quite reasonable and, you know, it was of</p>
+<p>course very buggy at the time and had all kinds of problems, but it was pretty</p>
+<p>darn magical.</p>
+<p>I remember going back and, you know, later at night and trying to fall</p>
+<p>asleep and just, you know, being unable to fall asleep for the rest of the</p>
+<p>night, uh, just my mind was blown.</p>
+<p>Just like, and that, that, that&rsquo;s what I&rsquo;ve been doing ever since for more</p>
+<p>than a decade, uh, in terms of challenges and, uh, you know, interesting</p>
+<p>memories, like on the day of the competition, uh, it was pretty nerve</p>
+<p>wrecking.</p>
+<p>Uh, I remember standing there with Mike Montemarillo, who was, uh, the</p>
+<p>software lead and wrote most of the code.</p>
+<p>I think I did one little part of the planner, Mike, you know, incredibly</p>
+<p>that, you know, pretty much the rest of it, uh, with, with, you know, a bunch</p>
+<p>of other incredible people, but I remember standing on the day of the</p>
+<p>competition, uh, you know, watching the car, you know, with Mike and cars</p>
+<p>are completely empty, right?</p>
+<p>They&rsquo;re all there lined up in the beginning of the race and then, you</p>
+<p>know, DARPA sends them, you know, on their mission one by one.</p>
+<p>So then leave and Mike, you just, they had these sirens, they all had</p>
+<p>their different silence silence, right?</p>
+<p>Each siren had its own personality, if you will.</p>
+<p>So, you know, off they go and you don&rsquo;t see them.</p>
+<p>You just kind of, and then every once in a while they come a little bit</p>
+<p>closer to where the audience is and you can kind of hear, you know, the</p>
+<p>sound of your car and then, you know, it seems to be moving along.</p>
+<p>So that, you know, gives you hope.</p>
+<p>And then, you know, it goes away and you can&rsquo;t hear it for too long.</p>
+<p>You start getting anxious, right?</p>
+<p>So it&rsquo;s a little bit like, you know, sending your kids to college and like,</p>
+<p>you know, kind of you invested in them.</p>
+<p>You hope you, you, you, you, you, you, you build it properly, but like,</p>
+<p>it&rsquo;s still, uh, anxiety inducing.</p>
+<p>Uh, so that was, uh, an incredibly, uh, fun, uh, few days in terms of, you</p>
+<p>know, bugs, as you mentioned, you know, one that that was my bug that caused</p>
+<p>us the loss of the first place, uh, is still a debate that, you know,</p>
+<p>occasionally have with people on the CMU team, CMU came first, I should</p>
+<p>mention, uh, that you haven&rsquo;t heard of them, but yeah, it&rsquo;s something, you</p>
+<p>know, it&rsquo;s a small school, but it&rsquo;s, it&rsquo;s, it&rsquo;s, you know, really a glitch</p>
+<p>that, you know, they happen to succeed at something robotics related.</p>
+<p>Very scenic though.</p>
+<p>So most people go there for the scenery.</p>
+<p>Um, yeah, it&rsquo;s a beautiful campus.</p>
+<p>I&rsquo;m like, unlike Stanford.</p>
+<p>So for people, yeah, that&rsquo;s true.</p>
+<p>Unlike Stanford, for people who don&rsquo;t know, CMU is one of the great robotics</p>
+<p>and sort of artificial intelligence universities in the world, CMU, Carnegie</p>
+<p>Mellon university, okay, sorry, go ahead.</p>
+<p>Good, good PSA.</p>
+<p>So in the part that I contributed to, which was navigating parking lots and</p>
+<p>the way that part of the mission work is, uh, you in a parking lot, you</p>
+<p>would get from DARPA an outline of the map.</p>
+<p>You basically get this, you know, giant polygon that defined the</p>
+<p>perimeter of the parking lot, uh, and there would be an entrance and, you</p>
+<p>know, so maybe multiple entrances or access to it, and then you would get a</p>
+<p>goal, uh, within that open space, uh, X, Y, you know, heading where the car had</p>
+<p>to park and had no information about the optical, so obstacles that the car might</p>
+<p>encounter there.</p>
+<p>So it had to navigate a kind of completely free space, uh, from the</p>
+<p>entrance to the parking lot into that parking space.</p>
+<p>And then, uh, once parked there, it had to, uh, exit the parking lot, you know,</p>
+<p>while of course, I&rsquo;m counting and reasoning about all the obstacles that</p>
+<p>it encounters in real time.</p>
+<p>So, uh, Our interpretation, or at least my interpretation of the rules was that</p>
+<p>you had to reverse out of the parking spot.</p>
+<p>And that&rsquo;s what our cars did.</p>
+<p>Even if there&rsquo;s no obstacle in front, that&rsquo;s not what CMU&rsquo;s car did.</p>
+<p>And it just kind of drove right through.</p>
+<p>So there&rsquo;s still a debate.</p>
+<p>And of course, you know, as you stop and then reverse out and go out the</p>
+<p>different way that costs you some time.</p>
+<p>And so there&rsquo;s still a debate whether, you know, it was my poor implementation</p>
+<p>that cost us extra time or whether it was, you know, CMU, uh, violating an</p>
+<p>important rule of the competition.</p>
+<p>And, you know, I have my own, uh, opinion here in terms of other bugs.</p>
+<p>And like, uh, I, I have to apologize to Mike Montemarila, uh, for sharing this</p>
+<p>on air, but it is actually, uh, one of the more memorable ones.</p>
+<p>Uh, and it&rsquo;s something that&rsquo;s kind of become a bit of, uh, a metaphor and</p>
+<p>a label in the industry, uh, since then, I think, you know, at least in some</p>
+<p>circles, it&rsquo;s called the victory circle or victory lap.</p>
+<p>Um, and, uh, uh, our cars did that.</p>
+<p>So in one of the missions in the urban challenge, in one of the courses, uh,</p>
+<p>there was this big oval, right by the start and finish of the race.</p>
+<p>So the ARPA had a lot of the missions would finish kind of in that same location.</p>
+<p>Uh, and it was pretty cool because you could see the cars come by, you know,</p>
+<p>kind of finished that part leg of the trip, that leg of the mission, and then,</p>
+<p>you know, go on and finish the rest of it.</p>
+<p>Uh, and other vehicles would, you know, come hit their waypoint, uh, and, you</p>
+<p>know, exit the oval and off they would go.</p>
+<p>Our car on the hand, which hit the checkpoint, and then it would do an extra</p>
+<p>lap around the oval and only then, you know, uh, leave and go on its merry way.</p>
+<p>So over the course of the full day, it accumulated, uh, uh,</p>
+<p>some extra time and the problem was that we had a bug where it wouldn&rsquo;t, you know,</p>
+<p>start reasoning about the next waypoint and plan a route to get to that next</p>
+<p>point until it hit a previous one.</p>
+<p>And in that particular case, by the time you hit the, that, that one, it was too</p>
+<p>late for us to consider the next one and kind of make a lane change.</p>
+<p>So at every time we would do like an extra lap.</p>
+<p>So, you know, and that&rsquo;s the Stanford victory lap.</p>
+<p>The victory lap.</p>
+<p>Oh, that&rsquo;s there&rsquo;s, I feel like there&rsquo;s something philosophically</p>
+<p>profound in there somehow, but, uh, I mean, ultimately everybody is</p>
+<p>a winner in that kind of competition.</p>
+<p>And it led to sort of famously to the creation of, um, Google self driving</p>
+<p>car project and now Waymo.</p>
+<p>So can we, uh, give an overview of how is Waymo born?</p>
+<p>How&rsquo;s the Google self driving car project born?</p>
+<p>What&rsquo;s the, what is the mission?</p>
+<p>What is the hope?</p>
+<p>What is it is the engineering kind of, uh, set of milestones that</p>
+<p>it seeks to accomplish, there&rsquo;s a lot of questions in there.</p>
+<p>Uh, yeah, uh, I don&rsquo;t know, kind of the DARPA urban challenge and the DARPA</p>
+<p>and previous DARPA grand challenges, uh, kind of led, I think to a very large</p>
+<p>degree to that next step and then, you know, Larry and Sergey, um, uh, Larry</p>
+<p>Page and Sergey Brin, uh, uh, Google founders course, uh, I saw that</p>
+<p>competition and believed in the technology.</p>
+<p>So, you know, the Google self driving car project was born, you know, at that time.</p>
+<p>And we started in 2009, it was a pretty small group of us, about a dozen people,</p>
+<p>uh, who came together, uh, to, to work on this project at Google.</p>
+<p>At that time we saw an incredible early result in the DARPA urban challenge.</p>
+<p>I think we&rsquo;re all incredibly excited, uh, about where we got to and we believed</p>
+<p>in the future of the technology, but we still had a very, you know,</p>
+<p>very, you know, rudimentary understanding of the problem space.</p>
+<p>So the first goal of this project in 2009 was to really better</p>
+<p>understand what we&rsquo;re up against.</p>
+<p>Uh, and, you know, with that goal in mind, when we started the project, we created a</p>
+<p>few milestones for ourselves, uh, that.</p>
+<p>Maximized learnings.</p>
+<p>Well, the two milestones were, you know, uh, one was to drive a hundred thousand</p>
+<p>miles in autonomous mode, which was at that time, you know, orders of magnitude</p>
+<p>that, uh, more than anybody has ever done.</p>
+<p>And the second milestone was to drive 10 routes, uh, each one was a hundred miles</p>
+<p>long, uh, and there were specifically chosen to become extra spicy and extra</p>
+<p>complicated and sample the full complexity of the, that, that, uh, domain.</p>
+<p>Um, uh, and you had to drive each one from beginning to end with no intervention,</p>
+<p>no human intervention.</p>
+<p>So you would get to the beginning of the course, uh, you would press the button</p>
+<p>that would engage in autonomy and you had to go for a hundred miles, you know,</p>
+<p>beginning to end, uh, with no interventions.</p>
+<p>Um, and it sampled again, the full complexity of driving conditions.</p>
+<p>Some, uh, were on freeways.</p>
+<p>We had one route that went all through all the freeways and all</p>
+<p>the bridges in the Bay area.</p>
+<p>You know, we had, uh, some that went around Lake Tahoe and kind of mountains,</p>
+<p>uh, roads.</p>
+<p>We had some that drove through dense urban, um, environments like in downtown</p>
+<p>Palo Alto and through San Francisco.</p>
+<p>So it was incredibly, uh, interesting, uh, to work on.</p>
+<p>And it, uh, it took us just under two years, uh, about a year and a half,</p>
+<p>a little bit more to finish both of these milestones.</p>
+<p>And in that process, uh, you know, it was an incredible amount of fun,</p>
+<p>probably the most fun I had in my professional career.</p>
+<p>And you&rsquo;re just learning so much.</p>
+<p>You are, you know, the goal here is to learn and prototype.</p>
+<p>You&rsquo;re not yet starting to build a production system, right?</p>
+<p>So you just, you were, you know, this is when you&rsquo;re kind of working 24 seven</p>
+<p>and you&rsquo;re hacking things together.</p>
+<p>And you also don&rsquo;t know how hard this is.</p>
+<p>I mean, that&rsquo;s the point.</p>
+<p>Like, so, I mean, that&rsquo;s an ambitious, if I put myself in that mindset, even</p>
+<p>still, that&rsquo;s a really ambitious set of goals.</p>
+<p>Like just those two picking, picking 10 different, difficult, spicy challenges.</p>
+<p>And then having zero interventions.</p>
+<p>So like not saying gradually we&rsquo;re going to like, you know, over a period of 10</p>
+<p>years, we&rsquo;re going to have a bunch of routes and gradually reduce the number</p>
+<p>of interventions, you know, that literally says like, by as soon as</p>
+<p>possible, we want to have zero and on hard roads.</p>
+<p>So like, to me, if I was facing that, it&rsquo;s unclear that whether that takes</p>
+<p>two years or whether that takes 20 years.</p>
+<p>I mean, it took us under two.</p>
+<p>I guess that that speaks to a really big difference between doing something</p>
+<p>once and having a prototype where you are going after, you know, learning</p>
+<p>about the problem versus how you go about engineering a product that, you</p>
+<p>know, where you look at, you know, you do properly do evaluation, you look</p>
+<p>at metrics, you drive down and you&rsquo;re confident that you can do that.</p>
+<p>And I guess that&rsquo;s the, you know, why it took a dozen people, you know, 16</p>
+<p>months or a little bit more than that back in 2009 and 2010 with the</p>
+<p>technology of, you know, the more than a decade ago that amount of time to</p>
+<p>achieve that milestone of, you know, 10 routes, a hundred miles each and no</p>
+<p>interventions, and, you know, it took us a little bit longer to get to, you</p>
+<p>know, a full driverless product that customers use.</p>
+<p>That&rsquo;s another really important moment.</p>
+<p>Is there some memories of technical lessons or just one, like, what did you</p>
+<p>learn about the problem of driving from that experience?</p>
+<p>I mean, we can, we can now talk about like what you learned from modern day</p>
+<p>Waymo, but I feel like you may have learned some profound things in those</p>
+<p>early days, even more so because it feels like what Waymo is now is to trying</p>
+<p>to, you know, how to do scale, how to make sure you create a product, how to</p>
+<p>make sure it&rsquo;s like safety and all those things, which is all fascinating</p>
+<p>challenges, but like you were facing the more fundamental philosophical</p>
+<p>problem of driving in those early days.</p>
+<p>Like what the hell is driving as an autonomous, or maybe I&rsquo;m again</p>
+<p>romanticizing it, but is it, is there, is there some valuable lessons you</p>
+<p>picked up over there at those two years?</p>
+<p>A ton.</p>
+<p>The most important one is probably that we believe that it&rsquo;s doable and we&rsquo;ve</p>
+<p>gotten far enough into the problem that, you know, we had a, I think only a</p>
+<p>glimpse of the true complexity of the, that the domain, you know, it&rsquo;s a</p>
+<p>little bit like, you know, climbing a mountain where you kind of, you know,</p>
+<p>see the next peak and you think that&rsquo;s kind of the summit, but then you get</p>
+<p>to that and you kind of see that, that this is just the start of the journey.</p>
+<p>But we&rsquo;ve tried, we&rsquo;ve sampled enough of the problem space and we&rsquo;ve made</p>
+<p>enough rapid success, even, you know, with technology of 2009, 2010, that</p>
+<p>it gave us confidence to then, you know, pursue this as a real product.</p>
+<p>So, okay.</p>
+<p>So the next step, you mentioned the milestones that you had in the, in those</p>
+<p>two years, what are the next milestones that then led to the creation of Waymo</p>
+<p>and beyond?</p>
+<p>Yeah, we had a, it was a really interesting journey and, you know, Waymo</p>
+<p>came a little bit later, then, you know, we completed those milestones in 2010.</p>
+<p>That was the pivot when we decided to focus on actually building a product</p>
+<p>using this technology.</p>
+<p>The initial couple of years after that, we were focused on a freeway, you</p>
+<p>know, what you would call a driver assist, maybe, you know, an L3 driver</p>
+<p>assist program.</p>
+<p>Then around 2013, we&rsquo;ve learned enough about the space and thought more deeply</p>
+<p>about, you know, the product that we wanted to build, that we pivoted, we</p>
+<p>pivoted towards this vision of building a driver and deploying it fully driverless</p>
+<p>vehicles without a person.</p>
+<p>And that that&rsquo;s the path that we&rsquo;ve been on since then.</p>
+<p>And very, it was exactly the right decision for us.</p>
+<p>So there was a moment where you&rsquo;re also considered like, what is the right</p>
+<p>trajectory here?</p>
+<p>What is the right role of automation in the, in the task of driving?</p>
+<p>There&rsquo;s still, it wasn&rsquo;t from the early days, obviously you want to go fully</p>
+<p>autonomous.</p>
+<p>From the early days, it was not.</p>
+<p>I think it was in 20, around 2013, maybe that we&rsquo;ve, that became very clear and</p>
+<p>we made that pivot and also became very clear and that it&rsquo;s either the way you</p>
+<p>go building a driver assist system is, you know, fundamentally different from</p>
+<p>how you go building a fully driverless vehicle.</p>
+<p>So, you know, we&rsquo;ve pivoted towards the ladder and that&rsquo;s what we&rsquo;ve been</p>
+<p>working on ever since.</p>
+<p>And so that was around 2013, then there&rsquo;s sequence of really meaningful for us</p>
+<p>really important defining milestones since then.</p>
+<p>And in 2015, we had our first, actually the world&rsquo;s first fully driverless</p>
+<p>trade on public roads.</p>
+<p>It was in a custom built vehicle that we had.</p>
+<p>I must&rsquo;ve seen those.</p>
+<p>We called them the Firefly, that, you know, funny looking marshmallow looking</p>
+<p>thing.</p>
+<p>And we put a passenger, his name was Steve Mann, you know, great friend of</p>
+<p>our project from the early days, the man happens to be blind.</p>
+<p>So we put them in that vehicle.</p>
+<p>The car had no steering wheel, no pedals.</p>
+<p>It was an uncontrolled environment.</p>
+<p>You know, no, you know, lead or chase cars, no police escorts.</p>
+<p>And, you know, we did that trip a few times in Austin, Texas.</p>
+<p>So that was a really big milestone.</p>
+<p>But that was in Austin.</p>
+<p>Yeah.</p>
+<p>Okay.</p>
+<p>And, you know, we only, but at that time we&rsquo;re only, it took a tremendous</p>
+<p>amount of engineering.</p>
+<p>It took a tremendous amount of validation to get to that point.</p>
+<p>But, you know, we only did it a few times.</p>
+<p>We only did that.</p>
+<p>It was a fixed route.</p>
+<p>It was not kind of a controlled environment, but it was a fixed route.</p>
+<p>And we only did a few times.</p>
+<p>Then in 2016, end of 2016, beginning of 2017 is when we founded Waymo, the</p>
+<p>company.</p>
+<p>That&rsquo;s when we kind of, that was the next phase of the project where I</p>
+<p>wanted, we believed in kind of the commercial vision of this technology.</p>
+<p>And it made sense to create an independent entity, you know, within</p>
+<p>that alphabet umbrella to pursue this product at scale.</p>
+<p>Beyond that in 2017, later in 2017 was another really huge step for us.</p>
+<p>Really big milestone where we started, I think it was October of 2017 where</p>
+<p>when we started regular driverless operations on public roads, that first</p>
+<p>day of operations, we drove in one day.</p>
+<p>And that first day, a hundred miles and driverless fashion.</p>
+<p>And then we&rsquo;ve now the most, the most important thing about that milestone</p>
+<p>was not that, you know, a hundred miles in one day, but that it was the</p>
+<p>start of kind of regular ongoing driverless operations.</p>
+<p>And when you say driverless, it means no driver.</p>
+<p>That&rsquo;s exactly right.</p>
+<p>So on that first day, we actually hit a mix and in some, we didn&rsquo;t want</p>
+<p>to like, you know, be on YouTube and Twitter that same day.</p>
+<p>So in, in many of the rides we had somebody in the driver&rsquo;s seat, but</p>
+<p>they could not disengage like the car, not disengage, but actually on that</p>
+<p>first day, some of the miles were driven and just completely empty driver&rsquo;s seat.</p>
+<p>And this is the key distinction that I think people don&rsquo;t realize it&rsquo;s, you</p>
+<p>know, that oftentimes when you talk about autonomous vehicles, you&rsquo;re, there&rsquo;s</p>
+<p>often a driver in the seat that&rsquo;s ready to to take over what&rsquo;s called a safety</p>
+<p>driver and then Waymo is really one of the only companies at least that I&rsquo;m</p>
+<p>aware of, or at least as like boldly and carefully and all, and all of that is</p>
+<p>actually has cases.</p>
+<p>And now we&rsquo;ll talk about more and more where there&rsquo;s literally no driver.</p>
+<p>So that&rsquo;s another, the interesting case of where the driver&rsquo;s not supposed</p>
+<p>to disengage, that&rsquo;s like a nice middle ground, they&rsquo;re still there, but</p>
+<p>they&rsquo;re not supposed to disengage, but really there&rsquo;s the case when there&rsquo;s</p>
+<p>no, okay, there&rsquo;s something magical about there being nobody in the driver&rsquo;s seat.</p>
+<p>Like, just like to me, you mentioned the first time you wrote some code for free</p>
+<p>space navigation of the parking lot, that was like a magical moment to me, just</p>
+<p>sort of as an observer of robots, the first magical moment is seeing an</p>
+<p>autonomous vehicle turn, like make a left turn, like apply sufficient torque to</p>
+<p>the steering wheel to where it, like, there&rsquo;s a lot of rotation and for some</p>
+<p>reason, and there&rsquo;s nobody in the driver&rsquo;s seat, for some reason that</p>
+<p>communicates that here&rsquo;s a being with power that makes a decision.</p>
+<p>There&rsquo;s something about like the steering wheel, cause we perhaps romanticize</p>
+<p>the notion of the steering wheel, it&rsquo;s so essential to our conception, our 20th</p>
+<p>century conception of a car and it turning the steering wheel with nobody</p>
+<p>in driver&rsquo;s seat, that to me, I think maybe to others, it&rsquo;s really powerful.</p>
+<p>Like this thing is in control and then there&rsquo;s this leap of trust that you give.</p>
+<p>Like I&rsquo;m going to put my life in the hands of this thing that&rsquo;s in control.</p>
+<p>So in that sense, when there&rsquo;s no, but no driver in the driver&rsquo;s seat, that&rsquo;s a</p>
+<p>magical moment for robots.</p>
+<p>So I&rsquo;m, I&rsquo;ve gotten a chance to last year to take a ride in a, in a</p>
+<p>way more vehicle and that, that was the magical moment. There&rsquo;s like nobody in</p>
+<p>the driver&rsquo;s seat. It&rsquo;s, it&rsquo;s like the little details. You would think it</p>
+<p>doesn&rsquo;t matter whether there&rsquo;s a driver or not, but like if there&rsquo;s no driver</p>
+<p>and the steering wheel is turning on its own, I don&rsquo;t know. That&rsquo;s magical.</p>
+<p>It&rsquo;s absolutely magical. I, I have taken many of these rides and like completely</p>
+<p>empty car, no human in the car pulls up, you know, you call it on your cell phone.</p>
+<p>It pulls up, you get in, it takes you on its way. There&rsquo;s nobody in the car, but</p>
+<p>you, right? That&rsquo;s something called, you know, fully driverless, you know, our</p>
+<p>writer only mode of operation. Yeah. It, it is magical. It is, you know,</p>
+<p>transformative. This is what we hear from our writers. It kind of really</p>
+<p>changes your experience. And not like that, that really is what unlocks the</p>
+<p>real potential of this technology. But, you know, coming back to our journey,</p>
+<p>you know, that was 2017 when we started, you know, truly driverless operations.</p>
+<p>Then in 2018, we&rsquo;ve launched our public commercial service that we called</p>
+<p>Waymo One in Phoenix. In 2019, we started offering truly driverless writer</p>
+<p>only rides to our early rider population of users. And then, you know, 2020 has</p>
+<p>also been a pretty interesting year. One of the first ones, less about</p>
+<p>technology, but more about the maturing and the growth of Waymo as a company.</p>
+<p>We raised our first round of external financing this year, you know, we were</p>
+<p>part of Alphabet. So obviously we have access to, you know, significant resources</p>
+<p>but as kind of on the journey of Waymo maturing as a company, it made sense</p>
+<p>for us to, you know, partially go externally in this round. So, you know,</p>
+<p>we&rsquo;re raised about $3.2 billion from that round. We&rsquo;ve also started putting</p>
+<p>our fifth generation of our driver, our hardware, that is on the new vehicle,</p>
+<p>but it&rsquo;s also a qualitatively different set of self driving hardware.</p>
+<p>That is now on the JLR pace. So that was a very important step for us.</p>
+<p>Hardware specs, fifth generation. I think it&rsquo;d be fun to maybe, I apologize if</p>
+<p>I&rsquo;m interrupting, but maybe talk about maybe the generations with a focus on</p>
+<p>what we&rsquo;re talking about on the fifth generation in terms of hardware specs,</p>
+<p>like what&rsquo;s on this car.</p>
+<p>Sure. So we separated out, you know, the actual car that we are driving from</p>
+<p>the self driving hardware we put on it. Right now we have, so this is, as I</p>
+<p>mentioned, the fifth generation, you know, we&rsquo;ve gone through, we started,</p>
+<p>you know, building our own hardware, you know, many, many years ago. And</p>
+<p>that, you know, Firefly vehicle also had the hardware suite that was mostly</p>
+<p>designed, engineered, and built in house. Lighters are one of the more important</p>
+<p>components that we design and build from the ground up. So on the fifth</p>
+<p>generation of our drivers of our self driving hardware that we&rsquo;re switching</p>
+<p>to right now, we have, as with previous generations, in terms of sensing,</p>
+<p>we have lighters, cameras, and radars, and we have a pretty beefy computer</p>
+<p>that processes all that information and makes decisions in real time on</p>
+<p>board the car. So in all of the, and it&rsquo;s really a qualitative jump forward</p>
+<p>in terms of the capabilities and the various parameters and the specs of</p>
+<p>the hardware compared to what we had before and compared to what you can</p>
+<p>kind of get off the shelf in the market today.</p>
+<p>Meaning from fifth to fourth or from fifth to first?</p>
+<p>Definitely from first to fifth, but also from the fourth.</p>
+<p>That was the world&rsquo;s dumbest question.</p>
+<p>Definitely from fourth to fifth, as well as the last step is a big step forward.</p>
+<p>So everything&rsquo;s in house. So like LIDAR is built in house and cameras are</p>
+<p>built in house?</p>
+<p>You know, it&rsquo;s different. We work with partners and there&rsquo;s some components</p>
+<p>that we get from our manufacturing and supply chain partners. What exactly</p>
+<p>is in house is a bit different. We do a lot of custom design on all of</p>
+<p>our sensing modalities, lighters, radars, cameras, you know, exactly.</p>
+<p>There&rsquo;s lighters are almost exclusively in house and some of the</p>
+<p>technologies that we have, some of the fundamental technologies there</p>
+<p>are completely unique to Waymo. That is also largely true about radars</p>
+<p>and cameras. It&rsquo;s a little bit more of a mix in terms of what we do</p>
+<p>ourselves versus what we get from partners.</p>
+<p>Is there something super sexy about the computer that you can mention</p>
+<p>that&rsquo;s not top secret? Like for people who enjoy computers for, I</p>
+<p>mean, there&rsquo;s a lot of machine learning involved, but there&rsquo;s a lot</p>
+<p>of just basic compute. You have to probably do a lot of signal</p>
+<p>processing on all the different sensors. You have to integrate everything</p>
+<p>has to be in real time. There&rsquo;s probably some kind of redundancy</p>
+<p>type of situation. Is there something interesting you can say about</p>
+<p>the computer for the people who love hardware? It does have all of</p>
+<p>the characteristics, all the properties that you just mentioned.</p>
+<p>Redundancy, very beefy compute for general processing, as well as</p>
+<p>inference and ML models. It is some of the more sensitive stuff that</p>
+<p>I don&rsquo;t want to get into for IP reasons, but it can be shared a</p>
+<p>little bit in terms of the specs of the sensors that we have on the</p>
+<p>car. We actually shared some videos of what our</p>
+<p>lighters see in the world. We have 29 cameras. We have five lighters.</p>
+<p>We have six radars on these vehicles, and you can get a feel for</p>
+<p>the amount of data that they&rsquo;re producing. That all has to be</p>
+<p>processed in real time to do perception, to do complex</p>
+<p>reasoning. That kind of gives you some idea of how beefy those computers</p>
+<p>are, but I don&rsquo;t want to get into specifics of exactly how we build</p>
+<p>them. Okay, well, let me try some more questions that you can get</p>
+<p>into the specifics of, like GPU wise. Is that something you can get</p>
+<p>into? I know that Google works with GPUs and so on. I mean, for</p>
+<p>machine learning folks, it&rsquo;s kind of interesting. Or is there no&hellip;</p>
+<p>How do I ask it? I&rsquo;ve been talking to people in the government about</p>
+<p>UFOs and they don&rsquo;t answer any questions. So this is how I feel</p>
+<p>right now asking about GPUs. But is there something interesting that</p>
+<p>you could reveal? Or is it just&hellip; Or leave it up to our</p>
+<p>imagination, some of the compute. Is there any, I guess, is there any</p>
+<p>fun trickery? Like I talked to Chris Latner for a second time and he</p>
+<p>was a key person about GPUs, and there&rsquo;s a lot of fun stuff going</p>
+<p>on in Google in terms of hardware that optimizes for machine</p>
+<p>learning. Is there something you can reveal in terms of how much,</p>
+<p>you mentioned customization, how much customization there is for</p>
+<p>hardware for machine learning purposes? I&rsquo;m going to be like that</p>
+<p>government person who bought UFOs. I guess I will say that it&rsquo;s</p>
+<p>really&hellip; Compute is really important. We have very data hungry</p>
+<p>and compute hungry ML models all over our stack. And this is where</p>
+<p>both being part of Alphabet, as well as designing our own sensors</p>
+<p>and the entire hardware suite together, where on one hand you</p>
+<p>get access to really rich raw sensor data that you can pipe</p>
+<p>from your sensors into your compute platform and build like</p>
+<p>build the whole pipe from sensor raw sensor data to the big</p>
+<p>compute as then have the massive compute to process all that</p>
+<p>data. And this is where we&rsquo;re finding that having a lot of</p>
+<p>control of that hardware part of the stack is really</p>
+<p>advantageous. One of the fascinating magical places to me</p>
+<p>again, might not be able to speak to the details, but it is</p>
+<p>the other compute, which is like, we&rsquo;re just talking about a</p>
+<p>single car, but the driving experience is a source of a lot</p>
+<p>of fascinating data. And you have a huge amount of data</p>
+<p>coming in on the car and the infrastructure of storing some</p>
+<p>of that data to then train or to analyze or so on. That&rsquo;s a</p>
+<p>fascinating piece of it that I understand a single car. I</p>
+<p>don&rsquo;t understand how you pull it all together in a nice way.</p>
+<p>Is that something that you could speak to in terms of the</p>
+<p>challenges of seeing the network of cars and then</p>
+<p>bringing the data back and analyzing things that like edge</p>
+<p>cases of driving, be able to learn on them to improve the</p>
+<p>system to see where things went wrong, where things went right</p>
+<p>and analyze all that kind of stuff. Is there something</p>
+<p>interesting there from an engineering perspective?</p>
+<p>Oh, there&rsquo;s an incredible amount of really interesting</p>
+<p>work that&rsquo;s happening there, both in the real time operation</p>
+<p>of the fleet of cars and the information that they exchange</p>
+<p>with each other in real time to make better decisions as well</p>
+<p>as on the kind of the off board component where you have to</p>
+<p>deal with massive amounts of data for training your ML</p>
+<p>models, evaluating the ML models for simulating the entire</p>
+<p>system and for evaluating your entire system. And this is</p>
+<p>where being part of Alphabet has once again been tremendously</p>
+<p>advantageous because we consume an incredible amount of</p>
+<p>compute for ML infrastructure. We build a lot of custom</p>
+<p>frameworks to get good at data mining, finding the</p>
+<p>interesting edge cases for training and for evaluation of</p>
+<p>the system for both training and evaluating some components</p>
+<p>and your sub parts of the system and various ML models,</p>
+<p>as well as the evaluating the entire system and simulation.</p>
+<p>Okay. That first piece that you mentioned that cars</p>
+<p>communicating to each other, essentially, I mean, through</p>
+<p>perhaps through a centralized point, but what that&rsquo;s</p>
+<p>fascinating too, how much does that help you? Like if you</p>
+<p>imagine, you know, right now the number of way more vehicles</p>
+<p>is whatever X. I don&rsquo;t know if you can talk to what that</p>
+<p>number is, but it&rsquo;s not in the hundreds of millions yet. And</p>
+<p>imagine if the whole world is way more vehicles, like that</p>
+<p>changes potentially the power of connectivity. Like the more</p>
+<p>cars you have, I guess, actually, if you look at</p>
+<p>Phoenix, cause there&rsquo;s enough vehicles, there&rsquo;s enough, when</p>
+<p>there&rsquo;s like some level of density, you can start to</p>
+<p>probably do some really interesting stuff with the fact</p>
+<p>that cars can negotiate, can be, can communicate with each</p>
+<p>other and thereby make decisions. Is there something</p>
+<p>interesting there that you can talk to about like, how does</p>
+<p>that help with the driving problem from, as compared to</p>
+<p>just a single car solving the driving problem by itself?</p>
+<p>Yeah, it&rsquo;s a spectrum. I first and say that, you know, it&rsquo;s,</p>
+<p>it helps and it helps in various ways, but it&rsquo;s not required</p>
+<p>right now with the way we build our system, like each cars can</p>
+<p>operate independently. They can operate with no connectivity.</p>
+<p>So I think it is important that, you know, you have a fully</p>
+<p>autonomous, fully capable driver that, you know, computerized</p>
+<p>driver that each car has. Then, you know, they do share</p>
+<p>information and they share information in real time. It</p>
+<p>really, really helps. So the way we do this today is, you know,</p>
+<p>whenever one car encounters something interesting in the</p>
+<p>world, whether it might be an accident or a new construction</p>
+<p>zone, that information immediately gets, you know,</p>
+<p>uploaded over the air and it&rsquo;s propagated to the rest of the</p>
+<p>fleet. So, and that&rsquo;s kind of how we think about maps as</p>
+<p>priors in terms of the knowledge of our drivers, of our fleet of</p>
+<p>drivers that is distributed across the fleet and it&rsquo;s</p>
+<p>updated in real time. So that&rsquo;s one use case. And</p>
+<p>you know, you can imagine as the, you know, the density of</p>
+<p>these vehicles go up, that they can exchange more information</p>
+<p>in terms of what they&rsquo;re planning to do and start</p>
+<p>influencing how they interact with each other, as well as,</p>
+<p>you know, potentially sharing some observations, right, to</p>
+<p>help with, you know, if you have enough density of these</p>
+<p>vehicles where, you know, one car might be seeing something</p>
+<p>that another is relevant to another car that is very</p>
+<p>dynamic. You know, it&rsquo;s not part of kind of your updating</p>
+<p>your static prior of the map of the world, but it&rsquo;s more of a</p>
+<p>dynamic information that could be relevant to the decisions</p>
+<p>that another car is making real time. So you can see them</p>
+<p>exchanging that information and you can build on that. But</p>
+<p>again, I see that as an advantage, but it&rsquo;s not a</p>
+<p>requirement. So what about the human in the loop? So when I</p>
+<p>got a chance to drive with a ride in a Waymo, you know,</p>
+<p>there&rsquo;s customer service. So like there is somebody that&rsquo;s</p>
+<p>able to dynamically like tune in and help you out. What role</p>
+<p>does the human play in that picture? That&rsquo;s a fascinating</p>
+<p>like, you know, the idea of teleoperation, be able to</p>
+<p>remotely control a vehicle. So here, what we&rsquo;re talking</p>
+<p>about is like, like frictionless, like a human being</p>
+<p>able to in a in a frictionless way, sort of help you out. I</p>
+<p>don&rsquo;t know if they&rsquo;re able to actually control the vehicle.</p>
+<p>Is that something you could talk to? Yes. Okay. To be clear,</p>
+<p>we don&rsquo;t do teleporation. I kind of believe in</p>
+<p>teleporation for various reasons. That&rsquo;s not what we</p>
+<p>have in our cars. We do, as you mentioned, have, you know,</p>
+<p>version of, you know, customer support. You know, we call it</p>
+<p>life health. In fact, we find it that it&rsquo;s very important for</p>
+<p>our ride experience, especially if it&rsquo;s your first trip, you&rsquo;ve</p>
+<p>never been in a fully driverless ride or only way more</p>
+<p>vehicle you get in, there&rsquo;s nobody there. And so you can</p>
+<p>imagine having all kinds of, you know, questions in your head,</p>
+<p>like how this thing works. So we&rsquo;ve put a lot of thought into</p>
+<p>kind of guiding our, our writers or customers through that</p>
+<p>experience, especially for the first time they get some</p>
+<p>information on the phone. If the fully driverless vehicle is</p>
+<p>used to service their trip, when you get into the car, we</p>
+<p>have an in car, you know, screen and audio that kind of guides</p>
+<p>them and explains what to expect. They also have a button</p>
+<p>that they can push that will connect them to, you know, a</p>
+<p>real life human being that they can talk to, right, about this</p>
+<p>whole process. So that&rsquo;s one aspect of it. There is, you</p>
+<p>know, I should mention that there is another function that</p>
+<p>humans provide to our cars, but it&rsquo;s not teleoperation. You can</p>
+<p>think of it a little bit more like, you know, fleet</p>
+<p>assistance, kind of like, you know, traffic control that you</p>
+<p>have, where our cars, again, they&rsquo;re responsible on their own</p>
+<p>for making all of the decisions, all of the driving decisions</p>
+<p>that don&rsquo;t require connectivity. They, you know,</p>
+<p>anything that is safety or latency critical is done, you</p>
+<p>know, purely autonomously by onboard, our onboard system.</p>
+<p>But there are situations where, you know, if connectivity is</p>
+<p>available, when a car encounters a particularly challenging</p>
+<p>situation, you can imagine like a super hairy scene of an</p>
+<p>accident, the cars will do their best, they will recognize that</p>
+<p>it&rsquo;s an off nominal situation, they will do their best to come</p>
+<p>up with the right interpretation, the best course</p>
+<p>of action in that scenario. But if connectivity is available,</p>
+<p>they can ask for confirmation from, you know, human</p>
+<p>assistant to kind of confirm those actions and perhaps</p>
+<p>provide a little bit of kind of contextual information and</p>
+<p>guidance. So October 8th was when you&rsquo;re talking about the</p>
+<p>was Waymo launched the fully self, the public version of</p>
+<p>its fully driverless, that&rsquo;s the right term, I think, service</p>
+<p>in Phoenix. Is that October 8th? That&rsquo;s right. It was the</p>
+<p>introduction of fully driverless, right, our only</p>
+<p>vehicles into our public Waymo One service. Okay, so that&rsquo;s</p>
+<p>that&rsquo;s amazing. So it&rsquo;s like anybody can get into Waymo in</p>
+<p>Phoenix. So we previously had early people in our early</p>
+<p>rider program, taking fully driverless rides in Phoenix.</p>
+<p>And just this a little while ago, we opened on October 8th,</p>
+<p>we opened that mode of operation to the public. So I</p>
+<p>can download the app and go on a ride. There&rsquo;s a lot more</p>
+<p>demand right now for that service. And then we have</p>
+<p>capacity. So we&rsquo;re kind of managing that. But that&rsquo;s</p>
+<p>exactly the way to describe it. Yeah, that&rsquo;s interesting. So</p>
+<p>there&rsquo;s more demand than you can handle. Like what has been</p>
+<p>reception so far? I mean, okay, so this is a product,</p>
+<p>right? That&rsquo;s a whole nother discussion of like how</p>
+<p>compelling of a product it is. Great. But it&rsquo;s also like one</p>
+<p>of the most kind of transformational technologies of</p>
+<p>the 21st century. So it&rsquo;s also like a tourist attraction.</p>
+<p>Like it&rsquo;s fun to, you know, to be a part of it. So it&rsquo;d be</p>
+<p>interesting to see like, what do people say? What do people,</p>
+<p>what have been the feedback so far? You know, still early</p>
+<p>days, but so far, the feedback has been incredible, incredibly</p>
+<p>positive. They, you know, we asked them for feedback during</p>
+<p>the ride, we asked them for feedback after the ride as part</p>
+<p>of their trip. We asked them some questions, we asked them</p>
+<p>to rate the performance of our driver. Most by far, you know,</p>
+<p>most of our drivers give us five stars in our app, which is</p>
+<p>absolutely great to see. And you know, that&rsquo;s and we&rsquo;re</p>
+<p>they&rsquo;re also giving us feedback on you know, things we can</p>
+<p>improve. And you know, that&rsquo;s that&rsquo;s one of the main reasons</p>
+<p>we&rsquo;re doing this as Phoenix and you know, over the last couple</p>
+<p>of years, and every day today, we are just learning a</p>
+<p>tremendous amount of new stuff from our users. There&rsquo;s there&rsquo;s</p>
+<p>no substitute for actually doing the real thing, actually</p>
+<p>having a fully driverless product out there in the field</p>
+<p>with, you know, users that are actually paying us money to</p>
+<p>get from point A to point B. So this is a legitimate like,</p>
+<p>there&rsquo;s a paid service. That&rsquo;s right. And the idea is you use</p>
+<p>the app to go from point A to point B. And then what what are</p>
+<p>the A&rsquo;s? What are the what&rsquo;s the freedom of the of the starting</p>
+<p>and ending places? It&rsquo;s an area of geography where that</p>
+<p>service is enabled. It&rsquo;s a decent size of geography of</p>
+<p>territory. It&rsquo;s actually larger than the size of San Francisco.</p>
+<p>And you know, within that, you have full freedom of, you know,</p>
+<p>selecting where you want to go. You know, of course, there&rsquo;s</p>
+<p>some and you on your app, you get a map, you tell the car</p>
+<p>where you want to be picked up, where you want the car to pull</p>
+<p>over and pick you up. And then you tell it where you want to</p>
+<p>be dropped off. All right. And of course, there are some</p>
+<p>exclusions, right? You want to be you know, you were in terms</p>
+<p>of where the car is allowed to pull over, right? So that you</p>
+<p>can do. But you know, besides that, it&rsquo;s amazing. It&rsquo;s not</p>
+<p>like a fixed just would be very I guess. I don&rsquo;t know. Maybe</p>
+<p>that&rsquo;s what&rsquo;s the question behind your question. But it&rsquo;s</p>
+<p>not a, you know, preset set of yes, I guess. So within the</p>
+<p>geographic constraints with that within that area anywhere</p>
+<p>else, it can be you can be picked up and dropped off</p>
+<p>anywhere. That&rsquo;s right. And you know, people use them on like</p>
+<p>all kinds of trips. They we have and we have an incredible</p>
+<p>spectrum of riders. We I think the youngest actually have car</p>
+<p>seats them and we have, you know, people taking their kids</p>
+<p>and rides. I think the youngest riders we had on cars are, you</p>
+<p>know, one or two years old, you know, and the full spectrum of</p>
+<p>use cases people you can take them to, you know, schools to,</p>
+<p>you know, go grocery shopping, to restaurants, to bars, you</p>
+<p>know, run errands, you know, go shopping, etc, etc. You can go</p>
+<p>to your office, right? Like the full spectrum of use cases,</p>
+<p>and people are going to use them in their daily lives to get</p>
+<p>around. And we see all kinds of really interesting use cases</p>
+<p>and that that that&rsquo;s providing us incredibly valuable</p>
+<p>experience that we then, you know, use to improve our</p>
+<p>product. So as somebody who&rsquo;s been on done a few long rants</p>
+<p>with Joe Rogan and others about the toxicity of the internet</p>
+<p>and the comments and the negativity in the comments, I&rsquo;m</p>
+<p>fascinated by feedback. I believe that most people are</p>
+<p>good and kind and intelligent and can provide, like, even in</p>
+<p>disagreement, really fascinating ideas. So on a product</p>
+<p>side, it&rsquo;s fascinating to me, like, how do you get the richest</p>
+<p>possible user feedback, like, to improve? What&rsquo;s, what are the</p>
+<p>channels that you use to measure? Because, like, you&rsquo;re</p>
+<p>no longer, that&rsquo;s one of the magical things about autonomous</p>
+<p>vehicles is it&rsquo;s not like it&rsquo;s frictionless interaction with</p>
+<p>the human. So like, you don&rsquo;t get to, you know, it&rsquo;s just</p>
+<p>giving a ride. So like, how do you get feedback from people</p>
+<p>to in order to improve?</p>
+<p>Yeah, great question, various mechanisms. So as part of the</p>
+<p>normal flow, we ask people for feedback, they as the car is</p>
+<p>driving around, we have on the phone and in the car, and we</p>
+<p>have a touchscreen in the car, you can actually click some</p>
+<p>buttons and provide real time feedback on how the car is</p>
+<p>doing, and how the car is handling a particular situation,</p>
+<p>you know, both positive and negative. So that&rsquo;s one</p>
+<p>channel, we have, as we discussed, customer support or</p>
+<p>life help, where, you know, if a customer wants to, has a</p>
+<p>question, or he has some sort of concern, they can talk to a</p>
+<p>person in real time. So that that is another mechanism that</p>
+<p>gives us feedback. At the end of a trip, you know, we also ask</p>
+<p>them how things went, they give us comments, and you know, star</p>
+<p>rating. And you know, if it&rsquo;s, we also, you know, ask them to</p>
+<p>explain what you know, one, well, and you know, what could</p>
+<p>be improved. And we have our writers providing very rich</p>
+<p>feedback, they&rsquo;re a lot, a large fraction is very passionate,</p>
+<p>very excited about this technology. So we get really</p>
+<p>good feedback. We also run UXR studies, right, you know,</p>
+<p>specific and that are kind of more, you know, go more in</p>
+<p>depth. And we will run both kind of lateral and longitudinal</p>
+<p>studies, where we have deeper engagement with our customers,</p>
+<p>you know, we have our user experience research team,</p>
+<p>tracking over time, that&rsquo;s things about longitudinal is</p>
+<p>cool. That&rsquo;s that&rsquo;s exactly right. And you know, that&rsquo;s</p>
+<p>another really valuable feedback, source of feedback.</p>
+<p>And we&rsquo;re just covering a tremendous amount, right?</p>
+<p>People go grocery shopping, and they like want to load, you</p>
+<p>know, 20 bags of groceries in our cars and like that, that&rsquo;s</p>
+<p>one workflow that you maybe don&rsquo;t think about, you know,</p>
+<p>getting just right when you&rsquo;re building the driverless</p>
+<p>product. I have people like, you know, who bike as part of</p>
+<p>their trip. So they, you know, bike somewhere, then they get</p>
+<p>on our cars, they take apart their bike, they load into our</p>
+<p>vehicle, then go and that&rsquo;s, you know, how they, you know,</p>
+<p>where we want to pull over and how that, you know, get in and</p>
+<p>get out process works, provides very useful feedback in terms</p>
+<p>of what makes a good pickup and drop off location, we get</p>
+<p>really valuable feedback. And in fact, we had to do some really</p>
+<p>interesting work with high definition maps, and thinking</p>
+<p>about walking directions. And if you imagine you&rsquo;re in a store,</p>
+<p>right in some giant space, and then you know, you want to be</p>
+<p>picked up somewhere, like if you just drop a pin at a current</p>
+<p>location, which is maybe in the middle of a shopping mall, like</p>
+<p>what&rsquo;s the best location for the car to come pick you up? And</p>
+<p>you can have simple heuristics where you&rsquo;re just going to take</p>
+<p>your you know, you clean in distance and find the nearest</p>
+<p>spot where the car can pull over that&rsquo;s closest to you. But</p>
+<p>oftentimes, that&rsquo;s not the most convenient one. You know, I have</p>
+<p>many anecdotes where that heuristic breaks in horrible</p>
+<p>ways. One example that I often mentioned is somebody wanted to</p>
+<p>be, you know, dropped off in Phoenix. And you know, we got</p>
+<p>car picked location that was close, the closest to there,</p>
+<p>you know, where the pin was dropped on the map in terms of,</p>
+<p>you know, latitude and longitude. But it happened to be</p>
+<p>on the other side of a parking lot that had this row of</p>
+<p>cacti. And the poor person had to like walk all around the</p>
+<p>parking lot to get to where they wanted to be in 110 degree</p>
+<p>heat. So that, you know, that was about so then, you know, we</p>
+<p>took all take all of these, all that feedback from our users</p>
+<p>and incorporate it into our system and improve it. Yeah, I</p>
+<p>feel like that&rsquo;s like requires AGI to solve the problem of</p>
+<p>like, when you&rsquo;re, which is a very common case, when you&rsquo;re in</p>
+<p>a big space of some kind, like apartment building, it doesn&rsquo;t</p>
+<p>matter, it&rsquo;s some large space. And then you call the, like a</p>
+<p>Waymo from there, right? Like, whatever, it doesn&rsquo;t matter,</p>
+<p>ride share vehicle. And like, where&rsquo;s the pin supposed to</p>
+<p>drop? I feel like that&rsquo;s, you don&rsquo;t think, I think that</p>
+<p>requires AGI. I&rsquo;m gonna, in order to solve. Okay, the</p>
+<p>alternative, which I think the Google search engine is taught</p>
+<p>is like, there&rsquo;s something really valuable about the</p>
+<p>perhaps slightly dumb answer, but a really powerful one,</p>
+<p>which is like, what was done in the past by others? Like, what</p>
+<p>was the choice made by others? That seems to be like in terms</p>
+<p>of Google search, when you have like billions of searches, you</p>
+<p>could, you could see which, like when they recommend what you</p>
+<p>might possibly mean, they suggest based on not some machine</p>
+<p>learning thing, which they also do, but like, on what was</p>
+<p>successful for others in the past and finding a thing that</p>
+<p>they were happy with. Is that integrated at all? Waymo, like</p>
+<p>what, what pickups worked for others? It is. I think you&rsquo;re</p>
+<p>exactly right. So there&rsquo;s a real, it&rsquo;s an interesting</p>
+<p>problem. Naive solutions have interesting failure modes. So</p>
+<p>there&rsquo;s definitely lots of things that can be done to</p>
+<p>improve. And both learning from, you know, what works, but</p>
+<p>doesn&rsquo;t work in actual heal from getting richer data and</p>
+<p>getting more information about the environment and richer</p>
+<p>maps. But you&rsquo;re absolutely right, that there&rsquo;s something</p>
+<p>like there&rsquo;s some properties of solutions that in terms of the</p>
+<p>effect that they have on users so much, much, much better than</p>
+<p>others, right? And predictability and</p>
+<p>understandability is important. So you can have maybe</p>
+<p>something that is not quite as optimal, but is very natural</p>
+<p>and predictable to the user and kind of works the same way all</p>
+<p>the time. And that matters, that matters a lot for the user</p>
+<p>experience. And but you know, to get to the basics, the pretty</p>
+<p>fundamental property is that the car actually arrives where you</p>
+<p>told it to, right? Like, you can always, you know, change it,</p>
+<p>see it on the map, and you can move it around if you don&rsquo;t</p>
+<p>like it. And but like, that property that the car actually</p>
+<p>shows up reliably is critical, which, you know, where compared</p>
+<p>to some of the human driven analogs, I think, you know, you</p>
+<p>can have more predictability. It&rsquo;s actually the fact, if I</p>
+<p>have a little bit of a detour here, I think the fact that</p>
+<p>it&rsquo;s, you know, your phone and the cars, two computers talking</p>
+<p>to each other, can lead to some really interesting things we</p>
+<p>can do in terms of the user interfaces, both in terms of</p>
+<p>function, like the car actually shows up exactly where you told</p>
+<p>it, you want it to be, but also some, you know, really</p>
+<p>interesting things on the user interface, like as the car is</p>
+<p>driving, as you call it, and it&rsquo;s on the way to come pick</p>
+<p>you up. And of course, you get the position of the car and the</p>
+<p>route on the map. But and they actually follow that route, of</p>
+<p>course. But it can also share some really interesting</p>
+<p>information about what it&rsquo;s doing. So, you know, our cars, as</p>
+<p>they are coming to pick you up, if it&rsquo;s come, if a car is</p>
+<p>coming up to a stop sign, it will actually show you that</p>
+<p>like, it&rsquo;s there sitting, because it&rsquo;s at a stop sign or</p>
+<p>a traffic light will show you that it&rsquo;s got, you know,</p>
+<p>sitting at a red light. So, you know, they&rsquo;re like little</p>
+<p>things, right? But I find those little touches really</p>
+<p>interesting, really magical. And it&rsquo;s just, you know, little</p>
+<p>things like that, that you can do to kind of delight your</p>
+<p>users. You know, this makes me think of, there&rsquo;s some products</p>
+<p>that I just love. Like, there&rsquo;s a there&rsquo;s a company called</p>
+<p>Rev, Rev.com, where I like for this podcast, for example, I</p>
+<p>can drag and drop a video. And then they do all the</p>
+<p>captioning. It&rsquo;s humans doing the captioning, but they</p>
+<p>connect, they automate everything of connecting you to</p>
+<p>the humans, and they do the captioning and transcription.</p>
+<p>It&rsquo;s all effortless. And it like, I remember when I first</p>
+<p>started using them, I was like, life&rsquo;s good. Like, because it</p>
+<p>was so painful to figure that out earlier. The same thing</p>
+<p>with something called iZotope RX, this company I use for</p>
+<p>cleaning up audio, like the sound cleanup they do. It&rsquo;s</p>
+<p>like drag and drop, and it just cleans everything up very</p>
+<p>nicely. Another experience like that I had with Amazon</p>
+<p>OneClick purchase, first time. I mean, other places do that</p>
+<p>now, but just the effortlessness of purchasing,</p>
+<p>making it frictionless. It kind of communicates to me, like,</p>
+<p>I&rsquo;m a fan of design. I&rsquo;m a fan of products that you can just</p>
+<p>create a really pleasant experience. The simplicity of</p>
+<p>it, the elegance just makes you fall in love with it. So on</p>
+<p>the, do you think about this kind of stuff? I mean, it&rsquo;s</p>
+<p>exactly what we&rsquo;ve been talking about. It&rsquo;s like the little</p>
+<p>details that somehow make you fall in love with the product.</p>
+<p>Is that, we went from like urban challenge days, where</p>
+<p>love was not part of the conversation, probably. And to</p>
+<p>this point where there&rsquo;s a, where there&rsquo;s human beings and</p>
+<p>you want them to fall in love with the experience. Is that</p>
+<p>something you&rsquo;re trying to optimize for? Try to think</p>
+<p>about, like, how do you create an experience that people love?</p>
+<p>Absolutely. I think that&rsquo;s the vision is removing any friction</p>
+<p>or complexity from getting our users, our writers to where</p>
+<p>they want to go. Making that as simple as possible. And then,</p>
+<p>you know, beyond that, just transportation, making things</p>
+<p>and goods get to their destination as seamlessly as</p>
+<p>possible. I talked about a drag and drop experience where I</p>
+<p>kind of express your intent and then it just magically happens.</p>
+<p>And for our writers, that&rsquo;s what we&rsquo;re trying to get to is</p>
+<p>you download an app and you click and car shows up. It&rsquo;s</p>
+<p>the same car. It&rsquo;s very predictable. It&rsquo;s a safe and</p>
+<p>high quality experience. And then it gets you in a very</p>
+<p>reliable, very convenient, frictionless way to where you</p>
+<p>want to be. And along the journey, I think we also want to</p>
+<p>do little things to delight our users. Like the ride sharing</p>
+<p>companies, because they don&rsquo;t control the experience, I</p>
+<p>think they can&rsquo;t make people fall in love necessarily with</p>
+<p>the experience. Or maybe they, they haven&rsquo;t put in the effort,</p>
+<p>but I think if I were to speak to the ride sharing experience</p>
+<p>I currently have, it&rsquo;s just very, it&rsquo;s just very</p>
+<p>convenient, but there&rsquo;s a lot of room for like falling in love</p>
+<p>with it. Like we can speak to sort of car companies, car</p>
+<p>companies do this. Well, you can fall in love with a car,</p>
+<p>right? And be like a loyal car person, like whatever. Like I</p>
+<p>like badass hot rods, I guess, 69 Corvette. And at this point,</p>
+<p>you know, you can&rsquo;t really, cars are so, owning a car is so</p>
+<p>20th century, man. But is there something about the Waymo</p>
+<p>experience where you hope that people will fall in love with</p>
+<p>it? Is that part of it? Or is it part of, is it just about</p>
+<p>making a convenient ride, not ride sharing, I don&rsquo;t know what</p>
+<p>the right term is, but just a convenient A to B autonomous</p>
+<p>transport or like, do you want them to fall in love with</p>
+<p>Waymo? To maybe elaborate a little bit. I mean, almost like</p>
+<p>from a business perspective, I&rsquo;m curious, like how, do you</p>
+<p>want to be in the background invisible or do you want to be</p>
+<p>like a source of joy that&rsquo;s in very much in the foreground? I</p>
+<p>want to provide the best, most enjoyable transportation</p>
+<p>solution. And that means building it, building our</p>
+<p>product and building our service in a way that people do.</p>
+<p>Kind of use in a very seamless, frictionless way in their</p>
+<p>day to day lives. And I think that does mean, you know, in</p>
+<p>some way falling in love in that product, right, just kind of</p>
+<p>becomes part of your routine. It comes down my mind to safety,</p>
+<p>predictability of the experience, and privacy aspects</p>
+<p>of it, right? Our cars, you get the same car, you get very</p>
+<p>predictable behavior. And you get a lot of different</p>
+<p>things. And that is important. And if you&rsquo;re going to use it</p>
+<p>in your daily life, privacy, and when you&rsquo;re in a car, you</p>
+<p>can do other things. You&rsquo;re spending a bunch, just another</p>
+<p>space where you&rsquo;re spending a significant part of your life.</p>
+<p>And so not having to share it with other people who you don&rsquo;t</p>
+<p>want to share it with, I think is a very nice property. Maybe</p>
+<p>you want to take a phone call or do something else in the</p>
+<p>vehicle. And, you know, safety on the quality of the driving,</p>
+<p>as well as the physical safety of not having to share that</p>
+<p>ride is important to a lot of people. What about the idea</p>
+<p>that when there&rsquo;s somebody like a human driving, and they do</p>
+<p>a rolling stop on a stop sign, like sometimes like, you know,</p>
+<p>you get an Uber or Lyft or whatever, like human driver,</p>
+<p>and, you know, they can be a little bit aggressive as</p>
+<p>drivers. It feels like there&rsquo;s not all aggression is bad. Now</p>
+<p>that may be a wrong, again, 20th century conception of</p>
+<p>driving. Maybe it&rsquo;s possible to create a driving experience.</p>
+<p>Like if you&rsquo;re in the back, busy doing something, maybe</p>
+<p>aggression is not a good thing. It&rsquo;s a very different kind of</p>
+<p>experience perhaps. But it feels like in order to navigate</p>
+<p>this world, you need to, how do I phrase this? You need to kind</p>
+<p>of bend the rules a little bit, or at least test the rules. I</p>
+<p>don&rsquo;t know what language politicians use to discuss this,</p>
+<p>but whatever language they use, you like flirt with the rules.</p>
+<p>I don&rsquo;t know. But like you sort of have a bit of an aggressive</p>
+<p>way of driving that asserts your presence in this world,</p>
+<p>thereby making other vehicles and people respect your</p>
+<p>presence and thereby allowing you to sort of navigate</p>
+<p>through intersections in a timely fashion. I don&rsquo;t know if</p>
+<p>any of that made sense, but like, how does that fit into the</p>
+<p>experience of driving autonomously? Is that?</p>
+<p>It&rsquo;s a lot of thoughts. This is you&rsquo;re hitting on a very</p>
+<p>important point of a number of behavioral components and, you</p>
+<p>know, parameters that make your driving feel assertive and</p>
+<p>natural and comfortable and predictable. Our cars will</p>
+<p>follow rules, right? They will do the safest thing possible in</p>
+<p>all situations. Let me be clear on that. But if you think of</p>
+<p>really, really good drivers, just think about</p>
+<p>professional lemon drivers, right? They will follow the</p>
+<p>rules. They&rsquo;re very, very smooth, and yet they&rsquo;re very</p>
+<p>efficient. But they&rsquo;re assertive. They&rsquo;re comfortable</p>
+<p>for the people in the vehicle. They&rsquo;re predictable for the</p>
+<p>other people outside the vehicle that they share the</p>
+<p>environment with. And that&rsquo;s the kind of driver that we want</p>
+<p>to build. And you think if maybe there&rsquo;s a sport analogy</p>
+<p>there, right? You can do in very many sports, the true</p>
+<p>professionals are very efficient in their movements,</p>
+<p>right? They don&rsquo;t do like, you know, hectic flailing, right?</p>
+<p>They&rsquo;re, you know, smooth and precise, right? And they get</p>
+<p>the best results. So that&rsquo;s the kind of driver that we want to</p>
+<p>build. In terms of, you know, aggressiveness. Yeah, you can</p>
+<p>like, you know, roll through the stop signs. You can do crazy</p>
+<p>lane changes. It typically doesn&rsquo;t get you to your</p>
+<p>destination faster. Typically not the safest or most</p>
+<p>predictable, very most comfortable thing to do. But</p>
+<p>there is a way to do both. And that&rsquo;s what we&rsquo;re</p>
+<p>doing. We&rsquo;re trying to build the driver that is safe,</p>
+<p>comfortable, smooth, and predictable. Yeah, that&rsquo;s a</p>
+<p>really interesting distinction. I think in the early days of</p>
+<p>autonomous vehicles, the vehicles felt cautious as</p>
+<p>opposed to efficient. And I&rsquo;m still probably, but when I</p>
+<p>rode in the Waymo, I mean, there was, it was, it was quite</p>
+<p>assertive. It moved pretty quickly. Like, yeah, then he&rsquo;s</p>
+<p>one of the surprising feelings was that it actually, it went</p>
+<p>fast. And it didn&rsquo;t feel like, awkwardly cautious than</p>
+<p>autonomous vehicle. Like, like, so I&rsquo;ve also programmed</p>
+<p>autonomous vehicles and everything I&rsquo;ve ever built was</p>
+<p>felt awkwardly, either overly aggressive. Okay, especially</p>
+<p>when it was my code, or like, awkwardly cautious is the way</p>
+<p>I would put it. And Waymo&rsquo;s vehicle felt like, assertive</p>
+<p>and I think efficient is like the right terminology here.</p>
+<p>It wasn&rsquo;t, and I also like the professional limo driver,</p>
+<p>because we often think like, you know, an Uber driver or a</p>
+<p>bus driver or a taxi. This is the funny thing is people</p>
+<p>think they track taxi drivers are professionals. They, I</p>
+<p>mean, it&rsquo;s, it&rsquo;s like, that that&rsquo;s like saying, I&rsquo;m a</p>
+<p>professional walker, just because I&rsquo;ve been walking all</p>
+<p>my life. I think there&rsquo;s an art to it, right? And if you take</p>
+<p>it seriously as an art form, then there&rsquo;s a certain way that</p>
+<p>mastery looks like. It&rsquo;s interesting to think about what</p>
+<p>does mastery look like in driving? And perhaps what we</p>
+<p>associate with like aggressiveness is unnecessary,</p>
+<p>like, it&rsquo;s not part of the experience of driving. It&rsquo;s</p>
+<p>like, unnecessary fluff, that efficiency, you can be,</p>
+<p>you can create a good driving experience within the rules.</p>
+<p>That&rsquo;s, I mean, you&rsquo;re the first person to tell me this.</p>
+<p>So it&rsquo;s, it&rsquo;s kind of interesting. I need to think</p>
+<p>about this, but that&rsquo;s exactly what it felt like with Waymo.</p>
+<p>I kind of had this intuition. Maybe it&rsquo;s the Russian thing.</p>
+<p>I don&rsquo;t know that you have to break the rules in life to get</p>
+<p>anywhere, but maybe, maybe it&rsquo;s possible that that&rsquo;s not the</p>
+<p>case in driving. I have to think about that, but it</p>
+<p>certainly felt that way on the streets of Phoenix when I was</p>
+<p>there in Waymo, that, that, that that was a very pleasant</p>
+<p>experience and it wasn&rsquo;t frustrating in that like, come</p>
+<p>on, move already kind of feeling. It wasn&rsquo;t, that wasn&rsquo;t</p>
+<p>there. Yeah. I mean, that&rsquo;s what, that&rsquo;s what we&rsquo;re going</p>
+<p>after. I don&rsquo;t think you have to pick one. I think truly good</p>
+<p>driving. It gives you both efficiency, a certainness, but</p>
+<p>also comfort and predictability and safety. And, you know, it&rsquo;s,</p>
+<p>that&rsquo;s what fundamental improvements in the core</p>
+<p>capabilities truly unlock. And you can kind of think of it as,</p>
+<p>you know, a precision and recall trade off. You have certain</p>
+<p>capabilities of your model. And then it&rsquo;s very easy when, you</p>
+<p>know, you have some curve of precision and recall, you can</p>
+<p>move things around and can choose your operating point and</p>
+<p>your training of precision versus recall, false positives</p>
+<p>versus false negatives. Right. But then, and you know, you can</p>
+<p>tune things on that curve and be kind of more cautious or more</p>
+<p>aggressive, but then aggressive is bad or, you know, cautious is</p>
+<p>bad, but true capabilities come from actually moving the whole</p>
+<p>curve up. And then you are kind of on a very different plane of</p>
+<p>those trade offs. And that, that&rsquo;s what we&rsquo;re trying to do</p>
+<p>here is to move the whole curve up. Before I forget, let&rsquo;s talk</p>
+<p>about trucks a little bit. So I also got a chance to check out</p>
+<p>some of the Waymo trucks. I&rsquo;m not sure if we want to go too</p>
+<p>much into that space, but it&rsquo;s a fascinating one. So maybe we</p>
+<p>can mention at least briefly, you know, Waymo is also now</p>
+<p>doing autonomous trucking and how different like</p>
+<p>philosophically and technically is that whole space of</p>
+<p>problems. It&rsquo;s one of our two big products and you know,</p>
+<p>commercial applications of our driver, right? Right. Hailing</p>
+<p>and deliveries. You know, we have Waymo One and Waymo Via</p>
+<p>moving people and moving goods. You know, trucking is an</p>
+<p>example of moving goods. We&rsquo;ve been working on trucking since</p>
+<ol start="2017">
+<li>It is a very interesting space. And your question of</li>
+</ol>
+<p>how different is it? It has this really nice property that</p>
+<p>the first order challenges, like the science, the hard</p>
+<p>engineering, whether it&rsquo;s, you know, hardware or, you know,</p>
+<p>onboard software or off board software, all of the, you know,</p>
+<p>systems that you build for, you know, training your ML models</p>
+<p>for, you know, evaluating your time system. Like those</p>
+<p>fundamentals carry over. Like the true challenges of, you</p>
+<p>know, driving perception, semantic understanding,</p>
+<p>prediction, decision making, planning, evaluation, the</p>
+<p>simulator, ML infrastructure, those carry over. Like the data</p>
+<p>and the application and kind of the domains might be</p>
+<p>different, but the most difficult problems, all of that</p>
+<p>carries over between the domains. So that&rsquo;s very nice.</p>
+<p>So that&rsquo;s how we approach it. We&rsquo;re kind of build investing</p>
+<p>in the core, the technical core. And then there&rsquo;s</p>
+<p>specialization of that core technology to different</p>
+<p>product lines, to different commercial applications. So on</p>
+<p>just to tease it apart a little bit on trucks. So starting with</p>
+<p>the hardware, the configuration of the sensors is different.</p>
+<p>They&rsquo;re different physically, geometrically, you know, different</p>
+<p>vehicles. So for example, we have two of our main laser on</p>
+<p>the trucks on both sides so that we have, you know, not have the</p>
+<p>blind spots. Whereas on the JLR eye pace, we have, you know, one</p>
+<p>of it sitting at the very top, but the actual sensors are</p>
+<p>almost the same. Now we&rsquo;re largely the same. So all of the</p>
+<p>investment that over the years we&rsquo;ve put into building our</p>
+<p>custom lighters, custom radars, pulling the whole system</p>
+<p>together, that carries over very nicely. Then, you know, on the</p>
+<p>perception side, the like the fundamental challenges of</p>
+<p>seeing, understanding the world, whether it&rsquo;s, you know, object</p>
+<p>detection, classification, you know, tracking, semantic</p>
+<p>understanding, all that carries over. You know, yes, there&rsquo;s</p>
+<p>some specialization when you&rsquo;re driving on freeways, you know,</p>
+<p>range becomes more important. The domain is a little bit</p>
+<p>different. But again, the fundamentals carry over very,</p>
+<p>very nicely. Same, and you guess you get into prediction or</p>
+<p>decision making, right, the fundamentals of what it takes to</p>
+<p>predict what other people are going to do to find the long</p>
+<p>tail to improve your system in that long tail of behavior</p>
+<p>prediction and response that carries over right and so on and</p>
+<p>so on. So I mean, that&rsquo;s pretty exciting. By the way, does</p>
+<p>Waymo via include using the smaller vehicles for</p>
+<p>transportation of goods? That&rsquo;s an interesting distinction. So</p>
+<p>I would say there&rsquo;s three interesting modes of operation.</p>
+<p>So one is moving humans, one is moving goods, and one is like</p>
+<p>moving nothing, zero occupancy, meaning like you&rsquo;re going to</p>
+<p>the destination, your empty vehicle. I mean, it&rsquo;s the third</p>
+<p>is the less of it. If that&rsquo;s the entirety of it, it&rsquo;s the less,</p>
+<p>you know, exciting from the commercial perspective.</p>
+<p>Well, I mean, in terms of like, if you think about what&rsquo;s</p>
+<p>inside a vehicle as it&rsquo;s moving, because it does, you</p>
+<p>know, some significant fraction of the vehicle&rsquo;s movement has</p>
+<p>to be empty. I mean, it&rsquo;s kind of fascinating. Maybe just on</p>
+<p>that small point, is there different control and like</p>
+<p>policies that are applied for zero occupancy vehicle? So</p>
+<p>vehicle with nothing in it, or is it just move as if there is</p>
+<p>a person inside? What was with some subtle differences?</p>
+<p>As a first order approximation, there are no differences. And</p>
+<p>if you think about, you know, safety and comfort and quality</p>
+<p>of driving, only part of it has to do with the people or the</p>
+<p>goods inside of the vehicle. But you don&rsquo;t want to be, you</p>
+<p>know, you want to drive smoothly, as we discussed, not</p>
+<p>for the purely for the benefit of whatever you have inside the</p>
+<p>car, right? It&rsquo;s also for the benefit of the people outside</p>
+<p>kind of fitting naturally and predictably into that whole</p>
+<p>environment, right? So, you know, yes, there are some</p>
+<p>second order things you can do, you can change your route, and</p>
+<p>you optimize maybe kind of your fleet, things at the fleet</p>
+<p>scale. And you would take into account whether some of your</p>
+<p>you know, some of your cars are actually, you know, serving a</p>
+<p>useful trip, whether with people or with goods, whereas, you</p>
+<p>know, other cars are, you know, driving completely empty to that</p>
+<p>next valuable trip that they&rsquo;re going to provide. But that those</p>
+<p>are mostly second order effects. Okay, cool. So Phoenix</p>
+<p>is, is an incredible place. And what you&rsquo;ve announced in</p>
+<p>Phoenix is, it&rsquo;s kind of amazing. But, you know, that&rsquo;s</p>
+<p>just like one city. How do you take over the world? I mean,</p>
+<p>I&rsquo;m asking for a friend. One step at a time.</p>
+<p>Is that a cartoon pinky in the brain? Yeah. Okay. But, you</p>
+<p>know, gradually is a true answer. So I think the heart of</p>
+<p>your question is, can you ask a better question than I asked?</p>
+<p>You&rsquo;re asking a great question. Answer that one. I&rsquo;m just</p>
+<p>gonna, you know, phrase it in the terms that I want to</p>
+<p>answer. Exactly right. Brilliant. Please. You know,</p>
+<p>where are we today? And, you know, what happens next? And</p>
+<p>what does it take to go beyond Phoenix? And what does it</p>
+<p>take to get this technology to more places and more people</p>
+<p>around the world, right? So our next big area of focus is</p>
+<p>exactly that. Larger scale commercialization and just,</p>
+<p>you know, scaling up. If I think about, you know, the</p>
+<p>main, and, you know, Phoenix gives us that platform and</p>
+<p>gives us that foundation of upon which we can build. And</p>
+<p>it&rsquo;s, there are few really challenging aspects of this</p>
+<p>whole problem that you have to pull together in order to build</p>
+<p>the technology in order to deploy it into the field to go</p>
+<p>from a driverless car to a fleet of cars that are providing a</p>
+<p>service, and then all the way to commercialization. So, and</p>
+<p>then, you know, this is what we have in Phoenix. We&rsquo;ve taken</p>
+<p>the technology from a proof point to an actual deployment</p>
+<p>and have taken our driver from, you know, one car to a fleet</p>
+<p>that can provide a service. Beyond that, if I think about</p>
+<p>what it will take to scale up and, you know, deploy in, you</p>
+<p>know, more places with more customers, I tend to think about</p>
+<p>three main dimensions, three main axes of scale. One is the</p>
+<p>core technology, you know, the hardware and software core</p>
+<p>capabilities of our driver. The second dimension is</p>
+<p>evaluation and deployment. And the third one is the, you know,</p>
+<p>product, commercial, and operational excellence. So you</p>
+<p>can talk a bit about where we are along, you know, each one of</p>
+<p>those three dimensions about where we are today and, you</p>
+<p>know, what has, what will happen next. On, you know, the core</p>
+<p>technology, you know, the hardware and software, you</p>
+<p>know, together comprise a driver, we, you know, obviously</p>
+<p>have that foundation that is providing fully driverless</p>
+<p>trips to our customers as we speak, in fact. And we&rsquo;ve</p>
+<p>learned a tremendous amount from that. So now what we&rsquo;re</p>
+<p>doing is we are incorporating all those lessons into some</p>
+<p>pretty fundamental improvements in our core technology, both on</p>
+<p>the hardware side and on the software side to build a more</p>
+<p>general, more robust solution that then will enable us to</p>
+<p>massively scale beyond Phoenix. So on the hardware side, all of</p>
+<p>those lessons are now incorporated into this fifth</p>
+<p>generation hardware platform that is, you know, being</p>
+<p>deployed right now. And that&rsquo;s the platform, the fourth</p>
+<p>generation, the thing that we have right now driving in</p>
+<p>Phoenix, it&rsquo;s good enough to operate fully driverlessly,</p>
+<p>you know, night and day, you know, various speeds and</p>
+<p>various conditions, but the fifth generation is the platform</p>
+<p>upon which we want to go to massive scale. We, in turn,</p>
+<p>we&rsquo;ve really made qualitative improvements in terms of the</p>
+<p>capability of the system, the simplicity of the architecture,</p>
+<p>the reliability of the redundancy. It is designed to be</p>
+<p>manufacturable at very large scale and, you know, provides</p>
+<p>the right unit economics. So that&rsquo;s the next big step for us</p>
+<p>on the hardware side. That&rsquo;s already there for scale,</p>
+<p>the version five. That&rsquo;s right. And is that coincidence or</p>
+<p>should we look into a conspiracy theory that it&rsquo;s the</p>
+<p>same version as the pixel phone? Is that what&rsquo;s the</p>
+<p>hardware? They neither confirm nor deny. All right, cool. So,</p>
+<p>sorry. So that&rsquo;s the, okay, that&rsquo;s that axis. What else?</p>
+<p>So similarly, you know, hardware is a very discreet</p>
+<p>jump, but, you know, similar to how we&rsquo;re making that change</p>
+<p>from the fourth generation hardware to the fifth, we&rsquo;re</p>
+<p>making similar improvements on the software side to make it</p>
+<p>more, you know, robust and more general and allow us to kind of</p>
+<p>quickly scale beyond Phoenix. So that&rsquo;s the first dimension of</p>
+<p>core technology. The second dimension is evaluation and</p>
+<p>deployment. How do you measure your system? How do you</p>
+<p>evaluate it? How do you build a release and deployment process</p>
+<p>where, you know, with confidence, you can, you know,</p>
+<p>regularly release new versions of your driver into a fleet?</p>
+<p>How do you get good at it so that it is not, you know, a</p>
+<p>huge tax on your researchers and engineers that, you know, so</p>
+<p>you can, how do you build all these, you know, processes, the</p>
+<p>frameworks, the simulation, the evaluation, the data science,</p>
+<p>the validation, so that, you know, people can focus on</p>
+<p>improving the system and kind of the releases just go out the</p>
+<p>door and get deployed across the fleet. So we&rsquo;ve gotten really</p>
+<p>good at that in Phoenix. That&rsquo;s been a tremendously difficult</p>
+<p>problem, but that&rsquo;s what we have in Phoenix right now that gives</p>
+<p>us that foundation. And now we&rsquo;re working on kind of</p>
+<p>incorporating all the lessons that we&rsquo;ve learned to make it</p>
+<p>more efficient, to go to new places, you know, and scale up</p>
+<p>and just kind of, you know, stamp things out. So that&rsquo;s that</p>
+<p>second dimension of evaluation and deployment. And the third</p>
+<p>dimension is product, commercial, and operational</p>
+<p>excellence, right? And again, Phoenix there is providing an</p>
+<p>incredibly valuable platform. You know, that&rsquo;s why we&rsquo;re doing</p>
+<p>things end to end in Phoenix. We&rsquo;re learning, as you know, we</p>
+<p>discussed a little earlier today, tremendous amount of</p>
+<p>really valuable lessons from our users getting really</p>
+<p>incredible feedback. And we&rsquo;ll continue to iterate on that and</p>
+<p>incorporate all those lessons into making our product, you</p>
+<p>know, even better and more convenient for our users.</p>
+<p>So you&rsquo;re converting this whole process in Phoenix into</p>
+<p>something that could be copy and pasted elsewhere. So like,</p>
+<p>perhaps you didn&rsquo;t think of it that way when you were doing</p>
+<p>the experimentation in Phoenix, but so how long did you</p>
+<p>basically, and you can correct me, but you&rsquo;ve, I mean, it&rsquo;s</p>
+<p>still early days, but you&rsquo;ve taken the full journey in</p>
+<p>Phoenix, right? As you were saying of like what it takes to</p>
+<p>basically automate. I mean, it&rsquo;s not the entirety of Phoenix,</p>
+<p>right? But I imagine it can encompass the entirety of</p>
+<p>Phoenix. That&rsquo;s some near term date, but that&rsquo;s not even</p>
+<p>perhaps important. Like as long as it&rsquo;s a large enough</p>
+<p>geographic area. So what, how copy pastable is that process</p>
+<p>currently and how like, you know, like when you copy and</p>
+<p>paste in Google docs, I think now in, or in word, you can</p>
+<p>like apply source formatting or apply destination formatting.</p>
+<p>So how, when you copy and paste the Phoenix into like, say</p>
+<p>Boston, how do you apply the destination formatting? Like</p>
+<p>how much of the core of the entire process of bringing an</p>
+<p>actual public transportation, autonomous transportation</p>
+<p>service to a city is there in Phoenix that you understand</p>
+<p>enough to copy and paste into Boston or wherever? So we&rsquo;re</p>
+<p>not quite there yet. We&rsquo;re not at a point where we&rsquo;re kind of</p>
+<p>massively copy and pasting all over the place. But Phoenix,</p>
+<p>what we did in Phoenix, and we very intentionally have chosen</p>
+<p>Phoenix as our first full deployment area, you know,</p>
+<p>exactly for that reason to kind of tease the problem apart,</p>
+<p>look at each dimension and focus on the fundamentals of</p>
+<p>complexity and de risking those dimensions, and then bringing</p>
+<p>the entire thing together to get all the way and force</p>
+<p>ourselves to learn all those hard lessons on technology,</p>
+<p>hardware and software, on the evaluation deployment, on</p>
+<p>operating a service, operating a business using actually</p>
+<p>serving our customers all the way so that we&rsquo;re fully</p>
+<p>informed about the most difficult, most important</p>
+<p>challenges to get us to that next step of massive copy and</p>
+<p>pasting as you said. And that&rsquo;s what we&rsquo;re doing right now.</p>
+<p>We&rsquo;re incorporating all those things that we learned into</p>
+<p>that next system that then will allow us to kind of copy and</p>
+<p>paste all over the place and to massively scale to, you know,</p>
+<p>more users and more locations. I mean, you know, just talk a</p>
+<p>little bit about, you know, what does that mean along those</p>
+<p>different dimensions? So on the hardware side, for example,</p>
+<p>again, it&rsquo;s that switch from the fourth to the fifth</p>
+<p>generation. And the fifth generation is designed to kind</p>
+<p>of have that property. Can you say what other cities you&rsquo;re</p>
+<p>thinking about? Like, I&rsquo;m thinking about, sorry, we&rsquo;re in</p>
+<p>San Francisco now. I thought I want to move to San Francisco,</p>
+<p>but I&rsquo;m thinking about moving to Austin. I don&rsquo;t know why</p>
+<p>people are not being very nice about San Francisco currently,</p>
+<p>but maybe it&rsquo;s a small, maybe it&rsquo;s in vogue right now.</p>
+<p>But Austin seems, I visited there and it was, I was in a</p>
+<p>Walmart. It&rsquo;s funny, these moments like turn your life.</p>
+<p>There&rsquo;s this very nice woman with kind eyes, just like stopped</p>
+<p>and said, he looks so handsome in that tie, honey, to me. This</p>
+<p>has never happened to me in my life, but just the sweetness of</p>
+<p>this woman is something I&rsquo;ve never experienced, certainly on</p>
+<p>the streets of Boston, but even in San Francisco where people</p>
+<p>wouldn&rsquo;t, that&rsquo;s just not how they speak or think. I don&rsquo;t</p>
+<p>know. There&rsquo;s a warmth to Austin that love. And since</p>
+<p>Waymo does have a little bit of a history there, is that a</p>
+<p>possibility? Is this your version of asking the question</p>
+<p>of like, you know, Dimitri, I know you can&rsquo;t share your</p>
+<p>commercial and deployment roadmap, but I&rsquo;m thinking about</p>
+<p>moving to San Francisco, Austin, like, you know, blink twice if</p>
+<p>you think I should move to it. That&rsquo;s true. That&rsquo;s true. You</p>
+<p>got me. You know, we&rsquo;ve been testing all over the place. I</p>
+<p>think we&rsquo;ve been testing more than 25 cities. We drive</p>
+<p>in San Francisco. We drive in, you know, Michigan for snow.</p>
+<p>We are doing significant amount of testing in the Bay Area,</p>
+<p>including San Francisco, which is not like, because we&rsquo;re</p>
+<p>talking about the very different thing, which is like a</p>
+<p>full on large geographic area, public service. You can&rsquo;t share</p>
+<p>and you, okay. What about Moscow? When is that happening?</p>
+<p>Take on Yandex. I&rsquo;m not paying attention to those folks.</p>
+<p>They&rsquo;re doing, you know, there&rsquo;s a lot of fun. I mean,</p>
+<p>maybe as a way of a question, you didn&rsquo;t speak to sort of like</p>
+<p>policy or like, is there tricky things with government and so</p>
+<p>on? Like, is there other friction that you&rsquo;ve</p>
+<p>encountered except sort of technological friction of</p>
+<p>solving this very difficult problem? Is there other stuff</p>
+<p>that you have to overcome when deploying a public service in</p>
+<p>a city? That&rsquo;s interesting. It&rsquo;s very important. So we</p>
+<p>put significant effort in creating those partnerships and</p>
+<p>you know, those relationships with governments at all levels,</p>
+<p>local governments, municipalities, state level,</p>
+<p>federal level. We&rsquo;ve been engaged in very deep</p>
+<p>conversations from the earliest days of our projects.</p>
+<p>Whenever at all of these levels, whenever we go</p>
+<p>to test or operate in a new area, we always lead</p>
+<p>with a conversation with the local officials.</p>
+<p>But the result of that investment is that no,</p>
+<p>it&rsquo;s not challenges we have to overcome, but it is very</p>
+<p>important that we continue to have this conversation.</p>
+<p>Oh, yeah. I love politicians too. Okay, so Mr. Elon Musk said that</p>
+<p>LiDAR is a crutch. What are your thoughts?</p>
+<p>I wouldn&rsquo;t characterize it exactly that way. I know I think LiDAR is</p>
+<p>very important. It is a key sensor that we use just like</p>
+<p>other modalities, right? As we discussed, our cars use cameras, LiDAR</p>
+<p>and radars. They are all very important. They are</p>
+<p>at the kind of the physical level. They are very different. They have very</p>
+<p>different, you know, physical characteristics.</p>
+<p>Cameras are passive. LiDARs and radars are active.</p>
+<p>Use different wavelengths. So that means they complement each other</p>
+<p>very nicely and together combined, they can be used to</p>
+<p>build a much safer and much more capable system.</p>
+<p>So, you know, to me it&rsquo;s more of a question,</p>
+<p>you know, why the heck would you handicap yourself and not use one</p>
+<p>or more of those sensing modalities when they, you know, undoubtedly just make your</p>
+<p>system more capable and safer. Now,</p>
+<p>it, you know, what might make sense for one product or</p>
+<p>one business might not make sense for another one.</p>
+<p>So if you&rsquo;re talking about driver assist technologies, you make certain design</p>
+<p>decisions and you make certain trade offs and make different ones if you are</p>
+<p>building a driver that you deploy in fully driverless</p>
+<p>vehicles. And, you know, in LiDAR specifically, when this question comes up,</p>
+<p>I, you know, typically the criticisms that I hear or, you know, the</p>
+<p>counterpoints is that cost and aesthetics.</p>
+<p>And I don&rsquo;t find either of those, honestly, very compelling.</p>
+<p>So on the cost side, there&rsquo;s nothing fundamentally prohibitive</p>
+<p>about, you know, the cost of LiDARs. You know, radars used to be very expensive</p>
+<p>before people started, you know, before people made certain advances in</p>
+<p>technology and, you know, started to manufacture them at massive scale and</p>
+<p>deploy them in vehicles, right? You know, similar with LiDARs. And this is</p>
+<p>where the LiDARs that we have on our cars, especially the fifth generation,</p>
+<p>you know, we&rsquo;ve been able to make some pretty qualitative discontinuous</p>
+<p>jumps in terms of the fundamental technology that allow us to</p>
+<p>manufacture those things at very significant scale and at a fraction</p>
+<p>of the cost of both our previous generation</p>
+<p>as well as a fraction of the cost of, you know, what might be available</p>
+<p>on the market, you know, off the shelf right now. And, you know, that improvement</p>
+<p>will continue. So I think, you know, cost is not a</p>
+<p>real issue. Second one is, you know, aesthetics.</p>
+<p>You know, I don&rsquo;t think that&rsquo;s, you know, a real issue either.</p>
+<p>Beauty is in the eye of the beholder. Yeah. You can make LiDAR sexy again.</p>
+<p>I think you&rsquo;re exactly right. I think it is sexy. Like, honestly, I think form</p>
+<p>all of function. Well, okay. You know, I was actually, somebody brought this up to</p>
+<p>me. I mean, all forms of LiDAR, even</p>
+<p>like the ones that are like big, you can make</p>
+<p>look, I mean, you can make look beautiful.</p>
+<p>There&rsquo;s no sense in which you can&rsquo;t integrate it into design.</p>
+<p>Like, there&rsquo;s all kinds of awesome designs. I don&rsquo;t think</p>
+<p>small and humble is beautiful. It could be</p>
+<p>like, you know, brutalism or like, it could be</p>
+<p>like harsh corners. I mean, like I said, like hot rods. Like, I don&rsquo;t like, I don&rsquo;t</p>
+<p>necessarily like, like, oh man, I&rsquo;m going to start so much</p>
+<p>controversy with this. I don&rsquo;t like Porsches. Okay.</p>
+<p>The Porsche 911, like everyone says it&rsquo;s the most beautiful.</p>
+<p>No, no. It&rsquo;s like, it&rsquo;s like a baby car. It doesn&rsquo;t make any sense.</p>
+<p>But everyone, it&rsquo;s beauty is in the eye of the beholder. You&rsquo;re already looking at</p>
+<p>me like, what is this kid talking about? I&rsquo;m happy to talk about. You&rsquo;re digging your</p>
+<p>own hole. The form and function and my take on the</p>
+<p>beauty of the hardware that we put on our vehicles,</p>
+<p>you know, I will not comment on your Porsche monologue.</p>
+<p>Okay. All right. So, but aesthetics, fine. But there&rsquo;s an underlying, like,</p>
+<p>philosophical question behind the kind of lighter question is</p>
+<p>like, how much of the problem can be solved</p>
+<p>with computer vision, with machine learning?</p>
+<p>So I think without sort of disagreements and so on,</p>
+<p>it&rsquo;s nice to put it on the spectrum because Waymo is doing a lot of machine</p>
+<p>learning as well. It&rsquo;s interesting to think how much of</p>
+<p>driving, if we look at five years, 10 years, 50 years down the road,</p>
+<p>what can be learned in almost more and more and more</p>
+<p>end to end way. If we look at what Tesla is doing</p>
+<p>with, as a machine learning problem, they&rsquo;re doing a multitask learning</p>
+<p>thing where it&rsquo;s just, they break up driving into a bunch of learning tasks</p>
+<p>and they have one single neural network and they&rsquo;re just collecting huge amounts</p>
+<p>of data that&rsquo;s training that. I&rsquo;ve recently hung out with George</p>
+<p>Hotz. I don&rsquo;t know if you know George.</p>
+<p>I love him so much. He&rsquo;s just an entertaining human being.</p>
+<p>We were off mic talking about Hunter S. Thompson. He&rsquo;s the Hunter S. Thompson</p>
+<p>of autonomous driving. Okay. So he, I didn&rsquo;t realize this with comma</p>
+<p>AI, but they&rsquo;re like really trying to end to end.</p>
+<p>They&rsquo;re the machine, like looking at the machine learning problem, they&rsquo;re</p>
+<p>really not doing multitask learning, but it&rsquo;s</p>
+<p>computing the drivable area as a machine learning task</p>
+<p>and hoping that like down the line, this level two system, this driver</p>
+<p>assistance will eventually lead to</p>
+<p>allowing you to have a fully autonomous vehicle. Okay. There&rsquo;s an underlying</p>
+<p>deep philosophical question there, technical question</p>
+<p>of how much of driving can be learned. So LiDAR is an effective tool today</p>
+<p>for actually deploying a successful service in Phoenix, right? That&rsquo;s safe,</p>
+<p>that&rsquo;s reliable, et cetera, et cetera. But the question,</p>
+<p>and I&rsquo;m not saying you can&rsquo;t do machine learning on LiDAR, but the question is</p>
+<p>that like how much of driving can be learned eventually.</p>
+<p>Can we do fully autonomous? That&rsquo;s learned.</p>
+<p>Yeah. You know, learning is all over the place</p>
+<p>and plays a key role in every part of our system.</p>
+<p>As you said, I would, you know, decouple the sensing modalities</p>
+<p>from the, you know, ML and the software parts of it.</p>
+<p>LiDAR, radar, cameras, like it&rsquo;s all machine learning.</p>
+<p>All of the object detection classification, of course, like that&rsquo;s</p>
+<p>what, you know, these modern deep nets and count nets are very</p>
+<p>good at. You feed them raw data, massive amounts of raw data,</p>
+<p>and that&rsquo;s actually what our custom build LiDARs and radars are really good</p>
+<p>at. And radars, they don&rsquo;t just give you point</p>
+<p>estimates of, you know, objects in space, they give you raw,</p>
+<p>like, physical observations. And then you take all of that raw information,</p>
+<p>you know, there&rsquo;s colors of the pixels, whether it&rsquo;s, you know, LiDARs returns</p>
+<p>and some auxiliary information. It&rsquo;s not just distance,</p>
+<p>right? And, you know, angle and distance is much richer information that you get</p>
+<p>from those returns, plus really rich information from the</p>
+<p>radars. You fuse it all together and you feed it into those massive</p>
+<p>ML models that then, you know, lead to the best results in terms of, you</p>
+<p>know, object detection, classification, state estimation.</p>
+<p>So there&rsquo;s a side to interop, but there is a fusion. I mean, that&rsquo;s something</p>
+<p>that people didn&rsquo;t do for a very long time,</p>
+<p>which is like at the sensor fusion level, I guess,</p>
+<p>like early on fusing the information together, whether</p>
+<p>so that the the sensory information that the vehicle receives from the different</p>
+<p>modalities or even from different cameras is</p>
+<p>combined before it is fed into the machine learning models.</p>
+<p>Yeah, so I think this is one of the trends you&rsquo;re seeing more of that you</p>
+<p>mentioned end to end. There&rsquo;s different interpretation of end to end. There is</p>
+<p>kind of the purest interpretation of I&rsquo;m going to</p>
+<p>like have one model that goes from raw sensor data to like,</p>
+<p>you know, steering torque and, you know, gas breaks. That, you know,</p>
+<p>that&rsquo;s too much. I don&rsquo;t think that&rsquo;s the right way to do it.</p>
+<p>There&rsquo;s more, you know, smaller versions of end to end</p>
+<p>where you&rsquo;re kind of doing more end to end learning or core training or</p>
+<p>depropagation of kind of signals back and forth across</p>
+<p>the different stages of your system. There&rsquo;s, you know, really good ways it</p>
+<p>gets into some fairly complex design choices where on one</p>
+<p>hand you want modularity and decomposability,</p>
+<p>decomposability of your system. But on the other hand,</p>
+<p>you don&rsquo;t want to create interfaces that are too narrow or too brittle</p>
+<p>to engineered where you&rsquo;re giving up on the generality of the solution or you&rsquo;re</p>
+<p>unable to properly propagate signal, you know, reach signal forward and losses</p>
+<p>and, you know, back so you can optimize the whole system jointly.</p>
+<p>So I would decouple and I guess what you&rsquo;re seeing in terms of the fusion</p>
+<p>of the sensing data from different modalities as well as kind of fusion</p>
+<p>at in the temporal level going more from, you know, frame by frame</p>
+<p>where, you know, you would have one net that would do frame by frame detection</p>
+<p>and camera and then, you know, something that does frame by frame and</p>
+<p>lighter and then radar and then you fuse it, you know, in a weaker engineered way</p>
+<p>later. Like the field over the last, you know,</p>
+<p>decade has been evolving in more kind of joint fusion, more end to end models that</p>
+<p>are, you know, solving some of these tasks, you know, jointly and there&rsquo;s</p>
+<p>tremendous power in that and, you know, that&rsquo;s the</p>
+<p>progression that kind of our technology, our stack has been on as well.</p>
+<p>Now to your, you know, that so I would decouple the kind of sensing and how</p>
+<p>that information is fused from the role of ML and the entire stack.</p>
+<p>And, you know, I guess it&rsquo;s, there&rsquo;s trade offs and, you know, modularity and</p>
+<p>how do you inject inductive bias into your system?</p>
+<p>All right, this is, there&rsquo;s tremendous power</p>
+<p>in being able to do that. So, you know, we have, there&rsquo;s no</p>
+<p>part of our system that is not heavily, that does not heavily, you know, leverage</p>
+<p>data driven development or state of the art ML.</p>
+<p>But there&rsquo;s mapping, there&rsquo;s a simulator, there&rsquo;s perception, you know, object</p>
+<p>level, you know, perception, whether it&rsquo;s</p>
+<p>semantic understanding, prediction, decision making, you know, so forth and</p>
+<p>so on.</p>
+<p>It&rsquo;s, you know, of course, object detection and classification, like you&rsquo;re</p>
+<p>finding pedestrians and cars and cyclists and, you know, cones and signs</p>
+<p>and vegetation and being very good at estimating</p>
+<p>kind of detection, classification, and state estimation. There&rsquo;s just stable</p>
+<p>stakes, like that&rsquo;s step zero of this whole stack. You can be</p>
+<p>incredibly good at that, whether you use cameras or light as a</p>
+<p>radar, but that&rsquo;s just, you know, that&rsquo;s stable stakes, that&rsquo;s just step zero.</p>
+<p>Beyond that, you get into the really interesting challenges of semantic</p>
+<p>understanding at the perception level, you get into scene level reasoning, you</p>
+<p>get into very deep problems that have to do with prediction and joint</p>
+<p>prediction and interaction, so the interaction</p>
+<p>between all the actors in the environment, pedestrians, cyclists, other</p>
+<p>cars, and you get into decision making, right? So, how do you build a lot of</p>
+<p>systems? So, we leverage ML very heavily in all of</p>
+<p>these components. I do believe that the best results you</p>
+<p>achieve by kind of using a hybrid approach and</p>
+<p>having different types of ML, having</p>
+<p>different models with different degrees of inductive bias</p>
+<p>that you can have, and combining kind of model,</p>
+<p>you know, free approaches with some model based approaches and some</p>
+<p>rule based, physics based systems. So, you know, one example I can give</p>
+<p>you is traffic lights. There&rsquo;s a problem of the detection of</p>
+<p>traffic light state, and obviously that&rsquo;s a great problem for, you know, computer</p>
+<p>vision confidence, or, you know, that&rsquo;s their bread and</p>
+<p>butter, right? That&rsquo;s how you build that. But then the</p>
+<p>interpretation of, you know, of a traffic light, that you&rsquo;re</p>
+<p>gonna need to learn that, right? You don&rsquo;t need to build some,</p>
+<p>you know, complex ML model that, you know, infers</p>
+<p>with some, you know, precision and recall that red means stop.</p>
+<p>Like, it&rsquo;s a very clear engineered signal</p>
+<p>with very clear semantics, right? So you want to induce that bias, like how you</p>
+<p>induce that bias, and that whether, you know, it&rsquo;s a</p>
+<p>constraint or a cost, you know, function in your stack, but like</p>
+<p>it is important to be able to inject that, like, clear semantic</p>
+<p>signal into your stack. And, you know, that&rsquo;s what we do.</p>
+<p>And, but then the question of, like, and that&rsquo;s when you</p>
+<p>apply it to yourself, when you are making decisions whether you want to stop</p>
+<p>for a red light, you know, or not.</p>
+<p>But if you think about how other people treat traffic lights,</p>
+<p>we&rsquo;re back to the ML version of that. You know they&rsquo;re supposed to stop</p>
+<p>for a red light, but that doesn&rsquo;t mean they will.</p>
+<p>So then you&rsquo;re back in the, like, very heavy</p>
+<p>ML domain where you&rsquo;re picking up on, like, very subtle cues about,</p>
+<p>you know, they have to do with the behavior of objects, pedestrians, cyclists,</p>
+<p>cars, and the whole, you know, entire configuration of the scene</p>
+<p>that allow you to make accurate predictions on whether they will, in</p>
+<p>fact, stop or run a red light. So it sounds like already for Waymo,</p>
+<p>like, machine learning is a huge part of the stack.</p>
+<p>So it&rsquo;s a huge part of, like, not just, so obviously the first, the level</p>
+<p>zero, or whatever you said, which is, like,</p>
+<p>just the object detection of things that, you know, with no other machine learning</p>
+<p>can do, but also starting to do prediction behavior and so on to</p>
+<p>model the, what other, what the other parties in the</p>
+<p>scene, entities in the scene are going to do.</p>
+<p>So machine learning is more and more playing a role in that</p>
+<p>as well. Of course. Oh, absolutely. I think we&rsquo;ve been</p>
+<p>going back to the, you know, earliest days, like, you know, DARPA,</p>
+<p>the DARPA Grand Challenge, our team was leveraging, you know, machine</p>
+<p>learning. It was, like, pre, you know, ImageNet, and it was a very</p>
+<p>different type of ML, but, and I think actually it was before</p>
+<p>my time, but the Stanford team during the Grand Challenge had a very</p>
+<p>interesting machine learned system that would, you know, use</p>
+<p>LiDAR and camera. We&rsquo;ve been driving in the</p>
+<p>desert, and it, we had built the model where it would kind of</p>
+<p>extend the range of free space reasoning. We get a</p>
+<p>clear signal from LiDAR, and then it had a model that said, hey, like,</p>
+<p>this stuff on camera kind of sort of looks like this stuff in LiDAR, and I</p>
+<p>know this stuff that I&rsquo;m seeing in LiDAR, I&rsquo;m very confident it&rsquo;s free space,</p>
+<p>so let me extend that free space zone into the camera range that would allow</p>
+<p>the vehicle to drive faster. And then we&rsquo;ve been building on top of</p>
+<p>that and kind of staying and pushing the state of the art in ML,</p>
+<p>in all kinds of different ML over the years. And in fact,</p>
+<p>from the early days, I think, you know, 2010 is probably the year</p>
+<p>where Google, maybe 2011 probably, got pretty heavily involved in</p>
+<p>machine learning, kind of deep nuts, and at that time it was probably the only</p>
+<p>company that was very heavily investing in kind of state of the art ML and</p>
+<p>self driving cars. And they go hand in hand.</p>
+<p>And we&rsquo;ve been on that journey ever since. We&rsquo;re doing, pushing</p>
+<p>a lot of these areas in terms of research at Waymo, and we</p>
+<p>collaborate very heavily with the researchers in</p>
+<p>Alphabet, and all kinds of ML, supervised ML,</p>
+<p>unsupervised ML, published some</p>
+<p>interesting research papers in the space,</p>
+<p>especially recently. It&rsquo;s just a super active learning as well.</p>
+<p>Yeah, so super, super active. Of course, there&rsquo;s, you know, kind of the more</p>
+<p>mature stuff, like, you know, ConvNets for, you know, object detection.</p>
+<p>But there&rsquo;s some really interesting, really active work that&rsquo;s happening</p>
+<p>in kind of more, you know, in bigger models and, you know,</p>
+<p>models that have more structure to them,</p>
+<p>you know, not just, you know, large bitmaps and reason about temporal sequences.</p>
+<p>And some of the interesting breakthroughs that you&rsquo;ve, you know, we&rsquo;ve seen</p>
+<p>in language models, right? You know, transformers,</p>
+<p>you know, GPT3 inference. There&rsquo;s some really interesting applications of some</p>
+<p>of the core breakthroughs to those problems</p>
+<p>of, you know, behavior prediction, as well as, you know, decision making and</p>
+<p>planning, right? You can think about it, kind of the the behavior,</p>
+<p>how, you know, the path, the trajectories, the how people drive.</p>
+<p>They have kind of a share, a lot of the fundamental structure,</p>
+<p>you know, this problem. There&rsquo;s, you know, sequential,</p>
+<p>you know, nature. There&rsquo;s a lot of structure in this representation.</p>
+<p>There is a strong locality, kind of like in sentences, you know, words that follow</p>
+<p>each other. They&rsquo;re strongly connected, but there&rsquo;s</p>
+<p>also kind of larger context that doesn&rsquo;t have that locality, and you also see that</p>
+<p>in driving, right? What, you know, is happening in the scene</p>
+<p>as a whole has very strong implications on,</p>
+<p>you know, the kind of the next step in that sequence where</p>
+<p>whether you&rsquo;re, you know, predicting what other people are going to do, whether</p>
+<p>you&rsquo;re making your own decisions, or whether in the simulator you&rsquo;re</p>
+<p>building generative models of, you know, humans walking, cyclists</p>
+<p>riding, and other cars driving. That&rsquo;s all really fascinating, like how</p>
+<p>it&rsquo;s fascinating to think that transformer models and all this,</p>
+<p>all the breakthroughs in language and NLP that might be applicable to like</p>
+<p>driving at the higher level, at the behavioral level, that&rsquo;s kind of</p>
+<p>fascinating. Let me ask about pesky little creatures</p>
+<p>called pedestrians and cyclists. They seem, so humans are a problem. If we</p>
+<p>can get rid of them, I would. But unfortunately, they&rsquo;re all sort of</p>
+<p>a source of joy and love and beauty, so let&rsquo;s keep them around.</p>
+<p>They&rsquo;re also our customers. For your perspective, yes, yes,</p>
+<p>for sure. They&rsquo;re a source of money, very good.</p>
+<p>But I don&rsquo;t even know where I was going. Oh yes,</p>
+<p>pedestrians and cyclists, you know,</p>
+<p>they&rsquo;re a fascinating injection into the system of</p>
+<p>uncertainty of like a game theoretic dance of what to do. And also</p>
+<p>they have perceptions of their own, and they can tweet</p>
+<p>about your product, so you don&rsquo;t want to run them over</p>
+<p>from that perspective. I mean, I don&rsquo;t know, I&rsquo;m joking a lot, but</p>
+<p>I think in seriousness, like, you know, pedestrians are a complicated</p>
+<p>computer vision problem, a complicated behavioral problem. Is there something</p>
+<p>interesting you could say about what you&rsquo;ve learned</p>
+<p>from a machine learning perspective, from also an autonomous vehicle,</p>
+<p>and a product perspective about just interacting with the humans in this</p>
+<p>world? Yeah, just to state on record, we care</p>
+<p>deeply about the safety of pedestrians, you know, even the ones that don&rsquo;t have</p>
+<p>Twitter accounts. Thank you. All right, cool.</p>
+<p>Not me. But yes, I&rsquo;m glad, I&rsquo;m glad somebody does.</p>
+<p>Okay. But you know, in all seriousness, safety</p>
+<p>of vulnerable road users, pedestrians or cyclists, is one of our</p>
+<p>highest priorities. We do a tremendous amount of testing</p>
+<p>and validation, and put a very significant emphasis</p>
+<p>on, you know, the capabilities of our systems that have to do with safety</p>
+<p>around those unprotected vulnerable road users.</p>
+<p>You know, cars, just, you know, discussed earlier in Phoenix, we have completely</p>
+<p>empty cars, completely driverless cars, you know, driving in this very large area,</p>
+<p>and you know, some people use them to, you know, go to school, so they&rsquo;ll drive</p>
+<p>through school zones, right? So, kids are kind of the very special</p>
+<p>class of those vulnerable user road users, right? You want to be,</p>
+<p>you know, super, super safe, and super, super cautious around those. So, we take</p>
+<p>it very, very, very seriously. And you know, what does it take to</p>
+<p>be good at it? You know,</p>
+<p>an incredible amount of performance across your whole stack. You know,</p>
+<p>starts with hardware, and again, you want to use all</p>
+<p>sensing modalities available to you. Imagine driving on a residential road</p>
+<p>at night, and kind of making a turn, and you don&rsquo;t have, you know, headlights</p>
+<p>covering some part of the space, and like, you know, a kid might</p>
+<p>run out. And you know, lighters are amazing at that. They</p>
+<p>see just as well in complete darkness as they do during the day, right? So, just</p>
+<p>again, it gives you that extra,</p>
+<p>you know, margin in terms of, you know, capability, and performance, and safety,</p>
+<p>and quality. And in fact, we oftentimes, in these</p>
+<p>kinds of situations, we have our system detect something,</p>
+<p>in some cases even earlier than our trained operators in the car might do,</p>
+<p>right? Especially, you know, in conditions like, you know, very dark nights.</p>
+<p>So, starts with sensing, then, you know, perception</p>
+<p>has to be incredibly good. And you have to be very, very good</p>
+<p>at kind of detecting pedestrians in all kinds of situations, and all kinds</p>
+<p>of environments, including, you know, people in weird poses,</p>
+<p>people kind of running around, and you know, being partially occluded.</p>
+<p>So, you know, that&rsquo;s step number one, right?</p>
+<p>Then, you have to have in very high accuracy,</p>
+<p>and very low latency, in terms of your reactions</p>
+<p>to, you know, what, you know, these actors might do, right? And we&rsquo;ve put a</p>
+<p>tremendous amount of engineering, and tremendous amount of validation, in to</p>
+<p>make sure our system performs properly. And, you know, oftentimes, it</p>
+<p>does require a very strong reaction to do the safe thing. And, you know, we</p>
+<p>actually see a lot of cases like that. That&rsquo;s the long tail of really rare,</p>
+<p>you know, really, you know, crazy events that contribute to the safety</p>
+<p>around pedestrians. Like, one example that comes to mind, that we actually</p>
+<p>happened in Phoenix, where we were driving</p>
+<p>along, and I think it was a 45 mile per hour road, so you have pretty high speed</p>
+<p>traffic, and there was a sidewalk next to it, and</p>
+<p>there was a cyclist on the sidewalk. And as we were in the right lane,</p>
+<p>right next to the side, so it was a multi lane road, so as we got close</p>
+<p>to the cyclist on the sidewalk, it was a woman, you know, she tripped and fell.</p>
+<p>Just, you know, fell right into the path of our vehicle, right?</p>
+<p>And our, you know, car, you know, this was actually with a</p>
+<p>test driver, our test drivers, did exactly the right thing.</p>
+<p>They kind of reacted, and came to stop. It requires both very strong steering,</p>
+<p>and, you know, strong application of the brake. And then we simulated what our</p>
+<p>system would have done in that situation, and it did, you know,</p>
+<p>exactly the same thing. And that speaks to, you know, all of</p>
+<p>those components of really good state estimation and</p>
+<p>tracking. And, like, imagine, you know, a person</p>
+<p>on a bike, and they&rsquo;re falling over, and they&rsquo;re doing that right in front of you,</p>
+<p>right? So you have to be really, like, things are changing. The appearance of</p>
+<p>that whole thing is changing, right? And a person goes one way, they&rsquo;re falling on</p>
+<p>the road, they&rsquo;re, you know, being flat on the ground in front of</p>
+<p>you. You know, the bike goes flying the other direction.</p>
+<p>Like, the two objects that used to be one, they&rsquo;re now, you know,</p>
+<p>are splitting apart, and the car has to, like, detect all of that.</p>
+<p>Like, milliseconds matter, and it doesn&rsquo;t, you know, it&rsquo;s not good enough to just</p>
+<p>brake. You have to, like, steer and brake, and there&rsquo;s traffic around you.</p>
+<p>So, like, it all has to come together, and it was really great</p>
+<p>to see in this case, and other cases like that, that we&rsquo;re actually seeing in the</p>
+<p>wild, that our system is, you know, performing</p>
+<p>exactly the way that we would have liked, and is able to,</p>
+<p>you know, avoid collisions like this.</p>
+<p>That&rsquo;s such an exciting space for robotics.</p>
+<p>Like, in that split second to make decisions of life and death.</p>
+<p>I don&rsquo;t know. The stakes are high, in a sense, but it&rsquo;s also beautiful</p>
+<p>that for somebody who loves artificial intelligence, the possibility that an AI</p>
+<p>system might be able to save a human life.</p>
+<p>That&rsquo;s kind of exciting as a problem, like, to wake up.</p>
+<p>It&rsquo;s terrifying, probably, for an engineer to wake up,</p>
+<p>and to think about, but it&rsquo;s also exciting because it&rsquo;s, like,</p>
+<p>it&rsquo;s in your hands. Let me try to ask a question that&rsquo;s often brought up about</p>
+<p>autonomous vehicles, and it might be fun to see if you have</p>
+<p>anything interesting to say, which is about the trolley problem.</p>
+<p>So, a trolley problem is an interesting philosophical construct</p>
+<p>that highlights, and there&rsquo;s many others like it,</p>
+<p>of the difficult ethical decisions that we humans have before us in this</p>
+<p>complicated world. So, specifically is the choice</p>
+<p>between if you are forced to choose to kill</p>
+<p>a group X of people versus a group Y of people, like</p>
+<p>one person. If you did nothing, you would kill one person, but if</p>
+<p>you would kill five people, and if you decide to swerve out of the way, you</p>
+<p>would only kill one person. Do you do nothing, or you choose to do</p>
+<p>something? You can construct all kinds of, sort of,</p>
+<p>ethical experiments of this kind that, I think, at least on a positive note,</p>
+<p>inspire you to think about, like, introspect</p>
+<p>what are the physics of our morality, and there&rsquo;s usually not</p>
+<p>good answers there. I think people love it because it&rsquo;s just an exciting</p>
+<p>thing to think about. I think people who build autonomous</p>
+<p>vehicles usually roll their eyes, because this is not,</p>
+<p>this one as constructed, this, like, literally never comes up</p>
+<p>in reality. You never have to choose between killing</p>
+<p>one or, like, one of two groups of people,</p>
+<p>but I wonder if you can speak to, is there some something interesting</p>
+<p>to you as an engineer of autonomous vehicles that&rsquo;s within the trolley</p>
+<p>problem, or maybe more generally, are there</p>
+<p>difficult ethical decisions that you find</p>
+<p>that an algorithm must make? On the specific version of the trolley problem,</p>
+<p>which one would you do, if you&rsquo;re driving? The question itself</p>
+<p>is a profound question, because we humans ourselves</p>
+<p>cannot answer, and that&rsquo;s the very point. I would kill both.</p>
+<p>Yeah, humans, I think you&rsquo;re exactly right in that, you know, humans are not</p>
+<p>particularly good. I think they&rsquo;re kind of phrased as, like, what would a computer do,</p>
+<p>but, like, humans, you know, are not very good, and actually oftentimes</p>
+<p>I think that, you know, freezing and kind of not doing anything, because,</p>
+<p>like, you&rsquo;ve taken a few extra milliseconds to just process, and then</p>
+<p>you end up, like, doing the worst of the possible outcomes, right? So,</p>
+<p>I do think that, as you&rsquo;ve pointed out, it can be</p>
+<p>a bit of a distraction, and it can be a bit of a kind of red herring. I think</p>
+<p>it&rsquo;s an interesting, you know, discussion</p>
+<p>in the realm of philosophy, right? But in terms of</p>
+<p>what, you know, how that affects the actual</p>
+<p>engineering and deployment of self driving vehicles,</p>
+<p>it&rsquo;s not how you go about building a system, right? We&rsquo;ve talked</p>
+<p>about how you engineer a system, how you, you know, go about evaluating</p>
+<p>the different components and, you know, the safety of the entire thing.</p>
+<p>How do you kind of inject the, you know, various</p>
+<p>model based, safety based arguments, and, like, yes, you reason at parts of the</p>
+<p>system, you know, you reason about the</p>
+<p>probability of a collision, the severity of that collision, right?</p>
+<p>And that is incorporated, and there&rsquo;s, you know, you have to properly reason</p>
+<p>about the uncertainty that flows through the system, right? So,</p>
+<p>you know, those, you know, factors definitely play a role in how</p>
+<p>the cars then behave, but they tend to be more</p>
+<p>of, like, the emergent behavior. And what you see, like, you&rsquo;re absolutely right</p>
+<p>that these, you know, clear theoretical problems that they, you</p>
+<p>know, you don&rsquo;t encounter that in the system, and really kind of being</p>
+<p>back to our previous discussion of, like, what, you know, what, you</p>
+<p>know, which one do you choose? Well, you know, oftentimes, like,</p>
+<p>you made a mistake earlier. Like, you shouldn&rsquo;t be in that situation</p>
+<p>in the first place, right? And in reality, the system comes up.</p>
+<p>If you build a very good, safe, and capable driver,</p>
+<p>you have enough, you know, clues in the environment that you</p>
+<p>drive defensively, so you don&rsquo;t put yourself in that situation, right? And</p>
+<p>again, you know, it has, you know, this, if you go back to that analogy of, you</p>
+<p>know, precision and recoil, like, okay, you can make a, you know, very hard trade</p>
+<p>off, but like, neither answer is really good.</p>
+<p>But what instead you focus on is kind of moving</p>
+<p>the whole curve up, and then you focus on building the right capability on the</p>
+<p>right defensive driving, so that, you know, you don&rsquo;t put yourself in the</p>
+<p>situation like this. I don&rsquo;t know if you have a good answer</p>
+<p>for this, but people love it when I ask this question</p>
+<p>about books. Are there books in your life that you&rsquo;ve enjoyed,</p>
+<p>philosophical, fiction, technical, that had a big impact on you as an engineer or</p>
+<p>as a human being? You know, everything from science fiction</p>
+<p>to a favorite textbook. Is there three books that stand out that</p>
+<p>you can think of? Three books. So I would, you know, that</p>
+<p>impacted me, I would say,</p>
+<p>and this one is, you probably know it well,</p>
+<p>but not generally well known, I think, in the U.S., or kind of</p>
+<p>internationally, The Master and Margarita. It&rsquo;s one of, actually, my</p>
+<p>favorite books. It is, you know, by</p>
+<p>Russian, it&rsquo;s a novel by Russian author Mikhail Bulgakov, and it&rsquo;s just, it&rsquo;s a</p>
+<p>great book. It&rsquo;s one of those books that you can, like,</p>
+<p>reread your entire life, and it&rsquo;s very accessible. You can read it as a kid,</p>
+<p>and, like, it&rsquo;s, you know, the plot is interesting. It&rsquo;s, you know, the</p>
+<p>devil, you know, visiting the Soviet Union,</p>
+<p>and, you know, but it, like, you read it, reread it</p>
+<p>at different stages of your life, and you enjoy it for</p>
+<p>different, very different reasons, and you keep finding, like, deeper and deeper</p>
+<p>meaning, and, you know, kind of affected, you know,</p>
+<p>had a, definitely had an, like, imprint on me, you know, mostly from the,</p>
+<p>probably kind of the cultural, stylistic aspect. Like, it makes you think one of</p>
+<p>those books that, you know, is good and makes you think, but also has,</p>
+<p>like, this really, you know, silly, quirky, dark sense of, you know,</p>
+<p>humor. It captures the Russian soul more than</p>
+<p>many, perhaps, many other books. On that, like, slight note,</p>
+<p>just out of curiosity, one of the saddest things is I&rsquo;ve read that book</p>
+<p>in English. Did you, by chance, read it in English or in Russian?</p>
+<p>In Russian, only in Russian, and I actually, that is a question I had,</p>
+<p>kind of posed to myself every once in a while, like, I wonder how well it</p>
+<p>translates, if it translates at all, and there&rsquo;s the</p>
+<p>language aspect of it, and then there&rsquo;s the cultural aspect, so</p>
+<p>I, actually, I&rsquo;m not sure if, you know, either of those would</p>
+<p>work well in English. Now, I forget their names, but, so, when the COVID lifts a</p>
+<p>little bit, I&rsquo;m traveling to Paris for several reasons. One is just, I&rsquo;ve</p>
+<p>never been to Paris, I want to go to Paris, but</p>
+<p>there&rsquo;s the most famous translators of Dostoevsky, Tolstoy, of most of</p>
+<p>Russian literature live there. There&rsquo;s a couple, they&rsquo;re famous,</p>
+<p>a man and a woman, and I&rsquo;m going to, sort of, have a series of conversations with</p>
+<p>them, and in preparation for that, I&rsquo;m starting</p>
+<p>to read Dostoevsky in Russian, so I&rsquo;m really embarrassed to say that I read</p>
+<p>this, everything I&rsquo;ve read in Russian literature of, like,</p>
+<p>serious depth has been in English, even though</p>
+<p>I can also read, I mean, obviously, in Russian, but</p>
+<p>for some reason, it seemed,</p>
+<p>in the optimization of life, it seemed the improper decision to do, to read in</p>
+<p>Russian, like, you know, like, I don&rsquo;t need to,</p>
+<p>I need to think in English, not in Russian, but now I&rsquo;m changing my mind on</p>
+<p>that, and so, the question of how well I translate, it&rsquo;s a</p>
+<p>really fun to method one, like, even with Dostoevsky.</p>
+<p>So, from what I understand, Dostoevsky translates easier,</p>
+<p>others don&rsquo;t as much. Obviously, the poetry doesn&rsquo;t translate as well,</p>
+<p>I&rsquo;m also the music big fan of Vladimir Vosotsky,</p>
+<p>he doesn&rsquo;t obviously translate well, people have tried,</p>
+<p>but mastermind, I don&rsquo;t know, I don&rsquo;t know about that one, I just know in</p>
+<p>English, you know, as fun as hell in English, so, so, but</p>
+<p>it&rsquo;s a curious question, and I want to study it rigorously from both the</p>
+<p>machine learning aspect, and also because I want to do a</p>
+<p>couple of interviews in Russia, that</p>
+<p>I&rsquo;m still unsure of how to properly conduct an interview</p>
+<p>across a language barrier, it&rsquo;s a fascinating question</p>
+<p>that ultimately communicates to an American audience. There&rsquo;s a few</p>
+<p>Russian people that I think are truly special human beings,</p>
+<p>and I feel, like, I sometimes encounter this with some</p>
+<p>incredible scientists, and maybe you encounter this</p>
+<p>as well at some point in your life, that it feels like because of the language</p>
+<p>barrier, their ideas are lost to history. It&rsquo;s a sad thing, I think about, like,</p>
+<p>Chinese scientists, or even authors that, like,</p>
+<p>that we don&rsquo;t, in an English speaking world, don&rsquo;t get to appreciate</p>
+<p>some, like, the depth of the culture because it&rsquo;s lost in translation,</p>
+<p>and I feel like I would love to show that to the world,</p>
+<p>like, I&rsquo;m just some idiot, but because I have this,</p>
+<p>like, at least some semblance of skill in speaking Russian,</p>
+<p>I feel like, and I know how to record stuff on a video camera,</p>
+<p>I feel like I want to catch, like, Grigori Perlman, who&rsquo;s a mathematician, I&rsquo;m not</p>
+<p>sure if you&rsquo;re familiar with him, I want to talk to him, like, he&rsquo;s a</p>
+<p>fascinating mind, and to bring him to a wider audience in English speaking</p>
+<p>will be fascinating, but that requires to be rigorous about this question</p>
+<p>of how well Bulgakov translates. I mean, I know it&rsquo;s a silly</p>
+<p>concept, but it&rsquo;s a fundamental one, because how do you translate, and</p>
+<p>that&rsquo;s the thing that Google Translate is also facing</p>
+<p>as a more machine learning problem, but I wonder as a more</p>
+<p>bigger problem for AI, how do we capture the magic</p>
+<p>that&rsquo;s there in the language? I think that&rsquo;s a really interesting,</p>
+<p>really challenging problem. If you do read it, Master and Margarita</p>
+<p>in English, sorry, in Russian, I&rsquo;d be curious</p>
+<p>to get your opinion, and I think part of it is language, but part of it&rsquo;s just,</p>
+<p>you know, centuries of culture, that, you know, the cultures are</p>
+<p>different, so it&rsquo;s hard to connect that.</p>
+<p>Okay, so that was my first one, right? You had two more. The second one I</p>
+<p>would probably pick is the science fiction by the</p>
+<p>Strogatsky brothers. You know, it&rsquo;s up there with, you know,</p>
+<p>Isaac Asimov and, you know, Ray Bradbury and, you know, company. The</p>
+<p>Strogatsky brothers kind of appealed more to me. I think it made more of an</p>
+<p>impression on me growing up. I apologize if I&rsquo;m</p>
+<p>showing my complete ignorance. I&rsquo;m so weak on sci fi. What did</p>
+<p>they write? Oh, Roadside Picnic,</p>
+<p>Heart to Be a God,</p>
+<p>Beetle in an Ant Hill, Monday Starts on Saturday. Like, it&rsquo;s</p>
+<p>not just science fiction. It also has very interesting, you know,</p>
+<p>interpersonal and societal questions, and some of the</p>
+<p>language is just completely hilarious.</p>
+<p>That&rsquo;s the one. Oh, interesting. Monday Starts on Saturday. So,</p>
+<p>I need to read. Okay, oh boy. You put that in the category of science fiction?</p>
+<p>That one is, I mean, this was more of a silly,</p>
+<p>you know, humorous work. I mean, there is kind of&hellip;</p>
+<p>It&rsquo;s profound too, right? Science fiction, right? It&rsquo;s about, you know, this</p>
+<p>research institute, and it has deep parallels to</p>
+<p>serious research, but the setting, of course,</p>
+<p>is that they&rsquo;re working on, you know, magic, right? And there&rsquo;s a</p>
+<p>lot of stuff. And that&rsquo;s their style, right?</p>
+<p>And, you know, other books are very different, right? You know,</p>
+<p>Heart to Be a God, right? It&rsquo;s about kind of this higher society being injected</p>
+<p>into this primitive world, and how they operate there,</p>
+<p>and some of the very deep ethical questions there,</p>
+<p>right? And, like, they&rsquo;ve got this full spectrum. Some is, you know, more about</p>
+<p>kind of more adventure style. But, like, I enjoy all of</p>
+<p>their books. There&rsquo;s just, you know, probably a couple.</p>
+<p>Actually, one I think that they consider their most important work.</p>
+<p>I think it&rsquo;s The Snail on a Hill. I&rsquo;m not exactly sure how it</p>
+<p>translates. I tried reading a couple times. I still don&rsquo;t get it.</p>
+<p>But everything else I fully enjoyed. And, like, for one of my birthdays as a kid, I</p>
+<p>got, like, their entire collection, like, occupied a giant shelf in my room, and</p>
+<p>then, like, over the holidays, I just, like,</p>
+<p>you know, my parents couldn&rsquo;t drag me out of the room, and I read the whole thing</p>
+<p>cover to cover. And I really enjoyed it.</p>
+<p>And that&rsquo;s one more. For the third one, you know, maybe a little bit</p>
+<p>darker, but, you know, comes to mind is Orwell&rsquo;s</p>
+<ol start="1984">
+<li>And, you know, you asked what made an</li>
+</ol>
+<p>impression on me and the books that people should read. That one, I think,</p>
+<p>falls in the category of both. You know, definitely it&rsquo;s one of those</p>
+<p>books that you read, and you just kind of, you know, put it</p>
+<p>down and you stare in space for a while. You know, that kind of work. I think</p>
+<p>there&rsquo;s, you know, lessons there. People should</p>
+<p>not ignore. And, you know, nowadays, with, like,</p>
+<p>everything that&rsquo;s happening in the world, I,</p>
+<p>like, can&rsquo;t help it, but, you know, have my mind jump to some,</p>
+<p>you know, parallels with what Orwell described. And, like, there&rsquo;s this whole,</p>
+<p>you know, concept of double think and ignoring logic and, you know, holding</p>
+<p>completely contradictory opinions in your mind and not have that not bother</p>
+<p>you and, you know, sticking to the party line</p>
+<p>at all costs. Like, you know, there&rsquo;s something there.</p>
+<p>If anything, 2020 has taught me, and I&rsquo;m a huge fan of Animal Farm, which is a</p>
+<p>kind of friendly, as a friend of 1984 by Orwell.</p>
+<p>It&rsquo;s kind of another thought experiment of how our society</p>
+<p>may go in directions that we wouldn&rsquo;t like it to go.</p>
+<p>But if anything that&rsquo;s been kind of heartbreaking to an</p>
+<p>optimist about 2020 is that</p>
+<p>that society is kind of fragile. Like, we have this,</p>
+<p>this is a special little experiment we have going on.</p>
+<p>And not, it&rsquo;s not unbreakable. Like, we should be careful to, like, preserve</p>
+<p>whatever the special thing we have going on. I mean, I think 1984</p>
+<p>and these books, The Brave New World, they&rsquo;re</p>
+<p>helpful in thinking, like, stuff can go wrong</p>
+<p>in nonobvious ways. And it&rsquo;s, like, it&rsquo;s up to us to preserve it.</p>
+<p>And it&rsquo;s, like, it&rsquo;s a responsibility. It&rsquo;s been weighing heavy on me because, like,</p>
+<p>for some reason, like, more than my mom follows me on Twitter and I</p>
+<p>feel like I have, like, now somehow a</p>
+<p>responsibility to</p>
+<p>do this world. And it dawned on me that, like,</p>
+<p>me and millions of others are, like, the little ants</p>
+<p>that maintain this little colony, right? So we have a responsibility not to</p>
+<p>be, I don&rsquo;t know what the right analogy is, but</p>
+<p>I&rsquo;ll put a flamethrower to the place. We want to</p>
+<p>not do that. And there&rsquo;s interesting complicated ways of doing that as 1984</p>
+<p>shows. It could be through bureaucracy. It could</p>
+<p>be through incompetence. It could be through misinformation.</p>
+<p>It could be through division and toxicity.</p>
+<p>I&rsquo;m a huge believer in, like, that love will be</p>
+<p>the, somehow, the solution. So, love and robots. Love and robots, yeah.</p>
+<p>I think you&rsquo;re exactly right. Unfortunately, I think it&rsquo;s less of a</p>
+<p>flamethrower type of thing. It&rsquo;s more of a,</p>
+<p>in many cases, it&rsquo;s going to be more of a slow boil. And that&rsquo;s the</p>
+<p>danger. Let me ask, it&rsquo;s a fun thing to make</p>
+<p>a world class roboticist, engineer, and leader uncomfortable with a</p>
+<p>ridiculous question about life. What is the meaning of life,</p>
+<p>Dimitri, from a robotics and a human perspective?</p>
+<p>You only have a couple minutes, or one minute to answer, so.</p>
+<p>I don&rsquo;t know if that makes it more difficult or easier, actually.</p>
+<p>You know, they&rsquo;re very tempted to quote one of the</p>
+<p>stories by Isaac Asimov, actually. Actually, titled,</p>
+<p>appropriately titled, The Last Question. It&rsquo;s a short story where, you know, the</p>
+<p>plot is that, you know, humans build this supercomputer,</p>
+<p>you know, this AI intelligence, and, you know, once it</p>
+<p>gets powerful enough, they pose this question to it, you know,</p>
+<p>how can the entropy in the universe be reduced, right? So the computer replies,</p>
+<p>as of yet, insufficient information to give a meaningful answer,</p>
+<p>right? And then, you know, thousands of years go by, and they keep posing the</p>
+<p>same question, and the computer, you know, gets more and more powerful, and keeps</p>
+<p>giving the same answer, you know, as of yet, insufficient</p>
+<p>information to give a meaningful answer, or something along those lines,</p>
+<p>right? And then, you know, it keeps, you know, happening, and</p>
+<p>happening, you fast forward, like, millions of years into the future, and,</p>
+<p>you know, billions of years, and, like, at some point, it&rsquo;s just the only entity in</p>
+<p>the universe, it&rsquo;s, like, absorbed all humanity,</p>
+<p>and all knowledge in the universe, and it, like, keeps posing the same question</p>
+<p>to itself, and, you know, finally, it gets to the</p>
+<p>point where it is able to answer that question, but, of course, at that point,</p>
+<p>you know, there&rsquo;s, you know, the heat death of the universe has occurred, and</p>
+<p>that&rsquo;s the only entity, and there&rsquo;s nobody else to provide that</p>
+<p>answer to, so the only thing it can do is to,</p>
+<p>you know, answer it by demonstration, so, like, you know, it recreates the big bang,</p>
+<p>right, and resets the clock, right?</p>
+<p>But, like, you know, I can try to give kind of a</p>
+<p>different version of the answer, you know, maybe</p>
+<p>not on the behalf of all humanity, I think that that might be a little</p>
+<p>presumptuous for me to speak about the meaning of life on the behalf of all</p>
+<p>humans, but at least, you know, personally,</p>
+<p>it changes, right? I think if you think about kind of what</p>
+<p>gives, you know, you and your life meaning and purpose, and kind of</p>
+<p>what drives you, it seems to</p>
+<p>change over time, right, and that lifespan</p>
+<p>of, you know, kind of your existence, you know, when</p>
+<p>just when you just enter this world, right, it&rsquo;s all about kind of new</p>
+<p>experiences, right? You get, like, new smells, new sounds, new emotions, right,</p>
+<p>and, like, that&rsquo;s what&rsquo;s driving you, right? You&rsquo;re experiencing</p>
+<p>new amazing things, right, and that&rsquo;s magical, right? That&rsquo;s pretty</p>
+<p>pretty awesome, right? That gives you kind of meaning.</p>
+<p>Then, you know, you get a little bit older, you start more intentionally</p>
+<p>learning about things, right? I guess, actually, before you start intentionally</p>
+<p>learning, it&rsquo;s probably fun. Fun is a thing that gives you kind of</p>
+<p>meaning and purpose and purpose and the thing you optimize for, right?</p>
+<p>And, like, fun is good. Then you get, you know, start learning, and I guess that</p>
+<p>this joy of comprehension</p>
+<p>and discovery is another thing that, you know, gives you</p>
+<p>meaning and purpose and drives you, right? Then, you know, you</p>
+<p>learn enough stuff and you want to give some of it back, right? And so</p>
+<p>impact and contributions back to, you know, technology or society,</p>
+<p>you know, people, you know, local or more globally</p>
+<p>becomes a new thing that, you know, drives a lot of kind of your behavior</p>
+<p>and is something that gives you purpose and</p>
+<p>that you derive, you know, positive feedback from, right?</p>
+<p>You know, then you go and so on and so forth. You go through various stages of</p>
+<p>life. If you have kids,</p>
+<p>like, that definitely changes your perspective on things. You know, I have</p>
+<p>three that definitely flips some bits in your</p>
+<p>head in terms of, you know, what you care about and what you</p>
+<p>optimize for and, you know, what matters, what doesn&rsquo;t matter, right?</p>
+<p>So, you know, and so on and so forth, right? And I,</p>
+<p>it seems to me that, you know, it&rsquo;s all of those things and as</p>
+<p>kind of you go through life, you know,</p>
+<p>you want these to be additive, right? New experiences,</p>
+<p>fun, learning, impact. Like, you want to, you know, be accumulating.</p>
+<p>I don&rsquo;t want to, you know, stop having fun or, you know, experiencing new things and</p>
+<p>I think it&rsquo;s important that, you know, it just kind of becomes</p>
+<p>additive as opposed to a replacement or subtraction.</p>
+<p>But, you know, those fewest problems as far as I got, but, you know, ask me in a</p>
+<p>few years, I might have one or two more to add to the list.</p>
+<p>And before you know it, time is up, just like it is for this conversation,</p>
+<p>but hopefully it was a fun ride. It was a huge honor to meet you.</p>
+<p>As you know, I&rsquo;ve been a fan of yours and a fan of Google Self Driving Car and</p>
+<p>Waymo for a long time. I can&rsquo;t wait. I mean, it&rsquo;s one of the</p>
+<p>most exciting, if we look back in the 21st century, I</p>
+<p>truly believe it&rsquo;ll be one of the most exciting things we</p>
+<p>descendants of apes have created on this earth. So,</p>
+<p>I&rsquo;m a huge fan and I can&rsquo;t wait to see what you do</p>
+<p>next. Thanks so much for talking to me. Thanks, thanks for having me and it&rsquo;s a</p>
+<p>also a huge fan doing work, honestly, and I really</p>
+<p>enjoyed it. Thank you. Thanks for listening to this</p>
+<p>conversation with Dmitry Dolgov and thank you to our sponsors,</p>
+<p>Triolabs, a company that helps businesses apply machine learning to</p>
+<p>solve real world problems, Blinkist, an app I use for reading</p>
+<p>through summaries of books, BetterHelp, online therapy with a licensed</p>
+<p>professional, and CashApp, the app I use to send money to</p>
+<p>friends. Please check out these sponsors in the</p>
+<p>description to get a discount and to support this podcast. If you</p>
+<p>enjoy this thing, subscribe on YouTube, review it with Five Stars</p>
+<p>and Upper Podcast, follow on Spotify, support on Patreon,</p>
+<p>or connect with me on Twitter at Lex Friedman. And now,</p>
+<p>let me leave you with some words from Isaac Asimov.</p>
+<p>Science can amuse and fascinate us all, but it is engineering</p>
+<p>that changes the world. Thank you for listening and hope to see you</p>
+<p>next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

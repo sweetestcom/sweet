@@ -1,0 +1,2489 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Yann LeCun.
+He&amp;rsquo;s considered to be one of the fathers of deep learning,
+which, if you&amp;rsquo;ve been hiding under a rock,
+is the recent revolution in AI that has captivated the world
+with the possibility of what machines can learn from data.
+He&amp;rsquo;s a professor at New York University,
+a vice president and chief AI scientist at Facebook,
+and co recipient of the Turing Award'>
+<title>Lex Fridman Podcast - #36 - Yann LeCun: Deep Learning, Convolutional Neural Networks, and Self-Supervised Learning | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500036/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #36 - Yann LeCun: Deep Learning, Convolutional Neural Networks, and Self-Supervised Learning'>
+<meta property='og:description' content='The following is a conversation with Yann LeCun.
+He&amp;rsquo;s considered to be one of the fathers of deep learning,
+which, if you&amp;rsquo;ve been hiding under a rock,
+is the recent revolution in AI that has captivated the world
+with the possibility of what machines can learn from data.
+He&amp;rsquo;s a professor at New York University,
+a vice president and chief AI scientist at Facebook,
+and co recipient of the Turing Award'>
+<meta property='og:url' content='https://swiest.com/en/1310500036/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-04-05T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-04-05T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #36 - Yann LeCun: Deep Learning, Convolutional Neural Networks, and Self-Supervised Learning">
+<meta name="twitter:description" content="The following is a conversation with Yann LeCun.
+He&amp;rsquo;s considered to be one of the fathers of deep learning,
+which, if you&amp;rsquo;ve been hiding under a rock,
+is the recent revolution in AI that has captivated the world
+with the possibility of what machines can learn from data.
+He&amp;rsquo;s a professor at New York University,
+a vice president and chief AI scientist at Facebook,
+and co recipient of the Turing Award">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500036/">Lex Fridman Podcast - #36 - Yann LeCun: Deep Learning, Convolutional Neural Networks, and Self-Supervised Learning</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-04-05</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    59 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Yann LeCun.</p>
+<p>He&rsquo;s considered to be one of the fathers of deep learning,</p>
+<p>which, if you&rsquo;ve been hiding under a rock,</p>
+<p>is the recent revolution in AI that has captivated the world</p>
+<p>with the possibility of what machines can learn from data.</p>
+<p>He&rsquo;s a professor at New York University,</p>
+<p>a vice president and chief AI scientist at Facebook,</p>
+<p>and co recipient of the Turing Award</p>
+<p>for his work on deep learning.</p>
+<p>He&rsquo;s probably best known as the founding father</p>
+<p>of convolutional neural networks,</p>
+<p>in particular their application</p>
+<p>to optical character recognition</p>
+<p>and the famed MNIST dataset.</p>
+<p>He is also an outspoken personality,</p>
+<p>unafraid to speak his mind in a distinctive French accent</p>
+<p>and explore provocative ideas,</p>
+<p>both in the rigorous medium of academic research</p>
+<p>and the somewhat less rigorous medium</p>
+<p>of Twitter and Facebook.</p>
+<p>This is the Artificial Intelligence Podcast.</p>
+<p>If you enjoy it, subscribe on YouTube,</p>
+<p>give it five stars on iTunes, support it on Patreon,</p>
+<p>or simply connect with me on Twitter at Lex Friedman,</p>
+<p>spelled F R I D M A N.</p>
+<p>And now, here&rsquo;s my conversation with Yann LeCun.</p>
+<p>You said that 2001 Space Odyssey</p>
+<p>is one of your favorite movies.</p>
+<p>Hal 9000 decides to get rid of the astronauts</p>
+<p>for people who haven&rsquo;t seen the movie, spoiler alert,</p>
+<p>because he, it, she believes that the astronauts,</p>
+<p>they will interfere with the mission.</p>
+<p>Do you see Hal as flawed in some fundamental way</p>
+<p>or even evil, or did he do the right thing?</p>
+<p>Neither.</p>
+<p>There&rsquo;s no notion of evil in that context,</p>
+<p>other than the fact that people die,</p>
+<p>but it was an example of what people call</p>
+<p>value misalignment, right?</p>
+<p>You give an objective to a machine,</p>
+<p>and the machine strives to achieve this objective.</p>
+<p>And if you don&rsquo;t put any constraints on this objective,</p>
+<p>like don&rsquo;t kill people and don&rsquo;t do things like this,</p>
+<p>the machine, given the power, will do stupid things</p>
+<p>just to achieve this objective,</p>
+<p>or damaging things to achieve this objective.</p>
+<p>It&rsquo;s a little bit like, I mean, we&rsquo;re used to this</p>
+<p>in the context of human society.</p>
+<p>We put in place laws to prevent people</p>
+<p>from doing bad things, because spontaneously,</p>
+<p>they would do those bad things, right?</p>
+<p>So we have to shape their cost function,</p>
+<p>their objective function, if you want,</p>
+<p>through laws to kind of correct,</p>
+<p>and education, obviously, to sort of correct for those.</p>
+<p>So maybe just pushing a little further on that point,</p>
+<p>how, you know, there&rsquo;s a mission,</p>
+<p>there&rsquo;s this fuzziness around,</p>
+<p>the ambiguity around what the actual mission is,</p>
+<p>but, you know, do you think that there will be a time,</p>
+<p>from a utilitarian perspective,</p>
+<p>where an AI system, where it is not misalignment,</p>
+<p>where it is alignment, for the greater good of society,</p>
+<p>that an AI system will make decisions that are difficult?</p>
+<p>Well, that&rsquo;s the trick.</p>
+<p>I mean, eventually we&rsquo;ll have to figure out how to do this.</p>
+<p>And again, we&rsquo;re not starting from scratch,</p>
+<p>because we&rsquo;ve been doing this with humans for millennia.</p>
+<p>So designing objective functions for people</p>
+<p>is something that we know how to do.</p>
+<p>And we don&rsquo;t do it by, you know, programming things,</p>
+<p>although the legal code is called code.</p>
+<p>So that tells you something.</p>
+<p>And it&rsquo;s actually the design of an objective function.</p>
+<p>That&rsquo;s really what legal code is, right?</p>
+<p>It tells you, here is what you can do,</p>
+<p>here is what you can&rsquo;t do.</p>
+<p>If you do it, you pay that much,</p>
+<p>that&rsquo;s an objective function.</p>
+<p>So there is this idea somehow that it&rsquo;s a new thing</p>
+<p>for people to try to design objective functions</p>
+<p>that are aligned with the common good.</p>
+<p>But no, we&rsquo;ve been writing laws for millennia</p>
+<p>and that&rsquo;s exactly what it is.</p>
+<p>So that&rsquo;s where, you know, the science of lawmaking</p>
+<p>and computer science will.</p>
+<p>Come together.</p>
+<p>Will come together.</p>
+<p>So there&rsquo;s nothing special about HAL or AI systems,</p>
+<p>it&rsquo;s just the continuation of tools used</p>
+<p>to make some of these difficult ethical judgments</p>
+<p>that laws make.</p>
+<p>Yeah, and we have systems like this already</p>
+<p>that make many decisions for ourselves in society</p>
+<p>that need to be designed in a way that they,</p>
+<p>like rules about things that sometimes have bad side effects</p>
+<p>and we have to be flexible enough about those rules</p>
+<p>so that they can be broken when it&rsquo;s obvious</p>
+<p>that they shouldn&rsquo;t be applied.</p>
+<p>So you don&rsquo;t see this on the camera here,</p>
+<p>but all the decoration in this room</p>
+<p>is all pictures from 2001 and Space Odyssey.</p>
+<p>Wow, is that by accident or is there a lot?</p>
+<p>No, by accident, it&rsquo;s by design.</p>
+<p>Oh, wow.</p>
+<p>So if you were to build HAL 10,000,</p>
+<p>so an improvement of HAL 9,000, what would you improve?</p>
+<p>Well, first of all, I wouldn&rsquo;t ask it to hold secrets</p>
+<p>and tell lies because that&rsquo;s really what breaks it</p>
+<p>in the end, that&rsquo;s the fact that it&rsquo;s asking itself</p>
+<p>questions about the purpose of the mission</p>
+<p>and it&rsquo;s, you know, pieces things together that it&rsquo;s heard,</p>
+<p>you know, all the secrecy of the preparation of the mission</p>
+<p>and the fact that it was the discovery</p>
+<p>on the lunar surface that really was kept secret</p>
+<p>and one part of HAL&rsquo;s memory knows this</p>
+<p>and the other part does not know it</p>
+<p>and is supposed to not tell anyone</p>
+<p>and that creates internal conflict.</p>
+<p>So you think there&rsquo;s never should be a set of things</p>
+<p>that an AI system should not be allowed,</p>
+<p>like a set of facts that should not be shared</p>
+<p>with the human operators?</p>
+<p>Well, I think, no, I think it should be a bit like</p>
+<p>in the design of autonomous AI systems,</p>
+<p>there should be the equivalent of, you know,</p>
+<p>the oath that a hypocrite oath</p>
+<p>that doctors sign up to, right?</p>
+<p>So there&rsquo;s certain things, certain rules</p>
+<p>that you have to abide by and we can sort of hardwire this</p>
+<p>into our machines to kind of make sure they don&rsquo;t go.</p>
+<p>So I&rsquo;m not, you know, an advocate of the three laws</p>
+<p>of robotics, you know, the Asimov kind of thing</p>
+<p>because I don&rsquo;t think it&rsquo;s practical,</p>
+<p>but, you know, some level of limits.</p>
+<p>But to be clear, these are not questions</p>
+<p>that are kind of really worth asking today</p>
+<p>because we just don&rsquo;t have the technology to do this.</p>
+<p>We don&rsquo;t have autonomous intelligent machines,</p>
+<p>we have intelligent machines.</p>
+<p>Some are intelligent machines that are very specialized,</p>
+<p>but they don&rsquo;t really sort of satisfy an objective.</p>
+<p>They&rsquo;re just, you know, kind of trained to do one thing.</p>
+<p>So until we have some idea for design</p>
+<p>of a full fledged autonomous intelligent system,</p>
+<p>asking the question of how we design this objective,</p>
+<p>I think is a little too abstract.</p>
+<p>It&rsquo;s a little too abstract.</p>
+<p>There&rsquo;s useful elements to it in that it helps us understand</p>
+<p>our own ethical codes, humans.</p>
+<p>So even just as a thought experiment,</p>
+<p>if you imagine that an AGI system is here today,</p>
+<p>how would we program it is a kind of nice thought experiment</p>
+<p>of constructing how should we have a law,</p>
+<p>have a system of laws for us humans.</p>
+<p>It&rsquo;s just a nice practical tool.</p>
+<p>And I think there&rsquo;s echoes of that idea too</p>
+<p>in the AI systems we have today</p>
+<p>that don&rsquo;t have to be that intelligent.</p>
+<p>Yeah.</p>
+<p>Like autonomous vehicles.</p>
+<p>These things start creeping in that are worth thinking about,</p>
+<p>but certainly they shouldn&rsquo;t be framed as how.</p>
+<p>Yeah.</p>
+<p>Looking back, what is the most,</p>
+<p>I&rsquo;m sorry if it&rsquo;s a silly question,</p>
+<p>but what is the most beautiful</p>
+<p>or surprising idea in deep learning</p>
+<p>or AI in general that you&rsquo;ve ever come across?</p>
+<p>Sort of personally, when you said back</p>
+<p>and just had this kind of,</p>
+<p>oh, that&rsquo;s pretty cool moment.</p>
+<p>That&rsquo;s nice.</p>
+<p>That&rsquo;s surprising.</p>
+<p>I don&rsquo;t know if it&rsquo;s an idea</p>
+<p>rather than a sort of empirical fact.</p>
+<p>The fact that you can build gigantic neural nets,</p>
+<p>train them on relatively small amounts of data relatively</p>
+<p>with stochastic gradient descent</p>
+<p>and that it actually works,</p>
+<p>breaks everything you read in every textbook, right?</p>
+<p>Every pre deep learning textbook that told you,</p>
+<p>you need to have fewer parameters</p>
+<p>and you have data samples.</p>
+<p>If you have a non convex objective function,</p>
+<p>you have no guarantee of convergence.</p>
+<p>All those things that you read in textbook</p>
+<p>and they tell you to stay away from this</p>
+<p>and they&rsquo;re all wrong.</p>
+<p>The huge number of parameters, non convex,</p>
+<p>and somehow which is very relative</p>
+<p>to the number of parameters data,</p>
+<p>it&rsquo;s able to learn anything.</p>
+<p>Right.</p>
+<p>Does that still surprise you today?</p>
+<p>Well, it was kind of obvious to me</p>
+<p>before I knew anything that this is a good idea.</p>
+<p>And then it became surprising that it worked</p>
+<p>because I started reading those textbooks.</p>
+<p>Okay.</p>
+<p>So can you talk through the intuition</p>
+<p>of why it was obvious to you if you remember?</p>
+<p>Well, okay.</p>
+<p>So the intuition was it&rsquo;s sort of like,</p>
+<p>those people in the late 19th century</p>
+<p>who proved that heavier than air flight was impossible.</p>
+<p>And of course you have birds, right?</p>
+<p>They do fly.</p>
+<p>And so on the face of it,</p>
+<p>it&rsquo;s obviously wrong as an empirical question, right?</p>
+<p>And so we have the same kind of thing</p>
+<p>that we know that the brain works.</p>
+<p>We don&rsquo;t know how, but we know it works.</p>
+<p>And we know it&rsquo;s a large network of neurons and interaction</p>
+<p>and that learning takes place by changing the connection.</p>
+<p>So kind of getting this level of inspiration</p>
+<p>without copying the details,</p>
+<p>but sort of trying to derive basic principles,</p>
+<p>and that kind of gives you a clue</p>
+<p>as to which direction to go.</p>
+<p>There&rsquo;s also the idea somehow that I&rsquo;ve been convinced of</p>
+<p>since I was an undergrad that, even before,</p>
+<p>that intelligence is inseparable from learning.</p>
+<p>So the idea somehow that you can create</p>
+<p>an intelligent machine by basically programming,</p>
+<p>for me it was a non starter from the start.</p>
+<p>Every intelligent entity that we know about</p>
+<p>arrives at this intelligence through learning.</p>
+<p>So machine learning was a completely obvious path.</p>
+<p>Also because I&rsquo;m lazy, so, you know, kind of.</p>
+<p>He&rsquo;s automate basically everything</p>
+<p>and learning is the automation of intelligence.</p>
+<p>So do you think, so what is learning then?</p>
+<p>What falls under learning?</p>
+<p>Because do you think of reasoning as learning?</p>
+<p>Well, reasoning is certainly a consequence</p>
+<p>of learning as well, just like other functions of the brain.</p>
+<p>The big question about reasoning is,</p>
+<p>how do you make reasoning compatible</p>
+<p>with gradient based learning?</p>
+<p>Do you think neural networks can be made to reason?</p>
+<p>Yes, there is no question about that.</p>
+<p>Again, we have a good example, right?</p>
+<p>The question is how?</p>
+<p>So the question is how much prior structure</p>
+<p>do you have to put in the neural net</p>
+<p>so that something like human reasoning</p>
+<p>will emerge from it, you know, from learning?</p>
+<p>Another question is all of our kind of model</p>
+<p>of what reasoning is that are based on logic</p>
+<p>are discrete and are therefore incompatible</p>
+<p>with gradient based learning.</p>
+<p>And I&rsquo;m a very strong believer</p>
+<p>in this idea of gradient based learning.</p>
+<p>I don&rsquo;t believe that other types of learning</p>
+<p>that don&rsquo;t use kind of gradient information if you want.</p>
+<p>So you don&rsquo;t like discrete mathematics?</p>
+<p>You don&rsquo;t like anything discrete?</p>
+<p>Well, that&rsquo;s, it&rsquo;s not that I don&rsquo;t like it,</p>
+<p>it&rsquo;s just that it&rsquo;s incompatible with learning</p>
+<p>and I&rsquo;m a big fan of learning, right?</p>
+<p>So in fact, that&rsquo;s perhaps one reason</p>
+<p>why deep learning has been kind of looked at</p>
+<p>with suspicion by a lot of computer scientists</p>
+<p>because the math is very different.</p>
+<p>The math that you use for deep learning,</p>
+<p>you know, it kind of has more to do with,</p>
+<p>you know, cybernetics, the kind of math you do</p>
+<p>in electrical engineering than the kind of math</p>
+<p>you do in computer science.</p>
+<p>And, you know, nothing in machine learning is exact, right?</p>
+<p>Computer science is all about sort of, you know,</p>
+<p>obviously compulsive attention to details of like,</p>
+<p>you know, every index has to be right.</p>
+<p>And you can prove that an algorithm is correct, right?</p>
+<p>Machine learning is the science of sloppiness, really.</p>
+<p>That&rsquo;s beautiful.</p>
+<p>So, okay, maybe let&rsquo;s feel around in the dark</p>
+<p>of what is a neural network that reasons</p>
+<p>or a system that works with continuous functions</p>
+<p>that&rsquo;s able to do, build knowledge,</p>
+<p>however we think about reasoning,</p>
+<p>build on previous knowledge, build on extra knowledge,</p>
+<p>create new knowledge,</p>
+<p>generalize outside of any training set to ever build.</p>
+<p>What does that look like?</p>
+<p>If, yeah, maybe give inklings of thoughts</p>
+<p>of what that might look like.</p>
+<p>Yeah, I mean, yes and no.</p>
+<p>If I had precise ideas about this,</p>
+<p>I think, you know, we&rsquo;d be building it right now.</p>
+<p>And there are people working on this</p>
+<p>whose main research interest is actually exactly that, right?</p>
+<p>So what you need to have is a working memory.</p>
+<p>So you need to have some device, if you want,</p>
+<p>some subsystem that can store a relatively large number</p>
+<p>of factual episodic information for, you know,</p>
+<p>a reasonable amount of time.</p>
+<p>So, you know, in the brain, for example,</p>
+<p>there are kind of three main types of memory.</p>
+<p>One is the sort of memory of the state of your cortex.</p>
+<p>And that sort of disappears within 20 seconds.</p>
+<p>You can&rsquo;t remember things for more than about 20 seconds</p>
+<p>or a minute if you don&rsquo;t have any other form of memory.</p>
+<p>The second type of memory, which is longer term,</p>
+<p>is still short term, is the hippocampus.</p>
+<p>So you can, you know, you came into this building,</p>
+<p>you remember where the exit is, where the elevators are.</p>
+<p>You have some map of that building</p>
+<p>that&rsquo;s stored in your hippocampus.</p>
+<p>You might remember something about what I said,</p>
+<p>you know, a few minutes ago.</p>
+<p>I forgot it all already.</p>
+<p>Of course, it&rsquo;s been erased, but, you know,</p>
+<p>but that would be in your hippocampus.</p>
+<p>And then the longer term memory is in the synapse,</p>
+<p>the synapses, right?</p>
+<p>So what you need if you want a system</p>
+<p>that&rsquo;s capable of reasoning</p>
+<p>is that you want the hippocampus like thing, right?</p>
+<p>And that&rsquo;s what people have tried to do</p>
+<p>with memory networks and, you know,</p>
+<p>neural training machines and stuff like that, right?</p>
+<p>And now with transformers,</p>
+<p>which have sort of a memory in there,</p>
+<p>kind of self attention system.</p>
+<p>You can think of it this way.</p>
+<p>So that&rsquo;s one element you need.</p>
+<p>Another thing you need is some sort of network</p>
+<p>that can access this memory,</p>
+<p>get an information back and then kind of crunch on it</p>
+<p>and then do this iteratively multiple times</p>
+<p>because a chain of reasoning is a process</p>
+<p>by which you update your knowledge</p>
+<p>about the state of the world,</p>
+<p>about, you know, what&rsquo;s going to happen, et cetera.</p>
+<p>And that has to be this sort of</p>
+<p>recurrent operation basically.</p>
+<p>And you think that kind of,</p>
+<p>if we think about a transformer,</p>
+<p>so that seems to be too small</p>
+<p>to contain the knowledge that&rsquo;s,</p>
+<p>to represent the knowledge</p>
+<p>that&rsquo;s contained in Wikipedia, for example.</p>
+<p>Well, a transformer doesn&rsquo;t have this idea of recurrence.</p>
+<p>It&rsquo;s got a fixed number of layers</p>
+<p>and that&rsquo;s the number of steps that, you know,</p>
+<p>limits basically its representation.</p>
+<p>But recurrence would build on the knowledge somehow.</p>
+<p>I mean, it would evolve the knowledge</p>
+<p>and expand the amount of information perhaps</p>
+<p>or useful information within that knowledge.</p>
+<p>But is this something that just can emerge with size?</p>
+<p>Because it seems like everything we have now is too small.</p>
+<p>Not just, no, it&rsquo;s not clear.</p>
+<p>I mean, how you access and write</p>
+<p>into an associative memory in an efficient way.</p>
+<p>I mean, sort of the original memory network</p>
+<p>maybe had something like the right architecture,</p>
+<p>but if you try to scale up a memory network</p>
+<p>so that the memory contains all the Wikipedia,</p>
+<p>it doesn&rsquo;t quite work.</p>
+<p>Right.</p>
+<p>So there&rsquo;s a need for new ideas there, okay.</p>
+<p>But it&rsquo;s not the only form of reasoning.</p>
+<p>So there&rsquo;s another form of reasoning,</p>
+<p>which is true, which is very classical also</p>
+<p>in some types of AI.</p>
+<p>And it&rsquo;s based on, let&rsquo;s call it energy minimization.</p>
+<p>Okay, so you have some sort of objective,</p>
+<p>some energy function that represents</p>
+<p>the quality or the negative quality, okay.</p>
+<p>Energy goes up when things get bad</p>
+<p>and they get low when things get good.</p>
+<p>So let&rsquo;s say you want to figure out,</p>
+<p>what gestures do I need to do</p>
+<p>to grab an object or walk out the door.</p>
+<p>If you have a good model of your own body,</p>
+<p>a good model of the environment,</p>
+<p>using this kind of energy minimization,</p>
+<p>you can do planning.</p>
+<p>And in optimal control,</p>
+<p>it&rsquo;s called model predictive control.</p>
+<p>You have a model of what&rsquo;s gonna happen in the world</p>
+<p>as a consequence of your actions.</p>
+<p>And that allows you to, by energy minimization,</p>
+<p>figure out the sequence of action</p>
+<p>that optimizes a particular objective function,</p>
+<p>which measures, minimizes the number of times</p>
+<p>you&rsquo;re gonna hit something</p>
+<p>and the energy you&rsquo;re gonna spend</p>
+<p>doing the gesture and et cetera.</p>
+<p>So that&rsquo;s a form of reasoning.</p>
+<p>Planning is a form of reasoning.</p>
+<p>And perhaps what led to the ability of humans to reason</p>
+<p>is the fact that, or species that appear before us</p>
+<p>had to do some sort of planning</p>
+<p>to be able to hunt and survive</p>
+<p>and survive the winter in particular.</p>
+<p>And so it&rsquo;s the same capacity that you need to have.</p>
+<p>So in your intuition is,</p>
+<p>if we look at expert systems</p>
+<p>and encoding knowledge as logic systems,</p>
+<p>as graphs, in this kind of way,</p>
+<p>is not a useful way to think about knowledge?</p>
+<p>Graphs are a little brittle or logic representation.</p>
+<p>So basically, variables that have values</p>
+<p>and then constraint between them</p>
+<p>that are represented by rules,</p>
+<p>is a little too rigid and too brittle, right?</p>
+<p>So some of the early efforts in that respect</p>
+<p>were to put probabilities on them.</p>
+<p>So a rule, if you have this and that symptom,</p>
+<p>you have this disease with that probability</p>
+<p>and you should prescribe that antibiotic</p>
+<p>with that probability, right?</p>
+<p>That&rsquo;s the mycin system from the 70s.</p>
+<p>And that&rsquo;s what that branch of AI led to,</p>
+<p>based on networks and graphical models</p>
+<p>and causal inference and variational method.</p>
+<p>So there is certainly a lot of interesting</p>
+<p>work going on in this area.</p>
+<p>The main issue with this is knowledge acquisition.</p>
+<p>How do you reduce a bunch of data to a graph of this type?</p>
+<p>Yeah, it relies on the expert, on the human being,</p>
+<p>to encode, to add knowledge.</p>
+<p>And that&rsquo;s essentially impractical.</p>
+<p>Yeah, it&rsquo;s not scalable.</p>
+<p>That&rsquo;s a big question.</p>
+<p>The second question is,</p>
+<p>do you want to represent knowledge as symbols</p>
+<p>and do you want to manipulate them with logic?</p>
+<p>And again, that&rsquo;s incompatible with learning.</p>
+<p>So one suggestion, which Jeff Hinton</p>
+<p>has been advocating for many decades,</p>
+<p>is replace symbols by vectors.</p>
+<p>Think of it as pattern of activities</p>
+<p>in a bunch of neurons or units</p>
+<p>or whatever you want to call them.</p>
+<p>And replace logic by continuous functions.</p>
+<p>Okay, and that becomes now compatible.</p>
+<p>There&rsquo;s a very good set of ideas</p>
+<p>by, written in a paper about 10 years ago</p>
+<p>by Leon Boutout, who is here at Facebook.</p>
+<p>The title of the paper is,</p>
+<p>From Machine Learning to Machine Reasoning.</p>
+<p>And his idea is that a learning system</p>
+<p>should be able to manipulate objects</p>
+<p>that are in a space</p>
+<p>and then put the result back in the same space.</p>
+<p>So it&rsquo;s this idea of working memory, basically.</p>
+<p>And it&rsquo;s very enlightening.</p>
+<p>And in a sense, that might learn something</p>
+<p>like the simple expert systems.</p>
+<p>I mean, you can learn basic logic operations there.</p>
+<p>Yeah, quite possibly.</p>
+<p>There&rsquo;s a big debate on sort of how much prior structure</p>
+<p>you have to put in for this kind of stuff to emerge.</p>
+<p>That&rsquo;s the debate I have with Gary Marcus</p>
+<p>and people like that.</p>
+<p>Yeah, yeah, so, and the other person,</p>
+<p>so I just talked to Judea Pearl,</p>
+<p>from the you mentioned causal inference world.</p>
+<p>So his worry is that the current neural networks</p>
+<p>are not able to learn what causes</p>
+<p>what causal inference between things.</p>
+<p>So I think he&rsquo;s right and wrong about this.</p>
+<p>If he&rsquo;s talking about the sort of classic</p>
+<p>type of neural nets,</p>
+<p>people sort of didn&rsquo;t worry too much about this.</p>
+<p>But there&rsquo;s a lot of people now working on causal inference.</p>
+<p>And there&rsquo;s a paper that just came out last week</p>
+<p>by Leon Boutou, among others,</p>
+<p>David Lopez, Baz, and a bunch of other people,</p>
+<p>exactly on that problem of how do you kind of</p>
+<p>get a neural net to sort of pay attention</p>
+<p>to real causal relationships,</p>
+<p>which may also solve issues of bias in data</p>
+<p>and things like this, so.</p>
+<p>I&rsquo;d like to read that paper</p>
+<p>because that ultimately the challenges</p>
+<p>also seems to fall back on the human expert</p>
+<p>to ultimately decide causality between things.</p>
+<p>People are not very good</p>
+<p>at establishing causality, first of all.</p>
+<p>So first of all, you talk to physicists</p>
+<p>and physicists actually don&rsquo;t believe in causality</p>
+<p>because look at all the basic laws of microphysics</p>
+<p>are time reversible, so there&rsquo;s no causality.</p>
+<p>The arrow of time is not real, yeah.</p>
+<p>It&rsquo;s as soon as you start looking at macroscopic systems</p>
+<p>where there is unpredictable randomness,</p>
+<p>where there is clearly an arrow of time,</p>
+<p>but it&rsquo;s a big mystery in physics, actually,</p>
+<p>how that emerges.</p>
+<p>Is it emergent or is it part of</p>
+<p>the fundamental fabric of reality?</p>
+<p>Or is it a bias of intelligent systems</p>
+<p>that because of the second law of thermodynamics,</p>
+<p>we perceive a particular arrow of time,</p>
+<p>but in fact, it&rsquo;s kind of arbitrary, right?</p>
+<p>So yeah, physicists, mathematicians,</p>
+<p>they don&rsquo;t care about, I mean,</p>
+<p>the math doesn&rsquo;t care about the flow of time.</p>
+<p>Well, certainly, macrophysics doesn&rsquo;t.</p>
+<p>People themselves are not very good</p>
+<p>at establishing causal relationships.</p>
+<p>If you ask, I think it was in one of Seymour Papert&rsquo;s book</p>
+<p>on children learning.</p>
+<p>He studied with Jean Piaget.</p>
+<p>He&rsquo;s the guy who coauthored the book Perceptron</p>
+<p>with Marvin Minsky that kind of killed</p>
+<p>the first wave of neural nets,</p>
+<p>but he was actually a learning person.</p>
+<p>He, in the sense of studying learning in humans</p>
+<p>and machines, that&rsquo;s why he got interested in Perceptron.</p>
+<p>And he wrote that if you ask a little kid</p>
+<p>about what is the cause of the wind,</p>
+<p>a lot of kids will say, they will think for a while</p>
+<p>and they&rsquo;ll say, oh, it&rsquo;s the branches in the trees,</p>
+<p>they move and that creates wind, right?</p>
+<p>So they get the causal relationship backwards.</p>
+<p>And it&rsquo;s because their understanding of the world</p>
+<p>and intuitive physics is not that great, right?</p>
+<p>I mean, these are like, you know, four or five year old kids.</p>
+<p>You know, it gets better,</p>
+<p>and then you understand that this, it can be, right?</p>
+<p>But there are many things which we can,</p>
+<p>because of our common sense understanding of things,</p>
+<p>what people call common sense,</p>
+<p>and our understanding of physics,</p>
+<p>we can, there&rsquo;s a lot of stuff</p>
+<p>that we can figure out causality.</p>
+<p>Even with diseases, we can figure out</p>
+<p>what&rsquo;s not causing what, often.</p>
+<p>There&rsquo;s a lot of mystery, of course,</p>
+<p>but the idea is that you should be able</p>
+<p>to encode that into systems,</p>
+<p>because it seems unlikely they&rsquo;d be able</p>
+<p>to figure that out themselves.</p>
+<p>Well, whenever we can do intervention,</p>
+<p>but you know, all of humanity has been completely deluded</p>
+<p>for millennia, probably since its existence,</p>
+<p>about a very, very wrong causal relationship,</p>
+<p>where whatever you can explain, you attribute it to,</p>
+<p>you know, some deity, some divinity, right?</p>
+<p>And that&rsquo;s a cop out, that&rsquo;s a way of saying like,</p>
+<p>I don&rsquo;t know the cause, so you know, God did it, right?</p>
+<p>So you mentioned Marvin Minsky,</p>
+<p>and the irony of, you know,</p>
+<p>maybe causing the first AI winter.</p>
+<p>You were there in the 90s, you were there in the 80s,</p>
+<p>of course.</p>
+<p>In the 90s, why do you think people lost faith</p>
+<p>in deep learning, in the 90s, and found it again,</p>
+<p>a decade later, over a decade later?</p>
+<p>Yeah, it wasn&rsquo;t called deep learning yet,</p>
+<p>it was just called neural nets, but yeah,</p>
+<p>they lost interest.</p>
+<p>I mean, I think I would put that around 1995,</p>
+<p>at least the machine learning community,</p>
+<p>there was always a neural net community,</p>
+<p>but it became kind of disconnected</p>
+<p>from sort of mainstream machine learning, if you want.</p>
+<p>There were, it was basically electrical engineering</p>
+<p>that kept at it, and computer science gave up on neural nets.</p>
+<p>I don&rsquo;t know, you know, I was too close to it</p>
+<p>to really sort of analyze it with sort of an unbiased eye,</p>
+<p>if you want, but I would make a few guesses.</p>
+<p>So the first one is, at the time, neural nets were,</p>
+<p>it was very hard to make them work,</p>
+<p>in the sense that you would implement backprop</p>
+<p>in your favorite language, and that favorite language</p>
+<p>was not Python, it was not MATLAB,</p>
+<p>it was not any of those things,</p>
+<p>because they didn&rsquo;t exist, right?</p>
+<p>You had to write it in Fortran OC,</p>
+<p>or something like this, right?</p>
+<p>So you would experiment with it,</p>
+<p>you would probably make some very basic mistakes,</p>
+<p>like, you know, badly initialize your weights,</p>
+<p>make the network too small,</p>
+<p>because you read in the textbook, you know,</p>
+<p>you don&rsquo;t want too many parameters, right?</p>
+<p>And of course, you know, and you would train on XOR,</p>
+<p>because you didn&rsquo;t have any other data set to trade on.</p>
+<p>And of course, you know, it works half the time.</p>
+<p>So you would say, I give up.</p>
+<p>Also, you would train it with batch gradient,</p>
+<p>which, you know, isn&rsquo;t that sufficient.</p>
+<p>So there&rsquo;s a lot of, there&rsquo;s a bag of tricks</p>
+<p>that you had to know to make those things work,</p>
+<p>or you had to reinvent, and a lot of people just didn&rsquo;t,</p>
+<p>and they just couldn&rsquo;t make it work.</p>
+<p>So that&rsquo;s one thing.</p>
+<p>The investment in software platform</p>
+<p>to be able to kind of, you know, display things,</p>
+<p>figure out why things don&rsquo;t work,</p>
+<p>kind of get a good intuition for how to get them to work,</p>
+<p>have enough flexibility so you can create, you know,</p>
+<p>network architectures like convolutional nets</p>
+<p>and stuff like that.</p>
+<p>It was hard.</p>
+<p>I mean, you had to write everything from scratch.</p>
+<p>And again, you didn&rsquo;t have any Python</p>
+<p>or MATLAB or anything, right?</p>
+<p>I read that, sorry to interrupt,</p>
+<p>but I read that you wrote in Lisp</p>
+<p>the first versions of Lanet with convolutional networks,</p>
+<p>which by the way, one of my favorite languages.</p>
+<p>That&rsquo;s how I knew you were legit.</p>
+<p>Turing award, whatever.</p>
+<p>You programmed in Lisp, that&rsquo;s&hellip;</p>
+<p>It&rsquo;s still my favorite language,</p>
+<p>but it&rsquo;s not that we programmed in Lisp,</p>
+<p>it&rsquo;s that we had to write our Lisp interpreter, okay?</p>
+<p>Because it&rsquo;s not like we used one that existed.</p>
+<p>So we wrote a Lisp interpreter that we hooked up to,</p>
+<p>you know, a backend library that we wrote also</p>
+<p>for sort of neural net computation.</p>
+<p>And then after a few years around 1991,</p>
+<p>we invented this idea of basically having modules</p>
+<p>that know how to forward propagate</p>
+<p>and back propagate gradients,</p>
+<p>and then interconnecting those modules in a graph.</p>
+<p>Number two had made proposals on this,</p>
+<p>about this in the late eighties,</p>
+<p>and we were able to implement this using our Lisp system.</p>
+<p>Eventually we wanted to use that system</p>
+<p>to build production code for character recognition</p>
+<p>at Bell Labs.</p>
+<p>So we actually wrote a compiler for that Lisp interpreter</p>
+<p>so that Patricia Simard, who is now at Microsoft,</p>
+<p>kind of did the bulk of it with Leon and me.</p>
+<p>And so we could write our system in Lisp</p>
+<p>and then compile to C,</p>
+<p>and then we&rsquo;ll have a self contained complete system</p>
+<p>that could kind of do the entire thing.</p>
+<p>Neither PyTorch nor TensorFlow can do this today.</p>
+<p>Yeah, okay, it&rsquo;s coming.</p>
+<p>Yeah.</p>
+<p>I mean, there&rsquo;s something like that in PyTorch</p>
+<p>called TorchScript.</p>
+<p>And so, you know, we had to write our Lisp interpreter,</p>
+<p>we had to write our Lisp compiler,</p>
+<p>we had to invest a huge amount of effort to do this.</p>
+<p>And not everybody,</p>
+<p>if you don&rsquo;t completely believe in the concept,</p>
+<p>you&rsquo;re not going to invest the time to do this.</p>
+<p>Now at the time also, you know,</p>
+<p>or today, this would turn into Torch or PyTorch</p>
+<p>or TensorFlow or whatever,</p>
+<p>we&rsquo;d put it in open source, everybody would use it</p>
+<p>and, you know, realize it&rsquo;s good.</p>
+<p>Back before 1995, working at AT&amp;T,</p>
+<p>there&rsquo;s no way the lawyers would let you</p>
+<p>release anything in open source of this nature.</p>
+<p>And so we could not distribute our code really.</p>
+<p>And on that point,</p>
+<p>and sorry to go on a million tangents,</p>
+<p>but on that point, I also read that there was some,</p>
+<p>almost like a patent on convolutional neural networks</p>
+<p>at Bell Labs.</p>
+<p>So that, first of all, I mean, just.</p>
+<p>There&rsquo;s two actually.</p>
+<p>That ran out.</p>
+<p>Thankfully, in 2007.</p>
+<p>In 2007.</p>
+<p>So I&rsquo;m gonna, what,</p>
+<p>can we just talk about that for a second?</p>
+<p>I know you&rsquo;re a Facebook, but you&rsquo;re also at NYU.</p>
+<p>And what does it mean to patent ideas</p>
+<p>like these software ideas, essentially?</p>
+<p>Or what are mathematical ideas?</p>
+<p>Or what are they?</p>
+<p>Okay, so they&rsquo;re not mathematical ideas.</p>
+<p>They are, you know, algorithms.</p>
+<p>And there was a period where the US Patent Office</p>
+<p>would allow the patent of software</p>
+<p>as long as it was embodied.</p>
+<p>The Europeans are very different.</p>
+<p>They don&rsquo;t quite accept that.</p>
+<p>They have a different concept.</p>
+<p>But, you know, I don&rsquo;t, I no longer,</p>
+<p>I mean, I never actually strongly believed in this,</p>
+<p>but I don&rsquo;t believe in this kind of patent.</p>
+<p>Facebook basically doesn&rsquo;t believe in this kind of patent.</p>
+<p>Google fires patents because they&rsquo;ve been burned with Apple.</p>
+<p>And so now they do this for defensive purpose,</p>
+<p>but usually they say,</p>
+<p>we&rsquo;re not gonna sue you if you infringe.</p>
+<p>Facebook has a similar policy.</p>
+<p>They say, you know, we fire patents on certain things</p>
+<p>for defensive purpose.</p>
+<p>We&rsquo;re not gonna sue you if you infringe,</p>
+<p>unless you sue us.</p>
+<p>So the industry does not believe in patents.</p>
+<p>They are there because of, you know,</p>
+<p>the legal landscape and various things.</p>
+<p>But I don&rsquo;t really believe in patents</p>
+<p>for this kind of stuff.</p>
+<p>So that&rsquo;s a great thing.</p>
+<p>So I&hellip;</p>
+<p>I&rsquo;ll tell you a worse story, actually.</p>
+<p>So what happens was the first patent about convolutional net</p>
+<p>was about kind of the early version of convolutional net</p>
+<p>that didn&rsquo;t have separate pooling layers.</p>
+<p>It had convolutional layers</p>
+<p>which tried more than one, if you want, right?</p>
+<p>And then there was a second one on convolutional nets</p>
+<p>with separate pooling layers, trained with backprop.</p>
+<p>And there were files filed in 89 and 1990</p>
+<p>or something like this.</p>
+<p>At the time, the life of a patent was 17 years.</p>
+<p>So here&rsquo;s what happened over the next few years</p>
+<p>is that we started developing character recognition</p>
+<p>technology around convolutional nets.</p>
+<p>And in 1994,</p>
+<p>a check reading system was deployed in ATM machines.</p>
+<p>In 1995, it was for large check reading machines</p>
+<p>in back offices, et cetera.</p>
+<p>And those systems were developed by an engineering group</p>
+<p>that we were collaborating with at AT&amp;T.</p>
+<p>And they were commercialized by NCR,</p>
+<p>which at the time was a subsidiary of AT&amp;T.</p>
+<p>Now AT&amp;T split up in 1996,</p>
+<p>early 1996.</p>
+<p>And the lawyers just looked at all the patents</p>
+<p>and they distributed the patents among the various companies.</p>
+<p>They gave the convolutional net patent to NCR</p>
+<p>because they were actually selling products that used it.</p>
+<p>But nobody at NCR had any idea what a convolutional net was.</p>
+<p>Yeah.</p>
+<p>Okay.</p>
+<p>So between 1996 and 2007,</p>
+<p>so there&rsquo;s a whole period until 2002</p>
+<p>where I didn&rsquo;t actually work on machine learning</p>
+<p>or convolutional net.</p>
+<p>I resumed working on this around 2002.</p>
+<p>And between 2002 and 2007,</p>
+<p>I was working on them, crossing my finger</p>
+<p>that nobody at NCR would notice.</p>
+<p>Nobody noticed.</p>
+<p>Yeah, and I hope that this kind of somewhat,</p>
+<p>as you said, lawyers aside,</p>
+<p>relative openness of the community now will continue.</p>
+<p>It accelerates the entire progress of the industry.</p>
+<p>And the problems that Facebook and Google</p>
+<p>and others are facing today</p>
+<p>is not whether Facebook or Google or Microsoft or IBM</p>
+<p>or whoever is ahead of the other.</p>
+<p>It&rsquo;s that we don&rsquo;t have the technology</p>
+<p>to build the things we want to build.</p>
+<p>We want to build intelligent virtual assistants</p>
+<p>that have common sense.</p>
+<p>We don&rsquo;t have monopoly on good ideas for this.</p>
+<p>We don&rsquo;t believe we do.</p>
+<p>Maybe others believe they do, but we don&rsquo;t.</p>
+<p>Okay.</p>
+<p>If a startup tells you they have the secret</p>
+<p>to human level intelligence and common sense,</p>
+<p>don&rsquo;t believe them, they don&rsquo;t.</p>
+<p>And it&rsquo;s gonna take the entire work</p>
+<p>of the world research community for a while</p>
+<p>to get to the point where you can go off</p>
+<p>and each of those companies</p>
+<p>kind of start to build things on this.</p>
+<p>We&rsquo;re not there yet.</p>
+<p>It&rsquo;s absolutely, and this calls to the gap</p>
+<p>between the space of ideas</p>
+<p>and the rigorous testing of those ideas</p>
+<p>of practical application that you often speak to.</p>
+<p>You&rsquo;ve written advice saying don&rsquo;t get fooled</p>
+<p>by people who claim to have a solution</p>
+<p>to artificial general intelligence,</p>
+<p>who claim to have an AI system</p>
+<p>that works just like the human brain</p>
+<p>or who claim to have figured out how the brain works.</p>
+<p>Ask them what the error rate they get</p>
+<p>on MNIST or ImageNet.</p>
+<p>So this is a little dated by the way.</p>
+<p>2000, I mean five years, who&rsquo;s counting?</p>
+<p>Okay, but I think your opinion is still,</p>
+<p>MNIST and ImageNet, yes, may be dated,</p>
+<p>there may be new benchmarks, right?</p>
+<p>But I think that philosophy is one you still</p>
+<p>in somewhat hold, that benchmarks</p>
+<p>and the practical testing, the practical application</p>
+<p>is where you really get to test the ideas.</p>
+<p>Well, it may not be completely practical.</p>
+<p>Like for example, it could be a toy data set,</p>
+<p>but it has to be some sort of task</p>
+<p>that the community as a whole has accepted</p>
+<p>as some sort of standard kind of benchmark if you want.</p>
+<p>It doesn&rsquo;t need to be real.</p>
+<p>So for example, many years ago here at FAIR,</p>
+<p>people, Jason West and Antoine Borne</p>
+<p>and a few others proposed the Babi tasks,</p>
+<p>which were kind of a toy problem to test</p>
+<p>the ability of machines to reason actually</p>
+<p>to access working memory and things like this.</p>
+<p>And it was very useful even though it wasn&rsquo;t a real task.</p>
+<p>MNIST is kind of halfway real task.</p>
+<p>So toy problems can be very useful.</p>
+<p>It&rsquo;s just that I was really struck by the fact</p>
+<p>that a lot of people, particularly a lot of people</p>
+<p>with money to invest would be fooled by people telling them,</p>
+<p>oh, we have the algorithm of the cortex</p>
+<p>and you should give us 50 million.</p>
+<p>Yes, absolutely.</p>
+<p>So there&rsquo;s a lot of people who try to take advantage</p>
+<p>of the hype for business reasons and so on.</p>
+<p>But let me sort of talk to this idea</p>
+<p>that sort of new ideas, the ideas that push the field</p>
+<p>forward may not yet have a benchmark</p>
+<p>or it may be very difficult to establish a benchmark.</p>
+<p>I agree.</p>
+<p>That&rsquo;s part of the process.</p>
+<p>Establishing benchmarks is part of the process.</p>
+<p>So what are your thoughts about,</p>
+<p>so we have these benchmarks on around stuff we can do</p>
+<p>with images from classification to captioning</p>
+<p>to just every kind of information you can pull off</p>
+<p>from images and the surface level.</p>
+<p>There&rsquo;s audio data sets, there&rsquo;s some video.</p>
+<p>What can we start, natural language, what kind of stuff,</p>
+<p>what kind of benchmarks do you see that start creeping</p>
+<p>on to more something like intelligence, like reasoning,</p>
+<p>like maybe you don&rsquo;t like the term,</p>
+<p>but AGI echoes of that kind of formulation.</p>
+<p>A lot of people are working on interactive environments</p>
+<p>in which you can train and test intelligence systems.</p>
+<p>So there, for example, it&rsquo;s the classical paradigm</p>
+<p>of supervised learning is that you have a data set,</p>
+<p>you partition it into a training set, validation set,</p>
+<p>test set, and there&rsquo;s a clear protocol, right?</p>
+<p>But what if that assumes that the samples</p>
+<p>are statistically independent, you can exchange them,</p>
+<p>the order in which you see them shouldn&rsquo;t matter,</p>
+<p>things like that.</p>
+<p>But what if the answer you give determines</p>
+<p>the next sample you see, which is the case, for example,</p>
+<p>in robotics, right?</p>
+<p>You robot does something and then it gets exposed</p>
+<p>to a new room, and depending on where it goes,</p>
+<p>the room would be different.</p>
+<p>So that creates the exploration problem.</p>
+<p>The what if the samples, so that creates also a dependency</p>
+<p>between samples, right?</p>
+<p>You, if you move, if you can only move in space,</p>
+<p>the next sample you&rsquo;re gonna see is gonna be probably</p>
+<p>in the same building, most likely, right?</p>
+<p>So all the assumptions about the validity</p>
+<p>of this training set, test set hypothesis break.</p>
+<p>Whenever a machine can take an action</p>
+<p>that has an influence in the world,</p>
+<p>and it&rsquo;s what it&rsquo;s gonna see.</p>
+<p>So people are setting up artificial environments</p>
+<p>where that takes place, right?</p>
+<p>The robot runs around a 3D model of a house</p>
+<p>and can interact with objects and things like this.</p>
+<p>So you do robotics based simulation,</p>
+<p>you have those opening a gym type thing</p>
+<p>or Mujoko kind of simulated robots</p>
+<p>and you have games, things like that.</p>
+<p>So that&rsquo;s where the field is going really,</p>
+<p>this kind of environment.</p>
+<p>Now, back to the question of AGI.</p>
+<p>I don&rsquo;t like the term AGI because it implies</p>
+<p>that human intelligence is general</p>
+<p>and human intelligence is nothing like general.</p>
+<p>It&rsquo;s very, very specialized.</p>
+<p>We think it&rsquo;s general.</p>
+<p>We&rsquo;d like to think of ourselves</p>
+<p>as having general intelligence.</p>
+<p>We don&rsquo;t, we&rsquo;re very specialized.</p>
+<p>We&rsquo;re only slightly more general than.</p>
+<p>Why does it feel general?</p>
+<p>So you kind of, the term general.</p>
+<p>I think what&rsquo;s impressive about humans is ability to learn,</p>
+<p>as we were talking about learning,</p>
+<p>to learn in just so many different domains.</p>
+<p>It&rsquo;s perhaps not arbitrarily general,</p>
+<p>but just you can learn in many domains</p>
+<p>and integrate that knowledge somehow.</p>
+<p>Okay.</p>
+<p>The knowledge persists.</p>
+<p>So let me take a very specific example.</p>
+<p>Yes.</p>
+<p>It&rsquo;s not an example.</p>
+<p>It&rsquo;s more like a quasi mathematical demonstration.</p>
+<p>So you have about 1 million fibers</p>
+<p>coming out of one of your eyes.</p>
+<p>Okay, 2 million total,</p>
+<p>but let&rsquo;s talk about just one of them.</p>
+<p>It&rsquo;s 1 million nerve fibers, your optical nerve.</p>
+<p>Let&rsquo;s imagine that they are binary.</p>
+<p>So they can be active or inactive, right?</p>
+<p>So the input to your visual cortex is 1 million bits.</p>
+<p>Mm hmm.</p>
+<p>Now they&rsquo;re connected to your brain in a particular way,</p>
+<p>and your brain has connections</p>
+<p>that are kind of a little bit like a convolutional net,</p>
+<p>they&rsquo;re kind of local, you know, in space</p>
+<p>and things like this.</p>
+<p>Now, imagine I play a trick on you.</p>
+<p>It&rsquo;s a pretty nasty trick, I admit.</p>
+<p>I cut your optical nerve,</p>
+<p>and I put a device that makes a random perturbation</p>
+<p>of a permutation of all the nerve fibers.</p>
+<p>So now what comes to your brain</p>
+<p>is a fixed but random permutation of all the pixels.</p>
+<p>There&rsquo;s no way in hell that your visual cortex,</p>
+<p>even if I do this to you in infancy,</p>
+<p>will actually learn vision</p>
+<p>to the same level of quality that you can.</p>
+<p>Got it, and you&rsquo;re saying there&rsquo;s no way you&rsquo;ve learned that?</p>
+<p>No, because now two pixels that are nearby in the world</p>
+<p>will end up in very different places in your visual cortex,</p>
+<p>and your neurons there have no connections with each other</p>
+<p>because they&rsquo;re only connected locally.</p>
+<p>So this whole, our entire, the hardware is built</p>
+<p>in many ways to support?</p>
+<p>The locality of the real world.</p>
+<p>Yes, that&rsquo;s specialization.</p>
+<p>Yeah, but it&rsquo;s still pretty damn impressive,</p>
+<p>so it&rsquo;s not perfect generalization, it&rsquo;s not even close.</p>
+<p>No, no, it&rsquo;s not that it&rsquo;s not even close, it&rsquo;s not at all.</p>
+<p>Yeah, it&rsquo;s not, it&rsquo;s specialized, yeah.</p>
+<p>So how many Boolean functions?</p>
+<p>So let&rsquo;s imagine you want to train your visual system</p>
+<p>to recognize particular patterns of those one million bits.</p>
+<p>Okay, so that&rsquo;s a Boolean function, right?</p>
+<p>Either the pattern is here or not here,</p>
+<p>this is a two way classification</p>
+<p>with one million binary inputs.</p>
+<p>How many such Boolean functions are there?</p>
+<p>Okay, you have two to the one million</p>
+<p>combinations of inputs,</p>
+<p>for each of those you have an output bit,</p>
+<p>and so you have two to the one million</p>
+<p>Boolean functions of this type, okay?</p>
+<p>Which is an unimaginably large number.</p>
+<p>How many of those functions can actually be computed</p>
+<p>by your visual cortex?</p>
+<p>And the answer is a tiny, tiny, tiny, tiny, tiny, tiny sliver.</p>
+<p>Like an enormously tiny sliver.</p>
+<p>Yeah, yeah.</p>
+<p>So we are ridiculously specialized.</p>
+<p>Okay.</p>
+<p>But, okay, that&rsquo;s an argument against the word general.</p>
+<p>I think there&rsquo;s a, I agree with your intuition,</p>
+<p>but I&rsquo;m not sure it&rsquo;s, it seems the brain is impressively</p>
+<p>capable of adjusting to things, so.</p>
+<p>It&rsquo;s because we can&rsquo;t imagine tasks</p>
+<p>that are outside of our comprehension, right?</p>
+<p>So we think we&rsquo;re general because we&rsquo;re general</p>
+<p>of all the things that we can apprehend.</p>
+<p>But there is a huge world out there</p>
+<p>of things that we have no idea.</p>
+<p>We call that heat, by the way.</p>
+<p>Heat.</p>
+<p>So, at least physicists call that heat,</p>
+<p>or they call it entropy, which is kind of.</p>
+<p>You have a thing full of gas, right?</p>
+<p>Closed system for gas.</p>
+<p>Right?</p>
+<p>Closed or not closed.</p>
+<p>It has pressure, it has temperature, it has, you know,</p>
+<p>and you can write equations, PV equal N on T,</p>
+<p>you know, things like that, right?</p>
+<p>When you reduce the volume, the temperature goes up,</p>
+<p>the pressure goes up, you know, things like that, right?</p>
+<p>For perfect gas, at least.</p>
+<p>Those are the things you can know about that system.</p>
+<p>And it&rsquo;s a tiny, tiny number of bits</p>
+<p>compared to the complete information</p>
+<p>of the state of the entire system.</p>
+<p>Because the state of the entire system</p>
+<p>will give you the position of momentum</p>
+<p>of every molecule of the gas.</p>
+<p>And what you don&rsquo;t know about it is the entropy,</p>
+<p>and you interpret it as heat.</p>
+<p>The energy contained in that thing is what we call heat.</p>
+<p>Now, it&rsquo;s very possible that, in fact,</p>
+<p>there is some very strong structure</p>
+<p>in how those molecules are moving.</p>
+<p>It&rsquo;s just that they are in a way</p>
+<p>that we are just not wired to perceive.</p>
+<p>Yeah, we&rsquo;re ignorant to it.</p>
+<p>And there&rsquo;s, in your infinite amount of things,</p>
+<p>we&rsquo;re not wired to perceive.</p>
+<p>And you&rsquo;re right, that&rsquo;s a nice way to put it.</p>
+<p>We&rsquo;re general to all the things we can imagine,</p>
+<p>which is a very tiny subset of all things that are possible.</p>
+<p>So it&rsquo;s like comograph complexity</p>
+<p>or the comograph chitin sum of complexity.</p>
+<p>Yeah.</p>
+<p>You know, every bit string or every integer is random,</p>
+<p>except for all the ones that you can actually write down.</p>
+<p>Yeah.</p>
+<p>Yeah, okay.</p>
+<p>So beautifully put.</p>
+<p>But, you know, so we can just call it artificial intelligence.</p>
+<p>We don&rsquo;t need to have a general.</p>
+<p>Or human level.</p>
+<p>Human level intelligence is good.</p>
+<p>You know, you&rsquo;ll start, anytime you touch human,</p>
+<p>it gets interesting because, you know,</p>
+<p>it&rsquo;s because we attach ourselves to human</p>
+<p>and it&rsquo;s difficult to define what human intelligence is.</p>
+<p>Yeah.</p>
+<p>Nevertheless, my definition is maybe dem impressive</p>
+<p>intelligence, okay?</p>
+<p>Dem impressive demonstration of intelligence, whatever.</p>
+<p>And so on that topic, most successes in deep learning</p>
+<p>have been in supervised learning.</p>
+<p>What is your view on unsupervised learning?</p>
+<p>Is there a hope to reduce involvement of human input</p>
+<p>and still have successful systems</p>
+<p>that have practical use?</p>
+<p>Yeah, I mean, there&rsquo;s definitely a hope.</p>
+<p>It&rsquo;s more than a hope, actually.</p>
+<p>It&rsquo;s mounting evidence for it.</p>
+<p>And that&rsquo;s basically all I do.</p>
+<p>Like, the only thing I&rsquo;m interested in at the moment is,</p>
+<p>I call it self supervised learning, not unsupervised.</p>
+<p>Because unsupervised learning is a loaded term.</p>
+<p>People who know something about machine learning,</p>
+<p>you know, tell you, so you&rsquo;re doing clustering or PCA,</p>
+<p>which is not the case.</p>
+<p>And the white public, you know,</p>
+<p>when you say unsupervised learning,</p>
+<p>oh my God, machines are gonna learn by themselves</p>
+<p>without supervision.</p>
+<p>You know, they see this as&hellip;</p>
+<p>Where&rsquo;s the parents?</p>
+<p>Yeah, so I call it self supervised learning</p>
+<p>because, in fact, the underlying algorithms that are used</p>
+<p>are the same algorithms as the supervised learning</p>
+<p>algorithms, except that what we train them to do</p>
+<p>is not predict a particular set of variables,</p>
+<p>like the category of an image,</p>
+<p>and not to predict a set of variables</p>
+<p>that have been provided by human labelers.</p>
+<p>But what you&rsquo;re trying the machine to do</p>
+<p>is basically reconstruct a piece of its input</p>
+<p>that is being maxed out, essentially.</p>
+<p>You can think of it this way, right?</p>
+<p>So show a piece of video to a machine</p>
+<p>and ask it to predict what&rsquo;s gonna happen next.</p>
+<p>And of course, after a while, you can show what happens</p>
+<p>and the machine will kind of train itself</p>
+<p>to do better at that task.</p>
+<p>You can do like all the latest, most successful models</p>
+<p>in natural language processing,</p>
+<p>use self supervised learning.</p>
+<p>You know, sort of BERT style systems, for example, right?</p>
+<p>You show it a window of a dozen words on a text corpus,</p>
+<p>you take out 15% of the words,</p>
+<p>and then you train the machine to predict the words</p>
+<p>that are missing, that self supervised learning.</p>
+<p>It&rsquo;s not predicting the future,</p>
+<p>it&rsquo;s just predicting things in the middle,</p>
+<p>but you could have it predict the future,</p>
+<p>that&rsquo;s what language models do.</p>
+<p>So you construct, so in an unsupervised way,</p>
+<p>you construct a model of language.</p>
+<p>Do you think&hellip;</p>
+<p>Or video or the physical world or whatever, right?</p>
+<p>How far do you think that can take us?</p>
+<p>Do you think BERT understands anything?</p>
+<p>To some level, it has a shallow understanding of text,</p>
+<p>but it needs to, I mean,</p>
+<p>to have kind of true human level intelligence,</p>
+<p>I think you need to ground language in reality.</p>
+<p>So some people are attempting to do this, right?</p>
+<p>Having systems that kind of have some visual representation</p>
+<p>of what is being talked about,</p>
+<p>which is one reason you need</p>
+<p>those interactive environments actually.</p>
+<p>But this is like a huge technical problem</p>
+<p>that is not solved,</p>
+<p>and that explains why self supervised learning</p>
+<p>works in the context of natural language,</p>
+<p>but does not work in the context, or at least not well,</p>
+<p>in the context of image recognition and video,</p>
+<p>although it&rsquo;s making progress quickly.</p>
+<p>And the reason, that reason is the fact that</p>
+<p>it&rsquo;s much easier to represent uncertainty in the prediction</p>
+<p>in a context of natural language</p>
+<p>than it is in the context of things like video and images.</p>
+<p>So for example, if I ask you to predict</p>
+<p>what words are missing,</p>
+<p>15% of the words that I&rsquo;ve taken out.</p>
+<p>The possibilities are small.</p>
+<p>That means&hellip; It&rsquo;s small, right?</p>
+<p>There is 100,000 words in the lexicon,</p>
+<p>and what the machine spits out</p>
+<p>is a big probability vector, right?</p>
+<p>It&rsquo;s a bunch of numbers between zero and one</p>
+<p>that sum to one.</p>
+<p>And we know how to do this with computers.</p>
+<p>So there, representing uncertainty in the prediction</p>
+<p>is relatively easy, and that&rsquo;s, in my opinion,</p>
+<p>why those techniques work for NLP.</p>
+<p>For images, if you ask&hellip;</p>
+<p>If you block a piece of an image,</p>
+<p>and you ask the system,</p>
+<p>reconstruct that piece of the image,</p>
+<p>there are many possible answers.</p>
+<p>They are all perfectly legit, right?</p>
+<p>And how do you represent this set of possible answers?</p>
+<p>You can&rsquo;t train a system to make one prediction.</p>
+<p>You can&rsquo;t train a neural net to say,</p>
+<p>here it is, that&rsquo;s the image,</p>
+<p>because there&rsquo;s a whole set of things</p>
+<p>that are compatible with it.</p>
+<p>So how do you get the machine to represent</p>
+<p>not a single output, but a whole set of outputs?</p>
+<p>And similarly with video prediction,</p>
+<p>there&rsquo;s a lot of things that can happen</p>
+<p>in the future of video.</p>
+<p>You&rsquo;re looking at me right now.</p>
+<p>I&rsquo;m not moving my head very much,</p>
+<p>but I might turn my head to the left or to the right.</p>
+<p>If you don&rsquo;t have a system that can predict this,</p>
+<p>and you train it with least square</p>
+<p>to minimize the error with the prediction</p>
+<p>and what I&rsquo;m doing,</p>
+<p>what you get is a blurry image of myself</p>
+<p>in all possible future positions that I might be in,</p>
+<p>which is not a good prediction.</p>
+<p>So there might be other ways</p>
+<p>to do the self supervision for visual scenes.</p>
+<p>Like what?</p>
+<p>I mean, if I knew, I wouldn&rsquo;t tell you,</p>
+<p>publish it first, I don&rsquo;t know.</p>
+<p>No, there might be.</p>
+<p>So I mean, these are kind of,</p>
+<p>there might be artificial ways of like self play in games,</p>
+<p>the way you can simulate part of the environment.</p>
+<p>Oh, that doesn&rsquo;t solve the problem.</p>
+<p>It&rsquo;s just a way of generating data.</p>
+<p>But because you have more of a control,</p>
+<p>like maybe you can control,</p>
+<p>yeah, it&rsquo;s a way to generate data.</p>
+<p>That&rsquo;s right.</p>
+<p>And because you can do huge amounts of data generation,</p>
+<p>that doesn&rsquo;t, you&rsquo;re right.</p>
+<p>Well, it creeps up on the problem from the side of data,</p>
+<p>and you don&rsquo;t think that&rsquo;s the right way to creep up.</p>
+<p>It doesn&rsquo;t solve this problem</p>
+<p>of handling uncertainty in the world, right?</p>
+<p>So if you have a machine learn a predictive model</p>
+<p>of the world in a game that is deterministic</p>
+<p>or quasi deterministic, it&rsquo;s easy, right?</p>
+<p>Just give a few frames of the game to a ConvNet,</p>
+<p>put a bunch of layers,</p>
+<p>and then have the game generates the next few frames.</p>
+<p>And if the game is deterministic, it works fine.</p>
+<p>And that includes feeding the system with the action</p>
+<p>that your little character is gonna take.</p>
+<p>The problem comes from the fact that the real world</p>
+<p>and most games are not entirely predictable.</p>
+<p>And so there you get those blurry predictions</p>
+<p>and you can&rsquo;t do planning with blurry predictions, right?</p>
+<p>So if you have a perfect model of the world,</p>
+<p>you can, in your head, run this model</p>
+<p>with a hypothesis for a sequence of actions,</p>
+<p>and you&rsquo;re going to predict the outcome</p>
+<p>of that sequence of actions.</p>
+<p>But if your model is imperfect, how can you plan?</p>
+<p>Yeah, it quickly explodes.</p>
+<p>What are your thoughts on the extension of this,</p>
+<p>which topic I&rsquo;m super excited about,</p>
+<p>it&rsquo;s connected to something you were talking about</p>
+<p>in terms of robotics, is active learning.</p>
+<p>So as opposed to sort of completely unsupervised</p>
+<p>or self supervised learning,</p>
+<p>you ask the system for human help</p>
+<p>for selecting parts you want annotated next.</p>
+<p>So if you think about a robot exploring a space</p>
+<p>or a baby exploring a space</p>
+<p>or a system exploring a data set,</p>
+<p>every once in a while asking for human input,</p>
+<p>do you see value in that kind of work?</p>
+<p>I don&rsquo;t see transformative value.</p>
+<p>It&rsquo;s going to make things that we can already do</p>
+<p>more efficient or they will learn slightly more efficiently,</p>
+<p>but it&rsquo;s not going to make machines</p>
+<p>sort of significantly more intelligent.</p>
+<p>I think, and by the way, there is no opposition,</p>
+<p>there&rsquo;s no conflict between self supervised learning,</p>
+<p>reinforcement learning and supervised learning</p>
+<p>or imitation learning or active learning.</p>
+<p>I see self supervised learning</p>
+<p>as a preliminary to all of the above.</p>
+<p>Yes.</p>
+<p>So the example I use very often is how is it that,</p>
+<p>so if you use classical reinforcement learning,</p>
+<p>deep reinforcement learning, if you want,</p>
+<p>the best methods today,</p>
+<p>so called model free reinforcement learning</p>
+<p>to learn to play Atari games,</p>
+<p>take about 80 hours of training to reach the level</p>
+<p>that any human can reach in about 15 minutes.</p>
+<p>They get better than humans, but it takes them a long time.</p>
+<p>Alpha star, okay, the, you know,</p>
+<p>Aureal Vinyals and his teams,</p>
+<p>the system to play StarCraft plays,</p>
+<p>you know, a single map, a single type of player.</p>
+<p>A single player and can reach better than human level</p>
+<p>with about the equivalent of 200 years of training</p>
+<p>playing against itself.</p>
+<p>It&rsquo;s 200 years, right?</p>
+<p>It&rsquo;s not something that no human can ever do.</p>
+<p>I mean, I&rsquo;m not sure what lesson to take away from that.</p>
+<p>Okay, now take those algorithms,</p>
+<p>the best algorithms we have today</p>
+<p>to train a car to drive itself.</p>
+<p>It would probably have to drive millions of hours.</p>
+<p>It will have to kill thousands of pedestrians.</p>
+<p>It will have to run into thousands of trees.</p>
+<p>It will have to run off cliffs.</p>
+<p>And it had to run off cliff multiple times</p>
+<p>before it figures out that it&rsquo;s a bad idea, first of all.</p>
+<p>And second of all, before it figures out how not to do it.</p>
+<p>And so, I mean, this type of learning obviously</p>
+<p>does not reflect the kind of learning</p>
+<p>that animals and humans do.</p>
+<p>There is something missing</p>
+<p>that&rsquo;s really, really important there.</p>
+<p>And my hypothesis, which I&rsquo;ve been advocating</p>
+<p>for like five years now,</p>
+<p>is that we have predictive models of the world</p>
+<p>that include the ability to predict under uncertainty.</p>
+<p>And what allows us to not run off a cliff</p>
+<p>when we learn to drive,</p>
+<p>most of us can learn to drive in about 20 or 30 hours</p>
+<p>of training without ever crashing, causing any accident.</p>
+<p>And if we drive next to a cliff,</p>
+<p>we know that if we turn the wheel to the right,</p>
+<p>the car is gonna run off the cliff</p>
+<p>and nothing good is gonna come out of this.</p>
+<p>Because we have a pretty good model of intuitive physics</p>
+<p>that tells us the car is gonna fall.</p>
+<p>We know about gravity.</p>
+<p>Babies learn this around the age of eight or nine months</p>
+<p>that objects don&rsquo;t float, they fall.</p>
+<p>And we have a pretty good idea of the effect</p>
+<p>of turning the wheel on the car</p>
+<p>and we know we need to stay on the road.</p>
+<p>So there&rsquo;s a lot of things that we bring to the table,</p>
+<p>which is basically our predictive model of the world.</p>
+<p>And that model allows us to not do stupid things.</p>
+<p>And to basically stay within the context</p>
+<p>of things we need to do.</p>
+<p>We still face unpredictable situations</p>
+<p>and that&rsquo;s how we learn.</p>
+<p>But that allows us to learn really, really, really quickly.</p>
+<p>So that&rsquo;s called model based reinforcement learning.</p>
+<p>There&rsquo;s some imitation and supervised learning</p>
+<p>because we have a driving instructor</p>
+<p>that tells us occasionally what to do.</p>
+<p>But most of the learning is learning the model,</p>
+<p>learning physics that we&rsquo;ve done since we were babies.</p>
+<p>That&rsquo;s where all, almost all the learning.</p>
+<p>And the physics is somewhat transferable from,</p>
+<p>it&rsquo;s transferable from scene to scene.</p>
+<p>Stupid things are the same everywhere.</p>
+<p>Yeah, I mean, if you have experience of the world,</p>
+<p>you don&rsquo;t need to be from a particularly intelligent species</p>
+<p>to know that if you spill water from a container,</p>
+<p>the rest is gonna get wet.</p>
+<p>You might get wet.</p>
+<p>So cats know this, right?</p>
+<p>Yeah.</p>
+<p>Right, so the main problem we need to solve</p>
+<p>is how do we learn models of the world?</p>
+<p>That&rsquo;s what I&rsquo;m interested in.</p>
+<p>That&rsquo;s what self supervised learning is all about.</p>
+<p>If you were to try to construct a benchmark for,</p>
+<p>let&rsquo;s look at MNIST.</p>
+<p>I love that data set.</p>
+<p>Do you think it&rsquo;s useful, interesting, slash possible</p>
+<p>to perform well on MNIST with just one example</p>
+<p>of each digit and how would we solve that problem?</p>
+<p>The answer is probably yes.</p>
+<p>The question is what other type of learning</p>
+<p>are you allowed to do?</p>
+<p>So if what you&rsquo;re allowed to do is train</p>
+<p>on some gigantic data set of labeled digit,</p>
+<p>that&rsquo;s called transfer learning.</p>
+<p>And we know that works, okay?</p>
+<p>We do this at Facebook, like in production, right?</p>
+<p>We train large convolutional nets to predict hashtags</p>
+<p>that people type on Instagram</p>
+<p>and we train on billions of images, literally billions.</p>
+<p>And then we chop off the last layer</p>
+<p>and fine tune on whatever task we want.</p>
+<p>That works really well.</p>
+<p>You can beat the ImageNet record with this.</p>
+<p>We actually open sourced the whole thing</p>
+<p>like a few weeks ago.</p>
+<p>Yeah, that&rsquo;s still pretty cool.</p>
+<p>But yeah, so what would be impressive?</p>
+<p>What&rsquo;s useful and impressive?</p>
+<p>What kind of transfer learning</p>
+<p>would be useful and impressive?</p>
+<p>Is it Wikipedia, that kind of thing?</p>
+<p>No, no, so I don&rsquo;t think transfer learning</p>
+<p>is really where we should focus.</p>
+<p>We should try to do,</p>
+<p>you know, have a kind of scenario for Benchmark</p>
+<p>where you have unlabeled data</p>
+<p>and you can, and it&rsquo;s very large number of unlabeled data.</p>
+<p>It could be video clips.</p>
+<p>It could be where you do, you know, frame prediction.</p>
+<p>It could be images where you could choose to,</p>
+<p>you know, mask a piece of it, could be whatever,</p>
+<p>but they&rsquo;re unlabeled and you&rsquo;re not allowed to label them.</p>
+<p>So you do some training on this,</p>
+<p>and then you train on a particular supervised task,</p>
+<p>ImageNet or a NIST,</p>
+<p>and you measure how your test error decrease</p>
+<p>or validation error decreases</p>
+<p>as you increase the number of label training samples.</p>
+<p>Okay, and what you&rsquo;d like to see is that,</p>
+<p>you know, your error decreases much faster</p>
+<p>than if you train from scratch from random weights.</p>
+<p>So that to reach the same level of performance</p>
+<p>and a completely supervised, purely supervised system</p>
+<p>would reach you would need way fewer samples.</p>
+<p>So that&rsquo;s the crucial question</p>
+<p>because it will answer the question to like, you know,</p>
+<p>people interested in medical image analysis.</p>
+<p>Okay, you know, if I want to get to a particular level</p>
+<p>of error rate for this task,</p>
+<p>I know I need a million samples.</p>
+<p>Can I do, you know, self supervised pre training</p>
+<p>to reduce this to about 100 or something?</p>
+<p>And you think the answer there</p>
+<p>is self supervised pre training?</p>
+<p>Yeah, some form, some form of it.</p>
+<p>Telling you active learning, but you disagree.</p>
+<p>No, it&rsquo;s not useless.</p>
+<p>It&rsquo;s just not gonna lead to a quantum leap.</p>
+<p>It&rsquo;s just gonna make things that we already do.</p>
+<p>So you&rsquo;re way smarter than me.</p>
+<p>I just disagree with you.</p>
+<p>But I don&rsquo;t have anything to back that.</p>
+<p>It&rsquo;s just intuition.</p>
+<p>So I worked a lot of large scale data sets</p>
+<p>and there&rsquo;s something that might be magic</p>
+<p>in active learning, but okay.</p>
+<p>And at least I said it publicly.</p>
+<p>At least I&rsquo;m being an idiot publicly.</p>
+<p>Okay.</p>
+<p>It&rsquo;s not being an idiot.</p>
+<p>It&rsquo;s, you know, working with the data you have.</p>
+<p>I mean, I mean, certainly people are doing things like,</p>
+<p>okay, I have 3000 hours of, you know,</p>
+<p>imitation learning for start driving car,</p>
+<p>but most of those are incredibly boring.</p>
+<p>What I like is select, you know, 10% of them</p>
+<p>that are kind of the most informative.</p>
+<p>And with just that, I would probably reach the same.</p>
+<p>So it&rsquo;s a weak form of active learning if you want.</p>
+<p>Yes, but there might be a much stronger version.</p>
+<p>Yeah, that&rsquo;s right.</p>
+<p>That&rsquo;s what, and that&rsquo;s an awful question if it exists.</p>
+<p>The question is how much stronger can you get?</p>
+<p>Elon Musk is confident.</p>
+<p>Talked to him recently.</p>
+<p>He&rsquo;s confident that large scale data and deep learning</p>
+<p>can solve the autonomous driving problem.</p>
+<p>What are your thoughts on the limits,</p>
+<p>possibilities of deep learning in this space?</p>
+<p>It&rsquo;s obviously part of the solution.</p>
+<p>I mean, I don&rsquo;t think we&rsquo;ll ever have a set driving system</p>
+<p>or at least not in the foreseeable future</p>
+<p>that does not use deep learning.</p>
+<p>Let me put it this way.</p>
+<p>Now, how much of it?</p>
+<p>So in the history of sort of engineering,</p>
+<p>particularly sort of AI like systems,</p>
+<p>there&rsquo;s generally a first phase where everything is built by hand.</p>
+<p>Then there is a second phase.</p>
+<p>And that was the case for autonomous driving 20, 30 years ago.</p>
+<p>There&rsquo;s a phase where there&rsquo;s a little bit of learning is used,</p>
+<p>but there&rsquo;s a lot of engineering that&rsquo;s involved in kind of</p>
+<p>taking care of corner cases and putting limits, et cetera,</p>
+<p>because the learning system is not perfect.</p>
+<p>And then as technology progresses,</p>
+<p>we end up relying more and more on learning.</p>
+<p>That&rsquo;s the history of character recognition,</p>
+<p>it&rsquo;s the history of science.</p>
+<p>Character recognition is the history of speech recognition,</p>
+<p>now computer vision, natural language processing.</p>
+<p>And I think the same is going to happen with autonomous driving</p>
+<p>that currently the methods that are closest</p>
+<p>to providing some level of autonomy,</p>
+<p>some decent level of autonomy</p>
+<p>where you don&rsquo;t expect a driver to kind of do anything</p>
+<p>is where you constrain the world.</p>
+<p>So you only run within 100 square kilometers</p>
+<p>or square miles in Phoenix where the weather is nice</p>
+<p>and the roads are wide, which is what Waymo is doing.</p>
+<p>You completely overengineer the car with tons of LIDARs</p>
+<p>and sophisticated sensors that are too expensive</p>
+<p>for consumer cars,</p>
+<p>but they&rsquo;re fine if you just run a fleet.</p>
+<p>And you engineer the hell out of everything else.</p>
+<p>You map the entire world.</p>
+<p>So you have complete 3D model of everything.</p>
+<p>So the only thing that the perception system</p>
+<p>has to take care of is moving objects</p>
+<p>and construction and sort of things that weren&rsquo;t in your map.</p>
+<p>And you can engineer a good SLAM system and all that stuff.</p>
+<p>So that&rsquo;s kind of the current approach</p>
+<p>that&rsquo;s closest to some level of autonomy.</p>
+<p>But I think eventually the longterm solution</p>
+<p>is going to rely more and more on learning</p>
+<p>and possibly using a combination</p>
+<p>of self supervised learning and model based reinforcement</p>
+<p>or something like that.</p>
+<p>But ultimately learning will be not just at the core,</p>
+<p>but really the fundamental part of the system.</p>
+<p>Yeah, it already is, but it will become more and more.</p>
+<p>What do you think it takes to build a system</p>
+<p>with human level intelligence?</p>
+<p>You talked about the AI system in the movie Her</p>
+<p>being way out of reach, our current reach.</p>
+<p>This might be outdated as well, but.</p>
+<p>It&rsquo;s still way out of reach.</p>
+<p>What would it take to build Her?</p>
+<p>Do you think?</p>
+<p>So I can tell you the first two obstacles</p>
+<p>that we have to clear,</p>
+<p>but I don&rsquo;t know how many obstacles there are after this.</p>
+<p>So the image I usually use is that</p>
+<p>there is a bunch of mountains that we have to climb</p>
+<p>and we can see the first one,</p>
+<p>but we don&rsquo;t know if there are 50 mountains behind it or not.</p>
+<p>And this might be a good sort of metaphor</p>
+<p>for why AI researchers in the past</p>
+<p>have been overly optimistic about the result of AI.</p>
+<p>You know, for example,</p>
+<p>Noel and Simon wrote the general problem solver</p>
+<p>and they called it the general problem solver.</p>
+<p>General problem solver.</p>
+<p>And of course, the first thing you realize</p>
+<p>is that all the problems you want to solve are exponential.</p>
+<p>And so you can&rsquo;t actually use it for anything useful,</p>
+<p>but you know.</p>
+<p>Yeah, so yeah, all you see is the first peak.</p>
+<p>So in general, what are the first couple of peaks for Her?</p>
+<p>So the first peak, which is precisely what I&rsquo;m working on</p>
+<p>is self supervised learning.</p>
+<p>How do we get machines to run models of the world</p>
+<p>by observation, kind of like babies and like young animals?</p>
+<p>So we&rsquo;ve been working with, you know, cognitive scientists.</p>
+<p>So this Emmanuelle Dupoux, who&rsquo;s at FAIR in Paris,</p>
+<p>is a half time, is also a researcher in a French university.</p>
+<p>And he has this chart that shows that which,</p>
+<p>how many months of life baby humans</p>
+<p>kind of learn different concepts.</p>
+<p>And you can measure this in sort of various ways.</p>
+<p>So things like distinguishing animate objects</p>
+<p>from inanimate objects,</p>
+<p>you can tell the difference at age two, three months.</p>
+<p>Whether an object is going to stay stable,</p>
+<p>is going to fall, you know,</p>
+<p>about four months, you can tell.</p>
+<p>You know, there are various things like this.</p>
+<p>And then things like gravity,</p>
+<p>the fact that objects are not supposed to float in the air,</p>
+<p>but are supposed to fall,</p>
+<p>you run this around the age of eight or nine months.</p>
+<p>If you look at the data,</p>
+<p>eight or nine months, if you look at a lot of,</p>
+<p>you know, eight month old babies,</p>
+<p>you give them a bunch of toys on their high chair.</p>
+<p>First thing they do is they throw them on the ground</p>
+<p>and they look at them.</p>
+<p>It&rsquo;s because, you know, they&rsquo;re learning about,</p>
+<p>actively learning about gravity.</p>
+<p>Gravity, yeah.</p>
+<p>Okay, so they&rsquo;re not trying to annoy you,</p>
+<p>but they, you know, they need to do the experiment, right?</p>
+<p>Yeah.</p>
+<p>So, you know, how do we get machines to learn like babies,</p>
+<p>mostly by observation with a little bit of interaction</p>
+<p>and learning those models of the world?</p>
+<p>Because I think that&rsquo;s really a crucial piece</p>
+<p>of an intelligent autonomous system.</p>
+<p>So if you think about the architecture</p>
+<p>of an intelligent autonomous system,</p>
+<p>it needs to have a predictive model of the world.</p>
+<p>So something that says, here is a world at time T,</p>
+<p>here is a state of the world at time T plus one,</p>
+<p>if I take this action.</p>
+<p>And it&rsquo;s not a single answer, it can be a&hellip;</p>
+<p>Yeah, it can be a distribution, yeah.</p>
+<p>Yeah, well, but we don&rsquo;t know how to represent</p>
+<p>distributions in high dimensional T spaces.</p>
+<p>So it&rsquo;s gotta be something weaker than that, okay?</p>
+<p>But with some representation of uncertainty.</p>
+<p>If you have that, then you can do what optimal control</p>
+<p>theorists call model predictive control,</p>
+<p>which means that you can run your model</p>
+<p>with a hypothesis for a sequence of action</p>
+<p>and then see the result.</p>
+<p>Now, what you need, the other thing you need</p>
+<p>is some sort of objective that you want to optimize.</p>
+<p>Am I reaching the goal of grabbing this object?</p>
+<p>Am I minimizing energy?</p>
+<p>Am I whatever, right?</p>
+<p>So there is some sort of objective that you have to minimize.</p>
+<p>And so in your head, if you have this model,</p>
+<p>you can figure out the sequence of action</p>
+<p>that will optimize your objective.</p>
+<p>That objective is something that ultimately is rooted</p>
+<p>in your basal ganglia, at least in the human brain,</p>
+<p>that&rsquo;s what it&rsquo;s basal ganglia,</p>
+<p>computes your level of contentment or miscontentment.</p>
+<p>I don&rsquo;t know if that&rsquo;s a word.</p>
+<p>Unhappiness, okay?</p>
+<p>Yeah, yeah.</p>
+<p>Discontentment.</p>
+<p>Discontentment, maybe.</p>
+<p>And so your entire behavior is driven towards</p>
+<p>kind of minimizing that objective,</p>
+<p>which is maximizing your contentment,</p>
+<p>computed by your basal ganglia.</p>
+<p>And what you have is an objective function,</p>
+<p>which is basically a predictor</p>
+<p>of what your basal ganglia is going to tell you.</p>
+<p>So you&rsquo;re not going to put your hand on fire</p>
+<p>because you know it&rsquo;s going to burn</p>
+<p>and you&rsquo;re going to get hurt.</p>
+<p>And you&rsquo;re predicting this because of your model</p>
+<p>of the world and your sort of predictor</p>
+<p>of this objective, right?</p>
+<p>So if you have those three components,</p>
+<p>you have four components,</p>
+<p>you have the hardwired objective,</p>
+<p>hardwired contentment objective computer,</p>
+<p>if you want, calculator.</p>
+<p>And then you have the three components.</p>
+<p>One is the objective predictor,</p>
+<p>which basically predicts your level of contentment.</p>
+<p>One is the model of the world.</p>
+<p>And there&rsquo;s a third module I didn&rsquo;t mention,</p>
+<p>which is the module that will figure out</p>
+<p>the best course of action to optimize an objective</p>
+<p>given your model, okay?</p>
+<p>Yeah.</p>
+<p>And you can call this a policy network</p>
+<p>or something like that, right?</p>
+<p>Now, you need those three components</p>
+<p>to act autonomously intelligently.</p>
+<p>And you can be stupid in three different ways.</p>
+<p>You can be stupid because your model of the world is wrong.</p>
+<p>You can be stupid because your objective is not aligned</p>
+<p>with what you actually want to achieve, okay?</p>
+<p>In humans, that would be a psychopath.</p>
+<p>And then the third way you can be stupid</p>
+<p>is that you have the right model,</p>
+<p>you have the right objective,</p>
+<p>but you&rsquo;re unable to figure out a course of action</p>
+<p>to optimize your objective given your model.</p>
+<p>Okay.</p>
+<p>Some people who are in charge of big countries</p>
+<p>actually have all three that are wrong.</p>
+<p>All right.</p>
+<p>Which countries?</p>
+<p>I don&rsquo;t know.</p>
+<p>Okay, so if we think about this agent,</p>
+<p>if we think about the movie Her,</p>
+<p>you&rsquo;ve criticized the art project</p>
+<p>that is Sophia the Robot.</p>
+<p>And what that project essentially does</p>
+<p>is uses our natural inclination to anthropomorphize</p>
+<p>things that look like human and give them more.</p>
+<p>Do you think that could be used by AI systems</p>
+<p>like in the movie Her?</p>
+<p>So do you think that body is needed</p>
+<p>to create a feeling of intelligence?</p>
+<p>Well, if Sophia was just an art piece,</p>
+<p>I would have no problem with it,</p>
+<p>but it&rsquo;s presented as something else.</p>
+<p>Let me, on that comment real quick,</p>
+<p>if creators of Sophia could change something</p>
+<p>about their marketing or behavior in general,</p>
+<p>what would it be?</p>
+<p>What&rsquo;s?</p>
+<p>I&rsquo;m just about everything.</p>
+<p>I mean, don&rsquo;t you think, here&rsquo;s a tough question.</p>
+<p>Let me, so I agree with you.</p>
+<p>So Sophia is not, the general public feels</p>
+<p>that Sophia can do way more than she actually can.</p>
+<p>That&rsquo;s right.</p>
+<p>And the people who created Sophia</p>
+<p>are not honestly publicly communicating,</p>
+<p>trying to teach the public.</p>
+<p>Right.</p>
+<p>But here&rsquo;s a tough question.</p>
+<p>Don&rsquo;t you think the same thing is scientists</p>
+<p>in industry and research are taking advantage</p>
+<p>of the same misunderstanding in the public</p>
+<p>when they create AI companies or publish stuff?</p>
+<p>Some companies, yes.</p>
+<p>I mean, there is no sense of,</p>
+<p>there&rsquo;s no desire to delude.</p>
+<p>There&rsquo;s no desire to kind of over claim</p>
+<p>when something is done, right?</p>
+<p>You publish a paper on AI that has this result</p>
+<p>on ImageNet, it&rsquo;s pretty clear.</p>
+<p>I mean, it&rsquo;s not even interesting anymore,</p>
+<p>but I don&rsquo;t think there is that.</p>
+<p>I mean, the reviewers are generally not very forgiving</p>
+<p>of unsupported claims of this type.</p>
+<p>And, but there are certainly quite a few startups</p>
+<p>that have had a huge amount of hype around this</p>
+<p>that I find extremely damaging</p>
+<p>and I&rsquo;ve been calling it out when I&rsquo;ve seen it.</p>
+<p>So yeah, but to go back to your original question,</p>
+<p>like the necessity of embodiment,</p>
+<p>I think, I don&rsquo;t think embodiment is necessary.</p>
+<p>I think grounding is necessary.</p>
+<p>So I don&rsquo;t think we&rsquo;re gonna get machines</p>
+<p>that really understand language</p>
+<p>without some level of grounding in the real world.</p>
+<p>And it&rsquo;s not clear to me that language</p>
+<p>is a high enough bandwidth medium</p>
+<p>to communicate how the real world works.</p>
+<p>So I think for this.</p>
+<p>Can you talk to what grounding means?</p>
+<p>So grounding means that,</p>
+<p>so there is this classic problem of common sense reasoning,</p>
+<p>you know, the Winograd schema, right?</p>
+<p>And so I tell you the trophy doesn&rsquo;t fit in the suitcase</p>
+<p>because it&rsquo;s too big,</p>
+<p>or the trophy doesn&rsquo;t fit in the suitcase</p>
+<p>because it&rsquo;s too small.</p>
+<p>And the it in the first case refers to the trophy</p>
+<p>in the second case to the suitcase.</p>
+<p>And the reason you can figure this out</p>
+<p>is because you know where the trophy and the suitcase are,</p>
+<p>you know, one is supposed to fit in the other one</p>
+<p>and you know the notion of size</p>
+<p>and a big object doesn&rsquo;t fit in a small object,</p>
+<p>unless it&rsquo;s a Tardis, you know, things like that, right?</p>
+<p>So you have this knowledge of how the world works,</p>
+<p>of geometry and things like that.</p>
+<p>I don&rsquo;t believe you can learn everything about the world</p>
+<p>by just being told in language how the world works.</p>
+<p>I think you need some low level perception of the world,</p>
+<p>you know, be it visual touch, you know, whatever,</p>
+<p>but some higher bandwidth perception of the world.</p>
+<p>By reading all the world&rsquo;s text,</p>
+<p>you still might not have enough information.</p>
+<p>That&rsquo;s right.</p>
+<p>There&rsquo;s a lot of things that just will never appear in text</p>
+<p>and that you can&rsquo;t really infer.</p>
+<p>So I think common sense will emerge from,</p>
+<p>you know, certainly a lot of language interaction,</p>
+<p>but also with watching videos</p>
+<p>or perhaps even interacting in virtual environments</p>
+<p>and possibly, you know, robot interacting in the real world.</p>
+<p>But I don&rsquo;t actually believe necessarily</p>
+<p>that this last one is absolutely necessary.</p>
+<p>But I think that there&rsquo;s a need for some grounding.</p>
+<p>But the final product</p>
+<p>doesn&rsquo;t necessarily need to be embodied, you&rsquo;re saying.</p>
+<p>No.</p>
+<p>It just needs to have an awareness, a grounding to.</p>
+<p>Right, but it needs to know how the world works</p>
+<p>to have, you know, to not be frustrating to talk to.</p>
+<p>And you talked about emotions being important.</p>
+<p>That&rsquo;s a whole nother topic.</p>
+<p>Well, so, you know, I talked about this,</p>
+<p>the basal ganglia as the thing</p>
+<p>that calculates your level of miscontentment.</p>
+<p>And then there is this other module</p>
+<p>that sort of tries to do a prediction</p>
+<p>of whether you&rsquo;re going to be content or not.</p>
+<p>That&rsquo;s the source of some emotion.</p>
+<p>So fear, for example, is an anticipation</p>
+<p>of bad things that can happen to you, right?</p>
+<p>You have this inkling that there is some chance</p>
+<p>that something really bad is going to happen to you</p>
+<p>and that creates fear.</p>
+<p>Well, you know for sure</p>
+<p>that something bad is going to happen to you,</p>
+<p>you kind of give up, right?</p>
+<p>It&rsquo;s not fear anymore.</p>
+<p>It&rsquo;s uncertainty that creates fear.</p>
+<p>So the punchline is,</p>
+<p>we&rsquo;re not going to have autonomous intelligence</p>
+<p>without emotions.</p>
+<p>Whatever the heck emotions are.</p>
+<p>So you mentioned very practical things of fear,</p>
+<p>but there&rsquo;s a lot of other mess around it.</p>
+<p>But there are kind of the results of, you know, drives.</p>
+<p>Yeah, there&rsquo;s deeper biological stuff going on.</p>
+<p>And I&rsquo;ve talked to a few folks on this.</p>
+<p>There&rsquo;s fascinating stuff</p>
+<p>that ultimately connects to our brain.</p>
+<p>If we create an AGI system, sorry.</p>
+<p>Human level intelligence.</p>
+<p>Human level intelligence system.</p>
+<p>And you get to ask her one question.</p>
+<p>What would that question be?</p>
+<p>You know, I think the first one we&rsquo;ll create</p>
+<p>would probably not be that smart.</p>
+<p>They&rsquo;d be like a four year old.</p>
+<p>Okay.</p>
+<p>So you would have to ask her a question</p>
+<p>to know she&rsquo;s not that smart.</p>
+<p>Yeah.</p>
+<p>Well, what&rsquo;s a good question to ask, you know,</p>
+<p>to be impressed.</p>
+<p>What is the cause of wind?</p>
+<p>And if she answers,</p>
+<p>oh, it&rsquo;s because the leaves of the tree are moving</p>
+<p>and that creates wind.</p>
+<p>She&rsquo;s onto something.</p>
+<p>And if she says that&rsquo;s a stupid question,</p>
+<p>she&rsquo;s really onto something.</p>
+<p>No, and then you tell her,</p>
+<p>actually, you know, here is the real thing.</p>
+<p>She says, oh yeah, that makes sense.</p>
+<p>So questions that reveal the ability</p>
+<p>to do common sense reasoning about the physical world.</p>
+<p>Yeah.</p>
+<p>And you&rsquo;ll sum it up with causal inference.</p>
+<p>Causal inference.</p>
+<p>Well, it was a huge honor.</p>
+<p>Congratulations on your Turing Award.</p>
+<p>Thank you so much for talking today.</p>
+<p>Thank you.</p>
+<p>Thank you for having me.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

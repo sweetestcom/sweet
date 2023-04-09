@@ -1,0 +1,2583 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Jay McClelland,
+a cognitive scientist at Stanford
+and one of the seminal figures
+in the history of artificial intelligence
+and specifically neural networks.
+Having written the parallel distributed processing book
+with David Rommelhart,
+who coauthored the backpropagation paper with Jeff Hinton.
+In their collaborations, they&amp;rsquo;ve paved the way
+for many of the ideas
+at the center of the neural network based
+machine learning revolution of the past 15 years.'>
+<title>Lex Fridman Podcast - #222 - Jay McClelland: Neural Networks and the Emergence of Cognition | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500226/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #222 - Jay McClelland: Neural Networks and the Emergence of Cognition'>
+<meta property='og:description' content='The following is a conversation with Jay McClelland,
+a cognitive scientist at Stanford
+and one of the seminal figures
+in the history of artificial intelligence
+and specifically neural networks.
+Having written the parallel distributed processing book
+with David Rommelhart,
+who coauthored the backpropagation paper with Jeff Hinton.
+In their collaborations, they&amp;rsquo;ve paved the way
+for many of the ideas
+at the center of the neural network based
+machine learning revolution of the past 15 years.'>
+<meta property='og:url' content='https://swiest.com/en/1310500226/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-10-12T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-10-12T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #222 - Jay McClelland: Neural Networks and the Emergence of Cognition">
+<meta name="twitter:description" content="The following is a conversation with Jay McClelland,
+a cognitive scientist at Stanford
+and one of the seminal figures
+in the history of artificial intelligence
+and specifically neural networks.
+Having written the parallel distributed processing book
+with David Rommelhart,
+who coauthored the backpropagation paper with Jeff Hinton.
+In their collaborations, they&amp;rsquo;ve paved the way
+for many of the ideas
+at the center of the neural network based
+machine learning revolution of the past 15 years.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500226/">Lex Fridman Podcast - #222 - Jay McClelland: Neural Networks and the Emergence of Cognition</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-10-12</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    89 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Jay McClelland,</p>
+<p>a cognitive scientist at Stanford</p>
+<p>and one of the seminal figures</p>
+<p>in the history of artificial intelligence</p>
+<p>and specifically neural networks.</p>
+<p>Having written the parallel distributed processing book</p>
+<p>with David Rommelhart,</p>
+<p>who coauthored the backpropagation paper with Jeff Hinton.</p>
+<p>In their collaborations, they&rsquo;ve paved the way</p>
+<p>for many of the ideas</p>
+<p>at the center of the neural network based</p>
+<p>machine learning revolution of the past 15 years.</p>
+<p>To support this podcast,</p>
+<p>please check out our sponsors in the description.</p>
+<p>This is the Lex Friedman podcast</p>
+<p>and here is my conversation with Jay McClelland.</p>
+<p>You are one of the seminal figures</p>
+<p>in the history of neural networks.</p>
+<p>At the intersection of cognitive psychology</p>
+<p>and computer science,</p>
+<p>what to you has over the decades emerged</p>
+<p>as the most beautiful aspect about neural networks?</p>
+<p>Both artificial and biological.</p>
+<p>The fundamental thing I think about with neural networks</p>
+<p>is how they allow us to link</p>
+<p>biology with the mysteries of thought.</p>
+<p>When I was first entering the field myself</p>
+<p>in the late 60s, early 70s,</p>
+<p>cognitive psychology had just become a field.</p>
+<p>There was a book published in 67 called Cognitive Psychology.</p>
+<p>And the author said that the study of the nervous system</p>
+<p>was only of peripheral interest.</p>
+<p>It wasn&rsquo;t going to tell us anything about the mind.</p>
+<p>And I didn&rsquo;t agree with that.</p>
+<p>I always felt, oh, look, I&rsquo;m a physical being.</p>
+<p>From dust to dust, you know,</p>
+<p>ashes to ashes, and somehow I emerged from that.</p>
+<p>So that&rsquo;s really interesting.</p>
+<p>So there was a sense with cognitive psychology</p>
+<p>that in understanding the neuronal structure of things,</p>
+<p>you&rsquo;re not going to be able to understand the mind.</p>
+<p>And then your sense is if we study these neural networks,</p>
+<p>we might be able to get at least very close</p>
+<p>to understanding the fundamentals of the human mind.</p>
+<p>Yeah.</p>
+<p>I used to think, or I used to talk about the idea</p>
+<p>of awakening from the Cartesian dream.</p>
+<p>So Descartes, you know, thought about these things, right?</p>
+<p>He was walking in the gardens of Versailles one day,</p>
+<p>and he stepped on a stone.</p>
+<p>And a statue moved.</p>
+<p>And he walked a little further,</p>
+<p>he stepped on another stone, and another statue moved.</p>
+<p>And he, like, why did the statue move</p>
+<p>when I stepped on the stone?</p>
+<p>And he went and talked to the gardeners,</p>
+<p>and he found out that they had a hydraulic system</p>
+<p>that allowed the physical contact with the stone</p>
+<p>to cause water to flow in various directions,</p>
+<p>which caused water to flow into the statue</p>
+<p>and move the statue.</p>
+<p>And he used this as the beginnings of a theory</p>
+<p>about how animals act.</p>
+<p>And he had this notion that these little fibers</p>
+<p>that people had identified that weren&rsquo;t carrying the blood,</p>
+<p>you know, were these little hydraulic tubes</p>
+<p>that if you touch something, there would be pressure,</p>
+<p>and it would send a signal of pressure</p>
+<p>to the other parts of the system,</p>
+<p>and that would cause action.</p>
+<p>So he had a mechanistic theory of animal behavior.</p>
+<p>And he thought that the human had this animal body,</p>
+<p>but that some divine something else</p>
+<p>had to have come down and been placed in him</p>
+<p>to give him the ability to think, right?</p>
+<p>So the physical world includes the body in action,</p>
+<p>but it doesn&rsquo;t include thought according to Descartes, right?</p>
+<p>And so the study of physiology at that time</p>
+<p>was the study of sensory systems and motor systems</p>
+<p>and things that you could directly measure</p>
+<p>when you stimulated neurons and stuff like that.</p>
+<p>And the study of cognition was something that, you know,</p>
+<p>was tied in with abstract computer algorithms</p>
+<p>and things like that.</p>
+<p>But when I was an undergraduate,</p>
+<p>I learned about the physiological mechanisms.</p>
+<p>And so when I&rsquo;m studying cognitive psychology</p>
+<p>as a first year PhD student, I&rsquo;m saying,</p>
+<p>wait a minute, the whole thing is biological, right?</p>
+<p>You know?</p>
+<p>You had that intuition right away.</p>
+<p>That always seemed obvious to you.</p>
+<p>Yeah, yeah.</p>
+<p>Isn&rsquo;t that magical, though,</p>
+<p>that from just a little bit of biology can emerge</p>
+<p>the full beauty of the human experience?</p>
+<p>Why is that so obvious to you?</p>
+<p>Well, obvious and not obvious at the same time.</p>
+<p>And I think about Darwin in this context, too,</p>
+<p>because Darwin knew very early on</p>
+<p>that none of the ideas that anybody had ever offered</p>
+<p>gave him a sense of understanding</p>
+<p>how evolution could have worked.</p>
+<p>But he wanted to figure out how it could have worked.</p>
+<p>That was his goal.</p>
+<p>And he spent a lot of time working on this idea</p>
+<p>and reading about things that gave him hints</p>
+<p>and thinking they were interesting but not knowing why</p>
+<p>and drawing more and more pictures of different birds</p>
+<p>that differ slightly from each other and so on, you know.</p>
+<p>And then he figured it out.</p>
+<p>But after he figured it out, he had nightmares about it.</p>
+<p>He would dream about the complexity of the eye</p>
+<p>and the arguments that people had given</p>
+<p>about how ridiculous it was to imagine</p>
+<p>that that could have ever emerged</p>
+<p>from some sort of, you know, unguided process, right?</p>
+<p>That it hadn&rsquo;t been the product of design.</p>
+<p>And so he didn&rsquo;t publish for a long time,</p>
+<p>in part because he was scared of his own ideas.</p>
+<p>He didn&rsquo;t think they could possibly be true.</p>
+<p>But then, you know, by the time</p>
+<p>the 20th century rolls around, we all,</p>
+<p>you know, we understand that,</p>
+<p>many people understand or believe</p>
+<p>that evolution produced, you know, the entire</p>
+<p>range of animals that there are.</p>
+<p>And, you know, Descartes&rsquo;s idea starts to seem</p>
+<p>a little wonky after a while, right?</p>
+<p>Like, well, wait a minute.</p>
+<p>There&rsquo;s the apes and the chimpanzees and the bonobos</p>
+<p>and, you know, like, they&rsquo;re pretty smart in some ways.</p>
+<p>You know, so what?</p>
+<p>Oh, you know, somebody comes up,</p>
+<p>oh, there&rsquo;s a certain part of the brain</p>
+<p>that&rsquo;s still different.</p>
+<p>They don&rsquo;t, you know, there&rsquo;s no hippocampus</p>
+<p>in the monkey brain.</p>
+<p>It&rsquo;s only in the human brain.</p>
+<p>Huxley had to do a surgery in front of many, many people</p>
+<p>in the late 19th century to show to them</p>
+<p>there&rsquo;s actually a hippocampus in the chimpanzee&rsquo;s brain.</p>
+<p>You know, so the continuity of the species</p>
+<p>is another element that, you know,</p>
+<p>contributes to this sort of, you know, idea</p>
+<p>that we are ourselves a total product of nature.</p>
+<p>And that, to me, is the magic and the mystery,</p>
+<p>how nature could actually, you know,</p>
+<p>give rise to organisms that have the capabilities</p>
+<p>that we have.</p>
+<p>So it&rsquo;s interesting because even the idea of evolution</p>
+<p>is hard for me to keep all together in my mind.</p>
+<p>So because we think of a human time scale,</p>
+<p>it&rsquo;s hard to imagine, like, the development</p>
+<p>of the human eye would give me nightmares too.</p>
+<p>Because you have to think across many, many, many</p>
+<p>generations, and it&rsquo;s very tempting to think about</p>
+<p>kind of a growth of a complicated object</p>
+<p>and it&rsquo;s like, how is it possible for such a thing</p>
+<p>to be built?</p>
+<p>Because also, me, from a robotics engineering perspective,</p>
+<p>it&rsquo;s very hard to build these systems.</p>
+<p>How can, through an undirected process,</p>
+<p>can a complex thing be designed?</p>
+<p>It seems not, it seems wrong.</p>
+<p>Yeah, so that&rsquo;s absolutely right.</p>
+<p>And I, you know, a slightly different career path</p>
+<p>that would have been equally interesting to me</p>
+<p>would have been to actually study the process</p>
+<p>of embryological development flowing on</p>
+<p>into brain development and the exquisite sort of laying</p>
+<p>down of pathways and so on that occurs in the brain.</p>
+<p>And I know the slightest bit about that is not my field,</p>
+<p>but there are, you know, fascinating aspects</p>
+<p>to this process that eventually result in the, you know,</p>
+<p>the complexity of various brains.</p>
+<p>At least, you know, one thing we&rsquo;re,</p>
+<p>in the field, I think people have felt for a long time,</p>
+<p>in the study of vision, the continuity between humans</p>
+<p>and nonhuman animals has been second nature</p>
+<p>for a lot longer.</p>
+<p>I was having, I had this conversation with somebody</p>
+<p>who is a vision scientist and he was saying,</p>
+<p>oh, we don&rsquo;t have any problem with this.</p>
+<p>You know, the monkey&rsquo;s visual system</p>
+<p>and the human visual system, extremely similar</p>
+<p>up to certain levels, of course, they diverge after a while.</p>
+<p>But the first, the visual pathway from the eye</p>
+<p>to the brain and the first few layers of cortex</p>
+<p>or cortical areas, I guess one would say,</p>
+<p>are extremely similar.</p>
+<p>Yeah, so on the cognition side is where the leap</p>
+<p>seems to happen with humans,</p>
+<p>that it does seem we&rsquo;re kind of special.</p>
+<p>And that&rsquo;s a really interesting question</p>
+<p>when thinking about alien life</p>
+<p>or if there&rsquo;s other intelligent alien civilizations</p>
+<p>out there, is how special is this leap?</p>
+<p>So one special thing seems to be the origin of life itself.</p>
+<p>However you define that, there&rsquo;s a gray area.</p>
+<p>And the other leap, this is very biased perspective</p>
+<p>of a human, is the origin of intelligence.</p>
+<p>And again, from an engineer perspective,</p>
+<p>it&rsquo;s a difficult question to ask.</p>
+<p>An important one is how difficult is that leap?</p>
+<p>How special were humans?</p>
+<p>Did a monolith come down?</p>
+<p>Did aliens bring down a monolith</p>
+<p>and some apes had to touch a monolith to get it?</p>
+<p>That&rsquo;s a lot like Descartes idea, right?</p>
+<p>Exactly, but it just seems one heck of a leap</p>
+<p>to get to this level of intelligence.</p>
+<p>Yeah, and so Chomsky argued that some genetic fluke occurred</p>
+<p>100,000 years ago and just happened</p>
+<p>that some human, some hominin predecessor of current humans</p>
+<p>had this one genetic tweak that resulted in language.</p>
+<p>And language then provided this special thing that separates us</p>
+<p>from all other animals.</p>
+<p>I think there&rsquo;s a lot of truth to the value and importance</p>
+<p>of language, but I think it comes along</p>
+<p>with the evolution of a lot of other related things related</p>
+<p>to sociality and mutual engagement with others</p>
+<p>and establishment of, I don&rsquo;t know,</p>
+<p>rich mechanisms for organizing and understanding</p>
+<p>of the world, which language then plugs into.</p>
+<p>Right, so language is a tool that</p>
+<p>allows you to do this kind of collective intelligence.</p>
+<p>And whatever is at the core of the thing that</p>
+<p>allows for this collective intelligence is the main thing.</p>
+<p>And it&rsquo;s interesting to think about that one fluke, one</p>
+<p>mutation could lead to the first crack opening of the door</p>
+<p>to human intelligence.</p>
+<p>All it takes is one.</p>
+<p>Evolution just kind of opens the door a little bit,</p>
+<p>and then time and selection takes care of the rest.</p>
+<p>You know, there&rsquo;s so many fascinating aspects</p>
+<p>to these kinds of things.</p>
+<p>So we think of evolution as continuous, right?</p>
+<p>We think, oh, yes, OK, over 500 million years,</p>
+<p>there could have been this relatively continuous changes.</p>
+<p>And but that&rsquo;s not what anthropologists,</p>
+<p>evolutionary biologists found from the fossil record.</p>
+<p>They found hundreds of millions of years of stasis.</p>
+<p>And then suddenly a change occurs.</p>
+<p>Well, suddenly on that scale is a million years or something,</p>
+<p>or even 10 million years.</p>
+<p>But the concept of punctuated equilibrium</p>
+<p>was a very important concept in evolutionary biology.</p>
+<p>And that also feels somehow right about the stages</p>
+<p>of our mental abilities.</p>
+<p>We seem to have a certain kind of mindset at a certain age.</p>
+<p>And then at another age, we look at that four year old</p>
+<p>and say, oh, my god, how could they have thought that way?</p>
+<p>So Piaget was known for this kind of stage theory</p>
+<p>of child development, right?</p>
+<p>And you look at it closely, and suddenly those stages</p>
+<p>are so discreet and it transitions.</p>
+<p>But the difference between the four year old and the seven</p>
+<p>year old is profound.</p>
+<p>And that&rsquo;s another thing that&rsquo;s always interested me</p>
+<p>is how something happens over the course of several years</p>
+<p>of experience where at some point</p>
+<p>we reach the point where something</p>
+<p>like an insight or a transition or a new stage of development</p>
+<p>occurs.</p>
+<p>And these kinds of things can be understood</p>
+<p>in complex systems research.</p>
+<p>And so evolutionary biology, developmental biology,</p>
+<p>cognitive development are all things</p>
+<p>that have been approached in this kind of way.</p>
+<p>Yeah.</p>
+<p>Just like you said, I find both fascinating</p>
+<p>those early years of human life, but also</p>
+<p>the early minutes, days from the embryonic development</p>
+<p>to how from embryos you get the brain.</p>
+<p>That development, again, from an engineer perspective,</p>
+<p>is fascinating.</p>
+<p>So it&rsquo;s not.</p>
+<p>So the early, when you deploy the brain to the human world</p>
+<p>and it gets to explore that world and learn,</p>
+<p>that&rsquo;s fascinating.</p>
+<p>But just like the assembly of the mechanism</p>
+<p>that is capable of learning, that&rsquo;s amazing.</p>
+<p>The stuff they&rsquo;re doing with brain organoids</p>
+<p>where you can build many brains and study</p>
+<p>that self assembly of a mechanism from the DNA material,</p>
+<p>that&rsquo;s like, what the heck?</p>
+<p>You have literally biological programs</p>
+<p>that just generate a system, this mushy thing that&rsquo;s</p>
+<p>able to be robust and learn in a very unpredictable world</p>
+<p>and learn seemingly arbitrary things,</p>
+<p>or a very large number of things that enable survival.</p>
+<p>Yeah.</p>
+<p>Ultimately, that is a very important part</p>
+<p>of the whole process of understanding</p>
+<p>this emergence of mind from brain kind of thing.</p>
+<p>And the whole thing seems to be pretty continuous.</p>
+<p>So let me step back to neural networks</p>
+<p>for another brief minute.</p>
+<p>You wrote parallel distributed processing books</p>
+<p>that explored ideas of neural networks in the 1980s</p>
+<p>together with a few folks.</p>
+<p>But the books you wrote with David Romelhart,</p>
+<p>who is the first author on the back propagation</p>
+<p>paper with Jeff Hinton.</p>
+<p>So these are just some figures at the time</p>
+<p>that we&rsquo;re thinking about these big ideas.</p>
+<p>What are some memorable moments of discovery</p>
+<p>and beautiful ideas from those early days?</p>
+<p>I&rsquo;m going to start sort of with my own process in the mid 70s</p>
+<p>and then into the late 70s when I met Jeff Hinton</p>
+<p>and he came to San Diego and we were all together.</p>
+<p>In my time in graduate schools, I&rsquo;ve already described to you,</p>
+<p>I had this sort of feeling of, OK, I&rsquo;m</p>
+<p>really interested in human cognition,</p>
+<p>but this disembodied sort of way of thinking about it</p>
+<p>that I&rsquo;m getting from the current mode of thought about it</p>
+<p>isn&rsquo;t working fully for me.</p>
+<p>And when I got my assistant professorship,</p>
+<p>I went to UCSD and that was in 1974.</p>
+<p>Something amazing had just happened.</p>
+<p>Dave Romelhart had written a book together</p>
+<p>with another man named Don Norman</p>
+<p>and the book was called Explorations in Cognition.</p>
+<p>And it was a series of chapters exploring</p>
+<p>interesting questions about cognition,</p>
+<p>but in a completely sort of abstract, nonbiological kind</p>
+<p>of way.</p>
+<p>And I&rsquo;m saying, gee, this is amazing.</p>
+<p>I&rsquo;m coming to this community where people can get together</p>
+<p>and feel like they&rsquo;ve collectively exploring ideas.</p>
+<p>And it was a book that had a lot of, I don&rsquo;t know,</p>
+<p>lightness to it.</p>
+<p>And Don Norman, who was the more senior figure</p>
+<p>to Romelhart at that time who led that project,</p>
+<p>always created this spirit of playful exploration of ideas.</p>
+<p>And so I&rsquo;m like, wow, this is great.</p>
+<p>But I was also still trying to get from the neurons</p>
+<p>to the cognition.</p>
+<p>And I realized at one point, I got this opportunity</p>
+<p>to go to a conference where I heard a talk by a man named</p>
+<p>James Anderson, who was an engineer,</p>
+<p>but by then a professor in a psychology department, who</p>
+<p>had used linear algebra to create neural network</p>
+<p>models of perception and categorization and memory.</p>
+<p>And it just blew me out of the water</p>
+<p>that one could create a model that was simulating neurons,</p>
+<p>not just engaged in a stepwise algorithmic process that</p>
+<p>was construed abstractly.</p>
+<p>But it was simulating remembering and recalling</p>
+<p>and recognizing the prior occurrence of a stimulus</p>
+<p>or something like that.</p>
+<p>So for me, this was a bridge between the mind and the brain.</p>
+<p>And I remember I was walking across campus one day in 1977,</p>
+<p>and I almost felt like St. Paul on the road to Damascus.</p>
+<p>I said to myself, if I think about the mind in terms</p>
+<p>of a neural network, it will help</p>
+<p>me answer the questions about the mind</p>
+<p>that I&rsquo;m trying to answer.</p>
+<p>And that really excited me.</p>
+<p>So I think that a lot of people were</p>
+<p>becoming excited about that.</p>
+<p>And one of those people was Jim Anderson, who I had mentioned.</p>
+<p>Another one was Steve Grossberg, who</p>
+<p>had been writing about neural networks since the 60s.</p>
+<p>And Jeff Hinton was yet another.</p>
+<p>And his PhD dissertation showed up in an applicant pool</p>
+<p>to a postdoctoral training program</p>
+<p>that Dave and Don, the two men I mentioned before,</p>
+<p>Rumelhart and Norman, were administering.</p>
+<p>And Rumelhart got really excited about Hinton&rsquo;s PhD dissertation.</p>
+<p>And so Hinton was one of the first people</p>
+<p>who came and joined this group of postdoctoral scholars</p>
+<p>that was funded by this wonderful grant that they got.</p>
+<p>Another one who is also well known</p>
+<p>in neural network circles is Paul Smolenski.</p>
+<p>He was another one of that group.</p>
+<p>Anyway, Jeff and Jim Anderson organized a conference</p>
+<p>at UCSD where we were.</p>
+<p>And it was called Parallel Models of Associative Memory.</p>
+<p>And it brought all the people together</p>
+<p>who had been thinking about these kinds of ideas</p>
+<p>in 1979 or 1980.</p>
+<p>And this began to kind of really resonate</p>
+<p>with some of Rumelhart&rsquo;s own thinking,</p>
+<p>some of his reasons for wanting something</p>
+<p>other than the kinds of computation</p>
+<p>he&rsquo;d been doing so far.</p>
+<p>So let me talk about Rumelhart now for a minute,</p>
+<p>OK, with that context.</p>
+<p>Well, let me also just pause because he</p>
+<p>said so many interesting things before we go to Rumelhart.</p>
+<p>So first of all, for people who are not familiar,</p>
+<p>neural networks are at the core of the machine learning,</p>
+<p>deep learning revolution of today.</p>
+<p>Geoffrey Hinton that we mentioned</p>
+<p>is one of the figures that were important in the history</p>
+<p>like yourself in the development of these neural networks,</p>
+<p>artificial neural networks that are then</p>
+<p>used for the machine learning application.</p>
+<p>Like I mentioned, the backpropagation paper</p>
+<p>is one of the optimization mechanisms</p>
+<p>by which these networks can learn.</p>
+<p>And the word parallel is really interesting.</p>
+<p>So it&rsquo;s almost like synonymous from a computational</p>
+<p>perspective how you thought at the time about neural networks</p>
+<p>as parallel computation.</p>
+<p>Would that be fair to say?</p>
+<p>Well, yeah, the parallel, the word parallel in this</p>
+<p>comes from the idea that each neuron is</p>
+<p>an independent computational unit, right?</p>
+<p>It gathers data from other neurons,</p>
+<p>it integrates it in a certain way,</p>
+<p>and then it produces a result. And it&rsquo;s</p>
+<p>a very simple little computational unit.</p>
+<p>But it&rsquo;s autonomous in the sense that it does its thing, right?</p>
+<p>It&rsquo;s in a biological medium where</p>
+<p>it&rsquo;s getting nutrients and various chemicals</p>
+<p>from that medium.</p>
+<p>But you can think of it as almost like a little computer</p>
+<p>in and of itself.</p>
+<p>So the idea is that each our brains have, oh, look,</p>
+<p>100 or hundreds, almost a billion</p>
+<p>of these little neurons, right?</p>
+<p>And they&rsquo;re all capable of doing their work at the same time.</p>
+<p>So it&rsquo;s like instead of just a single central processor that&rsquo;s</p>
+<p>engaged in chug one step after another,</p>
+<p>we have a billion of these little computational units</p>
+<p>working at the same time.</p>
+<p>So at the time that&rsquo;s, I don&rsquo;t know, maybe you can comment,</p>
+<p>it seems to me, even still to me,</p>
+<p>quite a revolutionary way to think about computation</p>
+<p>relative to the development of theoretical computer science</p>
+<p>alongside of that where it&rsquo;s very much like sequential computer.</p>
+<p>You&rsquo;re analyzing algorithms that are running on a single computer.</p>
+<p>You&rsquo;re saying, wait a minute, why don&rsquo;t we</p>
+<p>take a really dumb, very simple computer</p>
+<p>and just have a lot of them interconnected together?</p>
+<p>And they&rsquo;re all operating in their own little world</p>
+<p>and they&rsquo;re communicating with each other</p>
+<p>and thinking of computation that way.</p>
+<p>And from that kind of computation,</p>
+<p>trying to understand how things like certain characteristics</p>
+<p>of the human mind can emerge.</p>
+<p>That&rsquo;s quite a revolutionary way of thinking, I would say.</p>
+<p>Well, yes, I agree with you.</p>
+<p>And there&rsquo;s still this sort of sense</p>
+<p>of not sort of knowing how we kind of get all the way there,</p>
+<p>I think.</p>
+<p>And this very much remains at the core of the questions</p>
+<p>that everybody&rsquo;s asking about the capabilities</p>
+<p>of deep learning and all these kinds of things.</p>
+<p>But if I could just play this out a little bit,</p>
+<p>a convolutional neural network or a CNN,</p>
+<p>which many people may have heard of, is a set of,</p>
+<p>you could think of it biologically as a set of</p>
+<p>collections of neurons.</p>
+<p>Each collection has maybe 10,000 neurons in it.</p>
+<p>But there&rsquo;s many layers.</p>
+<p>Some of these things are hundreds or even</p>
+<p>1,000 layers deep.</p>
+<p>But others are closer to the biological brain</p>
+<p>and maybe they&rsquo;re like 20 layers deep or something like that.</p>
+<p>So within each layer, we have thousands of neurons</p>
+<p>or tens of thousands maybe.</p>
+<p>Well, in the brain, we probably have millions in each layer.</p>
+<p>But we&rsquo;re getting sort of similar in a certain way.</p>
+<p>And then we think, OK, at the bottom level,</p>
+<p>there&rsquo;s an array of things that are like the photoreceptors.</p>
+<p>In the eye, they respond to the amount</p>
+<p>of light of a certain wavelength at a certain location</p>
+<p>on the pixel array.</p>
+<p>So that&rsquo;s like the biological eye.</p>
+<p>And then there&rsquo;s several further stages going up,</p>
+<p>layers of these neuron like units.</p>
+<p>And you go from that raw input array of pixels</p>
+<p>to the classification, you&rsquo;ve actually</p>
+<p>built a system that could do the same kind of thing</p>
+<p>that you and I do when we open our eyes and we look around</p>
+<p>and we see there&rsquo;s a cup, there&rsquo;s a cell phone,</p>
+<p>there&rsquo;s a water bottle.</p>
+<p>And these systems are doing that now, right?</p>
+<p>So they are, in terms of the parallel idea</p>
+<p>that we were talking about before,</p>
+<p>they are doing this massively parallel computation</p>
+<p>in the sense that each of the neurons in each</p>
+<p>of those layers is thought of as computing</p>
+<p>its little bit of something about the input</p>
+<p>simultaneously with all the other ones in the same layer.</p>
+<p>We get to the point of abstracting that away</p>
+<p>and thinking, oh, it&rsquo;s just one whole vector that&rsquo;s</p>
+<p>being computed, one activation pattern that&rsquo;s</p>
+<p>computed in a single step.</p>
+<p>And that abstraction is useful, but it&rsquo;s still that parallel.</p>
+<p>And distributed processing, right?</p>
+<p>Each one of these guys is just contributing</p>
+<p>a tiny bit to that whole thing.</p>
+<p>And that&rsquo;s the excitement that you felt,</p>
+<p>that from these simple things, you can emerge.</p>
+<p>When you add these level of abstractions on it,</p>
+<p>you can start getting all the beautiful things</p>
+<p>that we think about as cognition.</p>
+<p>And so, OK, so you have this conference.</p>
+<p>I forgot the name already, but it&rsquo;s</p>
+<p>Parallel and Something Associative Memory and so on.</p>
+<p>Very exciting, technical and exciting title.</p>
+<p>And you started talking about Dave Romerhart.</p>
+<p>So who is this person that was so,</p>
+<p>you&rsquo;ve spoken very highly of him.</p>
+<p>Can you tell me about him, his ideas, his mind, who he was</p>
+<p>as a human being, as a scientist?</p>
+<p>So Dave came from a little tiny town in Western South Dakota.</p>
+<p>And his mother was the librarian,</p>
+<p>and his father was the editor of the newspaper.</p>
+<p>And I know one of his brothers pretty well.</p>
+<p>They grew up, there were four brothers,</p>
+<p>and they grew up together.</p>
+<p>And their father encouraged them to compete with each other</p>
+<p>a lot.</p>
+<p>They competed in sports, and they competed in mind games.</p>
+<p>I don&rsquo;t know, things like Sudoku and chess and various things</p>
+<p>like that.</p>
+<p>And Dave was a standout undergraduate.</p>
+<p>He went at a younger age than most people</p>
+<p>do to college at the University of South Dakota</p>
+<p>and majored in mathematics.</p>
+<p>And I don&rsquo;t know how he got interested in psychology,</p>
+<p>but he applied to the mathematical psychology</p>
+<p>program at Stanford and was accepted as a PhD student</p>
+<p>to study mathematical psychology at Stanford.</p>
+<p>So mathematical psychology is the use of mathematics</p>
+<p>to model mental processes.</p>
+<p>So something that I think these days</p>
+<p>might be called cognitive modeling, that whole space.</p>
+<p>Yeah, it&rsquo;s mathematical in the sense</p>
+<p>that you say, if this is true and that is true,</p>
+<p>then I can derive that this should follow.</p>
+<p>And so you say, these are my stipulations</p>
+<p>about the fundamental principles,</p>
+<p>and this is my prediction about behavior.</p>
+<p>And it&rsquo;s all done with equations.</p>
+<p>It&rsquo;s not done with a computer simulation.</p>
+<p>So you solve the equation, and that tells you</p>
+<p>what the probability that the subject</p>
+<p>will be correct on the seventh trial or the experiment is</p>
+<p>or something like that.</p>
+<p>So it&rsquo;s a use of mathematics to descriptively characterize</p>
+<p>aspects of behavior.</p>
+<p>And Stanford at that time was the place</p>
+<p>where there were several really, really strong</p>
+<p>mathematical thinkers who were also connected with three</p>
+<p>or four others around the country who brought</p>
+<p>a lot of really exciting ideas onto the table.</p>
+<p>And it was a very, very prestigious part</p>
+<p>of the field of psychology at that time.</p>
+<p>So Rummelhart comes into this.</p>
+<p>He was a very strong student within that program.</p>
+<p>And he got this job at this brand new university</p>
+<p>in San Diego in 1967, where he&rsquo;s one of the first assistant</p>
+<p>professors in the Department of Psychology at UCSD.</p>
+<p>So I got there in 74, seven years later,</p>
+<p>and Rummelhart at that time was still</p>
+<p>doing mathematical modeling.</p>
+<p>But he had gotten interested in cognition.</p>
+<p>He&rsquo;d gotten interested in understanding.</p>
+<p>And understanding, I think, remains,</p>
+<p>what does it mean to understand anyway?</p>
+<p>It&rsquo;s an interesting sort of curious,</p>
+<p>how would we know if we really understood something?</p>
+<p>But he was interested in building machines</p>
+<p>that would hear a couple of sentences</p>
+<p>and have an insight about what was going on.</p>
+<p>So for example, one of his favorite things at that time</p>
+<p>was, Margie was sitting on the front step</p>
+<p>when she heard the familiar jingle of the good humor man.</p>
+<p>She remembered her birthday money and ran into the house.</p>
+<p>What is Margie doing?</p>
+<p>Why?</p>
+<p>Well, there&rsquo;s a couple of ideas you could have,</p>
+<p>but the most natural one is that the good humor</p>
+<p>man brings ice cream.</p>
+<p>She likes ice cream.</p>
+<p>She knows she needs money to buy ice cream,</p>
+<p>so she&rsquo;s going to run into the house and get her money</p>
+<p>so she can buy herself an ice cream.</p>
+<p>It&rsquo;s a huge amount of inference that</p>
+<p>has to happen to get those things to link up</p>
+<p>with each other.</p>
+<p>And he was interested in how the hell that could happen.</p>
+<p>And he was trying to build good old fashioned AI style</p>
+<p>models of representation of language and content of things</p>
+<p>like has money.</p>
+<p>So like formal logic and knowledge bases,</p>
+<p>like that kind of stuff.</p>
+<p>So he was integrating that with his thinking about cognition.</p>
+<p>The mechanisms of cognition, how can they mechanistically</p>
+<p>be applied to build these knowledge,</p>
+<p>like to actually build something that</p>
+<p>looks like a web of knowledge and thereby from there emerges</p>
+<p>something like understanding, whatever the heck that is.</p>
+<p>Yeah, he was grappling.</p>
+<p>This was something that they grappled</p>
+<p>with at the end of that book that I was describing,</p>
+<p>Explorations in Cognition.</p>
+<p>But he was realizing that the paradigm of good old fashioned</p>
+<p>AI wasn&rsquo;t giving him the answers to these questions.</p>
+<p>By the way, that&rsquo;s called good old fashioned AI now.</p>
+<p>It wasn&rsquo;t called that at the time.</p>
+<p>Well, it was.</p>
+<p>It was beginning to be called that.</p>
+<p>Oh, because it was from the 60s.</p>
+<p>Yeah, yeah.</p>
+<p>By the late 70s, it was kind of old fashioned,</p>
+<p>and it hadn&rsquo;t really panned out.</p>
+<p>And people were beginning to recognize that.</p>
+<p>And Rommelhardt was like, yeah, he&rsquo;s part of the recognition</p>
+<p>that this wasn&rsquo;t all working.</p>
+<p>Anyway, so he started thinking in terms of the idea</p>
+<p>that we needed systems that allowed us to integrate</p>
+<p>multiple simultaneous constraints in a way that would</p>
+<p>be mutually influencing each other.</p>
+<p>So he wrote a paper that just really, first time I read it,</p>
+<p>I said, oh, well, yeah, but is this important?</p>
+<p>But after a while, it just got under my skin.</p>
+<p>And it was called An Interactive Model of Reading.</p>
+<p>And in this paper, he laid out the idea</p>
+<p>that every aspect of our interpretation of what&rsquo;s</p>
+<p>coming off the page when we read at every level of analysis</p>
+<p>you can think of actually depends</p>
+<p>on all the other levels of analysis.</p>
+<p>So what are the actual pixels making up each letter?</p>
+<p>And what do those pixels signify about which letters they are?</p>
+<p>And what do those letters tell us about what words are there?</p>
+<p>And what do those words tell us about what ideas</p>
+<p>the author is trying to convey?</p>
+<p>And so he had this model where we</p>
+<p>have these little tiny elements that represent</p>
+<p>each of the pixels of each of the letters,</p>
+<p>and then other ones that represent the line segments</p>
+<p>in them, and other ones that represent the letters,</p>
+<p>and other ones that represent the words.</p>
+<p>And at that time, his idea was there&rsquo;s this set of experts.</p>
+<p>There&rsquo;s an expert about how to construct a line out of pixels,</p>
+<p>and another expert about which sets of lines</p>
+<p>go together to make which letters,</p>
+<p>and another one about which letters go together</p>
+<p>to make which words, and another one about what</p>
+<p>the meanings of the words are, and another one about how</p>
+<p>the meanings fit together, and things like that.</p>
+<p>And all these experts are looking at this data,</p>
+<p>and they&rsquo;re updating hypotheses at other levels.</p>
+<p>So the word expert can tell the letter expert,</p>
+<p>oh, I think there should be a T there,</p>
+<p>because I think there should be a word the here.</p>
+<p>And the bottom up sort of feature to letter expert</p>
+<p>could say, I think there should be a T there, too.</p>
+<p>And if they agree, then you see a T, right?</p>
+<p>And so there&rsquo;s a top down, bottom up interactive process,</p>
+<p>but it&rsquo;s going on at all layers simultaneously.</p>
+<p>So everything can filter all the way down from the top,</p>
+<p>as well as all the way up from the bottom.</p>
+<p>And it&rsquo;s a completely interactive, bidirectional,</p>
+<p>parallel distributed process.</p>
+<p>That is somehow, because of the abstractions, it&rsquo;s hierarchical.</p>
+<p>So there&rsquo;s different layers of responsibilities,</p>
+<p>different levels of responsibilities.</p>
+<p>First of all, it&rsquo;s fascinating to think about it</p>
+<p>in this kind of mechanistic way.</p>
+<p>So not thinking purely from the structure</p>
+<p>of a neural network or something like a neural network,</p>
+<p>but thinking about these little guys</p>
+<p>that work on letters, and then the letters come words</p>
+<p>and words become sentences.</p>
+<p>And that&rsquo;s a very interesting hypothesis</p>
+<p>that from that kind of hierarchical structure</p>
+<p>can emerge understanding.</p>
+<p>Yeah, so, but the thing is, though,</p>
+<p>I wanna just sort of relate this</p>
+<p>to the earlier part of the conversation.</p>
+<p>When Romelhart was first thinking about it,</p>
+<p>there were these experts on the side,</p>
+<p>one for the features and one for the letters</p>
+<p>and one for how the letters make the words and so on.</p>
+<p>And they would each be working,</p>
+<p>sort of evaluating various propositions about,</p>
+<p>you know, is this combination of features here</p>
+<p>going to be one that looks like the letter T and so on.</p>
+<p>And what he realized,</p>
+<p>kind of after reading Hinton&rsquo;s dissertation</p>
+<p>and hearing about Jim Anderson&rsquo;s</p>
+<p>linear algebra based neural network models</p>
+<p>that I was telling you about before</p>
+<p>was that he could replace those experts</p>
+<p>with neuron like processing units,</p>
+<p>which just would have their connection weights</p>
+<p>that would do this job.</p>
+<p>So what ended up happening was</p>
+<p>that Romelhart and I got together</p>
+<p>and we created a model</p>
+<p>called the interactive activation model of letter perception,</p>
+<p>which takes these little pixel level inputs,</p>
+<p>constructs line segment features, letters and words.</p>
+<p>But now we built it out of a set of neuron</p>
+<p>like processing units that are just connected</p>
+<p>to each other with connection weights.</p>
+<p>So the unit for the word time has a connection</p>
+<p>to the unit for the letter T in the first position</p>
+<p>and the letter I in the second position, so on.</p>
+<p>And because these connections are bi directional,</p>
+<p>if you have prior knowledge that it might be the word time</p>
+<p>that starts to prime the letters and the features.</p>
+<p>And if you don&rsquo;t, then it has to start bottom up.</p>
+<p>But the directionality just depends</p>
+<p>on where the information comes in first.</p>
+<p>And if you have context together</p>
+<p>with features at the same time,</p>
+<p>they can convergently result in an emergent perception.</p>
+<p>And that was the piece of work that we did together</p>
+<p>that sort of got us both completely convinced</p>
+<p>that this neural network way of thinking</p>
+<p>was going to be able to actually address the questions</p>
+<p>that we were interested in as cognitive psychologists.</p>
+<p>So the algorithmic side, the optimization side,</p>
+<p>those are all details like when you first start the idea</p>
+<p>that you can get far with this kind of way of thinking,</p>
+<p>that in itself is a profound idea.</p>
+<p>So do you like the term connectionism</p>
+<p>to describe this kind of set of ideas?</p>
+<p>I think it&rsquo;s useful.</p>
+<p>It highlights the notion that the knowledge</p>
+<p>that the system exploits is in the connections</p>
+<p>between the units, right?</p>
+<p>There isn&rsquo;t a separate dictionary.</p>
+<p>There&rsquo;s just the connections between the units.</p>
+<p>So I already sort of laid that on the table</p>
+<p>with the connections from the letter units</p>
+<p>to the unit for the word time, right?</p>
+<p>The unit for the word time isn&rsquo;t a unit for the word time</p>
+<p>for any other reason than it&rsquo;s got the connections</p>
+<p>to the letters that make up the word time.</p>
+<p>Those are the units on the input that excited</p>
+<p>when it&rsquo;s excited that it in a sense represents</p>
+<p>in the system that there&rsquo;s support for the hypothesis</p>
+<p>that the word time is present in the input.</p>
+<p>But it&rsquo;s not, the word time isn&rsquo;t written anywhere</p>
+<p>inside the bottle, it&rsquo;s only written there</p>
+<p>in the picture we drew of the model</p>
+<p>to say that&rsquo;s the unit for the word time, right?</p>
+<p>And if somebody wants to tell me,</p>
+<p>well, how do you spell that word?</p>
+<p>You have to use the connections from that out</p>
+<p>to then get those letters, for example.</p>
+<p>That&rsquo;s such a, that&rsquo;s a counterintuitive idea</p>
+<p>where humans want to think in this logic way.</p>
+<p>This idea of connectionism, it doesn&rsquo;t, it&rsquo;s weird.</p>
+<p>It&rsquo;s weird that this is how it all works.</p>
+<p>Yeah, but let&rsquo;s go back to that CNN, right?</p>
+<p>That CNN with all those layers of neuron</p>
+<p>like processing units that we were talking about before,</p>
+<p>it&rsquo;s gonna come out and say, this is a cat, that&rsquo;s a dog,</p>
+<p>but it has no idea why it said that.</p>
+<p>It&rsquo;s just got all these connections</p>
+<p>between all these layers of neurons,</p>
+<p>like from the very first layer to the,</p>
+<p>you know, like whatever these layers are,</p>
+<p>they just get numbered after a while</p>
+<p>because they, you know, they somehow further in you go,</p>
+<p>the more abstract the features are,</p>
+<p>but it&rsquo;s a graded and continuous sort of process</p>
+<p>of abstraction anyway.</p>
+<p>And, you know, it goes from very local,</p>
+<p>very specific to much more sort of global,</p>
+<p>but it&rsquo;s still, you know, another sort of pattern</p>
+<p>of activation over an array of units.</p>
+<p>And then at the output side, it says it&rsquo;s a cat</p>
+<p>or it&rsquo;s a dog.</p>
+<p>And when I open my eyes and say, oh, that&rsquo;s Lex,</p>
+<p>or, oh, you know, there&rsquo;s my own dog</p>
+<p>and I recognize my dog,</p>
+<p>which is a member of the same species as many other dogs,</p>
+<p>but I know this one</p>
+<p>because of some slightly unique characteristics.</p>
+<p>I don&rsquo;t know how to describe what it is</p>
+<p>that makes me know that I&rsquo;m looking at Lex</p>
+<p>or at my particular dog, right?</p>
+<p>Or even that I&rsquo;m looking at a particular brand of car.</p>
+<p>Like I can say a few words about it,</p>
+<p>but I wrote you a paragraph about the car,</p>
+<p>you would have trouble figuring out</p>
+<p>which car is he talking about, right?</p>
+<p>So the idea that we have propositional knowledge</p>
+<p>of what it is that allows us to recognize</p>
+<p>that this is an actual instance</p>
+<p>of this particular natural kind</p>
+<p>has always been something that it never worked, right?</p>
+<p>You couldn&rsquo;t ever write down a set of propositions</p>
+<p>for visual recognition.</p>
+<p>And so in that space, it sort of always seemed very natural</p>
+<p>that something more implicit,</p>
+<p>you don&rsquo;t have access to what the details</p>
+<p>of the computation were in between,</p>
+<p>you just get the result.</p>
+<p>So that&rsquo;s the other part of connectionism,</p>
+<p>you cannot, you don&rsquo;t read the contents of the connections,</p>
+<p>the connections only cause outputs to occur</p>
+<p>based on inputs.</p>
+<p>Yeah, and for us that like final layer</p>
+<p>or some particular layer is very important,</p>
+<p>the one that tells us that it&rsquo;s our dog</p>
+<p>or like it&rsquo;s a cat or a dog,</p>
+<p>but each layer is probably equally as important</p>
+<p>in the grand scheme of things.</p>
+<p>Like there&rsquo;s no reason why the cat versus dog</p>
+<p>is more important than the lower level activations,</p>
+<p>it doesn&rsquo;t really matter.</p>
+<p>I mean, all of it is just this beautiful stacking</p>
+<p>on top of each other.</p>
+<p>And we humans live in this particular layers,</p>
+<p>for us it&rsquo;s useful to survive,</p>
+<p>to use those cat versus dog, predator versus prey,</p>
+<p>all those kinds of things.</p>
+<p>It&rsquo;s fascinating that it&rsquo;s all continuous,</p>
+<p>but then you then ask,</p>
+<p>the history of artificial intelligence, you ask,</p>
+<p>are we able to introspect and convert the very things</p>
+<p>that allow us to tell the difference between cat and dog</p>
+<p>into a logic, into formal logic?</p>
+<p>That&rsquo;s been the dream.</p>
+<p>I would say that&rsquo;s still part of the dream of symbolic AI.</p>
+<p>And I&rsquo;ve recently talked to Doug Lenat who created Psych</p>
+<p>and that&rsquo;s a project that lasted for many decades</p>
+<p>and still carries a sort of dream in it, right?</p>
+<p>But we still don&rsquo;t know the answer, right?</p>
+<p>It seems like connectionism is really powerful,</p>
+<p>but it also seems like there&rsquo;s this building of knowledge.</p>
+<p>And so how do we, how do you square those two?</p>
+<p>Like, do you think the connections can contain</p>
+<p>the depth of human knowledge and the depth</p>
+<p>of what Dave Romahart was thinking about of understanding?</p>
+<p>Well, that remains the $64 question.</p>
+<p>And I&hellip;</p>
+<p>With inflation, that number is higher.</p>
+<p>Okay, $64,000.</p>
+<p>Maybe it&rsquo;s the $64 billion question now.</p>
+<p>You know, I think that from the emergentist side,</p>
+<p>which, you know, I placed myself on.</p>
+<p>So I used to sometimes tell people</p>
+<p>I was a radical, eliminative connectionist</p>
+<p>because I didn&rsquo;t want them to think</p>
+<p>that I wanted to build like anything into the machine.</p>
+<p>But I don&rsquo;t like the word eliminative anymore</p>
+<p>because it makes it seem like it&rsquo;s wrong to think</p>
+<p>that there is this emergent level of understanding.</p>
+<p>And I disagree with that.</p>
+<p>So I think, you know, I would call myself</p>
+<p>an a radical emergentist connectionist</p>
+<p>rather than eliminative connectionist, right?</p>
+<p>Because I want to acknowledge</p>
+<p>that these higher level kinds of aspects</p>
+<p>of our cognition are real, but they&rsquo;re not,</p>
+<p>they don&rsquo;t exist as such.</p>
+<p>And there was an example that Doug Hofstadter used to use</p>
+<p>that I thought was helpful in this respect.</p>
+<p>Just the idea that we can think about sand dunes</p>
+<p>as entities and talk about like how many there are even.</p>
+<p>But we also know that a sand dune is a very fluid thing.</p>
+<p>It&rsquo;s a pile of sand that is capable</p>
+<p>of moving around under the wind and reforming itself</p>
+<p>in somewhat different ways.</p>
+<p>And if we think about our thoughts as like sand dunes,</p>
+<p>as being things that emerge from just the way</p>
+<p>all the lower level elements sort of work together</p>
+<p>and are constrained by external forces,</p>
+<p>then we can say, yes, they exist as such,</p>
+<p>but they also, we shouldn&rsquo;t treat them</p>
+<p>as completely monolithic entities that we can understand</p>
+<p>without understanding sort of all of the stuff</p>
+<p>that allows them to change in the ways that they do.</p>
+<p>And that&rsquo;s where I think the connectionist</p>
+<p>feeds into the cognitive.</p>
+<p>It&rsquo;s like, okay, so if the substrate</p>
+<p>is parallel distributed connectionist, then it doesn&rsquo;t mean</p>
+<p>that the contents of thought isn&rsquo;t like abstract</p>
+<p>and symbolic, but it&rsquo;s more fluid maybe</p>
+<p>than it&rsquo;s easier to capture</p>
+<p>with a set of logical expressions.</p>
+<p>Yeah, that&rsquo;s a heck of a sort of thing</p>
+<p>to put at the top of a resume,</p>
+<p>radical, emergentist, connectionist.</p>
+<p>So there is, just like you said, a beautiful dance</p>
+<p>between that, between the machinery of intelligence,</p>
+<p>like the neural network side of it,</p>
+<p>and the stuff that emerges.</p>
+<p>I mean, the stuff that emerges seems to be,</p>
+<p>I don&rsquo;t know, I don&rsquo;t know what that is,</p>
+<p>that it seems like maybe all of reality is emergent.</p>
+<p>What I think about, this is made most distinctly rich to me</p>
+<p>when I look at cellular automata, look at game of life,</p>
+<p>that from very, very simple things,</p>
+<p>very rich, complex things emerge</p>
+<p>that start looking very quickly like organisms</p>
+<p>that you forget how the actual thing operates.</p>
+<p>They start looking like they&rsquo;re moving around,</p>
+<p>they&rsquo;re eating each other,</p>
+<p>some of them are generating offspring.</p>
+<p>You forget very quickly.</p>
+<p>And it seems like maybe it&rsquo;s something</p>
+<p>about the human mind that wants to operate</p>
+<p>in some layer of the emergent,</p>
+<p>and forget about the mechanism</p>
+<p>of how that emergence happens.</p>
+<p>So it, just like you are in your radicalness,</p>
+<p>I&rsquo;m also, it seems like unfair</p>
+<p>to eliminate the magic of that emergent,</p>
+<p>like eliminate the fact that that emergent is real.</p>
+<p>Yeah, no, I agree.</p>
+<p>I&rsquo;m not, that&rsquo;s why I got rid of eliminative, right?</p>
+<p>Eliminative, yeah.</p>
+<p>Yeah, because it seemed like that was trying to say</p>
+<p>that it&rsquo;s all completely like.</p>
+<p>An illusion of some kind, it&rsquo;s not.</p>
+<p>Well, who knows whether there isn&rsquo;t,</p>
+<p>there aren&rsquo;t some illusory characteristics there.</p>
+<p>And I think that philosophically many people</p>
+<p>have confronted that possibility over time,</p>
+<p>but it&rsquo;s still important to accept it as magic, right?</p>
+<p>So, I think of Fellini in this context,</p>
+<p>I think of others who have appreciated the role of magic,</p>
+<p>the role of magic, of actual trickery</p>
+<p>in creating illusions that move us.</p>
+<p>And Plato was on to this too.</p>
+<p>It&rsquo;s like somehow or other these shadows</p>
+<p>give rise to something much deeper than that.</p>
+<p>And that&rsquo;s, so we won&rsquo;t try to figure out what it is.</p>
+<p>We&rsquo;ll just accept it as given that that occurs.</p>
+<p>And, you know, but he was still onto the magic of it.</p>
+<p>Yeah, yeah, we won&rsquo;t try to really, really,</p>
+<p>really deeply understand how it works.</p>
+<p>We&rsquo;ll just enjoy the fact that it&rsquo;s kind of fun.</p>
+<p>Okay, but you worked closely with Dave Romo Hart.</p>
+<p>He passed away as a human being.</p>
+<p>What do you remember about him?</p>
+<p>Do you miss the guy?</p>
+<p>Absolutely, you know, he passed away 15ish years ago now.</p>
+<p>And his demise was actually one of the most poignant</p>
+<p>and, you know, like relevant tragedies, relevant to our conversation.</p>
+<p>He started to undergo a progressive neurological condition</p>
+<p>that isn&rsquo;t far from what we&rsquo;re used to.</p>
+<p>A neurological condition that isn&rsquo;t fully understood.</p>
+<p>That is to say his particular course isn&rsquo;t fully understood</p>
+<p>because, you know, brain scans weren&rsquo;t done at certain stages</p>
+<p>and no autopsy was done or anything like that.</p>
+<p>The wishes of the family.</p>
+<p>We don&rsquo;t know as much about the underlying pathology as we might,</p>
+<p>but I had begun to get interested in this neurological condition</p>
+<p>that might have been the very one that he was succumbing to</p>
+<p>as my own efforts to understand another aspect of this mystery</p>
+<p>that we&rsquo;ve been discussing while he was beginning</p>
+<p>to get progressively more and more affected.</p>
+<p>So I&rsquo;m going to talk about the disorder</p>
+<p>and not about Rumelhart for a second, okay?</p>
+<p>The disorder is something my colleagues and collaborators</p>
+<p>have chosen to call semantic dementia.</p>
+<p>So it&rsquo;s a specific form of loss of mind</p>
+<p>related to meaning, semantic dementia.</p>
+<p>And it&rsquo;s progressive in the sense that the patient loses the ability</p>
+<p>to appreciate the meaning of the experiences that they have,</p>
+<p>either from touch, from sight, from sound, from language.</p>
+<p>They, I hear sounds, but I don&rsquo;t know what they mean kind of thing.</p>
+<p>So as this illness progresses, it starts with the patient</p>
+<p>being unable to differentiate like similar breeds of dog</p>
+<p>or remember the lower frequency unfamiliar categories</p>
+<p>that they used to be able to remember.</p>
+<p>But as it progresses, it becomes more and more striking</p>
+<p>and the patient loses the ability to recognize things like</p>
+<p>pigs and goats and sheep and calls all middle sized animals dogs</p>
+<p>and can&rsquo;t recognize rabbits and rodents anymore.</p>
+<p>They call all the little ones cats</p>
+<p>and they can&rsquo;t recognize hippopotamuses and cows anymore.</p>
+<p>They call them all horses.</p>
+<p>So there was this one patient who went through this progression</p>
+<p>where at a certain point, any four legged animal,</p>
+<p>he would call it either a horse or a dog or a cat.</p>
+<p>And if it was big, he would tend to call it a horse.</p>
+<p>If it was small, he&rsquo;d tend to call it a cat.</p>
+<p>Middle sized ones, he called dogs.</p>
+<p>This is just a part of the syndrome though.</p>
+<p>The patient loses the ability to relate concepts to each other.</p>
+<p>So my collaborator in this work, Carolyn Patterson,</p>
+<p>developed a test called the pyramids and palm trees test.</p>
+<p>So you give the patient a picture of pyramids</p>
+<p>and they have a choice which goes with the pyramids,</p>
+<p>palm trees or pine trees.</p>
+<p>And she showed that this wasn&rsquo;t just a matter of language</p>
+<p>because the patient&rsquo;s loss of this ability shows up</p>
+<p>whether you present the material with words or with pictures.</p>
+<p>The pictures, they can&rsquo;t put the pictures together</p>
+<p>with each other properly anymore.</p>
+<p>They can&rsquo;t relate the pictures to the words either.</p>
+<p>They can&rsquo;t do word picture matching.</p>
+<p>But they&rsquo;ve lost the conceptual grounding</p>
+<p>from either modality of input.</p>
+<p>And so that&rsquo;s why it&rsquo;s called semantic dementia.</p>
+<p>The very semantics is disintegrating.</p>
+<p>And we understand this in terms of our idea</p>
+<p>that distributed representation, a pattern of activation,</p>
+<p>represents the concepts, really similar ones.</p>
+<p>As you degrade them, they start being,</p>
+<p>you lose the differences.</p>
+<p>So the difference between the dog and the goat</p>
+<p>is no longer part of the pattern anymore.</p>
+<p>And since dog is really familiar,</p>
+<p>that&rsquo;s the thing that remains.</p>
+<p>And we understand that in the way the models work and learn.</p>
+<p>But Rumelhart underwent this condition.</p>
+<p>So on the one hand, it&rsquo;s a fascinating aspect</p>
+<p>of parallel distributed processing to be.</p>
+<p>It reveals this sort of texture of distributed representation</p>
+<p>in a very nice way, I&rsquo;ve always felt.</p>
+<p>But at the same time, it was extremely poignant</p>
+<p>because this is exactly the condition</p>
+<p>that Rumelhart was undergoing.</p>
+<p>And there was a period of time when he was this man</p>
+<p>who had been the most focused, goal directed, competitive,</p>
+<p>thoughtful person who was willing to work for years</p>
+<p>to solve a hard problem, he starts to disappear.</p>
+<p>And there was a period of time when it was hard for any of us</p>
+<p>to really appreciate that he was sort of, in some sense,</p>
+<p>not fully there anymore.</p>
+<p>Do you know if he was able to introspect</p>
+<p>the solution of the understanding mind?</p>
+<p>I mean, this is one of the big scientists that thinks about this.</p>
+<p>Was he able to look at himself and understand the fading mind?</p>
+<p>You know, we can contrast Hawking and Rumelhart in this way.</p>
+<p>And I like to do that to honor Rumelhart</p>
+<p>because I think Rumelhart is sort of like the Hawking</p>
+<p>of cognitive science to me in some ways.</p>
+<p>Both of them suffered from a degenerative condition.</p>
+<p>In Hawking&rsquo;s case, it affected the motor system.</p>
+<p>In Rumelhart&rsquo;s case, it&rsquo;s affecting the semantics.</p>
+<p>And not just the pure object semantics,</p>
+<p>but maybe the self semantics as well.</p>
+<p>And we don&rsquo;t understand that.</p>
+<p>Concepts broadly.</p>
+<p>So I would say he didn&rsquo;t.</p>
+<p>And this was part of what, from the outside,</p>
+<p>was a profound tragedy.</p>
+<p>But on the other hand, at some level, he sort of did</p>
+<p>because there was a period of time when it finally was realized</p>
+<p>that he had really become profoundly impaired.</p>
+<p>This was clearly a biological condition.</p>
+<p>It wasn&rsquo;t just like he was distracted that day or something like that.</p>
+<p>So he retired from his professorship at Stanford</p>
+<p>and he became, he lived with his brother for a couple years</p>
+<p>and then he moved into a facility for people with cognitive impairments.</p>
+<p>One that many elderly people end up in when they have cognitive impairments.</p>
+<p>And I would spend time with him during that period.</p>
+<p>This was like in the late 90s, around 2000 even.</p>
+<p>And we would go bowling and he could still bowl.</p>
+<p>And after bowling, I took him to lunch and I said,</p>
+<p>where would you like to go?</p>
+<p>You want to go to Wendy&rsquo;s?</p>
+<p>And he said, nah.</p>
+<p>And I said, okay, well, where do you want to go?</p>
+<p>And he just pointed.</p>
+<p>He said, turn here.</p>
+<p>So he still had a certain amount of spatial cognition</p>
+<p>and he could get me to the restaurant.</p>
+<p>And then when we got to the restaurant, I said,</p>
+<p>what do you want to order?</p>
+<p>And he couldn&rsquo;t come up with any of the words,</p>
+<p>but he knew where on the menu the thing was that he wanted.</p>
+<p>So it&rsquo;s, you know, and he couldn&rsquo;t say what it was,</p>
+<p>but he knew that that&rsquo;s what he wanted to eat.</p>
+<p>And so it&rsquo;s like it isn&rsquo;t monolithic at all.</p>
+<p>Our cognition is, you know, first of all, graded in certain kinds of ways,</p>
+<p>but also multipartite and there&rsquo;s many elements to it and things,</p>
+<p>certain sort of partial competencies still exist</p>
+<p>in the absence of other aspects of these competencies.</p>
+<p>So this is what always fascinated me about what used to be called</p>
+<p>cognitive neuropsychology, you know,</p>
+<p>the effects of brain damage on cognition.</p>
+<p>But in particular, this gradual disintegration part.</p>
+<p>You know, I&rsquo;m a big believer that the loss of a human being that you value</p>
+<p>is as powerful as, you know, first falling in love with that human being.</p>
+<p>I think it&rsquo;s all a celebration of the human being.</p>
+<p>So the disintegration itself too is a celebration in a way.</p>
+<p>Yeah, yeah.</p>
+<p>But just to say something more about the scientist</p>
+<p>and the backpropagation idea that you mentioned.</p>
+<p>So in 1982, Hinton had been there as a postdoc and organized that conference.</p>
+<p>He&rsquo;d actually gone away and gotten an assistant professorship</p>
+<p>and then there was this opportunity to bring him back.</p>
+<p>So Jeff Hinton was back on a sabbatical.</p>
+<p>San Diego.</p>
+<p>And Rommelhard and I had decided we wanted to do this, you know,</p>
+<p>we thought it was really exciting and the papers on the interactive activation model</p>
+<p>that I was telling you about had just been published</p>
+<p>and we both sort of saw a huge potential for this work and Jeff was there.</p>
+<p>And so the three of us started a research group,</p>
+<p>which we called the PDP Research Group.</p>
+<p>And several other people came.</p>
+<p>Francis Crick, who was at the Salk Institute, heard about it from Jeff</p>
+<p>because Jeff was known among Brits to be brilliant</p>
+<p>and Francis was well connected with his British friends.</p>
+<p>So Francis Crick came.</p>
+<p>That&rsquo;s a heck of a group of people, wow.</p>
+<p>And Paul Spolensky was one of the other postdocs.</p>
+<p>He was still there as a postdoc.</p>
+<p>And a few other people.</p>
+<p>But anyway, Jeff talked to us about learning</p>
+<p>and how we should think about how, you know, learning occurs in a neural network.</p>
+<p>And he said, the problem with the way you guys have been approaching this</p>
+<p>is that you&rsquo;ve been looking for inspiration from biology</p>
+<p>to tell you what the rules should be for how the synapses should change</p>
+<p>the strengths of their connections, how the connections should form.</p>
+<p>He said, that&rsquo;s the wrong way to go about it.</p>
+<p>What you should do is you should think in terms of</p>
+<p>how you can adjust connection weights to solve a problem.</p>
+<p>So you define your problem and then you figure out</p>
+<p>how the adjustment of the connection weights will solve the problem.</p>
+<p>And Rumelhart heard that and said to himself, okay,</p>
+<p>so I&rsquo;m going to start thinking about it that way.</p>
+<p>I&rsquo;m going to essentially imagine that I have some objective function,</p>
+<p>some goal of the computation.</p>
+<p>I want my machine to correctly classify all of these images.</p>
+<p>And I can score that.</p>
+<p>I can measure how well they&rsquo;re doing on each image.</p>
+<p>And I get some measure of error or loss, it&rsquo;s typically called in deep learning.</p>
+<p>And I&rsquo;m going to figure out how to adjust the connection weights</p>
+<p>so as to minimize my loss or reduce the error.</p>
+<p>And that&rsquo;s called, you know, gradient descent.</p>
+<p>And engineers were already familiar with the concept of gradient descent.</p>
+<p>And in fact, there was an algorithm called the delta rule</p>
+<p>that had been invented by a professor in the electrical engineering department</p>
+<p>at Stanford, Bernie Widrow and a collaborator named Hoff.</p>
+<p>I never met him.</p>
+<p>So gradient descent in continuous neural networks</p>
+<p>with multiple neuron like processing units was already understood</p>
+<p>for a single layer of connection weights.</p>
+<p>We have some inputs over a set of neurons.</p>
+<p>We want the output to produce a certain pattern.</p>
+<p>We can define the difference between our target</p>
+<p>and what the neural network is producing.</p>
+<p>And we can figure out how to change the connection weights to reduce that error.</p>
+<p>So what Romilhar did was to generalize that</p>
+<p>so as to be able to change the connections from earlier layers of units</p>
+<p>to the ones at a hidden layer between the input and the output.</p>
+<p>And so he first called the algorithm the generalized delta rule</p>
+<p>because it&rsquo;s just an extension of the gradient descent idea.</p>
+<p>And interestingly enough, Hinton was thinking that this wasn&rsquo;t going to work very well.</p>
+<p>So Hinton had his own alternative algorithm at the time</p>
+<p>based on the concept of the Boltzmann machine that he was pursuing.</p>
+<p>So the paper on the Boltzmann machine came out in,</p>
+<p>learning in Boltzmann machines came out in 1985.</p>
+<p>But it turned out that back prop worked better than the Boltzmann machine learning algorithm.</p>
+<p>So this generalized delta algorithm ended up being called back propagation, as you say, back prop.</p>
+<p>Yeah. And probably that name is opaque to me.</p>
+<p>What does that mean?</p>
+<p>What it meant was that in order to figure out what the changes you needed to make</p>
+<p>to the connections from the input to the hidden layer,</p>
+<p>you had to back propagate the error signals from the output layer</p>
+<p>through the connections from the hidden layer to the output</p>
+<p>to get the signals that would be the error signals for the hidden layer.</p>
+<p>And that&rsquo;s how Rumelhart formulated it.</p>
+<p>It was like, well, we know what the error signals are at the output layer.</p>
+<p>Let&rsquo;s see if we can get a signal at the hidden layer</p>
+<p>that tells each hidden unit what its error signal is essentially.</p>
+<p>So it&rsquo;s back propagating through the connections</p>
+<p>from the hidden to the output to get the signals to tell the hidden units</p>
+<p>how to change their weights from the input.</p>
+<p>And that&rsquo;s why it&rsquo;s called back prop.</p>
+<p>Yeah. But so it came from Hinton having introduced the concept of, you know,</p>
+<p>define your objective function, figure out how to take the derivative</p>
+<p>so that you can adjust the connections so that they make progress towards your goal.</p>
+<p>So stop thinking about biology for a second</p>
+<p>and let&rsquo;s start to think about optimization and computation a little bit more.</p>
+<p>So what about Jeff Hinton?</p>
+<p>You&rsquo;ve gotten a chance to work with him in that little thing.</p>
+<p>The set of people involved there is quite incredible.</p>
+<p>The small set of people under the PDP flag,</p>
+<p>it&rsquo;s just given the amount of impact those ideas have had over the years,</p>
+<p>it&rsquo;s kind of incredible to think about.</p>
+<p>But, you know, just like you said, like yourself,</p>
+<p>Jeffrey Hinton is seen as one of the, not just like a seminal figure in AI,</p>
+<p>but just a brilliant person,</p>
+<p>just like the horsepower of the mind is pretty high up there for him</p>
+<p>because he&rsquo;s just a great thinker.</p>
+<p>So what kind of ideas have you learned from him?</p>
+<p>Have you influenced each other on?</p>
+<p>Have you debated over what stands out to you in the full space of ideas here</p>
+<p>at the intersection of computation and cognition?</p>
+<p>Well, so Jeff has said many things to me that had a profound impact on my thinking.</p>
+<p>And he&rsquo;s written several articles which were way ahead of their time.</p>
+<p>He had two papers in 1981, just to give one example,</p>
+<p>one of which was essentially the idea of transformers</p>
+<p>and another of which was an early paper on semantic cognition</p>
+<p>which inspired him and Rumelhart and me throughout the 80s</p>
+<p>and, you know, still I think sort of grounds my own thinking</p>
+<p>about the semantic aspects of cognition.</p>
+<p>He also, in a small paper that was never published that he wrote in 1977,</p>
+<p>you know, before he actually arrived at UCSD or maybe a couple years even before that,</p>
+<p>I don&rsquo;t know, when he was a PhD student,</p>
+<p>he described how a neural network could do recursive computation.</p>
+<p>And it was a very clever idea that he&rsquo;s continued to explore over time,</p>
+<p>which was sort of the idea that when you call a subroutine,</p>
+<p>you need to save the state that you had when you called it</p>
+<p>so you can get back to where you were when you&rsquo;re finished with the subroutine.</p>
+<p>And the idea was that you would save the state of the calling routine</p>
+<p>by making fast changes to connection weights.</p>
+<p>And then when you finished with the subroutine call,</p>
+<p>those fast changes in the connection weights would allow you to go back</p>
+<p>to where you had been before and reinstate the previous context</p>
+<p>so that you could continue on with the top level of the computation.</p>
+<p>Anyway, that was part of the idea.</p>
+<p>And I always thought, okay, that&rsquo;s really, you know,</p>
+<p>he had extremely creative ideas that were quite a lot ahead of his time</p>
+<p>and many of them in the 1970s and early 1980s.</p>
+<p>So another thing about Geoff Hinton&rsquo;s way of thinking,</p>
+<p>which has profoundly influenced my effort to understand</p>
+<p>human mathematical cognition, is that he doesn&rsquo;t write too many equations.</p>
+<p>And people tell stories like, oh, in the Hinton Lab meetings,</p>
+<p>you don&rsquo;t get up at the board and write equations</p>
+<p>like you do in everybody else&rsquo;s machine learning lab.</p>
+<p>What you do is you draw a picture.</p>
+<p>And, you know, he explains aspects of the way deep learning works</p>
+<p>by putting his hands together and showing you the shape of a ravine</p>
+<p>and using that as a geometrical metaphor for what&rsquo;s happening</p>
+<p>as this gradient descent process.</p>
+<p>You&rsquo;re coming down the wall of a ravine.</p>
+<p>If you take too big a jump, you&rsquo;re going to jump to the other side.</p>
+<p>And so that&rsquo;s why we have to turn down the learning rate, for example.</p>
+<p>And it speaks to me of the fundamentally intuitive character of deep insight</p>
+<p>together with a commitment to really understanding</p>
+<p>in a way that&rsquo;s absolutely ultimately explicit and clear, but also intuitive.</p>
+<p>Yeah, there&rsquo;s certain people like that.</p>
+<p>Here&rsquo;s an example, some kind of weird mix of visual and intuitive</p>
+<p>and all those kinds of things.</p>
+<p>Feynman is another example, different style of thinking, but very unique.</p>
+<p>And when you&rsquo;re around those people, for me in the engineering realm,</p>
+<p>there&rsquo;s a guy named Jim Keller who&rsquo;s a chip designer, engineer.</p>
+<p>Every time I talk to him, it doesn&rsquo;t matter what we&rsquo;re talking about.</p>
+<p>Just having experienced that unique way of thinking transforms you</p>
+<p>and makes your work much better.</p>
+<p>And that&rsquo;s the magic.</p>
+<p>You look at Daniel Kahneman, you look at the great collaborations</p>
+<p>throughout the history of science.</p>
+<p>That&rsquo;s the magic of that.</p>
+<p>It&rsquo;s not always the exact ideas that you talk about,</p>
+<p>but it&rsquo;s the process of generating those ideas.</p>
+<p>Being around that, spending time with that human being,</p>
+<p>you can come up with some brilliant work,</p>
+<p>especially when it&rsquo;s cross disciplinary as it was a little bit in your case with Jeff.</p>
+<p>Yeah.</p>
+<p>Jeff is a descendant of the logician Boole.</p>
+<p>He comes from a long line of English academics.</p>
+<p>And together with the deeply intuitive thinking ability that he has,</p>
+<p>he also has, it&rsquo;s been clear, he&rsquo;s described this to me,</p>
+<p>and I think he&rsquo;s mentioned it from time to time in other interviews</p>
+<p>that he&rsquo;s had with people.</p>
+<p>He&rsquo;s wanted to be able to sort of think of himself as contributing</p>
+<p>to the understanding of reasoning itself, not just human reasoning.</p>
+<p>Like Boole is about logic, right?</p>
+<p>It&rsquo;s about what can we conclude from what else and how do we formalize that.</p>
+<p>And as a computer scientist, logician, philosopher,</p>
+<p>the goal is to understand how we derive truths from other,</p>
+<p>from givens and things like this.</p>
+<p>And the work that Jeff was doing in the early to mid 80s</p>
+<p>on something called the Bolton machine was his way of connecting</p>
+<p>with that Boolean tradition and bringing it into the more continuous,</p>
+<p>probabilistic graded constraint satisfaction realm.</p>
+<p>And it was a beautiful set of ideas linked with theoretical physics</p>
+<p>as well as with logic.</p>
+<p>And it&rsquo;s always been, I mean, I&rsquo;ve always been inspired</p>
+<p>by the Bolton machine too.</p>
+<p>It&rsquo;s like, well, if the neurons are probabilistic rather than deterministic</p>
+<p>in their computations, then maybe this somehow is part of the serendipity</p>
+<p>or adventitiousness of the moment of insight, right?</p>
+<p>It might not have occurred at that particular instant.</p>
+<p>It might be sort of partially the result of a stochastic process.</p>
+<p>And that too is part of the magic of the emergence of some of these things.</p>
+<p>Well, you&rsquo;re right with the Boolean lineage and the dream of computer science</p>
+<p>is somehow, I mean, I certainly think of humans this way,</p>
+<p>that humans are one particular manifestation of intelligence,</p>
+<p>that there&rsquo;s something bigger going on and you&rsquo;re hoping to figure that out.</p>
+<p>The mechanisms of intelligence, the mechanisms of cognition</p>
+<p>are much bigger than just humans.</p>
+<p>Yeah. So I think of, I started using the phrase computational intelligence</p>
+<p>at some point as to characterize the field that I thought, you know,</p>
+<p>people like Geoff Hinton and many of the people I know at DeepMind</p>
+<p>are working in and where I feel like I&rsquo;m, you know,</p>
+<p>I&rsquo;m a kind of a human oriented computational intelligence researcher</p>
+<p>in that I&rsquo;m actually kind of interested in the human solution.</p>
+<p>But at the same time, I feel like that&rsquo;s where a huge amount</p>
+<p>of the excitement of deep learning actually lies is in the idea that,</p>
+<p>you know, we may be able to even go beyond what we can achieve</p>
+<p>with our own nervous systems when we build computational intelligences</p>
+<p>that are, you know, not limited in the ways that we are by our own biology.</p>
+<p>Perhaps allowing us to scale the very mechanisms of human intelligence</p>
+<p>just increases power through scale.</p>
+<p>Yes. And I think that that, you know, obviously that&rsquo;s the,</p>
+<p>that&rsquo;s being played out massively at Google Brain, at OpenAI</p>
+<p>and to some extent at DeepMind as well.</p>
+<p>I guess I shouldn&rsquo;t say to some extent.</p>
+<p>Just the massive scale of the computations that are used to succeed</p>
+<p>at games like Go or to solve the protein folding problems</p>
+<p>that they&rsquo;ve been solving and so on.</p>
+<p>Still not as many synapses and neurons as the human brain.</p>
+<p>So we still got, we&rsquo;re still beating them on that.</p>
+<p>We humans are beating the AIs, but they&rsquo;re catching up pretty quickly.</p>
+<p>You write about modeling of mathematical cognition.</p>
+<p>So let me first ask about mathematics in general.</p>
+<p>There&rsquo;s a paper titled Parallel Distributed Processing</p>
+<p>Approach to Mathematical Cognition where in the introduction</p>
+<p>there&rsquo;s some beautiful discussion of mathematics.</p>
+<p>And you referenced there Tristan Needham who criticizes a narrow</p>
+<p>form of view of mathematics by liking the studying of mathematics</p>
+<p>as symbol manipulation to studying music without ever hearing a note.</p>
+<p>So from that perspective, what do you think is mathematics?</p>
+<p>What is this world of mathematics like?</p>
+<p>Well, I think of mathematics as a set of tools for exploring</p>
+<p>idealized worlds that often turn out to be extremely relevant</p>
+<p>to the real world but need not.</p>
+<p>But they&rsquo;re worlds in which objects exist with idealized properties</p>
+<p>and in which the relationships among them can be characterized</p>
+<p>with precision so as to allow the implications of certain facts</p>
+<p>to then allow you to derive other facts with certainty.</p>
+<p>So if you have two triangles and you know that there is an angle</p>
+<p>in the first one that has the same measure as an angle in the second one</p>
+<p>and you know that the lengths of the sides adjacent to that angle</p>
+<p>in each of the two triangles, the corresponding sides adjacent</p>
+<p>to that angle also have the same measure, then you can then conclude</p>
+<p>that the triangles are congruent.</p>
+<p>That is to say they have all of their properties in common.</p>
+<p>And that is something about triangles.</p>
+<p>It&rsquo;s not a matter of formulas.</p>
+<p>These are idealized objects.</p>
+<p>In fact, we built bridges out of triangles and we understand</p>
+<p>how to measure the height of something we can&rsquo;t climb by extending</p>
+<p>these ideas about triangles a little further.</p>
+<p>And all of the ability to get a tiny speck of matter launched</p>
+<p>from the planet Earth to intersect with some tiny, tiny little body</p>
+<p>way out in way beyond Pluto somewhere at exactly a predicted time</p>
+<p>and date is something that depends on these ideas.</p>
+<p>And it&rsquo;s actually happening in the real physical world that these ideas</p>
+<p>make contact with it in those kinds of instances.</p>
+<p>But there are these idealized objects, these triangles or these distances</p>
+<p>or these points, whatever they are, that allow for this set of tools</p>
+<p>to be created that then gives human beings this incredible leverage</p>
+<p>that they didn&rsquo;t have without these concepts.</p>
+<p>And I think this is actually already true when we think about just,</p>
+<p>you know, the natural numbers.</p>
+<p>I always like to include zero, so I&rsquo;m going to say the nonnegative integers,</p>
+<p>but that&rsquo;s a place where some people prefer not to include zero.</p>
+<p>We like zero here, natural numbers, zero, one, two, three, four, five,</p>
+<p>six, seven, and so on.</p>
+<p>Yeah. And because they give you the ability to be exact about</p>
+<p>how many sheep you have.</p>
+<p>I sent you out this morning, there were 23 sheep.</p>
+<p>You came back with only 22. What happened?</p>
+<p>The fundamental problem of physics, how many sheep you have.</p>
+<p>It&rsquo;s a fundamental problem of human society that you damn well better</p>
+<p>bring back the same number of sheep as you started with.</p>
+<p>And it allows commerce, it allows contracts, it allows the establishment</p>
+<p>of records and so on to have systems that allow these things to be notated.</p>
+<p>But they have an inherent aboutness to them that&rsquo;s one in the same time sort of</p>
+<p>abstract and idealized and generalizable, while on the other hand,</p>
+<p>potentially very, very grounded and concrete.</p>
+<p>And one of the things that makes for the incredible achievements of the human mind</p>
+<p>is the fact that humans invented these idealized systems that leverage</p>
+<p>the power of human thought in such a way as to allow all this kind of thing to happen.</p>
+<p>And so that&rsquo;s what mathematics to me is the development of systems for thinking about</p>
+<p>the properties and relations among sets of idealized objects and</p>
+<p>the mathematical notation system that we unfortunately focus way too much on</p>
+<p>is just our way of expressing propositions about these properties.</p>
+<p>It&rsquo;s just like we&rsquo;re talking with Chomsky in language.</p>
+<p>It&rsquo;s the thing we&rsquo;ve invented for the communication of those ideas.</p>
+<p>They&rsquo;re not necessarily the deep representation of those ideas.</p>
+<p>So what&rsquo;s a good way to model such powerful mathematical reasoning, would you say?</p>
+<p>What are some ideas you have for capturing this in a model?</p>
+<p>The insights that human mathematicians have had is a combination of the kind of the</p>
+<p>intuitive kind of connectionist like knowledge that makes it so that something is just like</p>
+<p>obviously true so that you don&rsquo;t have to think about why it&rsquo;s true.</p>
+<p>That then makes it possible to then take the next step and ponder and reason and</p>
+<p>figure out something that you previously didn&rsquo;t have that intuition about.</p>
+<p>It then ultimately becomes a part of the intuition that the next generation of</p>
+<p>mathematical thinkers have to ground their own thinking on so that they can extend the ideas even further.</p>
+<p>I came across this quotation from Henri Poincare while I was walking in the woods with my wife</p>
+<p>in a state park in Northern California late last summer.</p>
+<p>And what it said on the bench was it is by logic that we prove but by intuition that we discover.</p>
+<p>And so what for me the essence of the project is to understand how to bring the intuitive</p>
+<p>connectionist resources to bear on letting the intuitive discovery arise from engagement in</p>
+<p>thinking with this formal system.</p>
+<p>So I think of the ability of somebody like Hinton or Newton or Einstein or Rumelhart or</p>
+<p>Poincare to Archimedes is another example.</p>
+<p>So suddenly a flash of insight occurs. It&rsquo;s like the constellation of all of these</p>
+<p>simultaneous constraints that somehow or other causes the mind to settle into a novel state that</p>
+<p>it never did before and give rise to a new idea that then you can say, okay, well, now how can I</p>
+<p>prove this? How do I write down the steps of that theorem that allow me to make it rigorous and certain?</p>
+<p>And so I feel like the kinds of things that we&rsquo;re beginning to see deep learning systems do of</p>
+<p>their own accord kind of gives me this feeling of hope or encouragement that ultimately it&rsquo;ll all happen.</p>
+<p>So in particular as many people now have become really interested in thinking about, you know,</p>
+<p>neural networks that have been trained with massive amounts of text can be given a prompt and they</p>
+<p>can then sort of generate some really interesting, fanciful, creative story from that prompt.</p>
+<p>And there&rsquo;s kind of like a sense that they&rsquo;ve somehow synthesized something like novel out of</p>
+<p>the, you know, all of the particulars of all of the billions and billions of experiences that went</p>
+<p>into the training data that gives rise to something like this sort of intuitive sense of what would</p>
+<p>be a fun and interesting little story to tell or something like that. It just sort of wells up out</p>
+<p>of the letting the thing play out its own imagining of what somebody might say given this prompt as</p>
+<p>an input to get it to start to generate its own thoughts. And to me that sort of represents the</p>
+<p>potential of capturing the intuitive side of this.</p>
+<p>And there&rsquo;s other examples, I don&rsquo;t know if you find them as captivating is, you know, on the</p>
+<p>DeepMind side with AlphaZero, if you study chess, the kind of solutions that has come up in terms</p>
+<p>of chess, it is, there&rsquo;s novel ideas there. It feels very like there&rsquo;s brilliant moments of insight.</p>
+<p>And the mechanism they use, if you think of search as maybe more towards good old fashioned AI and</p>
+<p>then there&rsquo;s the connection is the neural network that has the intuition of looking at a board,</p>
+<p>looking at a set of patterns and saying, how good is this set of positions? And the next few</p>
+<p>positions, how good are those? And that&rsquo;s it. That&rsquo;s just an intuition. Grandmasters have this</p>
+<p>and understanding positionally, tactically, how good the situation is, how can it be improved</p>
+<p>without doing this full, like deep search. And then maybe doing a little bit of what human chess</p>
+<p>players call calculation, which is the search, taking a particular set of steps down the line to</p>
+<p>see how they unroll. But there is moments of genius in those systems too. So that&rsquo;s another hopeful</p>
+<p>illustration that from neural networks can emerge this novel creation of an idea.</p>
+<p>Yes. And I think that, you know, I think Demis Hassabis is, you know, he&rsquo;s spoken about those</p>
+<p>things. I heard him describe a move that was made in one of the go matches against Lisa Dahl in a</p>
+<p>very similar way. And it caused me to become really excited to kind of collaborate with some of those</p>
+<p>people and analyze it at DeepMind. So I think though that what I like to really emphasize here</p>
+<p>is one part of what I like to emphasize about mathematical cognition at least is that philosophers</p>
+<p>and logicians going back three or even a little more than 3000 years ago began to develop these</p>
+<p>formal systems and gradually the whole idea about thinking formally got constructed. And, you know,</p>
+<p>it&rsquo;s preceded Euclid, certainly present in the work of Thales and others. And I&rsquo;m not the world&rsquo;s</p>
+<p>leading expert in all the details of that history, but Euclid&rsquo;s elements were the kind of the touch</p>
+<p>point of a coherent document that sort of laid out this idea of an actual formal system within which</p>
+<p>these objects were characterized and the system of inference that allowed new truths to be derived</p>
+<p>from others was sort of like established as a paradigm. And what I find interesting is the</p>
+<p>idea that the ability to become a person who is capable of thinking in this abstract formal way</p>
+<p>is a result of the same kind of immersion in experience thinking in that way that we now</p>
+<p>begin to think of our understanding of language as being, right? So, we immerse ourselves in a</p>
+<p>particular language, in a particular world of objects and their relationships and we learn</p>
+<p>to talk about that and we develop intuitive understanding of the real world. In a similar</p>
+<p>way, we can think that what academia has created for us, what those early philosophers and their</p>
+<p>academies in Athens and Alexandria and other places allowed was the development of these</p>
+<p>schools of thought, modes of thought that then become deeply ingrained and it becomes what it</p>
+<p>is that makes it so that somebody like Jerry Fodor would think that systematic thought is</p>
+<p>the essential characteristic of the human mind as opposed to a derived and an acquired characteristic</p>
+<p>that results from acculturation in a certain mode that&rsquo;s been invented by humans.</p>
+<p>Would you say it&rsquo;s more fundamental than like language? If we start dancing, if we bring</p>
+<p>Chomsky back into the conversation, first of all, is it unfair to draw a line between mathematical</p>
+<p>cognition and language, linguistic cognition?</p>
+<p>I think that&rsquo;s a very interesting question and I think it&rsquo;s one of the ones that I&rsquo;m actually very</p>
+<p>interested in right now, but I think the answer is in important ways, it is important to draw that</p>
+<p>line, but then to come back and look at it again and see some of the subtleties and interesting</p>
+<p>aspects of the difference. So if we think about Chomsky himself, he was born into an academic</p>
+<p>family. His father was a professor of rabbinical studies at a small rabbinical college in</p>
+<p>Philadelphia. He was deeply enculturated in a culture of thought and reason and brought to the</p>
+<p>effort to understand natural language, this profound engagement with these formal systems. I</p>
+<p>think that there was tremendous power in that and that Chomsky had some amazing insights into the</p>
+<p>structure of natural language, but that, I&rsquo;m going to use the word but there, the actual intuitive</p>
+<p>knowledge of these things only goes so far and does not go as far as it does in people like</p>
+<p>Chomsky himself. And this was something that was discovered in the PhD dissertation of Lyla</p>
+<p>Gleitman, who was actually trained in the same linguistics department with Chomsky. So what Lyla</p>
+<p>discovered was that the intuitions that linguists had about even the meaning of a phrase, not just</p>
+<p>about its grammar, but about what they thought a phrase must mean were very different from the</p>
+<p>intuitions of an ordinary person who wasn&rsquo;t a formally trained thinker. And well, it recently</p>
+<p>has become much more salient. I happened to have learned about this when I myself was a PhD student</p>
+<p>at the University of Pennsylvania, but I never knew how to put it together with all of my other</p>
+<p>thinking about these things. So I actually currently have the hypothesis that formally</p>
+<p>trained linguists and other formally trained academics, whether it be linguistics, philosophy,</p>
+<p>cognitive science, computer science, machine learning, mathematics,</p>
+<p>have a mode of engagement with experience that is intuitively deeply structured to be more</p>
+<p>organized around the systematicity and ability to be conformant with the principles of a system</p>
+<p>than is actually true of the natural human mind without that immersion.</p>
+<p>That&rsquo;s fascinating. So the different fields and approaches with which you start to study the mind</p>
+<p>actually take you away from the natural operation of the mind. So it makes it very difficult for you</p>
+<p>to be somebody who introspects.</p>
+<p>Yes. And this is where things about human belief and so called knowledge that we consider</p>
+<p>private, not our business to manipulate in others. We are not entitled to tell somebody else what to</p>
+<p>believe about certain kinds of things. What are those beliefs? Well, they are the product of this</p>
+<p>sort of immersion and enculturation. That is what I believe.</p>
+<p>And that&rsquo;s limiting.</p>
+<p>It&rsquo;s something to be aware of.</p>
+<p>Does that limit you from having a good model of cognition?</p>
+<p>It can.</p>
+<p>So when you look at mathematical or linguistics, I mean, what is that line then? So is Chomsky</p>
+<p>unable to sneak up to the full picture of cognition? Are you, when you&rsquo;re focusing on</p>
+<p>mathematical thinking, are you also unable to do so?</p>
+<p>I think you&rsquo;re right. I think that&rsquo;s a great way of characterizing it. And</p>
+<p>I also think that it&rsquo;s related to the concept of beginner&rsquo;s mind and another concept called the</p>
+<p>expert blind spot. So the expert blind spot is much more prosaic seeming than this point that</p>
+<p>you were just making. But it&rsquo;s something that plagues experts when they try to communicate</p>
+<p>their understanding to non experts. And that is that things are self evident to them that</p>
+<p>they can&rsquo;t begin to even think about how they could explain it to somebody else.</p>
+<p>Because it&rsquo;s just like so patently obvious that it must be true. And</p>
+<p>when Kronacker said, God made the natural numbers, all else is the work of man,</p>
+<p>he was expressing that intuition that somehow or other, the basic fundamentals of discrete</p>
+<p>quantities being countable and innumerable and indefinite in number was not something that</p>
+<p>had to be discovered. But he was wrong. It turns out that many cognitive scientists</p>
+<p>agreed with him for a time. There was a long period of time where the natural</p>
+<p>numbers were considered to be a part of the innate endowment of core knowledge or to use</p>
+<p>the kind of phrases that Spelke and Kerry used to talk about what they believe are</p>
+<p>the innate primitives of the human mind. And they no longer believe that. It&rsquo;s actually</p>
+<p>been more or less accepted by almost everyone that the natural numbers are actually a cultural</p>
+<p>construction. And it&rsquo;s so interesting to go back and study those few people who still exist who</p>
+<p>don&rsquo;t have those systems. So this is just an example to me where a certain mode of thinking</p>
+<p>about language itself or a certain mode of thinking about geometry and those kinds of</p>
+<p>relations. So it becomes so second nature that you don&rsquo;t know what it is that you need to teach. And</p>
+<p>in fact, we don&rsquo;t really teach it all that explicitly anyway. You take a math class,</p>
+<p>the professor sort of teaches it to you the way they understand it. Some of the students in the</p>
+<p>class sort of like they get it. They start to get the way of thinking and they can actually do the</p>
+<p>problems that get put on the homework that the professor thinks are interesting and challenging</p>
+<p>ones. But most of the students who don&rsquo;t kind of engage as deeply don&rsquo;t ever get. And we think,</p>
+<p>oh, that man must be brilliant. He must have this special insight. But he must have some</p>
+<p>some biological sort of bit that&rsquo;s different, that makes him so that he or she could have</p>
+<p>that insight. Although I don&rsquo;t want to dismiss biological individual differences completely,</p>
+<p>I find it much more interesting to think about the possibility that it was that difference in the</p>
+<p>dinner table conversation at the Chomsky house when he was growing up that made it so that he</p>
+<p>had that cast of mind. Yeah. And there&rsquo;s a few topics we talked about that kind of interconnect</p>
+<p>because I wonder the better I get at certain things, we humans, the deeper we understand</p>
+<p>something, what are you starting to then miss about the rest of the world? We talked about David</p>
+<p>and his degenerative mind. And, you know, when you look in the mirror and wonder how different</p>
+<p>am I am I cognitively from the man I was a month ago, from the man I was a year ago, like what,</p>
+<p>you know, if I can, having thought about language of Chomsky for 10, 20 years, what am I no longer</p>
+<p>able to see? What is in my blind spot? And how big is that? And then to somehow be able to leap back</p>
+<p>out of your deep, like structure that you form for yourself about thinking about the world,</p>
+<p>leap back and look at the big picture again, or jump out of the your current way of thinking.</p>
+<p>And to be able to introspect, like what are the limitations of your mind? How is your mind less</p>
+<p>powerful than it used to be or more powerful or different, powerful in different ways? So that</p>
+<p>seems to be a difficult thing to do because we&rsquo;re living, we&rsquo;re looking at the world through the</p>
+<p>lens of our mind, right? To step outside and introspect is difficult, but it seems necessary</p>
+<p>if you want to make progress. You know, one of the threads of psychological research that&rsquo;s always</p>
+<p>been very, I don&rsquo;t know, important to me to be aware of is the idea that our explanations of our</p>
+<p>own behavior aren&rsquo;t necessarily actually part of the causal process that caused that behavior to</p>
+<p>occur, or even valid observations of the set of constraints that led to the outcome, but they are</p>
+<p>post hoc rationalizations that we can give based on information at our disposal about what might</p>
+<p>have contributed to the result that we came to when asked. And so this is an idea that was</p>
+<p>introduced in a very important paper by Nisbet and Wilson about, you know, the limits on our ability</p>
+<p>to be aware of the factors that cause us to make the choices that we make. And, you know, I think</p>
+<p>it&rsquo;s something that we really ought to be much more cognizant of, in general, as human beings,</p>
+<p>is that our own insight into exactly why we hold the beliefs that we do and we hold the attitudes</p>
+<p>and make the choices and feel the feelings that we do is not something that we totally control</p>
+<p>or totally observe. And it&rsquo;s subject to, you know, our culturally transmitted understanding of what</p>
+<p>it is that is the mode that we give to explain these things when asked to do so as much as it is</p>
+<p>about anything else. And so even our ability to introspect and think we have access to our own</p>
+<p>thoughts is a product of culture and belief, you know, practice.</p>
+<p>So let me ask you the big question of advice. So you&rsquo;ve lived an incredible life in terms of the</p>
+<p>ideas you&rsquo;ve put out into the world, in terms of the trajectory you&rsquo;ve taken through your career,</p>
+<p>through your life. What advice would you give to young people today, in high school, in college,</p>
+<p>about how to have a career or how to have a life they can be proud of?</p>
+<p>Finding the thing that you are intrinsically motivated to engage with and then celebrating</p>
+<p>that discovery is what it&rsquo;s all about. When I was in college, I struggled with that. I had thought</p>
+<p>I wanted to be a psychiatrist because I think I was interested in human psychology in high school.</p>
+<p>And at that time, the only sort of information I had that had anything to do with the psyche was,</p>
+<p>you know, Freud and Erich Fromm and sort of popular psychiatry kinds of things.</p>
+<p>And so, well, they were psychiatrists, right? So I had to be a psychiatrist.</p>
+<p>And that meant I had to go to medical school. And I got to college and I find myself taking,</p>
+<p>you know, the first semester of a three quarter physics class and it was mechanics. And this was</p>
+<p>so far from what it was I was interested in, but it was also too early in the morning in the winter</p>
+<p>court semester. So I never made it to the physics class. But I wondered about the rest of my</p>
+<p>freshman year and most of my sophomore year until I found myself in the midst of this situation where</p>
+<p>around me there was this big revolution happening. I was at Columbia University in 1968 and</p>
+<p>the Vietnam War is going on. Columbia is building a gym in Morningside Heights, which is part of</p>
+<p>Harlem. And people are thinking, oh, the big bad rich guys are stealing the parkland that</p>
+<p>belongs to the people of Harlem. And, you know, they&rsquo;re part of the military industrial complex,</p>
+<p>which is enslaving us and sending us all off to war in Vietnam. And so there was a big revolution</p>
+<p>that involved a confluence of black activism and, you know, SDS and social justice and the whole</p>
+<p>university blew up and got shut down. And I got a chance to sort of think about</p>
+<p>why people were behaving the way they were in this context. And I, you know, I happened to have</p>
+<p>taken mathematical statistics. I happened to have been taking psychology that quarter at just cycle</p>
+<p>one. And somehow things in that space all ran together in my mind and got me really excited</p>
+<p>about asking questions about why people, what made certain people go into the buildings and not</p>
+<p>others and things like that. And so suddenly I had a path forward and I had just been wandering</p>
+<p>around aimlessly. And at the different points in my career, you know, and I think, okay,</p>
+<p>well, should I take this class or should I just read that book about some idea that I want to</p>
+<p>understand better, you know, or should I pursue the thing that excites me and interests me or</p>
+<p>should I, you know, meet some requirement? You know, that&rsquo;s, I always did the latter.</p>
+<p>So I ended up, my professors in psychology were, thought I was great. They wanted me to go to</p>
+<p>graduate school. They nominated me for Phi Beta Kappa. And I went to the Phi Beta Kappa ceremony</p>
+<p>and this guy came up and he said, oh, are you Magna Arsuma? And I wasn&rsquo;t even getting honors</p>
+<p>based on my grades. They just happened to have thought I was interested enough in ideas to</p>
+<p>belong to Phi Beta Kappa. So. I mean, would it be fair to say you kind of stumbled around a little</p>
+<p>bit through accidents of too early morning of classes in physics and so on until you discovered</p>
+<p>intrinsic motivation, as you mentioned, and then that&rsquo;s it. It hooked you. And then you celebrate</p>
+<p>the fact that this happens to human beings. Yeah. And what is it that made what I did intrinsically</p>
+<p>motivating to me? Well, that&rsquo;s interesting and I don&rsquo;t know all the answers to it. And I don&rsquo;t</p>
+<p>think I want anybody to think that you should be sort of in any way, I don&rsquo;t know, sanctimonious or</p>
+<p>anything about it. You know, it&rsquo;s like, I really enjoyed doing statistical analysis of data. I</p>
+<p>really enjoyed running my own experiment, which was what I got a chance to do in the psychology</p>
+<p>department that chemistry and physics had never, I never imagined that mere mortals would ever do</p>
+<p>an experiment in those sciences, except one that was in the textbook that you were told to do in</p>
+<p>lab class. But in psychology, we were already like, even when I was taking psych one, it turned out</p>
+<p>we had our own rat and we got to, after two set experiments, we got to, okay, do something you</p>
+<p>think of with your rat. So it&rsquo;s the opportunity to do it myself and to bring together a certain</p>
+<p>set of things that engaged me intrinsically. And I think it has something to do with why</p>
+<p>certain people turn out to be profoundly amazing musical geniuses, right? They get immersed in it</p>
+<p>at an early enough point and it just sort of gets into the fabric. So my little brother had intrinsic</p>
+<p>motivation for music as we witnessed when he discovered how to put records on the phonograph</p>
+<p>when he was like 13 months old and recognize which one he wanted to play, not because he could read</p>
+<p>the labels, because he could sort of see which ones had which scratches, which were the different,</p>
+<p>you know, oh, that&rsquo;s rapidi espanol. And that&rsquo;s, you know, and, and, and,</p>
+<p>And he enjoyed that, that connected with him somehow.</p>
+<p>Yeah. And, and there was something that it fed into and it, you&rsquo;re extremely lucky if you have</p>
+<p>that and if you can nurture it and can let it grow and let it be, be an important part of your life.</p>
+<p>Yeah. Those are, those are the two things is like, be attentive enough to,</p>
+<p>to feel it when it comes, like this is something special. I mean, I don&rsquo;t know. For example,</p>
+<p>I really like tabular data, like Excel sheets. Like it brings me a deep joy. I don&rsquo;t know how</p>
+<p>useful that is for anything. That&rsquo;s part of what I&rsquo;m talking about.</p>
+<p>Exactly. So there&rsquo;s like a million, not a million, but there&rsquo;s a lot of things</p>
+<p>like that. For me, you have to hear that for yourself, like be, like realize this is really</p>
+<p>joyful. But then the other part that you&rsquo;re mentioning, which is the nurture is take time</p>
+<p>and stay with it, stay with it a while and see where that takes you in life.</p>
+<p>Yeah. And I think, I think the, the, the motivational engagement results in the</p>
+<p>immersion that then creates the opportunity to obtain the expertise. So, you know, we could call</p>
+<p>it the Mozart effect, right? I mean, when I think about Mozart, I think about, you know,</p>
+<p>the person who was born as the fourth member of the family string quartet, right? And, and they</p>
+<p>handed him the violin when he was six weeks old. All right, start playing, you know, it&rsquo;s like,</p>
+<p>and so the, the level of immersion there was, was amazingly profound, but hopefully he also had,</p>
+<p>you know, some, something, maybe this is where the more sort of the genetic part comes in.</p>
+<p>Sometimes I think, you know, something in him resonated to the music so that that,</p>
+<p>the synergy of the combination of that was so powerful. So, so that&rsquo;s what I really considered</p>
+<p>to be the Mozart effect. It&rsquo;s sort of the, the synergy of something with, with experience that,</p>
+<p>that then results in the unique flowering of a particular, you know, mind.</p>
+<p>And so I know my siblings and I are all very different from each other. We&rsquo;ve all gone in</p>
+<p>our own different directions. And, you know, I mentioned my younger brother who was very musical.</p>
+<p>I had my other younger brother was like this amazing, like intuitive engineer.</p>
+<p>And my sister, one of my sisters was passionate about, in, you know, water conservation well</p>
+<p>before it was, you know, such a hugely important issue that it is today. So we all sort of somehow</p>
+<p>these find a different thing. And I don&rsquo;t, I don&rsquo;t mean to say it isn&rsquo;t tied in with something about,</p>
+<p>about us biologically, but, but it&rsquo;s also when that happens, where you can find that, then,</p>
+<p>you know, you can do your thing and you can be excited about it. So people can be excited about</p>
+<p>fitting people on bicycles, as well as excited about making neural networks, achieve insights</p>
+<p>into human cognition, right? Yeah. Like for me personally, I&rsquo;ve always been excited about</p>
+<p>love and friendship between humans. And just like the actual experience of it,</p>
+<p>since I was a child, just observing people around me and also been excited about robots.</p>
+<p>And there&rsquo;s something in me that thinks I really would love to explore how those two things</p>
+<p>combine. And it doesn&rsquo;t make any sense. A lot of it is also timing, just to think of your own career</p>
+<p>and your own life. You found yourself in certain pieces, places that happened to involve some of</p>
+<p>the greatest thinkers of our time. And so it just worked out that like, you guys developed those</p>
+<p>ideas. And there may be a lot of other people similar to you, and they were brilliant, and</p>
+<p>they never found that right connection and place to where they, their ideas could flourish. So</p>
+<p>it&rsquo;s timing, it&rsquo;s place, it&rsquo;s people. And ultimately the whole ride, you know, it&rsquo;s undirected.</p>
+<p>Can I ask you about something you mentioned in terms of psychiatry when you were younger?</p>
+<p>Because I had a similar experience of, you know, reading Freud and Carl Jung and just,</p>
+<p>you know, those kind of popular psychiatry ideas. And that was a dream for me early on in high</p>
+<p>school too. Like I hoped to understand the human mind by, somehow psychiatry felt like</p>
+<p>the right discipline for that. Does that make you sad? That psychiatry is not</p>
+<p>the mechanism by which you are able to explore the human mind. So for me, I was a little bit</p>
+<p>disillusioned because of how much prescription medication and biochemistry is involved in the</p>
+<p>discipline of psychiatry, as opposed to the dream of the Freud like, use the mechanisms of language</p>
+<p>to explore the human mind. So that was a little disappointing. And that&rsquo;s why I kind of went to</p>
+<p>computer science and thinking like, maybe you can explore the human mind by trying to build the</p>
+<p>thing. Yes. I wasn&rsquo;t exposed to the sort of the biomedical slash pharmacological aspects of</p>
+<p>psychiatry at that point because I dropped out of that whole idea of premed that I never even</p>
+<p>found out about that until much later. But you&rsquo;re absolutely right. So I was actually a member of the</p>
+<p>National Advisory Mental Health Council. That is to say the board of scientists who advise the</p>
+<p>director of the National Institute of Mental Health. And that was around the year 2000. And</p>
+<p>in fact, at that time, the man who came in as the new director, I had been on this board for a year</p>
+<p>when he came in, said, okay, schizophrenia is a biological illness. It&rsquo;s a lot like cancer.</p>
+<p>We&rsquo;ve made huge strides in curing cancer. And that&rsquo;s what we&rsquo;re going to do with schizophrenia.</p>
+<p>We&rsquo;re going to find the medications that are going to cure this disease. And we&rsquo;re not going</p>
+<p>to listen to anybody&rsquo;s grandmother anymore. And good old behavioral psychology is not something</p>
+<p>we&rsquo;re going to support any further. And he completely alienated me from the Institute</p>
+<p>and from all of its prior policies, which had been much more holistic, I think, really at some level.</p>
+<p>And the other people on the board were like psychiatrists, very biological psychiatrists.</p>
+<p>It didn&rsquo;t pan out that nothing has changed in our ability to help people with mental illness.</p>
+<p>And so 20 years later, that particular path was a dead end, as far as I can tell.</p>
+<p>Well, there&rsquo;s some aspect to, and sorry to romanticize the whole philosophical conversation</p>
+<p>about the human mind. But to me, psychiatrists, for a time, held the flag of we&rsquo;re the deep thinkers.</p>
+<p>In the same way that physicists are the deep thinkers about the nature of reality,</p>
+<p>psychiatrists are the deep thinkers about the nature of the human mind. And I think that flag</p>
+<p>has been taken from them and carried by people like you. It&rsquo;s like, it&rsquo;s more in the cognitive</p>
+<p>psychology, especially when you have a foot in the computational view of the world, because you can</p>
+<p>both build it, you can like, intuit about the functioning of the mind by building little models</p>
+<p>and be able to see mathematical things and then deploying those models, especially in computers,</p>
+<p>to say, does this actually work? They do like experiments. And then some combination of</p>
+<p>neuroscience, where you&rsquo;re starting to actually be able to observe, do certain experiments on</p>
+<p>human beings and observe how the brain is actually functioning. And there, using intuition, you can</p>
+<p>start being the philosopher. Like Richard Feynman is the philosopher, cognitive psychologists can</p>
+<p>become the philosopher, and psychiatrists become much more like doctors. They&rsquo;re like very medical.</p>
+<p>They help people with medication, biochemistry, and so on. But they are no longer the book writers</p>
+<p>and the philosophers, which of course I admire. I admire the Richard Feynman ability to do</p>
+<p>great low level mathematics and physics and the high level philosophy.</p>
+<p>Yeah, I think it was Fromm and Jung more than Freud that was sort of initially kind of like</p>
+<p>made me feel like, oh, this is really amazing and interesting and I want to explore it further.</p>
+<p>I actually, when I got to college and I lost that thread, I found more of it in sociology</p>
+<p>and literature than I did in any place else. So I took quite a lot of both of those</p>
+<p>disciplines as an undergraduate. And I was actually deeply ambivalent about</p>
+<p>the psychology because I was doing experiments after the initial flurry of interest in</p>
+<p>why people would occupy buildings during an insurrection and consider</p>
+<p>being so overcommitted to their beliefs. But I ended up in the psychology laboratory running</p>
+<p>experiments on pigeons. And so I had these profound dissonance between the kinds of issues</p>
+<p>that would be explored when I was thinking about what I read about in modern British literature</p>
+<p>versus what I could study with my pigeons in the laboratory. That got resolved when I went</p>
+<p>to graduate school and I discovered cognitive psychology. And so for me, that was the path</p>
+<p>out of this sort of like extremely sort of ambivalent divergence between the interest</p>
+<p>in the human condition and the desire to do actual mechanistically oriented thinking about it. And I</p>
+<p>think we&rsquo;ve come a long way in that regard and that you&rsquo;re absolutely right that nowadays this</p>
+<p>is something that&rsquo;s accessible to people through the pathway in through computer science or the</p>
+<p>pathway in through neuroscience. You can get derailed in neuroscience down to the bottom of</p>
+<p>the system where you might find the cures of various conditions, but you don&rsquo;t get a chance</p>
+<p>to think about the higher level stuff. So it&rsquo;s in the systems and cognitive neuroscience and</p>
+<p>computational intelligence, miasma up there at the top that I think these opportunities are most</p>
+<p>are richest right now. And so yes, I am indeed blessed by having had the opportunity to fall</p>
+<p>into that space. So you mentioned the human condition, speaking which you happen to be a</p>
+<p>human being who&rsquo;s unfortunately not immortal. That seems to be a fundamental part of the human</p>
+<p>condition that this ride ends. Do you think about the fact that you&rsquo;re going to die one day? Are you</p>
+<p>afraid of death? I would say that I am not as much afraid of death as I am of degeneration. And</p>
+<p>I say that in part for reasons of having, you know, seen some tragic degenerative situations</p>
+<p>unfold. It&rsquo;s exciting when you can continue to participate and feel like you&rsquo;re near the place</p>
+<p>where the wave is breaking on the shore, if you like. And I think about my own future potential.</p>
+<p>If I were to begin to suffer from Alzheimer&rsquo;s disease or semantic dementia or some other</p>
+<p>condition, you know, I would sort of gradually lose the thread of that ability. And so one can</p>
+<p>live on for a decade after, you know, sort of having to retire because one no longer has</p>
+<p>these kinds of abilities to engage. And I think that&rsquo;s the thing that I fear the most.</p>
+<p>SL. The losing of that, like the breaking of the wave, the flourishing of the mind,</p>
+<p>where you have these ideas and they&rsquo;re swimming around and you&rsquo;re able to play with them.</p>
+<p>RL. Yeah. And collaborate with other people who, you know, are themselves</p>
+<p>really helping to push these ideas forward. So, yeah.</p>
+<p>SL. What about the edge of the cliff? The end? I mean, the mystery of it. I mean&hellip;</p>
+<p>RL. The migrated sort of conception of mind and, you know, sort of continuous sort of way of</p>
+<p>thinking about most things makes it so that, to me, the discreteness of that transition is less</p>
+<p>apparent than it seems to be to most people.</p>
+<p>SL. I see. I see. Yeah. Yeah. I wonder, so I don&rsquo;t know if you know the work of Ernest Becker</p>
+<p>and so on. I wonder what role mortality and our ability to be cognizant of it</p>
+<p>and anticipate it and perhaps be afraid of it, what role that plays in our reasoning of the world.</p>
+<p>RL. I think that it can be motivating to people to think they have a limited period left.</p>
+<p>SL. I think in my own case, you know, it&rsquo;s like seven or eight years ago now that I was</p>
+<p>sitting around doing experiments on decision making that were</p>
+<p>satisfying in a certain way because I could really get closure on whether the model fit the data</p>
+<p>perfectly or not. And I could see how one could test, you know, the predictions in monkeys as well</p>
+<p>as humans and really see what the neurons were doing. But I just realized, hey, wait a minute,</p>
+<p>you know, I may only have about 10 or 15 years left here. And I don&rsquo;t feel like I&rsquo;m getting</p>
+<p>towards the answers to the really interesting questions while I&rsquo;m doing this particular level</p>
+<p>of work. And that&rsquo;s when I said to myself, okay, let&rsquo;s pick something that&rsquo;s hard. So that&rsquo;s when</p>
+<p>I started working on mathematical cognition. And I think it was more in terms of, well,</p>
+<p>I got 15 more years possibly of useful life left. Let&rsquo;s imagine that it&rsquo;s only 10.</p>
+<p>I&rsquo;m actually getting close to the end of that now, maybe three or four more years.</p>
+<p>But I&rsquo;m beginning to feel like, well, I probably have another five after that. So, okay, I&rsquo;ll give</p>
+<p>myself another six or eight. But a deadline is looming and therefore. It&rsquo;s not going to go on</p>
+<p>forever. And so, yeah, I got to keep thinking about the questions that I think are the interesting and</p>
+<p>important ones for sure. What do you hope your legacy is? You&rsquo;ve done some incredible work in</p>
+<p>your life as a man, as a scientist, when the aliens and the human civilization is long gone</p>
+<p>and the aliens are reading the encyclopedia about the human species. What do you hope is the</p>
+<p>paragraph written about you? I would want it to sort of highlight</p>
+<p>a couple things that I was able to see one path that was more exciting to me than the one that</p>
+<p>seemed already to be there for a cognitive psychologist, but not for any super special</p>
+<p>reason other than that I&rsquo;d had the right context prior to that, but that I had gone ahead and</p>
+<p>followed that lead. And then I forget the exact wording, but I said in this preface that</p>
+<p>the joy of science is the moment in which a partially formed thought in the mind of one person</p>
+<p>gets crystallized a little better in the discourse and becomes the foundation</p>
+<p>of some exciting concrete piece of actual scientific progress. And I feel like that</p>
+<p>moment happened when Rumelhart and I were doing the interactive activation model and when</p>
+<p>Rumelhart heard Hinton talk about gradient descent and having the objective function to guide the</p>
+<p>learning process. And it happened a lot in that period and I sort of seek that kind of</p>
+<p>thing in my collaborations with my students. So the idea that this is a person who contributed</p>
+<p>to science by finding exciting collaborative opportunities to engage with other people</p>
+<p>through is something that I certainly hope is part of the paragraph.</p>
+<p>And like you said, taking a step maybe in directions that are non obvious. So it&rsquo;s the</p>
+<p>old Robert Frost road less taken. So maybe because you said like this incomplete initial idea,</p>
+<p>that step you take is a little bit off the beaten path.</p>
+<p>If I could just say one more thing here. This was something that really contributed</p>
+<p>to energizing me in a way that I feel it would be useful to share. My PhD dissertation project</p>
+<p>was completely empirical experimental project. And I wrote a paper based on the two main</p>
+<p>experiments that were the core of my dissertation and I submitted it to a journal. And at the end</p>
+<p>of the paper, I had a little section where I laid out the beginnings of my theory about what I</p>
+<p>thought was going on that would explain the data that I had collected. And I had submitted the</p>
+<p>paper to the Journal of Experimental Psychology. So I got back a letter from the editor saying,</p>
+<p>thank you very much. These are great experiments and we&rsquo;d love to publish them in the journal.</p>
+<p>But what we&rsquo;d like you to do is to leave the theorizing to the theorists and take that part</p>
+<p>out of the paper. And so I did, I took that part out of the paper. But I almost found myself labeled</p>
+<p>as a non theorist by this. And I could have succumbed to that and said, okay, well, I guess</p>
+<p>my job is to just go on and do experiments, right? But that&rsquo;s not what I wanted to do. And so when I</p>
+<p>got to my assistant professorship, although I continued to do experiments because I knew I had</p>
+<p>to get some papers out, I also at the end of my first year submitted my first article to</p>
+<p>Psychological Review, which was the theoretical journal where I took that section and elaborated</p>
+<p>it and wrote it up and submitted it to them. And they didn&rsquo;t accept that either, but they said,</p>
+<p>oh, this is interesting. You should keep thinking about it this time. And then that was what got me</p>
+<p>going to think, okay, you know, so it&rsquo;s not a superhuman thing to contribute to the development</p>
+<p>of theory. You know, you don&rsquo;t have to be, you can do it as a mere mortal.</p>
+<p>LB And the broader, I think, lesson is don&rsquo;t succumb to the labels of a particular reviewer.</p>
+<p>RL Yeah, that&rsquo;s for sure. Or anybody labeling you, right?</p>
+<p>LB Yeah, exactly. I mean that, yeah, exactly. And especially as you become successful,</p>
+<p>your labels get assigned to you for that you&rsquo;re successful for that thing.</p>
+<p>RL Connectionist or cognitive scientist and not a neuroscientist.</p>
+<p>LB And then you can, you can completely, that&rsquo;s just, that&rsquo;s the stories of the past. You&rsquo;re</p>
+<p>today a new person that can completely revolutionize in totally new areas. So don&rsquo;t</p>
+<p>let those labels hold you back. Well, let me ask the big question. When you look at into the,</p>
+<p>you said it started with Columbia trying to observe these humans and they&rsquo;re doing</p>
+<p>weird stuff and you want to know why are they doing this stuff. So Zuma even bigger.</p>
+<p>LB At the hundred plus billion people who&rsquo;ve ever lived on earth. Why do you think we&rsquo;re all</p>
+<p>doing what we&rsquo;re doing? What do you think is the meaning of it all? The big why question.</p>
+<p>We seem to be very busy doing a bunch of stuff and we seem to be kind of directed towards somewhere.</p>
+<p>But why?</p>
+<p>RL Well, I myself think that we make meaning for ourselves and that we find inspiration</p>
+<p>in the meaning that other people have made in the past. You know, and the great religious thinkers</p>
+<p>of the first millennium BC and, you know, few that came in the early part of the second millennium,</p>
+<p>you know, laid down some important foundations for us.</p>
+<p>But I do believe that, you know, we are an emergent result of a process that happened</p>
+<p>naturally without guidance and that meaning is what we make of it and that the creation of</p>
+<p>efforts to reify meaning in like religious traditions and so on is just a part of the</p>
+<p>expression of that goal that we have to, you know, not find out what the meaning is, but to</p>
+<p>make it ourselves. And so, to me, it&rsquo;s something that&rsquo;s very personal. It&rsquo;s very individual. It&rsquo;s</p>
+<p>like meaning will come for you through the particular combination of synergistic elements</p>
+<p>that are your fabric and your experience and your context and, you know, you should&hellip;</p>
+<p>It&rsquo;s all made in a certain kind of a local context though, right? Here I am at UCSD with this brilliant</p>
+<p>man, Rommelhart, who&rsquo;s having, you know, these doubts about symbolic artificial intelligence</p>
+<p>that resonate with my desire to see it grounded in the biology and let&rsquo;s make the most of that,</p>
+<p>you know? Yeah. And so, from that like little pocket, there&rsquo;s some kind of peculiar little</p>
+<p>emergent process that then, which is basically each one of us, each one of us humans is a kind of,</p>
+<p>you know, you think cells and they come together and it&rsquo;s an emergent process that then tells fancy</p>
+<p>stories about itself and then gets, just like you said, just enjoys the beauty of the stories</p>
+<p>we tell about ourselves. It&rsquo;s an emergent process that lives for a time, is defined by its local</p>
+<p>pocket and context in time and space and then tells pretty stories and we write those stories</p>
+<p>down and then we celebrate how nice the stories are and then it continues because we build stories</p>
+<p>on top of each other and eventually we&rsquo;ll colonize hopefully other planets, other solar systems,</p>
+<p>other galaxies and we&rsquo;ll tell even better stories. But it all starts here on Earth. Jay, you&rsquo;re</p>
+<p>speaking of peculiar emergent processes that lived one heck of a story. You&rsquo;re one of the</p>
+<p>the great scientists of cognitive science, of psychology, of computation. It&rsquo;s a huge honor</p>
+<p>you would talk to me today that you spend your very valuable time. I really enjoyed talking with</p>
+<p>you and thank you for all the work you&rsquo;ve done. I can&rsquo;t wait to see what you do next.</p>
+<p>JL Well, thank you so much and this has been an amazing opportunity for me to let ideas that I&rsquo;ve</p>
+<p>never fully expressed before come out because you asked such a wide range of the deeper questions</p>
+<p>that we&rsquo;ve all been thinking about for so long. So thank you very much for that.</p>
+<p>RL Thank you. Thanks for listening to this conversation with Jay McClelland.</p>
+<p>To support this podcast, please check out our sponsors in the description.</p>
+<p>And now, let me leave you with some words from Jeffrey Hinton. In the long run,</p>
+<p>curiosity driven research works best. Real breakthroughs come from people focusing</p>
+<p>on what they&rsquo;re excited about. Thanks for listening and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

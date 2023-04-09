@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Daphne Koller,
+a professor of computer science at Stanford University,
+a cofounder of Coursera with Andrew Ng,
+and founder and CEO of Incitro,
+a company at the intersection
+of machine learning and biomedicine.
+We&amp;rsquo;re now in the exciting early days
+of using the data driven methods of machine learning
+to help discover and develop new drugs
+and treatments at scale.
+Daphne and Incitro are leading the way on this'>
+<title>Lex Fridman Podcast - #93 - Daphne Koller: Biomedicine and Machine Learning | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500093/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #93 - Daphne Koller: Biomedicine and Machine Learning'>
+<meta property='og:description' content='The following is a conversation with Daphne Koller,
+a professor of computer science at Stanford University,
+a cofounder of Coursera with Andrew Ng,
+and founder and CEO of Incitro,
+a company at the intersection
+of machine learning and biomedicine.
+We&amp;rsquo;re now in the exciting early days
+of using the data driven methods of machine learning
+to help discover and develop new drugs
+and treatments at scale.
+Daphne and Incitro are leading the way on this'>
+<meta property='og:url' content='https://swiest.com/en/1310500093/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-06-01T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-06-01T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #93 - Daphne Koller: Biomedicine and Machine Learning">
+<meta name="twitter:description" content="The following is a conversation with Daphne Koller,
+a professor of computer science at Stanford University,
+a cofounder of Coursera with Andrew Ng,
+and founder and CEO of Incitro,
+a company at the intersection
+of machine learning and biomedicine.
+We&amp;rsquo;re now in the exciting early days
+of using the data driven methods of machine learning
+to help discover and develop new drugs
+and treatments at scale.
+Daphne and Incitro are leading the way on this">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500093/">Lex Fridman Podcast - #93 - Daphne Koller: Biomedicine and Machine Learning</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-01</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    51 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Daphne Koller,</p>
+<p>a professor of computer science at Stanford University,</p>
+<p>a cofounder of Coursera with Andrew Ng,</p>
+<p>and founder and CEO of Incitro,</p>
+<p>a company at the intersection</p>
+<p>of machine learning and biomedicine.</p>
+<p>We&rsquo;re now in the exciting early days</p>
+<p>of using the data driven methods of machine learning</p>
+<p>to help discover and develop new drugs</p>
+<p>and treatments at scale.</p>
+<p>Daphne and Incitro are leading the way on this</p>
+<p>with breakthroughs that may ripple</p>
+<p>through all fields of medicine,</p>
+<p>including ones most critical for helping</p>
+<p>with the current coronavirus pandemic.</p>
+<p>This conversation was recorded</p>
+<p>before the COVID 19 outbreak.</p>
+<p>For everyone feeling the medical, psychological,</p>
+<p>and financial burden of this crisis,</p>
+<p>I&rsquo;m sending love your way.</p>
+<p>Stay strong, we&rsquo;re in this together, we&rsquo;ll beat this thing.</p>
+<p>This is the Artificial Intelligence Podcast.</p>
+<p>If you enjoy it, subscribe on YouTube,</p>
+<p>review it with five stars on Apple Podcast,</p>
+<p>support it on Patreon,</p>
+<p>or simply connect with me on Twitter</p>
+<p>at Lex Friedman, spelled F R I D M A N.</p>
+<p>As usual, I&rsquo;ll do a few minutes of ads now</p>
+<p>and never any ads in the middle</p>
+<p>that can break the flow of this conversation.</p>
+<p>I hope that works for you</p>
+<p>and doesn&rsquo;t hurt the listening experience.</p>
+<p>This show is presented by Cash App,</p>
+<p>the number one finance app in the app store.</p>
+<p>When you get it, use code LEXPODCAST.</p>
+<p>Cash App lets you send money to friends,</p>
+<p>buy Bitcoin, and invest in the stock market</p>
+<p>with as little as one dollar.</p>
+<p>Since Cash App allows you to send</p>
+<p>and receive money digitally,</p>
+<p>peer to peer, and security in all digital transactions</p>
+<p>is very important,</p>
+<p>let me mention the PCI data security standard</p>
+<p>that Cash App is compliant with.</p>
+<p>I&rsquo;m a big fan of standards for safety and security.</p>
+<p>PCI DSS is a good example of that,</p>
+<p>where a bunch of competitors got together</p>
+<p>and agreed that there needs to be a global standard</p>
+<p>around the security of transactions.</p>
+<p>Now we just need to do the same for autonomous vehicles</p>
+<p>and AI systems in general.</p>
+<p>So again, if you get Cash App from the App Store</p>
+<p>or Google Play and use the code LEXPODCAST,</p>
+<p>you get $10 and Cash App will also donate $10 to FIRST,</p>
+<p>an organization that is helping to advance robotics</p>
+<p>and STEM education for young people around the world.</p>
+<p>And now here&rsquo;s my conversation with Daphne Koller.</p>
+<p>So you cofounded Coursera and made a huge impact</p>
+<p>in the global education of AI.</p>
+<p>And after five years in August, 2016,</p>
+<p>wrote a blog post saying that you&rsquo;re stepping away</p>
+<p>and wrote, quote,</p>
+<p>it is time for me to turn to another critical challenge,</p>
+<p>the development of machine learning</p>
+<p>and its applications to improving human health.</p>
+<p>So let me ask two far out philosophical questions.</p>
+<p>One, do you think we&rsquo;ll one day find cures</p>
+<p>for all major diseases known today?</p>
+<p>And two, do you think we&rsquo;ll one day figure out</p>
+<p>a way to extend the human lifespan,</p>
+<p>perhaps to the point of immortality?</p>
+<p>So one day is a very long time</p>
+<p>and I don&rsquo;t like to make predictions</p>
+<p>of the type we will never be able to do X</p>
+<p>because I think that&rsquo;s a smacks of hubris.</p>
+<p>It seems that never in the entire eternity</p>
+<p>of human existence will we be able to solve a problem.</p>
+<p>That being said, curing disease is very hard</p>
+<p>because oftentimes by the time you discover the disease,</p>
+<p>a lot of damage has already been done.</p>
+<p>And so to assume that we would be able to cure disease</p>
+<p>at that stage assumes that we would come up with ways</p>
+<p>of basically regenerating entire parts of the human body</p>
+<p>in the way that actually returns it to its original state.</p>
+<p>And that&rsquo;s a very challenging problem.</p>
+<p>We have cured very few diseases.</p>
+<p>We&rsquo;ve been able to provide treatment</p>
+<p>for an increasingly large number,</p>
+<p>but the number of things that you could actually define</p>
+<p>to be cures is actually not that large.</p>
+<p>So I think that there&rsquo;s a lot of work</p>
+<p>that would need to happen before one could legitimately say</p>
+<p>that we have cured even a reasonable number,</p>
+<p>far less all diseases.</p>
+<p>On the scale of zero to 100,</p>
+<p>where are we in understanding the fundamental mechanisms</p>
+<p>of all of major diseases?</p>
+<p>What&rsquo;s your sense?</p>
+<p>So from the computer science perspective</p>
+<p>that you&rsquo;ve entered the world of health,</p>
+<p>how far along are we?</p>
+<p>I think it depends on which disease.</p>
+<p>I mean, there are ones where I would say</p>
+<p>we&rsquo;re maybe not quite at a hundred</p>
+<p>because biology is really complicated</p>
+<p>and there&rsquo;s always new things that we uncover</p>
+<p>that people didn&rsquo;t even realize existed.</p>
+<p>But I would say there&rsquo;s diseases</p>
+<p>where we might be in the 70s or 80s,</p>
+<p>and then there&rsquo;s diseases in which I would say</p>
+<p>with probably the majority where we&rsquo;re really close to zero.</p>
+<p>Would Alzheimer&rsquo;s and schizophrenia</p>
+<p>and type two diabetes fall closer to zero or to the 80?</p>
+<p>I think Alzheimer&rsquo;s is probably closer to zero than to 80.</p>
+<p>There are hypotheses,</p>
+<p>but I don&rsquo;t think those hypotheses have as of yet</p>
+<p>been sufficiently validated that we believe them to be true.</p>
+<p>And there is an increasing number of people</p>
+<p>who believe that the traditional hypotheses</p>
+<p>might not really explain what&rsquo;s going on.</p>
+<p>I would also say that Alzheimer&rsquo;s and schizophrenia</p>
+<p>and even type two diabetes are not really one disease.</p>
+<p>They&rsquo;re almost certainly a heterogeneous collection</p>
+<p>of mechanisms that manifest in clinically similar ways.</p>
+<p>So in the same way that we now understand</p>
+<p>that breast cancer is really not one disease,</p>
+<p>it is multitude of cellular mechanisms,</p>
+<p>all of which ultimately translate</p>
+<p>to uncontrolled proliferation, but it&rsquo;s not one disease.</p>
+<p>The same is almost undoubtedly true</p>
+<p>for those other diseases as well.</p>
+<p>And that understanding that needs to precede</p>
+<p>any understanding of the specific mechanisms</p>
+<p>of any of those other diseases.</p>
+<p>Now, in schizophrenia, I would say</p>
+<p>we&rsquo;re almost certainly closer to zero than to anything else.</p>
+<p>Type two diabetes is a bit of a mix.</p>
+<p>There are clear mechanisms that are implicated</p>
+<p>that I think have been validated</p>
+<p>that have to do with insulin resistance and such,</p>
+<p>but there&rsquo;s almost certainly there as well</p>
+<p>many mechanisms that we have not yet understood.</p>
+<p>You&rsquo;ve also thought and worked a little bit</p>
+<p>on the longevity side.</p>
+<p>Do you see the disease and longevity as overlapping</p>
+<p>completely, partially, or not at all as efforts?</p>
+<p>Those mechanisms are certainly overlapping.</p>
+<p>There&rsquo;s a well known phenomenon that says</p>
+<p>that for most diseases, other than childhood diseases,</p>
+<p>the risk for contracting that disease</p>
+<p>increases exponentially year on year,</p>
+<p>every year from the time you&rsquo;re about 40.</p>
+<p>So obviously there&rsquo;s a connection between those two things.</p>
+<p>That&rsquo;s not to say that they&rsquo;re identical.</p>
+<p>There&rsquo;s clearly aging that happens</p>
+<p>that is not really associated with any specific disease.</p>
+<p>And there&rsquo;s also diseases and mechanisms of disease</p>
+<p>that are not specifically related to aging.</p>
+<p>So I think overlap is where we&rsquo;re at.</p>
+<p>Okay.</p>
+<p>It is a little unfortunate that we get older</p>
+<p>and it seems that there&rsquo;s some correlation</p>
+<p>with the occurrence of diseases</p>
+<p>or the fact that we get older.</p>
+<p>And both are quite sad.</p>
+<p>I mean, there&rsquo;s processes that happen as cells age</p>
+<p>that I think are contributing to disease.</p>
+<p>Some of those have to do with DNA damage</p>
+<p>that accumulates as cells divide</p>
+<p>where the repair mechanisms don&rsquo;t fully correct for those.</p>
+<p>There are accumulations of proteins</p>
+<p>that are misfolded and potentially aggregate</p>
+<p>and those too contribute to disease</p>
+<p>and will contribute to inflammation.</p>
+<p>There&rsquo;s a multitude of mechanisms that have been uncovered</p>
+<p>that are sort of wear and tear at the cellular level</p>
+<p>that contribute to disease processes</p>
+<p>and I&rsquo;m sure there&rsquo;s many that we don&rsquo;t yet understand.</p>
+<p>On a small tangent and perhaps philosophical,</p>
+<p>the fact that things get older</p>
+<p>and the fact that things die is a very powerful feature</p>
+<p>for the growth of new things.</p>
+<p>It&rsquo;s a learning, it&rsquo;s a kind of learning mechanism.</p>
+<p>So it&rsquo;s both tragic and beautiful.</p>
+<p>So do you, so in trying to fight disease</p>
+<p>and trying to fight aging,</p>
+<p>do you think about sort of the useful fact of our mortality</p>
+<p>or would you, like if you were, could be immortal,</p>
+<p>would you choose to be immortal?</p>
+<p>Again, I think immortal is a very long time</p>
+<p>and I don&rsquo;t know that that would necessarily be something</p>
+<p>that I would want to aspire to</p>
+<p>but I think all of us aspire to an increased health span,</p>
+<p>I would say, which is an increased amount of time</p>
+<p>where you&rsquo;re healthy and active</p>
+<p>and feel as you did when you were 20</p>
+<p>and we&rsquo;re nowhere close to that.</p>
+<p>People deteriorate physically and mentally over time</p>
+<p>and that is a very sad phenomenon.</p>
+<p>So I think a wonderful aspiration would be</p>
+<p>if we could all live to the biblical 120 maybe</p>
+<p>in perfect health.</p>
+<p>In high quality of life.</p>
+<p>High quality of life.</p>
+<p>I think that would be an amazing goal</p>
+<p>for us to achieve as a society</p>
+<p>now is the right age 120 or 100 or 150.</p>
+<p>I think that&rsquo;s up for debate</p>
+<p>but I think an increased health span</p>
+<p>is a really worthy goal.</p>
+<p>And anyway, in a grand time of the age of the universe,</p>
+<p>it&rsquo;s all pretty short.</p>
+<p>So from the perspective,</p>
+<p>you&rsquo;ve done obviously a lot of incredible work</p>
+<p>in machine learning.</p>
+<p>So what role do you think data and machine learning</p>
+<p>play in this goal of trying to understand diseases</p>
+<p>and trying to eradicate diseases?</p>
+<p>Up until now, I don&rsquo;t think it&rsquo;s played</p>
+<p>very much of a significant role</p>
+<p>because largely the data sets that one really needed</p>
+<p>to enable a powerful machine learning methods,</p>
+<p>those data sets haven&rsquo;t really existed.</p>
+<p>There&rsquo;s been dribs and drabs</p>
+<p>and some interesting machine learning</p>
+<p>that has been applied, I would say machine learning</p>
+<p>slash data science,</p>
+<p>but the last few years are starting to change that.</p>
+<p>So we now see an increase in some large data sets</p>
+<p>but equally importantly, an increase in technologies</p>
+<p>that are able to produce data at scale.</p>
+<p>It&rsquo;s not typically the case that people have deliberately</p>
+<p>proactively used those tools</p>
+<p>for the purpose of generating data for machine learning.</p>
+<p>They, to the extent that those techniques</p>
+<p>have been used for data production,</p>
+<p>they&rsquo;ve been used for data production</p>
+<p>to drive scientific discovery</p>
+<p>and the machine learning came as a sort of byproduct</p>
+<p>second stage of, oh, you know, now we have a data set,</p>
+<p>let&rsquo;s do machine learning on that</p>
+<p>rather than a more simplistic data analysis method.</p>
+<p>But what we are doing in Citro</p>
+<p>is actually flipping that around and saying,</p>
+<p>here&rsquo;s this incredible repertoire of methods</p>
+<p>that bioengineers, cell biologists have come up with,</p>
+<p>let&rsquo;s see if we can put them together in brand new ways</p>
+<p>with the goal of creating data sets</p>
+<p>that machine learning can really be applied on productively</p>
+<p>to create powerful predictive models</p>
+<p>that can help us address fundamental problems</p>
+<p>in human health.</p>
+<p>So really focus to get, make data the primary focus</p>
+<p>and the primary goal and find,</p>
+<p>use the mechanisms of biology and chemistry</p>
+<p>to create the kinds of data set</p>
+<p>that could allow machine learning to benefit the most.</p>
+<p>I wouldn&rsquo;t put it in those terms</p>
+<p>because that says that data is the end goal.</p>
+<p>Data is the means.</p>
+<p>So for us, the end goal is helping address challenges</p>
+<p>in human health and the method that we&rsquo;ve elected to do that</p>
+<p>is to apply machine learning to build predictive models</p>
+<p>and machine learning, in my opinion,</p>
+<p>can only be really successfully applied</p>
+<p>especially the more powerful models</p>
+<p>if you give it data that is of sufficient scale</p>
+<p>and sufficient quality.</p>
+<p>So how do you create those data sets</p>
+<p>so as to drive the ability to generate predictive models</p>
+<p>which subsequently help improve human health?</p>
+<p>So before we dive into the details of that,</p>
+<p>let me take a step back and ask when and where</p>
+<p>was your interest in human health born?</p>
+<p>Are there moments, events, perhaps if I may ask,</p>
+<p>tragedies in your own life that catalyzes passion</p>
+<p>or was it the broader desire to help humankind?</p>
+<p>So I would say it&rsquo;s a bit of both.</p>
+<p>So on, I mean, my interest in human health</p>
+<p>actually dates back to the early 2000s</p>
+<p>when a lot of my peers in machine learning</p>
+<p>and I were using data sets</p>
+<p>that frankly were not very inspiring.</p>
+<p>Some of us old timers still remember</p>
+<p>the quote unquote 20 news groups data set</p>
+<p>where this was literally a bunch of texts</p>
+<p>from 20 news groups,</p>
+<p>a concept that doesn&rsquo;t really even exist anymore.</p>
+<p>And the question was, can you classify</p>
+<p>which news group a particular bag of words came from?</p>
+<p>And it wasn&rsquo;t very interesting.</p>
+<p>The data sets at the time on the biology side</p>
+<p>were much more interesting,</p>
+<p>both from a technical and also from</p>
+<p>an aspirational perspective.</p>
+<p>They were still pretty small,</p>
+<p>but they were better than 20 news groups.</p>
+<p>And so I started out, I think just by wanting</p>
+<p>to do something that was more, I don&rsquo;t know,</p>
+<p>societally useful and technically interesting.</p>
+<p>And then over time became more and more interested</p>
+<p>in the biology and the human health aspects for themselves</p>
+<p>and began to work even sometimes on papers</p>
+<p>that were just in biology</p>
+<p>without having a significant machine learning component.</p>
+<p>I think my interest in drug discovery</p>
+<p>is partly due to an incident I had with</p>
+<p>when my father sadly passed away about 12 years ago.</p>
+<p>He had an autoimmune disease that settled in his lungs</p>
+<p>and the doctors basically said,</p>
+<p>well, there&rsquo;s only one thing that we could do,</p>
+<p>which is give him prednisone.</p>
+<p>At some point, I remember a doctor even came and said,</p>
+<p>hey, let&rsquo;s do a lung biopsy to figure out</p>
+<p>which autoimmune disease he has.</p>
+<p>And I said, would that be helpful?</p>
+<p>Would that change treatment?</p>
+<p>He said, no, there&rsquo;s only prednisone.</p>
+<p>That&rsquo;s the only thing we can give him.</p>
+<p>And I had friends who were rheumatologists who said</p>
+<p>the FDA would never approve prednisone today</p>
+<p>because the ratio of side effects to benefit</p>
+<p>is probably not large enough.</p>
+<p>Today, we&rsquo;re in a state where there&rsquo;s probably four or five,</p>
+<p>maybe even more, well, it depends for which autoimmune disease,</p>
+<p>but there are multiple drugs that can help people</p>
+<p>with autoimmune disease,</p>
+<p>many of which didn&rsquo;t exist 12 years ago.</p>
+<p>And I think we&rsquo;re at a golden time in some ways</p>
+<p>in drug discovery where there&rsquo;s the ability to create drugs</p>
+<p>that are much more safe and much more effective</p>
+<p>than we&rsquo;ve ever been able to before.</p>
+<p>And what&rsquo;s lacking is enough understanding</p>
+<p>of biology and mechanism to know where to aim that engine.</p>
+<p>And I think that&rsquo;s where machine learning can help.</p>
+<p>So in 2018, you started and now lead a company in Citro,</p>
+<p>which is, like you mentioned,</p>
+<p>perhaps the focus is drug discovery</p>
+<p>and the utilization of machine learning for drug discovery.</p>
+<p>So you mentioned that, quote,</p>
+<p>we&rsquo;re really interested in creating</p>
+<p>what you might call a disease in a dish model,</p>
+<p>disease in a dish models,</p>
+<p>places where diseases are complex,</p>
+<p>where we really haven&rsquo;t had a good model system,</p>
+<p>where typical animal models that have been used for years,</p>
+<p>including testing on mice, just aren&rsquo;t very effective.</p>
+<p>So can you try to describe what is an animal model</p>
+<p>and what is a disease in a dish model?</p>
+<p>Sure.</p>
+<p>So an animal model for disease</p>
+<p>is where you create effectively,</p>
+<p>it&rsquo;s what it sounds like.</p>
+<p>It&rsquo;s oftentimes a mouse where we have introduced</p>
+<p>some external perturbation that creates the disease</p>
+<p>and then we cure that disease.</p>
+<p>And the hope is that by doing that,</p>
+<p>we will cure a similar disease in the human.</p>
+<p>The problem is that oftentimes</p>
+<p>the way in which we generate the disease in the animal</p>
+<p>has nothing to do with how that disease</p>
+<p>actually comes about in a human.</p>
+<p>It&rsquo;s what you might think of as a copy of the phenotype,</p>
+<p>a copy of the clinical outcome,</p>
+<p>but the mechanisms are quite different.</p>
+<p>And so curing the disease in the animal,</p>
+<p>which in most cases doesn&rsquo;t happen naturally,</p>
+<p>mice don&rsquo;t get Alzheimer&rsquo;s, they don&rsquo;t get diabetes,</p>
+<p>they don&rsquo;t get atherosclerosis,</p>
+<p>they don&rsquo;t get autism or schizophrenia.</p>
+<p>Those cures don&rsquo;t translate over</p>
+<p>to what happens in the human.</p>
+<p>And that&rsquo;s where most drugs fails</p>
+<p>just because the findings that we had in the mouse</p>
+<p>don&rsquo;t translate to a human.</p>
+<p>The disease in the dish models is a fairly new approach.</p>
+<p>It&rsquo;s been enabled by technologies</p>
+<p>that have not existed for more than five to 10 years.</p>
+<p>So for instance, the ability for us to take a cell</p>
+<p>from any one of us, you or me,</p>
+<p>revert that say skin cell to what&rsquo;s called stem cell status,</p>
+<p>which is what&rsquo;s called the pluripotent cell</p>
+<p>that can then be differentiated</p>
+<p>into different types of cells.</p>
+<p>So from that pluripotent cell,</p>
+<p>one can create a Lex neuron or a Lex cardiomyocyte</p>
+<p>or a Lex hepatocyte that has your genetics,</p>
+<p>but that right cell type.</p>
+<p>And so if there&rsquo;s a genetic burden of disease</p>
+<p>that would manifest in that particular cell type,</p>
+<p>you might be able to see it by looking at those cells</p>
+<p>and saying, oh, that&rsquo;s what potentially sick cells</p>
+<p>look like versus healthy cells</p>
+<p>and then explore what kind of interventions</p>
+<p>might revert the unhealthy looking cell to a healthy cell.</p>
+<p>Now, of course, curing cells is not the same</p>
+<p>as curing people.</p>
+<p>And so there&rsquo;s still potentially a translatability gap,</p>
+<p>but at least for diseases that are driven,</p>
+<p>say by human genetics and where the human genetics</p>
+<p>is what drives the cellular phenotype,</p>
+<p>there is some reason to hope that if we revert those cells</p>
+<p>in which the disease begins</p>
+<p>and where the disease is driven by genetics</p>
+<p>and we can revert that cell back to a healthy state,</p>
+<p>maybe that will help also revert</p>
+<p>the more global clinical phenotype.</p>
+<p>So that&rsquo;s really what we&rsquo;re hoping to do.</p>
+<p>That step, that backward step, I was reading about it,</p>
+<p>the Yamanaka factor.</p>
+<p>Yes.</p>
+<p>So it&rsquo;s like that reverse step back to stem cells.</p>
+<p>Yes.</p>
+<p>Seems like magic.</p>
+<p>It is.</p>
+<p>Honestly, before that happened,</p>
+<p>I think very few people would have predicted</p>
+<p>that to be possible.</p>
+<p>It&rsquo;s amazing.</p>
+<p>Can you maybe elaborate, is it actually possible?</p>
+<p>Like where, like how stable?</p>
+<p>So this result was maybe like,</p>
+<p>I don&rsquo;t know how many years ago,</p>
+<p>maybe 10 years ago was first demonstrated,</p>
+<p>something like that.</p>
+<p>Is this, how hard is this?</p>
+<p>Like how noisy is this backward step?</p>
+<p>It seems quite incredible and cool.</p>
+<p>It is, it is incredible and cool.</p>
+<p>It was much more, I think finicky and bespoke</p>
+<p>at the early stages when the discovery was first made.</p>
+<p>But at this point, it&rsquo;s become almost industrialized.</p>
+<p>There are what&rsquo;s called contract research organizations,</p>
+<p>vendors that will take a sample from a human</p>
+<p>and revert it back to stem cell status.</p>
+<p>And it works a very good fraction of the time.</p>
+<p>Now there are people who will ask,</p>
+<p>I think good questions.</p>
+<p>Is this really truly a stem cell or does it remember</p>
+<p>certain aspects of what,</p>
+<p>of changes that were made in the human beyond the genetics?</p>
+<p>It&rsquo;s passed as a skin cell, yeah.</p>
+<p>It&rsquo;s passed as a skin cell or it&rsquo;s passed</p>
+<p>in terms of exposures to different environmental factors</p>
+<p>and so on.</p>
+<p>So I think the consensus right now</p>
+<p>is that these are not always perfect</p>
+<p>and there is little bits and pieces of memory sometimes,</p>
+<p>but by and large, these are actually pretty good.</p>
+<p>So one of the key things,</p>
+<p>well, maybe you can correct me,</p>
+<p>but one of the useful things for machine learning</p>
+<p>is size, scale of data.</p>
+<p>How easy it is to do these kinds of reversals to stem cells</p>
+<p>and then disease in a dish models at scale.</p>
+<p>Is that a huge challenge or not?</p>
+<p>So the reversal is not as of this point</p>
+<p>something that can be done at the scale</p>
+<p>of tens of thousands or hundreds of thousands.</p>
+<p>I think total number of stem cells or IPS cells</p>
+<p>that are what&rsquo;s called induced pluripotent stem cells</p>
+<p>in the world I think is somewhere between five and 10,000</p>
+<p>last I looked.</p>
+<p>Now again, that might not count things that exist</p>
+<p>in this or that academic center</p>
+<p>and they may add up to a bit more,</p>
+<p>but that&rsquo;s about the range.</p>
+<p>So it&rsquo;s not something that you could at this point</p>
+<p>generate IPS cells from a million people,</p>
+<p>but maybe you don&rsquo;t need to</p>
+<p>because maybe that background is enough</p>
+<p>because it can also be now perturbed in different ways.</p>
+<p>And some people have done really interesting experiments</p>
+<p>in for instance, taking cells from a healthy human</p>
+<p>and then introducing a mutation into it</p>
+<p>using one of the other miracle technologies</p>
+<p>that&rsquo;s emerged in the last decade</p>
+<p>which is CRISPR gene editing</p>
+<p>and introduced a mutation that is known to be pathogenic.</p>
+<p>And so you can now look at the healthy cells</p>
+<p>and the unhealthy cells, the one with the mutation</p>
+<p>and do a one on one comparison</p>
+<p>where everything else is held constant.</p>
+<p>And so you could really start to understand specifically</p>
+<p>what the mutation does at the cellular level.</p>
+<p>So the IPS cells are a great starting point</p>
+<p>and obviously more diversity is better</p>
+<p>because you also wanna capture ethnic background</p>
+<p>and how that affects things,</p>
+<p>but maybe you don&rsquo;t need one from every single patient</p>
+<p>with every single type of disease</p>
+<p>because we have other tools at our disposal.</p>
+<p>Well, how much difference is there between people</p>
+<p>I mentioned ethnic background in terms of IPS cells?</p>
+<p>So we&rsquo;re all like, it seems like these magical cells</p>
+<p>that can do to create anything</p>
+<p>between different populations, different people.</p>
+<p>Is there a lot of variability between cell cells?</p>
+<p>Well, first of all, there&rsquo;s the variability,</p>
+<p>that&rsquo;s driven simply by the fact</p>
+<p>that genetically we&rsquo;re different.</p>
+<p>So a stem cell that&rsquo;s derived from my genotype</p>
+<p>is gonna be different from a stem cell</p>
+<p>that&rsquo;s derived from your genotype.</p>
+<p>There&rsquo;s also some differences that have more to do with</p>
+<p>for whatever reason, some people&rsquo;s stem cells</p>
+<p>differentiate better than other people&rsquo;s stem cells.</p>
+<p>We don&rsquo;t entirely understand why.</p>
+<p>So there&rsquo;s certainly some differences there as well,</p>
+<p>but the fundamental difference</p>
+<p>and the one that we really care about and is a positive</p>
+<p>is that the fact that the genetics are different</p>
+<p>and therefore recapitulate my disease burden</p>
+<p>versus your disease burden.</p>
+<p>What&rsquo;s a disease burden?</p>
+<p>Well, a disease burden is just if you think,</p>
+<p>I mean, it&rsquo;s not a well defined mathematical term,</p>
+<p>although there are mathematical formulations of it.</p>
+<p>If you think about the fact that some of us are more likely</p>
+<p>to get a certain disease than others</p>
+<p>because we have more variations in our genome</p>
+<p>that are causative of the disease,</p>
+<p>maybe fewer that are protective of the disease.</p>
+<p>People have quantified that</p>
+<p>using what are called polygenic risk scores,</p>
+<p>which look at all of the variations</p>
+<p>in an individual person&rsquo;s genome</p>
+<p>and add them all up in terms of how much risk they confer</p>
+<p>for a particular disease.</p>
+<p>And then they&rsquo;ve put people on a spectrum</p>
+<p>of their disease risk.</p>
+<p>And for certain diseases where we&rsquo;ve been sufficiently</p>
+<p>powered to really understand the connection</p>
+<p>between the many, many small variations</p>
+<p>that give rise to an increased disease risk,</p>
+<p>there&rsquo;s some pretty significant differences</p>
+<p>in terms of the risk between the people,</p>
+<p>say at the highest decile of this polygenic risk score</p>
+<p>and the people at the lowest decile.</p>
+<p>Sometimes those differences are factor of 10 or 12 higher.</p>
+<p>So there&rsquo;s definitely a lot that our genetics</p>
+<p>contributes to disease risk, even if it&rsquo;s not</p>
+<p>by any stretch the full explanation.</p>
+<p>And from a machine learning perspective,</p>
+<p>there&rsquo;s signal there.</p>
+<p>There is definitely signal in the genetics</p>
+<p>and there&rsquo;s even more signal, we believe,</p>
+<p>in looking at the cells that are derived</p>
+<p>from those different genetics because in principle,</p>
+<p>you could say all the signal is there at the genetics level.</p>
+<p>So we don&rsquo;t need to look at the cells,</p>
+<p>but our understanding of the biology is so limited at this</p>
+<p>point than seeing what actually happens at the cellular</p>
+<p>level is a heck of a lot closer to the human clinical outcome</p>
+<p>than looking at the genetics directly.</p>
+<p>And so we can learn a lot more from it</p>
+<p>than we could by looking at genetics alone.</p>
+<p>So just to get a sense, I don&rsquo;t know if it&rsquo;s easy to do,</p>
+<p>but what kind of data is useful</p>
+<p>in this disease in a dish model?</p>
+<p>Like what&rsquo;s the source of raw data information?</p>
+<p>And also from my outsider&rsquo;s perspective,</p>
+<p>so biology and cells are squishy things.</p>
+<p>And then how do you connect the computer to that?</p>
+<p>Which sensory mechanisms, I guess.</p>
+<p>So that&rsquo;s another one of those revolutions</p>
+<p>that have happened in the last 10 years</p>
+<p>in that our ability to measure cells very quantitatively</p>
+<p>has also dramatically increased.</p>
+<p>So back when I started doing biology in the late 90s,</p>
+<p>early 2000s, that was the initial era</p>
+<p>where we started to measure biology</p>
+<p>in really quantitative ways using things like microarrays,</p>
+<p>where you would measure in a single experiment</p>
+<p>the activity level, what&rsquo;s called expression level</p>
+<p>of every gene in the genome in that sample.</p>
+<p>And that ability is what actually allowed us</p>
+<p>to even understand that there are molecular subtypes</p>
+<p>of diseases like cancer, where up until that point,</p>
+<p>it&rsquo;s like, oh, you have breast cancer.</p>
+<p>But then when we looked at the molecular data,</p>
+<p>it was clear that there&rsquo;s different subtypes</p>
+<p>of breast cancer that at the level of gene activity</p>
+<p>look completely different to each other.</p>
+<p>So that was the beginning of this process.</p>
+<p>Now we have the ability to measure individual cells</p>
+<p>in terms of their gene activity</p>
+<p>using what&rsquo;s called single cell RNA sequencing,</p>
+<p>which basically sequences the RNA,</p>
+<p>which is that activity level of different genes</p>
+<p>for every gene in the genome.</p>
+<p>And you could do that at single cell level.</p>
+<p>So that&rsquo;s an incredibly powerful way of measuring cells.</p>
+<p>I mean, you literally count the number of transcripts.</p>
+<p>So it really turns that squishy thing</p>
+<p>into something that&rsquo;s digital.</p>
+<p>Another tremendous data source that&rsquo;s emerged</p>
+<p>in the last few years is microscopy</p>
+<p>and specifically even super resolution microscopy,</p>
+<p>where you could use digital reconstruction</p>
+<p>to look at subcellular structures,</p>
+<p>sometimes even things that are below</p>
+<p>the diffraction limit of light</p>
+<p>by doing a sophisticated reconstruction.</p>
+<p>And again, that gives you a tremendous amount of information</p>
+<p>at the subcellular level.</p>
+<p>There&rsquo;s now more and more ways that amazing scientists</p>
+<p>out there are developing for getting new types</p>
+<p>of information from even single cells.</p>
+<p>And so that is a way of turning those squishy things</p>
+<p>into digital data.</p>
+<p>Into beautiful data sets.</p>
+<p>But so that data set then with machine learning tools</p>
+<p>allows you to maybe understand the developmental,</p>
+<p>like the mechanism of a particular disease.</p>
+<p>And if it&rsquo;s possible to sort of at a high level describe,</p>
+<p>how does that help lead to a drug discovery</p>
+<p>that can help prevent, reverse that mechanism?</p>
+<p>So I think there&rsquo;s different ways in which this data</p>
+<p>could potentially be used.</p>
+<p>Some people use it for scientific discovery</p>
+<p>and say, oh, look, we see this phenotype</p>
+<p>at the cellular level.</p>
+<p>So let&rsquo;s try and work our way backwards</p>
+<p>and think which genes might be involved in pathways</p>
+<p>that give rise to that.</p>
+<p>So that&rsquo;s a very sort of analytical method</p>
+<p>to sort of work our way backwards</p>
+<p>using our understanding of known biology.</p>
+<p>Some people use it in a somewhat more,</p>
+<p>sort of forward, if that was a backward,</p>
+<p>this would be forward, which is to say,</p>
+<p>okay, if I can perturb this gene,</p>
+<p>does it show a phenotype that is similar</p>
+<p>to what I see in disease patients?</p>
+<p>And so maybe that gene is actually causal of the disease.</p>
+<p>So that&rsquo;s a different way.</p>
+<p>And then there&rsquo;s what we do,</p>
+<p>which is basically to take that very large collection</p>
+<p>of data and use machine learning to uncover the patterns</p>
+<p>that emerge from it.</p>
+<p>So for instance, what are those subtypes</p>
+<p>that might be similar at the human clinical outcome,</p>
+<p>but quite distinct when you look at the molecular data?</p>
+<p>And then if we can identify such a subtype,</p>
+<p>are there interventions that if I apply it</p>
+<p>to cells that come from this subtype of the disease</p>
+<p>and you apply that intervention,</p>
+<p>it could be a drug or it could be a CRISPR gene intervention,</p>
+<p>does it revert the disease state</p>
+<p>to something that looks more like normal,</p>
+<p>happy, healthy cells?</p>
+<p>And so hopefully if you see that,</p>
+<p>that gives you a certain hope</p>
+<p>that that intervention will also have</p>
+<p>a meaningful clinical benefit to people.</p>
+<p>And there&rsquo;s obviously a bunch of things</p>
+<p>that you would wanna do after that to validate that,</p>
+<p>but it&rsquo;s a very different and much less hypothesis driven way</p>
+<p>of uncovering new potential interventions</p>
+<p>and might give rise to things that are not the same things</p>
+<p>that everyone else is already looking at.</p>
+<p>That&rsquo;s, I don&rsquo;t know, I&rsquo;m just like to psychoanalyze</p>
+<p>my own feeling about our discussion currently.</p>
+<p>It&rsquo;s so exciting to talk about sort of a machine,</p>
+<p>fundamentally, well, something that&rsquo;s been turned</p>
+<p>into a machine learning problem</p>
+<p>and that says can have so much real world impact.</p>
+<p>That&rsquo;s how I feel too.</p>
+<p>That&rsquo;s kind of exciting because I&rsquo;m so,</p>
+<p>most of my day is spent with data sets</p>
+<p>that I guess closer to the news groups.</p>
+<p>So this is a kind of, it just feels good to talk about.</p>
+<p>In fact, I almost don&rsquo;t wanna talk about machine learning.</p>
+<p>I wanna talk about the fundamentals of the data set,</p>
+<p>which is an exciting place to be.</p>
+<p>I agree with you.</p>
+<p>It&rsquo;s what gets me up in the morning.</p>
+<p>It&rsquo;s also what attracts a lot of the people</p>
+<p>who work at InCetro to InCetro</p>
+<p>because I think all of the,</p>
+<p>certainly all of our machine learning people</p>
+<p>are outstanding and could go get a job selling ads online</p>
+<p>or doing eCommerce or even self driving cars.</p>
+<p>But I think they would want, they come to us</p>
+<p>because they want to work on something</p>
+<p>that has more of an aspirational nature</p>
+<p>and can really benefit humanity.</p>
+<p>What, with these approaches, what do you hope,</p>
+<p>what kind of diseases can be helped?</p>
+<p>We mentioned Alzheimer&rsquo;s, schizophrenia, type 2 diabetes.</p>
+<p>Can you just describe the various kinds of diseases</p>
+<p>that this approach can help?</p>
+<p>Well, we don&rsquo;t know.</p>
+<p>And I try and be very cautious about making promises</p>
+<p>about some things that, oh, we will cure X.</p>
+<p>People make that promise.</p>
+<p>And I think it&rsquo;s, I tried to first deliver and then promise</p>
+<p>as opposed to the other way around.</p>
+<p>There are characteristics of a disease</p>
+<p>that make it more likely that this type of approach</p>
+<p>can potentially be helpful.</p>
+<p>So for instance, diseases that have</p>
+<p>a very strong genetic basis are ones</p>
+<p>that are more likely to manifest</p>
+<p>in a stem cell derived model.</p>
+<p>We would want the cellular models</p>
+<p>to be relatively reproducible and robust</p>
+<p>so that you could actually get enough of those cells</p>
+<p>and in a way that isn&rsquo;t very highly variable and noisy.</p>
+<p>You would want the disease to be relatively contained</p>
+<p>in one or a small number of cell types</p>
+<p>that you could actually create in an in vitro,</p>
+<p>in a dish setting.</p>
+<p>Whereas if it&rsquo;s something that&rsquo;s really broad and systemic</p>
+<p>and involves multiple cells</p>
+<p>that are in very distal parts of your body,</p>
+<p>putting that all in the dish is really challenging.</p>
+<p>So we want to focus on the ones</p>
+<p>that are most likely to be successful today</p>
+<p>with the hope, I think, that really smart bioengineers</p>
+<p>out there are developing better and better systems</p>
+<p>all the time so that diseases that might not be tractable</p>
+<p>today might be tractable in three years.</p>
+<p>So for instance, five years ago,</p>
+<p>these stem cell derived models didn&rsquo;t really exist.</p>
+<p>People were doing most of the work in cancer cells</p>
+<p>and cancer cells are very, very poor models</p>
+<p>of most human biology because they&rsquo;re,</p>
+<p>A, they were cancer to begin with</p>
+<p>and B, as you passage them and they proliferate in a dish,</p>
+<p>they become, because of the genomic instability,</p>
+<p>even less similar to human biology.</p>
+<p>Now we have these stem cell derived models.</p>
+<p>We have the capability to reasonably robustly,</p>
+<p>not quite at the right scale yet, but close,</p>
+<p>to derive what&rsquo;s called organoids,</p>
+<p>which are these teeny little sort of multicellular organ,</p>
+<p>sort of models of an organ system.</p>
+<p>So there&rsquo;s cerebral organoids and liver organoids</p>
+<p>and kidney organoids and.</p>
+<p>Yeah, brain organoids.</p>
+<p>That&rsquo;s organoids.</p>
+<p>It&rsquo;s possibly the coolest thing I&rsquo;ve ever seen.</p>
+<p>Is that not like the coolest thing?</p>
+<p>Yeah.</p>
+<p>And then I think on the horizon,</p>
+<p>we&rsquo;re starting to see things like connecting</p>
+<p>these organoids to each other</p>
+<p>so that you could actually start,</p>
+<p>and there&rsquo;s some really cool papers that start to do that</p>
+<p>where you can actually start to say,</p>
+<p>okay, can we do multi organ system stuff?</p>
+<p>There&rsquo;s many challenges to that.</p>
+<p>It&rsquo;s not easy by any stretch, but it might,</p>
+<p>I&rsquo;m sure people will figure it out.</p>
+<p>And in three years or five years,</p>
+<p>there will be disease models that we could make</p>
+<p>for things that we can&rsquo;t make today.</p>
+<p>Yeah, and this conversation would seem almost outdated</p>
+<p>with the kind of scale that could be achieved</p>
+<p>in like three years.</p>
+<p>I hope so.</p>
+<p>That&rsquo;s the hope.</p>
+<p>That would be so cool.</p>
+<p>So you&rsquo;ve cofounded Coursera with Andrew Ng</p>
+<p>and were part of the whole MOOC revolution.</p>
+<p>So to jump topics a little bit,</p>
+<p>can you maybe tell the origin story of the history,</p>
+<p>the origin story of MOOCs, of Coursera,</p>
+<p>and in general, your teaching to huge audiences</p>
+<p>on a very sort of impactful topic of AI in general?</p>
+<p>So I think the origin story of MOOCs</p>
+<p>emanates from a number of efforts</p>
+<p>that occurred at Stanford University</p>
+<p>around the late 2000s</p>
+<p>where different individuals within Stanford,</p>
+<p>myself included, were getting really excited</p>
+<p>about the opportunities of using online technologies</p>
+<p>as a way of achieving both improved quality of teaching</p>
+<p>and also improved scale.</p>
+<p>And so Andrew, for instance,</p>
+<p>led the Stanford Engineering Everywhere,</p>
+<p>which was sort of an attempt to take 10 Stanford courses</p>
+<p>and put them online just as video lectures.</p>
+<p>I led an effort within Stanford to take some of the courses</p>
+<p>and really create a very different teaching model</p>
+<p>that broke those up into smaller units</p>
+<p>and had some of those embedded interactions and so on,</p>
+<p>which got a lot of support from university leaders</p>
+<p>because they felt like it was potentially a way</p>
+<p>of improving the quality of instruction at Stanford</p>
+<p>by moving to what&rsquo;s now called the flipped classroom model.</p>
+<p>And so those efforts eventually sort of started</p>
+<p>to interplay with each other</p>
+<p>and created a tremendous sense of excitement and energy</p>
+<p>within the Stanford community</p>
+<p>about the potential of online teaching</p>
+<p>and led in the fall of 2011</p>
+<p>to the launch of the first Stanford MOOCs.</p>
+<p>By the way, MOOCs, it&rsquo;s probably impossible</p>
+<p>that people don&rsquo;t know, but it&rsquo;s, I guess, massive.</p>
+<p>Open online courses. Open online courses.</p>
+<p>We did not come up with the acronym.</p>
+<p>I&rsquo;m not particularly fond of the acronym,</p>
+<p>but it is what it is. It is what it is.</p>
+<p>Big bang is not a great term for the start of the universe,</p>
+<p>but it is what it is. Probably so.</p>
+<p>So anyway, so those courses launched in the fall of 2011,</p>
+<p>and there were, within a matter of weeks,</p>
+<p>with no real publicity campaign, just a New York Times article</p>
+<p>that went viral, about 100,000 students or more</p>
+<p>in each of those courses.</p>
+<p>And I remember this conversation that Andrew and I had.</p>
+<p>We were just like, wow, there&rsquo;s this real need here.</p>
+<p>And I think we both felt like, sure,</p>
+<p>we were accomplished academics and we could go back</p>
+<p>and go back to our labs, write more papers.</p>
+<p>But if we did that, then this wouldn&rsquo;t happen.</p>
+<p>And it seemed too important not to happen.</p>
+<p>And so we spent a fair bit of time debating,</p>
+<p>do we wanna do this as a Stanford effort,</p>
+<p>kind of building on what we&rsquo;d started?</p>
+<p>Do we wanna do this as a for profit company?</p>
+<p>Do we wanna do this as a nonprofit?</p>
+<p>And we decided ultimately to do it as we did with Coursera.</p>
+<p>And so, you know, we started really operating</p>
+<p>as a company at the beginning of 2012.</p>
+<p>And the rest is history.</p>
+<p>But how did you, was that really surprising to you?</p>
+<p>How did you at that time and at this time</p>
+<p>make sense of this need for sort of global education</p>
+<p>you mentioned that you felt that, wow,</p>
+<p>the popularity indicates that there&rsquo;s a hunger</p>
+<p>for sort of globalization of learning.</p>
+<p>I think there is a hunger for learning that,</p>
+<p>you know, globalization is part of it,</p>
+<p>but I think it&rsquo;s just a hunger for learning.</p>
+<p>The world has changed in the last 50 years.</p>
+<p>It used to be that you finished college, you got a job,</p>
+<p>by and large, the skills that you learned in college</p>
+<p>were pretty much what got you through</p>
+<p>the rest of your job history.</p>
+<p>And yeah, you learn some stuff,</p>
+<p>but it wasn&rsquo;t a dramatic change.</p>
+<p>Today, we&rsquo;re in a world where the skills that you need</p>
+<p>for a lot of jobs, they didn&rsquo;t even exist</p>
+<p>when you went to college.</p>
+<p>And the jobs, and many of the jobs that existed</p>
+<p>when you went to college don&rsquo;t even exist today or are dying.</p>
+<p>So part of that is due to AI, but not only.</p>
+<p>And we need to find a way of keeping people,</p>
+<p>giving people access to the skills that they need today.</p>
+<p>And I think that&rsquo;s really what&rsquo;s driving</p>
+<p>a lot of this hunger.</p>
+<p>So I think if we even take a step back,</p>
+<p>for you, all of this started in trying to think</p>
+<p>of new ways to teach or to,</p>
+<p>new ways to sort of organize the material</p>
+<p>and present the material in a way</p>
+<p>that would help the education process, the pedagogy, yeah.</p>
+<p>So what have you learned about effective education</p>
+<p>from this process of playing,</p>
+<p>of experimenting with different ideas?</p>
+<p>So we learned a number of things.</p>
+<p>Some of which I think could translate back</p>
+<p>and have translated back effectively</p>
+<p>to how people teach on campus.</p>
+<p>And some of which I think are more specific</p>
+<p>to people who learn online,</p>
+<p>more sort of people who learn as part of their daily life.</p>
+<p>So we learned, for instance, very quickly</p>
+<p>that short is better.</p>
+<p>So people who are especially in the workforce</p>
+<p>can&rsquo;t do a 15 week semester long course.</p>
+<p>They just can&rsquo;t fit that into their lives.</p>
+<p>Sure, can you describe the shortness of what?</p>
+<p>The entirety, so every aspect,</p>
+<p>so the little lecture, the lecture&rsquo;s short,</p>
+<p>the course is short.</p>
+<p>Both.</p>
+<p>We started out, the first online education efforts</p>
+<p>were actually MIT&rsquo;s OpenCourseWare initiatives.</p>
+<p>And that was recording of classroom lectures and,</p>
+<p>Hour and a half or something like that, yeah.</p>
+<p>And that didn&rsquo;t really work very well.</p>
+<p>I mean, some people benefit.</p>
+<p>I mean, of course they did,</p>
+<p>but it&rsquo;s not really a very palatable experience</p>
+<p>for someone who has a job and three kids</p>
+<p>and they need to run errands and such.</p>
+<p>They can&rsquo;t fit 15 weeks into their life</p>
+<p>and the hour and a half is really hard.</p>
+<p>So we learned very quickly.</p>
+<p>I mean, we started out with short video modules</p>
+<p>and over time we made them shorter</p>
+<p>because we realized that 15 minutes was still too long.</p>
+<p>If you wanna fit in when you&rsquo;re waiting in line</p>
+<p>for your kid&rsquo;s doctor&rsquo;s appointment,</p>
+<p>it&rsquo;s better if it&rsquo;s five to seven.</p>
+<p>We learned that 15 week courses don&rsquo;t work</p>
+<p>and you really wanna break this up into shorter units</p>
+<p>so that there is a natural completion point,</p>
+<p>gives people a sense of they&rsquo;re really close</p>
+<p>to finishing something meaningful.</p>
+<p>They can always come back and take part two and part three.</p>
+<p>We also learned that compressing the content works</p>
+<p>really well because if some people that pace works well</p>
+<p>and for others, they can always rewind and watch again.</p>
+<p>And so people have the ability</p>
+<p>to then learn at their own pace.</p>
+<p>And so that flexibility, the brevity and the flexibility</p>
+<p>are both things that we found to be very important.</p>
+<p>We learned that engagement during the content is important</p>
+<p>and the quicker you give people feedback,</p>
+<p>the more likely they are to be engaged.</p>
+<p>Hence the introduction of these,</p>
+<p>which we actually was an intuition that I had going in</p>
+<p>and was then validated using data</p>
+<p>that introducing some of these sort of little micro quizzes</p>
+<p>into the lectures really helps.</p>
+<p>Self graded as automatically graded assessments</p>
+<p>really helped too because it gives people feedback.</p>
+<p>See, there you are.</p>
+<p>So all of these are valuable.</p>
+<p>And then we learned a bunch of other things too.</p>
+<p>We did some really interesting experiments, for instance,</p>
+<p>on gender bias and how having a female role model</p>
+<p>as an instructor can change the balance of men to women</p>
+<p>in terms of, especially in STEM courses.</p>
+<p>And you could do that online by doing AB testing</p>
+<p>in ways that would be really difficult to go on campus.</p>
+<p>Oh, that&rsquo;s exciting.</p>
+<p>But so the shortness, the compression,</p>
+<p>I mean, that&rsquo;s actually, so that probably is true</p>
+<p>for all good editing is always just compressing the content,</p>
+<p>making it shorter.</p>
+<p>So that puts a lot of burden on the creator of the,</p>
+<p>the instructor and the creator of the educational content.</p>
+<p>Probably most lectures at MIT or Stanford</p>
+<p>could be five times shorter</p>
+<p>if the preparation was put enough.</p>
+<p>So maybe people might disagree with that,</p>
+<p>but like the Christmas, the clarity that a lot of the,</p>
+<p>like Coursera delivers is, how much effort does that take?</p>
+<p>So first of all, let me say that it&rsquo;s not clear</p>
+<p>that that crispness would work as effectively</p>
+<p>in a face to face setting</p>
+<p>because people need time to absorb the material.</p>
+<p>And so you need to at least pause</p>
+<p>and give people a chance to reflect and maybe practice.</p>
+<p>And that&rsquo;s what MOOCs do is that they give you</p>
+<p>these chunks of content and then ask you</p>
+<p>to practice with it.</p>
+<p>And that&rsquo;s where I think some of the newer pedagogy</p>
+<p>that people are adopting in face to face teaching</p>
+<p>that have to do with interactive learning and such</p>
+<p>can be really helpful.</p>
+<p>But both those approaches,</p>
+<p>whether you&rsquo;re doing that type of methodology</p>
+<p>in online teaching or in that flipped classroom,</p>
+<p>interactive teaching.</p>
+<p>What&rsquo;s that, sorry to pause, what&rsquo;s flipped classroom?</p>
+<p>Flipped classroom is a way in which online content</p>
+<p>is used to supplement face to face teaching</p>
+<p>where people watch the videos perhaps</p>
+<p>and do some of the exercises before coming to class.</p>
+<p>And then when they come to class,</p>
+<p>it&rsquo;s actually to do much deeper problem solving</p>
+<p>oftentimes in a group.</p>
+<p>But any one of those different pedagogies</p>
+<p>that are beyond just standing there and droning on</p>
+<p>in front of the classroom for an hour and 15 minutes</p>
+<p>require a heck of a lot more preparation.</p>
+<p>And so it&rsquo;s one of the challenges I think that people have</p>
+<p>that we had when trying to convince instructors</p>
+<p>to teach on Coursera.</p>
+<p>And it&rsquo;s part of the challenges that pedagogy experts</p>
+<p>on campus have in trying to get faculty</p>
+<p>to teach differently is that it&rsquo;s actually harder</p>
+<p>to teach that way than it is to stand there and drone.</p>
+<p>Do you think MOOCs will replace in person education</p>
+<p>or become the majority of in person of education</p>
+<p>of the way people learn in the future?</p>
+<p>Again, the future could be very far away,</p>
+<p>but where&rsquo;s the trend going do you think?</p>
+<p>So I think it&rsquo;s a nuanced and complicated answer.</p>
+<p>I don&rsquo;t think MOOCs will replace face to face teaching.</p>
+<p>I think learning is in many cases a social experience.</p>
+<p>And even at Coursera, we had people who naturally formed</p>
+<p>study groups, even when they didn&rsquo;t have to,</p>
+<p>to just come and talk to each other.</p>
+<p>And we found that that actually benefited their learning</p>
+<p>in very important ways.</p>
+<p>So there was more success among learners</p>
+<p>who had those study groups than among ones who didn&rsquo;t.</p>
+<p>So I don&rsquo;t think it&rsquo;s just gonna,</p>
+<p>oh, we&rsquo;re all gonna just suddenly learn online</p>
+<p>with a computer and no one else in the same way</p>
+<p>that recorded music has not replaced live concerts.</p>
+<p>But I do think that especially when you are thinking</p>
+<p>about continuing education, the stuff that people get</p>
+<p>when they&rsquo;re traditional,</p>
+<p>whatever high school, college education is done,</p>
+<p>and they yet have to maintain their level of expertise</p>
+<p>and skills in a rapidly changing world,</p>
+<p>I think people will consume more and more educational content</p>
+<p>in this online format because going back to school</p>
+<p>for formal education is not an option for most people.</p>
+<p>Briefly, it might be a difficult question to ask,</p>
+<p>but there&rsquo;s a lot of people fascinated</p>
+<p>by artificial intelligence, by machine learning,</p>
+<p>by deep learning.</p>
+<p>Is there a recommendation for the next year</p>
+<p>or for a lifelong journey of somebody interested in this?</p>
+<p>How do they begin?</p>
+<p>How do they enter that learning journey?</p>
+<p>I think the important thing is first to just get started.</p>
+<p>And there&rsquo;s plenty of online content that one can get</p>
+<p>for both the core foundations of mathematics</p>
+<p>and statistics and programming.</p>
+<p>And then from there to machine learning,</p>
+<p>I would encourage people not to skip</p>
+<p>to quickly pass the foundations</p>
+<p>because I find that there&rsquo;s a lot of people</p>
+<p>who learn machine learning, whether it&rsquo;s online</p>
+<p>or on campus without getting those foundations.</p>
+<p>And they basically just turn the crank on existing models</p>
+<p>in ways that A, don&rsquo;t allow for a lot of innovation</p>
+<p>and an adjustment to the problem at hand,</p>
+<p>but also B, are sometimes just wrong</p>
+<p>and they don&rsquo;t even realize that their application is wrong</p>
+<p>because there&rsquo;s artifacts that they haven&rsquo;t fully understood.</p>
+<p>So I think the foundations,</p>
+<p>machine learning is an important step.</p>
+<p>And then actually start solving problems,</p>
+<p>try and find someone to solve them with</p>
+<p>because especially at the beginning,</p>
+<p>it&rsquo;s useful to have someone to bounce ideas off</p>
+<p>and fix mistakes that you make</p>
+<p>and you can fix mistakes that they make,</p>
+<p>but then just find practical problems,</p>
+<p>whether it&rsquo;s in your workplace or if you don&rsquo;t have that,</p>
+<p>Kaggle competitions or such are a really great place</p>
+<p>to find interesting problems and just practice.</p>
+<p>Practice.</p>
+<p>Perhaps a bit of a romanticized question,</p>
+<p>but what idea in deep learning do you find,</p>
+<p>have you found in your journey the most beautiful</p>
+<p>or surprising or interesting?</p>
+<p>Perhaps not just deep learning,</p>
+<p>but AI in general, statistics.</p>
+<p>I&rsquo;m gonna answer with two things.</p>
+<p>One would be the foundational concept of end to end training,</p>
+<p>which is that you start from the raw data</p>
+<p>and you train something that is not like a single piece,</p>
+<p>but rather towards the actual goal that you&rsquo;re looking to.</p>
+<p>From the raw data to the outcome,</p>
+<p>like no details in between.</p>
+<p>Well, not no details, but the fact that you,</p>
+<p>I mean, you could certainly introduce building blocks</p>
+<p>that were trained towards other tasks.</p>
+<p>I&rsquo;m actually coming to that in my second half of the answer,</p>
+<p>but it doesn&rsquo;t have to be like a single monolithic blob</p>
+<p>in the middle.</p>
+<p>Actually, I think that&rsquo;s not ideal,</p>
+<p>but rather the fact that at the end of the day,</p>
+<p>you can actually train something that goes all the way</p>
+<p>from the beginning to the end.</p>
+<p>And the other one that I find really compelling</p>
+<p>is the notion of learning a representation</p>
+<p>that in its turn, even if it was trained to another task,</p>
+<p>can potentially be used as a much more rapid starting point</p>
+<p>to solving a different task.</p>
+<p>And that&rsquo;s, I think, reminiscent</p>
+<p>of what makes people successful learners.</p>
+<p>It&rsquo;s something that is relatively new</p>
+<p>in the machine learning space.</p>
+<p>I think it&rsquo;s underutilized even relative</p>
+<p>to today&rsquo;s capabilities, but more and more</p>
+<p>of how do we learn sort of reusable representation?</p>
+<p>And so end to end and transfer learning.</p>
+<p>Yeah.</p>
+<p>Is it surprising to you that neural networks</p>
+<p>are able to, in many cases, do these things?</p>
+<p>Is it maybe taken back to when you first would dive deep</p>
+<p>into neural networks or in general, even today,</p>
+<p>is it surprising that neural networks work at all</p>
+<p>and work wonderfully to do this kind of raw end to end</p>
+<p>and end to end learning and even transfer learning?</p>
+<p>I think I was surprised by how well</p>
+<p>when you have large enough amounts of data,</p>
+<p>it&rsquo;s possible to find a meaningful representation</p>
+<p>in what is an exceedingly high dimensional space.</p>
+<p>And so I find that to be really exciting</p>
+<p>and people are still working on the math for that.</p>
+<p>There&rsquo;s more papers on that every year.</p>
+<p>And I think it would be really cool</p>
+<p>if we figured that out, but that to me was a surprise</p>
+<p>because in the early days when I was starting my way</p>
+<p>in machine learning and the data sets were rather small,</p>
+<p>I think we believed, I believed that you needed</p>
+<p>to have a much more constrained</p>
+<p>and knowledge rich search space</p>
+<p>to really make, to really get to a meaningful answer.</p>
+<p>And I think it was true at the time.</p>
+<p>What I think is still a question</p>
+<p>is will a completely knowledge free approach</p>
+<p>where there&rsquo;s no prior knowledge going</p>
+<p>into the construction of the model,</p>
+<p>is that gonna be the solution or not?</p>
+<p>It&rsquo;s not actually the solution today</p>
+<p>in the sense that the architecture of a convolutional</p>
+<p>neural network that&rsquo;s used for images</p>
+<p>is actually quite different</p>
+<p>to the type of network that&rsquo;s used for language</p>
+<p>and yet different from the one that&rsquo;s used for speech</p>
+<p>or biology or any other application.</p>
+<p>There&rsquo;s still some insight that goes</p>
+<p>into the structure of the network</p>
+<p>to get the right performance.</p>
+<p>Will you be able to come up</p>
+<p>with a universal learning machine?</p>
+<p>I don&rsquo;t know.</p>
+<p>I wonder if there&rsquo;s always has to be some insight</p>
+<p>injected somewhere or whether it can converge.</p>
+<p>So you&rsquo;ve done a lot of interesting work</p>
+<p>with probabilistic graphical models in general,</p>
+<p>Bayesian deep learning and so on.</p>
+<p>Can you maybe speak high level,</p>
+<p>how can learning systems deal with uncertainty?</p>
+<p>One of the limitations I think of a lot</p>
+<p>of machine learning models is that</p>
+<p>they come up with an answer</p>
+<p>and you don&rsquo;t know how much you can believe that answer.</p>
+<p>And oftentimes the answer is actually</p>
+<p>quite poorly calibrated relative to its uncertainties.</p>
+<p>Even if you look at where the confidence</p>
+<p>that comes out of say the neural network at the end,</p>
+<p>and you ask how much more likely</p>
+<p>is an answer of 0.8 versus 0.9,</p>
+<p>it&rsquo;s not really in any way calibrated</p>
+<p>to the actual reliability of that network</p>
+<p>and how true it is.</p>
+<p>And the further away you move from the training data,</p>
+<p>the more, not only the more wrong the network is,</p>
+<p>often it&rsquo;s more wrong and more confident</p>
+<p>in its wrong answer.</p>
+<p>And that is a serious issue in a lot of application areas.</p>
+<p>So when you think for instance,</p>
+<p>about medical diagnosis as being maybe an epitome</p>
+<p>of how problematic this can be,</p>
+<p>if you were training your network</p>
+<p>on a certain set of patients</p>
+<p>and a certain patient population,</p>
+<p>and I have a patient that is an outlier</p>
+<p>and there&rsquo;s no human that looks at this,</p>
+<p>and that patient is put into a neural network</p>
+<p>and your network not only gives</p>
+<p>a completely incorrect diagnosis,</p>
+<p>but is supremely confident</p>
+<p>in its wrong answer, you could kill people.</p>
+<p>So I think creating more of an understanding</p>
+<p>of how do you produce networks</p>
+<p>that are calibrated in their uncertainty</p>
+<p>and can also say, you know what, I give up.</p>
+<p>I don&rsquo;t know what to say about this particular data instance</p>
+<p>because I&rsquo;ve never seen something</p>
+<p>that&rsquo;s sufficiently like it before.</p>
+<p>I think it&rsquo;s going to be really important</p>
+<p>in mission critical applications,</p>
+<p>especially ones where human life is at stake</p>
+<p>and that includes medical applications,</p>
+<p>but it also includes automated driving</p>
+<p>because you&rsquo;d want the network to be able to say,</p>
+<p>you know what, I have no idea what this blob is</p>
+<p>that I&rsquo;m seeing in the middle of the road.</p>
+<p>So I&rsquo;m just going to stop</p>
+<p>because I don&rsquo;t want to potentially run over a pedestrian</p>
+<p>that I don&rsquo;t recognize.</p>
+<p>Is there good mechanisms, ideas of how to allow</p>
+<p>learning systems to provide that uncertainty</p>
+<p>along with their predictions?</p>
+<p>Certainly people have come up with mechanisms</p>
+<p>that involve Bayesian deep learning,</p>
+<p>deep learning that involves Gaussian processes.</p>
+<p>I mean, there&rsquo;s a slew of different approaches</p>
+<p>that people have come up with.</p>
+<p>There&rsquo;s methods that use ensembles of networks</p>
+<p>trained with different subsets of data</p>
+<p>or different random starting points.</p>
+<p>Those are actually sometimes surprisingly good</p>
+<p>at creating a sort of set of how confident</p>
+<p>or not you are in your answer.</p>
+<p>It&rsquo;s very much an area of open research.</p>
+<p>Let&rsquo;s cautiously venture back into the land of philosophy</p>
+<p>and speaking of AI systems providing uncertainty,</p>
+<p>somebody like Stuart Russell believes</p>
+<p>that as we create more and more intelligence systems,</p>
+<p>it&rsquo;s really important for them to be full of self doubt</p>
+<p>because if they&rsquo;re given more and more power,</p>
+<p>we want the way to maintain human control</p>
+<p>over AI systems or human supervision, which is true.</p>
+<p>Like you just mentioned with autonomous vehicles,</p>
+<p>it&rsquo;s really important to get human supervision</p>
+<p>when the car is not sure because if it&rsquo;s really confident</p>
+<p>in cases when it can get in trouble,</p>
+<p>it&rsquo;s gonna be really problematic.</p>
+<p>So let me ask about sort of the questions of AGI</p>
+<p>and human level intelligence.</p>
+<p>I mean, we&rsquo;ve talked about curing diseases,</p>
+<p>which is sort of fundamental thing</p>
+<p>we can have an impact today,</p>
+<p>but AI people also dream of both understanding</p>
+<p>and creating intelligence.</p>
+<p>Is that something you think about?</p>
+<p>Is that something you dream about?</p>
+<p>Is that something you think is within our reach</p>
+<p>to be thinking about as computer scientists?</p>
+<p>Well, boy, let me tease apart different parts</p>
+<p>of that question.</p>
+<p>The worst question.</p>
+<p>Yeah, it&rsquo;s a multi part question.</p>
+<p>So let me start with the feasibility of AGI.</p>
+<p>Then I&rsquo;ll talk about the timelines a little bit</p>
+<p>and then talk about, well, what controls does one need</p>
+<p>when thinking about protections in the AI space?</p>
+<p>So, I think AGI obviously is a longstanding dream</p>
+<p>that even our early pioneers in the space had,</p>
+<p>the Turing test and so on</p>
+<p>are the earliest discussions of that.</p>
+<p>We&rsquo;re obviously closer than we were 70 or so years ago,</p>
+<p>but I think it&rsquo;s still very far away.</p>
+<p>I think machine learning algorithms today</p>
+<p>are really exquisitely good pattern recognizers</p>
+<p>in very specific problem domains</p>
+<p>where they have seen enough training data</p>
+<p>to make good predictions.</p>
+<p>You take a machine learning algorithm</p>
+<p>and you move it to a slightly different version</p>
+<p>of even that same problem, far less one that&rsquo;s different</p>
+<p>and it will just completely choke.</p>
+<p>So I think we&rsquo;re nowhere close to the versatility</p>
+<p>and flexibility of even a human toddler</p>
+<p>in terms of their ability to context switch</p>
+<p>and solve different problems</p>
+<p>using a single knowledge base, single brain.</p>
+<p>So am I desperately worried about</p>
+<p>the machines taking over the universe</p>
+<p>and starting to kill people</p>
+<p>because they want to have more power?</p>
+<p>I don&rsquo;t think so.</p>
+<p>Well, so to pause on that,</p>
+<p>so you kind of intuited that super intelligence</p>
+<p>is a very difficult thing to achieve.</p>
+<p>Even intelligence.</p>
+<p>Intelligence, intelligence.</p>
+<p>Super intelligence, we&rsquo;re not even close to intelligence.</p>
+<p>Even just the greater abilities of generalization</p>
+<p>of our current systems.</p>
+<p>But we haven&rsquo;t answered all the parts</p>
+<p>and we&rsquo;ll take another.</p>
+<p>I&rsquo;m getting to the second part.</p>
+<p>Okay, but maybe another tangent you can also pick up</p>
+<p>is can we get in trouble with much dumber systems?</p>
+<p>Yes, and that is exactly where I was going.</p>
+<p>So just to wrap up on the threats of AGI,</p>
+<p>I think that it seems to me a little early today</p>
+<p>to figure out protections against a human level</p>
+<p>or superhuman level intelligence</p>
+<p>where we don&rsquo;t even see the skeleton</p>
+<p>of what that would look like.</p>
+<p>So it seems that it&rsquo;s very speculative</p>
+<p>on how to protect against that.</p>
+<p>But we can definitely and have gotten into trouble</p>
+<p>on much dumber systems.</p>
+<p>And a lot of that has to do with the fact</p>
+<p>that the systems that we&rsquo;re building are increasingly</p>
+<p>complex, increasingly poorly understood.</p>
+<p>And there&rsquo;s ripple effects that are unpredictable</p>
+<p>in changing little things that can have dramatic consequences</p>
+<p>on the outcome.</p>
+<p>And by the way, that&rsquo;s not unique to artificial intelligence.</p>
+<p>I think artificial intelligence exacerbates that,</p>
+<p>brings it to a new level.</p>
+<p>But heck, our electric grid is really complicated.</p>
+<p>The software that runs our financial markets</p>
+<p>is really complicated.</p>
+<p>And we&rsquo;ve seen those ripple effects translate</p>
+<p>to dramatic negative consequences,</p>
+<p>like for instance, financial crashes that have to do</p>
+<p>with feedback loops that we didn&rsquo;t anticipate.</p>
+<p>So I think that&rsquo;s an issue that we need to be thoughtful</p>
+<p>about in many places,</p>
+<p>artificial intelligence being one of them.</p>
+<p>And I think it&rsquo;s really important that people are thinking</p>
+<p>about ways in which we can have better interpretability</p>
+<p>of systems, better tests for, for instance,</p>
+<p>measuring the extent to which a machine learning system</p>
+<p>that was trained in one set of circumstances,</p>
+<p>how well does it actually work</p>
+<p>in a very different set of circumstances</p>
+<p>where you might say, for instance,</p>
+<p>well, I&rsquo;m not gonna be able to test my automated vehicle</p>
+<p>in every possible city, village,</p>
+<p>weather condition and so on.</p>
+<p>But if you trained it on this set of conditions</p>
+<p>and then tested it on 50 or a hundred others</p>
+<p>that were quite different from the ones</p>
+<p>that you trained it on and it worked,</p>
+<p>then that gives you confidence that the next 50</p>
+<p>that you didn&rsquo;t test it on might also work.</p>
+<p>So effectively it&rsquo;s testing for generalizability.</p>
+<p>So I think there&rsquo;s ways that we should be</p>
+<p>constantly thinking about to validate the robustness</p>
+<p>of our systems.</p>
+<p>I think it&rsquo;s very different from the let&rsquo;s make sure</p>
+<p>robots don&rsquo;t take over the world.</p>
+<p>And then the other place where I think we have a threat,</p>
+<p>which is also important for us to think about</p>
+<p>is the extent to which technology can be abused.</p>
+<p>So like any really powerful technology,</p>
+<p>machine learning can be very much used badly</p>
+<p>as well as to good.</p>
+<p>And that goes back to many other technologies</p>
+<p>that have come up with when people invented</p>
+<p>projectile missiles and it turned into guns</p>
+<p>and people invented nuclear power</p>
+<p>and it turned into nuclear bombs.</p>
+<p>And I think honestly, I would say that to me,</p>
+<p>gene editing and CRISPR is at least as dangerous</p>
+<p>as technology if used badly than as machine learning.</p>
+<p>You could create really nasty viruses and such</p>
+<p>using gene editing that you would be really careful about.</p>
+<p>So anyway, that&rsquo;s something that we need</p>
+<p>to be really thoughtful about whenever we have</p>
+<p>any really powerful new technology.</p>
+<p>Yeah, and in the case of machine learning</p>
+<p>is adversarial machine learning.</p>
+<p>So all the kinds of attacks like security almost threats</p>
+<p>and there&rsquo;s a social engineering</p>
+<p>with machine learning algorithms.</p>
+<p>And there&rsquo;s face recognition and big brother is watching you</p>
+<p>and there&rsquo;s the killer drones that can potentially go</p>
+<p>and targeted execution of people in a different country.</p>
+<p>One can argue that bombs are not necessarily</p>
+<p>that much better, but people wanna kill someone,</p>
+<p>they&rsquo;ll find a way to do it.</p>
+<p>So in general, if you look at trends in the data,</p>
+<p>there&rsquo;s less wars, there&rsquo;s less violence,</p>
+<p>there&rsquo;s more human rights.</p>
+<p>So we&rsquo;ve been doing overall quite good as a human species.</p>
+<p>Are you optimistic?</p>
+<p>Surprisingly sometimes.</p>
+<p>Are you optimistic?</p>
+<p>Maybe another way to ask is do you think most people</p>
+<p>are good and fundamentally we tend towards a better world,</p>
+<p>which is underlying the question,</p>
+<p>will machine learning with gene editing</p>
+<p>ultimately land us somewhere good?</p>
+<p>Are you optimistic?</p>
+<p>I think by and large, I&rsquo;m optimistic.</p>
+<p>I think that most people mean well,</p>
+<p>that doesn&rsquo;t mean that most people are altruistic do gooders,</p>
+<p>but I think most people mean well,</p>
+<p>but I think it&rsquo;s also really important for us as a society</p>
+<p>to create social norms where doing good</p>
+<p>and being perceived well by our peers</p>
+<p>are positively correlated.</p>
+<p>I mean, it&rsquo;s very easy to create dysfunctional norms</p>
+<p>in emotional societies.</p>
+<p>There&rsquo;s certainly multiple psychological experiments</p>
+<p>as well as sadly real world events</p>
+<p>where people have devolved to a world</p>
+<p>where being perceived well by your peers</p>
+<p>is correlated with really atrocious,</p>
+<p>often genocidal behaviors.</p>
+<p>So we really want to make sure</p>
+<p>that we maintain a set of social norms</p>
+<p>where people know that to be a successful member of society,</p>
+<p>you want to be doing good.</p>
+<p>And one of the things that I sometimes worry about</p>
+<p>is that some societies don&rsquo;t seem to necessarily</p>
+<p>be moving in the forward direction in that regard</p>
+<p>where it&rsquo;s not necessarily the case</p>
+<p>that being a good person</p>
+<p>is what makes you be perceived well by your peers.</p>
+<p>And I think that&rsquo;s a really important thing</p>
+<p>for us as a society to remember.</p>
+<p>It&rsquo;s really easy to degenerate back into a universe</p>
+<p>where it&rsquo;s okay to do really bad stuff</p>
+<p>and still have your peers think you&rsquo;re amazing.</p>
+<p>It&rsquo;s fun to ask a world class computer scientist</p>
+<p>and engineer a ridiculously philosophical question</p>
+<p>like what is the meaning of life?</p>
+<p>Let me ask, what gives your life meaning?</p>
+<p>Or what is the source of fulfillment, happiness,</p>
+<p>joy, purpose?</p>
+<p>When we were starting Coursera in the fall of 2011,</p>
+<p>that was right around the time that Steve Jobs passed away.</p>
+<p>And so the media was full of various famous quotes</p>
+<p>that he uttered and one of them that really stuck with me</p>
+<p>because it resonated with stuff that I&rsquo;d been feeling</p>
+<p>for even years before that is that our goal in life</p>
+<p>should be to make a dent in the universe.</p>
+<p>So I think that to me, what gives my life meaning</p>
+<p>is that I would hope that when I am lying there</p>
+<p>on my deathbed and looking at what I&rsquo;d done in my life</p>
+<p>that I can point to ways in which I have left the world</p>
+<p>a better place than it was when I entered it.</p>
+<p>This is something I tell my kids all the time</p>
+<p>because I also think that the burden of that</p>
+<p>is much greater for those of us who were born to privilege.</p>
+<p>And in some ways I was, I mean, I wasn&rsquo;t born super wealthy</p>
+<p>or anything like that, but I grew up in an educated family</p>
+<p>with parents who loved me and took care of me</p>
+<p>and I had a chance at a great education</p>
+<p>and I always had enough to eat.</p>
+<p>So I was in many ways born to privilege</p>
+<p>more than the vast majority of humanity.</p>
+<p>And my kids I think are even more so born to privilege</p>
+<p>than I was fortunate enough to be.</p>
+<p>And I think it&rsquo;s really important that especially</p>
+<p>for those of us who have that opportunity</p>
+<p>that we use our lives to make the world a better place.</p>
+<p>I don&rsquo;t think there&rsquo;s a better way to end it.</p>
+<p>Daphne, it was an honor to talk to you.</p>
+<p>Thank you so much for talking today.</p>
+<p>Thank you.</p>
+<p>Thanks for listening to this conversation</p>
+<p>with Daphne Koller and thank you</p>
+<p>to our presenting sponsor, Cash App.</p>
+<p>Please consider supporting the podcast</p>
+<p>by downloading Cash App and using code LEXPodcast.</p>
+<p>If you enjoy this podcast, subscribe on YouTube,</p>
+<p>review it with five stars on Apple Podcast,</p>
+<p>support it on Patreon, or simply connect with me</p>
+<p>on Twitter at LEXFREEDMAN.</p>
+<p>And now let me leave you with some words from Hippocrates,</p>
+<p>a physician from ancient Greece</p>
+<p>who&rsquo;s considered to be the father of medicine.</p>
+<p>Wherever the art of medicine is loved,</p>
+<p>there&rsquo;s also a love of humanity.</p>
+<p>Thank you for listening and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

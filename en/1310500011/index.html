@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Jürgen Schmidhuber.
+He&amp;rsquo;s the co director of the CS Swiss AI Lab
+and a co creator of long short term memory networks.
+LSDMs are used in billions of devices today
+for speech recognition, translation, and much more.
+Over 30 years, he has proposed a lot of interesting
+out of the box ideas on meta learning, adversarial networks,
+computer vision, and even a formal theory of quote,'>
+<title>Lex Fridman Podcast - #11 - Juergen Schmidhuber: Godel Machines, Meta-Learning, and LSTMs | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500011/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #11 - Juergen Schmidhuber: Godel Machines, Meta-Learning, and LSTMs'>
+<meta property='og:description' content='The following is a conversation with Jürgen Schmidhuber.
+He&amp;rsquo;s the co director of the CS Swiss AI Lab
+and a co creator of long short term memory networks.
+LSDMs are used in billions of devices today
+for speech recognition, translation, and much more.
+Over 30 years, he has proposed a lot of interesting
+out of the box ideas on meta learning, adversarial networks,
+computer vision, and even a formal theory of quote,'>
+<meta property='og:url' content='https://swiest.com/en/1310500011/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-03-11T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-11T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #11 - Juergen Schmidhuber: Godel Machines, Meta-Learning, and LSTMs">
+<meta name="twitter:description" content="The following is a conversation with Jürgen Schmidhuber.
+He&amp;rsquo;s the co director of the CS Swiss AI Lab
+and a co creator of long short term memory networks.
+LSDMs are used in billions of devices today
+for speech recognition, translation, and much more.
+Over 30 years, he has proposed a lot of interesting
+out of the box ideas on meta learning, adversarial networks,
+computer vision, and even a formal theory of quote,">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500011/">Lex Fridman Podcast - #11 - Juergen Schmidhuber: Godel Machines, Meta-Learning, and LSTMs</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-03-11</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    51 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Jürgen Schmidhuber.</p>
+<p>He&rsquo;s the co director of the CS Swiss AI Lab</p>
+<p>and a co creator of long short term memory networks.</p>
+<p>LSDMs are used in billions of devices today</p>
+<p>for speech recognition, translation, and much more.</p>
+<p>Over 30 years, he has proposed a lot of interesting</p>
+<p>out of the box ideas on meta learning, adversarial networks,</p>
+<p>computer vision, and even a formal theory of quote,</p>
+<p>creativity, curiosity, and fun.</p>
+<p>This conversation is part of the MIT course</p>
+<p>on artificial general intelligence</p>
+<p>and the artificial intelligence podcast.</p>
+<p>If you enjoy it, subscribe on YouTube, iTunes,</p>
+<p>or simply connect with me on Twitter</p>
+<p>at Lex Friedman spelled F R I D.</p>
+<p>And now here&rsquo;s my conversation with Jürgen Schmidhuber.</p>
+<p>Early on you dreamed of AI systems</p>
+<p>that self improve recursively.</p>
+<p>When was that dream born?</p>
+<p>When I was a baby.</p>
+<p>No, that&rsquo;s not true.</p>
+<p>When I was a teenager.</p>
+<p>And what was the catalyst for that birth?</p>
+<p>What was the thing that first inspired you?</p>
+<p>When I was a boy, I was thinking about what to do in my life</p>
+<p>and then I thought the most exciting thing</p>
+<p>is to solve the riddles of the universe.</p>
+<p>And that means you have to become a physicist.</p>
+<p>However, then I realized that there&rsquo;s something even grander.</p>
+<p>You can try to build a machine</p>
+<p>that isn&rsquo;t really a machine any longer</p>
+<p>that learns to become a much better physicist</p>
+<p>than I could ever hope to be.</p>
+<p>And that&rsquo;s how I thought maybe I can multiply</p>
+<p>my tiny little bit of creativity into infinity.</p>
+<p>But ultimately that creativity will be multiplied</p>
+<p>to understand the universe around us.</p>
+<p>That&rsquo;s the curiosity for that mystery that drove you.</p>
+<p>Yes, so if you can build a machine</p>
+<p>that learns to solve more and more complex problems</p>
+<p>and more and more general problem solver</p>
+<p>then you basically have solved all the problems,</p>
+<p>at least all the solvable problems.</p>
+<p>So how do you think, what is the mechanism</p>
+<p>for that kind of general solver look like?</p>
+<p>Obviously we don&rsquo;t quite yet have one</p>
+<p>or know how to build one but we have ideas</p>
+<p>and you have had throughout your career</p>
+<p>several ideas about it.</p>
+<p>So how do you think about that mechanism?</p>
+<p>So in the 80s, I thought about how to build this machine</p>
+<p>that learns to solve all these problems</p>
+<p>that I cannot solve myself.</p>
+<p>And I thought it is clear it has to be a machine</p>
+<p>that not only learns to solve this problem here</p>
+<p>and this problem here but it also has to learn</p>
+<p>to improve the learning algorithm itself.</p>
+<p>So it has to have the learning algorithm</p>
+<p>in a representation that allows it to inspect it</p>
+<p>and modify it such that it can come up</p>
+<p>with a better learning algorithm.</p>
+<p>So I call that meta learning, learning to learn</p>
+<p>and recursive self improvement</p>
+<p>that is really the pinnacle of that</p>
+<p>where you then not only learn how to improve</p>
+<p>on that problem and on that</p>
+<p>but you also improve the way the machine improves</p>
+<p>and you also improve the way it improves</p>
+<p>the way it improves itself.</p>
+<p>And that was my 1987 diploma thesis</p>
+<p>which was all about that higher education</p>
+<p>hierarchy of meta learners that have no computational limits</p>
+<p>except for the well known limits that Gödel identified</p>
+<p>in 1931 and for the limits of physics.</p>
+<p>In the recent years, meta learning has gained popularity</p>
+<p>in a specific kind of form.</p>
+<p>You&rsquo;ve talked about how that&rsquo;s not really meta learning</p>
+<p>with neural networks, that&rsquo;s more basic transfer learning.</p>
+<p>Can you talk about the difference</p>
+<p>between the big general meta learning</p>
+<p>and a more narrow sense of meta learning</p>
+<p>the way it&rsquo;s used today, the way it&rsquo;s talked about today?</p>
+<p>Let&rsquo;s take the example of a deep neural network</p>
+<p>that has learned to classify images</p>
+<p>and maybe you have trained that network</p>
+<p>on 100 different databases of images.</p>
+<p>And now a new database comes along</p>
+<p>and you want to quickly learn the new thing as well.</p>
+<p>So one simple way of doing that is you take the network</p>
+<p>which already knows 100 types of databases</p>
+<p>and then you just take the top layer of that</p>
+<p>and you retrain that using the new label data</p>
+<p>that you have in the new image database.</p>
+<p>And then it turns out that it really, really quickly</p>
+<p>can learn that too, one shot basically</p>
+<p>because from the first 100 data sets,</p>
+<p>it already has learned so much about computer vision</p>
+<p>that it can reuse that and that is then almost good enough</p>
+<p>to solve the new task except you need a little bit</p>
+<p>of adjustment on the top.</p>
+<p>So that is transfer learning.</p>
+<p>And it has been done in principle for many decades.</p>
+<p>People have done similar things for decades.</p>
+<p>Meta learning too, meta learning is about</p>
+<p>having the learning algorithm itself</p>
+<p>open to introspection by the system that is using it</p>
+<p>and also open to modification such that the learning system</p>
+<p>has an opportunity to modify</p>
+<p>any part of the learning algorithm</p>
+<p>and then evaluate the consequences of that modification</p>
+<p>and then learn from that to create</p>
+<p>a better learning algorithm and so on recursively.</p>
+<p>So that&rsquo;s a very different animal</p>
+<p>where you are opening the space of possible learning</p>
+<p>algorithms to the learning system itself.</p>
+<p>Right, so you&rsquo;ve, like in the 2004 paper, you described</p>
+<p>gator machines, programs that rewrite themselves, right?</p>
+<p>Philosophically and even in your paper, mathematically,</p>
+<p>these are really compelling ideas but practically,</p>
+<p>do you see these self referential programs</p>
+<p>being successful in the near term to having an impact</p>
+<p>where sort of it demonstrates to the world</p>
+<p>that this direction is a good one to pursue</p>
+<p>in the near term?</p>
+<p>Yes, we had these two different types</p>
+<p>of fundamental research,</p>
+<p>how to build a universal problem solver,</p>
+<p>one basically exploiting proof search</p>
+<p>and things like that that you need to come up with</p>
+<p>asymptotically optimal, theoretically optimal</p>
+<p>self improvers and problem solvers.</p>
+<p>However, one has to admit that through this proof search</p>
+<p>comes in an additive constant, an overhead,</p>
+<p>an additive overhead that vanishes in comparison</p>
+<p>to what you have to do to solve large problems.</p>
+<p>However, for many of the small problems</p>
+<p>that we want to solve in our everyday life,</p>
+<p>we cannot ignore this constant overhead</p>
+<p>and that&rsquo;s why we also have been doing other things,</p>
+<p>non universal things such as recurrent neural networks</p>
+<p>which are trained by gradient descent</p>
+<p>and local search techniques which aren&rsquo;t universal at all,</p>
+<p>which aren&rsquo;t provably optimal at all,</p>
+<p>like the other stuff that we did,</p>
+<p>but which are much more practical</p>
+<p>as long as we only want to solve the small problems</p>
+<p>that we are typically trying to solve</p>
+<p>in this environment here.</p>
+<p>So the universal problem solvers like the Gödel machine,</p>
+<p>but also Markus Hutter&rsquo;s fastest way</p>
+<p>of solving all possible problems,</p>
+<p>which he developed around 2002 in my lab,</p>
+<p>they are associated with these constant overheads</p>
+<p>for proof search, which guarantees that the thing</p>
+<p>that you&rsquo;re doing is optimal.</p>
+<p>For example, there is this fastest way</p>
+<p>of solving all problems with a computable solution,</p>
+<p>which is due to Markus, Markus Hutter,</p>
+<p>and to explain what&rsquo;s going on there,</p>
+<p>let&rsquo;s take traveling salesman problems.</p>
+<p>With traveling salesman problems,</p>
+<p>you have a number of cities and cities</p>
+<p>and you try to find the shortest path</p>
+<p>through all these cities without visiting any city twice.</p>
+<p>And nobody knows the fastest way</p>
+<p>of solving traveling salesman problems, TSPs,</p>
+<p>but let&rsquo;s assume there is a method of solving them</p>
+<p>within N to the five operations</p>
+<p>where N is the number of cities.</p>
+<p>Then the universal method of Markus</p>
+<p>is going to solve the same traveling salesman problem</p>
+<p>also within N to the five steps,</p>
+<p>plus O of one, plus a constant number of steps</p>
+<p>that you need for the proof searcher,</p>
+<p>which you need to show that this particular class</p>
+<p>of problems, the traveling salesman problems,</p>
+<p>can be solved within a certain time frame,</p>
+<p>solved within a certain time bound,</p>
+<p>within order N to the five steps, basically,</p>
+<p>and this additive constant doesn&rsquo;t care for N,</p>
+<p>which means as N is getting larger and larger,</p>
+<p>as you have more and more cities,</p>
+<p>the constant overhead pales in comparison,</p>
+<p>and that means that almost all large problems are solved</p>
+<p>in the best possible way.</p>
+<p>Today, we already have a universal problem solver like that.</p>
+<p>However, it&rsquo;s not practical because the overhead,</p>
+<p>the constant overhead is so large</p>
+<p>that for the small kinds of problems</p>
+<p>that we want to solve in this little biosphere.</p>
+<p>By the way, when you say small,</p>
+<p>you&rsquo;re talking about things that fall</p>
+<p>within the constraints of our computational systems.</p>
+<p>So they can seem quite large to us mere humans, right?</p>
+<p>That&rsquo;s right, yeah.</p>
+<p>So they seem large and even unsolvable</p>
+<p>in a practical sense today,</p>
+<p>but they are still small compared to almost all problems</p>
+<p>because almost all problems are large problems,</p>
+<p>which are much larger than any constant.</p>
+<p>Do you find it useful as a person</p>
+<p>who has dreamed of creating a general learning system,</p>
+<p>has worked on creating one,</p>
+<p>has done a lot of interesting ideas there,</p>
+<p>to think about P versus NP,</p>
+<p>this formalization of how hard problems are,</p>
+<p>how they scale,</p>
+<p>this kind of worst case analysis type of thinking,</p>
+<p>do you find that useful?</p>
+<p>Or is it only just a mathematical,</p>
+<p>it&rsquo;s a set of mathematical techniques</p>
+<p>to give you intuition about what&rsquo;s good and bad.</p>
+<p>So P versus NP, that&rsquo;s super interesting</p>
+<p>from a theoretical point of view.</p>
+<p>And in fact, as you are thinking about that problem,</p>
+<p>you can also get inspiration</p>
+<p>for better practical problem solvers.</p>
+<p>On the other hand, we have to admit</p>
+<p>that at the moment, the best practical problem solvers</p>
+<p>for all kinds of problems that we are now solving</p>
+<p>through what is called AI at the moment,</p>
+<p>they are not of the kind</p>
+<p>that is inspired by these questions.</p>
+<p>There we are using general purpose computers</p>
+<p>such as recurrent neural networks,</p>
+<p>but we have a search technique</p>
+<p>which is just local search gradient descent</p>
+<p>to try to find a program</p>
+<p>that is running on these recurrent networks,</p>
+<p>such that it can solve some interesting problems</p>
+<p>such as speech recognition or machine translation</p>
+<p>and something like that.</p>
+<p>And there is very little theory behind the best solutions</p>
+<p>that we have at the moment that can do that.</p>
+<p>Do you think that needs to change?</p>
+<p>Do you think that will change?</p>
+<p>Or can we go, can we create a general intelligent systems</p>
+<p>without ever really proving that that system is intelligent</p>
+<p>in some kind of mathematical way,</p>
+<p>solving machine translation perfectly</p>
+<p>or something like that,</p>
+<p>within some kind of syntactic definition of a language,</p>
+<p>or can we just be super impressed</p>
+<p>by the thing working extremely well and that&rsquo;s sufficient?</p>
+<p>There&rsquo;s an old saying,</p>
+<p>and I don&rsquo;t know who brought it up first,</p>
+<p>which says, there&rsquo;s nothing more practical</p>
+<p>than a good theory.</p>
+<p>And a good theory of problem solving</p>
+<p>under limited resources,</p>
+<p>like here in this universe or on this little planet,</p>
+<p>has to take into account these limited resources.</p>
+<p>And so probably there is locking a theory,</p>
+<p>which is related to what we already have,</p>
+<p>these asymptotically optimal problem solvers,</p>
+<p>which tells us what we need in addition to that</p>
+<p>to come up with a practically optimal problem solver.</p>
+<p>So I believe we will have something like that.</p>
+<p>And maybe just a few little tiny twists are necessary</p>
+<p>to change what we already have,</p>
+<p>to come up with that as well.</p>
+<p>As long as we don&rsquo;t have that,</p>
+<p>we admit that we are taking suboptimal ways</p>
+<p>and recurrent neural networks and long short term memory</p>
+<p>for equipped with local search techniques.</p>
+<p>And we are happy that it works better</p>
+<p>than any competing methods,</p>
+<p>but that doesn&rsquo;t mean that we think we are done.</p>
+<p>You&rsquo;ve said that an AGI system</p>
+<p>will ultimately be a simple one.</p>
+<p>A general intelligence system</p>
+<p>will ultimately be a simple one.</p>
+<p>Maybe a pseudocode of a few lines</p>
+<p>will be able to describe it.</p>
+<p>Can you talk through your intuition behind this idea,</p>
+<p>why you feel that at its core,</p>
+<p>intelligence is a simple algorithm?</p>
+<p>Experience tells us that the stuff that works best</p>
+<p>is really simple.</p>
+<p>So the asymptotically optimal ways of solving problems,</p>
+<p>if you look at them,</p>
+<p>they&rsquo;re just a few lines of code, it&rsquo;s really true.</p>
+<p>Although they are these amazing properties,</p>
+<p>just a few lines of code.</p>
+<p>Then the most promising and most useful practical things,</p>
+<p>maybe don&rsquo;t have this proof of optimality</p>
+<p>associated with them.</p>
+<p>However, they are also just a few lines of code.</p>
+<p>The most successful recurrent neural networks,</p>
+<p>you can write them down in five lines of pseudocode.</p>
+<p>That&rsquo;s a beautiful, almost poetic idea,</p>
+<p>but what you&rsquo;re describing there</p>
+<p>is the lines of pseudocode are sitting on top</p>
+<p>of layers and layers of abstractions in a sense.</p>
+<p>So you&rsquo;re saying at the very top,</p>
+<p>it&rsquo;ll be a beautifully written sort of algorithm.</p>
+<p>But do you think that there&rsquo;s many layers of abstractions</p>
+<p>we have to first learn to construct?</p>
+<p>Yeah, of course, we are building on all these</p>
+<p>great abstractions that people have invented over the millennia,</p>
+<p>such as matrix multiplications and real numbers</p>
+<p>and basic arithmetics and calculus</p>
+<p>and derivations of error functions</p>
+<p>and derivatives of error functions and stuff like that.</p>
+<p>So without that language that greatly simplifies</p>
+<p>our way of thinking about these problems,</p>
+<p>we couldn&rsquo;t do anything.</p>
+<p>So in that sense, as always,</p>
+<p>we are standing on the shoulders of the giants</p>
+<p>who in the past simplified the problem</p>
+<p>of problem solving so much</p>
+<p>that now we have a chance to do the final step.</p>
+<p>So the final step will be a simple one.</p>
+<p>If we take a step back through all of human civilization</p>
+<p>and just the universe in general,</p>
+<p>how do you think about evolution</p>
+<p>and what if creating a universe</p>
+<p>is required to achieve this final step?</p>
+<p>What if going through the very painful</p>
+<p>and inefficient process of evolution is needed</p>
+<p>to come up with this set of abstractions</p>
+<p>that ultimately lead to intelligence?</p>
+<p>Do you think there&rsquo;s a shortcut</p>
+<p>or do you think we have to create something like our universe</p>
+<p>in order to create something like human level intelligence?</p>
+<p>So far, the only example we have is this one,</p>
+<p>this universe in which we are living.</p>
+<p>Do you think we can do better?</p>
+<p>Maybe not, but we are part of this whole process.</p>
+<p>So apparently, so it might be the case</p>
+<p>that the code that runs the universe</p>
+<p>is really, really simple.</p>
+<p>Everything points to that possibility</p>
+<p>because gravity and other basic forces</p>
+<p>are really simple laws that can be easily described</p>
+<p>also in just a few lines of code basically.</p>
+<p>And then there are these other events</p>
+<p>that the apparently random events</p>
+<p>in the history of the universe,</p>
+<p>which as far as we know at the moment</p>
+<p>don&rsquo;t have a compact code, but who knows?</p>
+<p>Maybe somebody in the near future</p>
+<p>is going to figure out the pseudo random generator</p>
+<p>which is computing whether the measurement</p>
+<p>of that spin up or down thing here</p>
+<p>is going to be positive or negative.</p>
+<p>Underlying quantum mechanics.</p>
+<p>Yes.</p>
+<p>Do you ultimately think quantum mechanics</p>
+<p>is a pseudo random number generator?</p>
+<p>So it&rsquo;s all deterministic.</p>
+<p>There&rsquo;s no randomness in our universe.</p>
+<p>Does God play dice?</p>
+<p>So a couple of years ago, a famous physicist,</p>
+<p>quantum physicist, Anton Zeilinger,</p>
+<p>he wrote an essay in nature</p>
+<p>and it started more or less like that.</p>
+<p>One of the fundamental insights of the 20th century</p>
+<p>was that the universe is fundamentally random</p>
+<p>on the quantum level.</p>
+<p>And that whenever you measure spin up or down</p>
+<p>or something like that,</p>
+<p>a new bit of information enters the history of the universe.</p>
+<p>And while I was reading that,</p>
+<p>I was already typing the response</p>
+<p>and they had to publish it.</p>
+<p>Because I was right, that there is no evidence,</p>
+<p>no physical evidence for that.</p>
+<p>So there&rsquo;s an alternative explanation</p>
+<p>where everything that we consider random</p>
+<p>is actually pseudo random,</p>
+<p>such as the decimal expansion of pi,</p>
+<p>3.141 and so on, which looks random, but isn&rsquo;t.</p>
+<p>So pi is interesting because every three digits</p>
+<p>sequence, every sequence of three digits</p>
+<p>appears roughly one in a thousand times.</p>
+<p>And every five digit sequence</p>
+<p>appears roughly one in 10,000 times,</p>
+<p>what you would expect if it was random.</p>
+<p>But there&rsquo;s a very short algorithm,</p>
+<p>a short program that computes all of that.</p>
+<p>So it&rsquo;s extremely compressible.</p>
+<p>And who knows, maybe tomorrow,</p>
+<p>somebody, some grad student at CERN goes back</p>
+<p>over all these data points, better decay and whatever,</p>
+<p>and figures out, oh, it&rsquo;s the second billion digits of pi</p>
+<p>or something like that.</p>
+<p>We don&rsquo;t have any fundamental reason at the moment</p>
+<p>to believe that this is truly random</p>
+<p>and not just a deterministic video game.</p>
+<p>If it was a deterministic video game,</p>
+<p>it would be much more beautiful.</p>
+<p>Because beauty is simplicity.</p>
+<p>And many of the basic laws of the universe,</p>
+<p>like gravity and the other basic forces are very simple.</p>
+<p>So very short programs can explain what these are doing.</p>
+<p>And it would be awful and ugly.</p>
+<p>The universe would be ugly.</p>
+<p>The history of the universe would be ugly</p>
+<p>if for the extra things, the random,</p>
+<p>the seemingly random data points that we get all the time,</p>
+<p>that we really need a huge number of extra bits</p>
+<p>to describe all these extra bits of information.</p>
+<p>So as long as we don&rsquo;t have evidence</p>
+<p>that there is no short program</p>
+<p>that computes the entire history of the entire universe,</p>
+<p>we are, as scientists, compelled to look further</p>
+<p>for that shortest program.</p>
+<p>Your intuition says there exists a program</p>
+<p>that can backtrack to the creation of the universe.</p>
+<p>Yeah.</p>
+<p>So it can give the shortest path</p>
+<p>to the creation of the universe.</p>
+<p>Yes.</p>
+<p>Including all the entanglement things</p>
+<p>and all the spin up and down measures</p>
+<p>that have been taken place since 13.8 billion years ago.</p>
+<p>So we don&rsquo;t have a proof that it is random.</p>
+<p>We don&rsquo;t have a proof that it is compressible</p>
+<p>to a short program.</p>
+<p>But as long as we don&rsquo;t have that proof,</p>
+<p>we are obliged as scientists to keep looking</p>
+<p>for that simple explanation.</p>
+<p>Absolutely.</p>
+<p>So you said the simplicity is beautiful or beauty is simple.</p>
+<p>Either one works.</p>
+<p>But you also work on curiosity, discovery,</p>
+<p>the romantic notion of randomness, of serendipity,</p>
+<p>of being surprised by things that are about you.</p>
+<p>In our poetic notion of reality,</p>
+<p>we think it&rsquo;s kind of like,</p>
+<p>poetic notion of reality, we think as humans</p>
+<p>require randomness.</p>
+<p>So you don&rsquo;t find randomness beautiful.</p>
+<p>You find simple determinism beautiful.</p>
+<p>Yeah.</p>
+<p>Okay.</p>
+<p>So why?</p>
+<p>Why?</p>
+<p>Because the explanation becomes shorter.</p>
+<p>A universe that is compressible to a short program</p>
+<p>is much more elegant and much more beautiful</p>
+<p>than another one, which needs an almost infinite</p>
+<p>number of bits to be described.</p>
+<p>As far as we know, many things that are happening</p>
+<p>in this universe are really simple in terms of</p>
+<p>short programs that compute gravity</p>
+<p>and the interaction between elementary particles and so on.</p>
+<p>So all of that seems to be very, very simple.</p>
+<p>Every electron seems to reuse the same subprogram</p>
+<p>all the time, as it is interacting with</p>
+<p>other elementary particles.</p>
+<p>If we now require an extra oracle injecting</p>
+<p>new bits of information all the time for these</p>
+<p>extra things which are currently not understood,</p>
+<p>such as better decay, then the whole description</p>
+<p>length of the data that we can observe of the</p>
+<p>history of the universe would become much longer</p>
+<p>and therefore uglier.</p>
+<p>And uglier.</p>
+<p>Again, simplicity is elegant and beautiful.</p>
+<p>The history of science is a history of compression progress.</p>
+<p>Yes, so you&rsquo;ve described sort of as we build up</p>
+<p>abstractions and you&rsquo;ve talked about the idea</p>
+<p>of compression.</p>
+<p>How do you see this, the history of science,</p>
+<p>the history of humanity, our civilization,</p>
+<p>and life on Earth as some kind of path towards</p>
+<p>greater and greater compression?</p>
+<p>What do you mean by that?</p>
+<p>How do you think about that?</p>
+<p>Indeed, the history of science is a history of</p>
+<p>compression progress.</p>
+<p>What does that mean?</p>
+<p>Hundreds of years ago there was an astronomer</p>
+<p>whose name was Kepler and he looked at the data</p>
+<p>points that he got by watching planets move.</p>
+<p>And then he had all these data points and</p>
+<p>suddenly it turned out that he can greatly</p>
+<p>compress the data by predicting it through an</p>
+<p>ellipse law.</p>
+<p>So it turns out that all these data points are</p>
+<p>more or less on ellipses around the sun.</p>
+<p>And another guy came along whose name was</p>
+<p>Newton and before him Hooke.</p>
+<p>And they said the same thing that is making</p>
+<p>these planets move like that is what makes the</p>
+<p>apples fall down.</p>
+<p>And it also holds for stones and for all kinds</p>
+<p>of other objects.</p>
+<p>And suddenly many, many of these observations</p>
+<p>became much more compressible because as long</p>
+<p>as you can predict the next thing, given what</p>
+<p>you have seen so far, you can compress it.</p>
+<p>And you don&rsquo;t have to store that data extra.</p>
+<p>This is called predictive coding.</p>
+<p>And then there was still something wrong with</p>
+<p>that theory of the universe and you had</p>
+<p>deviations from these predictions of the theory.</p>
+<p>And 300 years later another guy came along</p>
+<p>whose name was Einstein.</p>
+<p>And he was able to explain away all these</p>
+<p>deviations from the predictions of the old</p>
+<p>theory through a new theory which was called</p>
+<p>the general theory of relativity.</p>
+<p>Which at first glance looks a little bit more</p>
+<p>complicated and you have to warp space and time</p>
+<p>but you can&rsquo;t phrase it within one single</p>
+<p>sentence which is no matter how fast you</p>
+<p>accelerate and how hard you decelerate and no</p>
+<p>matter what is the gravity in your local</p>
+<p>network, light speed always looks the same.</p>
+<p>And from that you can calculate all the</p>
+<p>consequences.</p>
+<p>So it&rsquo;s a very simple thing and it allows you</p>
+<p>to further compress all the observations</p>
+<p>because certainly there are hardly any</p>
+<p>deviations any longer that you can measure</p>
+<p>from the predictions of this new theory.</p>
+<p>So all of science is a history of compression</p>
+<p>progress.</p>
+<p>You never arrive immediately at the shortest</p>
+<p>explanation of the data but you&rsquo;re making</p>
+<p>progress.</p>
+<p>Whenever you are making progress you have an</p>
+<p>insight.</p>
+<p>You see oh first I needed so many bits of</p>
+<p>information to describe the data, to describe</p>
+<p>my falling apples, my video of falling apples,</p>
+<p>I need so many data, so many pixels have to be</p>
+<p>stored.</p>
+<p>But then suddenly I realize no there is a very</p>
+<p>simple way of predicting the third frame in the</p>
+<p>video from the first two.</p>
+<p>And maybe not every little detail can be</p>
+<p>predicted but more or less most of these orange</p>
+<p>blobs that are coming down they accelerate in</p>
+<p>the same way which means that I can greatly</p>
+<p>compress the video.</p>
+<p>And the amount of compression, progress, that</p>
+<p>is the depth of the insight that you have at</p>
+<p>that moment.</p>
+<p>That&rsquo;s the fun that you have, the scientific</p>
+<p>fun, the fun in that discovery.</p>
+<p>And we can build artificial systems that do</p>
+<p>the same thing.</p>
+<p>They measure the depth of their insights as they</p>
+<p>are looking at the data which is coming in</p>
+<p>through their own experiments and we give</p>
+<p>them a reward, an intrinsic reward in proportion</p>
+<p>to this depth of insight.</p>
+<p>And since they are trying to maximize the</p>
+<p>rewards they get they are suddenly motivated to</p>
+<p>come up with new action sequences, with new</p>
+<p>experiments that have the property that the data</p>
+<p>that is coming in as a consequence of these</p>
+<p>experiments has the property that they can learn</p>
+<p>something about, see a pattern in there which</p>
+<p>they hadn&rsquo;t seen yet before.</p>
+<p>So there is an idea of power play that you</p>
+<p>described, a training in general problem solver</p>
+<p>in this kind of way of looking for the unsolved</p>
+<p>problems.</p>
+<p>Yeah.</p>
+<p>Can you describe that idea a little further?</p>
+<p>It&rsquo;s another very simple idea.</p>
+<p>So normally what you do in computer science,</p>
+<p>you have some guy who gives you a problem and</p>
+<p>then there is a huge search space of potential</p>
+<p>solution candidates and you somehow try them</p>
+<p>out and you have more less sophisticated ways</p>
+<p>of moving around in that search space until</p>
+<p>you finally found a solution which you</p>
+<p>consider satisfactory.</p>
+<p>That&rsquo;s what most of computer science is about.</p>
+<p>Power play just goes one little step further</p>
+<p>and says let&rsquo;s not only search for solutions</p>
+<p>to a given problem but let&rsquo;s search to pairs of</p>
+<p>problems and their solutions where the system</p>
+<p>itself has the opportunity to phrase its own</p>
+<p>problem.</p>
+<p>So we are looking suddenly at pairs of</p>
+<p>problems and their solutions or modifications</p>
+<p>of the problem solver that is supposed to</p>
+<p>generate a solution to that new problem.</p>
+<p>And this additional degree of freedom allows</p>
+<p>us to build career systems that are like</p>
+<p>scientists in the sense that they not only</p>
+<p>try to solve and try to find answers to</p>
+<p>existing questions, no they are also free to</p>
+<p>pose their own questions.</p>
+<p>So if you want to build an artificial scientist</p>
+<p>you have to give it that freedom and power</p>
+<p>play is exactly doing that.</p>
+<p>So that&rsquo;s a dimension of freedom that&rsquo;s</p>
+<p>important to have but how hard do you think</p>
+<p>that, how multidimensional and difficult the</p>
+<p>space of then coming up with your own questions</p>
+<p>is.</p>
+<p>So it&rsquo;s one of the things that as human beings</p>
+<p>we consider to be the thing that makes us</p>
+<p>special, the intelligence that makes us special</p>
+<p>is that brilliant insight that can create</p>
+<p>something totally new.</p>
+<p>Yes.</p>
+<p>So now let&rsquo;s look at the extreme case, let&rsquo;s</p>
+<p>look at the set of all possible problems that</p>
+<p>you can formally describe which is infinite,</p>
+<p>which should be the next problem that a scientist</p>
+<p>or power play is going to solve.</p>
+<p>Well, it should be the easiest problem that</p>
+<p>goes beyond what you already know.</p>
+<p>So it should be the simplest problem that the</p>
+<p>current problem solver that you have which can</p>
+<p>already solve 100 problems that he cannot solve</p>
+<p>yet by just generalizing.</p>
+<p>So it has to be new, so it has to require a</p>
+<p>modification of the problem solver such that the</p>
+<p>new problem solver can solve this new thing but</p>
+<p>the old problem solver cannot do it and in</p>
+<p>addition to that we have to make sure that the</p>
+<p>problem solver doesn&rsquo;t forget any of the</p>
+<p>previous solutions.</p>
+<p>Right.</p>
+<p>And so by definition power play is now trying</p>
+<p>always to search in this pair of, in the set of</p>
+<p>pairs of problems and problems over modifications</p>
+<p>for a combination that minimize the time to</p>
+<p>achieve these criteria.</p>
+<p>So it&rsquo;s always trying to find the problem which</p>
+<p>is easiest to add to the repertoire.</p>
+<p>So just like grad students and academics and</p>
+<p>researchers can spend their whole career in a</p>
+<p>local minima stuck trying to come up with</p>
+<p>interesting questions but ultimately doing very</p>
+<p>little.</p>
+<p>Do you think it&rsquo;s easy in this approach of</p>
+<p>looking for the simplest unsolvable problem to</p>
+<p>get stuck in a local minima?</p>
+<p>Is not never really discovering new, you know</p>
+<p>really jumping outside of the 100 problems that</p>
+<p>you&rsquo;ve already solved in a genuine creative way?</p>
+<p>No, because that&rsquo;s the nature of power play that</p>
+<p>it&rsquo;s always trying to break its current</p>
+<p>generalization abilities by coming up with a new</p>
+<p>problem which is beyond the current horizon.</p>
+<p>Just shifting the horizon of knowledge a little</p>
+<p>bit out there, breaking the existing rules such</p>
+<p>that the new thing becomes solvable but wasn&rsquo;t</p>
+<p>solvable by the old thing.</p>
+<p>So like adding a new axiom like what Gödel did</p>
+<p>when he came up with these new sentences, new</p>
+<p>theorems that didn&rsquo;t have a proof in the formal</p>
+<p>system which means you can add them to the</p>
+<p>repertoire hoping that they are not going to</p>
+<p>damage the consistency of the whole thing.</p>
+<p>So in the paper with the amazing title,</p>
+<p>Formal Theory of Creativity, Fun and Intrinsic</p>
+<p>Motivation, you talk about discovery as intrinsic</p>
+<p>reward, so if you view humans as intelligent</p>
+<p>agents, what do you think is the purpose and</p>
+<p>meaning of life for us humans?</p>
+<p>You&rsquo;ve talked about this discovery, do you see</p>
+<p>humans as an instance of power play, agents?</p>
+<p>Humans are curious and that means they behave</p>
+<p>like scientists, not only the official scientists</p>
+<p>but even the babies behave like scientists and</p>
+<p>they play around with their toys to figure out</p>
+<p>how the world works and how it is responding to</p>
+<p>their actions and that&rsquo;s how they learn about</p>
+<p>gravity and everything.</p>
+<p>In 1990 we had the first systems like that which</p>
+<p>would just try to play around with the environment</p>
+<p>and come up with situations that go beyond what</p>
+<p>they knew at that time and then get a reward for</p>
+<p>creating these situations and then becoming more</p>
+<p>general problem solvers and being able to understand</p>
+<p>more of the world.</p>
+<p>I think in principle that curiosity strategy or</p>
+<p>more sophisticated versions of what I just</p>
+<p>described, they are what we have built in as well</p>
+<p>because evolution discovered that&rsquo;s a good way of</p>
+<p>exploring the unknown world and a guy who explores</p>
+<p>the unknown world has a higher chance of solving</p>
+<p>the mystery that he needs to survive in this world.</p>
+<p>On the other hand, those guys who were too curious</p>
+<p>they were weeded out as well so you have to find</p>
+<p>this trade off.</p>
+<p>Evolution found a certain trade off.</p>
+<p>Apparently in our society there is a certain</p>
+<p>percentage of extremely explorative guys and it</p>
+<p>doesn&rsquo;t matter if they die because many of the</p>
+<p>others are more conservative.</p>
+<p>It would be surprising to me if that principle of</p>
+<p>artificial curiosity wouldn&rsquo;t be present in almost</p>
+<p>exactly the same form here.</p>
+<p>In our brains.</p>
+<p>You are a bit of a musician and an artist.</p>
+<p>Continuing on this topic of creativity, what do you</p>
+<p>think is the role of creativity and intelligence?</p>
+<p>So you&rsquo;ve kind of implied that it&rsquo;s essential for</p>
+<p>intelligence if you think of intelligence as a</p>
+<p>problem solving system, as ability to solve problems.</p>
+<p>But do you think it&rsquo;s essential, this idea of</p>
+<p>creativity?</p>
+<p>We never have a program, a sub program that is</p>
+<p>called creativity or something.</p>
+<p>It&rsquo;s just a side effect of what our problem solvers</p>
+<p>do. They are searching a space of problems, a space</p>
+<p>of candidates, of solution candidates until they</p>
+<p>hopefully find a solution to a given problem.</p>
+<p>But then there are these two types of creativity</p>
+<p>and both of them are now present in our machines.</p>
+<p>The first one has been around for a long time,</p>
+<p>which is human gives problem to machine, machine</p>
+<p>tries to find a solution to that.</p>
+<p>And this has been happening for many decades and</p>
+<p>for many decades machines have found creative</p>
+<p>solutions to interesting problems where humans were</p>
+<p>not aware of these particularly creative solutions</p>
+<p>but then appreciated that the machine found that.</p>
+<p>The second is the pure creativity.</p>
+<p>That I would call, what I just mentioned, I would</p>
+<p>call the applied creativity, like applied art where</p>
+<p>somebody tells you now make a nice picture of this</p>
+<p>Pope and you will get money for that.</p>
+<p>So here is the artist and he makes a convincing</p>
+<p>picture of the Pope and the Pope likes it and gives</p>
+<p>him the money.</p>
+<p>And then there is the pure creativity which is</p>
+<p>more like the power play and the artificial</p>
+<p>curiosity thing where you have the freedom to</p>
+<p>select your own problem.</p>
+<p>Like a scientist who defines his own question</p>
+<p>to study and so that is the pure creativity if you</p>
+<p>will as opposed to the applied creativity which</p>
+<p>serves another.</p>
+<p>And in that distinction there is almost echoes of</p>
+<p>narrow AI versus general AI.</p>
+<p>So this kind of constrained painting of a Pope</p>
+<p>seems like the approaches of what people are</p>
+<p>calling narrow AI and pure creativity seems to be,</p>
+<p>maybe I am just biased as a human but it seems to</p>
+<p>be an essential element of human level intelligence.</p>
+<p>Is that what you are implying?</p>
+<p>To a degree?</p>
+<p>If you zoom back a little bit and you just look</p>
+<p>at a general problem solving machine which is</p>
+<p>trying to solve arbitrary problems then this</p>
+<p>machine will figure out in the course of solving</p>
+<p>problems that it is good to be curious.</p>
+<p>So all of what I said just now about this prewired</p>
+<p>curiosity and this will to invent new problems</p>
+<p>that the system doesn&rsquo;t know how to solve yet</p>
+<p>should be just a byproduct of the general search.</p>
+<p>However, apparently evolution has built it into</p>
+<p>us because it turned out to be so successful,</p>
+<p>a prewiring, a bias, a very successful exploratory</p>
+<p>bias that we are born with.</p>
+<p>And you have also said that consciousness in the</p>
+<p>same kind of way may be a byproduct of problem solving.</p>
+<p>Do you find this an interesting byproduct?</p>
+<p>Do you think it is a useful byproduct?</p>
+<p>What are your thoughts on consciousness in general?</p>
+<p>Or is it simply a byproduct of greater and greater</p>
+<p>capabilities of problem solving that is similar</p>
+<p>to creativity in that sense?</p>
+<p>We never have a procedure called consciousness</p>
+<p>in our machines.</p>
+<p>However, we get as side effects of what these</p>
+<p>machines are doing things that seem to be closely</p>
+<p>related to what people call consciousness.</p>
+<p>So for example, already in 1990 we had simple</p>
+<p>systems which were basically recurrent networks</p>
+<p>and therefore universal computers trying to map</p>
+<p>incoming data into actions that lead to success.</p>
+<p>Maximizing reward in a given environment,</p>
+<p>always finding the charging station in time</p>
+<p>whenever the battery is low and negative signals</p>
+<p>are coming from the battery, always find the</p>
+<p>charging station in time without bumping against</p>
+<p>painful obstacles on the way.</p>
+<p>So complicated things but very easily motivated.</p>
+<p>And then we give these little guys a separate</p>
+<p>recurrent neural network which is just predicting</p>
+<p>what&rsquo;s happening if I do that and that.</p>
+<p>What will happen as a consequence of these</p>
+<p>actions that I&rsquo;m executing.</p>
+<p>And it&rsquo;s just trained on the long and long history</p>
+<p>of interactions with the world.</p>
+<p>So it becomes a predictive model of the world</p>
+<p>basically.</p>
+<p>And therefore also a compressor of the observations</p>
+<p>of the world because whatever you can predict</p>
+<p>you don&rsquo;t have to store extra.</p>
+<p>So compression is a side effect of prediction.</p>
+<p>And how does this recurrent network compress?</p>
+<p>Well, it&rsquo;s inventing little subprograms, little</p>
+<p>subnetworks that stand for everything that</p>
+<p>frequently appears in the environment like</p>
+<p>bottles and microphones and faces, maybe lots of</p>
+<p>faces in my environment so I&rsquo;m learning to create</p>
+<p>something like a prototype face and a new face</p>
+<p>comes along and all I have to encode are the</p>
+<p>deviations from the prototype.</p>
+<p>So it&rsquo;s compressing all the time the stuff that</p>
+<p>frequently appears.</p>
+<p>There&rsquo;s one thing that appears all the time that</p>
+<p>is present all the time when the agent is</p>
+<p>interacting with its environment which is the</p>
+<p>agent itself.</p>
+<p>But just for data compression reasons it is</p>
+<p>extremely natural for this recurrent network to</p>
+<p>come up with little subnetworks that stand for</p>
+<p>the properties of the agents, the hand, the other</p>
+<p>actuators and all the stuff that you need to</p>
+<p>better encode the data which is influenced by</p>
+<p>the actions of the agent.</p>
+<p>So there just as a side effect of data compression</p>
+<p>during problem solving you have internal self</p>
+<p>models.</p>
+<p>Now you can use this model of the world to plan</p>
+<p>your future and that&rsquo;s what we also have done</p>
+<p>since 1990.</p>
+<p>So the recurrent network which is the controller</p>
+<p>which is trying to maximize reward can use this</p>
+<p>model of the network of the world, this model</p>
+<p>network of the world, this predictive model of</p>
+<p>the world to plan ahead and say let&rsquo;s not do this</p>
+<p>action sequence, let&rsquo;s do this action sequence</p>
+<p>instead because it leads to more predicted</p>
+<p>reward.</p>
+<p>And whenever it is waking up these little</p>
+<p>subnetworks that stand for itself then it is</p>
+<p>thinking about itself and it is thinking about</p>
+<p>itself and it is exploring mentally the</p>
+<p>consequences of its own actions and now you tell</p>
+<p>me what is still missing.</p>
+<p>Missing the next, the gap to consciousness.</p>
+<p>There isn&rsquo;t.</p>
+<p>That&rsquo;s a really beautiful idea that if life is</p>
+<p>a collection of data and life is a process of</p>
+<p>compressing that data to act efficiently in that</p>
+<p>data you yourself appear very often.</p>
+<p>So it&rsquo;s useful to form compressions of yourself</p>
+<p>and it&rsquo;s a really beautiful formulation of what</p>
+<p>consciousness is a necessary side effect.</p>
+<p>It&rsquo;s actually quite compelling to me.</p>
+<p>You&rsquo;ve described RNNs, developed LSTMs, long</p>
+<p>short term memory networks that are a type of</p>
+<p>recurrent neural networks that have gotten a lot</p>
+<p>of success recently.</p>
+<p>So these are networks that model the temporal</p>
+<p>aspects in the data, temporal patterns in the</p>
+<p>data and you&rsquo;ve called them the deepest of the</p>
+<p>neural networks.</p>
+<p>So what do you think is the value of depth in</p>
+<p>the models that we use to learn?</p>
+<p>Since you mentioned the long short term memory</p>
+<p>and the LSTM I have to mention the names of the</p>
+<p>brilliant students who made that possible.</p>
+<p>First of all my first student ever Sepp Hochreiter</p>
+<p>who had fundamental insights already in his</p>
+<p>diploma thesis.</p>
+<p>Then Felix Geers who had additional important</p>
+<p>contributions.</p>
+<p>Alex Gray is a guy from Scotland who is mostly</p>
+<p>responsible for this CTC algorithm which is now</p>
+<p>often used to train the LSTM to do the speech</p>
+<p>recognition on all the Google Android phones and</p>
+<p>whatever and Siri and so on.</p>
+<p>So these guys without these guys I would be</p>
+<p>nothing.</p>
+<p>It&rsquo;s a lot of incredible work.</p>
+<p>What is now the depth?</p>
+<p>What is the importance of depth?</p>
+<p>Well most problems in the real world are deep in</p>
+<p>the sense that the current input doesn&rsquo;t tell you</p>
+<p>all you need to know about the environment.</p>
+<p>So instead you have to have a memory of what</p>
+<p>happened in the past and often important parts of</p>
+<p>that memory are dated.</p>
+<p>They are pretty old.</p>
+<p>So when you&rsquo;re doing speech recognition for</p>
+<p>example and somebody says 11 then that&rsquo;s about</p>
+<p>half a second or something like that which means</p>
+<p>it&rsquo;s already 50 time steps.</p>
+<p>And another guy or the same guy says 7.</p>
+<p>So the ending is the same even but now the</p>
+<p>system has to see the distinction between 7 and</p>
+<p>11 and the only way it can see the difference is</p>
+<p>it has to store that 50 steps ago there was an</p>
+<p>S or an L, 11 or 7.</p>
+<p>So there you have already a problem of depth 50</p>
+<p>because for each time step you have something</p>
+<p>like a virtual layer in the expanded unrolled</p>
+<p>version of this recurrent network which is doing</p>
+<p>the speech recognition.</p>
+<p>So these long time lags they translate into</p>
+<p>problem depth.</p>
+<p>And most problems in this world are such that</p>
+<p>you really have to look far back in time to</p>
+<p>understand what is the problem and to solve it.</p>
+<p>But just like with LSTMs you don&rsquo;t necessarily</p>
+<p>need to when you look back in time remember every</p>
+<p>aspect you just need to remember the important</p>
+<p>aspects.</p>
+<p>That&rsquo;s right.</p>
+<p>The network has to learn to put the important</p>
+<p>stuff into memory and to ignore the unimportant</p>
+<p>noise.</p>
+<p>But in that sense deeper and deeper is better</p>
+<p>or is there a limitation?</p>
+<p>I mean LSTM is one of the great examples of</p>
+<p>architectures that do something beyond just</p>
+<p>deeper and deeper networks.</p>
+<p>There&rsquo;s clever mechanisms for filtering data,</p>
+<p>for remembering and forgetting.</p>
+<p>So do you think that kind of thinking is</p>
+<p>necessary?</p>
+<p>If you think about LSTMs as a leap, a big leap</p>
+<p>forward over traditional vanilla RNNs, what do</p>
+<p>you think is the next leap within this context?</p>
+<p>So LSTM is a very clever improvement but LSTM</p>
+<p>still don&rsquo;t have the same kind of ability to see</p>
+<p>far back in the past as us humans do.</p>
+<p>The credit assignment problem across way back</p>
+<p>not just 50 time steps or 100 or 1000 but</p>
+<p>millions and billions.</p>
+<p>It&rsquo;s not clear what are the practical limits of</p>
+<p>the LSTM when it comes to looking back.</p>
+<p>Already in 2006 I think we had examples where</p>
+<p>it not only looked back tens of thousands of</p>
+<p>steps but really millions of steps.</p>
+<p>And Juan Perez Ortiz in my lab I think was the</p>
+<p>first author of a paper where we really, was it</p>
+<p>2006 or something, had examples where it learned</p>
+<p>to look back for more than 10 million steps.</p>
+<p>So for most problems of speech recognition it&rsquo;s</p>
+<p>not necessary to look that far back but there</p>
+<p>are examples where it does.</p>
+<p>Now the looking back thing, that&rsquo;s rather easy</p>
+<p>because there is only one past but there are</p>
+<p>many possible futures and so a reinforcement</p>
+<p>learning system which is trying to maximize its</p>
+<p>future expected reward and doesn&rsquo;t know yet which</p>
+<p>of these many possible futures should I select</p>
+<p>given this one single past is facing problems</p>
+<p>that the LSTM by itself cannot solve.</p>
+<p>So the LSTM is good for coming up with a compact</p>
+<p>representation of the history and observations</p>
+<p>and actions so far but now how do you plan in an</p>
+<p>efficient and good way among all these, how do</p>
+<p>you select one of these many possible action</p>
+<p>sequences that a reinforcement learning system</p>
+<p>has to consider to maximize reward in this</p>
+<p>unknown future?</p>
+<p>We have this basic setup where you have one</p>
+<p>recurrent network which gets in the video and</p>
+<p>the speech and whatever and it&rsquo;s executing</p>
+<p>actions and it&rsquo;s trying to maximize reward so</p>
+<p>there is no teacher who tells it what to do at</p>
+<p>which point in time.</p>
+<p>And then there&rsquo;s the other network which is</p>
+<p>just predicting what&rsquo;s going to happen if I do</p>
+<p>that and that and that could be an LSTM network</p>
+<p>and it learns to look back all the way to make</p>
+<p>better predictions of the next time step.</p>
+<p>So essentially although it&rsquo;s predicting only the</p>
+<p>next time step it is motivated to learn to put</p>
+<p>into memory something that happened maybe a</p>
+<p>million steps ago because it&rsquo;s important to</p>
+<p>memorize that if you want to predict that at the</p>
+<p>next time step, the next event.</p>
+<p>Now how can a model of the world like that, a</p>
+<p>predictive model of the world be used by the</p>
+<p>first guy?</p>
+<p>Let&rsquo;s call it the controller and the model, the</p>
+<p>controller and the model.</p>
+<p>How can the model be used by the controller to</p>
+<p>efficiently select among these many possible</p>
+<p>futures?</p>
+<p>The naive way we had about 30 years ago was</p>
+<p>let&rsquo;s just use the model of the world as a stand</p>
+<p>in, as a simulation of the world and millisecond</p>
+<p>by millisecond we plan the future and that means</p>
+<p>we have to roll it out really in detail and it</p>
+<p>will work only if the model is really good and</p>
+<p>it will still be inefficient because we have to</p>
+<p>look at all these possible futures and there are</p>
+<p>so many of them.</p>
+<p>So instead what we do now since 2015 in our CM</p>
+<p>systems, controller model systems, we give the</p>
+<p>controller the opportunity to learn by itself how</p>
+<p>to use the potentially relevant parts of the M,</p>
+<p>of the model network to solve new problems more</p>
+<p>quickly.</p>
+<p>And if it wants to, it can learn to ignore the M</p>
+<p>and sometimes it&rsquo;s a good idea to ignore the M</p>
+<p>because it&rsquo;s really bad, it&rsquo;s a bad predictor in</p>
+<p>this particular situation of life where the</p>
+<p>controller is currently trying to maximize reward.</p>
+<p>However, it can also learn to address and exploit</p>
+<p>some of the subprograms that came about in the</p>
+<p>model network through compressing the data by</p>
+<p>predicting it.</p>
+<p>So it now has an opportunity to reuse that code,</p>
+<p>the algorithmic information in the model network</p>
+<p>to reduce its own search space such that it can</p>
+<p>solve a new problem more quickly than without the</p>
+<p>model.</p>
+<p>Compression.</p>
+<p>So you&rsquo;re ultimately optimistic and excited about</p>
+<p>the power of RL, of reinforcement learning in the</p>
+<p>context of real systems.</p>
+<p>Absolutely, yeah.</p>
+<p>So you see RL as a potential having a huge impact</p>
+<p>beyond just sort of the M part is often developed on</p>
+<p>supervised learning methods.</p>
+<p>You see RL as a for problems of self driving cars</p>
+<p>or any kind of applied cyber robotics.</p>
+<p>That&rsquo;s the correct interesting direction for</p>
+<p>research in your view?</p>
+<p>I do think so.</p>
+<p>We have a company called Nasence which has applied</p>
+<p>reinforcement learning to little Audis which learn</p>
+<p>to park without a teacher.</p>
+<p>The same principles were used of course.</p>
+<p>So these little Audis, they are small, maybe like</p>
+<p>that, so much smaller than the real Audis.</p>
+<p>But they have all the sensors that you find in the</p>
+<p>real Audis.</p>
+<p>You find the cameras, the LIDAR sensors.</p>
+<p>They go up to 120 kilometers an hour if they want</p>
+<p>to.</p>
+<p>And they have pain sensors basically and they don&rsquo;t</p>
+<p>want to bump against obstacles and other Audis and</p>
+<p>so they must learn like little babies to park.</p>
+<p>Take the raw vision input and translate that into</p>
+<p>actions that lead to successful parking behavior</p>
+<p>which is a rewarding thing.</p>
+<p>And yes, they learn that.</p>
+<p>So we have examples like that and it&rsquo;s only in the</p>
+<p>beginning.</p>
+<p>This is just the tip of the iceberg and I believe the</p>
+<p>next wave of AI is going to be all about that.</p>
+<p>So at the moment, the current wave of AI is about</p>
+<p>passive pattern observation and prediction and that&rsquo;s</p>
+<p>what you have on your smartphone and what the major</p>
+<p>companies on the Pacific Rim are using to sell you</p>
+<p>ads to do marketing.</p>
+<p>That&rsquo;s the current sort of profit in AI and that&rsquo;s</p>
+<p>only one or two percent of the world economy.</p>
+<p>Which is big enough to make these companies pretty</p>
+<p>much the most valuable companies in the world.</p>
+<p>But there&rsquo;s a much, much bigger fraction of the</p>
+<p>economy going to be affected by the next wave which</p>
+<p>is really about machines that shape the data through</p>
+<p>their own actions.</p>
+<p>Do you think simulation is ultimately the biggest</p>
+<p>way that those methods will be successful in the next</p>
+<p>10, 20 years?</p>
+<p>We&rsquo;re not talking about 100 years from now.</p>
+<p>We&rsquo;re talking about sort of the near term impact of</p>
+<p>RL.</p>
+<p>Do you think really good simulation is required or</p>
+<p>is there other techniques like imitation learning,</p>
+<p>observing other humans operating in the real world?</p>
+<p>Where do you think the success will come from?</p>
+<p>So at the moment, we have a tendency of using physics</p>
+<p>simulations to learn behavior from machines that</p>
+<p>learn to solve problems that humans also do not know</p>
+<p>how to solve.</p>
+<p>However, this is not the future because the future is</p>
+<p>in what little babies do.</p>
+<p>They don&rsquo;t use a physics engine to simulate the</p>
+<p>world.</p>
+<p>No, they learn a predictive model of the world which</p>
+<p>maybe sometimes is wrong in many ways but captures</p>
+<p>all kinds of important abstract high level predictions</p>
+<p>which are really important to be successful.</p>
+<p>And that&rsquo;s what was the future 30 years ago when we</p>
+<p>started that type of research but it&rsquo;s still the future</p>
+<p>and now we know much better how to go there to move</p>
+<p>forward and to really make working systems based on</p>
+<p>that where you have a learning model of the world,</p>
+<p>a model of the world that learns to predict what&rsquo;s</p>
+<p>going to happen if I do that and that.</p>
+<p>And then the controller uses that model to more</p>
+<p>quickly learn successful action sequences.</p>
+<p>And then of course always this curiosity thing.</p>
+<p>In the beginning, the model is stupid so the</p>
+<p>controller should be motivated to come up with</p>
+<p>experiments with action sequences that lead to data</p>
+<p>that improve the model.</p>
+<p>Do you think improving the model, constructing an</p>
+<p>understanding of the world in this connection is</p>
+<p>now the popular approaches that have been successful</p>
+<p>are grounded in ideas of neural networks.</p>
+<p>But in the 80s with expert systems, there&rsquo;s</p>
+<p>symbolic AI approaches which to us humans are more</p>
+<p>intuitive in the sense that it makes sense that you</p>
+<p>build up knowledge in this knowledge representation.</p>
+<p>What kind of lessons can we draw into our current</p>
+<p>approaches from expert systems from symbolic AI?</p>
+<p>So I became aware of all of that in the 80s and</p>
+<p>back then logic programming was a huge thing.</p>
+<p>Was it inspiring to you yourself?</p>
+<p>Did you find it compelling?</p>
+<p>Because a lot of your work was not so much in that</p>
+<p>realm, right?</p>
+<p>It was more in the learning systems.</p>
+<p>Yes and no, but we did all of that.</p>
+<p>So my first publication ever actually was 1987,</p>
+<p>was the implementation of genetic algorithm of a</p>
+<p>genetic programming system in Prolog.</p>
+<p>So Prolog, that&rsquo;s what you learn back then which is</p>
+<p>a logic programming language and the Japanese,</p>
+<p>they have this huge fifth generation AI project</p>
+<p>which was mostly about logic programming back then.</p>
+<p>Although neural networks existed and were well</p>
+<p>known back then and deep learning has existed since</p>
+<p>1965, since this guy in the Ukraine,</p>
+<p>Iwakunenko, started it.</p>
+<p>But the Japanese and many other people,</p>
+<p>they focused really on this logic programming and I</p>
+<p>was influenced to the extent that I said,</p>
+<p>okay, let&rsquo;s take these biologically inspired</p>
+<p>algorithms like evolution, programs,</p>
+<p>and implement that in the language which I know,</p>
+<p>which was Prolog, for example, back then.</p>
+<p>And then in many ways this came back later because</p>
+<p>the Gödel machine, for example,</p>
+<p>has a proof searcher on board and without that it</p>
+<p>would not be optimal.</p>
+<p>Well, Markus Futter&rsquo;s universal algorithm for</p>
+<p>solving all well defined problems has a proof</p>
+<p>searcher on board so that&rsquo;s very much logic programming.</p>
+<p>Without that it would not be asymptotically optimal.</p>
+<p>But then on the other hand,</p>
+<p>because we are very pragmatic guys also,</p>
+<p>we focused on recurrent neural networks and</p>
+<p>suboptimal stuff such as gradient based search and</p>
+<p>program space rather than provably optimal things.</p>
+<p>The logic programming certainly has a usefulness</p>
+<p>when you&rsquo;re trying to construct something provably</p>
+<p>optimal or provably good or something like that.</p>
+<p>But is it useful for practical problems?</p>
+<p>It&rsquo;s really useful for our theorem proving.</p>
+<p>The best theorem provers today are not neural networks.</p>
+<p>No, they are logic programming systems and they</p>
+<p>are much better theorem provers than most math</p>
+<p>students in the first or second semester.</p>
+<p>But for reasoning, for playing games of Go or chess</p>
+<p>or for robots, autonomous vehicles that operate in</p>
+<p>the real world or object manipulation,</p>
+<p>you think learning.</p>
+<p>Yeah, as long as the problems have little to do</p>
+<p>with theorem proving themselves,</p>
+<p>then as long as that is not the case,</p>
+<p>you just want to have better pattern recognition.</p>
+<p>So to build a self driving car,</p>
+<p>you want to have better pattern recognition and</p>
+<p>pedestrian recognition and all these things.</p>
+<p>You want to minimize the number of false positives,</p>
+<p>which is currently slowing down self driving cars</p>
+<p>in many ways.</p>
+<p>All of that has very little to do with logic programming.</p>
+<p>What are you most excited about in terms of</p>
+<p>directions of artificial intelligence at this moment</p>
+<p>in the next few years in your own research</p>
+<p>and in the broader community?</p>
+<p>So I think in the not so distant future,</p>
+<p>we will have for the first time little robots</p>
+<p>that learn like kids.</p>
+<p>I will be able to say to the robot,</p>
+<p>look here robot, we are going to assemble a smartphone.</p>
+<p>Let&rsquo;s take this slab of plastic and the screwdriver</p>
+<p>and let&rsquo;s screw in the screw like that.</p>
+<p>Not like that, like that.</p>
+<p>And I don&rsquo;t have a data glove or something.</p>
+<p>He will see me and he will hear me</p>
+<p>and he will try to do something with his own actuators,</p>
+<p>which will be really different from mine,</p>
+<p>but he will understand the difference</p>
+<p>and will learn to imitate me,</p>
+<p>but not in the supervised way</p>
+<p>where a teacher is giving target signals</p>
+<p>for all his muscles all the time.</p>
+<p>No, by doing this high level imitation</p>
+<p>where he first has to learn to imitate me</p>
+<p>and then to interpret these additional noises</p>
+<p>coming from my mouth as helping,</p>
+<p>helpful signals to do that better.</p>
+<p>And then it will by itself come up with faster ways</p>
+<p>and more efficient ways of doing the same thing.</p>
+<p>And finally I stop his learning algorithm</p>
+<p>and make a million copies and sell it.</p>
+<p>And so at the moment this is not possible,</p>
+<p>but we already see how we are going to get there.</p>
+<p>And you can imagine to the extent</p>
+<p>that this works economically and cheaply,</p>
+<p>it&rsquo;s going to change everything.</p>
+<p>Almost all of production is going to be affected by that.</p>
+<p>And a much bigger wave,</p>
+<p>a much bigger AI wave is coming</p>
+<p>than the one that we are currently witnessing,</p>
+<p>which is mostly about passive pattern recognition</p>
+<p>on your smartphone.</p>
+<p>This is about active machines that shapes data</p>
+<p>through the actions they are executing</p>
+<p>and they learn to do that in a good way.</p>
+<p>So many of the traditional industries</p>
+<p>are going to be affected by that.</p>
+<p>All the companies that are building machines</p>
+<p>will equip these machines with cameras</p>
+<p>and other sensors and they are going to learn</p>
+<p>to solve all kinds of problems</p>
+<p>through interaction with humans,</p>
+<p>but also a lot on their own</p>
+<p>to improve what they already can do.</p>
+<p>And lots of old economy is going to be affected by that.</p>
+<p>And in recent years I have seen that old economy</p>
+<p>is actually waking up and realizing that this is the case.</p>
+<p>Are you optimistic about that future?</p>
+<p>Are you concerned?</p>
+<p>There is a lot of people concerned in the near term</p>
+<p>about the transformation of the nature of work,</p>
+<p>the kind of ideas that you just suggested</p>
+<p>would have a significant impact</p>
+<p>of what kind of things could be automated.</p>
+<p>Are you optimistic about that future?</p>
+<p>Are you nervous about that future?</p>
+<p>And looking a little bit farther into the future,</p>
+<p>there are people like Gila Musk, Stuart Russell,</p>
+<p>concerned about the existential threats of that future.</p>
+<p>So in the near term, job loss,</p>
+<p>in the long term existential threat,</p>
+<p>are these concerns to you or are you ultimately optimistic?</p>
+<p>So let&rsquo;s first address the near future.</p>
+<p>We have had predictions of job losses for many decades.</p>
+<p>For example, when industrial robots came along,</p>
+<p>many people predicted that lots of jobs are going to get lost.</p>
+<p>And in a sense, they were right,</p>
+<p>because back then there were car factories</p>
+<p>and hundreds of people in these factories assembled cars,</p>
+<p>and today the same car factories have hundreds of robots</p>
+<p>and maybe three guys watching the robots.</p>
+<p>On the other hand, those countries that have lots of robots per capita,</p>
+<p>Japan, Korea, Germany, Switzerland,</p>
+<p>and a couple of other countries,</p>
+<p>they have really low unemployment rates.</p>
+<p>Somehow, all kinds of new jobs were created.</p>
+<p>Back then, nobody anticipated those jobs.</p>
+<p>And decades ago, I always said,</p>
+<p>it&rsquo;s really easy to say which jobs are going to get lost,</p>
+<p>but it&rsquo;s really hard to predict the new ones.</p>
+<p>200 years ago, who would have predicted all these people</p>
+<p>making money as YouTube bloggers, for example?</p>
+<p>200 years ago, 60% of all people used to work in agriculture.</p>
+<p>Today, maybe 1%.</p>
+<p>But still, only, I don&rsquo;t know, 5% unemployment.</p>
+<p>Lots of new jobs were created, and Homo Ludens, the playing man,</p>
+<p>is inventing new jobs all the time.</p>
+<p>Most of these jobs are not existentially necessary</p>
+<p>for the survival of our species.</p>
+<p>There are only very few existentially necessary jobs,</p>
+<p>such as farming and building houses and warming up the houses,</p>
+<p>but less than 10% of the population is doing that.</p>
+<p>And most of these newly invented jobs are about</p>
+<p>interacting with other people in new ways,</p>
+<p>through new media and so on,</p>
+<p>getting new types of kudos and forms of likes and whatever,</p>
+<p>and even making money through that.</p>
+<p>So, Homo Ludens, the playing man, doesn&rsquo;t want to be unemployed,</p>
+<p>and that&rsquo;s why he&rsquo;s inventing new jobs all the time.</p>
+<p>And he keeps considering these jobs as really important</p>
+<p>and is investing a lot of energy and hours of work into those new jobs.</p>
+<p>That&rsquo;s quite beautifully put.</p>
+<p>We&rsquo;re really nervous about the future because we can&rsquo;t predict</p>
+<p>what kind of new jobs will be created.</p>
+<p>But you&rsquo;re ultimately optimistic that we humans are so restless</p>
+<p>that we create and give meaning to newer and newer jobs,</p>
+<p>totally new, things that get likes on Facebook</p>
+<p>or whatever the social platform is.</p>
+<p>So what about long term existential threat of AI,</p>
+<p>where our whole civilization may be swallowed up</p>
+<p>by these ultra super intelligent systems?</p>
+<p>Maybe it&rsquo;s not going to be swallowed up,</p>
+<p>but I&rsquo;d be surprised if we humans were the last step</p>
+<p>in the evolution of the universe.</p>
+<p>You&rsquo;ve actually had this beautiful comment somewhere that I&rsquo;ve seen</p>
+<p>saying that, quite insightful, artificial general intelligence systems,</p>
+<p>just like us humans, will likely not want to interact with humans,</p>
+<p>they&rsquo;ll just interact amongst themselves.</p>
+<p>Just like ants interact amongst themselves</p>
+<p>and only tangentially interact with humans.</p>
+<p>And it&rsquo;s quite an interesting idea that once we create AGI,</p>
+<p>they will lose interest in humans and compete for their own Facebook likes</p>
+<p>and their own social platforms.</p>
+<p>So within that quite elegant idea, how do we know in a hypothetical sense</p>
+<p>that there&rsquo;s not already intelligence systems out there?</p>
+<p>How do you think broadly of general intelligence greater than us?</p>
+<p>How do we know it&rsquo;s out there?</p>
+<p>How do we know it&rsquo;s around us?</p>
+<p>And could it already be?</p>
+<p>I&rsquo;d be surprised if within the next few decades or something like that,</p>
+<p>we won&rsquo;t have AIs that are truly smart in every single way</p>
+<p>and better problem solvers in almost every single important way.</p>
+<p>And I&rsquo;d be surprised if they wouldn&rsquo;t realize what we have realized a long time ago,</p>
+<p>which is that almost all physical resources are not here in this biosphere,</p>
+<p>but further out, the rest of the solar system gets 2 billion times more solar energy</p>
+<p>than our little planet.</p>
+<p>There&rsquo;s lots of material out there that you can use to build robots</p>
+<p>and self replicating robot factories and all this stuff.</p>
+<p>And they are going to do that and they will be scientists and curious</p>
+<p>and they will explore what they can do.</p>
+<p>And in the beginning, they will be fascinated by life</p>
+<p>and by their own origins in our civilization.</p>
+<p>They will want to understand that completely, just like people today</p>
+<p>would like to understand how life works and also the history of our own existence</p>
+<p>and civilization, but then also the physical laws that created all of that.</p>
+<p>So in the beginning, they will be fascinated by life.</p>
+<p>Once they understand it, they lose interest.</p>
+<p>Like anybody who loses interest in things he understands.</p>
+<p>And then, as you said, the most interesting sources of information for them</p>
+<p>will be others of their own kind.</p>
+<p>So at least in the long run, there seems to be some sort of protection</p>
+<p>through lack of interest on the other side.</p>
+<p>And now it seems also clear, as far as we understand physics,</p>
+<p>you need matter and energy to compute and to build more robots and infrastructure</p>
+<p>for AI civilization and EIEI ecologies consisting of trillions of different types of AIs.</p>
+<p>And so it seems inconceivable to me that this thing is not going to expand.</p>
+<p>Some AI ecology not controlled by one AI, but trillions of different types of AIs</p>
+<p>competing in all kinds of quickly evolving and disappearing ecological niches</p>
+<p>in ways that we cannot fathom at the moment.</p>
+<p>But it&rsquo;s going to expand, limited by light speed and physics,</p>
+<p>but it&rsquo;s going to expand and now we realize that the universe is still young.</p>
+<p>It&rsquo;s only 13.8 billion years old and it&rsquo;s going to be a thousand times older than that.</p>
+<p>So there&rsquo;s plenty of time to conquer the entire universe</p>
+<p>and to fill it with intelligence and senders and receivers</p>
+<p>such that AIs can travel the way they are traveling in our labs today,</p>
+<p>which is by radio from sender to receiver.</p>
+<p>And let&rsquo;s call the current age of the universe one eon, one eon.</p>
+<p>Now it will take just a few eons from now and the entire visible universe</p>
+<p>is going to be full of that stuff.</p>
+<p>And let&rsquo;s look ahead to a time when the universe is going to be 1000 times older than it is now.</p>
+<p>They will look back and they will say, look, almost immediately after the Big Bang,</p>
+<p>only a few eons later, the entire universe started to become intelligent.</p>
+<p>Now to your question, how do we see whether anything like that has already happened</p>
+<p>or is already in a more advanced stage in some other part of the universe, of the visible universe?</p>
+<p>We are trying to look out there and nothing like that has happened so far or is that true?</p>
+<p>Do you think we would recognize it?</p>
+<p>How do we know it&rsquo;s not among us?</p>
+<p>How do we know planets aren&rsquo;t in themselves intelligent beings?</p>
+<p>How do we know ants seen as a collective are not much greater intelligence than our own?</p>
+<p>These kinds of ideas.</p>
+<p>When I was a boy, I was thinking about these things</p>
+<p>and I thought, maybe it has already happened.</p>
+<p>Because back then I knew, I learned from popular physics books,</p>
+<p>that the large scale structure of the universe is not homogeneous.</p>
+<p>You have these clusters of galaxies and then in between there are these huge empty spaces.</p>
+<p>And I thought, maybe they aren&rsquo;t really empty.</p>
+<p>It&rsquo;s just that in the middle of that, some AI civilization already has expanded</p>
+<p>and then has covered a bubble of a billion light years diameter</p>
+<p>and is using all the energy of all the stars within that bubble for its own unfathomable purposes.</p>
+<p>And so it already has happened and we just fail to interpret the signs.</p>
+<p>And then I learned that gravity by itself explains the large scale structure of the universe</p>
+<p>and that this is not a convincing explanation.</p>
+<p>And then I thought, maybe it&rsquo;s the dark matter.</p>
+<p>Because as far as we know today, 80% of the measurable matter is invisible.</p>
+<p>And we know that because otherwise our galaxy or other galaxies would fall apart.</p>
+<p>They are rotating too quickly.</p>
+<p>And then the idea was, maybe all of these AI civilizations that are already out there,</p>
+<p>they are just invisible because they are really efficient in using the energies of their own local systems</p>
+<p>and that&rsquo;s why they appear dark to us.</p>
+<p>But this is also not a convincing explanation because then the question becomes,</p>
+<p>why are there still any visible stars left in our own galaxy, which also must have a lot of dark matter?</p>
+<p>So that is also not a convincing thing.</p>
+<p>And today, I like to think it&rsquo;s quite plausible that maybe we are the first,</p>
+<p>at least in our local light cone within the few hundreds of millions of light years that we can reliably observe.</p>
+<p>Is that exciting to you that we might be the first?</p>
+<p>And it would make us much more important because if we mess it up through a nuclear war,</p>
+<p>then maybe this will have an effect on the development of the entire universe.</p>
+<p>So let&rsquo;s not mess it up.</p>
+<p>Let&rsquo;s not mess it up.</p>
+<p>Jürgen, thank you so much for talking today. I really appreciate it.</p>
+<p>It&rsquo;s my pleasure.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

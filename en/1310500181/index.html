@@ -1,0 +1,3277 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Risto Michaelainen,
+a computer scientist at University of Texas at Austin
+and Associate Vice President
+of Evolutionary Artificial Intelligence at Cognizant.
+He specializes in evolutionary computation,
+but also many other topics in artificial intelligence,
+cognitive science, and neuroscience.
+Quick mention of our sponsors,
+Jordan Harbin&amp;rsquo;s show, Grammarly, Belcampo, and Indeed.
+Check them out in the description to support this podcast.
+As a side note, let me say that nature inspired algorithms'>
+<title>Lex Fridman Podcast - #177 - Risto Miikkulainen Neuroevolution and Evolutionary Computation | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500181/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #177 - Risto Miikkulainen Neuroevolution and Evolutionary Computation'>
+<meta property='og:description' content='The following is a conversation with Risto Michaelainen,
+a computer scientist at University of Texas at Austin
+and Associate Vice President
+of Evolutionary Artificial Intelligence at Cognizant.
+He specializes in evolutionary computation,
+but also many other topics in artificial intelligence,
+cognitive science, and neuroscience.
+Quick mention of our sponsors,
+Jordan Harbin&amp;rsquo;s show, Grammarly, Belcampo, and Indeed.
+Check them out in the description to support this podcast.
+As a side note, let me say that nature inspired algorithms'>
+<meta property='og:url' content='https://swiest.com/en/1310500181/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-08-28T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-08-28T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #177 - Risto Miikkulainen Neuroevolution and Evolutionary Computation">
+<meta name="twitter:description" content="The following is a conversation with Risto Michaelainen,
+a computer scientist at University of Texas at Austin
+and Associate Vice President
+of Evolutionary Artificial Intelligence at Cognizant.
+He specializes in evolutionary computation,
+but also many other topics in artificial intelligence,
+cognitive science, and neuroscience.
+Quick mention of our sponsors,
+Jordan Harbin&amp;rsquo;s show, Grammarly, Belcampo, and Indeed.
+Check them out in the description to support this podcast.
+As a side note, let me say that nature inspired algorithms">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500181/">Lex Fridman Podcast - #177 - Risto Miikkulainen Neuroevolution and Evolutionary Computation</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-08-28</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    87 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Risto Michaelainen,</p>
+<p>a computer scientist at University of Texas at Austin</p>
+<p>and Associate Vice President</p>
+<p>of Evolutionary Artificial Intelligence at Cognizant.</p>
+<p>He specializes in evolutionary computation,</p>
+<p>but also many other topics in artificial intelligence,</p>
+<p>cognitive science, and neuroscience.</p>
+<p>Quick mention of our sponsors,</p>
+<p>Jordan Harbin&rsquo;s show, Grammarly, Belcampo, and Indeed.</p>
+<p>Check them out in the description to support this podcast.</p>
+<p>As a side note, let me say that nature inspired algorithms</p>
+<p>from ant colony optimization to genetic algorithms</p>
+<p>to cellular automata to neural networks</p>
+<p>have always captivated my imagination,</p>
+<p>not only for their surprising power</p>
+<p>in the face of long odds,</p>
+<p>but because they always opened up doors</p>
+<p>to new ways of thinking about computation.</p>
+<p>It does seem that in the long arc of computing history,</p>
+<p>running toward biology, not running away from it</p>
+<p>is what leads to long term progress.</p>
+<p>This is the Lex Friedman podcast,</p>
+<p>and here is my conversation with Risto Michaelainen.</p>
+<p>If we ran the Earth experiment,</p>
+<p>this fun little experiment we&rsquo;re on,</p>
+<p>over and over and over and over a million times</p>
+<p>and watch the evolution of life as it pans out,</p>
+<p>how much variation in the outcomes of that evolution</p>
+<p>do you think we would see?</p>
+<p>Now, we should say that you are a computer scientist.</p>
+<p>That&rsquo;s actually not such a bad question</p>
+<p>for a computer scientist,</p>
+<p>because we are building simulations of these things,</p>
+<p>and we are simulating evolution,</p>
+<p>and that&rsquo;s a difficult question to answer in biology,</p>
+<p>but we can build a computational model</p>
+<p>and run it million times and actually answer that question.</p>
+<p>How much variation do we see when we simulate it?</p>
+<p>And that&rsquo;s a little bit beyond what we can do today,</p>
+<p>but I think that we will see some regularities,</p>
+<p>and it took evolution also a really long time</p>
+<p>to get started,</p>
+<p>and then things accelerated really fast towards the end.</p>
+<p>But there are things that need to be discovered,</p>
+<p>and they probably will be over and over again,</p>
+<p>like manipulation of objects,</p>
+<p>opposable thumbs,</p>
+<p>and also some way to communicate,</p>
+<p>maybe orally, like when you have speech,</p>
+<p>it might be some other kind of sounds,</p>
+<p>and decision making, but also vision.</p>
+<p>Eye has evolved many times.</p>
+<p>Various vision systems have evolved.</p>
+<p>So we would see those kinds of solutions,</p>
+<p>I believe, emerge over and over again.</p>
+<p>They may look a little different,</p>
+<p>but they get the job done.</p>
+<p>The really interesting question is,</p>
+<p>would we have primates?</p>
+<p>Would we have humans or something that resembles humans?</p>
+<p>And would that be an apex of evolution after a while?</p>
+<p>We don&rsquo;t know where we&rsquo;re going from here,</p>
+<p>but we certainly see a lot of tool use</p>
+<p>and building, constructing our environment.</p>
+<p>So I think that we will get that.</p>
+<p>We get some evolution producing,</p>
+<p>some agents that can do that,</p>
+<p>manipulate the environment and build.</p>
+<p>What do you think is special about humans?</p>
+<p>Like if you were running the simulation</p>
+<p>and you observe humans emerge,</p>
+<p>like these tool makers,</p>
+<p>they start a fire and all this stuff,</p>
+<p>start running around, building buildings,</p>
+<p>and then running for president and all those kinds of things.</p>
+<p>What would be, how would you detect that?</p>
+<p>Cause you&rsquo;re like really busy</p>
+<p>as the creator of this evolutionary system.</p>
+<p>So you don&rsquo;t have much time to observe,</p>
+<p>like detect if any cool stuff came up, right?</p>
+<p>How would you detect humans?</p>
+<p>Well, you are running the simulation.</p>
+<p>So you also put in visualization</p>
+<p>and measurement techniques there.</p>
+<p>So if you are looking for certain things like communication,</p>
+<p>you&rsquo;ll have detectors to find out whether that&rsquo;s happening,</p>
+<p>even if it&rsquo;s a large simulation.</p>
+<p>And I think that that&rsquo;s what we would do.</p>
+<p>We know roughly what we want,</p>
+<p>intelligent agents that communicate, cooperate, manipulate,</p>
+<p>and we would build detections</p>
+<p>and visualizations of those processes.</p>
+<p>Yeah, and there&rsquo;s a lot of,</p>
+<p>we&rsquo;d have to run it many times</p>
+<p>and we have plenty of time to figure out</p>
+<p>how we detect the interesting things.</p>
+<p>But also, I think we do have to run it many times</p>
+<p>because we don&rsquo;t quite know what shape those will take</p>
+<p>and our detectors may not be perfect for them</p>
+<p>at the beginning.</p>
+<p>Well, that seems really difficult to build a detector</p>
+<p>of intelligent or intelligent communication.</p>
+<p>Sort of, if we take an alien perspective,</p>
+<p>observing earth, are you sure that they would be able</p>
+<p>to detect humans as the special thing?</p>
+<p>Wouldn&rsquo;t they be already curious about other things?</p>
+<p>There&rsquo;s way more insects by body mass, I think,</p>
+<p>than humans by far, and colonies.</p>
+<p>Obviously, dolphins is the most intelligent creature</p>
+<p>on earth, we all know this.</p>
+<p>So it could be the dolphins that they detect.</p>
+<p>It could be the rockets that we seem to be launching.</p>
+<p>That could be the intelligent creature they detect.</p>
+<p>It could be some other trees.</p>
+<p>Trees have been here a long time.</p>
+<p>I just learned that sharks have been here</p>
+<p>400 million years and that&rsquo;s longer</p>
+<p>than trees have been here.</p>
+<p>So maybe it&rsquo;s the sharks, they go by age.</p>
+<p>Like there&rsquo;s a persistent thing.</p>
+<p>Like if you survive long enough,</p>
+<p>especially through the mass extinctions,</p>
+<p>that could be the thing your detector is detecting.</p>
+<p>Humans have been here for a very short time</p>
+<p>and we&rsquo;re just creating a lot of pollution,</p>
+<p>but so is the other creatures.</p>
+<p>So I don&rsquo;t know, do you think you&rsquo;d be able</p>
+<p>to detect humans?</p>
+<p>Like how would you go about detecting</p>
+<p>in the computational sense?</p>
+<p>Maybe we can leave humans behind.</p>
+<p>In the computational sense, detect interesting things.</p>
+<p>Do you basically have to have a strict objective function</p>
+<p>by which you measure the performance of a system</p>
+<p>or can you find curiosities and interesting things?</p>
+<p>Yeah, well, I think that the first measurement</p>
+<p>would be to detect how much of an effect</p>
+<p>you can have in your environment.</p>
+<p>So if you look around, we have cities</p>
+<p>and that is constructed environments.</p>
+<p>And that&rsquo;s where a lot of people live, most people live.</p>
+<p>So that would be a good sign of intelligence</p>
+<p>that you don&rsquo;t just live in an environment,</p>
+<p>but you construct it to your liking.</p>
+<p>And that&rsquo;s something pretty unique.</p>
+<p>I mean, there are certainly birds build nests</p>
+<p>but they don&rsquo;t build quite cities.</p>
+<p>Termites build mounds and ice and things like that.</p>
+<p>But the complexity of the human construction cities,</p>
+<p>I think would stand out even to an external observer.</p>
+<p>Of course, that&rsquo;s what a human would say.</p>
+<p>Yeah, and you know, you can certainly say</p>
+<p>that sharks are really smart</p>
+<p>because they&rsquo;ve been around so long</p>
+<p>and they haven&rsquo;t destroyed their environment,</p>
+<p>which humans are about to do,</p>
+<p>which is not a very smart thing.</p>
+<p>But we&rsquo;ll get over it, I believe.</p>
+<p>And we can get over it by doing some construction</p>
+<p>that actually is benign</p>
+<p>and maybe even enhances the resilience of nature.</p>
+<p>So you mentioned the simulation that we run over and over</p>
+<p>might start, it&rsquo;s a slow start.</p>
+<p>So do you think how unlikely, first of all,</p>
+<p>I don&rsquo;t know if you think about this kind of stuff,</p>
+<p>but how unlikely is step number zero,</p>
+<p>which is the springing up,</p>
+<p>like the origin of life on earth?</p>
+<p>And second, how unlikely is the,</p>
+<p>anything interesting happening beyond that?</p>
+<p>So like the start that creates</p>
+<p>all the rich complexity that we see on earth today.</p>
+<p>Yeah, there are people who are working</p>
+<p>on exactly that problem from primordial soup.</p>
+<p>How do you actually get self replicating molecules?</p>
+<p>And they are very close.</p>
+<p>With a little bit of help, you can make that happen.</p>
+<p>So of course we know what we want,</p>
+<p>so they can set up the conditions</p>
+<p>and try out conditions that are conducive to that.</p>
+<p>For evolution to discover that, that took a long time.</p>
+<p>For us to recreate it probably won&rsquo;t take that long.</p>
+<p>And the next steps from there,</p>
+<p>I think also with some handholding,</p>
+<p>I think we can make that happen.</p>
+<p>But with evolution, what was really fascinating</p>
+<p>was eventually the runaway evolution of the brain</p>
+<p>that created humans and created,</p>
+<p>well, also other higher animals,</p>
+<p>that that was something that happened really fast.</p>
+<p>And that&rsquo;s a big question.</p>
+<p>Is that something replicable?</p>
+<p>Is that something that can happen?</p>
+<p>And if it happens, does it go in the same direction?</p>
+<p>That is a big question to ask.</p>
+<p>Even in computational terms,</p>
+<p>I think that it&rsquo;s relatively possible to come up here,</p>
+<p>create an experiment where we look at the primordial soup</p>
+<p>and the first couple of steps</p>
+<p>of multicellular organisms even.</p>
+<p>But to get something as complex as the brain,</p>
+<p>we don&rsquo;t quite know the conditions for that.</p>
+<p>And how do you even get started</p>
+<p>and whether we can get this kind of runaway evolution</p>
+<p>happening?</p>
+<p>From a detector perspective,</p>
+<p>if we&rsquo;re observing this evolution,</p>
+<p>what do you think is the brain?</p>
+<p>What do you think is the, let&rsquo;s say, what is intelligence?</p>
+<p>So in terms of the thing that makes humans special,</p>
+<p>we seem to be able to reason,</p>
+<p>we seem to be able to communicate.</p>
+<p>But the core of that is this something</p>
+<p>in the broad category we might call intelligence.</p>
+<p>So if you put your computer scientist hat on,</p>
+<p>is there a favorite ways you like to think about</p>
+<p>that question of what is intelligence?</p>
+<p>Well, my goal is to create agents that are intelligent.</p>
+<p>Not to define what.</p>
+<p>And that is a way of defining it.</p>
+<p>And that means that it&rsquo;s some kind of an object</p>
+<p>or a program that has limited sensory</p>
+<p>and effective capabilities interacting with the world.</p>
+<p>And then also a mechanism for making decisions.</p>
+<p>So with limited abilities like that, can it survive?</p>
+<p>Survival is the simplest goal,</p>
+<p>but you could also give it other goals.</p>
+<p>Can it multiply?</p>
+<p>Can it solve problems that you give it?</p>
+<p>And that is quite a bit less than human intelligence.</p>
+<p>There are, animals would be intelligent, of course,</p>
+<p>with that definition.</p>
+<p>And you might have even some other forms of life, even.</p>
+<p>So intelligence in that sense is a survival skill</p>
+<p>given resources that you have and using your resources</p>
+<p>so that you will stay around.</p>
+<p>Do you think death, mortality is fundamental to an agent?</p>
+<p>So like there&rsquo;s, I don&rsquo;t know if you&rsquo;re familiar,</p>
+<p>there&rsquo;s a philosopher named Ernest Becker</p>
+<p>who wrote The Denial of Death and his whole idea.</p>
+<p>And there&rsquo;s folks, psychologists, cognitive scientists</p>
+<p>that work on terror management theory.</p>
+<p>And they think that one of the special things about humans</p>
+<p>is that we&rsquo;re able to sort of foresee our death, right?</p>
+<p>We can realize not just as animals do,</p>
+<p>sort of constantly fear in an instinctual sense,</p>
+<p>respond to all the dangers that are out there,</p>
+<p>but like understand that this ride ends eventually.</p>
+<p>And that in itself is the force behind</p>
+<p>all of the creative efforts of human nature.</p>
+<p>That&rsquo;s the philosophy.</p>
+<p>I think that makes sense, a lot of sense.</p>
+<p>I mean, animals probably don&rsquo;t think of death the same way,</p>
+<p>but humans know that your time is limited</p>
+<p>and you wanna make it count.</p>
+<p>And you can make it count in many different ways,</p>
+<p>but I think that has a lot to do with creativity</p>
+<p>and the need for humans to do something</p>
+<p>beyond just surviving.</p>
+<p>And now going from that simple definition</p>
+<p>to something that&rsquo;s the next level,</p>
+<p>I think that that could be the second level of definition,</p>
+<p>that intelligence means something,</p>
+<p>that you do something that stays behind you,</p>
+<p>that&rsquo;s more than your existence.</p>
+<p>You create something that is useful for others,</p>
+<p>is useful in the future, not just for yourself.</p>
+<p>And I think that&rsquo;s the nicest definition of intelligence</p>
+<p>within a next level.</p>
+<p>And it&rsquo;s also nice because it doesn&rsquo;t require</p>
+<p>that they are humans or biological.</p>
+<p>They could be artificial agents that are intelligence.</p>
+<p>They could achieve those kind of goals.</p>
+<p>So particular agent, the ripple effects of their existence</p>
+<p>on the entirety of the system is significant.</p>
+<p>So like they leave a trace where there&rsquo;s like a,</p>
+<p>yeah, like ripple effects.</p>
+<p>But see, then you go back to the butterfly</p>
+<p>with the flap of a wing and then you can trace</p>
+<p>a lot of like nuclear wars</p>
+<p>and all the conflicts of human history,</p>
+<p>somehow connected to that one butterfly</p>
+<p>that created all of the chaos.</p>
+<p>So maybe that&rsquo;s not, maybe that&rsquo;s a very poetic way</p>
+<p>to think that that&rsquo;s something we humans</p>
+<p>in a human centric way wanna hope we have this impact.</p>
+<p>Like that is the secondary effect of our intelligence.</p>
+<p>We&rsquo;ve had the long lasting impact on the world,</p>
+<p>but maybe the entirety of physics in the universe</p>
+<p>has a very long lasting effects.</p>
+<p>Sure, but you can also think of it.</p>
+<p>What if like the wonderful life, what if you&rsquo;re not here?</p>
+<p>Will somebody else do this?</p>
+<p>Is it something that you actually contributed</p>
+<p>because you had something unique to compute?</p>
+<p>That contribute, that&rsquo;s a pretty high bar though.</p>
+<p>Uniqueness, yeah.</p>
+<p>So, you have to be Mozart or something to actually</p>
+<p>reach that level that nobody would have developed that,</p>
+<p>but other people might have solved this equation</p>
+<p>if you didn&rsquo;t do it, but also within limited scope.</p>
+<p>I mean, during your lifetime or next year,</p>
+<p>you could contribute something that unique</p>
+<p>that other people did not see.</p>
+<p>And then that could change the way things move forward</p>
+<p>for a while.</p>
+<p>So, I don&rsquo;t think we have to be Mozart</p>
+<p>to be called intelligence,</p>
+<p>but we have this local effect that is changing.</p>
+<p>If you weren&rsquo;t there, that would not have happened.</p>
+<p>And it&rsquo;s a positive effect, of course,</p>
+<p>you want it to be a positive effect.</p>
+<p>Do you think it&rsquo;s possible to engineer</p>
+<p>into computational agents, a fear of mortality?</p>
+<p>Like, does that make any sense?</p>
+<p>So, there&rsquo;s a very trivial thing where it&rsquo;s like,</p>
+<p>you could just code in a parameter,</p>
+<p>which is how long the life ends,</p>
+<p>but more of a fear of mortality,</p>
+<p>like awareness of the way that things end</p>
+<p>and somehow encoding a complex representation of that fear,</p>
+<p>which is like, maybe as it gets closer,</p>
+<p>you become more terrified.</p>
+<p>I mean, there seems to be something really profound</p>
+<p>about this fear that&rsquo;s not currently encodable</p>
+<p>in a trivial way into our programs.</p>
+<p>Well, I think you&rsquo;re referring to the emotion of fear,</p>
+<p>something, because we have cognitively,</p>
+<p>we know that we have limited lifespan</p>
+<p>and most of us cope with it by just,</p>
+<p>hey, that&rsquo;s what the world is like</p>
+<p>and I make the most of it.</p>
+<p>But sometimes you can have like a fear that&rsquo;s not healthy,</p>
+<p>that paralyzes you, that you can&rsquo;t do anything.</p>
+<p>And somewhere in between there,</p>
+<p>not caring at all and getting paralyzed because of fear</p>
+<p>is a normal response,</p>
+<p>which is a little bit more than just logic</p>
+<p>and it&rsquo;s emotion.</p>
+<p>So now the question is, what good are emotions?</p>
+<p>I mean, they are quite complex</p>
+<p>and there are multiple dimensions of emotions</p>
+<p>and they probably do serve a survival function,</p>
+<p>heightened focus, for instance.</p>
+<p>And fear of death might be a really good emotion</p>
+<p>when you are in danger, that you recognize it,</p>
+<p>even if it&rsquo;s not logically necessarily easy to derive</p>
+<p>and you don&rsquo;t have time for that logical deduction,</p>
+<p>you may be able to recognize the situation is dangerous</p>
+<p>and this fear kicks in and you all of a sudden perceive</p>
+<p>the facts that are important for that.</p>
+<p>And I think that&rsquo;s generally is the role of emotions.</p>
+<p>It allows you to focus what&rsquo;s relevant for your situation.</p>
+<p>And maybe if fear of death plays the same kind of role,</p>
+<p>but if it consumes you and it&rsquo;s something that you think</p>
+<p>in normal life when you don&rsquo;t have to,</p>
+<p>then it&rsquo;s not healthy and then it&rsquo;s not productive.</p>
+<p>Yeah, but it&rsquo;s fascinating to think</p>
+<p>how to incorporate emotion into a computational agent.</p>
+<p>It almost seems like a silly statement to make,</p>
+<p>but it perhaps seems silly because we have</p>
+<p>such a poor understanding of the mechanism of emotion,</p>
+<p>of fear, of, I think at the core of it</p>
+<p>is another word that we know nothing about,</p>
+<p>but say a lot, which is consciousness.</p>
+<p>Do you ever in your work, or like maybe on a coffee break,</p>
+<p>think about what the heck is this thing consciousness</p>
+<p>and is it at all useful in our thinking about AI systems?</p>
+<p>Yes, it is an important question.</p>
+<p>You can build representations and functions,</p>
+<p>I think into these agents that act like emotions</p>
+<p>and consciousness perhaps.</p>
+<p>So I mentioned emotions being something</p>
+<p>that allow you to focus and pay attention,</p>
+<p>filter out what&rsquo;s important.</p>
+<p>Yeah, you can have that kind of a filter mechanism</p>
+<p>and it puts you in a different state.</p>
+<p>Your computation is in a different state.</p>
+<p>Certain things don&rsquo;t really get through</p>
+<p>and others are heightened.</p>
+<p>Now you label that box emotion.</p>
+<p>I don&rsquo;t know if that means it&rsquo;s an emotion,</p>
+<p>but it acts very much like we understand</p>
+<p>what emotions are.</p>
+<p>And we actually did some work like that,</p>
+<p>modeling hyenas who were trying to steal a kill from lions,</p>
+<p>which happens in Africa.</p>
+<p>I mean, hyenas are quite intelligent,</p>
+<p>but not really intelligent.</p>
+<p>And they have this behavior</p>
+<p>that&rsquo;s more complex than anything else they do.</p>
+<p>They can band together, if there&rsquo;s about 30 of them or so,</p>
+<p>they can coordinate their effort</p>
+<p>so that they push the lions away from a kill.</p>
+<p>Even though the lions are so strong</p>
+<p>that they could kill a hyena by striking with a paw.</p>
+<p>But when they work together and precisely time this attack,</p>
+<p>the lions will leave and they get the kill.</p>
+<p>And probably there are some states</p>
+<p>like emotions that the hyenas go through.</p>
+<p>The first, they call for reinforcements.</p>
+<p>They really want that kill, but there&rsquo;s not enough of them.</p>
+<p>So they vocalize and there&rsquo;s more people,</p>
+<p>more hyenas that come around.</p>
+<p>And then they have two emotions.</p>
+<p>They&rsquo;re very afraid of the lion, so they want to stay away,</p>
+<p>but they also have a strong affiliation between each other.</p>
+<p>And then this is the balance of the two emotions.</p>
+<p>And also, yes, they also want the kill.</p>
+<p>So it&rsquo;s both repelled and attractive.</p>
+<p>But then this affiliation eventually is so strong</p>
+<p>that when they move, they move together,</p>
+<p>they act as a unit and they can perform that function.</p>
+<p>So there&rsquo;s an interesting behavior</p>
+<p>that seems to depend on these emotions strongly</p>
+<p>and makes it possible, coordinate the actions.</p>
+<p>And I think a critical aspect of that,</p>
+<p>the way you&rsquo;re describing is emotion there</p>
+<p>is a mechanism of social communication,</p>
+<p>of a social interaction.</p>
+<p>Maybe humans won&rsquo;t even be that intelligent</p>
+<p>or most things we think of as intelligent</p>
+<p>wouldn&rsquo;t be that intelligent without the social component</p>
+<p>of interaction.</p>
+<p>Maybe much of our intelligence</p>
+<p>is essentially an outgrowth of social interaction.</p>
+<p>And maybe for the creation of intelligent agents,</p>
+<p>we have to be creating fundamentally social systems.</p>
+<p>Yes, I strongly believe that&rsquo;s true.</p>
+<p>And yes, the communication is multifaceted.</p>
+<p>I mean, they vocalize and call for friends,</p>
+<p>but they also rub against each other and they push</p>
+<p>and they do all kinds of gestures and so on.</p>
+<p>So they don&rsquo;t act alone.</p>
+<p>And I don&rsquo;t think people act alone very much either,</p>
+<p>at least normal, most of the time.</p>
+<p>And social systems are so strong for humans</p>
+<p>that I think we build everything</p>
+<p>on top of these kinds of structures.</p>
+<p>And one interesting theory around that,</p>
+<p>bigotness theory, for instance, for language,</p>
+<p>but language origins is that where did language come from?</p>
+<p>And it&rsquo;s a plausible theory that first came social systems,</p>
+<p>that you have different roles in a society.</p>
+<p>And then those roles are exchangeable,</p>
+<p>that I scratch your back, you scratch my back,</p>
+<p>we can exchange roles.</p>
+<p>And once you have the brain structures</p>
+<p>that allow you to understand actions</p>
+<p>in terms of roles that can be changed,</p>
+<p>that&rsquo;s the basis for language, for grammar.</p>
+<p>And now you can start using symbols</p>
+<p>to refer to objects in the world.</p>
+<p>And you have this flexible structure.</p>
+<p>So there&rsquo;s a social structure</p>
+<p>that&rsquo;s fundamental for language to develop.</p>
+<p>Now, again, then you have language,</p>
+<p>you can refer to things that are not here right now.</p>
+<p>And that allows you to then build all the good stuff</p>
+<p>about planning, for instance, and building things and so on.</p>
+<p>So yeah, I think that very strongly humans are social</p>
+<p>and that gives us ability to structure the world.</p>
+<p>But also as a society, we can do so much more</p>
+<p>because one person does not have to do everything.</p>
+<p>You can have different roles</p>
+<p>and together achieve a lot more.</p>
+<p>And that&rsquo;s also something</p>
+<p>we see in computational simulations today.</p>
+<p>I mean, we have multi agent systems that can perform tasks.</p>
+<p>This fascinating demonstration, Marco Dorego,</p>
+<p>I think it was, these little robots</p>
+<p>that had to navigate through an environment</p>
+<p>and there were things that are dangerous,</p>
+<p>like maybe a big chasm or some kind of groove, a hole,</p>
+<p>and they could not get across it.</p>
+<p>But if they grab each other with their gripper,</p>
+<p>they formed a robot that was much longer under the team</p>
+<p>and this way they could get across that.</p>
+<p>So this is a great example of how together</p>
+<p>we can achieve things we couldn&rsquo;t otherwise.</p>
+<p>Like the hyenas, you know, alone they couldn&rsquo;t,</p>
+<p>but as a team they could.</p>
+<p>And I think humans do that all the time.</p>
+<p>We&rsquo;re really good at that.</p>
+<p>Yeah, and the way you described the system of hyenas,</p>
+<p>it almost sounds algorithmic.</p>
+<p>Like the problem with humans is they&rsquo;re so complex,</p>
+<p>it&rsquo;s hard to think of them as algorithms.</p>
+<p>But with hyenas, there&rsquo;s a, it&rsquo;s simple enough</p>
+<p>to where it feels like, at least hopeful</p>
+<p>that it&rsquo;s possible to create computational systems</p>
+<p>that mimic that.</p>
+<p>Yeah, that&rsquo;s exactly why we looked at that.</p>
+<p>As opposed to humans.</p>
+<p>Like I said, they are intelligent,</p>
+<p>but they are not quite as intelligent as say, baboons,</p>
+<p>which would learn a lot and would be much more flexible.</p>
+<p>The hyenas are relatively rigid in what they can do.</p>
+<p>And therefore you could look at this behavior,</p>
+<p>like this is a breakthrough in evolution about to happen.</p>
+<p>That they&rsquo;ve discovered something about social structures,</p>
+<p>communication, about cooperation,</p>
+<p>and it might then spill over to other things too</p>
+<p>in thousands of years in the future.</p>
+<p>Yeah, I think the problem with baboons and humans</p>
+<p>is probably too much is going on inside the head.</p>
+<p>We won&rsquo;t be able to measure it if we&rsquo;re observing the system.</p>
+<p>With hyenas, it&rsquo;s probably easier to observe</p>
+<p>the actual decision making and the various motivations</p>
+<p>that are involved.</p>
+<p>Yeah, they are visible.</p>
+<p>And we can even quantify possibly their emotional state</p>
+<p>because they leave droppings behind.</p>
+<p>And there are chemicals there that can be associated</p>
+<p>with neurotransmitters.</p>
+<p>And we can separate what emotions they might have</p>
+<p>experienced in the last 24 hours.</p>
+<p>Yeah.</p>
+<p>What to you is the most beautiful, speaking of hyenas,</p>
+<p>what to you is the most beautiful nature inspired algorithm</p>
+<p>in your work that you&rsquo;ve come across?</p>
+<p>Something maybe early on in your work or maybe today?</p>
+<p>I think evolution computation is the most amazing method.</p>
+<p>So what fascinates me most is that with computers</p>
+<p>is that you can get more out than you put in.</p>
+<p>I mean, you can write a piece of code</p>
+<p>and your machine does what you told it.</p>
+<p>I mean, this happened to me in my freshman year.</p>
+<p>It did something very simple and I was just amazed.</p>
+<p>I was blown away that it would get the number</p>
+<p>and it would compute the result.</p>
+<p>And I didn&rsquo;t have to do it myself.</p>
+<p>Very simple.</p>
+<p>But if you push that a little further,</p>
+<p>you can have machines that learn and they might learn patterns.</p>
+<p>And already say deep learning neural networks,</p>
+<p>they can learn to recognize objects, sounds,</p>
+<p>patterns that humans have trouble with.</p>
+<p>And sometimes they do it better than humans.</p>
+<p>And that&rsquo;s so fascinating.</p>
+<p>And now if you take that one more step,</p>
+<p>you get something like evolutionary algorithms</p>
+<p>that discover things, they create things,</p>
+<p>they come up with solutions that you did not think of.</p>
+<p>And that just blows me away.</p>
+<p>It&rsquo;s so great that we can build systems, algorithms</p>
+<p>that can be in some sense smarter than we are,</p>
+<p>that they can discover solutions that we might miss.</p>
+<p>A lot of times it is because we have as humans,</p>
+<p>we have certain biases,</p>
+<p>we expect the solutions to be certain way</p>
+<p>and you don&rsquo;t put those biases into the algorithm</p>
+<p>so they are more free to explore.</p>
+<p>And evolution is just absolutely fantastic explorer.</p>
+<p>And that&rsquo;s what really is fascinating.</p>
+<p>Yeah, I think I get made fun of a bit</p>
+<p>because I currently don&rsquo;t have any kids,</p>
+<p>but you mentioned programs.</p>
+<p>I mean, do you have kids?</p>
+<p>Yeah.</p>
+<p>So maybe you could speak to this,</p>
+<p>but there&rsquo;s a magic to the creative process.</p>
+<p>Like with Spot, the Boston Dynamics Spot,</p>
+<p>but really any robot that I&rsquo;ve ever worked on,</p>
+<p>it just feels like the similar kind of joy</p>
+<p>I imagine I would have as a father.</p>
+<p>Not the same perhaps level,</p>
+<p>but like the same kind of wonderment.</p>
+<p>Like there&rsquo;s exactly this,</p>
+<p>which is like you know what you had to do initially</p>
+<p>to get this thing going.</p>
+<p>Let&rsquo;s speak on the computer science side,</p>
+<p>like what the program looks like,</p>
+<p>but something about it doing more</p>
+<p>than what the program was written on paper</p>
+<p>is like that somehow connects to the magic</p>
+<p>of this entire universe.</p>
+<p>Like that&rsquo;s like, I feel like I found God.</p>
+<p>Every time I like, it&rsquo;s like,</p>
+<p>because you&rsquo;ve really created something that&rsquo;s living.</p>
+<p>Yeah.</p>
+<p>Even if it&rsquo;s a simple program.</p>
+<p>It has a life of its own, it has the intelligence of its own.</p>
+<p>It&rsquo;s beyond what you actually thought.</p>
+<p>Yeah.</p>
+<p>And that is, I think it&rsquo;s exactly spot on.</p>
+<p>That&rsquo;s exactly what it&rsquo;s about.</p>
+<p>You created something and it has a ability</p>
+<p>to live its life and do good things</p>
+<p>and you just gave it a starting point.</p>
+<p>So in that sense, I think it&rsquo;s,</p>
+<p>that may be part of the joy actually.</p>
+<p>But you mentioned creativity in this context,</p>
+<p>especially in the context of evolutionary computation.</p>
+<p>So, we don&rsquo;t often think of algorithms as creative.</p>
+<p>So how do you think about creativity?</p>
+<p>Yeah, algorithms absolutely can be creative.</p>
+<p>They can come up with solutions that you don&rsquo;t think about.</p>
+<p>I mean, creativity can be defined.</p>
+<p>A couple of requirements has to be new.</p>
+<p>It has to be useful and it has to be surprising.</p>
+<p>And those certainly are true with, say,</p>
+<p>evolutionary computation discovering solutions.</p>
+<p>So maybe an example, for instance,</p>
+<p>we did this collaboration with MIT Media Lab,</p>
+<p>Caleb Harbus Lab, where they had</p>
+<p>a hydroponic food computer, they called it,</p>
+<p>environment that was completely computer controlled,</p>
+<p>nutrients, water, light, temperature,</p>
+<p>everything is controlled.</p>
+<p>Now, what do you do if you can control everything?</p>
+<p>Farmers know a lot about how to make plants grow</p>
+<p>in their own patch of land.</p>
+<p>But if you can control everything, it&rsquo;s too much.</p>
+<p>And it turns out that we don&rsquo;t actually</p>
+<p>know very much about it.</p>
+<p>So we built a system, evolutionary optimization system,</p>
+<p>together with a surrogate model of how plants grow</p>
+<p>and let this system explore recipes on its own.</p>
+<p>And initially, we were focusing on light,</p>
+<p>how strong, what wavelengths, how long the light was on.</p>
+<p>And we put some boundaries which we thought were reasonable.</p>
+<p>For instance, that there was at least six hours of darkness,</p>
+<p>like night, because that&rsquo;s what we have in the world.</p>
+<p>And very quickly, the system, evolution,</p>
+<p>pushed all the recipes to that limit.</p>
+<p>We were trying to grow basil.</p>
+<p>And we initially had some 200, 300 recipes,</p>
+<p>exploration as well as known recipes.</p>
+<p>But now we are going beyond that.</p>
+<p>And everything was pushed to that limit.</p>
+<p>So we look at it and say, well, we can easily just change it.</p>
+<p>Let&rsquo;s have it your way.</p>
+<p>And it turns out the system discovered</p>
+<p>that basil does not need to sleep.</p>
+<p>24 hours, lights on, and it will thrive.</p>
+<p>It will be bigger, it will be tastier.</p>
+<p>And this was a big surprise, not just to us,</p>
+<p>but also the biologists in the team</p>
+<p>that anticipated that there are some constraints</p>
+<p>that are in the world for a reason.</p>
+<p>It turns out that evolution did not have the same bias.</p>
+<p>And therefore, it discovered something that was creative.</p>
+<p>It was surprising, it was useful, and it was new.</p>
+<p>That&rsquo;s fascinating to think about the things we think</p>
+<p>that are fundamental to living systems on Earth today,</p>
+<p>whether they&rsquo;re actually fundamental</p>
+<p>or they somehow fit the constraints of the system.</p>
+<p>And all we have to do is just remove the constraints.</p>
+<p>Do you ever think about,</p>
+<p>I don&rsquo;t know how much you know</p>
+<p>about brain computer interfaces in your link.</p>
+<p>The idea there is our brains are very limited.</p>
+<p>And if we just allow, we plug in,</p>
+<p>we provide a mechanism for a computer</p>
+<p>to speak with the brain.</p>
+<p>So you&rsquo;re thereby expanding</p>
+<p>the computational power of the brain.</p>
+<p>The possibilities there,</p>
+<p>from a very high level philosophical perspective,</p>
+<p>is limitless.</p>
+<p>But I wonder how limitless it is.</p>
+<p>Are the constraints we have features</p>
+<p>that are fundamental to our intelligence?</p>
+<p>Or is this just this weird constraint</p>
+<p>in terms of our brain size and skull</p>
+<p>and lifespan and senses?</p>
+<p>It&rsquo;s just the weird little quirk of evolution.</p>
+<p>And if we just open that up,</p>
+<p>like add much more senses,</p>
+<p>add much more computational power,</p>
+<p>the intelligence will expand exponentially.</p>
+<p>Do you have a sense about constraints,</p>
+<p>the relationship of evolution and computation</p>
+<p>to the constraints of the environment?</p>
+<p>Well, at first I&rsquo;d like to comment on that,</p>
+<p>like changing the inputs to human brain.</p>
+<p>And flexibility of the brain.</p>
+<p>I think there&rsquo;s a lot of that.</p>
+<p>There are experiments that are done in animals</p>
+<p>like Mikangazuru at MIT,</p>
+<p>switching the auditory and visual information</p>
+<p>and going to the wrong part of the cortex.</p>
+<p>And the animal was still able to hear</p>
+<p>and perceive the visual environment.</p>
+<p>And there are kids that are born with severe disorders</p>
+<p>and sometimes they have to remove half of the brain,</p>
+<p>like one half, and they still grow up.</p>
+<p>They have the functions migrate to the other parts.</p>
+<p>There&rsquo;s a lot of flexibility like that.</p>
+<p>So I think it&rsquo;s quite possible to hook up the brain</p>
+<p>with different kinds of sensors, for instance,</p>
+<p>and something that we don&rsquo;t even quite understand</p>
+<p>or have today on different kinds of wavelengths</p>
+<p>or whatever they are.</p>
+<p>And then the brain can learn to make sense of it.</p>
+<p>And that I think is this good hope</p>
+<p>that these prosthetic devices, for instance, work,</p>
+<p>not because we make them so good and so easy to use,</p>
+<p>but the brain adapts to them</p>
+<p>and can learn to take advantage of them.</p>
+<p>And so in that sense, if there&rsquo;s a trouble, a problem,</p>
+<p>I think the brain can be used to correct it.</p>
+<p>Now going beyond what we have today, can you get smarter?</p>
+<p>That&rsquo;s really much harder to do.</p>
+<p>Giving the brain more input probably might overwhelm it.</p>
+<p>It would have to learn to filter it and focus</p>
+<p>and in order to use the information effectively</p>
+<p>and augmenting intelligence</p>
+<p>with some kind of external devices like that</p>
+<p>might be difficult, I think.</p>
+<p>But replacing what&rsquo;s lost, I think is quite possible.</p>
+<p>Right, so our intuition allows us to sort of imagine</p>
+<p>that we can replace what&rsquo;s been lost,</p>
+<p>but expansion beyond what we have,</p>
+<p>I mean, we&rsquo;re already one of the most,</p>
+<p>if not the most intelligent things on this earth, right?</p>
+<p>So it&rsquo;s hard to imagine.</p>
+<p>But if the brain can hold up with an order of magnitude</p>
+<p>greater set of information thrown at it,</p>
+<p>if it can do, if it can reason through that.</p>
+<p>Part of me, this is the Russian thing, I think,</p>
+<p>is I tend to think that the limitations</p>
+<p>is where the superpower is,</p>
+<p>that immortality and a huge increase in bandwidth</p>
+<p>of information by connecting computers with the brain</p>
+<p>is not going to produce greater intelligence.</p>
+<p>It might produce lesser intelligence.</p>
+<p>So I don&rsquo;t know, there&rsquo;s something about the scarcity</p>
+<p>being essential to fitness or performance,</p>
+<p>but that could be just because we&rsquo;re so limited.</p>
+<p>No, exactly, you make do with what you have,</p>
+<p>but you don&rsquo;t have to be a genius</p>
+<p>but you don&rsquo;t have to pipe it directly to the brain.</p>
+<p>I mean, we already have devices like phones</p>
+<p>where we can look up information at any point.</p>
+<p>And that can make us more productive.</p>
+<p>You don&rsquo;t have to argue about, I don&rsquo;t know,</p>
+<p>what happened in that baseball game or whatever it is,</p>
+<p>because you can look it up right away.</p>
+<p>And I think in that sense, we can learn to utilize tools.</p>
+<p>And that&rsquo;s what we have been doing for a long, long time.</p>
+<p>And we are already, the brain is already drinking</p>
+<p>the water, firehose, like vision.</p>
+<p>There&rsquo;s way more information in vision</p>
+<p>that we actually process.</p>
+<p>So brain is already good at identifying what matters.</p>
+<p>And that we can switch that from vision</p>
+<p>to some other wavelength or some other kind of modality.</p>
+<p>But I think that the same processing principles</p>
+<p>probably still apply.</p>
+<p>But also indeed this ability to have information</p>
+<p>more accessible and more relevant,</p>
+<p>I think can enhance what we do.</p>
+<p>I mean, kids today at school, they learn about DNA.</p>
+<p>I mean, things that were discovered</p>
+<p>just a couple of years ago.</p>
+<p>And it&rsquo;s already common knowledge</p>
+<p>and we are building on it.</p>
+<p>And we don&rsquo;t see a problem where</p>
+<p>there&rsquo;s too much information that we can absorb and learn.</p>
+<p>Maybe people become a little bit more narrow</p>
+<p>in what they know, they are in one field.</p>
+<p>But this information that we have accumulated,</p>
+<p>it is passed on and people are picking up on it</p>
+<p>and they are building on it.</p>
+<p>So it&rsquo;s not like we have reached the point of saturation.</p>
+<p>We have still this process that allows us to be selective</p>
+<p>and decide what&rsquo;s interesting, I think still works</p>
+<p>even with the more information we have today.</p>
+<p>Yeah, it&rsquo;s fascinating to think about</p>
+<p>like Wikipedia becoming a sensor.</p>
+<p>Like, so the fire hose of information from Wikipedia.</p>
+<p>So it&rsquo;s like you integrated directly into the brain</p>
+<p>to where you&rsquo;re thinking, like you&rsquo;re observing the world</p>
+<p>with all of Wikipedia directly piping into your brain.</p>
+<p>So like when I see a light,</p>
+<p>I immediately have like the history of who invented</p>
+<p>electricity, like integrated very quickly into.</p>
+<p>So just the way you think about the world</p>
+<p>might be very interesting</p>
+<p>if you can integrate that kind of information.</p>
+<p>What are your thoughts, if I could ask on early steps</p>
+<p>on the Neuralink side?</p>
+<p>I don&rsquo;t know if you got a chance to see,</p>
+<p>but there was a monkey playing pong</p>
+<p>through the brain computer interface.</p>
+<p>And the dream there is sort of,</p>
+<p>you&rsquo;re already replacing the thumbs essentially</p>
+<p>that you would use to play video game.</p>
+<p>The dream is to be able to increase further</p>
+<p>the interface by which you interact with the computer.</p>
+<p>Are you impressed by this?</p>
+<p>Are you worried about this?</p>
+<p>What are your thoughts as a human?</p>
+<p>I think it&rsquo;s wonderful.</p>
+<p>I think it&rsquo;s great that we could do something</p>
+<p>like that.</p>
+<p>I mean, there are devices that read your EEG for instance,</p>
+<p>and humans can learn to control things</p>
+<p>using just their thoughts in that sense.</p>
+<p>And I don&rsquo;t think it&rsquo;s that different.</p>
+<p>I mean, those signals would go to limbs,</p>
+<p>they would go to thumbs.</p>
+<p>Now the same signals go through a sensor</p>
+<p>to some computing system.</p>
+<p>It still probably has to be built on human terms,</p>
+<p>not to overwhelm them, but utilize what&rsquo;s there</p>
+<p>and sense the right kind of patterns</p>
+<p>that are easy to generate.</p>
+<p>But, oh, that I think is really quite possible</p>
+<p>and wonderful and could be very much more efficient.</p>
+<p>Is there, so you mentioned surprising</p>
+<p>being a characteristic of creativity.</p>
+<p>Is there something, you already mentioned a few examples,</p>
+<p>but is there something that jumps out at you</p>
+<p>as was particularly surprising</p>
+<p>from the various evolutionary computation systems</p>
+<p>you&rsquo;ve worked on, the solutions that were</p>
+<p>come up along the way?</p>
+<p>Not necessarily the final solutions,</p>
+<p>but maybe things that would even discarded.</p>
+<p>Is there something that just jumps to mind?</p>
+<p>It happens all the time.</p>
+<p>I mean, evolution is so creative,</p>
+<p>so good at discovering solutions you don&rsquo;t anticipate.</p>
+<p>A lot of times they are taking advantage of something</p>
+<p>that you didn&rsquo;t think was there,</p>
+<p>like a bug in the software, for instance.</p>
+<p>A lot of, there&rsquo;s a great paper,</p>
+<p>the community put it together</p>
+<p>about surprising anecdotes about evolutionary computation.</p>
+<p>A lot of them are indeed, in some software environment,</p>
+<p>there was a loophole or a bug</p>
+<p>and the system utilizes that.</p>
+<p>By the way, for people who want to read it,</p>
+<p>it&rsquo;s kind of fun to read.</p>
+<p>It&rsquo;s called The Surprising Creativity of Digital Evolution,</p>
+<p>a collection of anecdotes from the evolutionary computation</p>
+<p>and artificial life research communities.</p>
+<p>And there&rsquo;s just a bunch of stories</p>
+<p>from all the seminal figures in this community.</p>
+<p>You have a story in there that released to you,</p>
+<p>at least on the Tic Tac Toe memory bomb.</p>
+<p>So can you, I guess, describe that situation</p>
+<p>if you think that&rsquo;s still?</p>
+<p>Yeah, that&rsquo;s a quite a bit smaller scale</p>
+<p>than our basic doesn&rsquo;t need to sleep surprise,</p>
+<p>but it was actually done by students in my class,</p>
+<p>in a neural nets evolution computation class.</p>
+<p>There was an assignment.</p>
+<p>It was perhaps a final project</p>
+<p>where people built game playing AI, it was an AI class.</p>
+<p>And this one, and it was for Tic Tac Toe</p>
+<p>or five in a row in a large board.</p>
+<p>And this one team evolved a neural network</p>
+<p>to make these moves.</p>
+<p>And they set it up, the evolution.</p>
+<p>They didn&rsquo;t really know what would come out,</p>
+<p>but it turned out that they did really well.</p>
+<p>Evolution actually won the tournament.</p>
+<p>And most of the time when it won,</p>
+<p>it won because the other teams crashed.</p>
+<p>And then when we look at it, like what was going on</p>
+<p>was that evolution discovered that if it makes a move</p>
+<p>that&rsquo;s really, really far away,</p>
+<p>like millions of squares away,</p>
+<p>the other teams, the other programs has expanded memory</p>
+<p>in order to take that into account</p>
+<p>until they run out of memory and crashed.</p>
+<p>And then you win a tournament</p>
+<p>by crashing all your opponents.</p>
+<p>I think that&rsquo;s quite a profound example,</p>
+<p>which probably applies to most games,</p>
+<p>from even a game theoretic perspective,</p>
+<p>that sometimes to win, you don&rsquo;t have to be better</p>
+<p>within the rules of the game.</p>
+<p>You have to come up with ways to break your opponent&rsquo;s brain,</p>
+<p>if it&rsquo;s a human, like not through violence,</p>
+<p>but through some hack where the brain just is not,</p>
+<p>you&rsquo;re basically, how would you put it?</p>
+<p>You&rsquo;re going outside the constraints</p>
+<p>of where the brain is able to function.</p>
+<p>Expectations of your opponent.</p>
+<p>I mean, this was even Kasparov pointed that out</p>
+<p>that when Deep Blue was playing against Kasparov,</p>
+<p>that it was not playing the same way as Kasparov expected.</p>
+<p>And this has to do with not having the same biases.</p>
+<p>And that&rsquo;s really one of the strengths of the AI approach.</p>
+<p>Can you at a high level say,</p>
+<p>what are the basic mechanisms</p>
+<p>of evolutionary computation algorithms</p>
+<p>that use something that could be called</p>
+<p>an evolutionary approach?</p>
+<p>Like how does it work?</p>
+<p>What are the connections to the,</p>
+<p>what are the echoes of the connection to his biological?</p>
+<p>A lot of these algorithms really do take motivation</p>
+<p>from biology, but they are caricatures.</p>
+<p>You try to essentialize it</p>
+<p>and take the elements that you believe matter.</p>
+<p>So in evolutionary computation,</p>
+<p>it is the creation of variation</p>
+<p>and then the selection upon that.</p>
+<p>So the creation of variation,</p>
+<p>you have to have some mechanism</p>
+<p>that allow you to create new individuals</p>
+<p>that are very different from what you already have.</p>
+<p>That&rsquo;s the creativity part.</p>
+<p>And then you have to have some way of measuring</p>
+<p>how well they are doing and using that measure to select</p>
+<p>who goes to the next generation and you continue.</p>
+<p>So first you also, you have to have</p>
+<p>some kind of digital representation of an individual</p>
+<p>that can be then modified.</p>
+<p>So I guess humans in biological systems</p>
+<p>have DNA and all those kinds of things.</p>
+<p>And so you have to have similar kind of encodings</p>
+<p>in a computer program.</p>
+<p>Yes, and that is a big question.</p>
+<p>How do you encode these individuals?</p>
+<p>So there&rsquo;s a genotype, which is that encoding</p>
+<p>and then a decoding mechanism gives you the phenotype,</p>
+<p>which is the actual individual that then performs the task</p>
+<p>and in an environment can be evaluated how good it is.</p>
+<p>So even that mapping is a big question</p>
+<p>and how do you do it?</p>
+<p>But typically the representations are,</p>
+<p>either they are strings of numbers</p>
+<p>or they are some kind of trees.</p>
+<p>Those are something that we know very well</p>
+<p>in computer science and we try to do that.</p>
+<p>But they, and DNA in some sense is also a sequence</p>
+<p>and it&rsquo;s a string.</p>
+<p>So it&rsquo;s not that far from it,</p>
+<p>but DNA also has many other aspects</p>
+<p>that we don&rsquo;t take into account necessarily</p>
+<p>like there&rsquo;s folding and interactions</p>
+<p>that are other than just the sequence itself.</p>
+<p>And lots of that is not yet captured</p>
+<p>and we don&rsquo;t know whether they are really crucial.</p>
+<p>Evolution, biological evolution has produced</p>
+<p>wonderful things, but if you look at them,</p>
+<p>it&rsquo;s not necessarily the case that every piece</p>
+<p>is irreplaceable and essential.</p>
+<p>There&rsquo;s a lot of baggage because you have to construct it</p>
+<p>and it has to go through various stages</p>
+<p>and we still have appendix and we have tail bones</p>
+<p>and things like that that are not really that useful.</p>
+<p>If you try to explain them now,</p>
+<p>it would make no sense, very hard.</p>
+<p>But if you think of us as productive evolution,</p>
+<p>you can see where they came from.</p>
+<p>They were useful at one point perhaps</p>
+<p>and no longer are, but they&rsquo;re still there.</p>
+<p>So that process is complex</p>
+<p>and your representation should support it.</p>
+<p>And that is quite difficult if we are limited</p>
+<p>with strings or trees,</p>
+<p>and then we are pretty much limited</p>
+<p>what can be constructed.</p>
+<p>And one thing that we are still missing</p>
+<p>in evolutionary computation in particular</p>
+<p>is what we saw in biology, major transitions.</p>
+<p>So that you go from, for instance,</p>
+<p>single cell to multi cell organisms</p>
+<p>and eventually societies.</p>
+<p>There are transitions of level of selection</p>
+<p>and level of what a unit is.</p>
+<p>And that&rsquo;s something we haven&rsquo;t captured</p>
+<p>in evolutionary computation yet.</p>
+<p>Does that require a dramatic expansion</p>
+<p>of the representation?</p>
+<p>Is that what that is?</p>
+<p>Most likely it does, but it&rsquo;s quite,</p>
+<p>we don&rsquo;t even understand it in biology very well</p>
+<p>where it&rsquo;s coming from.</p>
+<p>So it would be really good to look at major transitions</p>
+<p>in biology, try to characterize them</p>
+<p>a little bit more in detail, what the processes are.</p>
+<p>How does a, so like a unit, a cell is no longer</p>
+<p>evaluated alone.</p>
+<p>It&rsquo;s evaluated as part of a community,</p>
+<p>a multi cell organism.</p>
+<p>Even though it could reproduce, now it can&rsquo;t alone.</p>
+<p>It has to have that environment.</p>
+<p>So there&rsquo;s a push to another level, at least a selection.</p>
+<p>And how do you make that jump to the next level?</p>
+<p>Yes, how do you make the jump?</p>
+<p>As part of the algorithm.</p>
+<p>Yeah, yeah.</p>
+<p>So we haven&rsquo;t really seen that in computation yet.</p>
+<p>And there are certainly attempts to have open ended evolution.</p>
+<p>Things that could add more complexity</p>
+<p>and start selecting at a higher level.</p>
+<p>But it is still not quite the same</p>
+<p>as going from single to multi to society,</p>
+<p>for instance, in biology.</p>
+<p>So there essentially would be,</p>
+<p>as opposed to having one agent,</p>
+<p>those agent all of a sudden spontaneously decide</p>
+<p>to then be together.</p>
+<p>And then your entire system would then be treating them</p>
+<p>as one agent.</p>
+<p>Something like that.</p>
+<p>Some kind of weird merger building.</p>
+<p>But also, so you mentioned,</p>
+<p>I think you mentioned selection.</p>
+<p>So basically there&rsquo;s an agent and they don&rsquo;t get to live on</p>
+<p>if they don&rsquo;t do well.</p>
+<p>So there&rsquo;s some kind of measure of what doing well is</p>
+<p>and isn&rsquo;t.</p>
+<p>And does mutation come into play at all in the process</p>
+<p>and what in the world does it serve?</p>
+<p>Yeah, so, and again, back to what the computational</p>
+<p>mechanisms of evolution computation are.</p>
+<p>So the way to create variation,</p>
+<p>you can take multiple individuals, two usually,</p>
+<p>but you could do more.</p>
+<p>And you exchange the parts of the representation.</p>
+<p>You do some kind of recombination.</p>
+<p>Could be crossover, for instance.</p>
+<p>In biology, you do have DNA strings that are cut</p>
+<p>and put together again.</p>
+<p>We could do something like that.</p>
+<p>And it seems to be that in biology, the crossover</p>
+<p>is really the workhorse in biological evolution.</p>
+<p>In computation, we tend to rely more on mutation.</p>
+<p>And that is making random changes</p>
+<p>into parts of the chromosome.</p>
+<p>You can try to be intelligent and target certain areas</p>
+<p>of it and make the mutations also follow some principle.</p>
+<p>Like you collect statistics of performance and correlations</p>
+<p>and try to make mutations you believe</p>
+<p>are going to be helpful.</p>
+<p>That&rsquo;s where evolution computation has moved</p>
+<p>in the last 20 years.</p>
+<p>I mean, evolution computation has been around for 50 years,</p>
+<p>but a lot of the recent&hellip;</p>
+<p>Success comes from mutation.</p>
+<p>Yes, comes from using statistics.</p>
+<p>It&rsquo;s like the rest of machine learning based on statistics.</p>
+<p>We use similar tools to guide evolution computation.</p>
+<p>And in that sense, it has diverged a bit</p>
+<p>from biological evolution.</p>
+<p>And that&rsquo;s one of the things I think we could look at again,</p>
+<p>having a weaker selection, more crossover,</p>
+<p>large populations, more time,</p>
+<p>and maybe a different kind of creativity</p>
+<p>would come out of it.</p>
+<p>We are very impatient in evolution computation today.</p>
+<p>We want answers right now, right, quickly.</p>
+<p>And if somebody doesn&rsquo;t perform, kill it.</p>
+<p>And biological evolution doesn&rsquo;t work quite that way.</p>
+<p>And it&rsquo;s more patient.</p>
+<p>Yes, much more patient.</p>
+<p>So I guess we need to add some kind of mating,</p>
+<p>some kind of like dating mechanisms,</p>
+<p>like marriage maybe in there.</p>
+<p>So into our algorithms to improve the combination</p>
+<p>as opposed to all mutation doing all of the work.</p>
+<p>Yeah, and many ways of being successful.</p>
+<p>Usually in evolution computation, we have one goal,</p>
+<p>play this game really well compared to others.</p>
+<p>But in biology, there are many ways of being successful.</p>
+<p>You can build niches.</p>
+<p>You can be stronger, faster, larger, or smarter,</p>
+<p>or eat this or eat that.</p>
+<p>So there are many ways to solve the same problem of survival.</p>
+<p>And that then breeds creativity.</p>
+<p>And it allows more exploration.</p>
+<p>And eventually you get solutions</p>
+<p>that are perhaps more creative</p>
+<p>rather than trying to go from initial population directly</p>
+<p>or more or less directly to your maximum fitness,</p>
+<p>which you measure as just one metric.</p>
+<p>So in a broad sense, before we talk about neuroevolution,</p>
+<p>do you see evolutionary computation</p>
+<p>as more effective than deep learning in a certain context?</p>
+<p>Machine learning, broadly speaking.</p>
+<p>Maybe even supervised machine learning.</p>
+<p>I don&rsquo;t know if you want to draw any kind of lines</p>
+<p>and distinctions and borders</p>
+<p>where they rub up against each other kind of thing,</p>
+<p>where one is more effective than the other</p>
+<p>in the current state of things.</p>
+<p>Yes, of course, they are very different</p>
+<p>and they address different kinds of problems.</p>
+<p>And the deep learning has been really successful</p>
+<p>in domains where we have a lot of data.</p>
+<p>And that means not just data about situations,</p>
+<p>but also what the right answers were.</p>
+<p>So labeled examples, or they might be predictions,</p>
+<p>maybe weather prediction where the data itself becomes labels.</p>
+<p>What happened, what the weather was today</p>
+<p>and what it will be tomorrow.</p>
+<p>So they are very effective deep learning methods</p>
+<p>on that kind of tasks.</p>
+<p>But there are other kinds of tasks</p>
+<p>where we don&rsquo;t really know what the right answer is.</p>
+<p>Game playing, for instance,</p>
+<p>but many robotics tasks and actions in the world,</p>
+<p>decision making and actual practical applications,</p>
+<p>like treatments and healthcare</p>
+<p>or investment in stock market.</p>
+<p>Many tasks are like that.</p>
+<p>We don&rsquo;t know and we&rsquo;ll never know</p>
+<p>what the optimal answers were.</p>
+<p>And there you need different kinds of approach.</p>
+<p>Reinforcement learning is one of those.</p>
+<p>Reinforcement learning comes from biology as well.</p>
+<p>Agents learn during their lifetime.</p>
+<p>They eat berries and sometimes they get sick</p>
+<p>and then they don&rsquo;t and get stronger.</p>
+<p>And then that&rsquo;s how you learn.</p>
+<p>And evolution is also a mechanism like that</p>
+<p>at a different timescale because you have a population,</p>
+<p>not an individual during his lifetime,</p>
+<p>but an entire population as a whole</p>
+<p>can discover what works.</p>
+<p>And there you can afford individuals that don&rsquo;t work out.</p>
+<p>They will, you know, everybody dies</p>
+<p>and you have a next generation</p>
+<p>and they will be better than the previous one.</p>
+<p>So that&rsquo;s the big difference between these methods.</p>
+<p>They apply to different kinds of problems.</p>
+<p>And in particular, there&rsquo;s often a comparison</p>
+<p>that&rsquo;s kind of interesting and important</p>
+<p>between reinforcement learning and evolutionary computation.</p>
+<p>And initially, reinforcement learning</p>
+<p>was about individual learning during their lifetime.</p>
+<p>And evolution is more engineering.</p>
+<p>You don&rsquo;t care about the lifetime.</p>
+<p>You don&rsquo;t care about all the individuals that are tested.</p>
+<p>You only care about the final result.</p>
+<p>The last one, the best candidate that evolution produced.</p>
+<p>In that sense, they also apply to different kinds of problems.</p>
+<p>And now that boundary is starting to blur a bit.</p>
+<p>You can use evolution as an online method</p>
+<p>and reinforcement learning to create engineering solutions,</p>
+<p>but that&rsquo;s still roughly the distinction.</p>
+<p>And from the point of view of what algorithm you wanna use,</p>
+<p>if you have something where there is a cost for every trial,</p>
+<p>reinforcement learning might be your choice.</p>
+<p>Now, if you have a domain</p>
+<p>where you can use a surrogate perhaps,</p>
+<p>so you don&rsquo;t have much of a cost for trial,</p>
+<p>and you want to have surprises,</p>
+<p>you want to explore more broadly,</p>
+<p>then this population based method is perhaps a better choice</p>
+<p>because you can try things out that you wouldn&rsquo;t afford</p>
+<p>when you&rsquo;re doing reinforcement learning.</p>
+<p>There&rsquo;s very few things as entertaining</p>
+<p>as watching either evolutionary computation</p>
+<p>or reinforcement learning teaching a simulated robot to walk.</p>
+<p>Maybe there&rsquo;s a higher level question</p>
+<p>that could be asked here,</p>
+<p>but do you find this whole space of applications</p>
+<p>in the robotics interesting for evolution computation?</p>
+<p>Yeah, yeah, very much.</p>
+<p>And indeed, there are fascinating videos of that.</p>
+<p>And that&rsquo;s actually one of the examples</p>
+<p>where you can contrast the difference.</p>
+<p>Between reinforcement learning and evolution.</p>
+<p>Yes, so if you have a reinforcement learning agent,</p>
+<p>it tries to be conservative</p>
+<p>because it wants to walk as long as possible and be stable.</p>
+<p>But if you have evolutionary computation,</p>
+<p>it can afford these agents that go haywire.</p>
+<p>They fall flat on their face and they could take a step</p>
+<p>and then they jump and then again fall flat.</p>
+<p>And eventually what comes out of that</p>
+<p>is something like a falling that&rsquo;s controlled.</p>
+<p>You take another step and another step</p>
+<p>and you no longer fall.</p>
+<p>Instead you run, you go fast.</p>
+<p>So that&rsquo;s a way of discovering something</p>
+<p>that&rsquo;s hard to discover step by step incrementally.</p>
+<p>Because you can afford these evolutionist dead ends,</p>
+<p>although they are not entirely dead ends</p>
+<p>in the sense that they can serve as stepping stones.</p>
+<p>When you take two of those, put them together,</p>
+<p>you get something that works even better.</p>
+<p>And that is a great example of this kind of discovery.</p>
+<p>Yeah, learning to walk is fascinating.</p>
+<p>I talked quite a bit to Russ Tedrick who&rsquo;s at MIT.</p>
+<p>There&rsquo;s a community of folks</p>
+<p>who just roboticists who love the elegance</p>
+<p>and beauty of movement.</p>
+<p>And walking bipedal robotics is beautiful,</p>
+<p>but also exceptionally dangerous</p>
+<p>in the sense that like you&rsquo;re constantly falling essentially</p>
+<p>if you want to do elegant movement.</p>
+<p>And the discovery of that is,</p>
+<p>I mean, it&rsquo;s such a good example</p>
+<p>of that the discovery of a good solution</p>
+<p>sometimes requires a leap of faith and patience</p>
+<p>and all those kinds of things.</p>
+<p>I wonder what other spaces</p>
+<p>where you have to discover those kinds of things in.</p>
+<p>Yeah, another interesting direction</p>
+<p>is learning for virtual creatures, learning to walk.</p>
+<p>We did a study in simulation, obviously,</p>
+<p>that you create those creatures,</p>
+<p>not just their controller, but also their body.</p>
+<p>So you have cylinders, you have muscles,</p>
+<p>you have joints and sensors,</p>
+<p>and you&rsquo;re creating creatures that look quite different.</p>
+<p>Some of them have multiple legs.</p>
+<p>Some of them have no legs at all.</p>
+<p>And then the goal was to get them to move, to walk, to run.</p>
+<p>And what was interesting is that</p>
+<p>when you evolve the controller together with the body,</p>
+<p>you get movements that look natural</p>
+<p>because they&rsquo;re optimized for that physical setup.</p>
+<p>And these creatures, you start believing them</p>
+<p>that they&rsquo;re alive because they walk in a way</p>
+<p>that you would expect somebody</p>
+<p>with that kind of a setup to walk.</p>
+<p>Yeah, there&rsquo;s something subjective also about that, right?</p>
+<p>I&rsquo;ve been thinking a lot about that,</p>
+<p>especially in the human robot interaction context.</p>
+<p>You know, I mentioned Spot, the Boston Dynamics robot.</p>
+<p>There is something about human robot communication.</p>
+<p>Let&rsquo;s say, let&rsquo;s put it in another context,</p>
+<p>something about human and dog context,</p>
+<p>like a living dog,</p>
+<p>where there&rsquo;s a dance of communication.</p>
+<p>First of all, the eyes, you both look at the same thing</p>
+<p>and the dogs communicate with their eyes as well.</p>
+<p>Like if you&rsquo;re a human,</p>
+<p>if you and a dog want to deal with a particular object,</p>
+<p>you will look at the person,</p>
+<p>the dog will look at you and then look at the object</p>
+<p>and look back at you, all those kinds of things.</p>
+<p>But there&rsquo;s also just the elegance of movement.</p>
+<p>I mean, there&rsquo;s the, of course, the tail</p>
+<p>and all those kinds of mechanisms of communication</p>
+<p>and it all seems natural and often joyful.</p>
+<p>And for robots to communicate that,</p>
+<p>it&rsquo;s really difficult how to figure that out</p>
+<p>because it&rsquo;s almost seems impossible to hard code in.</p>
+<p>You can hard code it for demo purpose or something like that,</p>
+<p>but it&rsquo;s essentially choreographed.</p>
+<p>Like if you watch some of the Boston Dynamics videos</p>
+<p>where they&rsquo;re dancing,</p>
+<p>all of that is choreographed by human beings.</p>
+<p>But to learn how to, with your movement,</p>
+<p>demonstrate a naturalness and elegance, that&rsquo;s fascinating.</p>
+<p>Of course, in the physical space,</p>
+<p>that&rsquo;s very difficult to do to learn the kind of scale</p>
+<p>that you&rsquo;re referring to,</p>
+<p>but the hope is that you could do that in simulation</p>
+<p>and then transfer it into the physical space</p>
+<p>if you&rsquo;re able to model the robot sufficiently naturally.</p>
+<p>Yeah, and sometimes I think that that requires</p>
+<p>a theory of mind on the side of the robot</p>
+<p>that they understand what you&rsquo;re doing</p>
+<p>because they themselves are doing something similar.</p>
+<p>And that&rsquo;s a big question too.</p>
+<p>We talked about intelligence in general</p>
+<p>and the social aspect of intelligence.</p>
+<p>And I think that&rsquo;s what is required</p>
+<p>that we humans understand other humans</p>
+<p>because we assume that they are similar to us.</p>
+<p>We have one simulation we did a while ago.</p>
+<p>Ken Stanley did that.</p>
+<p>Two robots that were competing simulation, like I said,</p>
+<p>they were foraging for food to gain energy.</p>
+<p>And then when they were really strong,</p>
+<p>they would bounce into the other robot</p>
+<p>and win if they were stronger.</p>
+<p>And we watched evolution discover</p>
+<p>more and more complex behaviors.</p>
+<p>They first went to the nearest food</p>
+<p>and then they started to plot a trajectory</p>
+<p>so they get more, but then they started to pay attention</p>
+<p>what the other robot was doing.</p>
+<p>And in the end, there was a behavior</p>
+<p>where one of the robots, the most sophisticated one,</p>
+<p>sensed where the food pieces were</p>
+<p>and identified that the other robot</p>
+<p>was close to two of a very far distance</p>
+<p>and there was one more food nearby.</p>
+<p>So it faked, now I&rsquo;m using anthropomorphizing terms,</p>
+<p>but it made a move towards those other pieces</p>
+<p>in order for the other robot to actually go and get them</p>
+<p>because it knew that the last remaining piece of food</p>
+<p>was close and the other robot would have to travel</p>
+<p>a long way, lose its energy</p>
+<p>and then lose the whole competition.</p>
+<p>So there was like emergence of something</p>
+<p>like a theory of mind,</p>
+<p>knowing what the other robot would do,</p>
+<p>to guide it towards bad behavior in order to win.</p>
+<p>So we can get things like that happen in simulation as well.</p>
+<p>But that&rsquo;s a complete natural emergence</p>
+<p>of a theory of mind.</p>
+<p>But I feel like if you add a little bit of a place</p>
+<p>for a theory of mind to emerge like easier,</p>
+<p>then you can go really far.</p>
+<p>I mean, some of these things with evolution, you know,</p>
+<p>you add a little bit of design in there, it&rsquo;ll really help.</p>
+<p>And I tend to think that a very simple theory of mind</p>
+<p>will go a really long way for cooperation between agents</p>
+<p>and certainly for human robot interaction.</p>
+<p>Like it doesn&rsquo;t have to be super complicated.</p>
+<p>I&rsquo;ve gotten a chance in the autonomous vehicle space</p>
+<p>to watch vehicles interact with pedestrians</p>
+<p>or pedestrians interacting with vehicles in general.</p>
+<p>I mean, you would think that there&rsquo;s a very complicated</p>
+<p>theory of mind thing going on, but I have a sense,</p>
+<p>it&rsquo;s not well understood yet,</p>
+<p>but I have a sense it&rsquo;s pretty dumb.</p>
+<p>Like it&rsquo;s pretty simple.</p>
+<p>There&rsquo;s a social contract there between humans,</p>
+<p>a human driver and a human crossing the road</p>
+<p>where the human crossing the road trusts</p>
+<p>that the human in the car is not going to murder them.</p>
+<p>And there&rsquo;s something about, again,</p>
+<p>back to that mortality thing.</p>
+<p>There&rsquo;s some dance of ethics and morality that&rsquo;s built in,</p>
+<p>that you&rsquo;re mapping your own morality</p>
+<p>onto the person in the car.</p>
+<p>And even if they&rsquo;re driving at a speed where you think</p>
+<p>if they don&rsquo;t stop, they&rsquo;re going to kill you,</p>
+<p>you trust that if you step in front of them,</p>
+<p>they&rsquo;re going to hit the brakes.</p>
+<p>And there&rsquo;s that weird dance that we do</p>
+<p>that I think is a pretty simple model,</p>
+<p>but of course it&rsquo;s very difficult to introspect what it is.</p>
+<p>And autonomous robots in the human robot interaction</p>
+<p>context have to build that.</p>
+<p>Current robots are much less than what you&rsquo;re describing.</p>
+<p>They&rsquo;re currently just afraid of everything.</p>
+<p>They&rsquo;re more, they&rsquo;re not the kind that fall</p>
+<p>and discover how to run.</p>
+<p>They&rsquo;re more like, please don&rsquo;t touch anything.</p>
+<p>Don&rsquo;t hurt anything.</p>
+<p>Stay as far away from humans as possible.</p>
+<p>Treat humans as ballistic objects that you can&rsquo;t,</p>
+<p>that you do with a large spatial envelope,</p>
+<p>make sure you do not collide with.</p>
+<p>That&rsquo;s how, like you mentioned,</p>
+<p>Elon Musk thinks about autonomous vehicles.</p>
+<p>I tend to think autonomous vehicles need to have</p>
+<p>a beautiful dance between human and machine,</p>
+<p>where it&rsquo;s not just the collision avoidance problem,</p>
+<p>but a weird dance.</p>
+<p>Yeah, I think these systems need to be able to predict</p>
+<p>what will happen, what the other agent is going to do,</p>
+<p>and then have a structure of what the goals are</p>
+<p>and whether those predictions actually meet the goals.</p>
+<p>And you can go probably pretty far</p>
+<p>with that relatively simple setup already,</p>
+<p>but to call it a theory of mind, I don&rsquo;t think you need to.</p>
+<p>I mean, it doesn&rsquo;t matter whether the pedestrian</p>
+<p>has a mind, it&rsquo;s an object,</p>
+<p>and we can predict what we will do.</p>
+<p>And then we can predict what the states will be</p>
+<p>in the future and whether they are desirable states.</p>
+<p>Stay away from those that are undesirable</p>
+<p>and go towards those that are desirable.</p>
+<p>So it&rsquo;s a relatively simple functional approach to that.</p>
+<p>Where do we really need the theory of mind?</p>
+<p>Maybe when you start interacting</p>
+<p>and you&rsquo;re trying to get the other agent to do something</p>
+<p>and jointly, so that you can jointly,</p>
+<p>collaboratively achieve something,</p>
+<p>then it becomes more complex.</p>
+<p>Well, I mean, even with the pedestrians,</p>
+<p>you have to have a sense of where their attention,</p>
+<p>actual attention in terms of their gaze is,</p>
+<p>but also there&rsquo;s this vision science,</p>
+<p>people talk about this all the time.</p>
+<p>Just because I&rsquo;m looking at it</p>
+<p>doesn&rsquo;t mean I&rsquo;m paying attention to it.</p>
+<p>So figuring out what is the person looking at?</p>
+<p>What is the sensory information they&rsquo;ve taken in?</p>
+<p>And the theory of mind piece comes in is</p>
+<p>what are they actually attending to cognitively?</p>
+<p>And also what are they thinking about?</p>
+<p>Like what is the computation they&rsquo;re performing?</p>
+<p>And you have probably maybe a few options</p>
+<p>for the pedestrian crossing.</p>
+<p>It doesn&rsquo;t have to be,</p>
+<p>it&rsquo;s like a variable with a few discrete states,</p>
+<p>but you have to have a good estimation</p>
+<p>which of the states that brain is in</p>
+<p>for the pedestrian case.</p>
+<p>And the same is for attending with a robot.</p>
+<p>If you&rsquo;re collaborating to pick up an object,</p>
+<p>you have to figure out is the human,</p>
+<p>like there&rsquo;s a few discrete states</p>
+<p>that the human could be in.</p>
+<p>You have to predict that by observing the human.</p>
+<p>And that seems like a machine learning problem</p>
+<p>to figure out what&rsquo;s the human up to.</p>
+<p>It&rsquo;s not as simple as sort of planning</p>
+<p>just because they move their arm</p>
+<p>means the arm will continue moving in this direction.</p>
+<p>You have to really have a model</p>
+<p>of what they&rsquo;re thinking about</p>
+<p>and what&rsquo;s the motivation behind the movement of the arm.</p>
+<p>Here we are talking about relatively simple physical actions,</p>
+<p>but you can take that the higher levels also</p>
+<p>like to predict what the people are going to do,</p>
+<p>you need to know what their goals are.</p>
+<p>What are they trying to, are they exercising?</p>
+<p>Are they just starting to get somewhere?</p>
+<p>But even higher level, I mean,</p>
+<p>you are predicting what people will do in their career,</p>
+<p>what their life themes are.</p>
+<p>Do they want to be famous, rich, or do good?</p>
+<p>And that takes a lot more information,</p>
+<p>but it allows you to then predict their actions,</p>
+<p>what choices they might make.</p>
+<p>So how does evolution and computation apply</p>
+<p>to the world of neural networks?</p>
+<p>I&rsquo;ve seen quite a bit of work from you and others</p>
+<p>in the world of neural evolution.</p>
+<p>So maybe first, can you say, what is this field?</p>
+<p>Yeah, neural evolution is a combination of neural networks</p>
+<p>and evolution computation in many different forms,</p>
+<p>but the early versions were simply using evolution</p>
+<p>as a way to construct a neural network</p>
+<p>instead of say, stochastic gradient descent</p>
+<p>or backpropagation.</p>
+<p>Because evolution can evolve these parameters,</p>
+<p>weight values in a neural network,</p>
+<p>just like any other string of numbers, you can do that.</p>
+<p>And that&rsquo;s useful because some cases you don&rsquo;t have</p>
+<p>those targets that you need to backpropagate from.</p>
+<p>And it might be an agent that&rsquo;s running a maze</p>
+<p>or a robot playing a game or something.</p>
+<p>You don&rsquo;t, again, you don&rsquo;t know what the right answers are,</p>
+<p>you don&rsquo;t have backprop,</p>
+<p>but this way you can still evolve a neural net.</p>
+<p>And neural networks are really good at these tasks,</p>
+<p>because they recognize patterns</p>
+<p>and they generalize, interpolate between known situations.</p>
+<p>So you want to have a neural network in such a task,</p>
+<p>even if you don&rsquo;t have a supervised targets.</p>
+<p>So that&rsquo;s a reason and that&rsquo;s a solution.</p>
+<p>And also more recently,</p>
+<p>now when we have all this deep learning literature,</p>
+<p>it turns out that we can use evolution</p>
+<p>to optimize many aspects of those designs.</p>
+<p>The deep learning architectures have become so complex</p>
+<p>that there&rsquo;s little hope for us little humans</p>
+<p>to understand their complexity</p>
+<p>and what actually makes a good design.</p>
+<p>And now we can use evolution to give that design for you.</p>
+<p>And it might mean optimizing hyperparameters,</p>
+<p>like the depth of layers and so on,</p>
+<p>or the topology of the network,</p>
+<p>how many layers, how they&rsquo;re connected,</p>
+<p>but also other aspects like what activation functions</p>
+<p>you use where in the network during the learning process,</p>
+<p>or what loss function you use,</p>
+<p>you could generalize that.</p>
+<p>You could generate that, even data augmentation,</p>
+<p>all the different aspects of the design</p>
+<p>of deep learning experiments could be optimized that way.</p>
+<p>So that&rsquo;s an interaction between two mechanisms.</p>
+<p>But there&rsquo;s also, when we get more into cognitive science</p>
+<p>and the topics that we&rsquo;ve been talking about,</p>
+<p>you could have learning mechanisms</p>
+<p>at two level timescales.</p>
+<p>So you do have an evolution</p>
+<p>that gives you baby neural networks</p>
+<p>that then learn during their lifetime.</p>
+<p>And you have this interaction of two timescales.</p>
+<p>And I think that can potentially be really powerful.</p>
+<p>Now, in biology, we are not born with all our faculties.</p>
+<p>We have to learn, we have a developmental period.</p>
+<p>In humans, it&rsquo;s really long and most animals have something.</p>
+<p>And probably the reason is that evolution of DNA</p>
+<p>is not detailed enough or plentiful enough to describe them.</p>
+<p>We can describe how to set the brain up,</p>
+<p>but we can, evolution can decide on a starting point</p>
+<p>and then have a learning algorithm</p>
+<p>that will construct the final product.</p>
+<p>And this interaction of intelligent, well,</p>
+<p>evolution that has produced a good starting point</p>
+<p>for the specific purpose of learning from it</p>
+<p>with the interaction with the environment,</p>
+<p>that can be a really powerful mechanism</p>
+<p>for constructing brains and constructing behaviors.</p>
+<p>I like how you walk back from intelligence.</p>
+<p>So optimize starting point, maybe.</p>
+<p>Yeah, okay, there&rsquo;s a lot of fascinating things to ask here.</p>
+<p>And this is basically this dance between neural networks</p>
+<p>and evolution and computation</p>
+<p>could go into the category of automated machine learning</p>
+<p>to where you&rsquo;re optimizing,</p>
+<p>whether it&rsquo;s hyperparameters of the topology</p>
+<p>or hyperparameters taken broadly.</p>
+<p>But the topology thing is really interesting.</p>
+<p>I mean, that&rsquo;s not really done that effectively</p>
+<p>or throughout the history of machine learning</p>
+<p>has not been done.</p>
+<p>Usually there&rsquo;s a fixed architecture.</p>
+<p>Maybe there&rsquo;s a few components you&rsquo;re playing with,</p>
+<p>but to grow a neural network, essentially,</p>
+<p>the way you grow an organism is really fascinating space.</p>
+<p>How hard is it, do you think, to grow a neural network?</p>
+<p>And maybe what kind of neural networks</p>
+<p>are more amenable to this kind of idea than others?</p>
+<p>I&rsquo;ve seen quite a bit of work on recurrent neural networks.</p>
+<p>Is there some architectures that are friendlier than others?</p>
+<p>And is this just a fun, small scale set of experiments</p>
+<p>or do you have hope that we can be able to grow</p>
+<p>powerful neural networks?</p>
+<p>I think we can.</p>
+<p>And most of the work up to now</p>
+<p>is taking architectures that already exist</p>
+<p>that humans have designed and try to optimize them further.</p>
+<p>And you can totally do that.</p>
+<p>A few years ago, we did an experiment.</p>
+<p>We took a winner of the image captioning competition</p>
+<p>and the architecture and just broke it into pieces</p>
+<p>and took the pieces.</p>
+<p>And that was our search base.</p>
+<p>See if you can do better.</p>
+<p>And we indeed could, 15% better performance</p>
+<p>by just searching around the network design</p>
+<p>that humans had come up with,</p>
+<p>Oreo vinyls and others.</p>
+<p>So, but that&rsquo;s starting from a point</p>
+<p>that humans have produced,</p>
+<p>but we could do something more general.</p>
+<p>It doesn&rsquo;t have to be that kind of network.</p>
+<p>The hard part is, there are a couple of challenges.</p>
+<p>One of them is to define the search base.</p>
+<p>What are your elements and how you put them together.</p>
+<p>And the space is just really, really big.</p>
+<p>So you have to somehow constrain it</p>
+<p>and have some hunch what will work</p>
+<p>because otherwise everything is possible.</p>
+<p>And another challenge is that in order to evaluate</p>
+<p>how good your design is, you have to train it.</p>
+<p>I mean, you have to actually try it out.</p>
+<p>And that&rsquo;s currently very expensive, right?</p>
+<p>I mean, deep learning networks may take days to train</p>
+<p>while imagine you having a population of a hundred</p>
+<p>and have to run it for a hundred generations.</p>
+<p>It&rsquo;s not yet quite feasible computationally.</p>
+<p>It will be, but also there&rsquo;s a large carbon footprint</p>
+<p>and all that.</p>
+<p>I mean, we are using a lot of computation for doing it.</p>
+<p>So intelligent methods and intelligent,</p>
+<p>I mean, we have to do some science</p>
+<p>in order to figure out what the right representations are</p>
+<p>and right operators are, and how do we evaluate them</p>
+<p>without having to fully train them.</p>
+<p>And that is where the current research is</p>
+<p>and we&rsquo;re making progress on all those fronts.</p>
+<p>So yes, there are certain architectures</p>
+<p>that are more amenable to that approach,</p>
+<p>but also I think we can create our own architecture</p>
+<p>and all representations that are even better at that.</p>
+<p>And do you think it&rsquo;s possible to do like a tiny baby network</p>
+<p>that grows into something that can do state of the art</p>
+<p>on like even the simple data set like MNIST,</p>
+<p>and just like it just grows into a gigantic monster</p>
+<p>that&rsquo;s the world&rsquo;s greatest handwriting recognition system?</p>
+<p>Yeah, there are approaches like that.</p>
+<p>Esteban Real and Cochlear for instance,</p>
+<p>I worked on evolving a smaller network</p>
+<p>and then systematically expanding it to a larger one.</p>
+<p>Your elements are already there and scaling it up</p>
+<p>will just give you more power.</p>
+<p>So again, evolution gives you that starting point</p>
+<p>and then there&rsquo;s a mechanism that gives you the final result</p>
+<p>and a very powerful approach.</p>
+<p>But you could also simulate the actual growth process.</p>
+<p>And like I said before, evolving a starting point</p>
+<p>and then evolving or training the network,</p>
+<p>there&rsquo;s not that much work that&rsquo;s been done on that yet.</p>
+<p>We need some kind of a simulation environment</p>
+<p>so the interactions at will,</p>
+<p>the supervised environment doesn&rsquo;t really,</p>
+<p>it&rsquo;s not as easily usable here.</p>
+<p>Sorry, the interaction between neural networks?</p>
+<p>Yeah, the neural networks that you&rsquo;re creating,</p>
+<p>interacting with the world</p>
+<p>and learning from these sequences of interactions,</p>
+<p>perhaps communication with others.</p>
+<p>That&rsquo;s awesome.</p>
+<p>We would like to get there,</p>
+<p>but just the task of simulating something</p>
+<p>is at that level is very hard.</p>
+<p>It&rsquo;s very difficult.</p>
+<p>I love the idea.</p>
+<p>I mean, one of the powerful things about evolution</p>
+<p>on Earth is the predators and prey emerged.</p>
+<p>And like there&rsquo;s just like,</p>
+<p>there&rsquo;s bigger fish and smaller fish</p>
+<p>and it&rsquo;s fascinating to think</p>
+<p>that you could have neural networks competing</p>
+<p>against each other in one neural network</p>
+<p>being able to destroy another one.</p>
+<p>There&rsquo;s like wars of neural networks competing</p>
+<p>to solve the MNIST problem, I don&rsquo;t know.</p>
+<p>Yeah, yeah.</p>
+<p>Oh, totally, yeah, yeah, yeah.</p>
+<p>And we actually simulated also that prey</p>
+<p>and it was interesting what happened there,</p>
+<p>Padmini Rajagopalan did this</p>
+<p>and Kay Holkamp was a zoologist.</p>
+<p>So we had, again,</p>
+<p>we had simulated hyenas, simulated zebras.</p>
+<p>Nice.</p>
+<p>And initially, the hyenas just tried to hunt them</p>
+<p>and when they actually stumbled upon the zebra,</p>
+<p>they ate it and were happy.</p>
+<p>And then the zebras learned to escape</p>
+<p>and the hyenas learned to team up.</p>
+<p>And actually two of them approached</p>
+<p>in different directions.</p>
+<p>And now the zebras, their next step,</p>
+<p>they generated a behavior where they split</p>
+<p>in different directions,</p>
+<p>just like actually gazelles do</p>
+<p>when they are being hunted.</p>
+<p>They confuse the predator</p>
+<p>by going in different directions.</p>
+<p>That emerged and then more hyenas joined</p>
+<p>and kind of circled them.</p>
+<p>And then when they circled them,</p>
+<p>they could actually herd the zebras together</p>
+<p>and eat multiple zebras.</p>
+<p>So there was like an arms race of predators and prey.</p>
+<p>And they gradually developed more complex behaviors,</p>
+<p>some of which we actually do see in nature.</p>
+<p>And this kind of coevolution,</p>
+<p>that&rsquo;s competitive coevolution,</p>
+<p>it&rsquo;s a fascinating topic</p>
+<p>because there&rsquo;s a promise or possibility</p>
+<p>that you will discover something new</p>
+<p>that you don&rsquo;t already know.</p>
+<p>You didn&rsquo;t build it in.</p>
+<p>It came from this arms race.</p>
+<p>It&rsquo;s hard to keep the arms race going.</p>
+<p>It&rsquo;s hard to have rich enough simulation</p>
+<p>that supports all of these complex behaviors.</p>
+<p>But at least for several steps,</p>
+<p>we&rsquo;ve already seen it in this predator prey scenario, yeah.</p>
+<p>First of all, it&rsquo;s fascinating to think about this context</p>
+<p>in terms of evolving architectures.</p>
+<p>So I&rsquo;ve studied Tesla autopilot for a long time.</p>
+<p>It&rsquo;s one particular implementation of an AI system</p>
+<p>that&rsquo;s operating in the real world.</p>
+<p>I find it fascinating because of the scale</p>
+<p>at which it&rsquo;s used out in the real world.</p>
+<p>And I&rsquo;m not sure if you&rsquo;re familiar with that system much,</p>
+<p>but, you know, Andre Kapathy leads that team</p>
+<p>on the machine learning side.</p>
+<p>And there&rsquo;s a multitask network, multiheaded network,</p>
+<p>where there&rsquo;s a core, but it&rsquo;s trained on particular tasks.</p>
+<p>And there&rsquo;s a bunch of different heads</p>
+<p>that are trained on that.</p>
+<p>Is there some lessons from evolutionary computation</p>
+<p>or neuroevolution that could be applied</p>
+<p>to this kind of multiheaded beast</p>
+<p>that&rsquo;s operating in the real world?</p>
+<p>Yes, it&rsquo;s a very good problem for neuroevolution.</p>
+<p>And the reason is that when you have multiple tasks,</p>
+<p>they support each other.</p>
+<p>So let&rsquo;s say you&rsquo;re learning to classify X ray images</p>
+<p>to different pathologies.</p>
+<p>So you have one task is to classify this disease</p>
+<p>and another one, this disease, another one, this one.</p>
+<p>And when you&rsquo;re learning from one disease,</p>
+<p>that forces certain kinds of internal representations</p>
+<p>and embeddings, and they can serve</p>
+<p>as a helpful starting point for the other tasks.</p>
+<p>So you are combining the wisdom of multiple tasks</p>
+<p>into these representations.</p>
+<p>And it turns out that you can do better</p>
+<p>in each of these tasks</p>
+<p>when you are learning simultaneously other tasks</p>
+<p>than you would by one task alone.</p>
+<p>Which is a fascinating idea in itself, yeah.</p>
+<p>Yes, and people do that all the time.</p>
+<p>I mean, you use knowledge of domains that you know</p>
+<p>in new domains, and certainly neural network can do that.</p>
+<p>When neuroevolution comes in is that,</p>
+<p>what&rsquo;s the best way to combine these tasks?</p>
+<p>Now there&rsquo;s architectural design that allow you to decide</p>
+<p>where and how the embeddings,</p>
+<p>the internal representations are combined</p>
+<p>and how much you combine them.</p>
+<p>And there&rsquo;s quite a bit of research on that.</p>
+<p>And my team, Elliot Meyerson has worked on that</p>
+<p>in particular, like what is a good internal representation</p>
+<p>that supports multiple tasks?</p>
+<p>And we&rsquo;re getting to understand how that&rsquo;s constructed</p>
+<p>and what&rsquo;s in it, so that it is in a space</p>
+<p>that supports multiple different heads, like you said.</p>
+<p>And that I think is fundamentally</p>
+<p>how biological intelligence works as well.</p>
+<p>You don&rsquo;t build a representation just for one task.</p>
+<p>You try to build something that&rsquo;s general,</p>
+<p>not only so that you can do better in one task</p>
+<p>or multiple tasks, but also future tasks</p>
+<p>and future challenges.</p>
+<p>So you learn the structure of the world</p>
+<p>and that helps you in all kinds of future challenges.</p>
+<p>And so you&rsquo;re trying to design a representation</p>
+<p>that will support an arbitrary set of tasks</p>
+<p>in a particular sort of class of problem.</p>
+<p>Yeah, and also it turns out,</p>
+<p>and that&rsquo;s again, a surprise that Elliot found</p>
+<p>was that those tasks don&rsquo;t have to be very related.</p>
+<p>You know, you can learn to do better vision</p>
+<p>by learning language or better language</p>
+<p>by learning about DNA structure.</p>
+<p>No, somehow the world.</p>
+<p>Yeah, it rhymes.</p>
+<p>The world rhymes, even if it&rsquo;s very disparate fields.</p>
+<p>I mean, on that small topic, let me ask you,</p>
+<p>because you&rsquo;ve also on the competition neuroscience side,</p>
+<p>you worked on both language and vision.</p>
+<p>What&rsquo;s the connection between the two?</p>
+<p>What&rsquo;s more, maybe there&rsquo;s a bunch of ways to ask this,</p>
+<p>but what&rsquo;s more difficult to build</p>
+<p>from an engineering perspective</p>
+<p>and evolutionary perspective,</p>
+<p>the human language system or the human vision system</p>
+<p>or the equivalent of in the AI space language and vision,</p>
+<p>or is it the best as the multitask idea</p>
+<p>that you&rsquo;re speaking to</p>
+<p>that they need to be deeply integrated?</p>
+<p>Yeah, absolutely the latter.</p>
+<p>Learning both at the same time,</p>
+<p>I think is a fascinating direction in the future.</p>
+<p>So we have data sets where there&rsquo;s visual component</p>
+<p>as well as verbal descriptions, for instance,</p>
+<p>and that way you can learn a deeper representation,</p>
+<p>a more useful representation for both.</p>
+<p>But it&rsquo;s still an interesting question</p>
+<p>of which one is easier.</p>
+<p>I mean, recognizing objects</p>
+<p>or even understanding sentences, that&rsquo;s relatively possible,</p>
+<p>but where it becomes, where the challenges are</p>
+<p>is to understand the world.</p>
+<p>Like the visual world, the 3D,</p>
+<p>what are the objects doing</p>
+<p>and predicting what will happen, the relationships.</p>
+<p>That&rsquo;s what makes vision difficult.</p>
+<p>And language, obviously it&rsquo;s what is being said,</p>
+<p>what the meaning is.</p>
+<p>And the meaning doesn&rsquo;t stop at who did what to whom.</p>
+<p>There are goals and plans and themes,</p>
+<p>and you eventually have to understand</p>
+<p>the entire human society and history</p>
+<p>in order to understand the sentence very much fully.</p>
+<p>There are plenty of examples of those kinds</p>
+<p>of short sentences when you bring in</p>
+<p>all the world knowledge to understand it.</p>
+<p>And that&rsquo;s the big challenge.</p>
+<p>Now we are far from that,</p>
+<p>but even just bringing in the visual world</p>
+<p>together with the sentence will give you already</p>
+<p>a lot deeper understanding of what&rsquo;s happening.</p>
+<p>And I think that that&rsquo;s where we&rsquo;re going very soon.</p>
+<p>I mean, we&rsquo;ve had ImageNet for a long time,</p>
+<p>and now we have all these text collections,</p>
+<p>but having both together and then learning</p>
+<p>a semantic understanding of what is happening,</p>
+<p>I think that that will be the next step</p>
+<p>in the next few years.</p>
+<p>Yeah, you&rsquo;re starting to see that</p>
+<p>with all the work with Transformers,</p>
+<p>was the community, the AI community</p>
+<p>starting to dip their toe into this idea</p>
+<p>of having language models that are now doing stuff</p>
+<p>with images, with vision, and then connecting the two.</p>
+<p>I mean, right now it&rsquo;s like these little explorations</p>
+<p>we&rsquo;re literally dipping the toe in,</p>
+<p>but maybe at some point we&rsquo;ll just dive into the pool</p>
+<p>and it&rsquo;ll just be all seen as the same thing.</p>
+<p>I do still wonder what&rsquo;s more fundamental,</p>
+<p>whether vision is, whether we don&rsquo;t think</p>
+<p>about vision correctly.</p>
+<p>Maybe the fact, because we&rsquo;re humans</p>
+<p>and we see things as beautiful and so on,</p>
+<p>and because we have cameras that are taking pixels</p>
+<p>as a 2D image, that we don&rsquo;t sufficiently think</p>
+<p>about vision as language.</p>
+<p>Maybe Chomsky is right all along,</p>
+<p>that vision is fundamental to,</p>
+<p>sorry, that language is fundamental to everything,</p>
+<p>to even cognition, to even consciousness.</p>
+<p>The base layer is all language,</p>
+<p>not necessarily like English, but some weird</p>
+<p>abstract representation, linguistic representation.</p>
+<p>Yeah, well, earlier we talked about the social structures</p>
+<p>and that may be what&rsquo;s underlying the language,</p>
+<p>and that&rsquo;s the more fundamental part,</p>
+<p>and then language has been added on top of that.</p>
+<p>Language emerges from the social interaction.</p>
+<p>Yeah, that&rsquo;s a very good guess.</p>
+<p>We are visual animals, though.</p>
+<p>A lot of the brain is dedicated to vision,</p>
+<p>and also, when we think about various abstract concepts,</p>
+<p>we usually reduce that to vision and images,</p>
+<p>and that&rsquo;s, you know, we go to a whiteboard,</p>
+<p>you draw pictures of very abstract concepts.</p>
+<p>So we tend to resort to that quite a bit,</p>
+<p>and that&rsquo;s a fundamental representation.</p>
+<p>It&rsquo;s probably possible that it predated language even.</p>
+<p>I mean, animals, a lot of, they don&rsquo;t talk,</p>
+<p>but they certainly do have vision,</p>
+<p>and language is interesting development</p>
+<p>in from mastication, from eating.</p>
+<p>You develop an organ that actually can produce sound</p>
+<p>to manipulate them.</p>
+<p>Maybe that was an accident.</p>
+<p>Maybe that was something that was available</p>
+<p>and then allowed us to do the communication,</p>
+<p>or maybe it was gestures.</p>
+<p>Sign language could have been the original proto language.</p>
+<p>We don&rsquo;t quite know, but the language is more fundamental</p>
+<p>than the medium in which it&rsquo;s communicated,</p>
+<p>and I think that it comes from those representations.</p>
+<p>Now, in current world, they are so strongly integrated,</p>
+<p>it&rsquo;s really hard to say which one is fundamental.</p>
+<p>You look at the brain structures and even visual cortex,</p>
+<p>which is supposed to be very much just vision.</p>
+<p>Well, if you are thinking of semantic concepts,</p>
+<p>you&rsquo;re thinking of language, visual cortex lights up.</p>
+<p>It&rsquo;s still useful, even for language computations.</p>
+<p>So there are common structures underlying them.</p>
+<p>So utilize what you need.</p>
+<p>And when you are understanding a scene,</p>
+<p>you&rsquo;re understanding relationships.</p>
+<p>Well, that&rsquo;s not so far from understanding relationships</p>
+<p>between words and concepts.</p>
+<p>So I think that that&rsquo;s how they are integrated.</p>
+<p>Yeah, and there&rsquo;s dreams, and once we close our eyes,</p>
+<p>there&rsquo;s still a world in there somehow operating</p>
+<p>and somehow possibly the visual system somehow integrated</p>
+<p>into all of it.</p>
+<p>I tend to enjoy thinking about aliens</p>
+<p>and thinking about the sad thing to me</p>
+<p>about extraterrestrial intelligent life,</p>
+<p>that if it visited us here on Earth,</p>
+<p>or if we came on Mars or maybe another solar system,</p>
+<p>another galaxy one day,</p>
+<p>that us humans would not be able to detect it</p>
+<p>or communicate with it or appreciate,</p>
+<p>like it&rsquo;d be right in front of our nose</p>
+<p>and we were too self obsessed to see it.</p>
+<p>Not self obsessed, but our tools,</p>
+<p>our frameworks of thinking would not detect it.</p>
+<p>As a good movie, Arrival and so on,</p>
+<p>where Stephen Wolfram and his son,</p>
+<p>I think were part of developing this alien language</p>
+<p>of how aliens would communicate with humans.</p>
+<p>Do you ever think about that kind of stuff</p>
+<p>where if humans and aliens would be able to communicate</p>
+<p>with each other, like if we met each other at some,</p>
+<p>okay, we could do SETI, which is communicating</p>
+<p>from across a very big distance,</p>
+<p>but also just us, if you did a podcast with an alien,</p>
+<p>do you think we&rsquo;d be able to find a common language</p>
+<p>and a common methodology of communication?</p>
+<p>I think from a computational perspective,</p>
+<p>the way to ask that is you have very fundamentally</p>
+<p>different creatures, agents that are created,</p>
+<p>would they be able to find a common language?</p>
+<p>Yes, I do think about that.</p>
+<p>I mean, I think a lot of people who are in computing,</p>
+<p>they, and AI in particular, they got into it</p>
+<p>because they were fascinated with science fiction</p>
+<p>and all of these options.</p>
+<p>I mean, Star Trek generated all kinds of devices</p>
+<p>that we have now, they envisioned it first</p>
+<p>and it&rsquo;s a great motivator to think about things like that.</p>
+<p>And I, so one, and again, being a computational scientist</p>
+<p>and trying to build intelligent agents,</p>
+<p>what I would like to do is have a simulation</p>
+<p>where the agents actually evolve communication,</p>
+<p>not just communication, we&rsquo;ve done that,</p>
+<p>people have done that many times,</p>
+<p>that they communicate, they signal and so on,</p>
+<p>but actually develop a language.</p>
+<p>And language means grammar, it means all these</p>
+<p>social structures and on top of that,</p>
+<p>grammatical structures.</p>
+<p>And we do it under various conditions</p>
+<p>and actually try to identify what conditions</p>
+<p>are necessary for it to come out.</p>
+<p>And then we can start asking that kind of questions.</p>
+<p>Are those languages that emerge</p>
+<p>in those different simulated environments,</p>
+<p>are they understandable to us?</p>
+<p>Can we somehow make a translation?</p>
+<p>We can make it a concrete question.</p>
+<p>So machine translation of evolved languages.</p>
+<p>And so like languages that evolve come up with,</p>
+<p>can we translate, like I have a Google translate</p>
+<p>for the evolved languages.</p>
+<p>Yes, and if we do that enough,</p>
+<p>we have perhaps an idea what an alien language</p>
+<p>might be like, the space of where those languages can be.</p>
+<p>Because we can set up their environment differently.</p>
+<p>It doesn&rsquo;t need to be gravity.</p>
+<p>You can have all kinds of, societies can be different.</p>
+<p>They may have no predators.</p>
+<p>They may have all, everybody&rsquo;s a predator.</p>
+<p>All kinds of situations.</p>
+<p>And then see what the space possibly is</p>
+<p>where those languages are and what the difficulties are.</p>
+<p>That&rsquo;d be really good actually to do that</p>
+<p>before the aliens come here.</p>
+<p>Yes, it&rsquo;s good practice.</p>
+<p>On the similar connection,</p>
+<p>you can think of AI systems as aliens.</p>
+<p>Is there ways to evolve a communication scheme</p>
+<p>for, there&rsquo;s a field you can call it explainable AI,</p>
+<p>for AI systems to be able to communicate.</p>
+<p>So you evolve a bunch of agents,</p>
+<p>but for some of them to be able to talk to you also.</p>
+<p>So to evolve a way for agents to be able to communicate</p>
+<p>about their world to us humans.</p>
+<p>Do you think that there&rsquo;s possible mechanisms</p>
+<p>for doing that?</p>
+<p>We can certainly try.</p>
+<p>And if it&rsquo;s an evolution competition system,</p>
+<p>for instance, you reward those solutions</p>
+<p>that are actually functional.</p>
+<p>That communication makes sense.</p>
+<p>It allows us to together again, achieve common goals.</p>
+<p>I think that&rsquo;s possible.</p>
+<p>But even from that paper that you mentioned,</p>
+<p>the anecdotes, it&rsquo;s quite likely also</p>
+<p>that the agents learn to lie and fake</p>
+<p>and do all kinds of things like that.</p>
+<p>I mean, we see that in even very low level,</p>
+<p>like bacterial evolution.</p>
+<p>There are cheaters.</p>
+<p>And who&rsquo;s to say that what they say</p>
+<p>is actually what they think.</p>
+<p>But that&rsquo;s what I&rsquo;m saying,</p>
+<p>that there would have to be some common goal</p>
+<p>so that we can evaluate whether that communication</p>
+<p>is at least useful.</p>
+<p>They may be saying things just to make us feel good</p>
+<p>or get us to do what we want,</p>
+<p>but they would not turn them off or something.</p>
+<p>But so we would have to understand</p>
+<p>their internal representations much better</p>
+<p>to really make sure that that translation is critical.</p>
+<p>But it can be useful.</p>
+<p>And I think it&rsquo;s possible to do that.</p>
+<p>There are examples where visualizations</p>
+<p>are automatically created</p>
+<p>so that we can look into the system</p>
+<p>and that language is not that far from it.</p>
+<p>I mean, it is a way of communicating and logging</p>
+<p>what you&rsquo;re doing in some interpretable way.</p>
+<p>I think a fascinating topic, yeah, to do that.</p>
+<p>Yeah, you&rsquo;re making me realize</p>
+<p>that it&rsquo;s a good scientific question</p>
+<p>whether lying is an effective mechanism</p>
+<p>for integrating yourself and succeeding</p>
+<p>in a social network, in a world that is social.</p>
+<p>I tend to believe that honesty and love</p>
+<p>are evolutionary advantages in an environment</p>
+<p>where there&rsquo;s a network of intelligent agents.</p>
+<p>But it&rsquo;s also very possible that dishonesty</p>
+<p>and manipulation and even violence,</p>
+<p>all those kinds of things might be more beneficial.</p>
+<p>That&rsquo;s the old open question about good versus evil.</p>
+<p>But I tend to, I mean, I don&rsquo;t know if it&rsquo;s a hopeful,</p>
+<p>maybe I&rsquo;m delusional, but it feels like karma is a thing,</p>
+<p>which is like long term, the agents,</p>
+<p>they&rsquo;re just kind to others sometimes for no reason</p>
+<p>will do better.</p>
+<p>In a society that&rsquo;s not highly constrained on resources.</p>
+<p>So like people start getting weird</p>
+<p>and evil towards each other and bad</p>
+<p>when the resources are very low relative</p>
+<p>to the needs of the populace,</p>
+<p>especially at the basic level, like survival, shelter,</p>
+<p>food, all those kinds of things.</p>
+<p>But I tend to believe that once you have</p>
+<p>those things established, then, well, not to believe,</p>
+<p>I guess I hope that AI systems will be honest.</p>
+<p>But it&rsquo;s scary to think about the Turing test,</p>
+<p>AI systems that will eventually pass the Turing test</p>
+<p>will be ones that are exceptionally good at lying.</p>
+<p>That&rsquo;s a terrifying concept.</p>
+<p>I mean, I don&rsquo;t know.</p>
+<p>First of all, sort of from somebody who studied language</p>
+<p>and obviously are not just a world expert in AI,</p>
+<p>but somebody who dreams about the future of the field.</p>
+<p>Do you hope, do you think there&rsquo;ll be human level</p>
+<p>or superhuman level intelligences in the future</p>
+<p>that we eventually build?</p>
+<p>Well, I definitely hope that we can get there.</p>
+<p>One, I think important perspective</p>
+<p>is that we are building AI to help us.</p>
+<p>That it is a tool like cars or language</p>
+<p>or communication, AI will help us be more productive.</p>
+<p>And that is always a condition.</p>
+<p>It&rsquo;s not something that we build and let run</p>
+<p>and it becomes an entity of its own</p>
+<p>that doesn&rsquo;t care about us.</p>
+<p>Now, of course, really find the future,</p>
+<p>maybe that might be possible,</p>
+<p>but not in the foreseeable future when we are building it.</p>
+<p>And therefore we always in a position of limiting</p>
+<p>what it can or cannot do.</p>
+<p>And your point about lying is very interesting.</p>
+<p>Even in these hyenas societies, for instance,</p>
+<p>when a number of these hyenas band together</p>
+<p>and they take a risk and steal the kill,</p>
+<p>there are always hyenas that hang back</p>
+<p>and don&rsquo;t participate in that risky behavior,</p>
+<p>but they walk in later and join the party</p>
+<p>after the kill.</p>
+<p>And there are even some that may be ineffective</p>
+<p>and cause others to have harm.</p>
+<p>So, and like I said, even bacteria cheat.</p>
+<p>And we see it in biology,</p>
+<p>there&rsquo;s always some element on opportunity.</p>
+<p>If you have a society, I think that is just because</p>
+<p>if you have a society,</p>
+<p>in order for society to be effective,</p>
+<p>you have to have this cooperation</p>
+<p>and you have to have trust.</p>
+<p>And if you have enough of agents</p>
+<p>who are able to trust each other,</p>
+<p>you can achieve a lot more.</p>
+<p>But if you have trust,</p>
+<p>you also have opportunity for cheaters and liars.</p>
+<p>And I don&rsquo;t think that&rsquo;s ever gonna go away.</p>
+<p>There will be hopefully a minority</p>
+<p>so that they don&rsquo;t get in the way.</p>
+<p>And we studied in these hyena simulations,</p>
+<p>like what the proportion needs to be</p>
+<p>before it is no longer functional.</p>
+<p>And you can point out that you can tolerate</p>
+<p>a few cheaters and a few liars</p>
+<p>and the society can still function.</p>
+<p>And that&rsquo;s probably going to happen</p>
+<p>when we build these systems at Autonomously Learn.</p>
+<p>The really successful ones are honest</p>
+<p>because that&rsquo;s the best way of getting things done.</p>
+<p>But there probably are also intelligent agents</p>
+<p>that find that they can achieve their goals</p>
+<p>by bending the rules or cheating.</p>
+<p>So that could be a huge benefit</p>
+<p>as opposed to having fixed AI systems.</p>
+<p>Say we build an AGI system and deploying millions of them,</p>
+<p>it&rsquo;d be that are exactly the same.</p>
+<p>There might be a huge benefit to introducing</p>
+<p>sort of from like an evolution computation perspective,</p>
+<p>a lot of variation.</p>
+<p>Sort of like diversity in all its forms is beneficial</p>
+<p>even if some people are assholes</p>
+<p>or some robots are assholes.</p>
+<p>So like it&rsquo;s beneficial to have that</p>
+<p>because you can&rsquo;t always a priori know</p>
+<p>what&rsquo;s good, what&rsquo;s bad.</p>
+<p>But that&rsquo;s a fascinating.</p>
+<p>Absolutely.</p>
+<p>Diversity is the bread and butter.</p>
+<p>I mean, if you&rsquo;re running an evolution,</p>
+<p>you see diversity is the one fundamental thing</p>
+<p>you have to have.</p>
+<p>And absolutely, also, it&rsquo;s not always good diversity.</p>
+<p>It may be something that can be destructive.</p>
+<p>We had in these hyenas simulations,</p>
+<p>we have hyenas that just are suicidal.</p>
+<p>They just run and get killed.</p>
+<p>But they form the basis of those</p>
+<p>who actually are really fast,</p>
+<p>but stop before they get killed</p>
+<p>and eventually turn into this mob.</p>
+<p>So there might be something useful there</p>
+<p>if it&rsquo;s recombined with something else.</p>
+<p>So I think that as long as we can tolerate some of that,</p>
+<p>it may turn into something better.</p>
+<p>You may change the rules</p>
+<p>because it&rsquo;s so much more efficient to do something</p>
+<p>that was actually against the rules before.</p>
+<p>And we&rsquo;ve seen society change over time</p>
+<p>quite a bit along those lines.</p>
+<p>That there were rules in society</p>
+<p>that we don&rsquo;t believe are fair anymore,</p>
+<p>even though they were considered proper behavior before.</p>
+<p>So things are changing.</p>
+<p>And I think that in that sense,</p>
+<p>I think it&rsquo;s a good idea to be able to tolerate</p>
+<p>some of that cheating</p>
+<p>because eventually we might turn into something better.</p>
+<p>So yeah, I think this is a message</p>
+<p>to the trolls and the assholes of the internet</p>
+<p>that you too have a beautiful purpose</p>
+<p>in this human ecosystem.</p>
+<p>So I appreciate you very much.</p>
+<p>In moderate quantities, yeah.</p>
+<p>In moderate quantities.</p>
+<p>So there&rsquo;s a whole field of artificial life.</p>
+<p>I don&rsquo;t know if you&rsquo;re connected to this field,</p>
+<p>if you pay attention.</p>
+<p>Is, do you think about this kind of thing?</p>
+<p>Is there impressive demonstration to you</p>
+<p>of artificial life?</p>
+<p>Do you think of the agency you work with</p>
+<p>in the evolutionary computation perspective as life?</p>
+<p>And where do you think this is headed?</p>
+<p>Like, is there interesting systems</p>
+<p>that we&rsquo;ll be creating more and more</p>
+<p>that make us redefine, maybe rethink</p>
+<p>about the nature of life?</p>
+<p>Different levels of definition and goals there.</p>
+<p>I mean, at some level, artificial life</p>
+<p>can be considered multiagent systems</p>
+<p>that build a society that again, achieves a goal.</p>
+<p>And it might be robots that go into a building</p>
+<p>and clean it up or after an earthquake or something.</p>
+<p>You can think of that as an artificial life problem</p>
+<p>in some sense.</p>
+<p>Or you can really think of it, artificial life,</p>
+<p>as a simulation of life and a tool to understand</p>
+<p>what life is and how life evolved on earth.</p>
+<p>And like I said, in artificial life conference,</p>
+<p>there are branches of that conference sessions</p>
+<p>of people who really worry about molecular designs</p>
+<p>and the start of life, like I said,</p>
+<p>primordial soup where eventually</p>
+<p>you get something self replicating.</p>
+<p>And they&rsquo;re really trying to build that.</p>
+<p>So it&rsquo;s a whole range of topics.</p>
+<p>And I think that artificial life is a great tool</p>
+<p>to understand life.</p>
+<p>And there are questions like sustainability,</p>
+<p>species, we&rsquo;re losing species.</p>
+<p>How bad is it?</p>
+<p>Is it natural?</p>
+<p>Is there a tipping point?</p>
+<p>And where are we going?</p>
+<p>I mean, like the hyena evolution,</p>
+<p>we may have understood that there&rsquo;s a pivotal point</p>
+<p>in their evolution.</p>
+<p>They discovered cooperation and coordination.</p>
+<p>Artificial life simulations can identify that</p>
+<p>and maybe encourage things like that.</p>
+<p>And also societies can be seen as a form of life itself.</p>
+<p>I mean, we&rsquo;re not talking about biological evolution,</p>
+<p>evolution of societies.</p>
+<p>Maybe some of the same phenomena emerge in that domain</p>
+<p>and having artificial life simulations and understanding</p>
+<p>could help us build better societies.</p>
+<p>Yeah, and thinking from a meme perspective</p>
+<p>of from Richard Dawkins,</p>
+<p>that maybe the organisms, ideas of the organisms,</p>
+<p>not the humans in these societies that from,</p>
+<p>it&rsquo;s almost like reframing what is exactly evolving.</p>
+<p>Maybe the interesting,</p>
+<p>the humans aren&rsquo;t the interesting thing</p>
+<p>as the contents of our minds is the interesting thing.</p>
+<p>And that&rsquo;s what&rsquo;s multiplying.</p>
+<p>And that&rsquo;s actually multiplying and evolving</p>
+<p>in a much faster timescale.</p>
+<p>And that maybe has more power on the trajectory</p>
+<p>of life on earth than does biological evolution</p>
+<p>is the evolution of these ideas.</p>
+<p>Yes, and it&rsquo;s fascinating, like I said before,</p>
+<p>that we can keep up somehow biologically.</p>
+<p>We evolved to a point where we can keep up</p>
+<p>with this meme evolution, literature, internet.</p>
+<p>We understand DNA and we understand fundamental particles.</p>
+<p>We didn&rsquo;t start that way a thousand years ago.</p>
+<p>And we haven&rsquo;t evolved biologically very much,</p>
+<p>but somehow our minds are able to extend.</p>
+<p>And therefore AI can be seen also as one such step</p>
+<p>that we created and it&rsquo;s our tool.</p>
+<p>And it&rsquo;s part of that meme evolution that we created,</p>
+<p>even if our biological evolution does not progress as fast.</p>
+<p>And us humans might only be able to understand so much.</p>
+<p>We&rsquo;re keeping up so far,</p>
+<p>or we think we&rsquo;re keeping up so far,</p>
+<p>but we might need AI systems to understand.</p>
+<p>Maybe like the physics of the universe is operating,</p>
+<p>look at strength theory.</p>
+<p>Maybe it&rsquo;s operating in much higher dimensions.</p>
+<p>Maybe we&rsquo;re totally, because of our cognitive limitations,</p>
+<p>are not able to truly internalize the way this world works.</p>
+<p>And so we&rsquo;re running up against the limitation</p>
+<p>of our own minds.</p>
+<p>And we have to create these next level organisms</p>
+<p>like AI systems that would be able to understand much deeper,</p>
+<p>like really understand what it means to live</p>
+<p>in a multi dimensional world</p>
+<p>that&rsquo;s outside of the four dimensions,</p>
+<p>the three of space and one of time.</p>
+<p>Translation, and generally we can deal with the world,</p>
+<p>even if you don&rsquo;t understand all the details,</p>
+<p>we can use computers, even though we don&rsquo;t,</p>
+<p>most of us don&rsquo;t know all the structure</p>
+<p>that&rsquo;s underneath or drive a car.</p>
+<p>I mean, there are many components,</p>
+<p>especially new cars that you don&rsquo;t quite fully know,</p>
+<p>but you have the interface, you have an abstraction of it</p>
+<p>that allows you to operate it and utilize it.</p>
+<p>And I think that that&rsquo;s perfectly adequate</p>
+<p>and we can build on it.</p>
+<p>And AI can play a similar role.</p>
+<p>I have to ask about beautiful artificial life systems</p>
+<p>or evolutionary computation systems.</p>
+<p>Cellular automata to me,</p>
+<p>I remember it was a game changer for me early on in life</p>
+<p>when I saw Conway&rsquo;s Game of Life</p>
+<p>who recently passed away, unfortunately.</p>
+<p>And it&rsquo;s beautiful</p>
+<p>how much complexity can emerge from such simple rules.</p>
+<p>I just don&rsquo;t, somehow that simplicity</p>
+<p>is such a powerful illustration</p>
+<p>and also humbling because it feels like I personally,</p>
+<p>from my perspective,</p>
+<p>understand almost nothing about this world</p>
+<p>because like my intuition fails completely</p>
+<p>how complexity can emerge from such simplicity.</p>
+<p>Like my intuition fails, I think,</p>
+<p>is the biggest problem I have.</p>
+<p>Do you find systems like that beautiful?</p>
+<p>Is there, do you think about cellular automata?</p>
+<p>Because cellular automata don&rsquo;t really have,</p>
+<p>and many other artificial life systems</p>
+<p>don&rsquo;t necessarily have an objective.</p>
+<p>Maybe that&rsquo;s a wrong way to say it.</p>
+<p>It&rsquo;s almost like it&rsquo;s just evolving and creating.</p>
+<p>And there&rsquo;s not even a good definition</p>
+<p>of what it means to create something complex</p>
+<p>and interesting and surprising,</p>
+<p>all those words that you said.</p>
+<p>Is there some of those systems that you find beautiful?</p>
+<p>Yeah, yeah.</p>
+<p>And similarly, evolution does not have a goal.</p>
+<p>It is responding to current situation</p>
+<p>and survival then creates more complexity</p>
+<p>and therefore we have something that we perceive as progress</p>
+<p>but that&rsquo;s not what evolution is inherently set to do.</p>
+<p>And yeah, that&rsquo;s really fascinating</p>
+<p>how a simple set of rules or simple mappings can,</p>
+<p>how from such simple mappings, complexity can emerge.</p>
+<p>So it&rsquo;s a question of emergence and self organization.</p>
+<p>And the game of life is one of the simplest ones</p>
+<p>and very visual and therefore it drives home the point</p>
+<p>that it&rsquo;s possible that nonlinear interactions</p>
+<p>and this kind of complexity can emerge from them.</p>
+<p>And biology and evolution is along the same lines.</p>
+<p>We have simple representations.</p>
+<p>DNA, if you really think of it, it&rsquo;s not that complex.</p>
+<p>It&rsquo;s a long sequence of them, there&rsquo;s lots of them</p>
+<p>but it&rsquo;s a very simple representation.</p>
+<p>And similarly with evolutionary computation,</p>
+<p>whatever string or tree representation we have</p>
+<p>and the operations, the amount of code that&rsquo;s required</p>
+<p>to manipulate those, it&rsquo;s really, really little.</p>
+<p>And of course, game of life even less.</p>
+<p>So how complexity emerges from such simple principles,</p>
+<p>that&rsquo;s absolutely fascinating.</p>
+<p>The challenge is to be able to control it</p>
+<p>and guide it and direct it so that it becomes useful.</p>
+<p>And like game of life is fascinating to look at</p>
+<p>and evolution, all the forms that come out is fascinating</p>
+<p>but can we actually make it useful for us?</p>
+<p>And efficient because if you actually think about</p>
+<p>each of the cells in the game of life as a living organism,</p>
+<p>there&rsquo;s a lot of death that has to happen</p>
+<p>to create anything interesting.</p>
+<p>And so I guess the question is for us humans</p>
+<p>that are mortal and then life ends quickly,</p>
+<p>we wanna kinda hurry up and make sure we take evolution,</p>
+<p>the trajectory that is a little bit more efficient</p>
+<p>than the alternatives.</p>
+<p>And that touches upon something we talked about earlier</p>
+<p>that evolution competition is very impatient.</p>
+<p>We have a goal, we want it right away</p>
+<p>whereas this biology has a lot of time and deep time</p>
+<p>and weak pressure and large populations.</p>
+<p>One great example of this is the novelty search.</p>
+<p>So evolutionary computation</p>
+<p>where you don&rsquo;t actually specify a fitness goal,</p>
+<p>something that is your actual thing that you want</p>
+<p>but you just reward solutions that are different</p>
+<p>from what you&rsquo;ve seen before, nothing else.</p>
+<p>And you know what?</p>
+<p>You actually discover things</p>
+<p>that are interesting and useful that way.</p>
+<p>Ken Stanley and Joel Lehmann did this one study</p>
+<p>where they actually tried to evolve walking behavior</p>
+<p>on robots.</p>
+<p>And that&rsquo;s actually, we talked about earlier</p>
+<p>where your robot actually failed in all kinds of ways</p>
+<p>and eventually discovered something</p>
+<p>that was a very efficient walk.</p>
+<p>And it was because they rewarded things that were different</p>
+<p>that you were able to discover something.</p>
+<p>And I think that this is crucial</p>
+<p>because in order to be really different</p>
+<p>from what you already have,</p>
+<p>you have to utilize what is there in a domain</p>
+<p>to create something really different.</p>
+<p>So you have encoded the fundamentals of your world</p>
+<p>and then you make changes to those fundamentals</p>
+<p>you get further away.</p>
+<p>So that&rsquo;s probably what&rsquo;s happening</p>
+<p>in these systems of emergence.</p>
+<p>That the fundamentals are there.</p>
+<p>And when you follow those fundamentals</p>
+<p>you get into points</p>
+<p>and some of those are actually interesting and useful.</p>
+<p>Now, even in that robotic Walker simulation</p>
+<p>there was a large set of garbage,</p>
+<p>but among them, there were some of these gems.</p>
+<p>And then those are the ones</p>
+<p>that somehow you have to outside recognize and make useful.</p>
+<p>But this kind of productive systems</p>
+<p>if you code them the right kind of principles</p>
+<p>I think that encode the structure of the domain</p>
+<p>then you will get to these solutions and discoveries.</p>
+<p>It feels like that might also be a good way to live life.</p>
+<p>So let me ask, do you have advice for young people today</p>
+<p>about how to live life or how to succeed in their career</p>
+<p>or forget career, just succeed in life</p>
+<p>from an evolution and computation perspective?</p>
+<p>Yes, yes, definitely.</p>
+<p>Explore, diversity, exploration and individuals</p>
+<p>take classes in music, history, philosophy,</p>
+<p>math, engineering, see connections between them,</p>
+<p>travel, learn a language.</p>
+<p>I mean, all this diversity is fascinating</p>
+<p>and we have it at our fingertips today.</p>
+<p>It&rsquo;s possible, you have to make a bit of an effort</p>
+<p>because it&rsquo;s not easy, but the rewards are wonderful.</p>
+<p>Yeah, there&rsquo;s something interesting</p>
+<p>about an objective function of new experiences.</p>
+<p>So try to figure out, I mean,</p>
+<p>what is the maximally new experience I could have today?</p>
+<p>And that sort of that novelty, optimizing for novelty</p>
+<p>for some period of time might be very interesting way</p>
+<p>to sort of maximally expand the sets of experiences you had</p>
+<p>and then ground from that perspective,</p>
+<p>like what will be the most fulfilling trajectory</p>
+<p>through life.</p>
+<p>Of course, the flip side of that is where I come from.</p>
+<p>Again, maybe Russian, I don&rsquo;t know.</p>
+<p>But the choice has a detrimental effect, I think,</p>
+<p>at least from my mind where scarcity has an empowering effect.</p>
+<p>So if I sort of, if I have very little of something</p>
+<p>and only one of that something, I will appreciate it deeply</p>
+<p>until I came to Texas recently</p>
+<p>and I&rsquo;ve been pigging out on delicious, incredible meat.</p>
+<p>I&rsquo;ve been fasting a lot, so I need to do that again.</p>
+<p>But when you fast for a few days,</p>
+<p>that the first taste of a food is incredible.</p>
+<p>So the downside of exploration is that somehow,</p>
+<p>maybe you can correct me,</p>
+<p>but somehow you don&rsquo;t get to experience deeply</p>
+<p>any one of the particular moments,</p>
+<p>but that could be a psychology thing.</p>
+<p>That could be just a very human peculiar,</p>
+<p>flaw.</p>
+<p>Yeah, I didn&rsquo;t mean that you superficially explore.</p>
+<p>I mean, you can.</p>
+<p>Explore deeply.</p>
+<p>Yeah, so you don&rsquo;t have to explore 100 things,</p>
+<p>but maybe a few topics</p>
+<p>where you can take a deep enough dive</p>
+<p>that you gain an understanding.</p>
+<p>You yourself have to decide at some point</p>
+<p>that this is deep enough.</p>
+<p>And I obtained what I can from this topic</p>
+<p>and now it&rsquo;s time to move on.</p>
+<p>And that might take years.</p>
+<p>People sometimes switch careers</p>
+<p>and they may stay on some career for a decade</p>
+<p>and switch to another one.</p>
+<p>You can do it.</p>
+<p>You&rsquo;re not pretty determined to stay where you are,</p>
+<p>but in order to achieve something,</p>
+<p>10,000 hours makes,</p>
+<p>you need 10,000 hours to become an expert on something.</p>
+<p>So you don&rsquo;t have to become an expert,</p>
+<p>but they even develop an understanding</p>
+<p>and gain the experience that you can use later.</p>
+<p>You probably have to spend, like I said, it&rsquo;s not easy.</p>
+<p>You&rsquo;ve got to spend some effort on it.</p>
+<p>Now, also at some point then,</p>
+<p>when you have this diversity</p>
+<p>and you have these experiences, exploration,</p>
+<p>you may want to,</p>
+<p>you may find something that you can&rsquo;t stay away from.</p>
+<p>Like for us, it was computers, it was AI.</p>
+<p>It was, you know, that I just have to do it.</p>
+<p>And I, you know, and then it will take decades maybe</p>
+<p>and you are pursuing it</p>
+<p>because you figured out that this is really exciting</p>
+<p>and you can bring in your experiences.</p>
+<p>And there&rsquo;s nothing wrong with that either,</p>
+<p>but you asked what&rsquo;s the advice for young people.</p>
+<p>That&rsquo;s the exploration part.</p>
+<p>And then beyond that, after that exploration,</p>
+<p>you actually can focus and build a career.</p>
+<p>And, you know, even there you can switch multiple times,</p>
+<p>but I think that diversity exploration is fundamental</p>
+<p>to having a successful career as is concentration</p>
+<p>and spending an effort where it matters.</p>
+<p>And, but you are in better position to make the choice</p>
+<p>when you have done your homework.</p>
+<p>Explored.</p>
+<p>So exploration precedes commitment, but both are beautiful.</p>
+<p>Yeah.</p>
+<p>So again, from an evolutionary computation perspective,</p>
+<p>we&rsquo;ll look at all the agents that had to die</p>
+<p>in order to come up with different solutions in simulation.</p>
+<p>What do you think from that individual agent&rsquo;s perspective</p>
+<p>is the meaning of it all?</p>
+<p>So far as humans, you&rsquo;re just one agent</p>
+<p>who&rsquo;s going to be dead, unfortunately, one day too soon.</p>
+<p>What do you think is the why</p>
+<p>of why that agent came to be</p>
+<p>and eventually will be no more?</p>
+<p>Is there a meaning to it all?</p>
+<p>Yeah.</p>
+<p>In evolution, there is meaning.</p>
+<p>Everything is a potential direction.</p>
+<p>Everything is a potential stepping stone.</p>
+<p>Not all of them are going to work out.</p>
+<p>Some of them are foundations for further improvement.</p>
+<p>And even those that are perhaps going to die out</p>
+<p>were potential energies, potential solutions.</p>
+<p>In biology, we see a lot of species die off naturally.</p>
+<p>And you know, like the dinosaurs,</p>
+<p>I mean, they were really good solution for a while,</p>
+<p>but then it didn&rsquo;t turned out to be</p>
+<p>not such a good solution in the long term.</p>
+<p>When there&rsquo;s an environmental change,</p>
+<p>you have to have diversity.</p>
+<p>Some other solutions become better.</p>
+<p>Doesn&rsquo;t mean that that was an attempt.</p>
+<p>It didn&rsquo;t quite work out or last,</p>
+<p>but there are still dinosaurs among us,</p>
+<p>at least their relatives.</p>
+<p>And they may one day again be useful, who knows?</p>
+<p>So from an individual&rsquo;s perspective,</p>
+<p>you got to think of a bigger picture</p>
+<p>that it is a huge engine that is innovative.</p>
+<p>And these elements are all part of it,</p>
+<p>potential innovations on their own.</p>
+<p>And also as raw material perhaps,</p>
+<p>or stepping stones for other things that could come after.</p>
+<p>But it still feels from an individual perspective</p>
+<p>that I matter a lot.</p>
+<p>But even if I&rsquo;m just a little cog in a giant machine,</p>
+<p>is that just a silly human notion</p>
+<p>in an individualistic society, no, she&rsquo;ll let go of that?</p>
+<p>Do you find beauty in being part of the giant machine?</p>
+<p>Yeah, I think it&rsquo;s meaningful.</p>
+<p>I think it adds purpose to your life</p>
+<p>that you are part of something bigger.</p>
+<p>That said, do you ponder your individual agent&rsquo;s mortality?</p>
+<p>Do you think about death?</p>
+<p>Do you fear death?</p>
+<p>Well, certainly more now than when I was a youngster</p>
+<p>and did skydiving and paragliding and all these things.</p>
+<p>You&rsquo;ve become wiser.</p>
+<p>There is a reason for this life arc</p>
+<p>that younger folks are more fearless in many ways.</p>
+<p>That&rsquo;s part of the exploration.</p>
+<p>They are the individuals who think,</p>
+<p>hmm, I wonder what&rsquo;s over those mountains</p>
+<p>or what if I go really far in that ocean?</p>
+<p>What would I find?</p>
+<p>I mean, older folks don&rsquo;t necessarily think that way,</p>
+<p>but younger do and it&rsquo;s kind of counterintuitive.</p>
+<p>So yeah, but logically it&rsquo;s like,</p>
+<p>you have a limited amount of time,</p>
+<p>what can you do with it that matters?</p>
+<p>So you try to, you have done your exploration,</p>
+<p>you committed to a certain direction</p>
+<p>and you become an expert perhaps in it.</p>
+<p>What can I do that matters</p>
+<p>with the limited resources that I have?</p>
+<p>That&rsquo;s how I think a lot of people, myself included,</p>
+<p>start thinking later on in their career.</p>
+<p>And like you said, leave a bit of a trace</p>
+<p>and a bit of an impact even though after the agent is gone.</p>
+<p>Yeah, that&rsquo;s the goal.</p>
+<p>Well, this was a fascinating conversation.</p>
+<p>I don&rsquo;t think there&rsquo;s a better way to end it.</p>
+<p>Thank you so much.</p>
+<p>So first of all, I&rsquo;m very inspired</p>
+<p>of how vibrant the community at UT Austin and Austin is.</p>
+<p>It&rsquo;s really exciting for me to see it.</p>
+<p>And this whole field seems like profound philosophically,</p>
+<p>but also the path forward</p>
+<p>for the artificial intelligence community.</p>
+<p>So thank you so much for explaining</p>
+<p>so many cool things to me today</p>
+<p>and for wasting all of your valuable time with me.</p>
+<p>Oh, it was a pleasure.</p>
+<p>Thanks.</p>
+<p>I appreciate it.</p>
+<p>Thanks for listening to this conversation</p>
+<p>with Risto McAlignan.</p>
+<p>And thank you to the Jordan Harbinger Show,</p>
+<p>Grammarly, Belcampo, and Indeed.</p>
+<p>Check them out in the description to support this podcast.</p>
+<p>And now let me leave you with some words from Carl Sagan.</p>
+<p>Extinction is the rule.</p>
+<p>Survival is the exception.</p>
+<p>Thank you for listening.</p>
+<p>I hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

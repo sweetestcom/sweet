@@ -1,0 +1,2878 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Jim Keller,
+legendary microprocessor engineer
+who has worked at AMD, Apple, Tesla, and now Intel.
+He&amp;rsquo;s known for his work on AMD K7, K8, K12,
+and Zen microarchitectures, Apple A4 and A5 processors,
+and coauthor of the specification
+for the x8664 instruction set
+and hypertransport interconnect.
+He&amp;rsquo;s a brilliant first principles engineer
+and out of the box thinker,
+and just an interesting and fun human being to talk to.'>
+<title>Lex Fridman Podcast - #70 - Jim Keller: Moore’s Law, Microprocessors, Abstractions, and First Principles | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500070/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #70 - Jim Keller: Moore’s Law, Microprocessors, Abstractions, and First Principles'>
+<meta property='og:description' content='The following is a conversation with Jim Keller,
+legendary microprocessor engineer
+who has worked at AMD, Apple, Tesla, and now Intel.
+He&amp;rsquo;s known for his work on AMD K7, K8, K12,
+and Zen microarchitectures, Apple A4 and A5 processors,
+and coauthor of the specification
+for the x8664 instruction set
+and hypertransport interconnect.
+He&amp;rsquo;s a brilliant first principles engineer
+and out of the box thinker,
+and just an interesting and fun human being to talk to.'>
+<meta property='og:url' content='https://swiest.com/en/1310500070/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-05-09T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-05-09T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #70 - Jim Keller: Moore’s Law, Microprocessors, Abstractions, and First Principles">
+<meta name="twitter:description" content="The following is a conversation with Jim Keller,
+legendary microprocessor engineer
+who has worked at AMD, Apple, Tesla, and now Intel.
+He&amp;rsquo;s known for his work on AMD K7, K8, K12,
+and Zen microarchitectures, Apple A4 and A5 processors,
+and coauthor of the specification
+for the x8664 instruction set
+and hypertransport interconnect.
+He&amp;rsquo;s a brilliant first principles engineer
+and out of the box thinker,
+and just an interesting and fun human being to talk to.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500070/">Lex Fridman Podcast - #70 - Jim Keller: Moore’s Law, Microprocessors, Abstractions, and First Principles</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-05-09</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    70 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Jim Keller,</p>
+<p>legendary microprocessor engineer</p>
+<p>who has worked at AMD, Apple, Tesla, and now Intel.</p>
+<p>He&rsquo;s known for his work on AMD K7, K8, K12,</p>
+<p>and Zen microarchitectures, Apple A4 and A5 processors,</p>
+<p>and coauthor of the specification</p>
+<p>for the x8664 instruction set</p>
+<p>and hypertransport interconnect.</p>
+<p>He&rsquo;s a brilliant first principles engineer</p>
+<p>and out of the box thinker,</p>
+<p>and just an interesting and fun human being to talk to.</p>
+<p>This is the Artificial Intelligence Podcast.</p>
+<p>If you enjoy it, subscribe on YouTube,</p>
+<p>give it five stars on Apple Podcast,</p>
+<p>follow on Spotify, support it on Patreon,</p>
+<p>or simply connect with me on Twitter,</p>
+<p>at Lex Friedman, spelled F R I D M A N.</p>
+<p>I recently started doing ads</p>
+<p>at the end of the introduction.</p>
+<p>I&rsquo;ll do one or two minutes after introducing the episode</p>
+<p>and never any ads in the middle</p>
+<p>that can break the flow of the conversation.</p>
+<p>I hope that works for you</p>
+<p>and doesn&rsquo;t hurt the listening experience.</p>
+<p>This show is presented by Cash App,</p>
+<p>the number one finance app in the App Store.</p>
+<p>I personally use Cash App to send money to friends,</p>
+<p>but you can also use it to buy, sell,</p>
+<p>and deposit Bitcoin in just seconds.</p>
+<p>Cash App also has a new investing feature.</p>
+<p>You can buy fractions of a stock, say $1 worth,</p>
+<p>no matter what the stock price is.</p>
+<p>Broker services are provided by Cash App Investing,</p>
+<p>a subsidiary of Square and member SIPC.</p>
+<p>I&rsquo;m excited to be working with Cash App</p>
+<p>to support one of my favorite organizations called First,</p>
+<p>best known for their FIRST Robotics and Lego competitions.</p>
+<p>They educate and inspire hundreds of thousands of students</p>
+<p>in over 110 countries and have a perfect rating</p>
+<p>at Charity Navigator,</p>
+<p>which means that donated money</p>
+<p>is used to maximum effectiveness.</p>
+<p>When you get Cash App from the App Store or Google Play</p>
+<p>and use code LEXPODCAST,</p>
+<p>you&rsquo;ll get $10 and Cash App will also donate $10 to FIRST,</p>
+<p>which again is an organization</p>
+<p>that I&rsquo;ve personally seen inspire girls and boys</p>
+<p>to dream of engineering a better world.</p>
+<p>And now here&rsquo;s my conversation with Jim Keller.</p>
+<p>What are the differences and similarities</p>
+<p>between the human brain and a computer</p>
+<p>with the microprocessor at its core?</p>
+<p>Let&rsquo;s start with the philosophical question perhaps.</p>
+<p>Well, since people don&rsquo;t actually understand</p>
+<p>how human brains work, I think that&rsquo;s true.</p>
+<p>I think that&rsquo;s true.</p>
+<p>So it&rsquo;s hard to compare them.</p>
+<p>Computers are, you know, there&rsquo;s really two things.</p>
+<p>There&rsquo;s memory and there&rsquo;s computation, right?</p>
+<p>And to date, almost all computer architectures</p>
+<p>are global memory, which is a thing, right?</p>
+<p>And then computation where you pull data</p>
+<p>and you do relatively simple operations on it</p>
+<p>and write data back.</p>
+<p>So it&rsquo;s decoupled in modern computers.</p>
+<p>And you think in the human brain,</p>
+<p>everything&rsquo;s a mesh, a mess that&rsquo;s combined together?</p>
+<p>What people observe is there&rsquo;s, you know,</p>
+<p>some number of layers of neurons</p>
+<p>which have local and global connections</p>
+<p>and information is stored in some distributed fashion</p>
+<p>and people build things called neural networks in computers</p>
+<p>where the information is distributed</p>
+<p>in some kind of fashion.</p>
+<p>You know, there&rsquo;s a mathematics behind it.</p>
+<p>I don&rsquo;t know that the understanding of that is super deep.</p>
+<p>The computations we run on those</p>
+<p>are straightforward computations.</p>
+<p>I don&rsquo;t believe anybody has said</p>
+<p>a neuron does this computation.</p>
+<p>So to date, it&rsquo;s hard to compare them, I would say.</p>
+<p>So let&rsquo;s get into the basics before we zoom back out.</p>
+<p>How do you build a computer from scratch?</p>
+<p>What is a microprocessor?</p>
+<p>What is a microarchitecture?</p>
+<p>What&rsquo;s an instruction set architecture?</p>
+<p>Maybe even as far back as what is a transistor?</p>
+<p>So the special charm of computer engineering</p>
+<p>is there&rsquo;s a relatively good understanding</p>
+<p>of abstraction layers.</p>
+<p>So down at the bottom, you have atoms</p>
+<p>and atoms get put together in materials like silicon</p>
+<p>or dope silicon or metal and we build transistors.</p>
+<p>On top of that, we build logic gates, right?</p>
+<p>And then functional units, like an adder or a subtractor</p>
+<p>or an instruction parsing unit.</p>
+<p>And then we assemble those into processing elements.</p>
+<p>Modern computers are built out of probably 10 to 20</p>
+<p>locally organic processing elements</p>
+<p>or coherent processing elements.</p>
+<p>And then that runs computer programs, right?</p>
+<p>So there&rsquo;s abstraction layers and then software,</p>
+<p>there&rsquo;s an instruction set you run</p>
+<p>and then there&rsquo;s assembly language C, C++, Java, JavaScript.</p>
+<p>There&rsquo;s abstraction layers,</p>
+<p>essentially from the atom to the data center, right?</p>
+<p>So when you build a computer,</p>
+<p>first there&rsquo;s a target, like what&rsquo;s it for?</p>
+<p>Like how fast does it have to be?</p>
+<p>Which today there&rsquo;s a whole bunch of metrics</p>
+<p>about what that is.</p>
+<p>And then in an organization of 1,000 people</p>
+<p>who build a computer, there&rsquo;s lots of different disciplines</p>
+<p>that you have to operate on.</p>
+<p>Does that make sense?</p>
+<p>And so&hellip;</p>
+<p>So there&rsquo;s a bunch of levels of abstraction</p>
+<p>in an organization like Intel and in your own vision,</p>
+<p>there&rsquo;s a lot of brilliance that comes in</p>
+<p>at every one of those layers.</p>
+<p>Some of it is science, some of it is engineering,</p>
+<p>some of it is art, what&rsquo;s the most,</p>
+<p>if you could pick favorites,</p>
+<p>what&rsquo;s the most important, your favorite layer</p>
+<p>on these layers of abstractions?</p>
+<p>Where does the magic enter this hierarchy?</p>
+<p>I don&rsquo;t really care.</p>
+<p>That&rsquo;s the fun, you know, I&rsquo;m somewhat agnostic to that.</p>
+<p>So I would say for relatively long periods of time,</p>
+<p>instruction sets are stable.</p>
+<p>So the x86 instruction set, the ARM instruction set.</p>
+<p>What&rsquo;s an instruction set?</p>
+<p>So it says, how do you encode the basic operations?</p>
+<p>Load, store, multiply, add, subtract, conditional, branch.</p>
+<p>You know, there aren&rsquo;t that many interesting instructions.</p>
+<p>Look, if you look at a program and it runs,</p>
+<p>you know, 90% of the execution is on 25 opcodes,</p>
+<p>you know, 25 instructions.</p>
+<p>And those are stable, right?</p>
+<p>What does it mean, stable?</p>
+<p>Intel architecture&rsquo;s been around for 25 years.</p>
+<p>It works.</p>
+<p>And that&rsquo;s because the basics, you know,</p>
+<p>are defined a long time ago, right?</p>
+<p>Now, the way an old computer ran is you fetched</p>
+<p>instructions and you executed them in order.</p>
+<p>Do the load, do the add, do the compare.</p>
+<p>The way a modern computer works is you fetch</p>
+<p>large numbers of instructions, say 500.</p>
+<p>And then you find the dependency graph</p>
+<p>between the instructions.</p>
+<p>And then you execute in independent units</p>
+<p>those little micrographs.</p>
+<p>So a modern computer, like people like to say,</p>
+<p>computers should be simple and clean.</p>
+<p>But it turns out the market for simple,</p>
+<p>clean, slow computers is zero, right?</p>
+<p>We don&rsquo;t sell any simple, clean computers.</p>
+<p>No, you can, how you build it can be clean,</p>
+<p>but the computer people want to buy,</p>
+<p>that&rsquo;s, say, in a phone or a data center,</p>
+<p>fetches a large number of instructions,</p>
+<p>computes the dependency graph,</p>
+<p>and then executes it in a way that gets the right answers.</p>
+<p>And optimizes that graph somehow.</p>
+<p>Yeah, they run deeply out of order.</p>
+<p>And then there&rsquo;s semantics around how memory ordering works</p>
+<p>and other things work.</p>
+<p>So the computer sort of has a bunch of bookkeeping tables</p>
+<p>that says what order should these operations finish in</p>
+<p>or appear to finish in?</p>
+<p>But to go fast, you have to fetch a lot of instructions</p>
+<p>and find all the parallelism.</p>
+<p>Now, there&rsquo;s a second kind of computer,</p>
+<p>which we call GPUs today.</p>
+<p>And I call it the difference.</p>
+<p>There&rsquo;s found parallelism, like you have a program</p>
+<p>with a lot of dependent instructions.</p>
+<p>You fetch a bunch and then you go figure out</p>
+<p>the dependency graph and you issue instructions out of order.</p>
+<p>That&rsquo;s because you have one serial narrative to execute,</p>
+<p>which, in fact, can be done out of order.</p>
+<p>Did you call it a narrative?</p>
+<p>Yeah.</p>
+<p>Oh, wow.</p>
+<p>Yeah, so humans think of serial narrative.</p>
+<p>So read a book, right?</p>
+<p>There&rsquo;s a sentence after sentence after sentence,</p>
+<p>and there&rsquo;s paragraphs.</p>
+<p>Now, you could diagram that.</p>
+<p>Imagine you diagrammed it properly and you said,</p>
+<p>which sentences could be read in any order,</p>
+<p>any order without changing the meaning, right?</p>
+<p>That&rsquo;s a fascinating question to ask of a book, yeah.</p>
+<p>Yeah, you could do that, right?</p>
+<p>So some paragraphs could be reordered,</p>
+<p>some sentences can be reordered.</p>
+<p>You could say, he is tall and smart and X, right?</p>
+<p>And it doesn&rsquo;t matter the order of tall and smart.</p>
+<p>But if you say the tall man is wearing a red shirt,</p>
+<p>what colors, you can create dependencies, right?</p>
+<p>And so GPUs, on the other hand,</p>
+<p>run simple programs on pixels,</p>
+<p>but you&rsquo;re given a million of them.</p>
+<p>And the first order, the screen you&rsquo;re looking at</p>
+<p>doesn&rsquo;t care which order you do it in.</p>
+<p>So I call that given parallelism.</p>
+<p>Simple narratives around the large numbers of things</p>
+<p>where you can just say,</p>
+<p>it&rsquo;s parallel because you told me it was.</p>
+<p>So found parallelism where the narrative is sequential,</p>
+<p>but you discover like little pockets of parallelism versus.</p>
+<p>Turns out large pockets of parallelism.</p>
+<p>Large, so how hard is it to discover?</p>
+<p>Well, how hard is it?</p>
+<p>That&rsquo;s just transistor count, right?</p>
+<p>So once you crack the problem, you say,</p>
+<p>here&rsquo;s how you fetch 10 instructions at a time.</p>
+<p>Here&rsquo;s how you calculate the dependencies between them.</p>
+<p>Here&rsquo;s how you describe the dependencies.</p>
+<p>Here&rsquo;s, you know, these are pieces, right?</p>
+<p>So once you describe the dependencies,</p>
+<p>then it&rsquo;s just a graph.</p>
+<p>Sort of, it&rsquo;s an algorithm that finds,</p>
+<p>what is that?</p>
+<p>I&rsquo;m sure there&rsquo;s a graph theoretical answer here</p>
+<p>that&rsquo;s solvable.</p>
+<p>In general, programs, modern programs</p>
+<p>that human beings write,</p>
+<p>how much found parallelism is there in them?</p>
+<p>What does 10X mean?</p>
+<p>So if you execute it in order, you would get</p>
+<p>what&rsquo;s called cycles per instruction,</p>
+<p>and it would be about, you know,</p>
+<p>three instructions, three cycles per instruction</p>
+<p>because of the latency of the operations and stuff.</p>
+<p>And in a modern computer, excuse it,</p>
+<p>but like 0.2, 0.25 cycles per instruction.</p>
+<p>So it&rsquo;s about, we today find 10X.</p>
+<p>And there&rsquo;s two things.</p>
+<p>One is the found parallelism in the narrative, right?</p>
+<p>And the other is the predictability of the narrative, right?</p>
+<p>So certain operations say, do a bunch of calculations,</p>
+<p>and if greater than one, do this, else do that.</p>
+<p>That decision is predicted in modern computers</p>
+<p>to high 90% accuracy.</p>
+<p>So branches happen a lot.</p>
+<p>So imagine you have a decision</p>
+<p>to make every six instructions,</p>
+<p>which is about the average, right?</p>
+<p>But you want to fetch 500 instructions,</p>
+<p>figure out the graph, and execute them all in parallel.</p>
+<p>That means you have, let&rsquo;s say,</p>
+<p>if you fetch 600 instructions and it&rsquo;s every six,</p>
+<p>you have to fetch, you have to predict</p>
+<p>99 out of 100 branches correctly</p>
+<p>for that window to be effective.</p>
+<p>Okay, so parallelism, you can&rsquo;t parallelize branches.</p>
+<p>Or you can.</p>
+<p>No, you can predict.</p>
+<p>You can predict.</p>
+<p>What does predicted branch mean?</p>
+<p>So imagine you do a computation over and over.</p>
+<p>You&rsquo;re in a loop.</p>
+<p>So while n is greater than one, do.</p>
+<p>And you go through that loop a million times.</p>
+<p>So every time you look at the branch,</p>
+<p>you say, it&rsquo;s probably still greater than one.</p>
+<p>And you&rsquo;re saying you could do that accurately.</p>
+<p>Very accurately.</p>
+<p>Modern computers.</p>
+<p>My mind is blown.</p>
+<p>How the heck do you do that?</p>
+<p>Wait a minute.</p>
+<p>Well, you want to know?</p>
+<p>This is really sad.</p>
+<p>20 years ago, you simply recorded</p>
+<p>which way the branch went last time</p>
+<p>and predicted the same thing.</p>
+<p>Right.</p>
+<p>Okay.</p>
+<p>What&rsquo;s the accuracy of that?</p>
+<p>85%.</p>
+<p>So then somebody said, hey, let&rsquo;s keep a couple of bits</p>
+<p>and have a little counter so when it predicts one way,</p>
+<p>we count up and then pins.</p>
+<p>So say you have a three bit counter.</p>
+<p>So you count up and then you count down.</p>
+<p>And you can use the top bit as the signed bit</p>
+<p>so you have a signed two bit number.</p>
+<p>So if it&rsquo;s greater than one, you predict taken.</p>
+<p>And less than one, you predict not taken, right?</p>
+<p>Or less than zero, whatever the thing is.</p>
+<p>And that got us to 92%.</p>
+<p>Oh.</p>
+<p>Okay, no, it gets better.</p>
+<p>This branch depends on how you got there.</p>
+<p>So if you came down the code one way,</p>
+<p>you&rsquo;re talking about Bob and Jane, right?</p>
+<p>And then said, does Bob like Jane?</p>
+<p>It went one way.</p>
+<p>But if you&rsquo;re talking about Bob and Jill,</p>
+<p>does Bob like Jane?</p>
+<p>You go a different way.</p>
+<p>Right, so that&rsquo;s called history.</p>
+<p>So you take the history and a counter.</p>
+<p>That&rsquo;s cool, but that&rsquo;s not how anything works today.</p>
+<p>They use something that looks a little like a neural network.</p>
+<p>So modern, you take all the execution flows.</p>
+<p>And then you do basically deep pattern recognition</p>
+<p>of how the program is executing.</p>
+<p>And you do that multiple different ways.</p>
+<p>And you have something that chooses what the best result is.</p>
+<p>There&rsquo;s a little supercomputer inside the computer.</p>
+<p>That&rsquo;s trying to predict branching.</p>
+<p>That calculates which way branches go.</p>
+<p>So the effective window that it&rsquo;s worth finding grass</p>
+<p>in gets bigger.</p>
+<p>Why was that gonna make me sad?</p>
+<p>Because that&rsquo;s amazing.</p>
+<p>It&rsquo;s amazingly complicated.</p>
+<p>Oh, well.</p>
+<p>Well, here&rsquo;s the funny thing.</p>
+<p>So to get to 85% took 1,000 bits.</p>
+<p>To get to 99% takes tens of megabits.</p>
+<p>So this is one of those, to get the result,</p>
+<p>to get from a window of say 50 instructions to 500,</p>
+<p>it took three orders of magnitude</p>
+<p>or four orders of magnitude more bits.</p>
+<p>Now if you get the prediction of a branch wrong,</p>
+<p>what happens then?</p>
+<p>You flush the pipe.</p>
+<p>You flush the pipe, so it&rsquo;s just the performance cost.</p>
+<p>But it gets even better.</p>
+<p>Yeah.</p>
+<p>So we&rsquo;re starting to look at stuff that says,</p>
+<p>so they executed down this path,</p>
+<p>and then you had two ways to go.</p>
+<p>But far away, there&rsquo;s something that doesn&rsquo;t matter</p>
+<p>which path you went.</p>
+<p>So you took the wrong path.</p>
+<p>You executed a bunch of stuff.</p>
+<p>Then you had the mispredicting.</p>
+<p>You backed it up.</p>
+<p>You remembered all the results you already calculated.</p>
+<p>Some of those are just fine.</p>
+<p>Like if you read a book and you misunderstand a paragraph,</p>
+<p>your understanding of the next paragraph</p>
+<p>sometimes is invariant to that understanding.</p>
+<p>Sometimes it depends on it.</p>
+<p>And you can kind of anticipate that invariance.</p>
+<p>Yeah, well, you can keep track of whether the data changed.</p>
+<p>And so when you come back through a piece of code,</p>
+<p>should you calculate it again or do the same thing?</p>
+<p>Okay, how much of this is art and how much of it is science?</p>
+<p>Because it sounds pretty complicated.</p>
+<p>Well, how do you describe a situation?</p>
+<p>So imagine you come to a point in the road</p>
+<p>where you have to make a decision, right?</p>
+<p>And you have a bunch of knowledge about which way to go.</p>
+<p>Maybe you have a map.</p>
+<p>So you wanna go the shortest way,</p>
+<p>or do you wanna go the fastest way,</p>
+<p>or do you wanna take the nicest road?</p>
+<p>So there&rsquo;s some set of data.</p>
+<p>So imagine you&rsquo;re doing something complicated</p>
+<p>like building a computer.</p>
+<p>And there&rsquo;s hundreds of decision points,</p>
+<p>all with hundreds of possible ways to go.</p>
+<p>And the ways you pick interact in a complicated way.</p>
+<p>Right.</p>
+<p>And then you have to pick the right spot.</p>
+<p>Right, so that&rsquo;s.</p>
+<p>So that&rsquo;s art or science, I don&rsquo;t know.</p>
+<p>You avoided the question.</p>
+<p>You just described the Robert Frost problem</p>
+<p>of road less taken.</p>
+<p>I described the Robert Frost problem?</p>
+<p>That&rsquo;s what we do as computer designers.</p>
+<p>It&rsquo;s all poetry.</p>
+<p>Okay.</p>
+<p>Great.</p>
+<p>Yeah, I don&rsquo;t know how to describe that</p>
+<p>because some people are very good</p>
+<p>at making those intuitive leaps.</p>
+<p>It seems like just combinations of things.</p>
+<p>Some people are less good at it,</p>
+<p>but they&rsquo;re really good at evaluating the alternatives.</p>
+<p>Right, and everybody has a different way to do it.</p>
+<p>And some people can&rsquo;t make those leaps,</p>
+<p>but they&rsquo;re really good at analyzing it.</p>
+<p>So when you see computers are designed</p>
+<p>by teams of people who have very different skill sets.</p>
+<p>And a good team has lots of different kinds of people.</p>
+<p>I suspect you would describe some of them</p>
+<p>as artistic, but not very many.</p>
+<p>Unfortunately, or fortunately.</p>
+<p>Fortunately.</p>
+<p>Well, you know, computer design&rsquo;s hard.</p>
+<p>It&rsquo;s 99% perspiration.</p>
+<p>And the 1% inspiration is really important.</p>
+<p>But you still need the 99.</p>
+<p>Yeah, you gotta do a lot of work.</p>
+<p>And then there are interesting things to do</p>
+<p>at every level of that stack.</p>
+<p>So at the end of the day,</p>
+<p>if you run the same program multiple times,</p>
+<p>does it always produce the same result?</p>
+<p>Is there some room for fuzziness there?</p>
+<p>That&rsquo;s a math problem.</p>
+<p>So if you run a correct C program,</p>
+<p>the definition is every time you run it,</p>
+<p>you get the same answer.</p>
+<p>Yeah, well that&rsquo;s a math statement.</p>
+<p>But that&rsquo;s a language definitional statement.</p>
+<p>So for years when people did,</p>
+<p>when we first did 3D acceleration of graphics,</p>
+<p>you could run the same scene multiple times</p>
+<p>and get different answers.</p>
+<p>Right.</p>
+<p>Right, and then some people thought that was okay</p>
+<p>and some people thought it was a bad idea.</p>
+<p>And then when the HPC world used GPUs for calculations,</p>
+<p>they thought it was a really bad idea.</p>
+<p>Okay, now in modern AI stuff,</p>
+<p>people are looking at networks</p>
+<p>where the precision of the data is low enough</p>
+<p>that the data is somewhat noisy.</p>
+<p>And the observation is the input data is unbelievably noisy.</p>
+<p>So why should the calculation be not noisy?</p>
+<p>And people have experimented with algorithms</p>
+<p>that say can get faster answers by being noisy.</p>
+<p>Like as a network starts to converge,</p>
+<p>if you look at the computation graph,</p>
+<p>it starts out really wide and then it gets narrower.</p>
+<p>And you can say is that last little bit that important</p>
+<p>or should I start the graph on the next rev</p>
+<p>before we whittle it all the way down to the answer, right?</p>
+<p>So you can create algorithms that are noisy.</p>
+<p>Now if you&rsquo;re developing something</p>
+<p>and every time you run it, you get a different answer,</p>
+<p>it&rsquo;s really annoying.</p>
+<p>And so most people think even today,</p>
+<p>every time you run the program, you get the same answer.</p>
+<p>No, I know, but the question is</p>
+<p>that&rsquo;s the formal definition of a programming language.</p>
+<p>There is a definition of languages</p>
+<p>that don&rsquo;t get the same answer,</p>
+<p>but people who use those, you always want something</p>
+<p>because you get a bad answer and then you&rsquo;re wondering</p>
+<p>is it because of something in the algorithm</p>
+<p>or because of this?</p>
+<p>And so everybody wants a little switch that says</p>
+<p>no matter what, do it deterministically.</p>
+<p>And it&rsquo;s really weird because almost everything</p>
+<p>going into modern calculations is noisy.</p>
+<p>So why do the answers have to be so clear?</p>
+<p>Right, so where do you stand?</p>
+<p>I design computers for people who run programs.</p>
+<p>So if somebody says I want a deterministic answer,</p>
+<p>like most people want that.</p>
+<p>Can you deliver a deterministic answer,</p>
+<p>I guess is the question.</p>
+<p>Like when you.</p>
+<p>Yeah, hopefully, sure.</p>
+<p>What people don&rsquo;t realize is you get a deterministic answer</p>
+<p>even though the execution flow is very undeterministic.</p>
+<p>So you run this program 100 times,</p>
+<p>it never runs the same way twice, ever.</p>
+<p>And the answer, it arrives at the same answer.</p>
+<p>But it gets the same answer every time.</p>
+<p>It&rsquo;s just amazing.</p>
+<p>Okay, you&rsquo;ve achieved, in the eyes of many people,</p>
+<p>legend status as a chip art architect.</p>
+<p>What design creation are you most proud of?</p>
+<p>Perhaps because it was challenging,</p>
+<p>because of its impact, or because of the set</p>
+<p>of brilliant ideas that were involved in bringing it to life?</p>
+<p>I find that description odd.</p>
+<p>And I have two small children, and I promise you,</p>
+<p>they think it&rsquo;s hilarious.</p>
+<p>This question.</p>
+<p>Yeah.</p>
+<p>I do it for them.</p>
+<p>So I&rsquo;m really interested in building computers.</p>
+<p>And I&rsquo;ve worked with really, really smart people.</p>
+<p>I&rsquo;m not unbelievably smart.</p>
+<p>I&rsquo;m fascinated by how they go together,</p>
+<p>both as a thing to do and as an endeavor that people do.</p>
+<p>How people and computers go together?</p>
+<p>Yeah.</p>
+<p>Like how people think and build a computer.</p>
+<p>And I find sometimes that the best computer architects</p>
+<p>aren&rsquo;t that interested in people,</p>
+<p>or the best people managers aren&rsquo;t that good</p>
+<p>at designing computers.</p>
+<p>So the whole stack of human beings is fascinating.</p>
+<p>So the managers, the individual engineers.</p>
+<p>Yeah, yeah.</p>
+<p>Yeah, I said I realized after a lot of years</p>
+<p>of building computers, where you sort of build them</p>
+<p>out of transistors, logic gates, functional units,</p>
+<p>computational elements, that you could think of people</p>
+<p>the same way, so people are functional units.</p>
+<p>And then you could think of organizational design</p>
+<p>as a computer architecture problem.</p>
+<p>And then it was like, oh, that&rsquo;s super cool,</p>
+<p>because the people are all different,</p>
+<p>just like the computational elements are all different.</p>
+<p>And they like to do different things.</p>
+<p>And so I had a lot of fun reframing</p>
+<p>how I think about organizations.</p>
+<p>Just like with computers, we were saying execution paths,</p>
+<p>you can have a lot of different paths that end up</p>
+<p>at the same good destination.</p>
+<p>So what have you learned about the human abstractions</p>
+<p>from individual functional human units</p>
+<p>to the broader organization?</p>
+<p>What does it take to create something special?</p>
+<p>Well, most people don&rsquo;t think simple enough.</p>
+<p>All right, so the difference between a recipe</p>
+<p>and the understanding.</p>
+<p>There&rsquo;s probably a philosophical description of this.</p>
+<p>So imagine you&rsquo;re gonna make a loaf of bread.</p>
+<p>The recipe says get some flour, add some water,</p>
+<p>add some yeast, mix it up, let it rise,</p>
+<p>put it in a pan, put it in the oven.</p>
+<p>It&rsquo;s a recipe.</p>
+<p>Understanding bread, you can understand biology,</p>
+<p>supply chains, grain grinders, yeast, physics,</p>
+<p>thermodynamics, there&rsquo;s so many levels of understanding.</p>
+<p>And then when people build and design things,</p>
+<p>they frequently are executing some stack of recipes.</p>
+<p>And the problem with that is the recipes</p>
+<p>all have limited scope.</p>
+<p>Like if you have a really good recipe book</p>
+<p>for making bread, it won&rsquo;t tell you anything</p>
+<p>about how to make an omelet.</p>
+<p>But if you have a deep understanding of cooking,</p>
+<p>right, than bread, omelets, you know, sandwich,</p>
+<p>you know, there&rsquo;s a different way of viewing everything.</p>
+<p>And most people, when you get to be an expert at something,</p>
+<p>you know, you&rsquo;re hoping to achieve deeper understanding,</p>
+<p>not just a large set of recipes to go execute.</p>
+<p>And it&rsquo;s interesting to walk groups of people</p>
+<p>because executing recipes is unbelievably efficient</p>
+<p>if it&rsquo;s what you want to do.</p>
+<p>If it&rsquo;s not what you want to do, you&rsquo;re really stuck.</p>
+<p>And that difference is crucial.</p>
+<p>And everybody has a balance of, let&rsquo;s say,</p>
+<p>deeper understanding of recipes.</p>
+<p>And some people are really good at recognizing</p>
+<p>when the problem is to understand something deeply.</p>
+<p>Does that make sense?</p>
+<p>It totally makes sense, does every stage of development,</p>
+<p>deep understanding on the team needed?</p>
+<p>Oh, this goes back to the art versus science question.</p>
+<p>Sure.</p>
+<p>If you constantly unpack everything</p>
+<p>for deeper understanding, you never get anything done.</p>
+<p>And if you don&rsquo;t unpack understanding when you need to,</p>
+<p>you&rsquo;ll do the wrong thing.</p>
+<p>And then at every juncture, like human beings</p>
+<p>are these really weird things because everything you tell them</p>
+<p>has a million possible outputs, right?</p>
+<p>And then they all interact in a hilarious way.</p>
+<p>Yeah, it&rsquo;s very interesting.</p>
+<p>And then having some intuition about what you tell them,</p>
+<p>what you do, when do you intervene, when do you not,</p>
+<p>it&rsquo;s complicated.</p>
+<p>Right, so.</p>
+<p>It&rsquo;s essentially computationally unsolvable.</p>
+<p>Yeah, it&rsquo;s an intractable problem, sure.</p>
+<p>Humans are a mess.</p>
+<p>But with deep understanding,</p>
+<p>do you mean also sort of fundamental questions</p>
+<p>of things like what is a computer?</p>
+<p>Or why, like the why questions,</p>
+<p>why are we even building this, like of purpose?</p>
+<p>Or do you mean more like going towards</p>
+<p>the fundamental limits of physics,</p>
+<p>sort of really getting into the core of the science?</p>
+<p>In terms of building a computer, think a little simpler.</p>
+<p>So common practice is you build a computer,</p>
+<p>and then when somebody says, I wanna make it 10% faster,</p>
+<p>you&rsquo;ll go in and say, all right,</p>
+<p>I need to make this buffer bigger,</p>
+<p>and maybe I&rsquo;ll add an add unit.</p>
+<p>Or I have this thing that&rsquo;s three instructions wide,</p>
+<p>I&rsquo;m gonna make it four instructions wide.</p>
+<p>And what you see is each piece</p>
+<p>gets incrementally more complicated, right?</p>
+<p>And then at some point you hit this limit,</p>
+<p>like adding another feature or buffer</p>
+<p>doesn&rsquo;t seem to make it any faster.</p>
+<p>And then people will say,</p>
+<p>well, that&rsquo;s because it&rsquo;s a fundamental limit.</p>
+<p>And then somebody else will look at it and say,</p>
+<p>well, actually the way you divided the problem up</p>
+<p>and the way the different features are interacting</p>
+<p>is limiting you, and it has to be rethought, rewritten.</p>
+<p>So then you refactor it and rewrite it,</p>
+<p>and what people commonly find is the rewrite</p>
+<p>is not only faster, but half as complicated.</p>
+<p>From scratch? Yes.</p>
+<p>So how often in your career, but just have you seen</p>
+<p>is needed, maybe more generally,</p>
+<p>to just throw the whole thing out and start over?</p>
+<p>This is where I&rsquo;m on one end of it,</p>
+<p>every three to five years.</p>
+<p>Which end are you on?</p>
+<p>Rewrite more often.</p>
+<p>Rewrite, and three to five years is?</p>
+<p>If you wanna really make a lot of progress</p>
+<p>on computer architecture, every five years</p>
+<p>you should do one from scratch.</p>
+<p>So where does the x86.64 standard come in?</p>
+<p>How often do you?</p>
+<p>I was the coauthor of that spec in 98.</p>
+<p>That&rsquo;s 20 years ago.</p>
+<p>Yeah, so that&rsquo;s still around.</p>
+<p>The instruction set itself has been extended</p>
+<p>quite a few times.</p>
+<p>And instruction sets are less interesting</p>
+<p>than the implementation underneath.</p>
+<p>There&rsquo;s been, on x86 architecture, Intel&rsquo;s designed a few,</p>
+<p>AIM designed a few very different architectures.</p>
+<p>And I don&rsquo;t wanna go into too much of the detail</p>
+<p>about how often, but there&rsquo;s a tendency</p>
+<p>to rewrite it every 10 years,</p>
+<p>and it really should be every five.</p>
+<p>So you&rsquo;re saying you&rsquo;re an outlier in that sense.</p>
+<p>Rewrite more often.</p>
+<p>Well, and here&rsquo;s the problem.</p>
+<p>Isn&rsquo;t that scary?</p>
+<p>Yeah, of course.</p>
+<p>Well, scary to who?</p>
+<p>To everybody involved, because like you said,</p>
+<p>repeating the recipe is efficient.</p>
+<p>Companies wanna make money.</p>
+<p>No, individual engineers wanna succeed,</p>
+<p>so you wanna incrementally improve,</p>
+<p>increase the buffer from three to four.</p>
+<p>Well, this is where you get</p>
+<p>into the diminishing return curves.</p>
+<p>I think Steve Jobs said this, right?</p>
+<p>So every, you have a project, and you start here,</p>
+<p>and it goes up, and you have diminishing return.</p>
+<p>And to get to the next level, you have to do a new one,</p>
+<p>and the initial starting point will be lower</p>
+<p>than the old optimization point, but it&rsquo;ll get higher.</p>
+<p>So now you have two kinds of fear,</p>
+<p>short term disaster and long term disaster.</p>
+<p>And you&rsquo;re, you&rsquo;re haunted.</p>
+<p>So grown ups, right, like, you know,</p>
+<p>people with a quarter by quarter business objective</p>
+<p>are terrified about changing everything.</p>
+<p>And people who are trying to run a business</p>
+<p>or build a computer for a long term objective</p>
+<p>know that the short term limitations block them</p>
+<p>from the long term success.</p>
+<p>So if you look at leaders of companies</p>
+<p>that had really good long term success,</p>
+<p>every time they saw that they had to redo something, they did.</p>
+<p>And so somebody has to speak up.</p>
+<p>Or you do multiple projects in parallel,</p>
+<p>like you optimize the old one while you build a new one.</p>
+<p>But the marketing guys are always like,</p>
+<p>make promise me that the new computer</p>
+<p>is faster on every single thing.</p>
+<p>And the computer architect says,</p>
+<p>well, the new computer will be faster on the average,</p>
+<p>but there&rsquo;s a distribution of results and performance,</p>
+<p>and you&rsquo;ll have some outliers that are slower.</p>
+<p>And that&rsquo;s very hard,</p>
+<p>because they have one customer who cares about that one.</p>
+<p>So speaking of the long term, for over 50 years now,</p>
+<p>Moore&rsquo;s Law has served, for me and millions of others,</p>
+<p>as an inspiring beacon of what kind of amazing future</p>
+<p>brilliant engineers can build.</p>
+<p>Yep.</p>
+<p>I&rsquo;m just making your kids laugh all of today.</p>
+<p>That was great.</p>
+<p>So first, in your eyes, what is Moore&rsquo;s Law,</p>
+<p>if you could define for people who don&rsquo;t know?</p>
+<p>Well, the simple statement was, from Gordon Moore,</p>
+<p>was double the number of transistors every two years.</p>
+<p>Something like that.</p>
+<p>And then my operational model is,</p>
+<p>we increase the performance of computers</p>
+<p>by two X every two or three years.</p>
+<p>And it&rsquo;s wiggled around substantially over time.</p>
+<p>And also, in how we deliver, performance has changed.</p>
+<p>But the foundational idea was</p>
+<p>two X to transistors every two years.</p>
+<p>The current cadence is something like,</p>
+<p>they call it a shrink factor, like 0.6 every two years,</p>
+<p>which is not 0.5.</p>
+<p>But that&rsquo;s referring strictly, again,</p>
+<p>to the original definition of just.</p>
+<p>A transistor count.</p>
+<p>A shrink factor&rsquo;s just getting them</p>
+<p>smaller and smaller and smaller.</p>
+<p>Well, it&rsquo;s for a constant chip area.</p>
+<p>If you make the transistors smaller by 0.6,</p>
+<p>then you get one over 0.6 more transistors.</p>
+<p>So can you linger on it a little longer?</p>
+<p>What&rsquo;s a broader, what do you think should be</p>
+<p>the broader definition of Moore&rsquo;s Law?</p>
+<p>When you mentioned how you think of performance,</p>
+<p>just broadly, what&rsquo;s a good way to think about Moore&rsquo;s Law?</p>
+<p>Well, first of all, I&rsquo;ve been aware</p>
+<p>of Moore&rsquo;s Law for 30 years.</p>
+<p>In which sense?</p>
+<p>Well, I&rsquo;ve been designing computers for 40.</p>
+<p>You&rsquo;re just watching it before your eyes kind of thing.</p>
+<p>And somewhere where I became aware of it,</p>
+<p>I was also informed that Moore&rsquo;s Law</p>
+<p>was gonna die in 10 to 15 years.</p>
+<p>And then I thought that was true at first.</p>
+<p>But then after 10 years, it was gonna die in 10 to 15 years.</p>
+<p>And then at one point, it was gonna die in five years.</p>
+<p>And then it went back up to 10 years.</p>
+<p>And at some point, I decided not to worry</p>
+<p>about that particular prognostication</p>
+<p>for the rest of my life, which is fun.</p>
+<p>And then I joined Intel and everybody said</p>
+<p>Moore&rsquo;s Law is dead.</p>
+<p>And I thought that&rsquo;s sad,</p>
+<p>because it&rsquo;s the Moore&rsquo;s Law company.</p>
+<p>And it&rsquo;s not dead.</p>
+<p>And it&rsquo;s always been gonna die.</p>
+<p>And humans like these apocryphal kind of statements,</p>
+<p>like we&rsquo;ll run out of food, or we&rsquo;ll run out of air,</p>
+<p>or we&rsquo;ll run out of room, or we&rsquo;ll run out of something.</p>
+<p>Right, but it&rsquo;s still incredible</p>
+<p>that it&rsquo;s lived for as long as it has.</p>
+<p>And yes, there&rsquo;s many people who believe now</p>
+<p>that Moore&rsquo;s Law is dead.</p>
+<p>You know, they can join the last 50 years</p>
+<p>of people who had the same idea.</p>
+<p>Yeah, there&rsquo;s a long tradition.</p>
+<p>But why do you think, if you can try to understand it,</p>
+<p>why do you think it&rsquo;s not dead?</p>
+<p>Well, let&rsquo;s just think, people think Moore&rsquo;s Law</p>
+<p>is one thing, transistors get smaller.</p>
+<p>But actually, under the sheet,</p>
+<p>there&rsquo;s literally thousands of innovations.</p>
+<p>And almost all those innovations</p>
+<p>have their own diminishing return curves.</p>
+<p>So if you graph it, it looks like a cascade</p>
+<p>of diminishing return curves.</p>
+<p>I don&rsquo;t know what to call that.</p>
+<p>But the result is an exponential curve.</p>
+<p>Well, at least it has been.</p>
+<p>So, and we keep inventing new things.</p>
+<p>So if you&rsquo;re an expert in one of the things</p>
+<p>on a diminishing return curve, right,</p>
+<p>and you can see it&rsquo;s plateau,</p>
+<p>you will probably tell people, well, this is done.</p>
+<p>Meanwhile, some other pile of people</p>
+<p>are doing something different.</p>
+<p>So that&rsquo;s just normal.</p>
+<p>So then there&rsquo;s the observation of</p>
+<p>how small could a switching device be?</p>
+<p>So a modern transistor is something like</p>
+<p>a thousand by a thousand by a thousand atoms, right?</p>
+<p>And you get quantum effects down around two to 10 atoms.</p>
+<p>So you can imagine the transistor</p>
+<p>as small as 10 by 10 by 10.</p>
+<p>So that&rsquo;s a million times smaller.</p>
+<p>And then the quantum computational people</p>
+<p>are working away at how to use quantum effects.</p>
+<p>So.</p>
+<p>A thousand by a thousand by a thousand.</p>
+<p>Atoms.</p>
+<p>That&rsquo;s a really clean way of putting it.</p>
+<p>Well, a fan, like a modern transistor,</p>
+<p>if you look at the fan, it&rsquo;s like 120 atoms wide,</p>
+<p>but we can make that thinner.</p>
+<p>And then there&rsquo;s a gate wrapped around it,</p>
+<p>and then there&rsquo;s spacing.</p>
+<p>There&rsquo;s a whole bunch of geometry.</p>
+<p>And a competent transistor designer</p>
+<p>could count both atoms in every single direction.</p>
+<p>Like there&rsquo;s techniques now to already put down atoms</p>
+<p>in a single atomic layer.</p>
+<p>And you can place atoms if you want to.</p>
+<p>It&rsquo;s just from a manufacturing process,</p>
+<p>if placing an atom takes 10 minutes</p>
+<p>and you need to put 10 to the 23rd atoms together</p>
+<p>to make a computer, it would take a long time.</p>
+<p>So the methods are both shrinking things</p>
+<p>and then coming up with effective ways</p>
+<p>to control what&rsquo;s happening.</p>
+<p>Manufacture stably and cheaply.</p>
+<p>Yeah.</p>
+<p>So the innovation stock&rsquo;s pretty broad.</p>
+<p>There&rsquo;s equipment, there&rsquo;s optics, there&rsquo;s chemistry,</p>
+<p>there&rsquo;s physics, there&rsquo;s material science,</p>
+<p>there&rsquo;s metallurgy, there&rsquo;s lots of ideas</p>
+<p>about when you put different materials together,</p>
+<p>how do they interact, are they stable,</p>
+<p>is it stable over temperature, like are they repeatable?</p>
+<p>There&rsquo;s like literally thousands of technologies involved.</p>
+<p>But just for the shrinking, you don&rsquo;t think</p>
+<p>we&rsquo;re quite yet close to the fundamental limits of physics?</p>
+<p>I did a talk on Moore&rsquo;s Law and I asked for a roadmap</p>
+<p>to a path of 100 and after two weeks,</p>
+<p>they said we only got to 50.</p>
+<p>100 what, sorry?</p>
+<p>100 X shrink.</p>
+<p>100 X shrink?</p>
+<p>We only got to 50.</p>
+<p>And I said, why don&rsquo;t you give it another two weeks?</p>
+<p>Well, here&rsquo;s the thing about Moore&rsquo;s Law, right?</p>
+<p>So I believe that the next 10 or 20 years</p>
+<p>of shrinking is gonna happen, right?</p>
+<p>Now, as a computer designer, you have two stances.</p>
+<p>You think it&rsquo;s going to shrink, in which case</p>
+<p>you&rsquo;re designing and thinking about architecture</p>
+<p>in a way that you&rsquo;ll use more transistors.</p>
+<p>Or conversely, not be swamped by the complexity</p>
+<p>of all the transistors you get, right?</p>
+<p>You have to have a strategy, you know?</p>
+<p>So you&rsquo;re open to the possibility and waiting</p>
+<p>for the possibility of a whole new army</p>
+<p>of transistors ready to work.</p>
+<p>I&rsquo;m expecting more transistors every two or three years</p>
+<p>by a number large enough that how you think about design,</p>
+<p>how you think about architecture has to change.</p>
+<p>Like, imagine you build buildings out of bricks,</p>
+<p>and every year the bricks are half the size,</p>
+<p>or every two years.</p>
+<p>Well, if you kept building bricks the same way,</p>
+<p>so many bricks per person per day,</p>
+<p>the amount of time to build a building</p>
+<p>would go up exponentially, right?</p>
+<p>But if you said, I know that&rsquo;s coming,</p>
+<p>so now I&rsquo;m gonna design equipment that moves bricks faster,</p>
+<p>uses them better, because maybe you&rsquo;re getting something</p>
+<p>out of the smaller bricks, more strength, thinner walls,</p>
+<p>you know, less material, efficiency out of that.</p>
+<p>So once you have a roadmap with what&rsquo;s gonna happen,</p>
+<p>transistors, we&rsquo;re gonna get more of them,</p>
+<p>then you design all this collateral around it</p>
+<p>to take advantage of it, and also to cope with it.</p>
+<p>Like, that&rsquo;s the thing people don&rsquo;t understand.</p>
+<p>It&rsquo;s like, if I didn&rsquo;t believe in Moore&rsquo;s Law,</p>
+<p>and then Moore&rsquo;s Law transistors showed up,</p>
+<p>my design teams would all drown.</p>
+<p>So what&rsquo;s the hardest part of this inflow</p>
+<p>of new transistors?</p>
+<p>I mean, even if you just look historically,</p>
+<p>throughout your career, what&rsquo;s the thing,</p>
+<p>what fundamentally changes when you add more transistors</p>
+<p>in the task of designing an architecture?</p>
+<p>Well, there&rsquo;s two constants, right?</p>
+<p>One is people don&rsquo;t get smarter.</p>
+<p>By the way, there&rsquo;s some science showing</p>
+<p>that we do get smarter because of nutrition or whatever.</p>
+<p>Sorry to bring that up.</p>
+<p>Blend effect.</p>
+<p>Yes.</p>
+<p>Yeah, I&rsquo;m familiar with it.</p>
+<p>Nobody understands it, nobody knows if it&rsquo;s still going on.</p>
+<p>So that&rsquo;s a&hellip;</p>
+<p>Or whether it&rsquo;s real or not.</p>
+<p>But yeah, it&rsquo;s a&hellip;</p>
+<p>I sort of&hellip;</p>
+<p>Anyway, but not exponentially.</p>
+<p>I would believe for the most part,</p>
+<p>people aren&rsquo;t getting much smarter.</p>
+<p>The evidence doesn&rsquo;t support it, that&rsquo;s right.</p>
+<p>And then teams can&rsquo;t grow that much.</p>
+<p>Right.</p>
+<p>Right, so human beings, you know,</p>
+<p>we&rsquo;re really good in teams of 10,</p>
+<p>you know, up to teams of 100, they can know each other.</p>
+<p>Beyond that, you have to have organizational boundaries.</p>
+<p>So you&rsquo;re kind of, you have,</p>
+<p>those are pretty hard constraints, right?</p>
+<p>So then you have to divide and conquer,</p>
+<p>like as the designs get bigger,</p>
+<p>you have to divide it into pieces.</p>
+<p>You know, the power of abstraction layers is really high.</p>
+<p>We used to build computers out of transistors.</p>
+<p>Now we have a team that turns transistors into logic cells</p>
+<p>and another team that turns them into functional units,</p>
+<p>another one that turns them into computers, right?</p>
+<p>So we have abstraction layers in there</p>
+<p>and you have to think about when do you shift gears on that.</p>
+<p>We also use faster computers to build faster computers.</p>
+<p>So some algorithms run twice as fast on new computers,</p>
+<p>but a lot of algorithms are N squared.</p>
+<p>So, you know, a computer with twice as many transistors</p>
+<p>and it might take four times as long to run.</p>
+<p>So you have to refactor the software.</p>
+<p>Like simply using faster computers</p>
+<p>to build bigger computers doesn&rsquo;t work.</p>
+<p>So you have to think about all these things.</p>
+<p>So in terms of computing performance</p>
+<p>and the exciting possibility</p>
+<p>that more powerful computers bring,</p>
+<p>is shrinking the thing which you&rsquo;ve been talking about,</p>
+<p>for you, one of the biggest exciting possibilities</p>
+<p>of advancement in performance?</p>
+<p>Or is there other directions that you&rsquo;re interested in,</p>
+<p>like in the direction of sort of enforcing given parallelism</p>
+<p>or like doing massive parallelism</p>
+<p>in terms of many, many CPUs,</p>
+<p>you know, stacking CPUs on top of each other,</p>
+<p>that kind of parallelism or any kind of parallelism?</p>
+<p>Well, think about it a different way.</p>
+<p>So old computers, you know, slow computers,</p>
+<p>you said A equal B plus C times D, pretty simple, right?</p>
+<p>And then we made faster computers with vector units</p>
+<p>and you can do proper equations and matrices, right?</p>
+<p>And then modern like AI computations</p>
+<p>or like convolutional neural networks,</p>
+<p>where you convolve one large data set against another.</p>
+<p>And so there&rsquo;s sort of this hierarchy of mathematics,</p>
+<p>you know, from simple equation to linear equations,</p>
+<p>to matrix equations, to deeper kind of computation.</p>
+<p>And the data sets are getting so big</p>
+<p>that people are thinking of data as a topology problem.</p>
+<p>You know, data is organized in some immense shape.</p>
+<p>And then the computation, which sort of wants to be,</p>
+<p>get data from immense shape and do some computation on it.</p>
+<p>So what computers have allowed people to do</p>
+<p>is have algorithms go much, much further.</p>
+<p>So that paper you reference, the Sutton paper,</p>
+<p>they talked about, you know, like when AI started,</p>
+<p>it was apply rule sets to something.</p>
+<p>That&rsquo;s a very simple computational situation.</p>
+<p>And then when they did first chess thing,</p>
+<p>they solved deep searches.</p>
+<p>So have a huge database of moves and results, deep search,</p>
+<p>but it&rsquo;s still just a search, right?</p>
+<p>Now we take large numbers of images</p>
+<p>and we use it to train these weight sets</p>
+<p>that we convolve across.</p>
+<p>It&rsquo;s a completely different kind of phenomena.</p>
+<p>We call that AI.</p>
+<p>Now they&rsquo;re doing the next generation.</p>
+<p>And if you look at it,</p>
+<p>they&rsquo;re going up this mathematical graph, right?</p>
+<p>And then computations, both computation and data sets</p>
+<p>support going up that graph.</p>
+<p>Yeah, the kind of computation that might,</p>
+<p>I mean, I would argue that all of it is still a search,</p>
+<p>right?</p>
+<p>Just like you said, a topology problem with data sets,</p>
+<p>you&rsquo;re searching the data sets for valuable data</p>
+<p>and also the actual optimization of neural networks</p>
+<p>is a kind of search for the&hellip;</p>
+<p>I don&rsquo;t know, if you had looked at the interlayers</p>
+<p>of finding a cat, it&rsquo;s not a search.</p>
+<p>It&rsquo;s a set of endless projections.</p>
+<p>So, you know, a projection,</p>
+<p>here&rsquo;s a shadow of this phone, right?</p>
+<p>And then you can have a shadow of that on the something</p>
+<p>and a shadow on that of something.</p>
+<p>And if you look in the layers, you&rsquo;ll see</p>
+<p>this layer actually describes pointy ears</p>
+<p>and round eyeness and fuzziness.</p>
+<p>But the computation to tease out the attributes</p>
+<p>is not search.</p>
+<p>Like the inference part might be search,</p>
+<p>but the training&rsquo;s not search.</p>
+<p>And then in deep networks, they look at layers</p>
+<p>and they don&rsquo;t even know it&rsquo;s represented.</p>
+<p>And yet, if you take the layers out, it doesn&rsquo;t work.</p>
+<p>So I don&rsquo;t think it&rsquo;s search.</p>
+<p>But you&rsquo;d have to talk to a mathematician</p>
+<p>about what that actually is.</p>
+<p>Well, we could disagree, but it&rsquo;s just semantics,</p>
+<p>I think, it&rsquo;s not, but it&rsquo;s certainly not&hellip;</p>
+<p>I would say it&rsquo;s absolutely not semantics, but&hellip;</p>
+<p>Okay, all right, well, if you want to go there.</p>
+<p>So optimization to me is search,</p>
+<p>and we&rsquo;re trying to optimize the ability</p>
+<p>of a neural network to detect cat ears.</p>
+<p>And the difference between chess and the space,</p>
+<p>the incredibly multidimensional,</p>
+<p>100,000 dimensional space that neural networks</p>
+<p>are trying to optimize over is nothing like</p>
+<p>the chessboard database.</p>
+<p>So it&rsquo;s a totally different kind of thing.</p>
+<p>And okay, in that sense, you can say it loses the meaning.</p>
+<p>I can see how you might say, if you&hellip;</p>
+<p>The funny thing is, it&rsquo;s the difference</p>
+<p>between given search space and found search space.</p>
+<p>Right, exactly.</p>
+<p>Yeah, maybe that&rsquo;s a different way to describe it.</p>
+<p>That&rsquo;s a beautiful way to put it, okay.</p>
+<p>But you&rsquo;re saying, what&rsquo;s your sense</p>
+<p>in terms of the basic mathematical operations</p>
+<p>and the architectures, computer hardware</p>
+<p>that enables those operations?</p>
+<p>Do you see the CPUs of today still being</p>
+<p>a really core part of executing</p>
+<p>those mathematical operations?</p>
+<p>Yes.</p>
+<p>Well, the operations continue to be add, subtract,</p>
+<p>load, store, compare, and branch.</p>
+<p>It&rsquo;s remarkable.</p>
+<p>So it&rsquo;s interesting, the building blocks</p>
+<p>of computers or transistors under that atoms.</p>
+<p>So you got atoms, transistors, logic gates, computers,</p>
+<p>functional units of computers.</p>
+<p>The building blocks of mathematics at some level</p>
+<p>are things like adds and subtracts and multiplies,</p>
+<p>but the space mathematics can describe</p>
+<p>is, I think, essentially infinite.</p>
+<p>But the computers that run the algorithms</p>
+<p>are still doing the same things.</p>
+<p>Now, a given algorithm might say, I need sparse data,</p>
+<p>or I need 32 bit data, or I need, you know,</p>
+<p>like a convolution operation that naturally takes</p>
+<p>eight bit data, multiplies it, and sums it up a certain way.</p>
+<p>So like the data types in TensorFlow</p>
+<p>imply an optimization set.</p>
+<p>But when you go right down and look at the computers,</p>
+<p>it&rsquo;s and and or gates doing adds and multiplies.</p>
+<p>Like that hasn&rsquo;t changed much.</p>
+<p>Now, the quantum researchers think</p>
+<p>they&rsquo;re going to change that radically,</p>
+<p>and then there&rsquo;s people who think about analog computing</p>
+<p>because you look in the brain, and it</p>
+<p>seems to be more analogish.</p>
+<p>You know, that maybe there&rsquo;s a way to do that more</p>
+<p>efficiently.</p>
+<p>But we have a million X on computation,</p>
+<p>and I don&rsquo;t know the relationship</p>
+<p>between computational, let&rsquo;s say,</p>
+<p>intensity and ability to hit mathematical abstractions.</p>
+<p>I don&rsquo;t know any way to describe that, but just like you saw</p>
+<p>in AI, you went from rule sets to simple search</p>
+<p>to complex search to, say, found search.</p>
+<p>Like those are orders of magnitude more computation</p>
+<p>to do.</p>
+<p>And as we get the next two orders of magnitude,</p>
+<p>like a friend, Roger Gaduri, said,</p>
+<p>like every order of magnitude changes the computation.</p>
+<p>Fundamentally changes what the computation is doing.</p>
+<p>Yeah.</p>
+<p>Oh, you know the expression the difference in quantity</p>
+<p>is the difference in kind.</p>
+<p>You know, the difference between ant and anthill, right?</p>
+<p>Or neuron and brain.</p>
+<p>You know, there&rsquo;s this indefinable place</p>
+<p>where the quantity changed the quality, right?</p>
+<p>And we&rsquo;ve seen that happen in mathematics multiple times,</p>
+<p>and you know, my guess is it&rsquo;s going to keep happening.</p>
+<p>So your sense is, yeah, if you focus head down</p>
+<p>and shrinking the transistor.</p>
+<p>Well, it&rsquo;s not just head down, we&rsquo;re aware of the software</p>
+<p>stacks that are running in the computational loads,</p>
+<p>and we&rsquo;re kind of pondering what do you</p>
+<p>do with a petabyte of memory that wants</p>
+<p>to be accessed in a sparse way and have, you know,</p>
+<p>the kind of calculations AI programmers want.</p>
+<p>So there&rsquo;s a dialogue interaction,</p>
+<p>but when you go in the computer chip,</p>
+<p>you know, you find adders and subtractors and multipliers.</p>
+<p>So if you zoom out then with, as you mentioned very sudden,</p>
+<p>the idea that most of the development in the last many</p>
+<p>decades in AI research came from just leveraging computation</p>
+<p>and just simple algorithms waiting for the computation</p>
+<p>to improve.</p>
+<p>Well, software guys have a thing that they call it</p>
+<p>the problem of early optimization.</p>
+<p>So you write a big software stack,</p>
+<p>and if you start optimizing like the first thing you write,</p>
+<p>the odds of that being the performance limiter is low.</p>
+<p>But when you get the whole thing working,</p>
+<p>can you make it 2x faster by optimizing the right things?</p>
+<p>Sure.</p>
+<p>While you&rsquo;re optimizing that, could you</p>
+<p>have written a new software stack, which</p>
+<p>would have been a better choice?</p>
+<p>Maybe.</p>
+<p>Now you have creative tension.</p>
+<p>So.</p>
+<p>But the whole time as you&rsquo;re doing the writing,</p>
+<p>that&rsquo;s the software we&rsquo;re talking about.</p>
+<p>The hardware underneath gets faster and faster.</p>
+<p>Well, this goes back to the Moore&rsquo;s law.</p>
+<p>If Moore&rsquo;s law is going to continue, then your AI research</p>
+<p>should expect that to show up, and then you</p>
+<p>make a slightly different set of choices then.</p>
+<p>We&rsquo;ve hit the wall.</p>
+<p>Nothing&rsquo;s going to happen.</p>
+<p>And from here, it&rsquo;s just us rewriting algorithms.</p>
+<p>That seems like a failed strategy for the last 30</p>
+<p>years of Moore&rsquo;s law&rsquo;s death.</p>
+<p>So can you just linger on it?</p>
+<p>I think you&rsquo;ve answered it, but I&rsquo;ll just</p>
+<p>ask the same dumb question over and over.</p>
+<p>So why do you think Moore&rsquo;s law is not going to die?</p>
+<p>Which is the most promising, exciting possibility</p>
+<p>of why it won&rsquo;t die in the next 5, 10 years?</p>
+<p>So is it the continued shrinking of the transistor,</p>
+<p>or is it another S curve that steps in and it totally sort</p>
+<p>of matches up?</p>
+<p>Shrinking the transistor is literally</p>
+<p>thousands of innovations.</p>
+<p>Right, so there&rsquo;s stacks of S curves in there.</p>
+<p>There&rsquo;s a whole bunch of S curves just kind</p>
+<p>of running their course and being reinvented</p>
+<p>and new things.</p>
+<p>The semiconductor fabricators and technologists have all</p>
+<p>announced what&rsquo;s called nanowires.</p>
+<p>So they took a fan, which had a gate around it,</p>
+<p>and turned that into little wires</p>
+<p>so you have better control of that, and they&rsquo;re smaller.</p>
+<p>And then from there, there are some obvious steps</p>
+<p>about how to shrink that.</p>
+<p>The metallurgy around wire stacks and stuff</p>
+<p>has very obvious abilities to shrink.</p>
+<p>And there&rsquo;s a whole combination of things there to do.</p>
+<p>Your sense is that we&rsquo;re going to get a lot</p>
+<p>if this innovation performed just that, shrinking.</p>
+<p>Yeah, like a factor of 100 is a lot.</p>
+<p>Yeah, I would say that&rsquo;s incredible.</p>
+<p>And it&rsquo;s totally unknown.</p>
+<p>It&rsquo;s only 10 or 15 years.</p>
+<p>Now, you&rsquo;re smarter, you might know,</p>
+<p>but to me it&rsquo;s totally unpredictable</p>
+<p>of what that 100x would bring in terms</p>
+<p>of the nature of the computation that people would be.</p>
+<p>Yeah, are you familiar with Bell&rsquo;s law?</p>
+<p>So for a long time, it was mainframes, minis, workstation,</p>
+<p>PC, mobile.</p>
+<p>Moore&rsquo;s law drove faster, smaller computers.</p>
+<p>And then when we were thinking about Moore&rsquo;s law,</p>
+<p>Rajagaduri said, every 10x generates a new computation.</p>
+<p>So scalar, vector, matrix, topological computation.</p>
+<p>And if you go look at the industry trends,</p>
+<p>there was mainframes, and then minicomputers, and then PCs,</p>
+<p>and then the internet took off.</p>
+<p>And then we got mobile devices.</p>
+<p>And now we&rsquo;re building 5G wireless</p>
+<p>with one millisecond latency.</p>
+<p>And people are starting to think about the smart world</p>
+<p>where everything knows you, recognizes you.</p>
+<p>The transformations are going to be unpredictable.</p>
+<p>How does it make you feel that you&rsquo;re</p>
+<p>one of the key architects of this kind of future?</p>
+<p>So we&rsquo;re not talking about the architects</p>
+<p>of the high level people who build the Angry Bird apps,</p>
+<p>and Snapchat.</p>
+<p>Angry Bird apps.</p>
+<p>Who knows?</p>
+<p>Maybe that&rsquo;s the whole point of the universe.</p>
+<p>I&rsquo;m going to take a stand at that,</p>
+<p>and the attention distracting nature of mobile phones.</p>
+<p>I&rsquo;ll take a stand.</p>
+<p>But anyway, in terms of the side effects of smartphones,</p>
+<p>or the attention distraction, which part?</p>
+<p>Well, who knows where this is all leading?</p>
+<p>It&rsquo;s changing so fast.</p>
+<p>My parents used to yell at my sisters</p>
+<p>for hiding in the closet with a wired phone with a dial on it.</p>
+<p>Stop talking to your friends all day.</p>
+<p>Now my wife yells at my kids for talking to their friends</p>
+<p>all day on text.</p>
+<p>It looks the same to me.</p>
+<p>It&rsquo;s always echoes of the same thing.</p>
+<p>But you are one of the key people</p>
+<p>architecting the hardware of this future.</p>
+<p>How does that make you feel?</p>
+<p>Do you feel responsible?</p>
+<p>Do you feel excited?</p>
+<p>So we&rsquo;re in a social context.</p>
+<p>So there&rsquo;s billions of people on this planet.</p>
+<p>There are literally millions of people working on technology.</p>
+<p>I feel lucky to be doing what I do and getting paid for it,</p>
+<p>and there&rsquo;s an interest in it.</p>
+<p>But there&rsquo;s so many things going on in parallel.</p>
+<p>The actions are so unpredictable.</p>
+<p>If I wasn&rsquo;t here, somebody else would do it.</p>
+<p>The vectors of all these different things</p>
+<p>are happening all the time.</p>
+<p>You know, there&rsquo;s a, I&rsquo;m sure, some philosopher</p>
+<p>or metaphilosopher is wondering about how</p>
+<p>we transform our world.</p>
+<p>So you can&rsquo;t deny the fact that these tools are</p>
+<p>changing our world.</p>
+<p>That&rsquo;s right.</p>
+<p>Do you think it&rsquo;s changing for the better?</p>
+<p>I read this thing recently.</p>
+<p>It said the two disciplines with the highest GRE scores in college</p>
+<p>are physics and philosophy.</p>
+<p>And they&rsquo;re both sort of trying to answer the question,</p>
+<p>why is there anything?</p>
+<p>And the philosophers are on the kind of theological side,</p>
+<p>and the physicists are obviously on the material side.</p>
+<p>And there&rsquo;s 100 billion galaxies with 100 billion stars.</p>
+<p>It seems, well, repetitive at best.</p>
+<p>So you know, there&rsquo;s on our way to 10 billion people.</p>
+<p>I mean, it&rsquo;s hard to say what it&rsquo;s all for,</p>
+<p>if that&rsquo;s what you&rsquo;re asking.</p>
+<p>Yeah, I guess I am.</p>
+<p>Things do tend to significantly increase in complexity.</p>
+<p>And I&rsquo;m curious about how computation,</p>
+<p>like our physical world inherently</p>
+<p>generates mathematics.</p>
+<p>It&rsquo;s kind of obvious, right?</p>
+<p>So we have x, y, z coordinates.</p>
+<p>You take a sphere, you make it bigger.</p>
+<p>You get a surface that grows by r squared.</p>
+<p>Like, it generally generates mathematics.</p>
+<p>And the mathematicians and the physicists</p>
+<p>have been having a lot of fun talking to each other for years.</p>
+<p>And computation has been, let&rsquo;s say, relatively pedestrian.</p>
+<p>Like, computation in terms of mathematics</p>
+<p>has been doing binary algebra, while those guys have</p>
+<p>been gallivanting through the other realms of possibility.</p>
+<p>Now recently, the computation lets</p>
+<p>you do mathematical computations that</p>
+<p>are sophisticated enough that nobody understands</p>
+<p>how the answers came out.</p>
+<p>Machine learning.</p>
+<p>It used to be you get data set, you guess at a function.</p>
+<p>The function is considered physics</p>
+<p>if it&rsquo;s predictive of new functions, new data sets.</p>
+<p>Modern, you can take a large data set</p>
+<p>with no intuition about what it is</p>
+<p>and use machine learning to find a pattern that</p>
+<p>has no function, right?</p>
+<p>And it can arrive at results that I</p>
+<p>don&rsquo;t know if they&rsquo;re completely mathematically describable.</p>
+<p>So computation has kind of done something interesting compared</p>
+<p>to a equal b plus c.</p>
+<p>There&rsquo;s something reminiscent of that step</p>
+<p>from the basic operations of addition</p>
+<p>to taking a step towards neural networks that&rsquo;s</p>
+<p>reminiscent of what life on Earth at its origins was doing.</p>
+<p>Do you think we&rsquo;re creating sort of the next step</p>
+<p>in our evolution in creating artificial intelligence</p>
+<p>systems that will?</p>
+<p>I don&rsquo;t know.</p>
+<p>I mean, there&rsquo;s so much in the universe already,</p>
+<p>it&rsquo;s hard to say.</p>
+<p>Where we stand in this whole thing.</p>
+<p>Are human beings working on additional abstraction</p>
+<p>layers and possibilities?</p>
+<p>Yeah, it appears so.</p>
+<p>Does that mean that human beings don&rsquo;t need dogs?</p>
+<p>You know, no.</p>
+<p>Like, there&rsquo;s so many things that</p>
+<p>are all simultaneously interesting and useful.</p>
+<p>Well, you&rsquo;ve seen, throughout your career,</p>
+<p>you&rsquo;ve seen greater and greater level abstractions built</p>
+<p>in artificial machines, right?</p>
+<p>Do you think, when you look at humans,</p>
+<p>do you think that the look of all life on Earth</p>
+<p>is a single organism building this thing,</p>
+<p>this machine with greater and greater levels of abstraction?</p>
+<p>Do you think humans are the peak,</p>
+<p>the top of the food chain in this long arc of history</p>
+<p>on Earth?</p>
+<p>Or do you think we&rsquo;re just somewhere in the middle?</p>
+<p>Are we the basic functional operations of a CPU?</p>
+<p>Are we the C++ program, the Python program,</p>
+<p>or the neural network?</p>
+<p>Like, somebody&rsquo;s, you know, people</p>
+<p>have calculated, like, how many operations does the brain do?</p>
+<p>Something, you know, I&rsquo;ve seen the number 10 to the 18th</p>
+<p>a bunch of times, arrive different ways.</p>
+<p>So could you make a computer that</p>
+<p>did 10 to the 20th operations?</p>
+<p>Yes.</p>
+<p>Sure.</p>
+<p>Do you think?</p>
+<p>We&rsquo;re going to do that.</p>
+<p>Now, is there something magical about how brains compute things?</p>
+<p>I don&rsquo;t know.</p>
+<p>You know, my personal experience is interesting,</p>
+<p>because, you know, you think you know how you think,</p>
+<p>and then you have all these ideas,</p>
+<p>and you can&rsquo;t figure out how they happened.</p>
+<p>And if you meditate, you know, what you can be aware of</p>
+<p>is interesting.</p>
+<p>So I don&rsquo;t know if brains are magical or not.</p>
+<p>You know, the physical evidence says no.</p>
+<p>Lots of people&rsquo;s personal experience says yes.</p>
+<p>So what would be funny is if brains are magical,</p>
+<p>and yet we can make brains with more computation.</p>
+<p>You know, I don&rsquo;t know what to say about that.</p>
+<p>But do you think magic is an emergent phenomena?</p>
+<p>Could be.</p>
+<p>I have no explanation for it.</p>
+<p>Let me ask Jim Keller of what in your view is consciousness?</p>
+<p>With consciousness?</p>
+<p>Yeah, like what, you know, consciousness, love,</p>
+<p>things that are these deeply human things that</p>
+<p>seems to emerge from our brain, is that something</p>
+<p>that we&rsquo;ll be able to make encode in chips that get</p>
+<p>faster and faster and faster and faster?</p>
+<p>That&rsquo;s like a 10 hour conversation.</p>
+<p>Nobody really knows.</p>
+<p>Can you summarize it in a couple of sentences?</p>
+<p>Many people have observed that organisms run</p>
+<p>at lots of different levels, right?</p>
+<p>If you had two neurons, somebody said</p>
+<p>you&rsquo;d have one sensory neuron and one motor neuron, right?</p>
+<p>So we move towards things and away from things.</p>
+<p>And we have physical integrity and safety or not, right?</p>
+<p>And then if you look at the animal kingdom,</p>
+<p>you can see brains that are a little more complicated.</p>
+<p>And at some point, there&rsquo;s a planning system.</p>
+<p>And then there&rsquo;s an emotional system</p>
+<p>that&rsquo;s happy about being safe or unhappy about being threatened.</p>
+<p>And then our brains have massive numbers of structures,</p>
+<p>like planning and movement and thinking and feeling</p>
+<p>and drives and emotions.</p>
+<p>And we seem to have multiple layers of thinking systems.</p>
+<p>And we have a dream system that nobody understands whatsoever,</p>
+<p>which I find completely hilarious.</p>
+<p>And you can think in a way that those systems are</p>
+<p>more independent.</p>
+<p>And you can observe the different parts of yourself</p>
+<p>can observe them.</p>
+<p>I don&rsquo;t know which one&rsquo;s magical.</p>
+<p>I don&rsquo;t know which one&rsquo;s not computational.</p>
+<p>So.</p>
+<p>Is it possible that it&rsquo;s all computation?</p>
+<p>Probably.</p>
+<p>Is there a limit to computation?</p>
+<p>I don&rsquo;t think so.</p>
+<p>Do you think the universe is a computer?</p>
+<p>It seems to be.</p>
+<p>It&rsquo;s a weird kind of computer.</p>
+<p>Because if it was a computer, like when</p>
+<p>they do calculations on how much calculation</p>
+<p>it takes to describe quantum effects, it&rsquo;s unbelievably high.</p>
+<p>So if it was a computer, wouldn&rsquo;t you</p>
+<p>have built it out of something that was easier to compute?</p>
+<p>That&rsquo;s a funny system.</p>
+<p>But then the simulation guys pointed out</p>
+<p>that the rules are kind of interesting.</p>
+<p>When you look really close, it&rsquo;s uncertain.</p>
+<p>And the speed of light says you can only look so far.</p>
+<p>And things can&rsquo;t be simultaneous,</p>
+<p>except for the odd entanglement problem where they seem to be.</p>
+<p>The rules are all kind of weird.</p>
+<p>And somebody said physics is like having</p>
+<p>50 equations with 50 variables to define 50 variables.</p>
+<p>Physics itself has been a shit show for thousands of years.</p>
+<p>It seems odd when you get to the corners of everything.</p>
+<p>It&rsquo;s either uncomputable or undefinable or uncertain.</p>
+<p>It&rsquo;s almost like the designers of the simulation</p>
+<p>are trying to prevent us from understanding it perfectly.</p>
+<p>But also, the things that require calculations</p>
+<p>require so much calculation that our idea</p>
+<p>of the universe of a computer is absurd,</p>
+<p>because every single little bit of it</p>
+<p>takes all the computation in the universe to figure out.</p>
+<p>So that&rsquo;s a weird kind of computer.</p>
+<p>You say the simulation is running</p>
+<p>in a computer, which has, by definition, infinite computation.</p>
+<p>Not infinite.</p>
+<p>Oh, you mean if the universe is infinite?</p>
+<p>Yeah.</p>
+<p>Well, every little piece of our universe</p>
+<p>seems to take infinite computation to figure out.</p>
+<p>Not infinite, just a lot.</p>
+<p>Well, a lot.</p>
+<p>Some pretty big number.</p>
+<p>Compute this little teeny spot takes all the mass</p>
+<p>in the local one light year by one light year space.</p>
+<p>It&rsquo;s close enough to infinite.</p>
+<p>Well, it&rsquo;s a heck of a computer if it is one.</p>
+<p>I know.</p>
+<p>It&rsquo;s a weird description, because the simulation</p>
+<p>description seems to break when you look closely at it.</p>
+<p>But the rules of the universe seem to imply something&rsquo;s up.</p>
+<p>That seems a little arbitrary.</p>
+<p>The universe, the whole thing, the laws of physics,</p>
+<p>it just seems like, how did it come out to be the way it is?</p>
+<p>Well, lots of people talk about that.</p>
+<p>Like I said, the two smartest groups of humans</p>
+<p>are working on the same problem.</p>
+<p>From different aspects.</p>
+<p>And they&rsquo;re both complete failures.</p>
+<p>So that&rsquo;s kind of cool.</p>
+<p>They might succeed eventually.</p>
+<p>Well, after 2,000 years, the trend isn&rsquo;t good.</p>
+<p>Oh, 2,000 years is nothing in the span</p>
+<p>of the history of the universe.</p>
+<p>That&rsquo;s for sure.</p>
+<p>We have some time.</p>
+<p>But the next 1,000 years doesn&rsquo;t look good either.</p>
+<p>That&rsquo;s what everybody says at every stage.</p>
+<p>But with Moore&rsquo;s law, as you&rsquo;ve just described,</p>
+<p>not being dead, the exponential growth of technology,</p>
+<p>the future seems pretty incredible.</p>
+<p>Well, it&rsquo;ll be interesting, that&rsquo;s for sure.</p>
+<p>That&rsquo;s right.</p>
+<p>So what are your thoughts on Ray Kurzweil&rsquo;s sense</p>
+<p>that exponential improvement in technology</p>
+<p>will continue indefinitely?</p>
+<p>Is that how you see Moore&rsquo;s law?</p>
+<p>Do you see Moore&rsquo;s law more broadly,</p>
+<p>in the sense that technology of all kinds</p>
+<p>has a way of stacking S curves on top of each other,</p>
+<p>where it&rsquo;ll be exponential, and then we&rsquo;ll see all kinds of&hellip;</p>
+<p>What does an exponential of a million mean?</p>
+<p>That&rsquo;s a pretty amazing number.</p>
+<p>And that&rsquo;s just for a local little piece of silicon.</p>
+<p>Now let&rsquo;s imagine you, say, decided</p>
+<p>to get 1,000 tons of silicon to collaborate in one computer</p>
+<p>at a million times the density.</p>
+<p>Now you&rsquo;re talking, I don&rsquo;t know, 10 to the 20th more</p>
+<p>computation power than our current, already unbelievably</p>
+<p>fast computers.</p>
+<p>Nobody knows what that&rsquo;s going to mean.</p>
+<p>The sci fi guys call it computronium,</p>
+<p>like when a local civilization turns the nearby star</p>
+<p>into a computer.</p>
+<p>I don&rsquo;t know if that&rsquo;s true, but&hellip;</p>
+<p>So just even when you shrink a transistor, the&hellip;</p>
+<p>That&rsquo;s only one dimension.</p>
+<p>The ripple effects of that.</p>
+<p>People tend to think about computers as a cost problem.</p>
+<p>So computers are made out of silicon and minor amounts</p>
+<p>of metals and this and that.</p>
+<p>None of those things cost any money.</p>
+<p>There&rsquo;s plenty of sand.</p>
+<p>You could just turn the beach and a little bit of ocean water</p>
+<p>into computers.</p>
+<p>So all the cost is in the equipment to do it.</p>
+<p>And the trend on equipment is once you</p>
+<p>figure out how to build the equipment,</p>
+<p>the trend of cost is zero.</p>
+<p>Elon said, first you figure out what</p>
+<p>configuration you want the atoms in,</p>
+<p>and then how to put them there.</p>
+<p>His great insight is people are how constrained.</p>
+<p>I have this thing, I know how it works,</p>
+<p>and then little tweaks to that will generate something,</p>
+<p>as opposed to what do I actually want,</p>
+<p>and then figure out how to build it.</p>
+<p>It&rsquo;s a very different mindset.</p>
+<p>And almost nobody has it, obviously.</p>
+<p>Well, let me ask on that topic,</p>
+<p>you were one of the key early people</p>
+<p>in the development of autopilot, at least in the hardware</p>
+<p>side, Elon Musk believes that autopilot</p>
+<p>and vehicle autonomy, if you just look at that problem,</p>
+<p>can follow this kind of exponential improvement.</p>
+<p>In terms of the how question that we&rsquo;re talking about,</p>
+<p>there&rsquo;s no reason why you can&rsquo;t.</p>
+<p>What are your thoughts on this particular space</p>
+<p>of vehicle autonomy, and your part of it</p>
+<p>and Elon Musk&rsquo;s and Tesla&rsquo;s vision for vehicle autonomy?</p>
+<p>Well, the computer you need to build is straightforward.</p>
+<p>And you could argue, well, does it need to be</p>
+<p>two times faster or five times or 10 times?</p>
+<p>But that&rsquo;s just a matter of time or price in the short run.</p>
+<p>So that&rsquo;s not a big deal.</p>
+<p>You don&rsquo;t have to be especially smart to drive a car.</p>
+<p>So it&rsquo;s not like a super hard problem.</p>
+<p>I mean, the big problem with safety is attention,</p>
+<p>which computers are really good at, not skills.</p>
+<p>Well, let me push back on one.</p>
+<p>You see, everything you said is correct,</p>
+<p>but we as humans tend to take for granted</p>
+<p>how incredible our vision system is.</p>
+<p>So you can drive a car with 20, 50 vision,</p>
+<p>and you can train a neural network to extract</p>
+<p>the distance of any object in the shape of any surface</p>
+<p>from a video and data.</p>
+<p>Yeah, but that&rsquo;s really simple.</p>
+<p>No, it&rsquo;s not simple.</p>
+<p>That&rsquo;s a simple data problem.</p>
+<p>It&rsquo;s not, it&rsquo;s not simple.</p>
+<p>It&rsquo;s because it&rsquo;s not just detecting objects,</p>
+<p>it&rsquo;s understanding the scene,</p>
+<p>and it&rsquo;s being able to do it in a way</p>
+<p>that doesn&rsquo;t make errors.</p>
+<p>So the beautiful thing about the human vision system</p>
+<p>and our entire brain around the whole thing</p>
+<p>is we&rsquo;re able to fill in the gaps.</p>
+<p>It&rsquo;s not just about perfectly detecting cars.</p>
+<p>It&rsquo;s inferring the occluded cars.</p>
+<p>It&rsquo;s trying to, it&rsquo;s understanding the physics.</p>
+<p>I think that&rsquo;s mostly a data problem.</p>
+<p>So you think what data would compute</p>
+<p>with improvement of computation</p>
+<p>with improvement in collection of data?</p>
+<p>Well, there is a, you know, when you&rsquo;re driving a car</p>
+<p>and somebody cuts you off, your brain has theories</p>
+<p>about why they did it.</p>
+<p>You know, they&rsquo;re a bad person, they&rsquo;re distracted,</p>
+<p>they&rsquo;re dumb, you know, you can listen to yourself, right?</p>
+<p>So, you know, if you think that narrative is important</p>
+<p>to be able to successfully drive a car,</p>
+<p>then current autopilot systems can&rsquo;t do it.</p>
+<p>But if cars are ballistic things with tracks</p>
+<p>and probabilistic changes of speed and direction,</p>
+<p>and roads are fixed and given, by the way,</p>
+<p>they don&rsquo;t change dynamically, right?</p>
+<p>You can map the world really thoroughly.</p>
+<p>You can place every object really thoroughly.</p>
+<p>Right, you can calculate trajectories</p>
+<p>of things really thoroughly, right?</p>
+<p>But everything you said about really thoroughly</p>
+<p>has a different degree of difficulty, so.</p>
+<p>And you could say at some point,</p>
+<p>computer autonomous systems will be way better</p>
+<p>at things that humans are lousy at.</p>
+<p>Like, they&rsquo;ll be better at attention,</p>
+<p>they&rsquo;ll always remember there was a pothole in the road</p>
+<p>that humans keep forgetting about,</p>
+<p>they&rsquo;ll remember that this set of roads</p>
+<p>has these weirdo lines on it</p>
+<p>that the computers figured out once,</p>
+<p>and especially if they get updates,</p>
+<p>so if somebody changes a given,</p>
+<p>like, the key to robots and stuff somebody said</p>
+<p>is to maximize the givens, right?</p>
+<p>Right.</p>
+<p>So having a robot pick up this bottle cap</p>
+<p>is way easier if you put a red dot on the top,</p>
+<p>because then you&rsquo;ll have to figure out,</p>
+<p>and if you wanna do a certain thing with it,</p>
+<p>maximize the givens is the thing.</p>
+<p>And autonomous systems are happily maximizing the givens.</p>
+<p>Like, humans, when you drive someplace new,</p>
+<p>you remember it, because you&rsquo;re processing it</p>
+<p>the whole time, and after the 50th time you drove to work,</p>
+<p>you get to work, you don&rsquo;t know how you got there, right?</p>
+<p>You&rsquo;re on autopilot, right?</p>
+<p>Autonomous cars are always on autopilot.</p>
+<p>But the cars have no theories about why they got cut off,</p>
+<p>or why they&rsquo;re in traffic.</p>
+<p>So they also never stop paying attention.</p>
+<p>Right, so I tend to believe you do have to have theories,</p>
+<p>meta models of other people,</p>
+<p>especially with pedestrian cyclists,</p>
+<p>but also with other cars.</p>
+<p>So everything you said is actually essential to driving.</p>
+<p>Driving is a lot more complicated than people realize,</p>
+<p>I think, so to push back slightly, but to&hellip;</p>
+<p>So to cut into traffic, right?</p>
+<p>Yep.</p>
+<p>You can&rsquo;t just wait for a gap,</p>
+<p>you have to be somewhat aggressive.</p>
+<p>You&rsquo;ll be surprised how simple a calculation for that is.</p>
+<p>I may be on that particular point,</p>
+<p>but there&rsquo;s, maybe I actually have to push back.</p>
+<p>I would be surprised.</p>
+<p>You know what, yeah, I&rsquo;ll just say where I stand.</p>
+<p>I would be very surprised,</p>
+<p>but I think you might be surprised how complicated it is.</p>
+<p>I tell people, progress disappoints in the short run,</p>
+<p>and surprises in the long run.</p>
+<p>It&rsquo;s very possible, yeah.</p>
+<p>I suspect in 10 years it&rsquo;ll be just taken for granted.</p>
+<p>Yeah, probably.</p>
+<p>But you&rsquo;re probably right, not look like&hellip;</p>
+<p>It&rsquo;s gonna be a $50 solution that nobody cares about.</p>
+<p>It&rsquo;s like GPSes, like, wow, GPSes.</p>
+<p>We have satellites in space</p>
+<p>that tell you where your location is.</p>
+<p>It was a really big deal, now everything has a GPS in it.</p>
+<p>Yeah, that&rsquo;s true, but I do think that systems</p>
+<p>that involve human behavior are more complicated</p>
+<p>than we give them credit for.</p>
+<p>So we can do incredible things with technology</p>
+<p>that don&rsquo;t involve humans, but when you&hellip;</p>
+<p>I think humans are less complicated than people.</p>
+<p>You know, frequently ascribed.</p>
+<p>Maybe I feel&hellip;</p>
+<p>We tend to operate out of large numbers of patterns</p>
+<p>and just keep doing it over and over.</p>
+<p>But I can&rsquo;t trust you because you&rsquo;re a human.</p>
+<p>That&rsquo;s something a human would say.</p>
+<p>But my hope is on the point you&rsquo;ve made is,</p>
+<p>even if, no matter who&rsquo;s right,</p>
+<p>I&rsquo;m hoping that there&rsquo;s a lot of things</p>
+<p>that humans aren&rsquo;t good at</p>
+<p>that machines are definitely good at,</p>
+<p>like you said, attention and things like that.</p>
+<p>Well, they&rsquo;ll be so much better</p>
+<p>that the overall picture of safety and autonomy</p>
+<p>will be, obviously cars will be safer,</p>
+<p>even if they&rsquo;re not as good at understanding.</p>
+<p>I&rsquo;m a big believer in safety.</p>
+<p>I mean, there are already the current safety systems,</p>
+<p>like cruise control that doesn&rsquo;t let you run into people</p>
+<p>and lane keeping.</p>
+<p>There are so many features</p>
+<p>that you just look at the parade of accidents</p>
+<p>and knocking off like 80% of them is super doable.</p>
+<p>Just to linger on the autopilot team</p>
+<p>and the efforts there,</p>
+<p>it seems to be that there&rsquo;s a very intense scrutiny</p>
+<p>by the media and the public in terms of safety,</p>
+<p>the pressure, the bar put before autonomous vehicles.</p>
+<p>What are your, sort of as a person there</p>
+<p>working on the hardware and trying to build a system</p>
+<p>that builds a safe vehicle and so on,</p>
+<p>what was your sense about that pressure?</p>
+<p>Is it unfair?</p>
+<p>Is it expected of new technology?</p>
+<p>Yeah, it seems reasonable.</p>
+<p>I was interested, I talked to both American</p>
+<p>and European regulators,</p>
+<p>and I was worried that the regulations</p>
+<p>would write into the rules technology solutions,</p>
+<p>like modern brake systems imply hydraulic brakes.</p>
+<p>So if you read the regulations,</p>
+<p>to meet the letter of the law for brakes,</p>
+<p>it sort of has to be hydraulic, right?</p>
+<p>And the regulator said they&rsquo;re interested in the use cases,</p>
+<p>like a head on crash, an offset crash,</p>
+<p>don&rsquo;t hit pedestrians, don&rsquo;t run into people,</p>
+<p>don&rsquo;t leave the road, don&rsquo;t run a red light or a stoplight.</p>
+<p>They were very much into the scenarios.</p>
+<p>And they had all the data about which scenarios</p>
+<p>injured or killed the most people.</p>
+<p>And for the most part, those conversations were like,</p>
+<p>what&rsquo;s the right thing to do to take the next step?</p>
+<p>Now, Elon&rsquo;s very interested also in the benefits</p>
+<p>of autonomous driving or freeing people&rsquo;s time</p>
+<p>and attention, as well as safety.</p>
+<p>And I think that&rsquo;s also an interesting thing,</p>
+<p>but building autonomous systems so they&rsquo;re safe</p>
+<p>and safer than people seemed,</p>
+<p>since the goal is to be 10X safer than people,</p>
+<p>having the bar to be safer than people</p>
+<p>and scrutinizing accidents seems philosophically correct.</p>
+<p>So I think that&rsquo;s a good thing.</p>
+<p>What are, is different than the things you worked at,</p>
+<p>Intel, AMD, Apple, with autopilot chip design</p>
+<p>and hardware design, what are interesting</p>
+<p>or challenging aspects of building this specialized</p>
+<p>kind of computing system in the automotive space?</p>
+<p>I mean, there&rsquo;s two tricks to building</p>
+<p>like an automotive computer.</p>
+<p>One is the software team, the machine learning team</p>
+<p>is developing algorithms that are changing fast.</p>
+<p>So as you&rsquo;re building the accelerator,</p>
+<p>you have this, you know, worry or intuition</p>
+<p>that the algorithms will change enough</p>
+<p>that the accelerator will be the wrong one, right?</p>
+<p>And there&rsquo;s the generic thing, which is,</p>
+<p>if you build a really good general purpose computer,</p>
+<p>say its performance is one, and then GPU guys</p>
+<p>will deliver about 5X to performance</p>
+<p>for the same amount of silicon,</p>
+<p>because instead of discovering parallelism,</p>
+<p>you&rsquo;re given parallelism.</p>
+<p>And then special accelerators get another two to 5X</p>
+<p>on top of a GPU, because you say,</p>
+<p>I know the math is always eight bit integers</p>
+<p>into 32 bit accumulators, and the operations</p>
+<p>are the subset of mathematical possibilities.</p>
+<p>So AI accelerators have a claimed performance benefit</p>
+<p>over GPUs because in the narrow math space,</p>
+<p>you&rsquo;re nailing the algorithm.</p>
+<p>Now, you still try to make it programmable,</p>
+<p>but the AI field is changing really fast.</p>
+<p>So there&rsquo;s a, you know, there&rsquo;s a little</p>
+<p>creative tension there of, I want the acceleration</p>
+<p>afforded by specialization without being over specialized</p>
+<p>so that the new algorithm is so much more effective</p>
+<p>that you&rsquo;d have been better off on a GPU.</p>
+<p>So there&rsquo;s a tension there.</p>
+<p>To build a good computer for an application</p>
+<p>like automotive, there&rsquo;s all kinds of sensor inputs</p>
+<p>and safety processors and a bunch of stuff.</p>
+<p>So one of Elon&rsquo;s goals is to make it super affordable.</p>
+<p>So every car gets an autopilot computer.</p>
+<p>So some of the recent startups you look at,</p>
+<p>and they have a server in the trunk,</p>
+<p>because they&rsquo;re saying, I&rsquo;m gonna build</p>
+<p>this autopilot computer, replaces the driver.</p>
+<p>So their cost budget&rsquo;s 10 or $20,000.</p>
+<p>And Elon&rsquo;s constraint was, I&rsquo;m gonna put one in every car,</p>
+<p>whether people buy autonomous driving or not.</p>
+<p>So the cost constraint he had in mind was great, right?</p>
+<p>And to hit that, you had to think about the system design.</p>
+<p>That&rsquo;s complicated, and it&rsquo;s fun.</p>
+<p>You know, it&rsquo;s like, it&rsquo;s like, it&rsquo;s craftsman&rsquo;s work.</p>
+<p>Like, you know, a violin maker, right?</p>
+<p>You can say, Stradivarius is this incredible thing,</p>
+<p>the musicians are incredible.</p>
+<p>But the guy making the violin, you know,</p>
+<p>picked wood and sanded it, and then he cut it,</p>
+<p>you know, and he glued it, you know,</p>
+<p>and he waited for the right day</p>
+<p>so that when he put the finish on it,</p>
+<p>it didn&rsquo;t, you know, do something dumb.</p>
+<p>That&rsquo;s craftsman&rsquo;s work, right?</p>
+<p>You may be a genius craftsman</p>
+<p>because you have the best techniques</p>
+<p>and you discover a new one,</p>
+<p>but most engineers, craftsman&rsquo;s work.</p>
+<p>And humans really like to do that.</p>
+<p>You know the expression?</p>
+<p>Smart humans.</p>
+<p>No, everybody.</p>
+<p>All humans.</p>
+<p>I don&rsquo;t know.</p>
+<p>I used to, I dug ditches when I was in college.</p>
+<p>I got really good at it.</p>
+<p>Satisfying.</p>
+<p>Yeah.</p>
+<p>So.</p>
+<p>Digging ditches is also craftsman&rsquo;s work.</p>
+<p>Yeah, of course.</p>
+<p>So there&rsquo;s an expression called complex mastery behavior.</p>
+<p>So when you&rsquo;re learning something,</p>
+<p>that&rsquo;s fine, because you&rsquo;re learning something.</p>
+<p>When you do something, it&rsquo;s relatively simple.</p>
+<p>It&rsquo;s not that satisfying.</p>
+<p>But if the steps that you have to do are complicated</p>
+<p>and you&rsquo;re good at them, it&rsquo;s satisfying to do them.</p>
+<p>And then if you&rsquo;re intrigued by it all,</p>
+<p>as you&rsquo;re doing them, you sometimes learn new things</p>
+<p>that you can raise your game.</p>
+<p>But craftsman&rsquo;s work is good.</p>
+<p>And engineers, like engineering is complicated enough</p>
+<p>that you have to learn a lot of skills.</p>
+<p>And then a lot of what you do is then craftsman&rsquo;s work,</p>
+<p>which is fun.</p>
+<p>Autonomous driving, building a very resource</p>
+<p>constrained computer.</p>
+<p>So a computer has to be cheap enough</p>
+<p>to put in every single car.</p>
+<p>That essentially boils down to craftsman&rsquo;s work.</p>
+<p>It&rsquo;s engineering, it&rsquo;s innovation.</p>
+<p>Yeah, you know, there&rsquo;s thoughtful decisions</p>
+<p>and problems to solve and trade offs to make.</p>
+<p>Do you need 10 camera and ports or eight?</p>
+<p>You know, you&rsquo;re building for the current car</p>
+<p>or the next one.</p>
+<p>You know, how do you do the safety stuff?</p>
+<p>You know, there&rsquo;s a whole bunch of details.</p>
+<p>But it&rsquo;s fun.</p>
+<p>It&rsquo;s not like I&rsquo;m building a new type of neural network,</p>
+<p>which has a new mathematics and a new computer to work.</p>
+<p>You know, that&rsquo;s like, there&rsquo;s more invention than that.</p>
+<p>But the rejection to practice,</p>
+<p>once you pick the architecture, you look inside</p>
+<p>and what do you see?</p>
+<p>Adders and multipliers and memories and, you know,</p>
+<p>the basics.</p>
+<p>So computers is always this weird set of abstraction layers</p>
+<p>of ideas and thinking that reduction to practice</p>
+<p>is transistors and wires and, you know, pretty basic stuff.</p>
+<p>And that&rsquo;s an interesting phenomenon.</p>
+<p>By the way, like factory work,</p>
+<p>like lots of people think factory work</p>
+<p>is road assembly stuff.</p>
+<p>I&rsquo;ve been on the assembly line.</p>
+<p>Like the people who work there really like it.</p>
+<p>It&rsquo;s a really great job.</p>
+<p>It&rsquo;s really complicated.</p>
+<p>Putting cars together is hard, right?</p>
+<p>And the car is moving and the parts are moving</p>
+<p>and sometimes the parts are damaged</p>
+<p>and you have to coordinate putting all the stuff together</p>
+<p>and people are good at it.</p>
+<p>They&rsquo;re good at it.</p>
+<p>And I remember one day I went to work</p>
+<p>and the line was shut down for some reason</p>
+<p>and some of the guys sitting around were really bummed</p>
+<p>because they had reorganized a bunch of stuff</p>
+<p>and they were gonna hit a new record</p>
+<p>for the number of cars built that day.</p>
+<p>And they were all gung ho to do it.</p>
+<p>And these were big, tough buggers.</p>
+<p>And, you know, but what they did was complicated</p>
+<p>and you couldn&rsquo;t do it.</p>
+<p>Yeah, and I mean.</p>
+<p>Well, after a while you could,</p>
+<p>but you&rsquo;d have to work your way up</p>
+<p>because, you know, like putting the bright,</p>
+<p>what&rsquo;s called the brights, the trim on a car</p>
+<p>on a moving assembly line</p>
+<p>where it has to be attached 25 places</p>
+<p>in a minute and a half is unbelievably complicated.</p>
+<p>And human beings can do it, it&rsquo;s really good.</p>
+<p>I think that&rsquo;s harder than driving a car, by the way.</p>
+<p>Putting together, working at a.</p>
+<p>Working on a factory.</p>
+<p>Two smart people can disagree.</p>
+<p>Yay.</p>
+<p>I think driving a car.</p>
+<p>We&rsquo;ll get you in the factory someday</p>
+<p>and then we&rsquo;ll see how you do.</p>
+<p>No, not for us humans driving a car is easy.</p>
+<p>I&rsquo;m saying building a machine that drives a car</p>
+<p>is not easy.</p>
+<p>No, okay.</p>
+<p>Okay.</p>
+<p>Driving a car is easy for humans</p>
+<p>because we&rsquo;ve been evolving for billions of years.</p>
+<p>Drive cars.</p>
+<p>Yeah, I noticed that.</p>
+<p>The pale of the cars are super cool.</p>
+<p>No, now you join the rest of the internet</p>
+<p>and mocking me.</p>
+<p>Okay.</p>
+<p>I wasn&rsquo;t mocking, I was just.</p>
+<p>Yeah, yeah.</p>
+<p>Intrigued by your anthropology.</p>
+<p>Yeah, it&rsquo;s.</p>
+<p>I&rsquo;ll have to go dig into that.</p>
+<p>There&rsquo;s some inaccuracies there, yes.</p>
+<p>Okay, but in general,</p>
+<p>what have you learned in terms of</p>
+<p>thinking about passion, craftsmanship,</p>
+<p>tension, chaos.</p>
+<p>Jesus.</p>
+<p>The whole mess of it.</p>
+<p>What have you learned, have taken away from your time</p>
+<p>working with Elon Musk, working at Tesla,</p>
+<p>which is known to be a place of chaos innovation,</p>
+<p>craftsmanship, and all of those things.</p>
+<p>I really like the way you thought.</p>
+<p>You think you have an understanding</p>
+<p>about what first principles of something is,</p>
+<p>and then you talk to Elon about it,</p>
+<p>and you didn&rsquo;t scratch the surface.</p>
+<p>He has a deep belief that no matter what you do,</p>
+<p>it&rsquo;s a local maximum, right?</p>
+<p>And I had a friend, he invented a better electric motor,</p>
+<p>and it was a lot better than what we were using.</p>
+<p>And one day he came by, he said,</p>
+<p>I&rsquo;m a little disappointed, because this is really great,</p>
+<p>and you didn&rsquo;t seem that impressed.</p>
+<p>And I said, when the super intelligent aliens come,</p>
+<p>are they going to be looking for you?</p>
+<p>Like, where is he?</p>
+<p>The guy who built the motor.</p>
+<p>Yeah.</p>
+<p>Probably not.</p>
+<p>You know, like, but doing interesting work</p>
+<p>that&rsquo;s both innovative and, let&rsquo;s say,</p>
+<p>craftsman&rsquo;s work on the current thing</p>
+<p>is really satisfying, and it&rsquo;s good.</p>
+<p>And that&rsquo;s cool.</p>
+<p>And then Elon was good at taking everything apart,</p>
+<p>and like, what&rsquo;s the deep first principle?</p>
+<p>Oh, no, what&rsquo;s really, no, what&rsquo;s really?</p>
+<p>You know, that ability to look at it without assumptions</p>
+<p>and how constraints is super wild.</p>
+<p>You know, he built a rocket ship, and an electric car,</p>
+<p>and you know, everything.</p>
+<p>And that&rsquo;s super fun, and he&rsquo;s into it, too.</p>
+<p>Like, when they first landed two SpaceX rockets at Tesla,</p>
+<p>we had a video projector in the big room,</p>
+<p>and like, 500 people came down,</p>
+<p>and when they landed, everybody cheered,</p>
+<p>and some people cried.</p>
+<p>It was so cool.</p>
+<p>All right, but how did you do that?</p>
+<p>Well, it was super hard, and then people say,</p>
+<p>well, it&rsquo;s chaotic, really?</p>
+<p>To get out of all your assumptions,</p>
+<p>you think that&rsquo;s not gonna be unbelievably painful?</p>
+<p>And is Elon tough?</p>
+<p>Yeah, probably.</p>
+<p>Do people look back on it and say,</p>
+<p>boy, I&rsquo;m really happy I had that experience</p>
+<p>to go take apart that many layers of assumptions?</p>
+<p>Sometimes super fun, sometimes painful.</p>
+<p>So it could be emotionally and intellectually painful,</p>
+<p>that whole process of just stripping away assumptions.</p>
+<p>Yeah, imagine 99% of your thought process</p>
+<p>is protecting your self conception,</p>
+<p>and 98% of that&rsquo;s wrong.</p>
+<p>Now you got the math right.</p>
+<p>How do you think you&rsquo;re feeling</p>
+<p>when you get back into that one bit that&rsquo;s useful,</p>
+<p>and now you&rsquo;re open,</p>
+<p>and you have the ability to do something different?</p>
+<p>I don&rsquo;t know if I got the math right.</p>
+<p>It might be 99.9, but it ain&rsquo;t 50.</p>
+<p>Imagining it, the 50% is hard enough.</p>
+<p>Now, for a long time, I&rsquo;ve suspected you could get better.</p>
+<p>Like you can think better, you can think more clearly,</p>
+<p>you can take things apart.</p>
+<p>And there&rsquo;s lots of examples of that, people who do that.</p>
+<p>And Nilan is an example of that, you are an example.</p>
+<p>I don&rsquo;t know if I am, I&rsquo;m fun to talk to.</p>
+<p>Certainly.</p>
+<p>I&rsquo;ve learned a lot of stuff.</p>
+<p>Well, here&rsquo;s the other thing, I joke, like I read books,</p>
+<p>and people think, oh, you read books.</p>
+<p>Well, no, I&rsquo;ve read a couple of books a week for 55 years.</p>
+<p>Well, maybe 50,</p>
+<p>because I didn&rsquo;t learn to read until I was age or something.</p>
+<p>And it turns out when people write books,</p>
+<p>they often take 20 years of their life</p>
+<p>where they passionately did something,</p>
+<p>reduce it to 200 pages.</p>
+<p>That&rsquo;s kind of fun.</p>
+<p>And then you go online,</p>
+<p>and you can find out who wrote the best books</p>
+<p>and who liked, you know, that&rsquo;s kind of wild.</p>
+<p>So there&rsquo;s this wild selection process,</p>
+<p>and then you can read it,</p>
+<p>and for the most part, understand it.</p>
+<p>And then you can go apply it.</p>
+<p>Like I went to one company,</p>
+<p>I thought, I haven&rsquo;t managed much before.</p>
+<p>So I read 20 management books,</p>
+<p>and I started talking to them,</p>
+<p>and basically compared to all the VPs running around,</p>
+<p>I&rsquo;d read 19 more management books than anybody else.</p>
+<p>It wasn&rsquo;t even that hard.</p>
+<p>And half the stuff worked, like first time.</p>
+<p>It wasn&rsquo;t even rocket science.</p>
+<p>But at the core of that is questioning the assumptions,</p>
+<p>or sort of entering the thinking,</p>
+<p>first principles thinking,</p>
+<p>sort of looking at the reality of the situation,</p>
+<p>and using that knowledge, applying that knowledge.</p>
+<p>So that&rsquo;s.</p>
+<p>So I would say my brain has this idea</p>
+<p>that you can question first assumptions.</p>
+<p>But I can go days at a time and forget that,</p>
+<p>and you have to kind of like circle back that observation.</p>
+<p>Because it is emotionally challenging.</p>
+<p>Well, it&rsquo;s hard to just keep it front and center,</p>
+<p>because you operate on so many levels all the time,</p>
+<p>and getting this done takes priority,</p>
+<p>or being happy takes priority,</p>
+<p>or screwing around takes priority.</p>
+<p>Like how you go through life is complicated.</p>
+<p>And then you remember, oh yeah,</p>
+<p>I could really think first principles.</p>
+<p>Oh shit, that&rsquo;s tiring.</p>
+<p>But you do for a while, and that&rsquo;s kind of cool.</p>
+<p>So just as a last question in your sense,</p>
+<p>from the big picture, from the first principles,</p>
+<p>do you think, you kind of answered it already,</p>
+<p>but do you think autonomous driving is something</p>
+<p>we can solve on a timeline of years?</p>
+<p>So one, two, three, five, 10 years,</p>
+<p>as opposed to a century?</p>
+<p>Yeah, definitely.</p>
+<p>Just to linger on it a little longer,</p>
+<p>where&rsquo;s the confidence coming from?</p>
+<p>Is it the fundamentals of the problem,</p>
+<p>the fundamentals of building the hardware and the software?</p>
+<p>As a computational problem, understanding ballistics,</p>
+<p>roles, topography, it seems pretty solvable.</p>
+<p>And you can see this, like speech recognition,</p>
+<p>for a long time people are doing frequency</p>
+<p>and domain analysis, and all kinds of stuff,</p>
+<p>and that didn&rsquo;t work at all, right?</p>
+<p>And then they did deep learning about it,</p>
+<p>and it worked great.</p>
+<p>And it took multiple iterations.</p>
+<p>And autonomous driving is way past</p>
+<p>the frequency analysis point.</p>
+<p>Use radar, don&rsquo;t run into things.</p>
+<p>And the data gathering&rsquo;s going up,</p>
+<p>and the computation&rsquo;s going up,</p>
+<p>and the algorithm understanding&rsquo;s going up,</p>
+<p>and there&rsquo;s a whole bunch of problems</p>
+<p>getting solved like that.</p>
+<p>The data side is really powerful,</p>
+<p>but I disagree with both you and Elon.</p>
+<p>I&rsquo;ll tell Elon once again, as I did before,</p>
+<p>that when you add human beings into the picture,</p>
+<p>it&rsquo;s no longer a ballistics problem.</p>
+<p>It&rsquo;s something more complicated,</p>
+<p>but I could be very well proven wrong.</p>
+<p>Cars are highly damped in terms of rate of change.</p>
+<p>Like the steering system&rsquo;s really slow</p>
+<p>compared to a computer.</p>
+<p>The acceleration of the acceleration&rsquo;s really slow.</p>
+<p>Yeah, on a certain timescale, on a ballistics timescale,</p>
+<p>but human behavior, I don&rsquo;t know.</p>
+<p>I shouldn&rsquo;t say.</p>
+<p>Human beings are really slow too.</p>
+<p>Weirdly, we operate half a second behind reality.</p>
+<p>Nobody really understands that one either.</p>
+<p>It&rsquo;s pretty funny.</p>
+<p>Yeah, yeah.</p>
+<p>We very well could be surprised,</p>
+<p>and I think with the rate of improvement</p>
+<p>in all aspects on both the compute</p>
+<p>and the software and the hardware,</p>
+<p>there&rsquo;s gonna be pleasant surprises all over the place.</p>
+<p>Speaking of unpleasant surprises,</p>
+<p>many people have worries about a singularity</p>
+<p>in the development of AI.</p>
+<p>Forgive me for such questions.</p>
+<p>Yeah.</p>
+<p>When AI improves the exponential</p>
+<p>and reaches a point of superhuman level</p>
+<p>general intelligence, beyond the point,</p>
+<p>there&rsquo;s no looking back.</p>
+<p>Do you share this worry of existential threats</p>
+<p>from artificial intelligence,</p>
+<p>from computers becoming superhuman level intelligent?</p>
+<p>No, not really.</p>
+<p>We already have a very stratified society,</p>
+<p>and then if you look at the whole animal kingdom</p>
+<p>of capabilities and abilities and interests,</p>
+<p>and smart people have their niche,</p>
+<p>and normal people have their niche,</p>
+<p>and craftsmen have their niche,</p>
+<p>and animals have their niche.</p>
+<p>I suspect that the domains of interest</p>
+<p>for things that are astronomically different,</p>
+<p>like the whole something got 10 times smarter than us</p>
+<p>and wanted to track us all down because what?</p>
+<p>We like to have coffee at Starbucks?</p>
+<p>Like, it doesn&rsquo;t seem plausible.</p>
+<p>No, is there an existential problem</p>
+<p>that how do you live in a world</p>
+<p>where there&rsquo;s something way smarter than you,</p>
+<p>and you based your kind of self esteem</p>
+<p>on being the smartest local person?</p>
+<p>Well, there&rsquo;s what, 0.1% of the population who thinks that?</p>
+<p>Because the rest of the population&rsquo;s been dealing with it</p>
+<p>since they were born.</p>
+<p>So the breadth of possible experience</p>
+<p>that can be interesting is really big.</p>
+<p>And, you know, superintelligence seems likely,</p>
+<p>although we still don&rsquo;t know if we&rsquo;re magical,</p>
+<p>but I suspect we&rsquo;re not.</p>
+<p>And it seems likely that it&rsquo;ll create possibilities</p>
+<p>that are interesting for us,</p>
+<p>and its interests will be interesting for that,</p>
+<p>for whatever it is.</p>
+<p>It&rsquo;s not obvious why its interests would somehow</p>
+<p>want to fight over some square foot of dirt,</p>
+<p>or, you know, whatever the usual fears are about.</p>
+<p>So you don&rsquo;t think it&rsquo;ll inherit</p>
+<p>some of the darker aspects of human nature?</p>
+<p>Depends on how you think reality&rsquo;s constructed.</p>
+<p>So for whatever reason,</p>
+<p>human beings are in, let&rsquo;s say,</p>
+<p>creative tension and opposition</p>
+<p>with both our good and bad forces.</p>
+<p>Like, there&rsquo;s lots of philosophical understanding of that.</p>
+<p>I don&rsquo;t know why that would be different.</p>
+<p>So you think the evil is necessary for the good?</p>
+<p>I mean, the tension.</p>
+<p>I don&rsquo;t know about evil,</p>
+<p>but like we live in a competitive world</p>
+<p>where your good is somebody else&rsquo;s evil.</p>
+<p>You know, there&rsquo;s the malignant part of it,</p>
+<p>but that seems to be self limiting,</p>
+<p>although occasionally it&rsquo;s super horrible.</p>
+<p>But yes, there&rsquo;s a debate over ideas,</p>
+<p>and some people have different beliefs,</p>
+<p>and that debate itself is a process.</p>
+<p>So the arriving at something.</p>
+<p>Yeah, and why wouldn&rsquo;t that continue?</p>
+<p>Yeah.</p>
+<p>But you don&rsquo;t think that whole process</p>
+<p>will leave humans behind in a way that&rsquo;s painful?</p>
+<p>Emotionally painful, yes.</p>
+<p>For the 0.1%, they&rsquo;ll be.</p>
+<p>Why isn&rsquo;t it already painful</p>
+<p>for a large percentage of the population?</p>
+<p>And it is.</p>
+<p>I mean, society does have a lot of stress in it,</p>
+<p>about the 1%, and about the this, and about the that,</p>
+<p>but you know, everybody has a lot of stress in their life</p>
+<p>about what they find satisfying,</p>
+<p>and you know, know yourself seems to be the proper dictum,</p>
+<p>and pursue something that makes your life meaningful</p>
+<p>seems proper, and there&rsquo;s so many avenues on that.</p>
+<p>Like, there&rsquo;s so much unexplored space</p>
+<p>at every single level, you know.</p>
+<p>I&rsquo;m somewhat of, my nephew called me a jaded optimist.</p>
+<p>And you know, so it&rsquo;s.</p>
+<p>There&rsquo;s a beautiful tension in that label,</p>
+<p>but if you were to look back at your life,</p>
+<p>and could relive a moment, a set of moments,</p>
+<p>because there were the happiest times of your life,</p>
+<p>outside of family, what would that be?</p>
+<p>I don&rsquo;t want to relive any moments.</p>
+<p>I like that.</p>
+<p>I like that situation where you have some amount of optimism</p>
+<p>and then the anxiety of the unknown.</p>
+<p>So you love the unknown, the mystery of it.</p>
+<p>I don&rsquo;t know about the mystery.</p>
+<p>It sure gets your blood pumping.</p>
+<p>What do you think is the meaning of this whole thing?</p>
+<p>Of life, on this pale blue dot?</p>
+<p>It seems to be what it does.</p>
+<p>Like, the universe, for whatever reason,</p>
+<p>makes atoms, which makes us, which we do stuff.</p>
+<p>And we figure out things, and we explore things, and.</p>
+<p>That&rsquo;s just what it is.</p>
+<p>It&rsquo;s not just.</p>
+<p>Yeah, it is.</p>
+<p>Jim, I don&rsquo;t think there&rsquo;s a better place to end it</p>
+<p>is a huge honor, and.</p>
+<p>Well, that was super fun.</p>
+<p>Thank you so much for talking today.</p>
+<p>All right, great.</p>
+<p>Thanks for listening to this conversation,</p>
+<p>and thank you to our presenting sponsor, Cash App.</p>
+<p>Download it, use code LexPodcast.</p>
+<p>You&rsquo;ll get $10, and $10 will go to FIRST,</p>
+<p>a STEM education nonprofit that inspires hundreds</p>
+<p>of thousands of young minds to become future leaders</p>
+<p>and innovators.</p>
+<p>If you enjoy this podcast, subscribe on YouTube.</p>
+<p>Give it five stars on Apple Podcast.</p>
+<p>Follow on Spotify, support it on Patreon,</p>
+<p>or simply connect with me on Twitter.</p>
+<p>And now, let me leave you with some words of wisdom</p>
+<p>from Gordon Moore.</p>
+<p>If everything you try works,</p>
+<p>you aren&rsquo;t trying hard enough.</p>
+<p>Thank you for listening, and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

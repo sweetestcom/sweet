@@ -1,0 +1,2412 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with James Gosling, the founder and lead
+designer behind the Java programming language, which in many indices is the
+most popular programming language in the world, or is always at least in the top
+two or three.
+We only had a limited time for this conversation, but I&amp;rsquo;m sure we&amp;rsquo;ll talk
+again several times in this podcast.
+Quick summary of the sponsors, Public Goods, BetterHelp, and ExpressVPN.'>
+<title>Lex Fridman Podcast - #126 – James Gosling: Java, JVM, Emacs, and the Early Days of Computing | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500129/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #126 – James Gosling: Java, JVM, Emacs, and the Early Days of Computing'>
+<meta property='og:description' content='The following is a conversation with James Gosling, the founder and lead
+designer behind the Java programming language, which in many indices is the
+most popular programming language in the world, or is always at least in the top
+two or three.
+We only had a limited time for this conversation, but I&amp;rsquo;m sure we&amp;rsquo;ll talk
+again several times in this podcast.
+Quick summary of the sponsors, Public Goods, BetterHelp, and ExpressVPN.'>
+<meta property='og:url' content='https://swiest.com/en/1310500129/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-07-07T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-07-07T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #126 – James Gosling: Java, JVM, Emacs, and the Early Days of Computing">
+<meta name="twitter:description" content="The following is a conversation with James Gosling, the founder and lead
+designer behind the Java programming language, which in many indices is the
+most popular programming language in the world, or is always at least in the top
+two or three.
+We only had a limited time for this conversation, but I&amp;rsquo;m sure we&amp;rsquo;ll talk
+again several times in this podcast.
+Quick summary of the sponsors, Public Goods, BetterHelp, and ExpressVPN.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500129/">Lex Fridman Podcast - #126 – James Gosling: Java, JVM, Emacs, and the Early Days of Computing</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-07-07</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    61 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with James Gosling, the founder and lead</p>
+<p>designer behind the Java programming language, which in many indices is the</p>
+<p>most popular programming language in the world, or is always at least in the top</p>
+<p>two or three.</p>
+<p>We only had a limited time for this conversation, but I&rsquo;m sure we&rsquo;ll talk</p>
+<p>again several times in this podcast.</p>
+<p>Quick summary of the sponsors, Public Goods, BetterHelp, and ExpressVPN.</p>
+<p>Please check out these sponsors in the description to get a discount</p>
+<p>and to support this podcast.</p>
+<p>As a side note, let me say that Java is the language with which I first learned</p>
+<p>object oriented programming, and with it, the art and science of software</p>
+<p>engineering.</p>
+<p>Also early on in my undergraduate education, I took a course on concurrent</p>
+<p>programming with Java.</p>
+<p>Looking back at that time, before I fell in love with neural networks, the art</p>
+<p>of parallel computing was both algorithmically and philosophically</p>
+<p>fascinating to me.</p>
+<p>The concept of a computer in my mind before then was something that does</p>
+<p>one thing at a time, the idea that we could create an abstraction of</p>
+<p>parallelism where you could do many things at the same time, while still</p>
+<p>guaranteeing stability and correctness, was beautiful.</p>
+<p>While some folks in college took drugs to expand their mind, I took concurrent</p>
+<p>programming.</p>
+<p>If you enjoy this thing, subscribe on YouTube, review it with five stars on</p>
+<p>Apple Podcasts, follow on Spotify, support on Patreon, or connect with me</p>
+<p>on Twitter at Lex Friedman.</p>
+<p>As usual, I&rsquo;ll do a few minutes of ads now and no ads in the middle.</p>
+<p>I try to make these interesting, but I do give you timestamps, so go ahead</p>
+<p>and skip, but please do check out the sponsors by clicking the links in the</p>
+<p>description.</p>
+<p>It&rsquo;s the best way to support this podcast.</p>
+<p>This show sponsored by Public Goods, the one stop shop for affordable,</p>
+<p>sustainable, healthy household products.</p>
+<p>I take their fish oil and use their toothbrush, for example.</p>
+<p>Their products often have a minimalist black and white design that I find</p>
+<p>to be just beautiful.</p>
+<p>Some people ask why I wear this black suit and tie.</p>
+<p>There&rsquo;s a simplicity to it that to me focuses my mind on the most important</p>
+<p>bits of every moment of every day, pulling only at the thread of the</p>
+<p>essential in all that life has to throw at me.</p>
+<p>It&rsquo;s not about how I look, it&rsquo;s about how I feel.</p>
+<p>That&rsquo;s what design is to me, creating an inner conscious experience,</p>
+<p>not an external look.</p>
+<p>Anyway, Public Goods plants one tree for every order placed, which is kind of cool.</p>
+<p>Visit publicgoods.com slash Lex, or use code Lex at checkout to get 15 bucks</p>
+<p>off your first order.</p>
+<p>This show is also sponsored by BetterHelp, spelled H E L P, help.</p>
+<p>Check it out at betterhelp.com slash Lex.</p>
+<p>They figure out what you need and match you with a licensed professional</p>
+<p>therapist in under 48 hours.</p>
+<p>I chat with the person on there and enjoy it.</p>
+<p>Of course, I also regularly talk to David Goggins these days, who is definitely not</p>
+<p>a licensed professional therapist, but he does help me meet his and my demons and</p>
+<p>become comfortable to exist in their presence.</p>
+<p>Everyone is different, but for me, I think suffering is essential for creation, but</p>
+<p>you can suffer beautifully in a way that doesn&rsquo;t destroy you.</p>
+<p>I think therapy can help in whatever form that therapy takes.</p>
+<p>And I do think that BetterHelp is an option worth trying.</p>
+<p>They&rsquo;re easy, private, affordable, and available worldwide.</p>
+<p>You can communicate by text anytime and schedule weekly audio and video sessions.</p>
+<p>Check it out at betterhelp.com slash Lex.</p>
+<p>This show is also sponsored by Express CPM.</p>
+<p>You can use it to unlock movies and shows that are only</p>
+<p>available in other countries.</p>
+<p>I did this recently with Star Trek Discovery and UK Netflix, mostly because</p>
+<p>I wonder what it&rsquo;s like to live in London.</p>
+<p>I&rsquo;m thinking of moving from Boston to a place where I can build the</p>
+<p>business I&rsquo;ve always dreamed of building.</p>
+<p>London is probably not in the top three, but top 10 for sure.</p>
+<p>The number one show I&rsquo;ve been to is the one that I&rsquo;m most excited about.</p>
+<p>The number one choice currently is Austin.</p>
+<p>For many reasons that I&rsquo;ll probably speak to another time.</p>
+<p>San Francisco, unfortunately dropped out from the number one spot,</p>
+<p>but it&rsquo;s still in the running.</p>
+<p>If you have advice, let me know.</p>
+<p>Anyway, check out ExpressVPN.</p>
+<p>It lets you change your location to almost 100 countries and it&rsquo;s super fast.</p>
+<p>Go to expressvpn.com slash LexPod to get an extra three</p>
+<p>months of ExpressVPN for free.</p>
+<p>That&rsquo;s expressvpn.com slash LexPod.</p>
+<p>And now here&rsquo;s my conversation with James Gosling.</p>
+<p>I&rsquo;ve read somewhere that the square root of two is your favorite irrational number.</p>
+<p>I have no idea where that got started.</p>
+<p>Is there any truth to it?</p>
+<p>Is there anything in mathematics or numbers that you find beautiful?</p>
+<p>Oh, well, there&rsquo;s lots of things in math that&rsquo;s really beautiful.</p>
+<p>I used to consider myself really good at math and these days I consider</p>
+<p>myself really bad at math.</p>
+<p>I never really had a thing for the square root of two, but when I was a teenager,</p>
+<p>there was this book called The Dictionary of Curious and Interesting Numbers,</p>
+<p>which for some reason I read through and damn near memorized the whole thing.</p>
+<p>And I started this weird habit of when I was like filling out checks or paying for things</p>
+<p>with credit cards, I would want to make the receipt add up to a new number.</p>
+<p>Is there some numbers that stuck with you that just kind of make you feel good?</p>
+<p>They all have a story and fortunately, I&rsquo;ve actually mostly forgotten all of them.</p>
+<p>Are they, uh, so like 42, uh, well, yeah, I mean, that one 42 is pretty magical.</p>
+<p>And then the irrationals, I mean, but is there a square root of two story in there</p>
+<p>somewhere, how did that come about?</p>
+<p>It&rsquo;s, it&rsquo;s like the only number that has destroyed a religion in which way, well,</p>
+<p>the, the pathogorians, they, they believed that all numbers were perfect and you</p>
+<p>could re represent anything as, as a, as a rational number.</p>
+<p>And, um, in that, in that time period, um, the, this proof came out that there was no,</p>
+<p>you know, rational fraction whose value was equal to the square root of two.</p>
+<p>And that, that means nothing in this world, right?</p>
+<p>Yeah.</p>
+<p>So, so, so, so, so, so, so, so, so, so, so, so, so, so, so, so, so, so, so, so, so, so,</p>
+<p>in this world is perfect, not even mathematics.</p>
+<p>Well, it means that your definition of perfect was imperfect.</p>
+<p>Well then, then there&rsquo;s the Gaitl incompleteness theorems and the 20th</p>
+<p>century that ruined it once again for everybody.</p>
+<p>Yeah.</p>
+<p>Although, although, although Goerl&rsquo;s theorem, um, you know, the lesson I take</p>
+<p>from Goerl&rsquo;s theorem is not that, you know, there are things you can&rsquo;t know,</p>
+<p>which is fundamentally what it says.</p>
+<p>But people want black and white answers.</p>
+<p>They want true or false.</p>
+<p>But if you allow a three state logic</p>
+<p>that is true, false, or maybe,</p>
+<p>then life&rsquo;s good.</p>
+<p>I feel like there&rsquo;s a parallel to modern political discourse</p>
+<p>in there somewhere, but let me ask.</p>
+<p>So with your kind of early love or appreciation</p>
+<p>of the beauty of mathematics,</p>
+<p>do you see a parallel between that world</p>
+<p>and the world of programming?</p>
+<p>Programming is all about logical structure,</p>
+<p>understanding the patterns that come out of computation,</p>
+<p>understanding sort of, I mean, it&rsquo;s often like the path</p>
+<p>through the graph of possibilities to find a short route.</p>
+<p>Meaning like find a short program</p>
+<p>that gets the job done kind of thing.</p>
+<p>But so then on the topic of irrational numbers,</p>
+<p>do you see programming?</p>
+<p>You just painted it so cleanly.</p>
+<p>It&rsquo;s a little of this trajectory</p>
+<p>to find like a nice little program,</p>
+<p>but do you see it as fundamentally messy?</p>
+<p>Maybe unlike mathematics?</p>
+<p>I don&rsquo;t think of it as, I mean, you know,</p>
+<p>you watch somebody who&rsquo;s good at math do math</p>
+<p>and you know, often it&rsquo;s fairly messy.</p>
+<p>Sometimes it&rsquo;s kind of magical.</p>
+<p>When I was a grad student, one of the students,</p>
+<p>his name was Jim Sachs, was he had this reputation</p>
+<p>of being sort of a walking, talking human</p>
+<p>theorem proving machine.</p>
+<p>And if you were having a hard problem with something,</p>
+<p>you could just like accost him in the hall</p>
+<p>and say, Jim, and he would do this funny thing</p>
+<p>where he would stand up straight.</p>
+<p>His eyes would kind of defocus.</p>
+<p>He&rsquo;d go, you know, just like something in today&rsquo;s movies.</p>
+<p>And then he&rsquo;d straighten up and say n log n and walk away.</p>
+<p>And you&rsquo;d go, well, okay, so n log n is the answer.</p>
+<p>How did he get there?</p>
+<p>By which time he&rsquo;s, you know, down the hallway somewhere.</p>
+<p>Yeah, he&rsquo;s just the oracle, the black box</p>
+<p>that just gives you the answer.</p>
+<p>Yeah, and then you have to figure out the path</p>
+<p>from the question to the answer.</p>
+<p>I think in one of the videos I watched,</p>
+<p>you mentioned Don Knuth, well, at least recommending his,</p>
+<p>you know, his book is something people should read.</p>
+<p>Oh, yeah.</p>
+<p>But in terms of, you know, theoretical computer science,</p>
+<p>do you see something beautiful that has been inspiring</p>
+<p>to you, speaking of n log n, in your work</p>
+<p>on programming languages, that&rsquo;s in that whole world</p>
+<p>of algorithms and complexity and, you know,</p>
+<p>these kinds of more formal mathematical things?</p>
+<p>Or did that not really stick with you</p>
+<p>in your programming life?</p>
+<p>It did stick pretty clearly for me,</p>
+<p>because one of the things that I care about</p>
+<p>is being able to sort of look at a piece of code</p>
+<p>and be able to prove to myself that it works.</p>
+<p>And, you know, so for example, I find that I&rsquo;m at odds</p>
+<p>with many of the people around me over issues</p>
+<p>about like how you lay out a piece of software, right?</p>
+<p>You know, so software engineers get really cranky</p>
+<p>about how they format the documents that are the programs,</p>
+<p>you know, where they put new lines and where they put,</p>
+<p>you know.</p>
+<p>The braces.</p>
+<p>The braces and all the rest of that, right.</p>
+<p>And I tend to go for a style that&rsquo;s very dense.</p>
+<p>Minimize the white space.</p>
+<p>Yeah, well, to maximize the amount</p>
+<p>that I can see at once, right?</p>
+<p>So I like to be able to see a whole function</p>
+<p>and to understand what it does,</p>
+<p>rather than have to go scroll, scroll, scroll</p>
+<p>and remember, right?</p>
+<p>Yeah, I&rsquo;m with you on that.</p>
+<p>Yeah, that&rsquo;s.</p>
+<p>And people don&rsquo;t like that.</p>
+<p>Yeah, I&rsquo;ve had, you know, multiple times</p>
+<p>when engineering teams have staged</p>
+<p>what was effectively an intervention.</p>
+<p>You know, where they invite me to a meeting</p>
+<p>and everybody&rsquo;s arrived before me</p>
+<p>and they all look at me and say,</p>
+<p>James, about your coding style, I&rsquo;m sort of an odd person</p>
+<p>to be programming because I don&rsquo;t think very well verbally.</p>
+<p>I am just naturally a slow reader.</p>
+<p>I&rsquo;m what most people would call a visual thinker.</p>
+<p>So when you think about a program,</p>
+<p>what do you see?</p>
+<p>I see pictures, right?</p>
+<p>So when I look at a piece of code on a piece of paper,</p>
+<p>it very quickly gets transformed into a picture.</p>
+<p>And, you know, it&rsquo;s almost like a piece of machinery</p>
+<p>with, you know, this connected to that and.</p>
+<p>Like these gears and different sizes.</p>
+<p>Yeah, yeah, I see them more like that</p>
+<p>than I see the sort of verbal structure</p>
+<p>or the lexical structure of letters.</p>
+<p>So then when you look at the program,</p>
+<p>that&rsquo;s why you want to see it all in the same place,</p>
+<p>then you can just map it to something visual.</p>
+<p>Yeah, and it just kind of like,</p>
+<p>like it leaps off the page at me and.</p>
+<p>Yeah, what are the inputs, what are the outputs?</p>
+<p>What the heck is this thing doing?</p>
+<p>Yeah, yeah.</p>
+<p>Getting a whole vision of it.</p>
+<p>Can we go back into your memory?</p>
+<p>Memory, long term memory access.</p>
+<p>What&rsquo;s the first program you&rsquo;ve ever written?</p>
+<p>Oh, I have no idea what the first one was.</p>
+<p>I mean, I know the first machine</p>
+<p>that I learned to program on.</p>
+<p>What is it?</p>
+<p>Was a PDP eight at the University of Calgary.</p>
+<p>Do you remember the specs?</p>
+<p>Oh yeah, so the thing had 4K of RAM.</p>
+<p>Nice.</p>
+<p>12 bit words.</p>
+<p>The clock rate was,</p>
+<p>it was about a third of a megahertz.</p>
+<p>Oh, so you didn&rsquo;t even get to the M, okay.</p>
+<p>Yeah, yeah, so we&rsquo;re like 10,000 times faster these days.</p>
+<p>10,000 times faster these days.</p>
+<p>And was this kind of like a super computer,</p>
+<p>like a serious computer for.</p>
+<p>No, the PDP eight I was the first thing</p>
+<p>that people were calling like mini computer.</p>
+<p>Got it.</p>
+<p>They were sort of inexpensive enough</p>
+<p>that a university lab could maybe afford to buy one.</p>
+<p>And was there time sharing, all that kind of stuff?</p>
+<p>There actually was a time sharing OS for that,</p>
+<p>but it wasn&rsquo;t used really widely.</p>
+<p>The machine that I learned on was one</p>
+<p>that was kind of hidden in the back corner</p>
+<p>of the computer center.</p>
+<p>And it was bought as part of a project</p>
+<p>to do computer networking,</p>
+<p>but they didn&rsquo;t actually use it very much.</p>
+<p>It was mostly just kind of sitting there</p>
+<p>and it was kind of sitting there</p>
+<p>and I noticed it was just kind of sitting there.</p>
+<p>And so I started fooling around with it</p>
+<p>and nobody seemed to mind.</p>
+<p>So I just kept doing that and.</p>
+<p>And it had a keyboard and like a monitor, are we?</p>
+<p>Oh, this is way before monitors were common.</p>
+<p>So it was literally a model 33 teletype</p>
+<p>with a paper tape reader.</p>
+<p>Okay, so the user interface wasn&rsquo;t very good.</p>
+<p>Yeah, it was the first computer ever built</p>
+<p>with integrated circuits, but by integrated circuits,</p>
+<p>I mean that they would have like 10 or 12 transistors</p>
+<p>on one piece of silicon,</p>
+<p>not the 10 or 12 billion that the machines have today.</p>
+<p>So what did that, I mean, feel like if you remember those?</p>
+<p>I mean, did you have kind of inklings of the magic</p>
+<p>of exponential kind of improvement of Moore&rsquo;s law</p>
+<p>of the potential of the future that,</p>
+<p>was that your fingertips kind of thing?</p>
+<p>Or was it just a cool?</p>
+<p>Yeah, it was just a toy.</p>
+<p>I had always liked building stuff,</p>
+<p>but one of the problems with building stuff</p>
+<p>is that you need to have parts.</p>
+<p>You need to have pieces of wood or wire or switches</p>
+<p>or stuff like that.</p>
+<p>And those all cost money.</p>
+<p>And here you could build.</p>
+<p>You could build arbitrarily complicated things</p>
+<p>and I didn&rsquo;t need any physical materials.</p>
+<p>It required no money.</p>
+<p>That&rsquo;s a good way to put programming.</p>
+<p>You&rsquo;re right, it&rsquo;s, if you love building things,</p>
+<p>completely accessible, you don&rsquo;t need anything.</p>
+<p>Anybody from anywhere could just build</p>
+<p>something really cool.</p>
+<p>Yeah, yeah.</p>
+<p>If you&rsquo;ve got access to a computer,</p>
+<p>you can build all kinds of crazy stuff.</p>
+<p>And when you were somebody like me</p>
+<p>who had like really no money, and I mean,</p>
+<p>I remember just lusting after being</p>
+<p>able to buy like a transistor.</p>
+<p>And when I would do sort of electronics kind of projects,</p>
+<p>they were mostly made, done by like dumpster diving for trash.</p>
+<p>And one of my big hauls was discarded relay racks</p>
+<p>from the back of the phone company switching center.</p>
+<p>Oh, nice.</p>
+<p>That was the big memorable treasure.</p>
+<p>Oh, yeah.</p>
+<p>Yeah, that was a really.</p>
+<p>What do you use that for?</p>
+<p>I built a machine that played tic tac toe.</p>
+<p>Nice.</p>
+<p>Out of relays.</p>
+<p>Of course, the thing that was really hard</p>
+<p>was that all the relays required a specific voltage.</p>
+<p>But getting a power supply that would do that voltage</p>
+<p>was pretty hard.</p>
+<p>And since I had a bunch of trashed television sets,</p>
+<p>I had to sort of cobble together something</p>
+<p>that was wrong but worked.</p>
+<p>So I was actually running these relays at 300 volts.</p>
+<p>And none of the electrical connections</p>
+<p>were like properly sealed off.</p>
+<p>Surprised you survived that period of your life.</p>
+<p>Oh, for so many reasons.</p>
+<p>For so many reasons.</p>
+<p>I mean, it&rsquo;s pretty common for teenage geeks</p>
+<p>to discover, oh, thermite.</p>
+<p>That&rsquo;s real easy to make.</p>
+<p>Yeah.</p>
+<p>Well, I&rsquo;m glad you did.</p>
+<p>But do you remember what program in Calgary</p>
+<p>that you wrote, anything that stands out?</p>
+<p>And what language?</p>
+<p>Well, so mostly anything of any size was assembly code.</p>
+<p>And actually, before I learned assembly code,</p>
+<p>there was this programming language</p>
+<p>on the PDP 8 called Focal 5.</p>
+<p>And Focal 5 was kind of like a really stripped down Fortran.</p>
+<p>And I remember building programs that did things</p>
+<p>like play blackjack or solitaire.</p>
+<p>Or for some reason or other, the things that I really liked</p>
+<p>were ones where they were just like plotting graphs.</p>
+<p>So something with like a function or data,</p>
+<p>and then you plot it.</p>
+<p>Yeah.</p>
+<p>Yeah, I did a bunches of those things</p>
+<p>and went, ooh, pretty pictures.</p>
+<p>And so this would like print out, again, no monitors.</p>
+<p>Right, so it was like on a teletype.</p>
+<p>Yeah.</p>
+<p>So it&rsquo;s using something that&rsquo;s kind of like a typewriter.</p>
+<p>And then using those to plot functions.</p>
+<p>So when, I apologize to romanticize things,</p>
+<p>but when did you first fall in love with programming?</p>
+<p>What was the first programming language?</p>
+<p>Like as a serious, maybe, software engineer,</p>
+<p>where you thought this is a beautiful thing?</p>
+<p>I guess I never really thought of any particular language</p>
+<p>as being beautiful, because it was never really</p>
+<p>about the language for me.</p>
+<p>It was about what you could do with it.</p>
+<p>And even today, people try to get me</p>
+<p>into arguments about particular forms of syntax</p>
+<p>for this or that.</p>
+<p>And I&rsquo;m like, who cares?</p>
+<p>It&rsquo;s about what you can do, not how you spell the word.</p>
+<p>And so back in those days, I learned like PL1 and Fortran</p>
+<p>and COBOL, and by the time that people were willing to hire me</p>
+<p>to do stuff, it was mostly assembly code and PDP assembly</p>
+<p>code and Fortran code and control data assembly</p>
+<p>code for the CDC 6400, which was an early, I guess,</p>
+<p>supercomputer.</p>
+<p>Even though that supercomputer has less compute power</p>
+<p>than my phone by a lot.</p>
+<p>And that was mostly, like you said, Fortran world.</p>
+<p>That said, you&rsquo;ve also showed appreciation</p>
+<p>for the greatest language ever that I</p>
+<p>think everyone agrees is Lisp.</p>
+<p>Well, Lisp is definitely on my list of the greatest ones</p>
+<p>that have existed.</p>
+<p>Is it at number one?</p>
+<p>Or I mean, are you, I mean?</p>
+<p>You know, the thing is that it&rsquo;s, you know,</p>
+<p>I wouldn&rsquo;t put it number one, no.</p>
+<p>Is it the parentheses?</p>
+<p>What do you not love about Lisp?</p>
+<p>Well, I guess the number one thing</p>
+<p>to not love about it is so freaking many parentheses.</p>
+<p>On the love thing is, you know, out of those tons</p>
+<p>of parentheses, you actually get an interesting language</p>
+<p>structure.</p>
+<p>And I&rsquo;ve always thought that there was a friendlier version</p>
+<p>of Lisp hiding out there somewhere.</p>
+<p>But I&rsquo;ve never really spent much time thinking about it.</p>
+<p>But, you know, so like up the food chain for me from Lisp</p>
+<p>is Simula, which a very small number of people</p>
+<p>have ever used.</p>
+<p>But a lot of people, I think you had a huge influence, right,</p>
+<p>on the programming.</p>
+<p>But in the Simula, I apologize if I&rsquo;m wrong on this,</p>
+<p>but is that one of the first functional languages?</p>
+<p>Or no?</p>
+<p>No, it was the first object oriented programming language.</p>
+<p>It&rsquo;s really where object oriented and languages sort</p>
+<p>of came together.</p>
+<p>And it was also the language where coroutines first showed</p>
+<p>up as a part of the language.</p>
+<p>So you could have a programming style that was,</p>
+<p>you could think of it as sort of multi threaded</p>
+<p>with a lot of parallelism.</p>
+<p>Really?</p>
+<p>There&rsquo;s ideas of parallelism in there?</p>
+<p>Yeah.</p>
+<p>Yeah, so that was back, you know,</p>
+<p>so the first Simula spec was Simula 67.</p>
+<p>Like 1967?</p>
+<p>Yeah.</p>
+<p>Wow.</p>
+<p>So it had coroutines, which are almost threads.</p>
+<p>The thing about coroutines is that they</p>
+<p>don&rsquo;t have true concurrency.</p>
+<p>So you can get away without really complex locking.</p>
+<p>You can&rsquo;t useably do coroutines on the multi core machine.</p>
+<p>Or if you try to do coroutines on the multi core machine,</p>
+<p>you don&rsquo;t actually get to use the multiple cores.</p>
+<p>Either that or you, because you start then</p>
+<p>having to get into the universe of semaphores and locks</p>
+<p>and things like that.</p>
+<p>But in terms of the style of programming,</p>
+<p>you could write code and think of it as being multi threaded.</p>
+<p>The mental model was very much a multi threaded one.</p>
+<p>And all kinds of problems you could</p>
+<p>approach very differently.</p>
+<p>To return to the world of Lisp for a brief moment,</p>
+<p>at CMU you wrote a version of Emacs</p>
+<p>that I think was very impactful on the history of Emacs.</p>
+<p>What was your motivation for doing so?</p>
+<p>At that time, so that was in like 85 or 86.</p>
+<p>I had been using Unix for a few years.</p>
+<p>And most of the editing was this tool</p>
+<p>called ED, which was sort of an ancestor of VI.</p>
+<p>Is it a pretty good editor, not a good editor?</p>
+<p>Well, if what you&rsquo;re using, if your input device</p>
+<p>is a teletype, it&rsquo;s pretty good.</p>
+<p>It&rsquo;s certainly more humane than TECO,</p>
+<p>which was kind of the common thing</p>
+<p>in a lot of the DEC universe at the time.</p>
+<p>TECO is spelled TK, is that the?</p>
+<p>No, TECO, T E C O, the text editor and corrector.</p>
+<p>Corrector, wow, so many features.</p>
+<p>And the original Emacs came out as,</p>
+<p>so Emacs stands for editor macros.</p>
+<p>And TECO had a way of writing macros.</p>
+<p>And so the original Emacs from MIT</p>
+<p>started out as a collection of macros for TECO.</p>
+<p>But then the Emacs style got popular originally at MIT.</p>
+<p>And then people did a few other implementations</p>
+<p>of Emacs that were, the code base was entirely different,</p>
+<p>but it was sort of the philosophical style</p>
+<p>of the original Emacs.</p>
+<p>What was the philosophy of Emacs?</p>
+<p>And by the way, were all the implementations always in C?</p>
+<p>And then how does Lisp fit into the picture?</p>
+<p>No, so the very first Emacs was written</p>
+<p>as a bunch of macros for the TECO text editor.</p>
+<p>Wow, that&rsquo;s so interesting.</p>
+<p>And the macro language for TECO was probably</p>
+<p>the most ridiculously obscure format.</p>
+<p>If you just look at a TECO program on a page,</p>
+<p>you think it was just random characters.</p>
+<p>It really looks like just line noise.</p>
+<p>So it&rsquo;s kind of like LaTeX or something.</p>
+<p>Oh, way worse than LaTeX.</p>
+<p>Way, way worse than LaTeX.</p>
+<p>But if you use TECO a lot, which I did,</p>
+<p>TECO was completely optimized for touch typing at high speed.</p>
+<p>So there were no two character commands.</p>
+<p>Well, there were a few, but mostly they</p>
+<p>were just one character.</p>
+<p>So every character on the keyboard was a separate command.</p>
+<p>And actually, every character on the keyboard</p>
+<p>was usually two or three commands</p>
+<p>because you could hit Shift and Control and all</p>
+<p>of those things.</p>
+<p>It&rsquo;s just a way of very tightly encoding it.</p>
+<p>And mostly what Emacs did was it made that visual.</p>
+<p>So one way to think of TECO is use Emacs with your eyes</p>
+<p>closed, where you have to maintain</p>
+<p>a mental model of a mental image of your document.</p>
+<p>You have to go, OK, so the cursor is between the A and the E.</p>
+<p>And I want to exchange those, so I do these things.</p>
+<p>So it is almost exactly the Emacs command set.</p>
+<p>Well, it&rsquo;s roughly the same as Emacs command set,</p>
+<p>but using Emacs with your eyes closed.</p>
+<p>So part of what Emacs added to the whole thing</p>
+<p>was being able to visually see what</p>
+<p>you were editing in a form that matched your document.</p>
+<p>And a lot of things changed in the command set because it</p>
+<p>was programmable.</p>
+<p>It was really flexible.</p>
+<p>You could add new commands for all kinds of things.</p>
+<p>And then people rewrote Emacs multiple times in Lisp.</p>
+<p>There was one done at MIT for the Lisp machine.</p>
+<p>There was one done for Multics.</p>
+<p>And one summer, I got a summer job</p>
+<p>to work on the Pascal compiler for Multics.</p>
+<p>And that was actually the first time I used Emacs.</p>
+<p>To write the compilers.</p>
+<p>You&rsquo;ve worked on compilers, too.</p>
+<p>That&rsquo;s fascinating.</p>
+<p>Yeah, so I did a lot of work.</p>
+<p>I spent a really intense three months</p>
+<p>working on this Pascal compiler, basically living in Emacs.</p>
+<p>And it was the one written in Mac Lisp by Bernie Greenberg.</p>
+<p>And I thought, wow, this is just a way better way</p>
+<p>to do editing.</p>
+<p>And then I got back to CMU, where</p>
+<p>we had one of everything and two of a bunch of things</p>
+<p>and four of a few things.</p>
+<p>And since I mostly worked in the Unix universe,</p>
+<p>and Unix didn&rsquo;t have an Emacs, I decided</p>
+<p>that I needed to fix that problem.</p>
+<p>So I wrote this implementation of Emacs in C,</p>
+<p>because at the time, C was really the only language that</p>
+<p>worked on Unix.</p>
+<p>And you were comfortable with C as well at that point?</p>
+<p>Yeah, at that time, I had done a lot of C coding.</p>
+<p>This was in, like, 86.</p>
+<p>And it was running well enough for me</p>
+<p>to use it to edit itself within a month or two.</p>
+<p>And then it kind of took over the university.</p>
+<p>And it spread outside.</p>
+<p>Yeah, and then it went outside.</p>
+<p>And largely because Unix kind of took over the research</p>
+<p>community on the ARPANET, and Emacs</p>
+<p>was kind of the best editor out there.</p>
+<p>It kind of took over.</p>
+<p>And there was actually a brief period</p>
+<p>where I actually had login IDs on every nonmilitary host</p>
+<p>on the ARPANET.</p>
+<p>Because people would say, oh, can we install this?</p>
+<p>And I&rsquo;d like, well, yeah, but you&rsquo;ll need some help.</p>
+<p>The days when security wasn&rsquo;t.</p>
+<p>When nobody cared.</p>
+<p>Nobody cared.</p>
+<p>I can ask briefly, what were those early days of ARPANET</p>
+<p>and the internet like?</p>
+<p>Did you, again, sorry for the silly question,</p>
+<p>but could you have possibly imagined</p>
+<p>that the internet would look like what it is today?</p>
+<p>Some of it is remarkably unchanged.</p>
+<p>So one of the things that I noticed really early on</p>
+<p>when I was at Carnegie Mellon was</p>
+<p>that a lot of social life became centered around the ARPANET.</p>
+<p>So things like between email and text messaging.</p>
+<p>Because text messaging was a part of the ARPANET</p>
+<p>really early on.</p>
+<p>There were no cell phones, but you&rsquo;re sitting at a terminal</p>
+<p>and you&rsquo;re typing stuff.</p>
+<p>So essentially email, or what is text messaging?</p>
+<p>Well, just like a one line message.</p>
+<p>Oh, cool.</p>
+<p>So like chat.</p>
+<p>Like chat.</p>
+<p>So it&rsquo;s like sending a one line message to somebody.</p>
+<p>And so pretty much everything from arranging lunch</p>
+<p>to going out on dates was all like driven by social media.</p>
+<p>Social media.</p>
+<p>Right, in the 80s.</p>
+<p>Easier than phone calls, yeah.</p>
+<p>And my life had gotten to where I</p>
+<p>was living on social media from the early mid 80s.</p>
+<p>And so when it sort of transformed into the internet</p>
+<p>and social media explodes, I was kind of like,</p>
+<p>what&rsquo;s the big deal?</p>
+<p>It&rsquo;s just a scale thing.</p>
+<p>Right, the scale thing is just astonishing.</p>
+<p>But the fundamentals in some ways remain the same.</p>
+<p>The fundamentals have hardly changed.</p>
+<p>And the technologies behind the networking</p>
+<p>have changed significantly.</p>
+<p>The watershed moment of going from the ARPANET</p>
+<p>to the internet.</p>
+<p>And then people starting to just scale and scale and scale.</p>
+<p>I mean, the scaling that happened in the early 90s</p>
+<p>and the way that so many vested interests fought the internet.</p>
+<p>Oh, interesting.</p>
+<p>What was the, oh, because you can&rsquo;t really</p>
+<p>control the internet.</p>
+<p>Yeah, so who fought the internet?</p>
+<p>So fundamentally, the cable TV companies</p>
+<p>and broadcasters and phone companies,</p>
+<p>at the deepest fibers of their being, they hated the internet.</p>
+<p>But it was often kind of a funny thing because, so think</p>
+<p>of a cable company.</p>
+<p>Most of the employees of a cable company,</p>
+<p>their job is getting TV shows, movies, whatever,</p>
+<p>out to their customers.</p>
+<p>They view their business as serving their customers.</p>
+<p>But as you climb up the hierarchy in the cable companies,</p>
+<p>that view shifts because really the business of the cable</p>
+<p>companies had always been selling eyeballs</p>
+<p>to advertisers.</p>
+<p>Right.</p>
+<p>And that view of a cable company</p>
+<p>didn&rsquo;t really dawn on most people who</p>
+<p>worked at the cable companies.</p>
+<p>But I had various dust ups with various cable companies</p>
+<p>where you could see in the stratified layers</p>
+<p>of the corporation that this view of the reason</p>
+<p>that you have cable TV is to capture eyeballs.</p>
+<p>So they didn&rsquo;t see it that way.</p>
+<p>Well, so most of the people who worked at the phone company</p>
+<p>or at the cable companies, their view</p>
+<p>was that their job was getting delightful content out</p>
+<p>to their customers.</p>
+<p>And their customers would pay for that.</p>
+<p>Higher up, they viewed this as a way of attracting eyeballs</p>
+<p>to them.</p>
+<p>And then what they were really doing</p>
+<p>was selling the eyeballs that were glued to their content</p>
+<p>to the advertisers.</p>
+<p>To the advertisers, yeah.</p>
+<p>And so the internet was a competition in that sense.</p>
+<p>Right.</p>
+<p>They were right.</p>
+<p>Well, yeah.</p>
+<p>I mean, there was one proposal that we sent,</p>
+<p>one detailed proposal that we wrote up back</p>
+<p>at Sun in the early 90s that was essentially like, look,</p>
+<p>anybody with internet technologies,</p>
+<p>anybody can become provider of content.</p>
+<p>So you could be distributing home movies</p>
+<p>to your parents or your cousins or who are anywhere else.</p>
+<p>So anybody can become a publisher.</p>
+<p>Wow, you were thinking about that already.</p>
+<p>Netflix, Netflix, YouTube.</p>
+<p>Yeah, that was like in the early 90s.</p>
+<p>And we thought, this would be great.</p>
+<p>And the kind of content we were thinking about at the time</p>
+<p>was like home movies, kids essays,</p>
+<p>stuff from grocery stores or a restaurant</p>
+<p>that they could actually start sending information about.</p>
+<p>That&rsquo;s brilliant.</p>
+<p>And the reaction of the cable companies</p>
+<p>was like, fuck no.</p>
+<p>Because then we&rsquo;re out of business.</p>
+<p>What is it about companies that, because they could have just,</p>
+<p>they could have been ahead of that wave.</p>
+<p>They could have listened to that.</p>
+<p>And they could have.</p>
+<p>They didn&rsquo;t see a path to revenue.</p>
+<p>Somewhere in there, there&rsquo;s a lesson for big companies,</p>
+<p>like to listen, to try to anticipate the renegade,</p>
+<p>the out there, out of the box, people like yourself</p>
+<p>in the early days writing proposals</p>
+<p>about what this could possibly be.</p>
+<p>Well, and that wasn&rsquo;t.</p>
+<p>If you&rsquo;re in a position where you&rsquo;re</p>
+<p>making truckloads of money off of a particular business model,</p>
+<p>the whole thought of leaping the chasm,</p>
+<p>you can see, oh, new models that are more effective</p>
+<p>are emerging, so like digital cameras versus film cameras.</p>
+<p>Why take the leap?</p>
+<p>Because you&rsquo;re making so much money off of film.</p>
+<p>And in my past at Sun, one of our big customers was Kodak.</p>
+<p>And I ended up interacting with folks from Kodak quite a lot.</p>
+<p>And they actually had a big digital camera research</p>
+<p>and digital imaging business, or development group.</p>
+<p>And they knew that you just look at the trend lines</p>
+<p>and you look at the emerging quality of these digital</p>
+<p>cameras.</p>
+<p>And you can just plot it on the graph.</p>
+<p>And it&rsquo;s like, sure, film is better today.</p>
+<p>But digital is improving like this.</p>
+<p>The lines are going to cross.</p>
+<p>And the point at which the lines cross</p>
+<p>is going to be a collapse in their business.</p>
+<p>And they could see that.</p>
+<p>They absolutely knew that.</p>
+<p>The problem is that up to the point where they hit the wall,</p>
+<p>they were making truckloads of money.</p>
+<p>And when they did the math, it never</p>
+<p>started to make sense for them to kind of lead the charge.</p>
+<p>And part of the issues for a lot of companies</p>
+<p>for this kind of stuff is that if you&rsquo;re</p>
+<p>going to leap over a chasm like that,</p>
+<p>like with Kodak going from film to digital,</p>
+<p>that&rsquo;s a transition that&rsquo;s going to take a while.</p>
+<p>We had fights like this with people over smart cards.</p>
+<p>The smart cards fights were just ludicrous.</p>
+<p>But that&rsquo;s where visionary leadership comes in, right?</p>
+<p>Somebody needs to roll in and say, then take the leap.</p>
+<p>Well, it&rsquo;s partly take the leap,</p>
+<p>but it&rsquo;s also partly take the hit.</p>
+<p>Take the hit in the short term.</p>
+<p>So you can draw the graphs you want that show that if we leap</p>
+<p>from here, on our present trajectory, we&rsquo;re doing this</p>
+<p>and there&rsquo;s a cliff.</p>
+<p>If we force ourselves into a transition</p>
+<p>and we proactively do that, we can be on the next wave.</p>
+<p>But there will be a period when we&rsquo;re in a trough.</p>
+<p>And pretty much always there ends up being a trough</p>
+<p>as you leap the chasm.</p>
+<p>But the way that public companies work on this planet,</p>
+<p>they&rsquo;re reporting every quarter.</p>
+<p>And the one thing that a CEO must never do is take a big hit.</p>
+<p>Take a big hit.</p>
+<p>Over some quarter.</p>
+<p>And many of these transitions involve a big hit</p>
+<p>for a period of time, one, two, three quarters.</p>
+<p>And so you get some companies and like Tesla and Amazon</p>
+<p>are really good examples of companies that take huge hits.</p>
+<p>But they have the luxury of being</p>
+<p>able to ignore the stock market for a little while.</p>
+<p>And that&rsquo;s not so true today, really.</p>
+<p>But in the early days of both of those companies,</p>
+<p>they both did this thing of, I don&rsquo;t care</p>
+<p>about the quarterly reports.</p>
+<p>I care about how many happy customers we have.</p>
+<p>And having as many happy customers as possible</p>
+<p>can often be an enemy of the bottom line.</p>
+<p>Yeah, so how do they make that work?</p>
+<p>I mean, Amazon operated in the negative for a long time.</p>
+<p>It&rsquo;s like investing into the future.</p>
+<p>Right.</p>
+<p>But so Amazon and Google and Tesla and Facebook, a lot</p>
+<p>of those had what amounted to patient money,</p>
+<p>often because there&rsquo;s like a charismatic central figure who</p>
+<p>has a really large block of stock.</p>
+<p>And they can just make it so.</p>
+<p>So on that topic, just maybe it&rsquo;s a small tangent,</p>
+<p>but you&rsquo;ve gotten the chance to work</p>
+<p>with some pretty big leaders.</p>
+<p>What are your thoughts about on the Tesla side, Elon Musk</p>
+<p>leadership, on the Amazon side, Jeff Bezos,</p>
+<p>all of these folks with large amounts of stock and vision</p>
+<p>in their company?</p>
+<p>I mean, they&rsquo;re founders, either complete founders</p>
+<p>or early on folks.</p>
+<p>And Amazon have taken a lot of leaps.</p>
+<p>And that probably at the time, people</p>
+<p>would criticize as like, what is this bookstore thing?</p>
+<p>Yeah.</p>
+<p>And Bezos had a vision.</p>
+<p>And he had the ability to just follow it.</p>
+<p>Lots of people have visions.</p>
+<p>And the average vision is completely idiotic,</p>
+<p>and you crash and burn.</p>
+<p>The Silicon Valley crash and burn rate is pretty high.</p>
+<p>And they don&rsquo;t necessarily crash and burn</p>
+<p>because they were dumb ideas.</p>
+<p>But often, it&rsquo;s just timing and luck.</p>
+<p>And you take companies like Tesla,</p>
+<p>and really, the original Tesla sort of pre Elon</p>
+<p>was kind of doing sort of OK.</p>
+<p>But he just drove them.</p>
+<p>And because he had a really strong vision,</p>
+<p>he would make calls that were always mostly pretty good.</p>
+<p>I mean, the Model X was kind of a goofball thing to do.</p>
+<p>But he did it boldly anyway.</p>
+<p>There&rsquo;s so many people that just said,</p>
+<p>there&rsquo;s so many people that oppose them on the door.</p>
+<p>From the engineering perspective,</p>
+<p>those doors are ridiculous.</p>
+<p>They are a complete travesty.</p>
+<p>But they&rsquo;re exactly the symbol of what great leadership is,</p>
+<p>which is like, you have a vision, and you just go.</p>
+<p>If you&rsquo;re going to do something stupid, make it really stupid.</p>
+<p>And go all in.</p>
+<p>Yeah.</p>
+<p>And to Musk&rsquo;s credit, he&rsquo;s a really sharp guy.</p>
+<p>So going back in time a little bit to Steve Jobs,</p>
+<p>Steve Jobs was a similar sort of character</p>
+<p>who had a strong vision and was really, really smart.</p>
+<p>And he wasn&rsquo;t smart about the technology parts of things.</p>
+<p>But he was really sharp about the sort of human relationship</p>
+<p>between the relationship between humans and objects.</p>
+<p>But he was a jerk.</p>
+<p>Can we just linger on that a little bit?</p>
+<p>People say he&rsquo;s a jerk.</p>
+<p>Is that a feature or a bug?</p>
+<p>Well, that&rsquo;s the question, right?</p>
+<p>So you take people like Steve, who was really hard on people.</p>
+<p>And so the question is, was he needlessly hard on people?</p>
+<p>Or was he just making people reach to meet his vision?</p>
+<p>And you could kind of spin it either way.</p>
+<p>Well, the results tell a story.</p>
+<p>He, through whatever jerk ways he had,</p>
+<p>he made people often do the best work of their life.</p>
+<p>Yeah.</p>
+<p>Yeah, and that was absolutely true.</p>
+<p>And I interviewed with him several times.</p>
+<p>I did various negotiations with him.</p>
+<p>And even though kind of personally I liked him,</p>
+<p>I could never work for him.</p>
+<p>Why do you think that?</p>
+<p>Can you put into words the kind of tension</p>
+<p>that you feel would be destructive as opposed</p>
+<p>to constructive?</p>
+<p>Oh, he&rsquo;d yell at people.</p>
+<p>He&rsquo;d call them names.</p>
+<p>And you don&rsquo;t like that?</p>
+<p>No.</p>
+<p>No, I don&rsquo;t think you need to do that.</p>
+<p>Yeah.</p>
+<p>And I think there&rsquo;s pushing people to excel.</p>
+<p>And then there&rsquo;s too far.</p>
+<p>And I think he was on the wrong side of the line.</p>
+<p>And I&rsquo;ve never worked for Musk.</p>
+<p>I know a number of people who have, many of them have said,</p>
+<p>and it shows up in the press a lot,</p>
+<p>that Musk is kind of that way.</p>
+<p>And one of the things that I sort of loathe</p>
+<p>about Silicon Valley these days is</p>
+<p>that a lot of the high flying successes</p>
+<p>are run by people who are complete jerks.</p>
+<p>But it seems like there&rsquo;s come this sort of mythology out</p>
+<p>of Steve Jobs that the reason that he succeeded</p>
+<p>was because he was super hard on people.</p>
+<p>And in a number of corners, people start going,</p>
+<p>oh, if I want to succeed, I need to be a real jerk.</p>
+<p>And that, for me, just does not compute.</p>
+<p>I know a lot of successful people</p>
+<p>who are not jerks, who are perfectly fine people.</p>
+<p>And they tend to not be in the public eye.</p>
+<p>The general public somehow lifts the jerks up</p>
+<p>into the hero status.</p>
+<p>Right.</p>
+<p>Well, because they do things that get them in the press.</p>
+<p>And the people who don&rsquo;t do the kind of things</p>
+<p>that spill into the press.</p>
+<p>Yeah, I just talked to Chris Ladner for the second time.</p>
+<p>He&rsquo;s a super nice guy.</p>
+<p>Just an example of this kind of individual</p>
+<p>that&rsquo;s in the background.</p>
+<p>I feel like he&rsquo;s behind a million technologies.</p>
+<p>But he also talked about the jerkiness of some of the folks.</p>
+<p>Yeah.</p>
+<p>Yeah, and the fact that being a jerk</p>
+<p>has become a required style.</p>
+<p>But one thing I maybe want to ask on that</p>
+<p>is maybe to push back a little bit.</p>
+<p>So there&rsquo;s the jerk side.</p>
+<p>But there&rsquo;s also, if I were to criticize</p>
+<p>what I&rsquo;ve seen in Silicon Valley, which is almost</p>
+<p>the resistance to working hard.</p>
+<p>So on the jerkiness side, it&rsquo;s so Posty Jobs and Elon kind</p>
+<p>of push people to work really hard to do.</p>
+<p>And there&rsquo;s a question whether it&rsquo;s</p>
+<p>possible to do that nicely.</p>
+<p>But one of the things that bothers me,</p>
+<p>maybe I&rsquo;m just Russian and just kind of romanticize</p>
+<p>the whole suffering thing.</p>
+<p>But I think working hard is essential for accomplishing</p>
+<p>anything interesting, like really hard.</p>
+<p>And in the parlance of Silicon Valley,</p>
+<p>it&rsquo;s probably too hard.</p>
+<p>This idea of that you should work smart, not hard often</p>
+<p>to me sounds like you should be lazy.</p>
+<p>Because of course you want to be to work smart.</p>
+<p>Of course you would be maximally efficient.</p>
+<p>But in order to discover the efficient path</p>
+<p>like we&rsquo;re talking about with the short programs, you have to.</p>
+<p>Well, the smart, hard thing isn&rsquo;t an either or.</p>
+<p>It&rsquo;s an and.</p>
+<p>It&rsquo;s an and, yeah.</p>
+<p>Right.</p>
+<p>And the people who say you should work smart, not hard,</p>
+<p>they pretty much always fail.</p>
+<p>Yeah.</p>
+<p>Thank you.</p>
+<p>Right.</p>
+<p>I mean, that&rsquo;s just a recipe for disaster.</p>
+<p>I mean, there are counterexamples,</p>
+<p>but they&rsquo;re more people who benefited from luck.</p>
+<p>And you&rsquo;re saying, yeah, exactly.</p>
+<p>Luck and timing, like you said, is often an essential thing.</p>
+<p>But you&rsquo;re saying you can push people</p>
+<p>to work hard and do incredible work without being nasty.</p>
+<p>Yeah, without being nasty.</p>
+<p>I think Google is a good example of the leadership of Google</p>
+<p>throughout its history has been a pretty good example of not</p>
+<p>being nasty and being kind.</p>
+<p>Yeah.</p>
+<p>I mean, the twins, Larry and Sergey,</p>
+<p>are both pretty nice people.</p>
+<p>Sandra Pichai is very nice.</p>
+<p>Yeah.</p>
+<p>And it&rsquo;s a culture of people who work really, really hard.</p>
+<p>Let me ask maybe a little bit of a tense question.</p>
+<p>We&rsquo;re talking about Emacs.</p>
+<p>It seems like you&rsquo;ve done some incredible work,</p>
+<p>so outside of Java, you&rsquo;ve done some incredible work that</p>
+<p>didn&rsquo;t become as popular as it could have because of licensing</p>
+<p>issues and open source issues.</p>
+<p>Is it, what are your thoughts about that entire mess?</p>
+<p>Like what&rsquo;s about open source now in retrospect looking back?</p>
+<p>About licensing, about open sourcing,</p>
+<p>do you think open source is a good thing, a bad thing?</p>
+<p>Do you have regrets?</p>
+<p>Do you have wisdom that you&rsquo;ve learned</p>
+<p>from that whole experience?</p>
+<p>So in general, I&rsquo;m a big fan of open source.</p>
+<p>The way that it can be used to build communities and promote</p>
+<p>the development of things and promote collaboration and all</p>
+<p>of that is really pretty grand.</p>
+<p>When open source turns into a religion that says all things</p>
+<p>must be open source, I get kind of weird about that</p>
+<p>because it&rsquo;s sort of like saying some versions of that</p>
+<p>end up saying that all software engineers</p>
+<p>must take a vow of poverty, right, as though.</p>
+<p>It&rsquo;s unethical to have money.</p>
+<p>Yeah.</p>
+<p>To build a company, right.</p>
+<p>And there&rsquo;s a slice of me that actually kind of buys into that</p>
+<p>because people who make billions of dollars off of a patent,</p>
+<p>and the patent came from literally a stroke</p>
+<p>of lightning that hits you as you lie half awake in bed.</p>
+<p>Yeah, that&rsquo;s lucky.</p>
+<p>Good for you.</p>
+<p>The way that that sometimes sort of explodes</p>
+<p>into something that looks to me a lot like exploitation,</p>
+<p>you see a lot of that in the drug industry.</p>
+<p>You know, when you&rsquo;ve got medications that cost you</p>
+<p>like $100 a day, and it&rsquo;s like, no.</p>
+<p>Yeah, so the interesting thing about the sort of open source,</p>
+<p>what bothers me is when something is not open source,</p>
+<p>and because of that, it&rsquo;s a worse product.</p>
+<p>Yeah.</p>
+<p>So like, I mean, if I look at your just implementation</p>
+<p>of Emacs, like that could have been the dominant implementation.</p>
+<p>Like I use Emacs.</p>
+<p>That&rsquo;s my main ID.</p>
+<p>I apologize to the world, but I still love it.</p>
+<p>And I could have been using your implementation of Emacs.</p>
+<p>And why aren&rsquo;t I?</p>
+<p>So are you using the GNU Emacs?</p>
+<p>I guess the default on Linux is that GNU?</p>
+<p>Yeah.</p>
+<p>And that, through a strange passage,</p>
+<p>started out as the one that I wrote.</p>
+<p>Exactly.</p>
+<p>So it still has a, yeah.</p>
+<p>Well, and part of that was because in the last couple</p>
+<p>of years of grad school, it became really clear</p>
+<p>to me that I was either going to be Mr. Emacs forever</p>
+<p>or I was going to graduate.</p>
+<p>Got it.</p>
+<p>I couldn&rsquo;t actually do both.</p>
+<p>Was that a hard decision?</p>
+<p>That&rsquo;s so interesting to think about you as a,</p>
+<p>like it&rsquo;s a different trajectory that could have happened.</p>
+<p>Yeah.</p>
+<p>That&rsquo;s fascinating.</p>
+<p>And maybe I could be fabulously wealthy today</p>
+<p>if I had become Mr. Emacs, and Emacs</p>
+<p>had mushroomed into a series of text processing applications</p>
+<p>and all kinds of stuff.</p>
+<p>And I would have, you know.</p>
+<p>But I have a long history of financially suboptimal</p>
+<p>decisions because I didn&rsquo;t want that life, right?</p>
+<p>And I went to grad school because I wanted to graduate.</p>
+<p>And being Mr. Emacs for a while was kind of fun,</p>
+<p>and then it kind of became not fun.</p>
+<p>And when it was not fun, there was</p>
+<p>no way I could pay my rent, right?</p>
+<p>And I was like, OK, do I carry on as a grad student?</p>
+<p>I had a research assistantship, and I</p>
+<p>was sort of living off of that.</p>
+<p>And I was trying to do my, you know,</p>
+<p>I was doing all my RA work, all my RA,</p>
+<p>you know, being grad student work</p>
+<p>and being Mr. Emacs all at the same time.</p>
+<p>And I decided to pick one.</p>
+<p>And one of the things that I did at the time</p>
+<p>was I went around all the people I knew on the ARPANET who</p>
+<p>might be able to take over looking after Emacs.</p>
+<p>And pretty much everybody said, eh, I got a day job.</p>
+<p>So I actually found two folks and a couple</p>
+<p>of folks in a garage in New Jersey, complete with a dog,</p>
+<p>who were willing to take it over.</p>
+<p>But they were going to have to charge money.</p>
+<p>But my deal with them was that they would only,</p>
+<p>that they would make it free for universities and schools</p>
+<p>and stuff.</p>
+<p>And they said sure.</p>
+<p>And you know, that upset some people.</p>
+<p>So you have some, now I don&rsquo;t know the full history of this,</p>
+<p>but I think it&rsquo;s kind of interesting.</p>
+<p>You have some tension with Mr. Richard Stallman over the,</p>
+<p>and he kind of represents this kind of,</p>
+<p>like you mentioned, free software,</p>
+<p>sort of a dogmatic focus on, yeah.</p>
+<p>All information must be free.</p>
+<p>Must be free.</p>
+<p>So what, is there an interesting way</p>
+<p>to paint a picture of the disagreement</p>
+<p>you have with Richard through the years?</p>
+<p>My basic opposition is that when you say information</p>
+<p>must be free, to a really extreme form that</p>
+<p>turns into all people whose job is</p>
+<p>the production of everything from movies to software.</p>
+<p>They must all take a vow of poverty</p>
+<p>because information must be free.</p>
+<p>And that doesn&rsquo;t work for me.</p>
+<p>And I don&rsquo;t want to be wildly rich.</p>
+<p>I am not wildly rich.</p>
+<p>I do OK.</p>
+<p>But I do actually, I can feed my children.</p>
+<p>Yeah, I totally agree with you.</p>
+<p>It does just make me sad that sometimes</p>
+<p>the closing of the source, for some reason</p>
+<p>that people that, like a bureaucracy begins to build,</p>
+<p>and sometimes it doesn&rsquo;t, it hurts the product.</p>
+<p>Oh, absolutely.</p>
+<p>Absolutely.</p>
+<p>It&rsquo;s always sad.</p>
+<p>And there is a balance in there.</p>
+<p>There&rsquo;s a balance.</p>
+<p>And it&rsquo;s not hard over rapacious capitalism.</p>
+<p>And it&rsquo;s not hard over in the other direction.</p>
+<p>And a lot of the open source movement,</p>
+<p>they have been managing to find the path</p>
+<p>to actually making money.</p>
+<p>So doing things like service and support</p>
+<p>works for a lot of people.</p>
+<p>And there are some ways where it&rsquo;s kind of, some of them</p>
+<p>are a little perverse.</p>
+<p>So as a part of things like this Sarbanes–Oxley Act</p>
+<p>and various people&rsquo;s interpretations</p>
+<p>of all kinds of accounting principles.</p>
+<p>And this is kind of a worldwide thing.</p>
+<p>But if you&rsquo;ve got a corporation that</p>
+<p>is depending on some piece of software,</p>
+<p>often various accounting and reporting standards</p>
+<p>say if you don&rsquo;t have a support contract on this thing</p>
+<p>that your business is depending on, then that&rsquo;s bad.</p>
+<p>So if you&rsquo;ve got a database, you need to pay for support.</p>
+<p>But there&rsquo;s a difference between the sort of support contracts</p>
+<p>that the average open source database producer charges</p>
+<p>and what somebody who is truly rapacious like Oracle charges.</p>
+<p>Yeah, so it&rsquo;s a balance, like you said.</p>
+<p>It is absolutely a balance.</p>
+<p>And there are a lot of different ways</p>
+<p>to make the math work out for everybody.</p>
+<p>And the very unbalanced sort of like the winner</p>
+<p>takes all thing that happens in so much of modern commerce,</p>
+<p>that just doesn&rsquo;t work for me either.</p>
+<p>I know you&rsquo;ve talked about this in quite a few places,</p>
+<p>but you have created one of the most popular programming</p>
+<p>languages in the world.</p>
+<p>This is a programming language that I first</p>
+<p>learned about object oriented programming with.</p>
+<p>I think it&rsquo;s a programming language</p>
+<p>that a lot of people use in a lot of different places</p>
+<p>and millions of devices today, Java.</p>
+<p>So the absurd question, but can you</p>
+<p>tell the origin story of Java?</p>
+<p>So a long time ago at Sun in about 1990,</p>
+<p>there was a group of us who were kind of worried</p>
+<p>that there was stuff going on in the universe of computing</p>
+<p>that the computing industry was missing out on.</p>
+<p>And so a few of us started this project</p>
+<p>at Sun that really got going.</p>
+<p>I mean, we started talking about it in 1990,</p>
+<p>and it really got going in 91.</p>
+<p>And it was all about what was happening</p>
+<p>in terms of computing hardware processors</p>
+<p>and networking and all of that that was outside</p>
+<p>of the computer industry.</p>
+<p>And that was everything from the sort</p>
+<p>of early glimmers of cell phones that were happening then</p>
+<p>to you look at elevators and locomotives</p>
+<p>and process control systems in factories</p>
+<p>and all kinds of audio equipment and video equipment.</p>
+<p>They all had processors in them, and they were all</p>
+<p>doing stuff with them.</p>
+<p>And it sort of felt like there was something going on there</p>
+<p>that we needed to understand.</p>
+<p>And</p>
+<p>So C and C++ was in the air already.</p>
+<p>Oh, no, C and C++ absolutely owned the universe</p>
+<p>at that time.</p>
+<p>Everything was written in C and C++.</p>
+<p>So where was the hunch that there</p>
+<p>was a need for a revolution?</p>
+<p>Well, so the need for a revolution</p>
+<p>was not about a language.</p>
+<p>It was just as simple and vague as there</p>
+<p>are things happening out there.</p>
+<p>We need to understand them.</p>
+<p>And so a few of us went on several somewhat epic road</p>
+<p>trips.</p>
+<p>Literal road trips?</p>
+<p>Literal road trips.</p>
+<p>It&rsquo;s like get on an airplane, go to Japan,</p>
+<p>visit Toshiba and Sharp and Mitsubishi and Sony</p>
+<p>and all of these folks.</p>
+<p>And because we worked for Sun, we</p>
+<p>had folks who were willing to give us introductions.</p>
+<p>We visited Samsung and a bunch of Korean companies.</p>
+<p>And we went all over Europe.</p>
+<p>We went to places like Philips and Siemens and Thomson.</p>
+<p>And what did you see there?</p>
+<p>For me, one of the things that sort of leapt out</p>
+<p>was that they were doing all the usual computer things</p>
+<p>that people had been doing like 20 years before.</p>
+<p>The thing that really leapt out to me</p>
+<p>was that they were sort of reinventing</p>
+<p>computer networking.</p>
+<p>And they were making all the mistakes</p>
+<p>that people in the computer industry had made.</p>
+<p>And since I had been doing a lot of work in the networking</p>
+<p>area, we&rsquo;d go and visit Company X.</p>
+<p>They&rsquo;d describe this networking thing that they were doing.</p>
+<p>And just without any thought, I could tell them</p>
+<p>like the 25 things that were going</p>
+<p>to be complete disasters with that thing</p>
+<p>that they were doing.</p>
+<p>And I don&rsquo;t know whether that had any impact on any of them.</p>
+<p>But that particular story of repeating the disasters</p>
+<p>of the computer science industry was there.</p>
+<p>And one of the things we thought was, well,</p>
+<p>maybe we could do something useful here with bringing them</p>
+<p>forward somewhat.</p>
+<p>But also, at the same time, we learned a bunch of things</p>
+<p>from these mostly consumer electronics companies.</p>
+<p>And high on the list was that they</p>
+<p>viewed their relationship with the customer as sacred.</p>
+<p>They were never, ever willing to make tradeoffs</p>
+<p>between for safety.</p>
+<p>So one of the things that had always</p>
+<p>made me nervous in the computer industry</p>
+<p>was that people were willing to make tradeoffs in reliability</p>
+<p>to get performance.</p>
+<p>They want faster, faster.</p>
+<p>It breaks a little more often because it&rsquo;s fast.</p>
+<p>Maybe you run it a little hotter than you should.</p>
+<p>Or the one that always blew my mind</p>
+<p>was the way that the folks at Cray Supercomputers</p>
+<p>got their division to be really fast</p>
+<p>was that they did Newton Raphson approximations.</p>
+<p>And so the bottom several bits of A over B</p>
+<p>were essentially random numbers.</p>
+<p>What could possibly go wrong?</p>
+<p>What could go wrong?</p>
+<p>And just figuring out how to nail the bottom bit,</p>
+<p>how to make sure that if you put a piece of toast in a toaster,</p>
+<p>it&rsquo;s not going to kill the customer.</p>
+<p>It&rsquo;s not going to burst into flames and burn the house down.</p>
+<p>So I guess those are the principles that were inspiring.</p>
+<p>But how did, from the days of Java&rsquo;s called oak,</p>
+<p>because of a tree outside the window story</p>
+<p>that a lot of people know, how did it</p>
+<p>become this incredible, powerful language?</p>
+<p>Well, so it was a bunch of things.</p>
+<p>So after all that, the way that we</p>
+<p>decided that we could understand things better</p>
+<p>was by building a demo, building a prototype of something.</p>
+<p>So because it was easy and fun, we</p>
+<p>decided to build a control system for some home</p>
+<p>electronics, TV, VCR, that kind of stuff.</p>
+<p>And as we were building it, we discovered</p>
+<p>that there were some things about standard practice</p>
+<p>in C programming that were really getting in the way.</p>
+<p>And it wasn&rsquo;t exactly because we were writing all this C code</p>
+<p>and C++ code that we couldn&rsquo;t write it to do the right thing.</p>
+<p>But one of the things that was weird in the group</p>
+<p>was that we had a guy whose top level job was</p>
+<p>he was a business guy.</p>
+<p>He was an MBA kind of person, think about business plans</p>
+<p>and all of that.</p>
+<p>And there were a bunch of things that were kind of,</p>
+<p>and we would talk about things that were going wrong</p>
+<p>and things that were going wrong,</p>
+<p>things that were going right.</p>
+<p>And as we thought about things like the requirements</p>
+<p>for security and safety, some low level details</p>
+<p>and see like naked pointers.</p>
+<p>Yeah.</p>
+<p>And so back in the early 90s, it was well understood</p>
+<p>that the number one source of security vulnerabilities.</p>
+<p>Was pointers.</p>
+<p>Was just pointers, was just bugs.</p>
+<p>And it was like 50%, 60%, 70% of all security vulnerabilities</p>
+<p>were bugs.</p>
+<p>And the vast majority of them were like buffer overflows.</p>
+<p>So you&rsquo;re like, we have to fix this.</p>
+<p>We have to make sure that this cannot happen.</p>
+<p>And that was kind of the original thing for me</p>
+<p>was this cannot continue.</p>
+<p>And one of the things I find really entertaining this year</p>
+<p>was, I forget which Rag published it,</p>
+<p>but there was this article that came out</p>
+<p>that was sort of the result of an examination</p>
+<p>of all the security vulnerabilities in Chrome.</p>
+<p>And Chrome is like a giant piece of C++ code.</p>
+<p>And 60% or 70% of all the security vulnerabilities</p>
+<p>were stupid pointer tricks.</p>
+<p>And I thought, it&rsquo;s 30 years later and we&rsquo;re still there.</p>
+<p>Still there.</p>
+<p>And we&rsquo;re still there.</p>
+<p>And that&rsquo;s one of those slap your forehead</p>
+<p>and just want to cry moments.</p>
+<p>Would you attribute, or is that too much of a simplification,</p>
+<p>but would you attribute the creation of Java</p>
+<p>to C pointers?</p>
+<p>Obvious problem.</p>
+<p>Well, I mean, that was one of the trigger points.</p>
+<p>Concurrency you&rsquo;ve mentioned.</p>
+<p>Concurrency was a big deal.</p>
+<p>Because when you&rsquo;re interacting with people,</p>
+<p>the last thing you ever want to see</p>
+<p>is the thing like waiting and issues</p>
+<p>about the software development process.</p>
+<p>When faults happen, can you recover from them?</p>
+<p>What can you do to make it easier</p>
+<p>to create and eliminate complex data structures?</p>
+<p>What can you do to fix one of the most common C problems,</p>
+<p>which is storage leaks?</p>
+<p>And it&rsquo;s evil twin, the freed but still being used</p>
+<p>piece of memory.</p>
+<p>You free something and then you keep using it.</p>
+<p>Oh, yeah.</p>
+<p>So when I was originally thinking about that,</p>
+<p>I was thinking about it in terms of safety and security issues.</p>
+<p>And one of the things I came to understand</p>
+<p>was that it wasn&rsquo;t just about safety and security,</p>
+<p>but it was about developer velocity.</p>
+<p>So and I got really religious about this</p>
+<p>because at that point, I had spent an ungodly amount</p>
+<p>of my life hunting down mystery pointer bugs.</p>
+<p>And two thirds of my time as a software developer</p>
+<p>was because the mystery pointer bugs tend</p>
+<p>to be the hardest to find because they tend</p>
+<p>to be very, very statistical.</p>
+<p>The ones that hurt, they&rsquo;re like a one in a million chance.</p>
+<p>But nevertheless, create an infinite amount of suffering.</p>
+<p>Right.</p>
+<p>Because when you&rsquo;re doing a billion operations a second,</p>
+<p>one in a million chance means it&rsquo;s going to happen.</p>
+<p>And so I got really religious about this thing,</p>
+<p>about making it so that if something fails,</p>
+<p>it fails immediately and visibly.</p>
+<p>And one of the things that was a real attraction of Java</p>
+<p>to lots of development shops was that we get our code up</p>
+<p>and running twice as fast.</p>
+<p>You mean like the entirety of the development process,</p>
+<p>debugging, all that kind of stuff?</p>
+<p>Yeah, so if you measure time from you first touch fingers</p>
+<p>to keyboard until you get your first demo out,</p>
+<p>not much different.</p>
+<p>But if you look from fingers touching keyboard</p>
+<p>to solid piece of software that you could release</p>
+<p>in production, it would be way faster.</p>
+<p>And I think what people don&rsquo;t often realize is, yeah,</p>
+<p>there&rsquo;s things that really slow you down,</p>
+<p>like the hard to catch bugs probably</p>
+<p>is the thing that really slows down the entire time.</p>
+<p>It really slows things down.</p>
+<p>But also, one of the things that you get out</p>
+<p>of object oriented programming is a strict methodology</p>
+<p>about what are the interfaces between things</p>
+<p>and being really clear about how parts relate to each other.</p>
+<p>And what that helps with is so many times</p>
+<p>what people do is they kind of like sneak around the side.</p>
+<p>So if you&rsquo;ve built something and people are using it</p>
+<p>and you say, well, OK, I built this thing.</p>
+<p>You use it this way.</p>
+<p>And then you change it in such a way</p>
+<p>that it still does what you said it does.</p>
+<p>It just does it a little bit different.</p>
+<p>Then you find out that somebody out there</p>
+<p>was sneaking around the side.</p>
+<p>They sort of tunneled in a back door.</p>
+<p>And this person, their code broke.</p>
+<p>And because they were sneaking through a side door.</p>
+<p>And normally, the attitude is, dummy.</p>
+<p>But a lot of times, you can&rsquo;t just slap their hand</p>
+<p>and tell them to not do that.</p>
+<p>Because it&rsquo;s some bank&rsquo;s account reconciliation system</p>
+<p>that some developer decided, oh, I&rsquo;m lazy.</p>
+<p>I&rsquo;ll just sneak through the back door.</p>
+<p>Because the language allows it.</p>
+<p>I mean, you can&rsquo;t even mad at them.</p>
+<p>And so one of the things I did that, on the one hand,</p>
+<p>upset a bunch of people was I made it</p>
+<p>so that you really couldn&rsquo;t go through back doors.</p>
+<p>So the whole point of that was to say,</p>
+<p>if the interface here isn&rsquo;t right,</p>
+<p>the wrong way to deal with that is to go through a back door.</p>
+<p>The right way to deal with it is to walk up</p>
+<p>to the developer of this thing and say, fix it.</p>
+<p>And so it was kind of like a social engineering thing.</p>
+<p>And people ended up discovering that that really</p>
+<p>made a difference in terms of.</p>
+<p>And a bunch of this stuff, if you&rsquo;re just screwing around</p>
+<p>writing your own class project scale stuff,</p>
+<p>a lot of this stuff isn&rsquo;t quite so important</p>
+<p>because you&rsquo;re both sides of the interface.</p>
+<p>But when you&rsquo;re building larger, more complex pieces of software</p>
+<p>that have a lot of people working on them,</p>
+<p>and especially when they span organizations,</p>
+<p>having clarity about how that stuff gets structured</p>
+<p>saves your life.</p>
+<p>And especially, there&rsquo;s so much software</p>
+<p>that is fundamentally untestable until you do the real thing.</p>
+<p>It&rsquo;s better to write good code in the beginning</p>
+<p>as opposed to writing crappy code</p>
+<p>and then trying to fix it and trying to scramble and figure</p>
+<p>out, and through testing, figure out where the bugs are.</p>
+<p>Yeah, it&rsquo;s like, which shortcut caused that rocket</p>
+<p>to not get where it was needed to go?</p>
+<p>So I think one of the most beautiful ideas philosophically</p>
+<p>and technically is of a virtual machine, a Java virtual machine.</p>
+<p>Again, I apologize to romanticize things,</p>
+<p>but how did the idea of the JVM come to be?</p>
+<p>How to you radical of an idea it is?</p>
+<p>Because it seems to me to be just a really interesting idea</p>
+<p>in the history of programming.</p>
+<p>And what is it?</p>
+<p>So the Java virtual machine, you can think of it</p>
+<p>in different ways because it was carefully designed</p>
+<p>to have different ways of viewing it.</p>
+<p>So one view of it that most people don&rsquo;t really realize</p>
+<p>is there is that you can view it as sort</p>
+<p>of an encoding of the abstract syntax tree</p>
+<p>in reverse Polish notation.</p>
+<p>I don&rsquo;t know if that makes any sense at all.</p>
+<p>I could explain it, and that would blow all of our time.</p>
+<p>But the other way to think of it and the way</p>
+<p>that it ends up being explained is</p>
+<p>that it&rsquo;s like the instruction set of an abstract machine</p>
+<p>that&rsquo;s designed such that you can translate</p>
+<p>that abstract machine to a physical machine.</p>
+<p>And the reason that that&rsquo;s important,</p>
+<p>so if you wind back to the early 90s</p>
+<p>when we were talking to all of these companies doing</p>
+<p>consumer electronics, and you talk to the purchasing people,</p>
+<p>there were interesting conversations with purchasing.</p>
+<p>So if you look at how these devices come together,</p>
+<p>they&rsquo;re sheet metal and gears and circuit boards</p>
+<p>and capacitors and resistors and stuff.</p>
+<p>And everything you buy has multiple sources.</p>
+<p>So you can buy a capacitor from here.</p>
+<p>You can buy a capacitor from there.</p>
+<p>And you&rsquo;ve got kind of a market so that you can actually</p>
+<p>get a decent price for a capacitor.</p>
+<p>But CPUs, and particularly in the early 90s,</p>
+<p>CPUs were all different and all proprietary.</p>
+<p>So if you use the chip from Intel,</p>
+<p>you had to be an Intel customer till the end of time.</p>
+<p>Because if you wrote a bunch of software,</p>
+<p>when you wrote software using whatever technique you wanted,</p>
+<p>and C was particularly bad about this</p>
+<p>because there was a lot of properties</p>
+<p>of the underlying machine that came through.</p>
+<p>So you were stuck.</p>
+<p>So the code you wrote, you were stuck</p>
+<p>to that particular machine.</p>
+<p>You were stuck to that particular machine,</p>
+<p>which meant that they couldn&rsquo;t decide,</p>
+<p>you know, Intel is screwing us.</p>
+<p>I&rsquo;ll start buying chips from Bob&rsquo;s Better Chips.</p>
+<p>This drove the purchasing people absolutely insane</p>
+<p>that they were welded into this decision.</p>
+<p>And they would have to make this decision</p>
+<p>before the first line of software was written.</p>
+<p>That&rsquo;s funny that you&rsquo;re talking about the purchasing people.</p>
+<p>So there&rsquo;s one perspective, right?</p>
+<p>There&rsquo;s a lot of other perspectives</p>
+<p>that all probably hated this idea.</p>
+<p>Right.</p>
+<p>But from a technical aspect,</p>
+<p>just like the creation of an abstraction layer</p>
+<p>that&rsquo;s agnostic to the underlying machine</p>
+<p>from the perspective of the developer,</p>
+<p>I mean, that&rsquo;s brilliant.</p>
+<p>Right.</p>
+<p>Well, and so that&rsquo;s like across the spectrum</p>
+<p>of providers of chips.</p>
+<p>But then there&rsquo;s also the time thing</p>
+<p>because, you know, as you went from one generation</p>
+<p>to the next generation to the next generation,</p>
+<p>they were all different.</p>
+<p>And you would often have to rewrite your software.</p>
+<p>Oh, you mean generations of machines of different kinds?</p>
+<p>Yeah.</p>
+<p>So like one of the things that sucked about a year out</p>
+<p>of my life was when Sun went from the Motorola 68010</p>
+<p>processor to the 68020 processor.</p>
+<p>Then they had a number of differences.</p>
+<p>And one of them hit us really hard.</p>
+<p>And I ended up being the point guy</p>
+<p>on the worst case of where the new instruction cache</p>
+<p>architecture hurt us.</p>
+<p>Well, OK, so I mean, so one of this idea, I mean, OK.</p>
+<p>So yeah, you articulate a really clear fundamental problem</p>
+<p>in all of computing.</p>
+<p>But where do you get the guts to think</p>
+<p>we can actually solve this?</p>
+<p>You know, in our conversations with all of these vendors,</p>
+<p>these problems started to show up.</p>
+<p>And I kind of had this epiphany because it reminded me</p>
+<p>of a summer job that I had had in grad school.</p>
+<p>So back in grad school, my thesis advisor,</p>
+<p>well, I had two thesis advisors for bizarre reasons.</p>
+<p>One of them was a guy named Raj Reddy.</p>
+<p>The other one was Bob Sproul.</p>
+<p>And Raj, I love Raj.</p>
+<p>I really love both of them.</p>
+<p>So the department had bought a bunch of early workstations</p>
+<p>from a company called Three Rivers Computer Company.</p>
+<p>And Three Rivers Computer Company</p>
+<p>was a bunch of electrical engineers</p>
+<p>who wanted to do as little software as possible.</p>
+<p>So they knew that they&rsquo;d need to have compilers and an OS</p>
+<p>and stuff like that.</p>
+<p>And they didn&rsquo;t want to do any of that.</p>
+<p>And they wanted to do that for as close to zero money</p>
+<p>as possible.</p>
+<p>So what they did was they built a machine whose instruction set</p>
+<p>was literally the byte code for UCSD Pascal, the P code.</p>
+<p>And so we had a bunch of software</p>
+<p>that was written for this machine.</p>
+<p>And for various reasons, the company</p>
+<p>wasn&rsquo;t doing terrifically well.</p>
+<p>We had all this software on these machines.</p>
+<p>And we wanted it to run on other machines, principally</p>
+<p>the VAX.</p>
+<p>And so Raj asked me if I could come up</p>
+<p>with a way to port all of this software from the PERC machines</p>
+<p>to VAXs.</p>
+<p>And I think what he had in mind was something</p>
+<p>that would translate from Pascal to C or Pascal to, actually,</p>
+<p>at those times, pretty much it was</p>
+<p>you could translate to C or C. And if you</p>
+<p>didn&rsquo;t like translate to C, you could translate to C.</p>
+<p>There was, it&rsquo;s like the Henry Ford, any color you want,</p>
+<p>just as long as it&rsquo;s black.</p>
+<p>And I went, that&rsquo;s really hard.</p>
+<p>That&rsquo;s a.</p>
+<p>And I noticed that, and I was looking at stuff.</p>
+<p>And I went, oh, I bet I could rewrite the P code</p>
+<p>into VAX assembly code.</p>
+<p>And then I started to realize that there</p>
+<p>were some properties of P code that</p>
+<p>made that really easy, some properties that</p>
+<p>made it really hard.</p>
+<p>So I ended up writing this thing that</p>
+<p>translated from P code on the Three Rivers PERCs</p>
+<p>into assembly code on the VAX.</p>
+<p>And I actually got higher quality code than the C compiler.</p>
+<p>And so everything just got really fast.</p>
+<p>It was really easy.</p>
+<p>It was like, wow, I thought that was a sleazy hack</p>
+<p>because I was lazy.</p>
+<p>And in actual fact, it worked really well.</p>
+<p>And I tried to convince people that that was maybe</p>
+<p>a good thesis topic.</p>
+<p>And nobody was, it was like, nah.</p>
+<p>Really?</p>
+<p>That&rsquo;s, I mean, it&rsquo;s kind of a brilliant idea, right?</p>
+<p>Or maybe you didn&rsquo;t have the, you</p>
+<p>weren&rsquo;t able to articulate the big picture of it.</p>
+<p>Yeah.</p>
+<p>And I think that was a key part.</p>
+<p>But so then clock comes forward a few years.</p>
+<p>And it&rsquo;s like, we&rsquo;ve got to be able to,</p>
+<p>if they want to be able to switch</p>
+<p>from this weird microprocessor to that weird and totally</p>
+<p>different microprocessor, how do you do that?</p>
+<p>And I kind of went, oh, maybe by doing something kind of</p>
+<p>in the space of Pascal P code, I could do multiple translations</p>
+<p>to multiple translators.</p>
+<p>And I spent some time thinking about that</p>
+<p>and thinking about what worked and what didn&rsquo;t work</p>
+<p>when I did the P code to Vax translator.</p>
+<p>And I talked to some of the folks</p>
+<p>who were involved in Smalltalk because Smalltalk also</p>
+<p>did a bytecode.</p>
+<p>And then I kind of went, yeah, I want to do that.</p>
+<p>Because that actually, and it had the other advantage</p>
+<p>that you could either interpret it or compile it.</p>
+<p>And interpreters are usually easier to do,</p>
+<p>but not as fast as a compiler.</p>
+<p>So I figured, good, I can be lazy again.</p>
+<p>Sometimes I think that most of my good ideas</p>
+<p>are driven by laziness.</p>
+<p>And often I find that some of people&rsquo;s stupidest ideas</p>
+<p>are because they&rsquo;re insufficiently lazy.</p>
+<p>They just want to build something really complicated.</p>
+<p>And it&rsquo;s like, it doesn&rsquo;t need to be that complicated.</p>
+<p>Yeah, and so that&rsquo;s how that came out.</p>
+<p>But that also turned into almost a religious position</p>
+<p>on my part, which got me in several other fights.</p>
+<p>So one of the things that was a real difference</p>
+<p>was the way that arithmetic worked.</p>
+<p>And once upon a time, it wasn&rsquo;t always just</p>
+<p>two&rsquo;s complement arithmetic.</p>
+<p>There were some machines that had one&rsquo;s complement</p>
+<p>arithmetic, which was like almost anything built by CDC.</p>
+<p>And occasionally, there were machines</p>
+<p>that were decimal arithmetic.</p>
+<p>And I was like, this is crazy.</p>
+<p>Pretty much two&rsquo;s complement integer arithmetic has one.</p>
+<p>So just do that.</p>
+<p>One of the other places where there was a lot of variability</p>
+<p>was in the way that floating point behaved.</p>
+<p>And that was causing people throughout the software</p>
+<p>industry much pain because you couldn&rsquo;t</p>
+<p>do a numerical computing library that</p>
+<p>would work on CDC and then have it work on an IBM machine</p>
+<p>and work on a DEC machine.</p>
+<p>And as a part of that whole struggle,</p>
+<p>there had been this big body of work on floating point</p>
+<p>standards.</p>
+<p>And this thing emerged that came to be called IEEE 754,</p>
+<p>which is the floating point standard that pretty much</p>
+<p>has taken over the entire universe.</p>
+<p>And at the time I was doing Java,</p>
+<p>it had pretty much completed taking over the universe.</p>
+<p>There were still a few pockets of holdouts,</p>
+<p>but I was like, it&rsquo;s important to be</p>
+<p>able to say what two plus two means.</p>
+<p>And so I went that.</p>
+<p>And one of the ways that I got into fights with people</p>
+<p>was that there were a few machines that did not</p>
+<p>implement IEEE 754 correctly.</p>
+<p>Well, of course, that&rsquo;s all short term kind of fights.</p>
+<p>I think in the long term, I think this vision is one out.</p>
+<p>Yeah, and I think it&rsquo;s worked out over time.</p>
+<p>I mean, the biggest fights were with Intel</p>
+<p>because they had done some strange things with rounding.</p>
+<p>They&rsquo;d done some strange things with their transcendental</p>
+<p>functions, which turned into a mushroom cloud of weirdness.</p>
+<p>And in the name of optimization, but from the perspective</p>
+<p>of the developer, that&rsquo;s not good.</p>
+<p>Well, their issues with transcendental functions</p>
+<p>were just stupid.</p>
+<p>OK, so that&rsquo;s not even a trade off.</p>
+<p>That&rsquo;s just absolutely.</p>
+<p>Yeah, they were doing range reduction for sine and cosine</p>
+<p>using a slightly wrong value for pi.</p>
+<p>Got it.</p>
+<p>We&rsquo;ve got 10 minutes.</p>
+<p>So in the interest of time, two questions.</p>
+<p>So one about Android and one about life.</p>
+<p>So one, I mean, we could talk for many more hours.</p>
+<p>I hope eventually we might talk again.</p>
+<p>But I got to ask you about Android and the use of Java</p>
+<p>there because it&rsquo;s one of the many places where Java just</p>
+<p>has a huge impact on this world.</p>
+<p>Just on your opinion, is there things</p>
+<p>that make you happy about the way Java</p>
+<p>is used in the Android world?</p>
+<p>And are there things that you wish were different?</p>
+<p>I don&rsquo;t know how to do a short answer to that.</p>
+<p>But I have to do a short answer to that.</p>
+<p>So I&rsquo;m happy that they did it.</p>
+<p>Java had been running on cell phones</p>
+<p>at that time for quite a few years.</p>
+<p>And it worked really, really well.</p>
+<p>There were things about how they did it.</p>
+<p>And in particular, various ways that they kind of violated</p>
+<p>all kinds of contracts.</p>
+<p>The guy who led it, Andy Rubin, he crossed a lot of lines.</p>
+<p>There&rsquo;s some lines crossed.</p>
+<p>Yeah, lines were crossed that have since mushroomed</p>
+<p>into giant court cases.</p>
+<p>And they didn&rsquo;t need to do that.</p>
+<p>And in fact, it would have been so much cheaper for them</p>
+<p>to not cross lines.</p>
+<p>I mean, I suppose they didn&rsquo;t anticipate</p>
+<p>the success of this whole endeavor.</p>
+<p>Or do you think at that time it was already clear</p>
+<p>that this is going to blow up?</p>
+<p>I guess I sort of came to believe</p>
+<p>that it didn&rsquo;t matter what Andy did,</p>
+<p>it was going to blow up.</p>
+<p>I kind of started to think of him as a manufacturer of bombs.</p>
+<p>Yeah, some of the best things in this world</p>
+<p>come about through a little bit of explosive.</p>
+<p>Well, and some of the worst.</p>
+<p>And some of the worst, beautifully put.</p>
+<p>And like you said, I mean, does that</p>
+<p>make you proud that Java is in millions?</p>
+<p>I mean, it could be billions of devices.</p>
+<p>Yeah, well, I mean, it was in billions of phones</p>
+<p>before Android came along.</p>
+<p>And I&rsquo;m just as proud of the way that the smart card standards</p>
+<p>adopted Java.</p>
+<p>And everybody involved in that did a really good job.</p>
+<p>And that&rsquo;s billions and billions.</p>
+<p>That&rsquo;s crazy.</p>
+<p>The SIM cards, the SIM cards in your pocket.</p>
+<p>I&rsquo;ve been outside of that world for a decade.</p>
+<p>So I don&rsquo;t know how that has evolved.</p>
+<p>But it&rsquo;s just been crazy.</p>
+<p>So on that topic, let me ask, again,</p>
+<p>there&rsquo;s a million technical things we could talk about.</p>
+<p>But let me ask the absurd, the old philosophical question</p>
+<p>about life.</p>
+<p>What do you hope when you look back at your life</p>
+<p>and the people talk about you, write about you 500 years</p>
+<p>from now, what do you hope your legacy is?</p>
+<p>People not being afraid to take a leap of faith.</p>
+<p>I mean, I&rsquo;ve got this kind of weird history</p>
+<p>of doing weird stuff.</p>
+<p>And it worked out pretty damn well.</p>
+<p>It worked out.</p>
+<p>And I think some of the weirder stuff that I&rsquo;ve done</p>
+<p>has been the coolest.</p>
+<p>And some of it crashed and burned.</p>
+<p>And I think well over half of the stuff that I&rsquo;ve done</p>
+<p>has crashed and burned, which has occasionally</p>
+<p>been really annoying.</p>
+<p>But still, you kept doing it.</p>
+<p>But yeah.</p>
+<p>Yeah.</p>
+<p>And even when things crash and burn,</p>
+<p>you at least learn something from it.</p>
+<p>By way of advice, people, developers, engineers,</p>
+<p>scientists, or just people who are young, to look up to you,</p>
+<p>what advice would you give them how to approach their life?</p>
+<p>Don&rsquo;t be afraid of risk.</p>
+<p>It&rsquo;s OK to do stupid things once.</p>
+<p>Maybe a couple of times you get a pass on the first time</p>
+<p>or two that you do something stupid.</p>
+<p>The third or fourth time, yeah, not so much.</p>
+<p>But also, I don&rsquo;t know why, but really early on,</p>
+<p>I started to think about ethical choices in my life.</p>
+<p>And because I&rsquo;m a big science fiction fan,</p>
+<p>I got to thinking about just about every technical decision</p>
+<p>I make in terms of, are you building</p>
+<p>Blade Runner or Star Trek?</p>
+<p>Which one&rsquo;s better?</p>
+<p>Which future would you rather live in?</p>
+<p>So what&rsquo;s the answer to that?</p>
+<p>Well, I would sure rather live in the universe of Star Trek.</p>
+<p>Star Trek, yeah.</p>
+<p>That opens up a whole topic about AI,</p>
+<p>but that&rsquo;s a really interesting idea.</p>
+<p>So your favorite AI system would be data from Star Trek.</p>
+<p>And my least favorite would easily be Skynet.</p>
+<p>Yeah.</p>
+<p>Beautifully put.</p>
+<p>I don&rsquo;t think there&rsquo;s a better way to end it, James.</p>
+<p>I can&rsquo;t say enough how much of an honor</p>
+<p>it is to meet you, to talk to you.</p>
+<p>Thanks so much for wasting your time with me today.</p>
+<p>Not a waste at all.</p>
+<p>Thanks, James.</p>
+<p>All right, thanks.</p>
+<p>Thanks for listening to this conversation with James</p>
+<p>Gosling, and thank you to our sponsors, Public Goods,</p>
+<p>BetterHelp, and ExpressVPN.</p>
+<p>Please check out these sponsors in the description</p>
+<p>to get a discount and to support this podcast.</p>
+<p>If you enjoy this thing, subscribe on YouTube,</p>
+<p>review it with five stars on Apple Podcast,</p>
+<p>follow on Spotify, support on Patreon,</p>
+<p>or connect with me on Twitter at Lex Friedman.</p>
+<p>And now, let me leave you with some words from James Gosling.</p>
+<p>One of the toughest things about life is making choices.</p>
+<p>Thank you for listening, and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

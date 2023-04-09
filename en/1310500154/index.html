@@ -1,0 +1,2599 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Dan Kokotov, VP of engineering at rev.ai, which is by many metrics, the best speech to text AI engine in the world. Rev in general is a company that does captioning and transcription of audio by humans and by AI. I&amp;rsquo;ve been using their services for a couple of years now and I&amp;rsquo;m planning to use Rev to add both captions and transcripts to'>
+<title>Lex Fridman Podcast - #151 - Dan Kokotov Speech Recognition with AI and Humans | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500154/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #151 - Dan Kokotov Speech Recognition with AI and Humans'>
+<meta property='og:description' content='The following is a conversation with Dan Kokotov, VP of engineering at rev.ai, which is by many metrics, the best speech to text AI engine in the world. Rev in general is a company that does captioning and transcription of audio by humans and by AI. I&amp;rsquo;ve been using their services for a couple of years now and I&amp;rsquo;m planning to use Rev to add both captions and transcripts to'>
+<meta property='og:url' content='https://swiest.com/en/1310500154/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-08-01T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-08-01T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #151 - Dan Kokotov Speech Recognition with AI and Humans">
+<meta name="twitter:description" content="The following is a conversation with Dan Kokotov, VP of engineering at rev.ai, which is by many metrics, the best speech to text AI engine in the world. Rev in general is a company that does captioning and transcription of audio by humans and by AI. I&amp;rsquo;ve been using their services for a couple of years now and I&amp;rsquo;m planning to use Rev to add both captions and transcripts to">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500154/">Lex Fridman Podcast - #151 - Dan Kokotov Speech Recognition with AI and Humans</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-08-01</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    31 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Dan Kokotov, VP of engineering at rev.ai,</p>
+<p>which is by many metrics, the best speech to text AI engine in the world.</p>
+<p>Rev in general is a company that does captioning and transcription</p>
+<p>of audio by humans and by AI.</p>
+<p>I&rsquo;ve been using their services for a couple of years now and I&rsquo;m planning</p>
+<p>to use Rev to add both captions and transcripts to some of the previous</p>
+<p>and future episodes of this podcast to make it easier for people to read</p>
+<p>through the conversation or reference various parts of the episode, since</p>
+<p>that&rsquo;s something that quite a few people requested.</p>
+<p>I&rsquo;ll probably do a separate video on that with links on the podcast website</p>
+<p>so people can provide suggestions and improvements there.</p>
+<p>Quick mention of our sponsors, Athletic Greens, All in One Nutrition Drink,</p>
+<p>Blinkist app that summarizes books, Business Wars podcast, and Cash App.</p>
+<p>So the choice is health, wisdom, or money.</p>
+<p>Choose wisely my friends, and if you wish, click the sponsor links</p>
+<p>below to get a discount and to support this podcast.</p>
+<p>As a side note, let me say that I reached out to Dan and the Rev</p>
+<p>team for a conversation because I&rsquo;ve been using and genuinely loving</p>
+<p>their service and really curious about how it works.</p>
+<p>I previously talked to the head of Adobe research for the same reason.</p>
+<p>For me, there&rsquo;s a bunch of products, usually software, that comes along</p>
+<p>and just makes my life way easier.</p>
+<p>Examples are Adobe Premiere for video editing, iZotope RX for cleaning up audio,</p>
+<p>AutoHotKey on Windows for automating keyboard and mouse tasks, Emacs as an</p>
+<p>IDE for everything, including the universe itself.</p>
+<p>I can keep on going, but you get the idea.</p>
+<p>I just like talking to people who create things I&rsquo;m a big fan of.</p>
+<p>That said, after doing this conversation, the folks at Rev.ai offered to sponsor</p>
+<p>this podcast in the coming months.</p>
+<p>This conversation is not sponsored by the guest.</p>
+<p>It probably goes without saying, but I should say it anyway, that you</p>
+<p>can not buy your way onto this podcast.</p>
+<p>I don&rsquo;t know why you would want to.</p>
+<p>I wanted to bring this up to make a specific point that no sponsor</p>
+<p>will ever influence what I do on this podcast, or to the best of</p>
+<p>my ability, influence what I think.</p>
+<p>I wasn&rsquo;t really thinking about this.</p>
+<p>For example, when I interviewed Jack Dorsey, who is the CEO of Square that</p>
+<p>happens to be sponsoring this podcast, but I should really make it explicit.</p>
+<p>I will never take money for bringing a guest on.</p>
+<p>Every guest on this podcast is someone I genuinely am curious to talk to or just</p>
+<p>genuinely love something they&rsquo;ve created.</p>
+<p>As I sometimes get criticized for, I&rsquo;m just a fan of people.</p>
+<p>And that&rsquo;s who I talk to.</p>
+<p>As I also talk about way too much, money is really never a consideration.</p>
+<p>In general, no amount of money can buy my integrity.</p>
+<p>That&rsquo;s true for this podcast, and that&rsquo;s true for anything else I do.</p>
+<p>If you enjoy this thing, subscribe on YouTube, review on the Apple podcast,</p>
+<p>follow on Spotify, support on Patreon, a podcast on YouTube, and</p>
+<p>support on Patreon, or connect with me on Twitter at Lex Friedman.</p>
+<p>And now here&rsquo;s my conversation with Dan Kokotov.</p>
+<p>You mentioned science fiction on the phone.</p>
+<p>So let&rsquo;s go with the ridiculous first.</p>
+<p>What&rsquo;s the greatest sci fi novel of all time in your view?</p>
+<p>And maybe what ideas do you find philosophically fascinating about it?</p>
+<p>The greatest sci fi novel of all time is Dune.</p>
+<p>And the second greatest is The Children of Dune.</p>
+<p>And the third greatest is The God Emperor of Dune.</p>
+<p>So I&rsquo;m a huge fan of the whole series.</p>
+<p>I mean, it&rsquo;s just an incredible world that he created.</p>
+<p>And I don&rsquo;t know if you&rsquo;ve read the book or not.</p>
+<p>No, I have not.</p>
+<p>It&rsquo;s one of my biggest regrets, especially because a new movie is coming out.</p>
+<p>Everyone&rsquo;s super excited about it.</p>
+<p>I used to, it&rsquo;s ridiculous to say, and sorry to interrupt, is that I</p>
+<p>used to play the video game.</p>
+<p>It used to be Dune.</p>
+<p>I guess you would call that real time strategy.</p>
+<p>Right.</p>
+<p>I think I remember that game.</p>
+<p>Yeah, it was kind of awesome.</p>
+<p>Nineties or something.</p>
+<p>I think I played it actually when I was in Russia.</p>
+<p>I definitely remember it.</p>
+<p>I was not in Russia anymore.</p>
+<p>I think at the time that I used to live in Russia, I think video games</p>
+<p>were about like the suspicion of Pong.</p>
+<p>I think Pong was pretty much like the greatest game I ever got to play in Russia,</p>
+<p>which was still a privilege right in that age.</p>
+<p>So you didn&rsquo;t get color?</p>
+<p>You didn&rsquo;t get like, uh, so I left Russia.</p>
+<p>I left Russia in 1991, right?</p>
+<p>Okay.</p>
+<p>So I was one of the few lucky kids because my mom was a programmer.</p>
+<p>So I would go to her work, right?</p>
+<p>I would take the, the Metro.</p>
+<p>I&rsquo;ve got our work and play like on, I guess the equivalent of like a</p>
+<p>286 PC, you know, nice floppy disks.</p>
+<p>Yes.</p>
+<p>So, okay.</p>
+<p>Put back to doing what you get back to doing.</p>
+<p>And by the way, the new movie I&rsquo;m pretty interested in, but the</p>
+<p>skeptical, I&rsquo;m a little skeptical.</p>
+<p>I&rsquo;m a little skeptical.</p>
+<p>I saw the trailer.</p>
+<p>Uh, I don&rsquo;t know.</p>
+<p>So there&rsquo;s, there&rsquo;s a David Lynch movie doing as you may know, I&rsquo;m</p>
+<p>a huge David Lynch fan, by the way.</p>
+<p>So the movie is somewhat controversial, but it&rsquo;s a little confusing, but it</p>
+<p>captures kind of the mood of the book better than I would say like most any</p>
+<p>adaptation and like doing so much about kind of mood and the world, right.</p>
+<p>But back to the philosophical point.</p>
+<p>So in the fourth book, God, emperor of doing, there&rsquo;s a sort of setting where</p>
+<p>Leto, one of the characters, he&rsquo;s become this weird sort of God emperor.</p>
+<p>He&rsquo;s turned into a gigantic worm.</p>
+<p>I mean, you kind of have to read the book to understand what that means.</p>
+<p>So the worms are involved, the worms are involved.</p>
+<p>You probably saw the worms in the trailer, right.</p>
+<p>And in the video, you kind of like merges with the swarm, um, and becomes</p>
+<p>this tyrant of the world and like oppresses the people for a long time.</p>
+<p>Right.</p>
+<p>But he has a purpose and the purpose is to kind of, uh, break through kind of</p>
+<p>a stagnation period in civilization.</p>
+<p>Right.</p>
+<p>Um, but people have gotten too comfortable, right.</p>
+<p>And so you kind of oppresses them so that they explode and like go on to</p>
+<p>colonize new worlds and kind of renew the forward momentum of humanity.</p>
+<p>Right.</p>
+<p>And so to me, that&rsquo;s kind of fascinating, right.</p>
+<p>You need a little bit of pressure and suffering, right.</p>
+<p>To kind of like make progress, not, not, not get too comfortable.</p>
+<p>Maybe that&rsquo;s a bit of a cruel philosophy to take away, but that seems to be</p>
+<p>the case, unfortunately, obviously, I&rsquo;m a huge fan of, uh, suffering.</p>
+<p>So one of the reasons we&rsquo;re talking today is that a bunch of people requested</p>
+<p>that I do transcripts for this podcast and do captioning.</p>
+<p>I used to make all kinds of YouTube videos and I would go on up work, I</p>
+<p>think, and I would hire folks to do transcription and it was always a pain</p>
+<p>in the ass, if I&rsquo;m being honest, and then I don&rsquo;t know how I discovered Rev.</p>
+<p>But when I did, it was this feeling of like, Holy shit, somebody figured</p>
+<p>out how to do it just really easily.</p>
+<p>I I&rsquo;m, I&rsquo;m such a fan of just when people take a problem and they just make it easy.</p>
+<p>Right.</p>
+<p>You know, like just, uh, there&rsquo;s so many, uh, there&rsquo;s so many,</p>
+<p>it&rsquo;s like, there&rsquo;s so many things in life that you might not even</p>
+<p>be aware of that are painful.</p>
+<p>Then Rev, you just like give the audio, give the video, you can</p>
+<p>actually give a YouTube link.</p>
+<p>And then it comes back like a day later or, uh, two days later, whatever</p>
+<p>the hell it is with the captions, you know, all in a standardized format.</p>
+<p>It was, I dunno, it was, it was, it was, it was truly a joy.</p>
+<p>So I thought I had, you know, just for the hell of it, uh, talk to you</p>
+<p>that one other product just made my soul feel good.</p>
+<p>One other product that I&rsquo;ve used like that is, uh, for people who might</p>
+<p>be familiar is called isotope RX.</p>
+<p>It&rsquo;s for audio editing and like, and that&rsquo;s another one where it was</p>
+<p>like, you just drop it.</p>
+<p>I dropped into the audio and it just cleans everything up really nicely.</p>
+<p>All the stupid, like the mouth sounds and sometimes there&rsquo;s a background</p>
+<p>like sounds due to the malfunction of the equipment.</p>
+<p>It can clean that stuff up.</p>
+<p>It can, it has a general voice denoising.</p>
+<p>It has like automation capabilities where you can do batch processing</p>
+<p>and you can put a bunch of effects.</p>
+<p>I mean, it just, I dunno, everything else sucked for like voice based</p>
+<p>cleanup that I&rsquo;ve ever used.</p>
+<p>They&rsquo;ve used audition, Adobe audition, and he&rsquo;s all kinds of other things</p>
+<p>with plugins and you have to kind of figure it all out.</p>
+<p>You have to do it manually here.</p>
+<p>It&rsquo;s just, it just worked.</p>
+<p>So that&rsquo;s another one in this whole pipeline.</p>
+<p>It just brought joy to my, to my heart.</p>
+<p>Anyway, all that to say is, uh, uh, Rev put a smile to my face.</p>
+<p>So can you maybe take a step back and say, what is Rev and how does it work?</p>
+<p>And Rev or Rev.com?</p>
+<p>Rev, Rev.com, the same thing, I guess, uh, that way we do have Rev.ai now as</p>
+<p>well, which we can talk about later.</p>
+<p>Like, do you have the actual domain or is it just, uh, the actual domain,</p>
+<p>but we also use it kind of as a, as a sub brand.</p>
+<p>Oh, so we&rsquo;ve, so we use Rev.ai to denote our ASR services, right?</p>
+<p>And Rev.com is kind of our more human and to the end user services.</p>
+<p>So it&rsquo;s like wordpress.com and wordpress.org, they actually have separate</p>
+<p>brands that like, I don&rsquo;t know if you&rsquo;re familiar with what those are.</p>
+<p>Yeah, they provide almost like a separate branch of a little bit.</p>
+<p>I think with that, it&rsquo;s like wordpress.org is kind of their open source, right?</p>
+<p>And, uh, wordpress.com is sort of their hosted commercial offering.</p>
+<p>Yes.</p>
+<p>Um, and with us, the differential is a little bit different,</p>
+<p>but maybe a similar idea.</p>
+<p>Yep.</p>
+<p>Okay.</p>
+<p>So what is Rev?</p>
+<p>Before I launch into, uh, what is Rev?</p>
+<p>I was going to say, you know, like you, you were talking about like</p>
+<p>Rev was music to your ears, your, your, your field was music to my ears.</p>
+<p>To us, the founders of Rev, because, um, Rev was kind of founded to improve</p>
+<p>on the model of Upwork that was kind of the original, um, or part of their</p>
+<p>original impetus, like our CEO, Jason, was a early employee of Upwork.</p>
+<p>So he was very familiar with their work, the company Upwork company.</p>
+<p>Um, and so he was very familiar with that model and he wanted to make the whole</p>
+<p>experience better because he knew like, when you go at that time, Upwork was</p>
+<p>primarily programmers, so the main thing they offered us, if you want to hire,</p>
+<p>you know, someone to help you code a little site, right.</p>
+<p>Um, you could go on Upwork, um, you could like browse through a list of freelancers,</p>
+<p>pick a programmer, you know, have a contract with them and have them do some</p>
+<p>work, but it was kind of a difficult experience because, uh, for the, for you,</p>
+<p>you would kind of have to browse through all these people, right.</p>
+<p>And you have to decide, okay, like, well, is this guy good as, um, or somebody</p>
+<p>else better and naturally, you know, you&rsquo;re going to Upwork because you&rsquo;re not</p>
+<p>an expert, right?</p>
+<p>If you&rsquo;re an expert, you probably wouldn&rsquo;t be like getting a programmer</p>
+<p>from Upwork, uh, so, so how can you really tell?</p>
+<p>So there&rsquo;s a kind of like a lot of potential regret, right?</p>
+<p>What if I choose a bad person, they&rsquo;re like, going to be late on the work.</p>
+<p>It&rsquo;s going to be a painful experience.</p>
+<p>And for the freelancer, it was also painful because, you know, half the time</p>
+<p>they spent not on actually doing the work, but kind of figuring out how can I make</p>
+<p>my profile most attractive to the buyer, right?</p>
+<p>And they&rsquo;re not an expert on that either.</p>
+<p>So like Grav&rsquo;s idea was let&rsquo;s remove the barrier, right?</p>
+<p>Like, let&rsquo;s make it simple where we&rsquo;ll pick a few, uh, verticals</p>
+<p>that are fairly standardizable.</p>
+<p>Now we actually started with translation, um, and then we added</p>
+<p>audio transcription a bit later and we&rsquo;ll just make it a website.</p>
+<p>You go give us your files.</p>
+<p>We&rsquo;ll give you back, uh, the results, you know, as soon as possible.</p>
+<p>You know, originally maybe it was 48 hours.</p>
+<p>Then we made it shorter and shorter and shorter.</p>
+<p>Um, yeah, there&rsquo;s a rush processing too.</p>
+<p>There&rsquo;s a rush processing now, uh, and, uh, we&rsquo;ll hide all the details from you.</p>
+<p>Right.</p>
+<p>Yeah.</p>
+<p>And like, that&rsquo;s kind of exactly what you&rsquo;re experiencing, right?</p>
+<p>You don&rsquo;t, you don&rsquo;t need to worry about the details of how the sausage is made.</p>
+<p>That&rsquo;s really cool.</p>
+<p>The, so you picked like a vertical by vertically, you mean basically a</p>
+<p>service, a service category.</p>
+<p>Why translation is Rev thinking of potentially going into other verticals</p>
+<p>in the future, or is this like the focus now is a translation transcription, like</p>
+<p>language, the focus now is, is language or, uh, speech services, generally speech</p>
+<p>to text language services, you can kind of group them however you want.</p>
+<p>Um, so, but we, uh, originally the categorization was work from home.</p>
+<p>So when, uh, work that was done by people on a computer, you know, we weren&rsquo;t trying</p>
+<p>to get into, you know, uh, task rabbit type of things and something that could</p>
+<p>be relatively standard, not a lot of options.</p>
+<p>So we could kind of present the simplified interface, right?</p>
+<p>So programming wasn&rsquo;t like a good fit because each programming</p>
+<p>project is kind of unique, right?</p>
+<p>We&rsquo;re looking for something that, uh, Transcription is, you know, you have five</p>
+<p>hours of idea, it&rsquo;s five hours of audio, right?</p>
+<p>Translation is somewhat similar.</p>
+<p>In that, you know, you can have a five page document, you know, and then you</p>
+<p>just can price it by that and then you pick the language you want and that</p>
+<p>that&rsquo;s mostly all that is to it.</p>
+<p>So those were a few criteria.</p>
+<p>We started with translation because we saw the need, um, and, uh, we picked up</p>
+<p>kind of a specialty of translation, um, where we would translate things like</p>
+<p>board certificates, uh, uh, immigration documents, things like that.</p>
+<p>And so they were fairly, um, even more well defined and easy to</p>
+<p>kind of tell if we did a good job.</p>
+<p>So you can literally charge per type of document.</p>
+<p>Was that, was, was that the, so what, what is it now?</p>
+<p>Is it per word or something like that?</p>
+<p>Like, how do you, like, how do you measure the effort</p>
+<p>involved in a particular thing?</p>
+<p>So now it looks like for audio translation, it&rsquo;s like,</p>
+<p>so now it looks a for audio transcription, right?</p>
+<p>It&rsquo;s a per audio minute.</p>
+<p>Well, that, that yes, for, for, for our translation, we don&rsquo;t really,</p>
+<p>uh, actually focus it on anymore.</p>
+<p>Uh, but you know, back when it was still a main business of Revit was per page,</p>
+<p>right.</p>
+<p>Or per word, depending on the kind of, uh, cause you can also do translation</p>
+<p>now on the audio, right?</p>
+<p>Mm hmm.</p>
+<p>So like subtitles.</p>
+<p>So it would be both, uh, transcription and translation.</p>
+<p>That&rsquo;s right.</p>
+<p>I wanted to test the system to see how good it is to see like how, how, uh,</p>
+<p>well, is Russian supported?</p>
+<p>I think so.</p>
+<p>Yeah.</p>
+<p>And it&rsquo;d be interesting to try it out.</p>
+<p>I mean, one of the, now it&rsquo;s only in like the one direction, right?</p>
+<p>So you start with English and then you can have subtitles in Russian.</p>
+<p>Not really, not really the other way.</p>
+<p>Got it.</p>
+<p>Because it&rsquo;s, um, I&rsquo;m deeply curious about this.</p>
+<p>Um, when COVID opens up a little bit, when the economy, when the</p>
+<p>world opens up a little bit, you want to build your brand in Russia?</p>
+<p>No, I don&rsquo;t.</p>
+<p>First of all, I&rsquo;m allergic to the word brand.</p>
+<p>All right, I&rsquo;m definitely not building, uh, any brands in Russia, but I&rsquo;m going to</p>
+<p>Paris to talk to the translators of Dostoevsky and Tolstoy, there&rsquo;s this</p>
+<p>famous couple that does translation.</p>
+<p>And, you know, I&rsquo;m more and more thinking of how is it possible to have a</p>
+<p>conversation with a Russian speaker?</p>
+<p>Cause I have just some number of famous Russian speakers that</p>
+<p>I&rsquo;m interested in talking to, and my Russian is not strong</p>
+<p>enough to be witty and funny.</p>
+<p>I&rsquo;m already an idiot in English.</p>
+<p>I&rsquo;m an extra level of like awkward idiot in Russian, but I can understand it.</p>
+<p>Right.</p>
+<p>And I also like wonder how can I create a compelling English Russian</p>
+<p>experience for an English speaker?</p>
+<p>Like if I, there&rsquo;s a guy named Grigori Perlman, who&rsquo;s a mathematician who,</p>
+<p>uh, obviously doesn&rsquo;t speak any English.</p>
+<p>So I would probably incorporate like a Russian translator into the picture.</p>
+<p>And then it would be like a, not to use a weird term, but like a three, like a</p>
+<p>three, three person thing where it&rsquo;s like a dance of, like, I understand it one way.</p>
+<p>They don&rsquo;t understand the other way, but I&rsquo;ll be asking questions in English.</p>
+<p>I don&rsquo;t know.</p>
+<p>I don&rsquo;t know the right way.</p>
+<p>It&rsquo;s complicated.</p>
+<p>It&rsquo;s complicated, but I feel like it&rsquo;s worth the effort for certain kinds of</p>
+<p>people, one of whom I&rsquo;m confident of Vladimir Putin, I&rsquo;m for sure talking to.</p>
+<p>I really want to make it happen.</p>
+<p>Cause I think I could do a good job with, but the, the right, you know,</p>
+<p>understanding the fundamentals of translation is something I&rsquo;m really</p>
+<p>interested in.</p>
+<p>So that&rsquo;s why I&rsquo;m starting with, um, the actual translators of like Russian</p>
+<p>literature, because they understand the nuance and the beauty of the</p>
+<p>language and how it goes back and forth.</p>
+<p>But I also want to see, like in speech, how can we do it in real time?</p>
+<p>So that&rsquo;s, that&rsquo;s like a little bit of a baby project that I hope to push forward.</p>
+<p>But anyway, it&rsquo;s a challenging thing.</p>
+<p>So just to share, uh, my dad, um, actually does translation, um, not, not</p>
+<p>professional, he&rsquo;s a, uh, he writes poetry.</p>
+<p>That was kind of always his, uh, not a hobby, but he&rsquo;s, uh, he, you know, he</p>
+<p>had a job, like a day job, but his passion was always writing poetry.</p>
+<p>Uh, and then when I got to America, like he started also translating, um, first</p>
+<p>he was translating English poetry to Russia.</p>
+<p>Now he also like goes the other, uh, the other way, you kind of gain some small</p>
+<p>fame in that world anyways, because, uh, recently this poet like Lewis</p>
+<p>clock, I don&rsquo;t know if you know of, uh, some American poet, um, she was</p>
+<p>awarded the Nobel prize for literature.</p>
+<p>Uh, and so my dad had translated, uh, one of her books of poetry in</p>
+<p>to Russian, and he was like one of the few.</p>
+<p>So he kind of like, they asked him and gave an interview to Radiosvoboda,</p>
+<p>if you know what that is.</p>
+<p>And he kind of talked about some of the intricacies of translating poetry.</p>
+<p>So that&rsquo;s like an extra level of difficulty, right?</p>
+<p>Because translating poetry is even more challenging than</p>
+<p>translating just, you know, interviews.</p>
+<p>Do you remember any, any experiences and challenges to having to do the</p>
+<p>translation that, that&rsquo;s the God to you, like something he&rsquo;s talked about?</p>
+<p>I mean, a lot of it, I think is word choice, right?</p>
+<p>It&rsquo;s the way Russian is structured is first of all, quite different</p>
+<p>than, um, the way English is structured, right?</p>
+<p>Just there is inflections in Russian and genders, and they don&rsquo;t exist in English.</p>
+<p>That&rsquo;s just one of the reasons actually why, um, machine translation is quite</p>
+<p>difficult for English to Russian and Russian to English, because there&rsquo;s</p>
+<p>such different languages, but then English has like a huge number of words.</p>
+<p>Um, many more than Russian, actually, I think.</p>
+<p>So it&rsquo;s often difficult to find the right word to convey the same emotional</p>
+<p>meaning, yeah, Russian language.</p>
+<p>They play with words much more.</p>
+<p>So you, you&rsquo;re mentioning that, uh, Rev was kind of born out of, um, trying to</p>
+<p>take a vertical on the upwork and then standardize it.</p>
+<p>So we&rsquo;re just trying to make the, the freelancer marketplace idea better, right?</p>
+<p>Um, better for both customers and better for the freelancers themselves.</p>
+<p>Is there something else to the story of Rev finding the right word?</p>
+<p>Rev, finding Rev, like what, what did it take to bring it to actually to life?</p>
+<p>Was there any pain points?</p>
+<p>Um, plenty of, plenty of pain points.</p>
+<p>I mean, uh, as, as often the case it&rsquo;s with scaling it up, right?</p>
+<p>Um, and in this case, you know, the scaling is kind of scaling the,</p>
+<p>the marketplace, so to speak, right?</p>
+<p>Rev is essentially a two sided marketplace, right?</p>
+<p>Because, you know, there&rsquo;s the customers and then there&rsquo;s the reverse.</p>
+<p>Um, if there&rsquo;s not enough Revers, Revers are world color freelancers.</p>
+<p>So if there&rsquo;s not enough Revers, then customers have a bad experience, right?</p>
+<p>You know, it takes longer to get your work done.</p>
+<p>Um, things like that, you know, if there&rsquo;s too many done, the Revers have</p>
+<p>a bad experience because they might log on to see like what work is available</p>
+<p>and there&rsquo;s not very much work, right?</p>
+<p>Uh, so kind of keeping that balance, um, is, is, is a quite challenging problem.</p>
+<p>And, you know, that&rsquo;s, that&rsquo;s like a problem we&rsquo;ve been working on for many</p>
+<p>years and we&rsquo;re still like refining our methods, right?</p>
+<p>If you can kind of talk to this gig economy idea, I did a bunch of different</p>
+<p>psychology experiments on mechanical Turk, for example, I&rsquo;ve asked to do</p>
+<p>different kinds of very tricky computer vision annotation on mechanical Turk.</p>
+<p>And it&rsquo;s connecting, connecting people in a more systematized way.</p>
+<p>I would say, you know, between task and, and, uh, what would you call that worker</p>
+<p>is what mechanical Turk calls it.</p>
+<p>What do you think about this world of gig economies, of there being a service</p>
+<p>that connects customers to workers in a way that&rsquo;s like massively distributed,</p>
+<p>like potentially scaling to, it could be, it could be scaled to like</p>
+<p>tens of thousands of people, right?</p>
+<p>Is there something interesting about that world that you can speak to?</p>
+<p>Yeah.</p>
+<p>Well, we don&rsquo;t think of it as kind of gig economy, like to some degree,</p>
+<p>I don&rsquo;t like the word gig that much, right?</p>
+<p>Because to some degree it diminishes the words being done, right?</p>
+<p>It sounds kind of like almost amateurish.</p>
+<p>Well, maybe in like music industry, like gig is a standard term, but in work, it</p>
+<p>kind of sounds like, oh, it&rsquo;s, it&rsquo;s, it&rsquo;s frivolous, um, to us it&rsquo;s, um, improving</p>
+<p>the nature of working from home on your own time and on your own terms, right?</p>
+<p>And kind of taking away geographical limitations and time limitations, right?</p>
+<p>Uh, so, you know, many of our freelancers are maybe work from home moms, right?</p>
+<p>And, you know, they don&rsquo;t want the traditional nine to five job, but they</p>
+<p>want to make some income and rough kind of like allows them to do that and decide</p>
+<p>like exactly how much to work and when to work or by the same token, maybe someone</p>
+<p>is, you know, someone wants to live the mountain top, you know, life, right?</p>
+<p>You know, cabin in the woods, but they still want to make some money.</p>
+<p>Um, and like generally that wouldn&rsquo;t be compatible before, before this new world,</p>
+<p>you kind of had to choose, uh, but like with Rev, like, if you like, you don&rsquo;t</p>
+<p>have to choose, can you speak to like, what&rsquo;s the demographics like distribution?</p>
+<p>Like where do rivers live?</p>
+<p>Is there a way to, to, to, to, to, to, to, to, to, to, to, to, to, to, to, to, to,</p>
+<p>to, to, to, but you really want to teach it how to, how to run, how to track</p>
+<p>Once you&rsquo;re out of the bush, 들어가, things like that, you know,</p>
+<p>but like in the back of you know, like hard, but you</p>
+<p>just as you approach, there&rsquo;s a lot more control over you.</p>
+<p>Like you, you may be Oh, like you know, one day you might go to the</p>
+<p>For some years now, we&rsquo;ve been doing these little meetings</p>
+<p>where the management team will go to some place</p>
+<p>and we&rsquo;ll try to meet Revers.</p>
+<p>And pretty much wherever we go, it&rsquo;s</p>
+<p>pretty easy to find a large number of Revers.</p>
+<p>The most recent one we did is in Utah.</p>
+<p>But anyway, really.</p>
+<p>Are they from all walks of life?</p>
+<p>Are these young folks, older folks?</p>
+<p>Yeah, all walks of life, really.</p>
+<p>Like I said, one category is the work from home.</p>
+<p>Students who want to make some extra income.</p>
+<p>There are some people who maybe have some social anxiety,</p>
+<p>so they don&rsquo;t want to be in the office.</p>
+<p>And this is one way for them to make a living.</p>
+<p>So it&rsquo;s really pretty wide variety.</p>
+<p>But on the flip side, for example,</p>
+<p>one Rever we were talking to was a person</p>
+<p>who had a fairly high powered career before</p>
+<p>and was kind of like taking a break.</p>
+<p>And she was almost doing this just to explore and learn</p>
+<p>about the gig economy, quote unquote.</p>
+<p>So it really is a pretty wide variety of folks.</p>
+<p>Yeah, it&rsquo;s kind of interesting through the captioning</p>
+<p>process for me to learn about the Revers</p>
+<p>because like some are clearly like weirdly knowledgeable</p>
+<p>about technical concepts.</p>
+<p>Like you can tell by how good they are</p>
+<p>at like capitalizing stuff, like technical terms,</p>
+<p>like a machine learning or deep learning.</p>
+<p>Like I&rsquo;ve used Rev to annotate, to caption</p>
+<p>the deep learning lectures or machine learning lectures</p>
+<p>I did at MIT.</p>
+<p>And it&rsquo;s funny, like a large number of them were like,</p>
+<p>I don&rsquo;t know if they looked it up</p>
+<p>or were already knowledgeable,</p>
+<p>but they do a really good job at like, I don&rsquo;t know.</p>
+<p>They invest time into these things.</p>
+<p>They will like do research, they will Google things,</p>
+<p>you know, to kind of make sure that they got it right.</p>
+<p>But to some of them, it&rsquo;s like,</p>
+<p>it&rsquo;s actually part of the enjoyment of the work.</p>
+<p>Like they&rsquo;ll tell us, you know,</p>
+<p>I love doing this because I get paid</p>
+<p>to watch a documentary on something, right?</p>
+<p>And I learn something while I&rsquo;m transcribing, right?</p>
+<p>Pretty cool.</p>
+<p>Yeah, so what&rsquo;s that captioning transcription process</p>
+<p>look like for the Revers?</p>
+<p>Can you maybe speak to that to give people a sense,</p>
+<p>like how much is automated, how much is manual?</p>
+<p>What&rsquo;s the actual interface look like?</p>
+<p>All that kind of stuff.</p>
+<p>Yeah, so, you know, we&rsquo;ve invested a pretty good amount</p>
+<p>of time to give like our Revers the best tools possible.</p>
+<p>So typical day of forever,</p>
+<p>they might log into their workspace,</p>
+<p>they&rsquo;ll see a list of audios that need to be transcribed.</p>
+<p>And we try to give them tools to pick specifically</p>
+<p>the ones they want to do, you know?</p>
+<p>So maybe some people like to do longer audios</p>
+<p>or shorter audios, people have their preferences.</p>
+<p>Some people like to do audios in a particular subject</p>
+<p>or from a particular country.</p>
+<p>So we try to give people the tools to control,</p>
+<p>things like that.</p>
+<p>And then when they pick what they want to do,</p>
+<p>we&rsquo;ll launch a specialized editor that we&rsquo;ve built</p>
+<p>to make transcription as efficient as possible.</p>
+<p>They&rsquo;ll start with a speech drag draft.</p>
+<p>So, you know, we have our machine learning model</p>
+<p>for automated speech recognition, they&rsquo;ll start with that.</p>
+<p>And then our tools are optimized to help them correct that.</p>
+<p>So it&rsquo;s basically a process of correction.</p>
+<p>Yeah, it depends on, you know, I would say the audio.</p>
+<p>If the audio itself is pretty good,</p>
+<p>like probably like our podcast right now</p>
+<p>would be quite good.</p>
+<p>So the ASR would do a fairly good job.</p>
+<p>But if you imagine someone recorded a lecture,</p>
+<p>you know, in the back of a auditorium, right?</p>
+<p>Where like the speaker is really far away</p>
+<p>and there&rsquo;s maybe a lot of cross talk and things like that,</p>
+<p>then maybe the ASR wouldn&rsquo;t do a good job.</p>
+<p>So the person might say like, you know what,</p>
+<p>I&rsquo;m just gonna do it from scratch.</p>
+<p>Do it from scratch, yeah.</p>
+<p>So it kind of really depends.</p>
+<p>What would you say is the speed that you can possibly get?</p>
+<p>Like, what&rsquo;s the fastest?</p>
+<p>Can you get, is it possible to get real time or no?</p>
+<p>As you&rsquo;re like listening, can you write as fast as?</p>
+<p>Real time would be pretty difficult.</p>
+<p>It&rsquo;s actually a pretty, it&rsquo;s not an easy job, you know.</p>
+<p>We actually encourage everyone at the company</p>
+<p>to try to be a transcriber for a day,</p>
+<p>transcriptionist for a day.</p>
+<p>And it&rsquo;s way harder than you might think it is, right?</p>
+<p>Because people talk fast and people have accents</p>
+<p>and all this kind of stuff.</p>
+<p>So real time is pretty difficult.</p>
+<p>Is it possible?</p>
+<p>Like there&rsquo;s somebody, we&rsquo;re probably gonna use Rev</p>
+<p>to caption this, they&rsquo;re listening to this right now.</p>
+<p>What do you think is the fastest</p>
+<p>you could possibly get on this right now?</p>
+<p>I think on a good audio, maybe two to three X,</p>
+<p>I would say, real time.</p>
+<p>Meaning it takes two to three times longer</p>
+<p>than the actual audio of the podcast.</p>
+<p>This is so meta, I could just imagine the Revvers</p>
+<p>working on this right now.</p>
+<p>You&rsquo;re like, you&rsquo;re way wrong.</p>
+<p>You&rsquo;re way wrong, this takes way longer.</p>
+<p>But yeah, it definitely works.</p>
+<p>Or you doubted me, I could do real time.</p>
+<p>Yeah.</p>
+<p>Okay, so you mentioned ASR.</p>
+<p>Can you speak to what is ASR, automatic speech recognition?</p>
+<p>How much, like what is the gap</p>
+<p>between perfect human performance</p>
+<p>and perfect or pretty damn good ASR?</p>
+<p>Yeah, so ASR, automatic speech recognition,</p>
+<p>it&rsquo;s a class of machine learning problem, right?</p>
+<p>So take speech like we&rsquo;re talking</p>
+<p>and transform it into a sequence of words, essentially.</p>
+<p>Audio of people talking.</p>
+<p>Audio, audio to words.</p>
+<p>And there&rsquo;s a variety of different approaches</p>
+<p>and techniques, which we could talk about later if you want.</p>
+<p>So, we think we have pretty much the world&rsquo;s best ASR</p>
+<p>for this kind of speech, right?</p>
+<p>So there&rsquo;s different kinds of domains, right, for ASR.</p>
+<p>Like one domain might be voice assistance, right?</p>
+<p>So Siri, very different than what we&rsquo;re doing, right?</p>
+<p>Because Siri, there&rsquo;s fairly limited vocabulary.</p>
+<p>You might ask Siri to play a song</p>
+<p>or order a pizza or whatever.</p>
+<p>And it&rsquo;s very good at doing that.</p>
+<p>Very different from when we start talking</p>
+<p>in a very unstructured way.</p>
+<p>And Siri will also generally adapt to your voice</p>
+<p>and stuff like this.</p>
+<p>So for this kind of audio, we think we have the best.</p>
+<p>And our accuracy, right now I think it&rsquo;s maybe 14%</p>
+<p>word error rate on our test suite</p>
+<p>that we generally use to measure.</p>
+<p>So word error rate is like one way to measure accuracy</p>
+<p>for ASR, right?</p>
+<p>So what&rsquo;s 14% word error rate?</p>
+<p>So 14% means across this test suite,</p>
+<p>of a variety of different audios,</p>
+<p>it would be, it would get in some way 14% of the words wrong.</p>
+<p>14% of the words wrong.</p>
+<p>So the way you kind of calculate it is,</p>
+<p>you might add up insertions, deletions, and substitutions,</p>
+<p>right?</p>
+<p>So insertions is like extra words.</p>
+<p>Deletions are words that we said,</p>
+<p>but weren&rsquo;t in the transcript, right?</p>
+<p>Substitutions is, you said Apple, but I said,</p>
+<p>but the ASR thought it was able, something like this.</p>
+<p>Human accuracy, most people think realistically,</p>
+<p>it&rsquo;s like 3%, 2%, word error rate would be like</p>
+<p>the max achievable.</p>
+<p>So there&rsquo;s still quite a gap, right?</p>
+<p>Would you say that, so YouTube, when I upload videos,</p>
+<p>often generates automatic captions.</p>
+<p>Are you sort of from a company perspective,</p>
+<p>from a company perspective, from a tech perspective,</p>
+<p>are you trying to beat YouTube, Google?</p>
+<p>It&rsquo;s a hell of a, Google, I mean,</p>
+<p>I don&rsquo;t know how seriously they take this task,</p>
+<p>but I imagine it&rsquo;s quite serious.</p>
+<p>And they, you know, Google is probably up there</p>
+<p>in terms of their teams on, on ASR or just NLP,</p>
+<p>natural language processing, different technologies.</p>
+<p>So do you think you can beat Google?</p>
+<p>On this kind of stuff, yeah, we think so.</p>
+<p>Google just woke up on my phone.</p>
+<p>This is hilarious, okay.</p>
+<p>Now Google is listening, sending it back to headquarters.</p>
+<p>Who are these rough people?</p>
+<p>But that&rsquo;s the goal?</p>
+<p>Yeah, I mean, we measure ourselves against like Google,</p>
+<p>Amazon, Microsoft, you know, some of the,</p>
+<p>some smaller competitors.</p>
+<p>And we use like our internal tests with it,</p>
+<p>we try to compose it of a pretty representative</p>
+<p>set of ideas, maybe it&rsquo;s some podcasts, some videos,</p>
+<p>some interviews, some lectures, things like that, right?</p>
+<p>And we beat them in our own testing.</p>
+<p>And actually Rev offers automated,</p>
+<p>like you can actually just do the automated captioning.</p>
+<p>So like, I guess it&rsquo;s like way cheaper, whatever it is,</p>
+<p>whatever the rates are.</p>
+<p>Yeah, yeah.</p>
+<p>So it&rsquo;s a, by the way, it used to be a dollar per minute</p>
+<p>for captioning and transcription,</p>
+<p>I think it&rsquo;s like $1.15 or something like that.</p>
+<p>$1.25.</p>
+<p>$1.25, yeah.</p>
+<p>It&rsquo;s pretty cool.</p>
+<p>That was the other thing that was surprising to me,</p>
+<p>it was actually like the cheapest thing you could,</p>
+<p>one of the, I mean, I don&rsquo;t remember it being cheaper.</p>
+<p>You could on Upwork get cheaper,</p>
+<p>but it was clear to me that this,</p>
+<p>that&rsquo;s gonna be really shitty.</p>
+<p>Yeah.</p>
+<p>So like, you&rsquo;re also competing on price.</p>
+<p>I think there were services that you can get,</p>
+<p>like similar to Rev kind of feel to it,</p>
+<p>but it wasn&rsquo;t as automated.</p>
+<p>Like the drag and drop, the entirety of the interface,</p>
+<p>it&rsquo;s like the thing we&rsquo;re talking about.</p>
+<p>I&rsquo;m such a huge fan of like frictionless,</p>
+<p>like Amazon&rsquo;s single buy button, whatever.</p>
+<p>Yeah, yeah.</p>
+<p>That one click.</p>
+<p>The one click, that&rsquo;s genius right there.</p>
+<p>Like that is so important for services.</p>
+<p>Yeah.</p>
+<p>And simplicity and I mean, Rev is almost there.</p>
+<p>I mean, there&rsquo;s like some, I&rsquo;m trying to think.</p>
+<p>So I think I&rsquo;ve, I stopped using this pipeline,</p>
+<p>but Rev offers it and I like it,</p>
+<p>but it was causing me some issues on my side,</p>
+<p>which is you can connect it to like Dropbox</p>
+<p>and it generates the files in Dropbox.</p>
+<p>So like it closes the loop to where</p>
+<p>I don&rsquo;t have to go to Rev at all and I can download it.</p>
+<p>Sorry, I don&rsquo;t have to go to Rev at all</p>
+<p>and to download the files.</p>
+<p>It could just like automatically copy them.</p>
+<p>Right, you&rsquo;re putting your Dropbox in a day later</p>
+<p>or maybe a few hours later.</p>
+<p>Yeah, it just shows up.</p>
+<p>Just shows up, yeah.</p>
+<p>Yeah, I was trying to do it programmatically too.</p>
+<p>Is there an API interface you can,</p>
+<p>I was trying to through like through Python</p>
+<p>to download stuff automatically,</p>
+<p>but then I realized this is the programmer in me.</p>
+<p>Like, dude, you don&rsquo;t need to automate everything</p>
+<p>like in life, like flawlessly,</p>
+<p>because I wasn&rsquo;t doing enough captions</p>
+<p>to justify to myself the time investment</p>
+<p>into automating everything perfectly.</p>
+<p>Yeah, I would say if you&rsquo;re doing so many interviews</p>
+<p>that your biggest roadblock is clicking on the Rev download,</p>
+<p>but now you&rsquo;re talking about Elon Musk levels of business.</p>
+<p>But for sure, we have like a variety of ways</p>
+<p>to make it easy.</p>
+<p>You know, there&rsquo;s the integration.</p>
+<p>You mentioned, I think it&rsquo;s through a company called Zapier,</p>
+<p>which kind of can connect Dropbox to Rev and vice versa.</p>
+<p>We have an API if you want to really like customize it,</p>
+<p>you know, if you want to create the Lex Friedman,</p>
+<p>you know, CMS or whatever.</p>
+<p>For this whole thing.</p>
+<p>Okay, cool.</p>
+<p>So can you speak to the ASR a little bit more?</p>
+<p>Like, what does it take?</p>
+<p>Like approach wise, machine learning wise,</p>
+<p>how hard is this problem?</p>
+<p>How do you get to the 3% error rate?</p>
+<p>Like, what&rsquo;s your vision of all of this?</p>
+<p>Yeah, well, the 3% error rate is definitely,</p>
+<p>that&rsquo;s the grand vision.</p>
+<p>We&rsquo;ll see what it takes to get there.</p>
+<p>But we believe, you know, in ASR,</p>
+<p>the biggest thing is the data, right?</p>
+<p>Like, that&rsquo;s true of like a lot of</p>
+<p>machine learning problems today, right?</p>
+<p>The more data you have and high quality of the data,</p>
+<p>the better label the data.</p>
+<p>Yeah, that&rsquo;s how you get good results.</p>
+<p>And we at Rev have kind of like the best data.</p>
+<p>Like we have.</p>
+<p>Like you&rsquo;re literally,</p>
+<p>your business model is annotating the data.</p>
+<p>Our business model is being paid to annotate the data.</p>
+<p>Being paid to annotate the data.</p>
+<p>So it&rsquo;s kind of like a pretty magical flywheel.</p>
+<p>Yeah.</p>
+<p>And so we&rsquo;ve kind of like written this flywheel</p>
+<p>to this point.</p>
+<p>And we think we&rsquo;re still kind of in the early stages</p>
+<p>of figuring out all the parts of the flywheel to use,</p>
+<p>you know, because we have the final transcripts</p>
+<p>and we have the audios and we train on that.</p>
+<p>But we in principle also have all the edits</p>
+<p>that the Revvers make, right?</p>
+<p>Oh, that&rsquo;s interesting.</p>
+<p>How can you use that as data?</p>
+<p>Yeah, that&rsquo;s something for us to figure out in the future.</p>
+<p>But, you know, we feel like we&rsquo;re only</p>
+<p>in the early stages, right?</p>
+<p>So the data is there.</p>
+<p>That&rsquo;d be interesting.</p>
+<p>Like almost like a recurrent neural net</p>
+<p>for fixing transcripts.</p>
+<p>I always remember we did a segmentation annotation</p>
+<p>for driving data.</p>
+<p>So segmenting the scene, like visual data.</p>
+<p>And you can get all,</p>
+<p>so it was drawing, people were drawing polygons</p>
+<p>around different objects and so on.</p>
+<p>And it feels like it always felt like</p>
+<p>there was a lot of information in the clicking,</p>
+<p>the sequence of clicking that people do,</p>
+<p>the kind of fixing of the polygons that they do.</p>
+<p>Now there&rsquo;s a few papers written about</p>
+<p>how to draw polygons like with a recurrent neural nets</p>
+<p>to try to learn from the human clicking.</p>
+<p>But it was just like experimental,</p>
+<p>you know, it was one of those like CVPR type papers</p>
+<p>that people do like a really tiny data set.</p>
+<p>It didn&rsquo;t feel like people really tried to do it seriously.</p>
+<p>Yeah, I wonder if there&rsquo;s information in the fixing</p>
+<p>that provides deeper set of signal</p>
+<p>than just like the raw data.</p>
+<p>The intuition is for sure there must be, right?</p>
+<p>There must be.</p>
+<p>And in all kinds of signals and how long you took</p>
+<p>to make that edit and stuff like that.</p>
+<p>It&rsquo;s gonna be like up to us.</p>
+<p>That&rsquo;s why like the next couple of years</p>
+<p>is like super exciting for us, right?</p>
+<p>So that&rsquo;s what like the focus is now.</p>
+<p>You mentioned rev.ai, that&rsquo;s where you want to.</p>
+<p>Yeah, so rev.ai is kind of our way of bringing this ASR</p>
+<p>to the rest of the world, right?</p>
+<p>So when we started, we were human only.</p>
+<p>Then we kind of created this Temi service.</p>
+<p>I think you might&rsquo;ve used it,</p>
+<p>which was kind of ASR for the consumer, right?</p>
+<p>So if you don&rsquo;t wanna pay $1.25, but you wanna pay,</p>
+<p>now it&rsquo;s 25 cents a minute, I think.</p>
+<p>And you get the transcript,</p>
+<p>the machine generated transcript and you get an editor</p>
+<p>and you can kind of fix it up yourself, right?</p>
+<p>Then we started using ASR</p>
+<p>for our own human transcriptionists.</p>
+<p>And then the kind of rev.ai is the final step</p>
+<p>of the journey, which is, you know,</p>
+<p>we have this amazing engine.</p>
+<p>What can people build with it, right?</p>
+<p>What kind of new applications could be enabled</p>
+<p>if you have SpeedTrack that&rsquo;s that accurate?</p>
+<p>Do you have ideas for this</p>
+<p>or is it just providing it as a service</p>
+<p>and seeing what people come up with?</p>
+<p>It&rsquo;s providing it as a service</p>
+<p>and seeing what people come up with</p>
+<p>and kind of learning from what people do with it.</p>
+<p>And we have ideas of our own as well, of course,</p>
+<p>but it&rsquo;s a little bit like, you know,</p>
+<p>when AWS provided the building blocks, right?</p>
+<p>And they saw what people built with it</p>
+<p>and they try to make it easier to build those things, right?</p>
+<p>And we kind of hope to do the same thing.</p>
+<p>Although AWS kind of does a shitty job of like,</p>
+<p>I&rsquo;m continually surprised, like Mechanical Turk,</p>
+<p>for example, how shitty the interface is.</p>
+<p>We&rsquo;re talking about like Rev making me feel good.</p>
+<p>Like when I first discovered Mechanical Turk,</p>
+<p>the initial idea of it was like,</p>
+<p>it made me feel like Rev does,</p>
+<p>but then the interface is like, come on.</p>
+<p>Yeah, it&rsquo;s horrible.</p>
+<p>Why is it so painful?</p>
+<p>Does nobody at Amazon want to like seriously invest in it?</p>
+<p>It felt like you can make so much money</p>
+<p>if you took this effort seriously.</p>
+<p>And it feels like they have a committee</p>
+<p>of like two people just sitting back,</p>
+<p>like a meeting, they meet once a month,</p>
+<p>like what are we going to do with Mechanical Turk?</p>
+<p>It&rsquo;s like two websites making me feel like this,</p>
+<p>that and craiglist.org, whatever the hell it is.</p>
+<p>It feels like it&rsquo;s designed in the 90s.</p>
+<p>Well, Craigslist basically hasn&rsquo;t been updated</p>
+<p>pretty much since the guy originally built.</p>
+<p>Do you seriously think there&rsquo;s a team,</p>
+<p>like how big is the team working on Mechanical Turk?</p>
+<p>I don&rsquo;t know.</p>
+<p>There&rsquo;s some team, right?</p>
+<p>I feel like there isn&rsquo;t.</p>
+<p>I&rsquo;m skeptical.</p>
+<p>Yeah.</p>
+<p>Well, if nothing else, they benefit from the other teams</p>
+<p>like moving things forward in a small way.</p>
+<p>But I know what you mean.</p>
+<p>We use Mechanical Turk for a couple of things as well.</p>
+<p>And yeah, it&rsquo;s painful UI.</p>
+<p>It&rsquo;s painful, but yeah, it works.</p>
+<p>I think most people, the thing is most people</p>
+<p>don&rsquo;t really use the UI, right?</p>
+<p>Like we, for example, we use it through the API, right?</p>
+<p>But even the API documentation and so on,</p>
+<p>like it&rsquo;s super outdated.</p>
+<p>Like I don&rsquo;t even know what to&hellip;</p>
+<p>I mean, the same criticism, as long as we&rsquo;re ranting,</p>
+<p>my same criticism goes to the APIs</p>
+<p>of most of these companies.</p>
+<p>Like Google, for example, the API for the different services</p>
+<p>is just the documentation is so shitty.</p>
+<p>Like it&rsquo;s not so shitty.</p>
+<p>I should actually be&hellip;</p>
+<p>I should exhibit some gratitude.</p>
+<p>Okay, let&rsquo;s practice some gratitude.</p>
+<p>The documentation is pretty good.</p>
+<p>Like most of the things that the API makes available</p>
+<p>is pretty good.</p>
+<p>It&rsquo;s just that in the sense that it&rsquo;s accurate,</p>
+<p>sometimes outdated, but like the degree of explanations</p>
+<p>with examples is only covering, I would say,</p>
+<p>like 50% of what&rsquo;s possible.</p>
+<p>And it just feels a little bit,</p>
+<p>like there&rsquo;s a lot of natural questions</p>
+<p>that people would wanna ask that doesn&rsquo;t get covered.</p>
+<p>And it feels like it&rsquo;s almost there.</p>
+<p>Like it&rsquo;s such a magical thing.</p>
+<p>Like the Maps API, YouTube API, there&rsquo;s a bunch of stuff.</p>
+<p>I gotta imagine it&rsquo;s like, there&rsquo;s probably some team</p>
+<p>at Google responsible for writing this documentation</p>
+<p>that&rsquo;s probably not the engineers, right?</p>
+<p>And probably this team is not where you wanna be.</p>
+<p>Well, it&rsquo;s a weird thing.</p>
+<p>I sometimes think about this for somebody</p>
+<p>who wants to also build a company.</p>
+<p>I think about this a lot.</p>
+<p>YouTube, the service is one of the most magical,</p>
+<p>like I&rsquo;m so grateful that YouTube exists.</p>
+<p>And yet they seem to be quite clueless on so many things</p>
+<p>like that everybody&rsquo;s screaming them at.</p>
+<p>Like it feels like whatever the mechanism</p>
+<p>that you use to listen to your quote unquote customers,</p>
+<p>which is like the creators, is not very good.</p>
+<p>Like there&rsquo;s literally people that are like screaming why,</p>
+<p>like their new YouTube studio, for example.</p>
+<p>There&rsquo;s like features that were like begged for</p>
+<p>for a really long time.</p>
+<p>Like being able to upload multiple videos at the same time.</p>
+<p>That wasn&rsquo;t missing for a really, really long time.</p>
+<p>Now, like there&rsquo;s probably things that I don&rsquo;t know,</p>
+<p>which is maybe for that kind of huge infrastructure,</p>
+<p>it&rsquo;s actually very difficult to build</p>
+<p>some of these features.</p>
+<p>But the fact that that wasn&rsquo;t communicated</p>
+<p>and it felt like you&rsquo;re not being heard.</p>
+<p>Like I remember this experience for me</p>
+<p>and it&rsquo;s not a pleasant experience.</p>
+<p>And it feels like the company doesn&rsquo;t give a damn about you.</p>
+<p>And that&rsquo;s something to think about.</p>
+<p>I&rsquo;m not sure what that is.</p>
+<p>That might have to do with just like small groups</p>
+<p>working on these small features and these specific features.</p>
+<p>And there&rsquo;s no overarching like dictator type of human</p>
+<p>that says like, why the hell are we neglecting</p>
+<p>like Steve Jobs type of characters?</p>
+<p>Like there&rsquo;s people that we need to speak</p>
+<p>to the people that like wanna love our product</p>
+<p>and they don&rsquo;t.</p>
+<p>Let&rsquo;s fix this shit.</p>
+<p>Maybe at some point you just get so fixated</p>
+<p>on the numbers, right?</p>
+<p>And it&rsquo;s like, well, the numbers are pretty great, right?</p>
+<p>Like people are watching,</p>
+<p>doesn&rsquo;t seem to be a problem, right?</p>
+<p>And you&rsquo;re not like the person that like build this thing,</p>
+<p>right?</p>
+<p>So you really care about it.</p>
+<p>You&rsquo;re just there, you came in as a product manager, right?</p>
+<p>You got hired sometime later,</p>
+<p>your mandate is like increase this number,</p>
+<p>like 10%, right?</p>
+<p>And you just.</p>
+<p>That&rsquo;s brilliantly put.</p>
+<p>Like if you, this is, okay, if there&rsquo;s a lesson in this</p>
+<p>is don&rsquo;t reduce your company into a metric</p>
+<p>of like how much, like you said,</p>
+<p>how much people watching the videos and so on</p>
+<p>and like convince yourself that everything is working</p>
+<p>just because the numbers are going up.</p>
+<p>There&rsquo;s something, you have to have a vision.</p>
+<p>You have to want people to love your stuff</p>
+<p>because love is ultimately the beginning</p>
+<p>of like a successful longterm company</p>
+<p>is that they always should love your product.</p>
+<p>You have to be like a creator</p>
+<p>and have that like creator&rsquo;s love for your own thing, right?</p>
+<p>Like, and you&rsquo;re pained by these comments, right?</p>
+<p>And probably like Apple, I think did this generally</p>
+<p>like really well.</p>
+<p>They&rsquo;re well known for kind of keeping teams small</p>
+<p>even when they were big, right?</p>
+<p>And, you know, he was an engineer,</p>
+<p>like there&rsquo;s a book, a creative selection.</p>
+<p>I don&rsquo;t know if you read it by a Apple engineer</p>
+<p>named Ken Koscienda.</p>
+<p>It&rsquo;s kind of a great book actually</p>
+<p>because unlike most of these business books where it&rsquo;s,</p>
+<p>you know, here&rsquo;s how Steve Jobs ran the company.</p>
+<p>It&rsquo;s more like here&rsquo;s how life was like for me, you know,</p>
+<p>an engineer here, the projects I worked on</p>
+<p>and here what it was like to pitch Steve Jobs, you know,</p>
+<p>on like, you know, I think it was in charge of like</p>
+<p>the keyboard and the auto correction, right?</p>
+<p>And at Apple, like Steve Jobs reviewed everything.</p>
+<p>And so he was like, this is what it was like</p>
+<p>to show my demos to Steve Jobs and, you know,</p>
+<p>to change them because like Steve Jobs didn&rsquo;t like how,</p>
+<p>you know, the shape of the little key was off</p>
+<p>because the rounding of the corner was like not quite right</p>
+<p>or something like this, right?</p>
+<p>He was famously a stickler for this kind of stuff.</p>
+<p>But because the teams were small,</p>
+<p>he really owned this stuff, right?</p>
+<p>So he really cared.</p>
+<p>Yeah, Elon Musk does that similar kind of thing with Tesla,</p>
+<p>which is really interesting.</p>
+<p>There&rsquo;s another lesson in leadership in that</p>
+<p>is to be obsessed with the details.</p>
+<p>And like, he talks to like the lowest level engineers.</p>
+<p>Okay, so we&rsquo;re talking about ASR</p>
+<p>and so this is basically where I was saying</p>
+<p>we&rsquo;re gonna take this like ultra seriously.</p>
+<p>And then what&rsquo;s the mission?</p>
+<p>To try to keep pushing towards the 3%.</p>
+<p>Yeah, and kind of try to build this platform</p>
+<p>where all of your, you know, all of your meetings,</p>
+<p>you know, they&rsquo;re as easily accessible as your notes, right?</p>
+<p>Like, so, like, imagine all the meetings</p>
+<p>a company might have, right?</p>
+<p>You know, now that I&rsquo;m like no longer a programmer, right?</p>
+<p>Then I&rsquo;m a quote unquote manager.</p>
+<p>That&rsquo;s less like my day as in meetings, right?</p>
+<p>Yeah.</p>
+<p>And, you know, pretty often I wanna like see</p>
+<p>what was said, right?</p>
+<p>Who said it, you know?</p>
+<p>What&rsquo;s the context?</p>
+<p>But it&rsquo;s generally not really something</p>
+<p>that you can easily retrieve, right?</p>
+<p>Like imagine if all of those meetings</p>
+<p>were indexed, archived, you know, you could go back,</p>
+<p>you could share a clip like really easily, right?</p>
+<p>So that might change completely.</p>
+<p>It&rsquo;s like everything that&rsquo;s said,</p>
+<p>converted to text might change completely</p>
+<p>the dynamics of what we do in this world,</p>
+<p>especially now with remote work, right?</p>
+<p>Exactly, exactly.</p>
+<p>With Zoom and so on.</p>
+<p>That&rsquo;s fascinating to think about.</p>
+<p>I mean, for me, I care about podcasts, right?</p>
+<p>And one of the things that was,</p>
+<p>you know, I&rsquo;m torn.</p>
+<p>I know a lot of the engineers at Spotify.</p>
+<p>So I love them very much because they dream big</p>
+<p>in terms of like, they wanna empower creators.</p>
+<p>So one of my hopes was with Spotify</p>
+<p>that they would use a technology like Rev</p>
+<p>or something like that to start converting everything</p>
+<p>into text and make it indexable.</p>
+<p>Like one of the things that sucks with podcasts</p>
+<p>is like, it&rsquo;s hard to find stuff.</p>
+<p>Like the model is basically subscription.</p>
+<p>Like you find, it&rsquo;s similar to what YouTube used to be like,</p>
+<p>which is you basically find a creator that you enjoy</p>
+<p>and you subscribe to them.</p>
+<p>And like, you just kind of follow what they&rsquo;re doing,</p>
+<p>but the search and discovery wasn&rsquo;t a big part of YouTube</p>
+<p>like in the early days,</p>
+<p>but that&rsquo;s what currently with podcasts,</p>
+<p>like is the search and discovery is like non existent.</p>
+<p>You&rsquo;re basically searching for like</p>
+<p>the dumbest possible thing,</p>
+<p>which is like keywords in the titles of episodes.</p>
+<p>Yeah.</p>
+<p>Even aside from a search and discovery, like all the time.</p>
+<p>So I listened to like a number of podcasts</p>
+<p>and there&rsquo;s something said,</p>
+<p>and I wanna like go back to that later</p>
+<p>because I was trying to, I&rsquo;m trying to remember,</p>
+<p>what do you say?</p>
+<p>Like maybe like recommended some cool product</p>
+<p>that I wanna try out.</p>
+<p>And like, it&rsquo;s basically impossible.</p>
+<p>Maybe like some people have pretty good show notes.</p>
+<p>So maybe you&rsquo;ll get lucky and you can find it, right?</p>
+<p>But I mean, if everyone had transcripts</p>
+<p>and it was all searchable, it would be so much better.</p>
+<p>I mean, that&rsquo;s one of the things that I wanted to,</p>
+<p>I mean, one of the reasons we&rsquo;re talking today</p>
+<p>is I wanted to take this quite seriously.</p>
+<p>The rough thing, I just been lazy.</p>
+<p>So, because I&rsquo;m very fortunate</p>
+<p>that a lot of people support this podcast,</p>
+<p>that there&rsquo;s enough money now to do a transcription and so on.</p>
+<p>And it seemed clear to me, especially like CEOs</p>
+<p>and sort of like PhDs, like people write to me</p>
+<p>who are like graduate students in computer science</p>
+<p>or graduate students in whatever the heck field,</p>
+<p>it&rsquo;s clear that their mind,</p>
+<p>like they enjoy podcasts</p>
+<p>when they&rsquo;re doing laundry or whatever,</p>
+<p>but they wanna revisit the conversation</p>
+<p>in a much more rigorous way.</p>
+<p>And they really wanna transcript.</p>
+<p>Like it&rsquo;s clear that they want to analyze conversations.</p>
+<p>Like so many people wrote to me</p>
+<p>about a transcript for Yosha Bach conversation.</p>
+<p>I had just a bunch of conversations.</p>
+<p>And then on the Elon Musk side,</p>
+<p>like reporters, they wanna write a blog post</p>
+<p>about your conversation.</p>
+<p>So they wanna be able to pull stuff.</p>
+<p>And it&rsquo;s like, they&rsquo;re essentially doing</p>
+<p>on your conversation transcription privately.</p>
+<p>They&rsquo;re doing it for themselves and then starting to pick,</p>
+<p>but it&rsquo;s so much easier when you can actually do it</p>
+<p>as a reporter, just look at the transcript.</p>
+<p>Yeah, and you can like embed a little thing,</p>
+<p>like into your article, right?</p>
+<p>Here&rsquo;s what they said, you can go listen</p>
+<p>to like this clip from the section.</p>
+<p>I&rsquo;m actually trying to figure out,</p>
+<p>I&rsquo;ll probably on the website create</p>
+<p>like a place where the transcript goes,</p>
+<p>like as a webpage so that people can reference it,</p>
+<p>like reporters can reference it and so on.</p>
+<p>I mean, most of the reporters probably want</p>
+<p>to write clickbait articles that are complete falsifying,</p>
+<p>which I&rsquo;m fine with.</p>
+<p>It&rsquo;s the way of journalism, I don&rsquo;t care.</p>
+<p>Like I&rsquo;ve had this conversation with a friend of mine,</p>
+<p>a mixed martial artist, the Ryan Hall.</p>
+<p>And we talked about, you know,</p>
+<p>as I&rsquo;ve been reading The Rise and Fall of the Third Reich</p>
+<p>and a bunch of books on Hitler and we brought up Hitler</p>
+<p>and he made some kind of comment where like,</p>
+<p>we should be able to forgive Hitler</p>
+<p>and, you know, like we were talking about forgiveness</p>
+<p>and we&rsquo;re bringing that up as like the worst case</p>
+<p>possible things, like even, you know,</p>
+<p>for people who are Holocaust survivors,</p>
+<p>one of the ways to let go of the suffering</p>
+<p>they&rsquo;ve been through is to forgive.</p>
+<p>And he brought up like Hitler as somebody</p>
+<p>that would potentially be the hardest thing</p>
+<p>to possibly forgive, but it might be a worthwhile pursuit</p>
+<p>psychologically, so on, blah, blah, blah, it doesn&rsquo;t matter.</p>
+<p>It was very eloquent, very powerful words.</p>
+<p>I think people should go back and listen to it.</p>
+<p>It&rsquo;s powerful.</p>
+<p>And then all these journalists,</p>
+<p>all these articles written about like MMA fight, UFC fight.</p>
+<p>MMA fighter loves Hitler.</p>
+<p>No, like, well, no, they didn&rsquo;t.</p>
+<p>They were somewhat accurate.</p>
+<p>They didn&rsquo;t say like loves Hitler.</p>
+<p>They said, thinks that if Hitler came back to life,</p>
+<p>we should forgive him.</p>
+<p>Like they kind of, it&rsquo;s kind of accurate ish,</p>
+<p>but the headline made it sound a lot worse</p>
+<p>than it was, but I&rsquo;m fine with it.</p>
+<p>That&rsquo;s the way the world, I wanna almost make it easier</p>
+<p>for those journalists and make it easier</p>
+<p>for people who actually care about the conversation</p>
+<p>to go and look and see.</p>
+<p>Right, they can see it for themselves.</p>
+<p>For themselves.</p>
+<p>There&rsquo;s the headline, but now you can go.</p>
+<p>There&rsquo;s something about podcasts,</p>
+<p>like the audio that makes it difficult</p>
+<p>to jump to a spot and to look</p>
+<p>for that particular information.</p>
+<p>I think some of it, I&rsquo;m interested in creating,</p>
+<p>like myself experimenting with stuff.</p>
+<p>So like taking rev and creating a transcript</p>
+<p>and then people can go to it.</p>
+<p>I do dream that like, I&rsquo;m not in the loop anymore,</p>
+<p>that like, Spotify does it, right?</p>
+<p>Like automatically for everybody,</p>
+<p>because ultimately that one click purchase</p>
+<p>needs to be there, like, you know.</p>
+<p>Like you kind of want support from the entire ecosystem.</p>
+<p>Exactly.</p>
+<p>Like from the tool makers and the podcast creators,</p>
+<p>even clients, right?</p>
+<p>I mean, imagine if like most podcast apps,</p>
+<p>you know, if it was a standard, right?</p>
+<p>Here&rsquo;s how you include a transcript into a podcast, right?</p>
+<p>Like it&rsquo;s just an RSS feed ultimately.</p>
+<p>And actually just yesterday I saw this company</p>
+<p>called Buzzsprout, I think they&rsquo;re called.</p>
+<p>So they&rsquo;re trying to do this.</p>
+<p>They proposed a spec, an extension to their RSS format</p>
+<p>to reference transcripts in a standard way.</p>
+<p>And they&rsquo;re talking about like,</p>
+<p>there&rsquo;s one client dimension that will support it,</p>
+<p>but imagine like more clients support it, right?</p>
+<p>So any podcast, you could go and see the transcripts</p>
+<p>right in your like normal podcast app.</p>
+<p>Yeah.</p>
+<p>I mean, somebody, so I have somebody who works with me,</p>
+<p>works with helps with advertising, Matt, this awesome guy.</p>
+<p>He mentioned Buzzsprout to me, but he says,</p>
+<p>it&rsquo;s really annoying because they want exclusive,</p>
+<p>they want to host the podcast.</p>
+<p>Right.</p>
+<p>This is the problem with Spotify too.</p>
+<p>This is where I&rsquo;d like to say, like F Spotify,</p>
+<p>there&rsquo;s a magic to RSS with podcasts.</p>
+<p>It can be made available to everyone.</p>
+<p>And then there&rsquo;s all, there&rsquo;s this ecosystem</p>
+<p>of different podcast players that emerge</p>
+<p>and they compete freely.</p>
+<p>And that&rsquo;s a beautiful thing,</p>
+<p>that that&rsquo;s why I go on exclusive,</p>
+<p>like Joe Rogan went exclusive.</p>
+<p>I&rsquo;m not sure if you&rsquo;re familiar with,</p>
+<p>he went to Spotify as a huge fan of Joe Rogan.</p>
+<p>I&rsquo;ve been kind of nervous about the whole thing,</p>
+<p>but let&rsquo;s see, I hope that Spotify steps up.</p>
+<p>They&rsquo;ve added video, which was very surprising</p>
+<p>that they were able to put on.</p>
+<p>Exclusive meaning you can&rsquo;t subscribe</p>
+<p>to the RSS feed anymore.</p>
+<p>It&rsquo;s only in Spotify.</p>
+<p>For now you can until December 1st.</p>
+<p>And December 1st, it&rsquo;s all, everything disappears</p>
+<p>and it&rsquo;s Spotify only.</p>
+<p>I, you know, and Spotify gave him a hundred million dollars</p>
+<p>for that.</p>
+<p>So it&rsquo;s an interesting deal, but I, you know,</p>
+<p>I did some soul searching and I&rsquo;m glad he&rsquo;s doing it.</p>
+<p>But if Spotify came to me with a hundred million dollars,</p>
+<p>I wouldn&rsquo;t do it.</p>
+<p>I wouldn&rsquo;t do, well, I have a very different relationship</p>
+<p>with money.</p>
+<p>I hate money, but I just think I believe</p>
+<p>in the pirate radio aspect of podcasting, the freedom.</p>
+<p>And that there&rsquo;s something about.</p>
+<p>The open source spirit.</p>
+<p>The open source spirit, it just doesn&rsquo;t seem right.</p>
+<p>It doesn&rsquo;t feel right.</p>
+<p>That said, you know, because so many people care</p>
+<p>about Joe Rogan&rsquo;s program,</p>
+<p>they&rsquo;re gonna hold Spotify&rsquo;s feet to the fire.</p>
+<p>Like one of the cool things with what Joe told me</p>
+<p>is the reason he likes working with Spotify</p>
+<p>is that they, they&rsquo;re like ride or die together, right?</p>
+<p>So they, they want him to succeed.</p>
+<p>So that&rsquo;s why they&rsquo;re not actually telling him what to do</p>
+<p>despite what people think.</p>
+<p>They, they don&rsquo;t tell them,</p>
+<p>they don&rsquo;t give them any notes on anything.</p>
+<p>They want him to succeed.</p>
+<p>And that&rsquo;s the cool thing about exclusivity with a platform</p>
+<p>is like, you&rsquo;re kind of wanting each other to succeed.</p>
+<p>And that process can actually be very fruitful.</p>
+<p>Like YouTube, it goes back to my criticism.</p>
+<p>YouTube generally, no matter how big the creator,</p>
+<p>maybe for PewDiePie, something like that,</p>
+<p>they want you to succeed.</p>
+<p>But for the most part, from all the big creators</p>
+<p>I&rsquo;ve spoken with, Veritasium, all of those folks,</p>
+<p>you know, they get some basic assistance,</p>
+<p>but it&rsquo;s not like, YouTube doesn&rsquo;t care</p>
+<p>if you succeed or not.</p>
+<p>They have so many creators.</p>
+<p>Yeah, like a hundred other.</p>
+<p>They don&rsquo;t care.</p>
+<p>So, and especially with, with somebody like Joe Rogan,</p>
+<p>who YouTube sees Joe Rogan,</p>
+<p>not as a person who might revolutionize the nature of news</p>
+<p>and idea space and nuanced conversations.</p>
+<p>They see him as a potential person</p>
+<p>who has racist guests on,</p>
+<p>or like, you know, they see him as like a headache,</p>
+<p>potentially.</p>
+<p>So, you know, a lot of people talk about this.</p>
+<p>It&rsquo;s a hard place to be for YouTube, actually,</p>
+<p>is figuring out with the search and discovery process</p>
+<p>of how do you filter out conspiracy theories</p>
+<p>and which conspiracy theories represent dangerous untruths</p>
+<p>and which conspiracy theories are like vanilla untruths.</p>
+<p>And then even when you start having meetings</p>
+<p>and discussions about what is true or not,</p>
+<p>it starts getting weird.</p>
+<p>Yeah, it&rsquo;s difficult these days, right?</p>
+<p>I worry more about the other side, right?</p>
+<p>Of too much, you know, too much censorship.</p>
+<p>Well, maybe censorship is the right word.</p>
+<p>I mean, censorship is usually government censorship,</p>
+<p>but still, yeah, putting yourself in the position</p>
+<p>of arbiter for these kinds of things.</p>
+<p>It&rsquo;s very difficult and people think it&rsquo;s so easy, right?</p>
+<p>Like, cause like, well, you know, like no Nazis, right?</p>
+<p>What a simple principle.</p>
+<p>But you know, yes, I mean, no one likes Nazis,</p>
+<p>but there&rsquo;s like many shades of gray,</p>
+<p>like very soon after that.</p>
+<p>Yeah, and then, you know, of course everybody, you know,</p>
+<p>there&rsquo;s some people that call our current president a Nazi</p>
+<p>and then there&rsquo;s like, so you start getting a Sam Harris.</p>
+<p>I don&rsquo;t know if you know that is wasted, in my opinion,</p>
+<p>his conversation with Jack Dorsey.</p>
+<p>Now I&rsquo;ll also, I spoke with Jack before in this podcast</p>
+<p>and we&rsquo;ll talk again, but Sam brought up,</p>
+<p>Sam Harris does not like Donald Trump.</p>
+<p>I do listen to his podcast.</p>
+<p>I&rsquo;m familiar with his views on the matter.</p>
+<p>And he asked Jack Dorsey, he&rsquo;s like,</p>
+<p>how can you not ban Donald Trump from Twitter?</p>
+<p>And so, you know, there&rsquo;s a set, you have that conversation.</p>
+<p>You have a conversation where some number,</p>
+<p>some significant number of people think</p>
+<p>that the current president of the United States</p>
+<p>should not be on your platform.</p>
+<p>And it&rsquo;s like, okay.</p>
+<p>So if that&rsquo;s even on the table as a conversation,</p>
+<p>then everything&rsquo;s on the table for conversation.</p>
+<p>And yeah, it&rsquo;s tough.</p>
+<p>I&rsquo;m not sure where I land on it.</p>
+<p>I&rsquo;m with you, I think that censorship is bad,</p>
+<p>but I also think the show&hellip;</p>
+<p>Ultimately, I just also think, you know,</p>
+<p>if you&rsquo;re the kind of person that&rsquo;s gonna be convinced,</p>
+<p>you know, by some YouTube video, you know,</p>
+<p>that, I don&rsquo;t know, our government&rsquo;s been taken over</p>
+<p>by aliens, it&rsquo;s unlikely that like, you know,</p>
+<p>you&rsquo;ll be returned to sanity simply because, you know,</p>
+<p>that video is not available on YouTube, right?</p>
+<p>Yeah, I&rsquo;m with you.</p>
+<p>I tend to believe in the intelligence of people</p>
+<p>and we should trust them.</p>
+<p>But I also do think it&rsquo;s the responsibility of platforms</p>
+<p>to encourage more love in the world,</p>
+<p>more kindness to each other.</p>
+<p>And I don&rsquo;t always think that they&rsquo;re great</p>
+<p>at doing that particular thing.</p>
+<p>So that, there&rsquo;s a nice balance there.</p>
+<p>And I think philosophically, I think about that a lot.</p>
+<p>Where&rsquo;s the balance between free speech</p>
+<p>and like encouraging people,</p>
+<p>even though they have the freedom of speech</p>
+<p>to not be an asshole.</p>
+<p>Yeah, right.</p>
+<p>That&rsquo;s not a constitutional, like&hellip;</p>
+<p>So you have the right for free speech,</p>
+<p>but like, just don&rsquo;t be an asshole.</p>
+<p>Like you can&rsquo;t really put that in the constitution</p>
+<p>that the Supreme Court can&rsquo;t be like,</p>
+<p>eh, just don&rsquo;t be a dick.</p>
+<p>But I feel like platforms have a role to be like,</p>
+<p>just be nicer.</p>
+<p>Maybe do the carrot, like encourage people to be nicer</p>
+<p>as opposed to the stake of censorship.</p>
+<p>But I think it&rsquo;s an interesting machine learning problem.</p>
+<p>Just be nicer.</p>
+<p>Machine, yeah, machine learning for niceness.</p>
+<p>It is, I mean, that&rsquo;s&hellip;</p>
+<p>Responsible, yeah, I mean, it is.</p>
+<p>It is a thing, for sure.</p>
+<p>Jack Dorsey kind of talks about it</p>
+<p>as a vision for Twitter is,</p>
+<p>how do we increase the health of conversations?</p>
+<p>I don&rsquo;t know how seriously</p>
+<p>they&rsquo;re actually trying to do that though.</p>
+<p>Which is one of the reasons that I&rsquo;m in part considering</p>
+<p>entering that space a little bit.</p>
+<p>It&rsquo;s difficult for them, right?</p>
+<p>Because, you know, it&rsquo;s kind of like well known</p>
+<p>that people are kind of driven by rage</p>
+<p>and you know, outrage maybe is a better word, right?</p>
+<p>Outrage drives engagement.</p>
+<p>And well, these companies are judged by engagement, right?</p>
+<p>So it&rsquo;s&hellip;</p>
+<p>In the short term, but this goes to the metrics thing</p>
+<p>that we were talking about earlier.</p>
+<p>I do believe, I have a fundamental belief</p>
+<p>that if you have a metric of long term happiness</p>
+<p>of your users, like not short term engagement,</p>
+<p>but long term happiness and growth</p>
+<p>and both like intellectual, emotional health of your users,</p>
+<p>you&rsquo;re going to make a lot more money.</p>
+<p>You&rsquo;re going to have long&hellip;</p>
+<p>Like you should be able to optimize for that.</p>
+<p>You don&rsquo;t need to necessarily optimize for engagement.</p>
+<p>And that&rsquo;ll be good for society too.</p>
+<p>Yeah, no, I mean, I generally agree with you,</p>
+<p>but it requires a patient person with, you know,</p>
+<p>trust from Wall Street to be able</p>
+<p>to carry out such a strategy.</p>
+<p>This is what I believe the Steve Jobs character</p>
+<p>and Elon Musk character is like,</p>
+<p>you basically have to be so good at your job.</p>
+<p>Right, you got to pass for anything.</p>
+<p>That you can hold the board</p>
+<p>and all the investors hostage by saying like,</p>
+<p>either we do it my way or I leave.</p>
+<p>And everyone is too afraid of you to leave</p>
+<p>because they believe in your vision.</p>
+<p>But that requires being really good at what you do.</p>
+<p>It requires being Steve Jobs and Elon Musk.</p>
+<p>There&rsquo;s kind of a reason why like a third name doesn&rsquo;t</p>
+<p>come immediately to mind, right?</p>
+<p>Like there&rsquo;s maybe a handful of other people,</p>
+<p>but it&rsquo;s not that many.</p>
+<p>It&rsquo;s not many.</p>
+<p>I mean, people say like, why are you&hellip;</p>
+<p>Like people say that I&rsquo;m like a fan of Elon Musk.</p>
+<p>I&rsquo;m not, I&rsquo;m a fan of anybody</p>
+<p>who&rsquo;s like Steve Jobs and Elon Musk.</p>
+<p>And there&rsquo;s just not many of those folks.</p>
+<p>It&rsquo;s the guy that made us believe</p>
+<p>that like we can get to Mars, you know, in 10 years, right?</p>
+<p>I mean, that&rsquo;s kind of awesome.</p>
+<p>And it&rsquo;s kind of making it happen, which is like&hellip;</p>
+<p>And it&rsquo;s kind of gone like that kind of like spirit, right?</p>
+<p>Like from a lot of our society, right?</p>
+<p>You know, like we can get to the moon in 10 years</p>
+<p>and like we did it, right?</p>
+<p>Yeah.</p>
+<p>Especially in this time of so much kind of existential dread</p>
+<p>that people are going through because of COVID,</p>
+<p>like having rockets that just keep going out there</p>
+<p>now with humans.</p>
+<p>I don&rsquo;t know that it, just like you said,</p>
+<p>I mean, it gives you a reason to wake up in the morning</p>
+<p>and dream, for us engineers too.</p>
+<p>It is inspiring as hell, man.</p>
+<p>Let me ask you this, the worst possible question,</p>
+<p>which is, so you&rsquo;re like at the core, you&rsquo;re a programmer,</p>
+<p>you&rsquo;re an engineer, but now you made the unfortunate choice</p>
+<p>or maybe that&rsquo;s the way life goes</p>
+<p>of basically moving away from the low level work</p>
+<p>and becoming a manager, becoming an executive,</p>
+<p>having meetings, what&rsquo;s that transition been like?</p>
+<p>It&rsquo;s been interesting.</p>
+<p>It&rsquo;s been a journey.</p>
+<p>Maybe a couple of things to say about that.</p>
+<p>I mean, I got into this, right?</p>
+<p>Because as a kid, I just remember this like incredible</p>
+<p>amazement at being able to write a program, right?</p>
+<p>And something comes to life that kind of didn&rsquo;t exist before.</p>
+<p>I don&rsquo;t think you have that in like many other fields,</p>
+<p>like you have that with some other kinds of engineering,</p>
+<p>but you&rsquo;re maybe a little bit more limited</p>
+<p>with what you can do, right?</p>
+<p>But with a computer,</p>
+<p>you can literally imagine any kind of program, right?</p>
+<p>So it&rsquo;s a little bit godlike what you do</p>
+<p>like when you create it.</p>
+<p>And so, I mean, that&rsquo;s why I got into it.</p>
+<p>Do you remember like first program you wrote</p>
+<p>or maybe the first program that like made you fall in love</p>
+<p>with computer science?</p>
+<p>I don&rsquo;t know what was the first program.</p>
+<p>It&rsquo;s probably like trying to write one of those games</p>
+<p>and basic, you know, like emulate the snake game</p>
+<p>or whatever.</p>
+<p>I don&rsquo;t remember to be honest, but I enjoyed like,</p>
+<p>that&rsquo;s why I always loved about, you know,</p>
+<p>being a programmer, it&rsquo;s just the creation process.</p>
+<p>And it&rsquo;s a little bit different</p>
+<p>when you&rsquo;re not the one doing the creating.</p>
+<p>And, you know, another aspect to it I would say is,</p>
+<p>you know, when you&rsquo;re a programmer,</p>
+<p>when you&rsquo;re a individual contributor,</p>
+<p>it&rsquo;s kind of very easy to know when you&rsquo;re doing a good job,</p>
+<p>when you&rsquo;re not doing a good job,</p>
+<p>when you&rsquo;re being productive,</p>
+<p>when you&rsquo;re not being productive, right?</p>
+<p>You can kind of see like you trying to make something</p>
+<p>and it&rsquo;s like slowly coming together, right?</p>
+<p>And when you&rsquo;re a manager, you know, it&rsquo;s more diffuse,</p>
+<p>right?</p>
+<p>Like, well, you hope, you know, you&rsquo;re motivating your team</p>
+<p>and making them more productive and inspiring them, right?</p>
+<p>But it&rsquo;s not like you get some kind of like dopamine signal</p>
+<p>because you like completed X lines of code, you know, today.</p>
+<p>So kind of like you missed that dopamine rush</p>
+<p>a little bit when you first become,</p>
+<p>but then, you know, slowly you kind of see,</p>
+<p>yes, your teams are doing amazing work, right?</p>
+<p>And you can take pride in that.</p>
+<p>You can get like, what is it?</p>
+<p>Like a ripple effect of somebody else&rsquo;s dopamine rush.</p>
+<p>Yeah, yeah, you live off other people&rsquo;s dopamine.</p>
+<p>So is there pain points and challenges you had to overcome</p>
+<p>from becoming, from going to a programmer to becoming</p>
+<p>a programmer of humans?</p>
+<p>Programmer of humans.</p>
+<p>I don&rsquo;t know, humans are difficult to understand,</p>
+<p>you know, it&rsquo;s like one of those things,</p>
+<p>like trying to understand other people&rsquo;s motivations</p>
+<p>and what really drives them.</p>
+<p>It&rsquo;s difficult, maybe like never really know, right?</p>
+<p>Do you find that people are different?</p>
+<p>Yeah.</p>
+<p>Like I, one of the things, like I had a group at MIT</p>
+<p>that, you know, I found that like some people</p>
+<p>I could like scream at and criticize like hard</p>
+<p>and that made them do like much better work</p>
+<p>and really push them to their limit.</p>
+<p>And there&rsquo;s some people that I had to nonstop compliment</p>
+<p>because like they&rsquo;re so already self critical,</p>
+<p>like about everything they do that I have to be constantly</p>
+<p>like, like I cannot criticize them at all</p>
+<p>because they&rsquo;re already criticizing themselves</p>
+<p>and you have to kind of encourage</p>
+<p>and like celebrate their little victories.</p>
+<p>And it&rsquo;s kind of fascinating that like how that,</p>
+<p>the complete difference in people.</p>
+<p>Definitely people respond to different motivations</p>
+<p>and different loads of feedback</p>
+<p>and you kind of have to figure it out.</p>
+<p>It was like a pretty good book,</p>
+<p>which for some reason now the name escapes me,</p>
+<p>about management, first break all the rules.</p>
+<p>First break all the rules?</p>
+<p>First break all the rules.</p>
+<p>It&rsquo;s a book that we generally like ask a lot of</p>
+<p>like first time managers to read it rough.</p>
+<p>And like one of the kind of philosophies</p>
+<p>is managed by exception, right?</p>
+<p>Which is, you know, don&rsquo;t like have some standard template</p>
+<p>like, you know, here&rsquo;s how I, you know,</p>
+<p>tell this person to do this or the other thing.</p>
+<p>Here&rsquo;s how I get feedback, like manage by exception, right?</p>
+<p>Every person is a little bit different.</p>
+<p>You have to try to understand what drives them.</p>
+<p>And tailor it to them.</p>
+<p>Since you mentioned books,</p>
+<p>I don&rsquo;t know if you can answer this question,</p>
+<p>but people love it when I ask it, which is,</p>
+<p>are there books, technical fiction or philosophical</p>
+<p>that you enjoyed or had an impact on your life</p>
+<p>that you would recommend?</p>
+<p>You already mentioned Dune, like all of the Dune.</p>
+<p>All of the Dune.</p>
+<p>The second one was probably the weakest, but anyway,</p>
+<p>so yeah, all of the Dune is good.</p>
+<p>I mean, yeah, can you just slow little tangent on that?</p>
+<p>Is, how many Dune books are there?</p>
+<p>Like, do you recommend people start with the first one</p>
+<p>if that was?</p>
+<p>Yeah, you gotta have to read them all.</p>
+<p>I mean, it is a complete story, right?</p>
+<p>So you start with the first one,</p>
+<p>you gotta read all of them.</p>
+<p>So it&rsquo;s not like a tree, like a creation of like</p>
+<p>the universe that you should go in sequence?</p>
+<p>You should go in sequence, yeah.</p>
+<p>It&rsquo;s kind of a chronological storyline.</p>
+<p>There&rsquo;s six books in all.</p>
+<p>Then there&rsquo;s like many kind of books</p>
+<p>that were written by Frank Herbert&rsquo;s son,</p>
+<p>but those are not as good.</p>
+<p>So you don&rsquo;t have to bother with those.</p>
+<p>Shots fired.</p>
+<p>Okay.</p>
+<p>But the main sequence is good.</p>
+<p>So what are some other books?</p>
+<p>Maybe there&rsquo;s a few.</p>
+<p>So I don&rsquo;t know that like, I would say there&rsquo;s a book</p>
+<p>that kind of, I don&rsquo;t know, turned my life around</p>
+<p>or anything like that, but here&rsquo;s a couple</p>
+<p>that I really love.</p>
+<p>So one is Brave New World by Aldous Huxley.</p>
+<p>And it&rsquo;s kind of incredible how prescient he was</p>
+<p>about like what a brave new world might be like, right?</p>
+<p>You know, you kind of see genetic sorting in this book,</p>
+<p>right, where there&rsquo;s like these alphas and epsilons</p>
+<p>and how from like the earliest time of society,</p>
+<p>like they&rsquo;re sort of like, you can kind of see it</p>
+<p>in a slightly similar way today where,</p>
+<p>well, one of the problems with society is people</p>
+<p>are kind of genetically sorting a little bit, right?</p>
+<p>Like there&rsquo;s much less, like most marriages, right,</p>
+<p>are between people of similar kind of intellectual level</p>
+<p>or socioeconomic status, more so these days than in the past.</p>
+<p>And you kind of see some effects of it</p>
+<p>in stratifying society and kind of he illustrated</p>
+<p>what that could be like in the extreme.</p>
+<p>There&rsquo;s different versions of it on social media as well.</p>
+<p>It&rsquo;s not just like marriages and so on.</p>
+<p>Like it&rsquo;s genetic sorting in terms of what Dawkins called</p>
+<p>memes as ideas being put into these bins</p>
+<p>of these little echo chambers and so on.</p>
+<p>Yeah, I know, so that&rsquo;s the book</p>
+<p>that&rsquo;s I think a worthwhile read for everyone.</p>
+<p>I mean, 1984 is good, of course, as well.</p>
+<p>Like if you&rsquo;re talking about, you know,</p>
+<p>dystopian novels of the future.</p>
+<p>Yeah, it&rsquo;s a slightly different view of the future, right?</p>
+<p>But I kind of like identify with Brave New World a bit more.</p>
+<p>Yeah, speaking of not a book,</p>
+<p>but my favorite kind of dystopian science fiction</p>
+<p>is a movie called Brazil,</p>
+<p>which I don&rsquo;t know if you&rsquo;ve heard of.</p>
+<p>I&rsquo;ve heard of and I know I need to watch it,</p>
+<p>but yeah, because it&rsquo;s in, is it in English or no?</p>
+<p>It&rsquo;s an English movie, yeah.</p>
+<p>And it&rsquo;s a sort of like dystopian movie</p>
+<p>of authoritarian incompetence, right?</p>
+<p>It&rsquo;s like nothing really works very well, you know,</p>
+<p>the system is creaky, you know,</p>
+<p>but no one is kind of like willing to challenge it,</p>
+<p>you know, just things kind of ample along</p>
+<p>and kind of strikes me as like a very plausible future</p>
+<p>of like, you know, what authoritarianism might look like.</p>
+<p>It&rsquo;s not like this, you know,</p>
+<p>super efficient evil dictatorship of 1984.</p>
+<p>It&rsquo;s just kind of like this badly functioning, you know,</p>
+<p>but it&rsquo;s status quo, so it just goes on.</p>
+<p>Yeah, that&rsquo;s one funny thing that stands out to me</p>
+<p>is in whether it&rsquo;s authoritarian, dystopian stuff,</p>
+<p>or just basic like, you know,</p>
+<p>if you look at the movie Contagion,</p>
+<p>it seems in the movies,</p>
+<p>government is almost always exceptionally competent.</p>
+<p>Like it&rsquo;s like used as a storytelling tool</p>
+<p>of like extreme competence.</p>
+<p>Like, you know, you use it whether it&rsquo;s good or evil,</p>
+<p>but it&rsquo;s competent.</p>
+<p>It&rsquo;s very interesting to think about</p>
+<p>where much more realistically is it&rsquo;s incompetence</p>
+<p>and that incompetence isn&rsquo;t itself has consequences</p>
+<p>that are difficult to predict.</p>
+<p>Like bureaucracy has a very boring way of being evil,</p>
+<p>of just, you know, if you look at the show,</p>
+<p>HBO show at Chernobyl,</p>
+<p>it&rsquo;s a really good story of how bureaucracy, you know,</p>
+<p>leads to catastrophic events,</p>
+<p>but not through any kind of evil</p>
+<p>in any one particular place,</p>
+<p>but more just like the&hellip;</p>
+<p>It&rsquo;s just the system kind of system.</p>
+<p>Distorting information as it travels up the chain</p>
+<p>that people unwilling to take responsibility for things</p>
+<p>and just kind of like this laziness resulting in evil.</p>
+<p>There&rsquo;s a comedic version of this,</p>
+<p>I don&rsquo;t know if you&rsquo;ve seen this movie,</p>
+<p>it&rsquo;s called The Death of Stalin.</p>
+<p>Yeah, I liked that.</p>
+<p>I wish it wasn&rsquo;t so&hellip;</p>
+<p>There&rsquo;s a movie called Inglourious Bastards</p>
+<p>about, you know, Hitler and so on.</p>
+<p>For some reason, those movies pissed me off.</p>
+<p>I know a lot of people love them,</p>
+<p>but like, I just feel like there&rsquo;s not enough good movies,</p>
+<p>even about Hitler.</p>
+<p>There&rsquo;s good movies about the Holocaust,</p>
+<p>but even Hitler, there&rsquo;s a movie called Dawnfall</p>
+<p>that people should watch.</p>
+<p>I think it&rsquo;s the last few days of Hitler.</p>
+<p>That&rsquo;s a good movie, turned into a meme, but it&rsquo;s good.</p>
+<p>But on Stalin, I feel like I may be wrong on this,</p>
+<p>but at least in the English speaking world,</p>
+<p>there&rsquo;s not good movies about the evil of Stalin.</p>
+<p>That&rsquo;s true.</p>
+<p>Let&rsquo;s try to see that.</p>
+<p>Actually, so I agree with you on Inglourious Bastard.</p>
+<p>I didn&rsquo;t love the movie</p>
+<p>because I felt like kind of the stylizing of it, right?</p>
+<p>The whole Tarantino kind of Tarantinoism, if you will,</p>
+<p>kind of detracted from it</p>
+<p>and made it seem like unserious a little bit.</p>
+<p>But Death of Stalin, I felt differently.</p>
+<p>Maybe it&rsquo;s because it&rsquo;s a comedy to begin with.</p>
+<p>This is not like I&rsquo;m expecting seriousness,</p>
+<p>but it kind of depicted the absurdity</p>
+<p>of the whole situation in a way, right?</p>
+<p>I mean, it was funny, so maybe it does make light of it,</p>
+<p>but something goes probably like this, right?</p>
+<p>Like a bunch of kind of people,</p>
+<p>they&rsquo;re like, oh shit, right?</p>
+<p>You&rsquo;re right.</p>
+<p>But like the thing is,</p>
+<p>it was so close to like what probably was reality.</p>
+<p>It was caricaturing reality</p>
+<p>to where I think an observer might think that this is not,</p>
+<p>like they might think it&rsquo;s a comedy.</p>
+<p>Well, in reality, that&rsquo;s the absurdity</p>
+<p>of how people act with dictators.</p>
+<p>I mean, that&rsquo;s, I guess it was too close to reality for me.</p>
+<p>The kind of banality of like what were eventually</p>
+<p>like fairly evil acts, right?</p>
+<p>But like, yeah, they&rsquo;re just a bunch of people</p>
+<p>trying to survive.</p>
+<p>Cause I think there&rsquo;s a good,</p>
+<p>I haven&rsquo;t watched it yet, the good movie on,</p>
+<p>the movie on Churchill with Gary Oldman,</p>
+<p>I think it&rsquo;s Gary Oldman.</p>
+<p>I may be making that up.</p>
+<p>But I think he won,</p>
+<p>like he was nominated for an Oscar or something.</p>
+<p>So I like, I love these movies about these humans</p>
+<p>and Stalin, like Chernobyl made me realize the HBO show</p>
+<p>that there&rsquo;s not enough movies about Russia</p>
+<p>that capture that spirit.</p>
+<p>I&rsquo;m sure it might be in Russian there is,</p>
+<p>but the fact that some British dude that like did comedy,</p>
+<p>I feel like he did like hangover or some shit like that.</p>
+<p>I don&rsquo;t know if you&rsquo;re familiar</p>
+<p>with the person who created Chernobyl,</p>
+<p>but he was just like some guy</p>
+<p>that doesn&rsquo;t know anything about Russia.</p>
+<p>And he just went in and just studied it,</p>
+<p>like did a good job of creating it</p>
+<p>and then got it so accurate, like poetically.</p>
+<p>And the facts that you need to get accurate,</p>
+<p>he got accurate, just the spirit of it</p>
+<p>down to like the bowls that pets use,</p>
+<p>just the whole feel of it.</p>
+<p>It was incredible.</p>
+<p>It was good, yeah, I saw the series.</p>
+<p>Yeah, it&rsquo;s incredible.</p>
+<p>It&rsquo;s made me wish that somebody did a good,</p>
+<p>like 1930s, like starvation that Stalin led to,</p>
+<p>like leading up to World War II</p>
+<p>and in World War II itself, like Stalingrad and so on.</p>
+<p>Like, I feel like that story needs to be told.</p>
+<p>Millions of people died.</p>
+<p>And to me, it&rsquo;s so much more fascinating than Hitler</p>
+<p>because Hitler is like a caricature of evil almost</p>
+<p>that it&rsquo;s so, especially with the Holocaust,</p>
+<p>it&rsquo;s so difficult to imagine that something like that</p>
+<p>is possible ever again.</p>
+<p>Stalin to me represents something that is possible.</p>
+<p>Like the so interesting, like the bureaucracy of it</p>
+<p>is so fascinating that it potentially might be happening</p>
+<p>in the world now, like that we&rsquo;re not aware of,</p>
+<p>like with North Korea, another one that,</p>
+<p>like there should be a good film on.</p>
+<p>And like the possible things that could be happening</p>
+<p>in China with overreach of government.</p>
+<p>I don&rsquo;t know, there&rsquo;s a lot of possibilities there.</p>
+<p>I suppose.</p>
+<p>Yeah, I wonder how much, you know,</p>
+<p>I guess the archives should be maybe more open nowadays,</p>
+<p>right, I mean, for a long time, they just, we didn&rsquo;t know,</p>
+<p>right, or anyways, no one in the West knew for sure.</p>
+<p>Well, there&rsquo;s a, I don&rsquo;t know if you know him,</p>
+<p>there&rsquo;s a guy named Stephen Kotkin.</p>
+<p>He is a historian of Stalin that I spoke to on this podcast.</p>
+<p>I&rsquo;ll speak to him again.</p>
+<p>The guy knows his shit on Stalin.</p>
+<p>He like read everything and it&rsquo;s so fascinating</p>
+<p>to talk to somebody, like he knows Stalin better</p>
+<p>than Stalin himself, it&rsquo;s crazy.</p>
+<p>Like you have, so he&rsquo;s, I think he&rsquo;s a Princeton,</p>
+<p>he is basically, his whole life is Stalin.</p>
+<p>Fighting Stalin.</p>
+<p>Yeah, it&rsquo;s great.</p>
+<p>And in that context, he also talks about</p>
+<p>and writes about Putin a little bit.</p>
+<p>I&rsquo;ve also read at this point,</p>
+<p>I think every biography of Putin, English biography of Putin,</p>
+<p>I need to read some Russians.</p>
+<p>Obviously, I&rsquo;m mentally preparing</p>
+<p>for a possible conversation with Putin.</p>
+<p>So what is your first question to Putin</p>
+<p>when you have him on the podcast?</p>
+<p>I, it&rsquo;s interesting you bring that up.</p>
+<p>First of all, I wouldn&rsquo;t tell you, but.</p>
+<p>You can&rsquo;t give it away now.</p>
+<p>But I actually haven&rsquo;t even thought about that.</p>
+<p>So my current approach, and I do this with interviews often,</p>
+<p>obviously that&rsquo;s a special one,</p>
+<p>but I try not to think about questions until last minute.</p>
+<p>I&rsquo;m trying to sort of get into the mindset.</p>
+<p>And so that&rsquo;s why I&rsquo;m soaking in a lot of stuff,</p>
+<p>not thinking about questions, just learning about the man.</p>
+<p>But in terms of like human to human,</p>
+<p>it&rsquo;s like, I would say it&rsquo;s,</p>
+<p>I don&rsquo;t know if you&rsquo;re a fan of mob movies,</p>
+<p>but like the mafia, which I am, like Goodfellas and so on,</p>
+<p>he&rsquo;s much closer to like mob morality, which is like.</p>
+<p>Mob morality, maybe, I could see that.</p>
+<p>But I like your approach anyways of this,</p>
+<p>the extreme empathy, right?</p>
+<p>It&rsquo;s a little bit like Hannibal, right?</p>
+<p>Like if you ever watched the show Hannibal, right?</p>
+<p>They had that guy, well, you know Hannibal of course, like.</p>
+<p>Yeah, Silence of the Lambs.</p>
+<p>But there were those TV shows as well,</p>
+<p>and they focused on this guy, Will Durant,</p>
+<p>who&rsquo;s a character like extreme empath, right?</p>
+<p>So in the way he like catches all these killers,</p>
+<p>as he pretty much, he can empathize with them, right?</p>
+<p>Like he can understand why they&rsquo;re doing</p>
+<p>the things they&rsquo;re doing, right?</p>
+<p>It&rsquo;s a pretty excruciating thing, right?</p>
+<p>Like, because you&rsquo;re pretty much like spending</p>
+<p>half your time in the head of evil people, right?</p>
+<p>Like, but.</p>
+<p>I mean, I definitely try to do that with others.</p>
+<p>So you should do that in moderation,</p>
+<p>but I think it&rsquo;s a pretty safe place, safe place to be.</p>
+<p>One of the cool things with this podcast,</p>
+<p>and I know you didn&rsquo;t sign up to hear me</p>
+<p>listen to this bullshit, but.</p>
+<p>That was interesting.</p>
+<p>I, and what&rsquo;s his name?</p>
+<p>Chris Latner, who&rsquo;s a Google,</p>
+<p>oh, he&rsquo;s not Google anymore, SciFi.</p>
+<p>He&rsquo;s legit, he&rsquo;s one of the most legit engineers</p>
+<p>I talk with, I talk with him again on this podcast.</p>
+<p>And one of the, he gives me private advice a lot.</p>
+<p>And he said for this podcast, I should like interview,</p>
+<p>like I should widen the range of people</p>
+<p>because that gives you much more freedom to do stuff.</p>
+<p>Like, so his idea, which I think I agree with Chris</p>
+<p>is that you go to the extremes.</p>
+<p>You just like cover every extreme base</p>
+<p>and then it gives you freedom to then go</p>
+<p>to the more nuanced conversations.</p>
+<p>And it&rsquo;s kind of, I think there&rsquo;s a safe place for that.</p>
+<p>There&rsquo;s certainly a hunger for that nuanced conversation,</p>
+<p>I think, amongst people where like on social media,</p>
+<p>you get canceled for anything slightly tense,</p>
+<p>that there&rsquo;s a hunger to go full.</p>
+<p>Right, you go so far to the opposite side.</p>
+<p>And that&rsquo;s like demystifies it a little bit, right?</p>
+<p>Yeah, that&rsquo;s.</p>
+<p>There is a person behind all of these things.</p>
+<p>And that&rsquo;s the cool thing about podcasting,</p>
+<p>like three, four hour conversations</p>
+<p>that it&rsquo;s very different than a clickbait journalism,</p>
+<p>it&rsquo;s like the opposite, that there&rsquo;s a hunger for that.</p>
+<p>There&rsquo;s a willingness for that.</p>
+<p>Yeah, especially now, I mean,</p>
+<p>how many people do you even see face to face anymore?</p>
+<p>Right, like this, you know?</p>
+<p>It&rsquo;s like not that many people like in my day today,</p>
+<p>aside from my own family that like I sit across.</p>
+<p>It&rsquo;s sad, but it&rsquo;s also beautiful.</p>
+<p>Like I&rsquo;ve gotten the chance to like,</p>
+<p>like our conversation now, there&rsquo;s somebody,</p>
+<p>I guarantee you there&rsquo;s somebody in Russia</p>
+<p>listening to this now, like jogging.</p>
+<p>There&rsquo;s somebody who is just smoked some weed,</p>
+<p>sit back on a couch and just like enjoying.</p>
+<p>I guarantee you that we&rsquo;ll write in the comments right now</p>
+<p>that yes, I&rsquo;m in St. Petersburg, I&rsquo;m in Moscow, whatever.</p>
+<p>And we&rsquo;re in their head and they have a friendship with us.</p>
+<p>I&rsquo;m the same way, I&rsquo;m a huge fan of podcasting.</p>
+<p>It&rsquo;s a beautiful thing.</p>
+<p>I mean, it&rsquo;s a weird one way human connection.</p>
+<p>Like before I went on Joe Rogan and still,</p>
+<p>I&rsquo;m just a huge fan of his.</p>
+<p>So it was like surreal.</p>
+<p>I&rsquo;ve been friends with Joe Rogan for 10 years, but one way.</p>
+<p>Yeah, from this way, from the St. Petersburg way.</p>
+<p>Yeah, the St. Petersburg way and it&rsquo;s a real friendship.</p>
+<p>I mean, now it&rsquo;s like two way, but it&rsquo;s still surreal.</p>
+<p>And that&rsquo;s the magic of podcasting.</p>
+<p>I&rsquo;m not sure what to make of it.</p>
+<p>That voice, it&rsquo;s not even the video part.</p>
+<p>It&rsquo;s the audio that&rsquo;s magical.</p>
+<p>I don&rsquo;t know what to do with it,</p>
+<p>but it&rsquo;s people listen to three, four hours.</p>
+<p>Yeah, we evolved over millions of years, right?</p>
+<p>To be very fine tuned to things like that, right?</p>
+<p>Oh, expressions as well, of course, right?</p>
+<p>But back in the day on the Savannah,</p>
+<p>you had to be very attuned to whether</p>
+<p>you had a good relationship with the rest of your tribe</p>
+<p>or a very bad relationship, right?</p>
+<p>Because if you had a very bad relationship,</p>
+<p>you were probably gonna be left behind</p>
+<p>and eaten by the lions.</p>
+<p>Yeah, but it&rsquo;s weird that the tribe is different now.</p>
+<p>Like you could have a one way connection with Joe Rogan</p>
+<p>as opposed to the tribe of your physical vicinity.</p>
+<p>But that&rsquo;s why it works with the podcasting,</p>
+<p>but it&rsquo;s the opposite of what happens on Twitter, right?</p>
+<p>Because all those nuances are removed, right?</p>
+<p>You&rsquo;re not connecting with the person</p>
+<p>because you don&rsquo;t hear the voice.</p>
+<p>You&rsquo;re connecting with like an abstraction, right?</p>
+<p>It&rsquo;s like some stream of tweets, right?</p>
+<p>And it&rsquo;s very easy to assign to them</p>
+<p>any kind of evil intent or dehumanize them,</p>
+<p>which it&rsquo;s much harder to do when it&rsquo;s a real voice, right?</p>
+<p>Because you realize it&rsquo;s a real person behind the voice.</p>
+<p>Let me try this out on you.</p>
+<p>I sometimes ask about the meaning of life.</p>
+<p>Do you, your father now, an engineer,</p>
+<p>you&rsquo;re building up a company.</p>
+<p>Do you ever zoom out and think like,</p>
+<p>what the hell is this whole thing for?</p>
+<p>Like why are we descended to vapes even on this planet?</p>
+<p>What&rsquo;s the meaning of it all?</p>
+<p>That&rsquo;s a pretty big question.</p>
+<p>I think I don&rsquo;t allow myself to think about it too often,</p>
+<p>or maybe like life doesn&rsquo;t allow me</p>
+<p>to think about it too often.</p>
+<p>But in some ways, I guess the meaning of life</p>
+<p>is kind of contributing to this kind of weird thing</p>
+<p>we call humanity, right?</p>
+<p>Like it&rsquo;s in a way, you can think of humanity</p>
+<p>as like a living and evolving organism, right?</p>
+<p>That like we all contributing in a sway way,</p>
+<p>but just by existing, by having our own unique set</p>
+<p>of desires and drives, right?</p>
+<p>And maybe that means like creating something great.</p>
+<p>And it&rsquo;s bringing up kids who are unique and different</p>
+<p>and seeing like, they can join what they do.</p>
+<p>But I mean, to me, that&rsquo;s pretty much it.</p>
+<p>I mean, if you&rsquo;re not a religious person, right?</p>
+<p>Which I guess I&rsquo;m not, that&rsquo;s the meaning of life.</p>
+<p>It&rsquo;s in the living and in the creation.</p>
+<p>Yeah, there&rsquo;s something magical</p>
+<p>about that engine of creation.</p>
+<p>Like you said, programming, I would say,</p>
+<p>I mean, it&rsquo;s even just actually what you said</p>
+<p>with even just programs.</p>
+<p>I don&rsquo;t care if it&rsquo;s like some JavaScript thing</p>
+<p>on a button on the website.</p>
+<p>It&rsquo;s like magical that you brought that to life.</p>
+<p>I don&rsquo;t know what that is in there, but that seems,</p>
+<p>that&rsquo;s probably some version of like reproduction</p>
+<p>and sex, whatever that&rsquo;s in evolution.</p>
+<p>But like creating that HTML button has echoes</p>
+<p>of that feeling and it&rsquo;s magical.</p>
+<p>Right, well, I mean, if you&rsquo;re a religious person,</p>
+<p>maybe you could even say, all right,</p>
+<p>like we were created in God&rsquo;s image, right?</p>
+<p>Well, I mean, I guess part of that is the drive</p>
+<p>to create something ourselves, right?</p>
+<p>I mean, that&rsquo;s part of it.</p>
+<p>Yeah, that HTML button is the creation in God&rsquo;s image.</p>
+<p>Maybe hopefully it&rsquo;ll be something a little more.</p>
+<p>So dynamic, maybe some JavaScript.</p>
+<p>Yeah, maybe some JavaScript, some React and so on.</p>
+<p>But no, I mean, I think that&rsquo;s what differentiates us</p>
+<p>from the apes, so to speak.</p>
+<p>Yeah, we did a pretty good job.</p>
+<p>Dan, it was an honor to talk to you.</p>
+<p>Thank you so much for being part of creating</p>
+<p>one of my favorite services and products.</p>
+<p>This is actually a little bit of an experiment.</p>
+<p>Allow me to sort of fanboy over some of the things I love.</p>
+<p>So thanks for wasting your time with me today.</p>
+<p>It was really fun.</p>
+<p>Well, it was awesome.</p>
+<p>Thanks for having me on and giving me a chance</p>
+<p>to try this out.</p>
+<p>Awesome.</p>
+<p>Thanks for listening to this conversation</p>
+<p>with Dan Kokotov and thank you to our sponsors,</p>
+<p>Athletic Greens, Only One Nutrition Drink,</p>
+<p>Blinkist app that summarizes books,</p>
+<p>Business Wars podcast and Cash App.</p>
+<p>So the choice is health, wisdom or money.</p>
+<p>Choose wisely, my friends.</p>
+<p>And if you wish, click the sponsor links below</p>
+<p>to get a discount and to support this podcast.</p>
+<p>And now let me leave you with some words</p>
+<p>from Ludwig Wittgenstein.</p>
+<p>The limits of my language means the limits of my world.</p>
+<p>Thank you for listening and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

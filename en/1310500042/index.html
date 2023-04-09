@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Peter Norvig.
+He&amp;rsquo;s the Director of Research at Google
+and the coauthor with Stuart Russell of the book
+Artificial Intelligence, A Modern Approach,
+that educated and inspired a whole generation
+of researchers, including myself,
+to get into the field of artificial intelligence.
+This is the Artificial Intelligence Podcast.
+If you enjoy it, subscribe on YouTube,
+give five stars on iTunes, support on Patreon,
+or simply connect with me on Twitter.'>
+<title>Lex Fridman Podcast - #42 - Peter Norvig: Artificial Intelligence: A Modern Approach | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500042/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #42 - Peter Norvig: Artificial Intelligence: A Modern Approach'>
+<meta property='og:description' content='The following is a conversation with Peter Norvig.
+He&amp;rsquo;s the Director of Research at Google
+and the coauthor with Stuart Russell of the book
+Artificial Intelligence, A Modern Approach,
+that educated and inspired a whole generation
+of researchers, including myself,
+to get into the field of artificial intelligence.
+This is the Artificial Intelligence Podcast.
+If you enjoy it, subscribe on YouTube,
+give five stars on iTunes, support on Patreon,
+or simply connect with me on Twitter.'>
+<meta property='og:url' content='https://swiest.com/en/1310500042/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-04-11T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-04-11T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #42 - Peter Norvig: Artificial Intelligence: A Modern Approach">
+<meta name="twitter:description" content="The following is a conversation with Peter Norvig.
+He&amp;rsquo;s the Director of Research at Google
+and the coauthor with Stuart Russell of the book
+Artificial Intelligence, A Modern Approach,
+that educated and inspired a whole generation
+of researchers, including myself,
+to get into the field of artificial intelligence.
+This is the Artificial Intelligence Podcast.
+If you enjoy it, subscribe on YouTube,
+give five stars on iTunes, support on Patreon,
+or simply connect with me on Twitter.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500042/">Lex Fridman Podcast - #42 - Peter Norvig: Artificial Intelligence: A Modern Approach</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-04-11</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    48 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Peter Norvig.</p>
+<p>He&rsquo;s the Director of Research at Google</p>
+<p>and the coauthor with Stuart Russell of the book</p>
+<p>Artificial Intelligence, A Modern Approach,</p>
+<p>that educated and inspired a whole generation</p>
+<p>of researchers, including myself,</p>
+<p>to get into the field of artificial intelligence.</p>
+<p>This is the Artificial Intelligence Podcast.</p>
+<p>If you enjoy it, subscribe on YouTube,</p>
+<p>give five stars on iTunes, support on Patreon,</p>
+<p>or simply connect with me on Twitter.</p>
+<p>I&rsquo;m Lex Friedman, spelled F R I D M A N.</p>
+<p>And now, here&rsquo;s my conversation with Peter Norvig.</p>
+<p>Most researchers in the AI community, including myself,</p>
+<p>own all three editions, red, green, and blue,</p>
+<p>of the Artificial Intelligence, A Modern Approach.</p>
+<p>It&rsquo;s a field defining textbook, as many people are aware,</p>
+<p>that you wrote with Stuart Russell.</p>
+<p>How has the book changed and how have you changed</p>
+<p>in relation to it from the first edition</p>
+<p>to the second to the third and now fourth edition</p>
+<p>as you work on it?</p>
+<p>Yeah, so it&rsquo;s been a lot of years, a lot of changes.</p>
+<p>One of the things changing from the first</p>
+<p>to maybe the second or third</p>
+<p>was just the rise of computing power, right?</p>
+<p>So I think in the first edition, we said,</p>
+<p>here&rsquo;s predicate logic, but that only goes so far</p>
+<p>because pretty soon you have millions of short little</p>
+<p>predicate expressions and they can possibly fit in memory.</p>
+<p>So we&rsquo;re gonna use first order logic that&rsquo;s more concise.</p>
+<p>And then we quickly realized,</p>
+<p>oh, predicate logic is pretty nice</p>
+<p>because there are really fast SAT solvers and other things.</p>
+<p>And look, there&rsquo;s only millions of expressions</p>
+<p>and that fits easily into memory,</p>
+<p>or maybe even billions fit into memory now.</p>
+<p>So that was a change of the type of technology we needed</p>
+<p>just because the hardware expanded.</p>
+<p>Even to the second edition,</p>
+<p>resource constraints were loosened significantly</p>
+<p>for the second.</p>
+<p>And that was early 2000s second edition.</p>
+<p>Right, so 95 was the first and then 2000, 2001 or so.</p>
+<p>And then moving on from there,</p>
+<p>I think we&rsquo;re starting to see that again with the GPUs</p>
+<p>and then more specific type of machinery</p>
+<p>like the TPUs and you&rsquo;re seeing custom ASICs and so on</p>
+<p>for deep learning.</p>
+<p>So we&rsquo;re seeing another advance in terms of the hardware.</p>
+<p>Then I think another thing that we especially noticed</p>
+<p>this time around is in all three of the first editions,</p>
+<p>we kind of said, well, we&rsquo;re gonna find AI</p>
+<p>as maximizing expected utility</p>
+<p>and you tell me your utility function.</p>
+<p>And now we&rsquo;ve got 27 chapters where the cool techniques</p>
+<p>for how to optimize that.</p>
+<p>I think in this edition, we&rsquo;re saying more,</p>
+<p>you know what, maybe that optimization part</p>
+<p>is the easy part and the hard part is deciding</p>
+<p>what is my utility function?</p>
+<p>What do I want?</p>
+<p>And if I&rsquo;m a collection of agents or a society,</p>
+<p>what do we want as a whole?</p>
+<p>So you touched that topic in this edition.</p>
+<p>You get a little bit more into utility.</p>
+<p>Yeah.</p>
+<p>That&rsquo;s really interesting.</p>
+<p>On a technical level,</p>
+<p>we&rsquo;re almost pushing the philosophical.</p>
+<p>I guess it is philosophical, right?</p>
+<p>So we&rsquo;ve always had a philosophy chapter,</p>
+<p>which I was glad that we were supporting.</p>
+<p>And now it&rsquo;s less kind of the Chinese room type argument</p>
+<p>and more of these ethical and societal type issues.</p>
+<p>So we get into the issues of fairness and bias</p>
+<p>and just the issue of aggregating utilities.</p>
+<p>So how do you encode human values into a utility function?</p>
+<p>Is this something that you can do purely through data</p>
+<p>in a learned way or is there some systematic,</p>
+<p>obviously there&rsquo;s no good answers yet.</p>
+<p>There&rsquo;s just beginnings to this,</p>
+<p>to even opening the doors to these questions.</p>
+<p>So there is no one answer.</p>
+<p>Yes, there are techniques to try to learn that.</p>
+<p>So we talk about inverse reinforcement learning, right?</p>
+<p>So reinforcement learning, you take some actions,</p>
+<p>you get some rewards and you figure out</p>
+<p>what actions you should take.</p>
+<p>And inverse reinforcement learning,</p>
+<p>you observe somebody taking actions and you figure out,</p>
+<p>well, this must be what they were trying to do.</p>
+<p>If they did this action, it must be because they want it.</p>
+<p>Of course, there&rsquo;s restrictions to that, right?</p>
+<p>So lots of people take actions that are self destructive</p>
+<p>or they&rsquo;re suboptimal in certain ways.</p>
+<p>So you don&rsquo;t wanna learn that.</p>
+<p>You wanna somehow learn the perfect actions</p>
+<p>rather than the ones they actually take.</p>
+<p>So that&rsquo;s a challenge for that field.</p>
+<p>Then another big part of it is just kind of theoretical</p>
+<p>of saying, what can we accomplish?</p>
+<p>And so you look at like this work on the programs</p>
+<p>to predict recidivism and decide who should get parole</p>
+<p>or who should get bail or whatever.</p>
+<p>And how are you gonna evaluate that?</p>
+<p>And one of the big issues is fairness</p>
+<p>across protected classes.</p>
+<p>Protected classes being things like sex and race and so on.</p>
+<p>And so two things you want is you wanna say,</p>
+<p>well, if I get a score of say six out of 10,</p>
+<p>then I want that to mean the same</p>
+<p>whether no matter what race I&rsquo;m on, right?</p>
+<p>Yes, right, so I wanna have a 60% chance</p>
+<p>of reoccurring regardless.</p>
+<p>And one of the makers of a commercial program to do that</p>
+<p>says that&rsquo;s what we&rsquo;re trying to optimize</p>
+<p>and look, we achieved that.</p>
+<p>We&rsquo;ve reached that kind of balance.</p>
+<p>And then on the other side,</p>
+<p>you also wanna say, well, if it makes mistakes,</p>
+<p>I want that to affect both sides</p>
+<p>of the protected class equally.</p>
+<p>And it turns out they don&rsquo;t do that, right?</p>
+<p>So they&rsquo;re twice as likely to make a mistake</p>
+<p>that would harm a black person over a white person.</p>
+<p>So that seems unfair.</p>
+<p>So you&rsquo;d like to say,</p>
+<p>well, I wanna achieve both those goals.</p>
+<p>And then it turns out you do the analysis</p>
+<p>and it&rsquo;s theoretically impossible</p>
+<p>to achieve both those goals.</p>
+<p>So you have to trade them off one against the other.</p>
+<p>So that analysis is really helpful</p>
+<p>to know what you can aim for and how much you can get.</p>
+<p>You can&rsquo;t have everything.</p>
+<p>But the analysis certainly can&rsquo;t tell you</p>
+<p>where should we make that trade off point.</p>
+<p>But nevertheless, then we can as humans deliberate</p>
+<p>where that trade off should be.</p>
+<p>Yeah, so at least we now we&rsquo;re arguing in an informed way.</p>
+<p>We&rsquo;re not asking for something impossible.</p>
+<p>We&rsquo;re saying, here&rsquo;s where we are</p>
+<p>and here&rsquo;s what we aim for.</p>
+<p>And this strategy is better than that strategy.</p>
+<p>So that&rsquo;s, I would argue is a really powerful</p>
+<p>and really important first step,</p>
+<p>but it&rsquo;s a doable one sort of removing</p>
+<p>undesirable degrees of bias in systems</p>
+<p>in terms of protected classes.</p>
+<p>And then there&rsquo;s something I listened</p>
+<p>to your commencement speech,</p>
+<p>or there&rsquo;s some fuzzier things like,</p>
+<p>you mentioned angry birds.</p>
+<p>Do you wanna create systems that feed the dopamine enjoyment</p>
+<p>that feed, that optimize for you returning to the system,</p>
+<p>enjoying the moment of playing the game of getting likes</p>
+<p>or whatever, this kind of thing,</p>
+<p>or some kind of longterm improvement?</p>
+<p>Right.</p>
+<p>Are you even thinking about that?</p>
+<p>That&rsquo;s really going to the philosophical area.</p>
+<p>No, I think that&rsquo;s a really important issue too.</p>
+<p>Certainly thinking about that.</p>
+<p>I don&rsquo;t think about that as an AI issue as much.</p>
+<p>But as you say, the point is we&rsquo;ve built this society</p>
+<p>and this infrastructure where we say we have a marketplace</p>
+<p>for attention and we&rsquo;ve decided as a society</p>
+<p>that we like things that are free.</p>
+<p>And so we want all the apps on our phone to be free.</p>
+<p>And that means they&rsquo;re all competing for your attention.</p>
+<p>And then eventually they make some money some way</p>
+<p>through ads or in game sales or whatever.</p>
+<p>But they can only win by defeating all the other apps</p>
+<p>by instilling your attention.</p>
+<p>And we build a marketplace where it seems like</p>
+<p>they&rsquo;re working against you rather than working with you.</p>
+<p>And I&rsquo;d like to find a way where we can change</p>
+<p>the playing field so you feel more like,</p>
+<p>well, these things are on my side.</p>
+<p>Yes, they&rsquo;re letting me have some fun in the short term,</p>
+<p>but they&rsquo;re also helping me in the long term</p>
+<p>rather than competing against me.</p>
+<p>And those aren&rsquo;t necessarily conflicting objectives.</p>
+<p>They&rsquo;re just the incentives, the direct current incentives</p>
+<p>as we try to figure out this whole new world</p>
+<p>seem to be on the easier part of that,</p>
+<p>which is feeding the dopamine, the rush.</p>
+<p>Right.</p>
+<p>But so maybe taking a quick step back at the beginning</p>
+<p>of the Artificial Intelligence,</p>
+<p>the Modern Approach book of writing.</p>
+<p>So here you are in the 90s.</p>
+<p>When you first sat down with Stuart to write the book</p>
+<p>to cover an entire field,</p>
+<p>which is one of the only books that&rsquo;s successfully done that</p>
+<p>for AI and actually in a lot of other computer science</p>
+<p>fields, it&rsquo;s a huge undertaking.</p>
+<p>So it must&rsquo;ve been quite daunting.</p>
+<p>What was that process like?</p>
+<p>Did you envision that you would be trying to cover</p>
+<p>the entire field?</p>
+<p>Was there a systematic approach to it</p>
+<p>that was more step by step?</p>
+<p>How was, how did it feel?</p>
+<p>So I guess it came about,</p>
+<p>go to lunch with the other AI faculty at Berkeley</p>
+<p>and we&rsquo;d say, the field is changing.</p>
+<p>It seems like the current books are a little bit behind.</p>
+<p>Nobody&rsquo;s come out with a new book recently.</p>
+<p>We should do that.</p>
+<p>And everybody said, yeah, yeah, that&rsquo;s a great thing to do.</p>
+<p>And we never did anything.</p>
+<p>Right.</p>
+<p>And then I ended up heading off to industry.</p>
+<p>I went to Sun Labs.</p>
+<p>So I thought, well, that&rsquo;s the end of my possible</p>
+<p>academic publishing career.</p>
+<p>But I met Stuart again at a conference like a year later</p>
+<p>and said, you know that book we were always talking about,</p>
+<p>you guys must be half done with it by now, right?</p>
+<p>And he said, well, we keep talking, we never do anything.</p>
+<p>So I said, well, you know, we should do it.</p>
+<p>And I think the reason is that we all felt</p>
+<p>it was a time where the field was changing.</p>
+<p>And that was in two ways.</p>
+<p>So, you know, the good old fashioned AI</p>
+<p>was based primarily on Boolean logic.</p>
+<p>And you had a few tricks to deal with uncertainty.</p>
+<p>And it was based primarily on knowledge engineering.</p>
+<p>That the way you got something done is you went out,</p>
+<p>you interviewed an expert and you wrote down by hand</p>
+<p>everything they knew.</p>
+<p>And we saw in 95 that the field was changing in two ways.</p>
+<p>One, we&rsquo;re moving more towards probability</p>
+<p>rather than Boolean logic.</p>
+<p>And we&rsquo;re moving more towards machine learning</p>
+<p>rather than knowledge engineering.</p>
+<p>And the other books hadn&rsquo;t caught that way</p>
+<p>if they were still in the, more in the old school.</p>
+<p>Although, so certainly they had part of that on the way.</p>
+<p>But we said, if we start now completely taking</p>
+<p>that point of view, we can have a different kind of book.</p>
+<p>And we were able to put that together.</p>
+<p>And what was literally the process if you remember,</p>
+<p>did you start writing a chapter?</p>
+<p>Did you outline?</p>
+<p>Yeah, I guess we did an outline</p>
+<p>and then we sort of assigned chapters to each person.</p>
+<p>At the time I had moved to Boston</p>
+<p>and Stuart was in Berkeley.</p>
+<p>So basically we did it over the internet.</p>
+<p>And, you know, that wasn&rsquo;t the same as doing it today.</p>
+<p>It meant, you know, dial up lines and telnetting in.</p>
+<p>And, you know, you telnet it into one shell</p>
+<p>and you type cat file name</p>
+<p>and you hoped it was captured at the other end.</p>
+<p>And certainly you&rsquo;re not sending images</p>
+<p>and figures back and forth.</p>
+<p>Right, right, that didn&rsquo;t work.</p>
+<p>But, you know, did you anticipate</p>
+<p>where the field would go from that day, from the 90s?</p>
+<p>Did you see the growth into learning based methods</p>
+<p>and to data driven methods</p>
+<p>that followed in the future decades?</p>
+<p>We certainly thought that learning was important.</p>
+<p>I guess we missed it as being as important as it is today.</p>
+<p>We missed this idea of big data.</p>
+<p>We missed that the idea of deep learning</p>
+<p>hadn&rsquo;t been invented yet.</p>
+<p>We could have taken the book</p>
+<p>from a complete machine learning point of view</p>
+<p>right from the start.</p>
+<p>We chose to do it more from a point of view</p>
+<p>of we&rsquo;re gonna first develop</p>
+<p>different types of representations.</p>
+<p>And we&rsquo;re gonna talk about different types of environments.</p>
+<p>Is it fully observable or partially observable?</p>
+<p>And is it deterministic or stochastic and so on?</p>
+<p>And we made it more complex along those axes</p>
+<p>rather than focusing on the machine learning axis first.</p>
+<p>Do you think, you know, there&rsquo;s some sense</p>
+<p>in which the deep learning craze is extremely successful</p>
+<p>for a particular set of problems.</p>
+<p>And, you know, eventually it&rsquo;s going to,</p>
+<p>in the general case, hit challenges.</p>
+<p>So in terms of the difference between perception systems</p>
+<p>and robots that have to act in the world,</p>
+<p>do you think we&rsquo;re gonna return</p>
+<p>to AI modern approach type breadth</p>
+<p>in addition five and six?</p>
+<p>In future decades, do you think deep learning</p>
+<p>will take its place as a chapter</p>
+<p>in this bigger view of AI?</p>
+<p>Yeah, I think we don&rsquo;t know yet</p>
+<p>how it&rsquo;s all gonna play out.</p>
+<p>So in the new edition, we have a chapter on deep learning.</p>
+<p>We got Ian Goodfellow to be the guest author</p>
+<p>for that chapter.</p>
+<p>So he said he could condense his whole deep learning book</p>
+<p>into one chapter.</p>
+<p>I think he did a great job.</p>
+<p>We were also encouraged that he&rsquo;s, you know,</p>
+<p>we gave him the old neural net chapter</p>
+<p>and said, modernize that.</p>
+<p>And he said, you know, half of that was okay.</p>
+<p>That certainly there&rsquo;s lots of new things</p>
+<p>that have been developed,</p>
+<p>but some of the core was still the same.</p>
+<p>So I think we&rsquo;ll gain a better understanding</p>
+<p>of what you can do there.</p>
+<p>I think we&rsquo;ll need to incorporate</p>
+<p>all the things we can do with the other technologies, right?</p>
+<p>So deep learning started out with convolutional networks</p>
+<p>and very close to perception.</p>
+<p>And it&rsquo;s since moved to be able to do more</p>
+<p>with actions and some degree of longer term planning.</p>
+<p>But we need to do a better job</p>
+<p>with representation than reasoning</p>
+<p>and one shot learning and so on.</p>
+<p>And I think we don&rsquo;t know yet how that&rsquo;s gonna play out.</p>
+<p>So do you think looking at some success,</p>
+<p>but certainly eventual demise,</p>
+<p>a partial demise of experts</p>
+<p>to symbolic systems in the 80s,</p>
+<p>do you think there is kernels of wisdom</p>
+<p>and the work that was done there</p>
+<p>with logic and reasoning and so on</p>
+<p>that will rise again in your view?</p>
+<p>So certainly I think the idea of representation</p>
+<p>and reasoning is crucial</p>
+<p>that sometimes you just don&rsquo;t have enough data</p>
+<p>about the world to learn de novo.</p>
+<p>So you&rsquo;ve got to have some idea of representation,</p>
+<p>whether that was programmed in or told or whatever,</p>
+<p>and then be able to take steps of reasoning.</p>
+<p>I think the problem with the good old fashioned AI</p>
+<p>was one, we tried to base everything on these symbols</p>
+<p>that were atomic.</p>
+<p>And that&rsquo;s great if you&rsquo;re like trying to define</p>
+<p>the properties of a triangle, right?</p>
+<p>Because they have necessary and sufficient conditions.</p>
+<p>But things in the real world don&rsquo;t.</p>
+<p>The real world is messy and doesn&rsquo;t have sharp edges</p>
+<p>and atomic symbols do.</p>
+<p>So that was a poor match.</p>
+<p>And then the other aspect was that the reasoning</p>
+<p>was universal and applied anywhere,</p>
+<p>which in some sense is good,</p>
+<p>but it also means there&rsquo;s no guidance</p>
+<p>as to where to apply.</p>
+<p>And so you started getting these paradoxes</p>
+<p>like, well, if I have a mountain</p>
+<p>and I remove one grain of sand,</p>
+<p>then it&rsquo;s still a mountain.</p>
+<p>But if I do that repeatedly, at some point it&rsquo;s not, right?</p>
+<p>And with logic, there&rsquo;s nothing to stop you</p>
+<p>from applying things repeatedly.</p>
+<p>But maybe with something like deep learning,</p>
+<p>and I don&rsquo;t really know what the right name for it is,</p>
+<p>we could separate out those ideas.</p>
+<p>So one, we could say a mountain isn&rsquo;t just an atomic notion.</p>
+<p>It&rsquo;s some sort of something like a word embedding</p>
+<p>that has a more complex representation.</p>
+<p>And secondly, we could somehow learn,</p>
+<p>yeah, there&rsquo;s this rule that you can remove</p>
+<p>one grain of sand and you can do that a bunch of times,</p>
+<p>but you can&rsquo;t do it a near infinite amount of times.</p>
+<p>But on the other hand, when you&rsquo;re doing induction</p>
+<p>on the integer, sure, then it&rsquo;s fine to do it</p>
+<p>an infinite number of times.</p>
+<p>And if we could, somehow we have to learn</p>
+<p>when these strategies are applicable</p>
+<p>rather than having the strategies be completely neutral</p>
+<p>and available everywhere.</p>
+<p>Anytime you use neural networks,</p>
+<p>anytime you learn from data,</p>
+<p>form representation from data in an automated way,</p>
+<p>it&rsquo;s not very explainable as to,</p>
+<p>or it&rsquo;s not introspective to us humans</p>
+<p>in terms of how this neural network sees the world,</p>
+<p>where, why does it succeed so brilliantly in so many cases</p>
+<p>and fail so miserably in surprising ways and small.</p>
+<p>So what do you think is the future there?</p>
+<p>Can simply more data, better data,</p>
+<p>more organized data solve that problem?</p>
+<p>Or is there elements of symbolic systems</p>
+<p>that need to be brought in</p>
+<p>which are a little bit more explainable?</p>
+<p>Yeah, so I prefer to talk about trust</p>
+<p>and validation and verification</p>
+<p>rather than just about explainability.</p>
+<p>And then I think explanations are one tool</p>
+<p>that you use towards those goals.</p>
+<p>And I think it is an important issue</p>
+<p>that we don&rsquo;t wanna use these systems unless we trust them</p>
+<p>and we wanna understand where they work</p>
+<p>and where they don&rsquo;t work.</p>
+<p>And an explanation can be part of that, right?</p>
+<p>So I apply for a loan and I get denied,</p>
+<p>I want some explanation of why.</p>
+<p>And you have, in Europe, we have the GDPR</p>
+<p>that says you&rsquo;re required to be able to get that.</p>
+<p>But on the other hand,</p>
+<p>the explanation alone is not enough, right?</p>
+<p>So we are used to dealing with people</p>
+<p>and with organizations and corporations and so on,</p>
+<p>and they can give you an explanation</p>
+<p>and you have no guarantee</p>
+<p>that that explanation relates to reality, right?</p>
+<p>So the bank can tell me, well, you didn&rsquo;t get the loan</p>
+<p>because you didn&rsquo;t have enough collateral.</p>
+<p>And that may be true, or it may be true</p>
+<p>that they just didn&rsquo;t like my religion or something else.</p>
+<p>I can&rsquo;t tell from the explanation,</p>
+<p>and that&rsquo;s true whether the decision was made</p>
+<p>by a computer or by a person.</p>
+<p>So I want more.</p>
+<p>I do wanna have the explanations</p>
+<p>and I wanna be able to have a conversation</p>
+<p>to go back and forth and said,</p>
+<p>well, you gave this explanation, but what about this?</p>
+<p>And what would have happened if this had happened?</p>
+<p>And what would I need to change that?</p>
+<p>So I think a conversation is a better way to think about it</p>
+<p>than just an explanation as a single output.</p>
+<p>And I think we need testing of various kinds, right?</p>
+<p>So in order to know,</p>
+<p>was the decision really based on my collateral</p>
+<p>or was it based on my religion or skin color or whatever?</p>
+<p>I can&rsquo;t tell if I&rsquo;m only looking at my case,</p>
+<p>but if I look across all the cases,</p>
+<p>then I can detect the pattern, right?</p>
+<p>So you wanna have that kind of capability.</p>
+<p>You wanna have these adversarial testing, right?</p>
+<p>So we thought we were doing pretty good</p>
+<p>at object recognition in images.</p>
+<p>We said, look, we&rsquo;re at sort of pretty close</p>
+<p>to human level performance on ImageNet and so on.</p>
+<p>And then you start seeing these adversarial images</p>
+<p>and you say, wait a minute,</p>
+<p>that part is nothing like human performance.</p>
+<p>You can mess with it really easily.</p>
+<p>You can mess with it really easily, right?</p>
+<p>And yeah, you can do that to humans too, right?</p>
+<p>So we.</p>
+<p>In a different way perhaps.</p>
+<p>Right, humans don&rsquo;t know what color the dress was.</p>
+<p>Right.</p>
+<p>And so they&rsquo;re vulnerable to certain attacks</p>
+<p>that are different than the attacks on the machines,</p>
+<p>but the attacks on the machines are so striking.</p>
+<p>They really change the way you think</p>
+<p>about what we&rsquo;ve done, right?</p>
+<p>And the way I think about it is,</p>
+<p>I think part of the problem is we&rsquo;re seduced</p>
+<p>by our low dimensional metaphors, right?</p>
+<p>Yeah.</p>
+<p>I like that phrase.</p>
+<p>You look in a textbook and you say,</p>
+<p>okay, now we&rsquo;ve mapped out the space</p>
+<p>and a cat is here and dog is here</p>
+<p>and maybe there&rsquo;s a tiny little spot in the middle</p>
+<p>where you can&rsquo;t tell the difference,</p>
+<p>but mostly we&rsquo;ve got it all covered.</p>
+<p>And if you believe that metaphor,</p>
+<p>then you say, well, we&rsquo;re nearly there.</p>
+<p>And there&rsquo;s only gonna be a couple adversarial images.</p>
+<p>But I think that&rsquo;s the wrong metaphor</p>
+<p>and what you should really say is,</p>
+<p>it&rsquo;s not a 2D flat space that we&rsquo;ve got mostly covered.</p>
+<p>It&rsquo;s a million dimension space</p>
+<p>and a cat is this string that goes out in this crazy path.</p>
+<p>And if you step a little bit off the path in any direction,</p>
+<p>you&rsquo;re in nowhere&rsquo;s land</p>
+<p>and you don&rsquo;t know what&rsquo;s gonna happen.</p>
+<p>And so I think that&rsquo;s where we are</p>
+<p>and now we&rsquo;ve got to deal with that.</p>
+<p>So it wasn&rsquo;t so much an explanation,</p>
+<p>but it was an understanding of what the models are</p>
+<p>and what they&rsquo;re doing</p>
+<p>and now we can start exploring, how do you fix that?</p>
+<p>Yeah, validating the robustness of the system and so on,</p>
+<p>but take it back to this word trust.</p>
+<p>Do you think we&rsquo;re a little too hard on our robots</p>
+<p>in terms of the standards we apply?</p>
+<p>So, you know,</p>
+<p>there&rsquo;s a dance in nonverbal</p>
+<p>and verbal communication between humans.</p>
+<p>If we apply the same kind of standard in terms of humans,</p>
+<p>we trust each other pretty quickly.</p>
+<p>You know, you and I haven&rsquo;t met before</p>
+<p>and there&rsquo;s some degree of trust, right?</p>
+<p>That nothing&rsquo;s gonna go crazy wrong</p>
+<p>and yet to AI, when we look at AI systems</p>
+<p>or we seem to approach skepticism always, always.</p>
+<p>And it&rsquo;s like they have to prove through a lot of hard work</p>
+<p>that they&rsquo;re even worthy of even inkling of our trust.</p>
+<p>What do you think about that?</p>
+<p>How do we break that barrier, close that gap?</p>
+<p>I think that&rsquo;s right.</p>
+<p>I think that&rsquo;s a big issue.</p>
+<p>Just listening, my friend Mark Moffat is a naturalist</p>
+<p>and he says, the most amazing thing about humans</p>
+<p>is that you can walk into a coffee shop</p>
+<p>or a busy street in a city</p>
+<p>and there&rsquo;s lots of people around you</p>
+<p>that you&rsquo;ve never met before and you don&rsquo;t kill each other.</p>
+<p>Yeah.</p>
+<p>He says, chimpanzees cannot do that.</p>
+<p>Yeah, right.</p>
+<p>Right?</p>
+<p>If a chimpanzee&rsquo;s in a situation where here&rsquo;s some</p>
+<p>that aren&rsquo;t from my tribe, bad things happen.</p>
+<p>Especially in a coffee shop,</p>
+<p>there&rsquo;s delicious food around, you know.</p>
+<p>Yeah, yeah.</p>
+<p>But we humans have figured that out, right?</p>
+<p>And you know.</p>
+<p>For the most part.</p>
+<p>We still go to war, we still do terrible things</p>
+<p>but for the most part, we&rsquo;ve learned to trust each other</p>
+<p>and live together.</p>
+<p>So that&rsquo;s gonna be important for our AI systems as well.</p>
+<p>And also I think a lot of the emphasis is on AI</p>
+<p>but in many cases, AI is part of the technology</p>
+<p>but isn&rsquo;t really the main thing.</p>
+<p>So a lot of what we&rsquo;ve seen is more due</p>
+<p>to communications technology than AI technology.</p>
+<p>Yeah, you wanna make these good decisions</p>
+<p>but the reason we&rsquo;re able to have any kind of system at all</p>
+<p>is we&rsquo;ve got the communication</p>
+<p>so that we&rsquo;re collecting the data</p>
+<p>and so that we can reach lots of people around the world.</p>
+<p>I think that&rsquo;s a bigger change that we&rsquo;re dealing with.</p>
+<p>Speaking of reaching a lot of people around the world,</p>
+<p>on the side of education,</p>
+<p>one of the many things in terms of education you&rsquo;ve done,</p>
+<p>you&rsquo;ve taught the Intro to Artificial Intelligence course</p>
+<p>that signed up 160,000 students.</p>
+<p>There&rsquo;s one of the first successful example</p>
+<p>of a MOOC, Massive Open Online Course.</p>
+<p>What did you learn from that experience?</p>
+<p>What do you think is the future of MOOCs,</p>
+<p>of education online?</p>
+<p>Yeah, it was a great fun doing it,</p>
+<p>particularly being right at the start</p>
+<p>just because it was exciting and new</p>
+<p>but it also meant that we had less competition, right?</p>
+<p>So one of the things you hear about,</p>
+<p>well, the problem with MOOCs is the completion rates</p>
+<p>are so low so there must be a failure</p>
+<p>and I gotta admit, I&rsquo;m a prime contributor, right?</p>
+<p>I probably started 50 different courses</p>
+<p>that I haven&rsquo;t finished</p>
+<p>but I got exactly what I wanted out of them</p>
+<p>because I had never intended to finish them.</p>
+<p>I just wanted to dabble in a little bit</p>
+<p>either to see the topic matter</p>
+<p>or just to see the pedagogy of how are they doing this class.</p>
+<p>So I guess the main thing I learned is when I came in,</p>
+<p>I thought the challenge was information,</p>
+<p>saying if I&rsquo;m just, take the stuff I want you to know</p>
+<p>and I&rsquo;m very clear and explain it well,</p>
+<p>then my job is done and good things are gonna happen.</p>
+<p>And then in doing the course, I learned,</p>
+<p>well, yeah, you gotta have the information</p>
+<p>but really the motivation is the most important thing</p>
+<p>that if students don&rsquo;t stick with it,</p>
+<p>it doesn&rsquo;t matter how good the content is.</p>
+<p>And I think being one of the first classes,</p>
+<p>we were helped by sort of exterior motivation.</p>
+<p>So we tried to do a good job of making it enticing</p>
+<p>and setting up ways for the community</p>
+<p>to work with each other to make it more motivating</p>
+<p>but really a lot of it was, hey, this is a new thing</p>
+<p>and I&rsquo;m really excited to be part of a new thing.</p>
+<p>And so the students brought their own motivation.</p>
+<p>And so I think this is great</p>
+<p>because there&rsquo;s lots of people around the world</p>
+<p>who have never had this before,</p>
+<p>would never have the opportunity to go to Stanford</p>
+<p>and take a class or go to MIT</p>
+<p>or go to one of the other schools</p>
+<p>but now we can bring that to them</p>
+<p>and if they bring their own motivation,</p>
+<p>they can be successful in a way they couldn&rsquo;t before.</p>
+<p>But that&rsquo;s really just the top tier of people</p>
+<p>that are ready to do that.</p>
+<p>The rest of the people just don&rsquo;t see</p>
+<p>or don&rsquo;t have the motivation</p>
+<p>and don&rsquo;t see how if they push through</p>
+<p>and were able to do it, what advantage that would get them.</p>
+<p>So I think we got a long way to go</p>
+<p>before we were able to do that.</p>
+<p>And I think some of it is based on technology</p>
+<p>but more of it&rsquo;s based on the idea of community.</p>
+<p>You gotta actually get people together.</p>
+<p>Some of the getting together can be done online.</p>
+<p>I think some of it really has to be done in person</p>
+<p>in order to build that type of community and trust.</p>
+<p>You know, there&rsquo;s an intentional mechanism</p>
+<p>that we&rsquo;ve developed a short attention span,</p>
+<p>especially younger people</p>
+<p>because sort of shorter and shorter videos online,</p>
+<p>there&rsquo;s a whatever the way the brain is developing now</p>
+<p>and with people that have grown up with the internet,</p>
+<p>they have quite a short attention span.</p>
+<p>So, and I would say I had the same</p>
+<p>when I was growing up too, probably for different reasons.</p>
+<p>So I probably wouldn&rsquo;t have learned as much as I have</p>
+<p>if I wasn&rsquo;t forced to sit in a physical classroom,</p>
+<p>sort of bored, sometimes falling asleep,</p>
+<p>but sort of forcing myself through that process.</p>
+<p>So sometimes extremely difficult computer science courses.</p>
+<p>What&rsquo;s the difference in your view</p>
+<p>between in person education experience,</p>
+<p>which you, first of all, yourself had</p>
+<p>and you yourself taught and online education</p>
+<p>and how do we close that gap if it&rsquo;s even possible?</p>
+<p>Yeah, so I think there&rsquo;s two issues.</p>
+<p>One is whether it&rsquo;s in person or online.</p>
+<p>So it&rsquo;s sort of the physical location</p>
+<p>and then the other is kind of the affiliation, right?</p>
+<p>So you stuck with it in part</p>
+<p>because you were in the classroom</p>
+<p>and you saw everybody else was suffering</p>
+<p>the same way you were,</p>
+<p>but also because you were enrolled,</p>
+<p>you had paid tuition,</p>
+<p>sort of everybody was expecting you to stick with it.</p>
+<p>Society, parents, peers.</p>
+<p>And so those are two separate things.</p>
+<p>I mean, you could certainly imagine</p>
+<p>I pay a huge amount of tuition</p>
+<p>and everybody signed up and says, yes, you&rsquo;re doing this,</p>
+<p>but then I&rsquo;m in my room</p>
+<p>and my classmates are in different rooms, right?</p>
+<p>We could have things set up that way.</p>
+<p>So it&rsquo;s not just the online versus offline.</p>
+<p>I think what&rsquo;s more important</p>
+<p>is the commitment that you&rsquo;ve made.</p>
+<p>And certainly it is important</p>
+<p>to have that kind of informal,</p>
+<p>you know, I meet people outside of class,</p>
+<p>we talk together because we&rsquo;re all in it together.</p>
+<p>I think that&rsquo;s really important,</p>
+<p>both in keeping your motivation</p>
+<p>and also that&rsquo;s where</p>
+<p>some of the most important learning goes on.</p>
+<p>So you wanna have that.</p>
+<p>Maybe, you know, especially now</p>
+<p>we start getting into higher bandwidths</p>
+<p>and augmented reality and virtual reality,</p>
+<p>you might be able to get that</p>
+<p>without being in the same physical place.</p>
+<p>Do you think it&rsquo;s possible we&rsquo;ll see a course at Stanford,</p>
+<p>for example, that for students,</p>
+<p>enrolled students is only online in the near future</p>
+<p>or literally sort of it&rsquo;s part of the curriculum</p>
+<p>and there is no&hellip;</p>
+<p>Yeah, so you&rsquo;re starting to see that.</p>
+<p>I know Georgia Tech has a master&rsquo;s that&rsquo;s done that way.</p>
+<p>Oftentimes it&rsquo;s sort of,</p>
+<p>they&rsquo;re creeping in in terms of a master&rsquo;s program</p>
+<p>or sort of further education,</p>
+<p>considering the constraints of students and so on.</p>
+<p>But I mean, literally, is it possible that we,</p>
+<p>you know, Stanford, MIT, Berkeley,</p>
+<p>all these places go online only in the next few decades?</p>
+<p>Yeah, probably not,</p>
+<p>because, you know, they&rsquo;ve got a big commitment</p>
+<p>to a physical campus.</p>
+<p>Sure, so there&rsquo;s a momentum</p>
+<p>that&rsquo;s both financial and culturally.</p>
+<p>Right, and then there are certain things</p>
+<p>that&rsquo;s just hard to do virtually, right?</p>
+<p>So, you know, we&rsquo;re in a field where,</p>
+<p>if you have your own computer and your own paper,</p>
+<p>and so on, you can do the work anywhere.</p>
+<p>But if you&rsquo;re in a biology lab or something,</p>
+<p>you know, you don&rsquo;t have all the right stuff at home.</p>
+<p>Right, so our field, programming,</p>
+<p>you&rsquo;ve also done a lot of programming yourself.</p>
+<p>In 2001, you wrote a great article about programming</p>
+<p>called Teach Yourself Programming in 10 Years,</p>
+<p>sort of response to all the books</p>
+<p>that say teach yourself programming in 21 days.</p>
+<p>So if you were giving advice to someone</p>
+<p>getting into programming today,</p>
+<p>this is a few years since you&rsquo;ve written that article,</p>
+<p>what&rsquo;s the best way to undertake that journey?</p>
+<p>I think there&rsquo;s lots of different ways,</p>
+<p>and I think programming means more things now.</p>
+<p>And I guess, you know, when I wrote that article,</p>
+<p>I was thinking more about</p>
+<p>becoming a professional software engineer,</p>
+<p>and I thought that&rsquo;s a, you know,</p>
+<p>sort of a career long field of study.</p>
+<p>But I think there&rsquo;s lots of things now</p>
+<p>that people can do where programming is a part</p>
+<p>of solving what they wanna solve</p>
+<p>without achieving that professional level status, right?</p>
+<p>So I&rsquo;m not gonna be going</p>
+<p>and writing a million lines of code,</p>
+<p>but, you know, I&rsquo;m a biologist or a physicist or something,</p>
+<p>or even a historian, and I&rsquo;ve got some data,</p>
+<p>and I wanna ask a question of that data.</p>
+<p>And I think for that, you don&rsquo;t need 10 years, right?</p>
+<p>So there are many shortcuts</p>
+<p>to being able to answer those kinds of questions.</p>
+<p>And, you know, you see today a lot of emphasis</p>
+<p>on learning to code, teaching kids how to code.</p>
+<p>I think that&rsquo;s great,</p>
+<p>but I wish they would change the message a little bit,</p>
+<p>right, so I think code isn&rsquo;t the main thing.</p>
+<p>I don&rsquo;t really care if you know the syntax of JavaScript</p>
+<p>or if you can connect these blocks together</p>
+<p>in this visual language.</p>
+<p>But what I do care about is that you can analyze a problem,</p>
+<p>you can think of a solution, you can carry out,</p>
+<p>you know, make a model, run that model,</p>
+<p>test the model, see the results,</p>
+<p>verify that they&rsquo;re reasonable,</p>
+<p>ask questions and answer them, right?</p>
+<p>So it&rsquo;s more modeling and problem solving,</p>
+<p>and you use coding in order to do that,</p>
+<p>but it&rsquo;s not just learning coding for its own sake.</p>
+<p>That&rsquo;s really interesting.</p>
+<p>So it&rsquo;s actually almost, in many cases,</p>
+<p>it&rsquo;s learning to work with data,</p>
+<p>to extract something useful out of data.</p>
+<p>So when you say problem solving,</p>
+<p>you really mean taking some kind of,</p>
+<p>maybe collecting some kind of data set,</p>
+<p>cleaning it up, and saying something interesting about it,</p>
+<p>which is useful in all kinds of domains.</p>
+<p>And, you know, and I see myself being stuck sometimes</p>
+<p>in kind of the old ways, right?</p>
+<p>So, you know, I&rsquo;ll be working on a project,</p>
+<p>maybe with a younger employee, and we say,</p>
+<p>oh, well, here&rsquo;s this new package</p>
+<p>that could help solve this problem.</p>
+<p>And I&rsquo;ll go and I&rsquo;ll start reading the manuals,</p>
+<p>and, you know, I&rsquo;ll be two hours into reading the manuals,</p>
+<p>and then my colleague comes back and says, I&rsquo;m done.</p>
+<p>You know, I downloaded the package, I installed it,</p>
+<p>I tried calling some things, the first one didn&rsquo;t work,</p>
+<p>the second one worked, now I&rsquo;m done.</p>
+<p>And I say, but I have a hundred questions</p>
+<p>about how does this work and how does that work?</p>
+<p>And they say, who cares, right?</p>
+<p>I don&rsquo;t need to understand the whole thing.</p>
+<p>I answered my question, it&rsquo;s a big, complicated package,</p>
+<p>I don&rsquo;t understand the rest of it,</p>
+<p>but I got the right answer.</p>
+<p>And I&rsquo;m just, it&rsquo;s hard for me to get into that mindset.</p>
+<p>I want to understand the whole thing.</p>
+<p>And, you know, if they wrote a manual,</p>
+<p>I should probably read it.</p>
+<p>And, but that&rsquo;s not necessarily the right way.</p>
+<p>I think I have to get used to dealing with more,</p>
+<p>being more comfortable with uncertainty</p>
+<p>and not knowing everything.</p>
+<p>Yeah, so I struggle with the same,</p>
+<p>instead of the spectrum between Donald and Don Knuth.</p>
+<p>Yeah.</p>
+<p>It&rsquo;s kind of the very, you know,</p>
+<p>before he can say anything about a problem,</p>
+<p>he really has to get down to the machine code assembly.</p>
+<p>Yeah.</p>
+<p>And that forces exactly what you said of several students</p>
+<p>in my group that, you know, 20 years old,</p>
+<p>and they can solve almost any problem within a few hours.</p>
+<p>That would take me probably weeks</p>
+<p>because I would try to, as you said, read the manual.</p>
+<p>So do you think the nature of mastery,</p>
+<p>you&rsquo;re mentioning biology,</p>
+<p>sort of outside disciplines, applying programming,</p>
+<p>but computer scientists.</p>
+<p>So over time, there&rsquo;s higher and higher levels</p>
+<p>of abstraction available now.</p>
+<p>So with this week, there&rsquo;s the TensorFlow Summit, right?</p>
+<p>So if you&rsquo;re not particularly into deep learning,</p>
+<p>but you&rsquo;re still a computer scientist,</p>
+<p>you can accomplish an incredible amount with TensorFlow</p>
+<p>without really knowing any fundamental internals</p>
+<p>of machine learning.</p>
+<p>Do you think the nature of mastery is changing,</p>
+<p>even for computer scientists,</p>
+<p>like what it means to be an expert programmer?</p>
+<p>Yeah, I think that&rsquo;s true.</p>
+<p>You know, we never really should have focused on programmer,</p>
+<p>right, because it&rsquo;s still, it&rsquo;s the skill,</p>
+<p>and what we really want to focus on is the result.</p>
+<p>So we built this ecosystem</p>
+<p>where the way you can get stuff done</p>
+<p>is by programming it yourself.</p>
+<p>At least when I started, you know,</p>
+<p>library functions meant you had square root,</p>
+<p>and that was about it, right?</p>
+<p>Everything else you built from scratch.</p>
+<p>And then we built up an ecosystem where a lot of times,</p>
+<p>well, you can download a lot of stuff</p>
+<p>that does a big part of what you need.</p>
+<p>And so now it&rsquo;s more a question of assembly</p>
+<p>rather than manufacturing.</p>
+<p>And that&rsquo;s a different way of looking at problems.</p>
+<p>From another perspective in terms of mastery</p>
+<p>and looking at programmers or people that reason</p>
+<p>about problems in a computational way.</p>
+<p>So Google, you know, from the hiring perspective,</p>
+<p>from the perspective of hiring</p>
+<p>or building a team of programmers,</p>
+<p>how do you determine if someone&rsquo;s a good programmer?</p>
+<p>Or if somebody, again, so I want to deviate from,</p>
+<p>I want to move away from the word programmer,</p>
+<p>but somebody who could solve problems</p>
+<p>of large scale data and so on.</p>
+<p>What&rsquo;s, how do you build a team like that</p>
+<p>through the interviewing process?</p>
+<p>Yeah, and I think as a company grows,</p>
+<p>you get more expansive in the types</p>
+<p>of people you&rsquo;re looking for, right?</p>
+<p>So I think, you know, in the early days,</p>
+<p>we&rsquo;d interview people and the question we were trying</p>
+<p>to ask is how close are they to Jeff Dean?</p>
+<p>And most people were pretty far away,</p>
+<p>but we take the ones that were not that far away.</p>
+<p>And so we got kind of a homogeneous group</p>
+<p>of people who were really great programmers.</p>
+<p>Then as a company grows, you say,</p>
+<p>well, we don&rsquo;t want everybody to be the same,</p>
+<p>to have the same skill set.</p>
+<p>And so now we&rsquo;re hiring biologists in our health areas</p>
+<p>and we&rsquo;re hiring physicists,</p>
+<p>we&rsquo;re hiring mechanical engineers,</p>
+<p>we&rsquo;re hiring, you know, social scientists and ethnographers</p>
+<p>and people with different backgrounds</p>
+<p>who bring different skills.</p>
+<p>So you have mentioned that you still may partake</p>
+<p>in code reviews, given that you have a wealth of experience,</p>
+<p>as you&rsquo;ve also mentioned.</p>
+<p>What errors do you often see and tend to highlight</p>
+<p>in the code of junior developers of people coming up now,</p>
+<p>given your background from Blisp</p>
+<p>to a couple of decades of programming?</p>
+<p>Yeah, that&rsquo;s a great question.</p>
+<p>You know, sometimes I try to look at the flexibility</p>
+<p>of the design of, yes, you know, this API solves this problem,</p>
+<p>but where is it gonna go in the future?</p>
+<p>Who else is gonna wanna call this?</p>
+<p>And, you know, are you making it easier for them to do that?</p>
+<p>That&rsquo;s a matter of design, is it documentation,</p>
+<p>is it sort of an amorphous thing</p>
+<p>you can&rsquo;t really put into words?</p>
+<p>It&rsquo;s just how it feels.</p>
+<p>If you put yourself in the shoes of a developer,</p>
+<p>would you use this kind of thing?</p>
+<p>I think it is how you feel, right?</p>
+<p>And so yeah, documentation is good,</p>
+<p>but it&rsquo;s more a design question, right?</p>
+<p>If you get the design right,</p>
+<p>then people will figure it out,</p>
+<p>whether the documentation is good or not.</p>
+<p>And if the design&rsquo;s wrong, then it&rsquo;d be harder to use.</p>
+<p>How have you yourself changed as a programmer over the years?</p>
+<p>In a way, you already started to say sort of,</p>
+<p>you want to read the manual,</p>
+<p>you want to understand the core of the syntax</p>
+<p>to how the language is supposed to be used and so on.</p>
+<p>But what&rsquo;s the evolution been like</p>
+<p>from the 80s, 90s to today?</p>
+<p>I guess one thing is you don&rsquo;t have to worry</p>
+<p>about the small details of efficiency</p>
+<p>as much as you used to, right?</p>
+<p>So like I remember I did my list book in the 90s,</p>
+<p>and one of the things I wanted to do was say,</p>
+<p>here&rsquo;s how you do an object system.</p>
+<p>And basically, we&rsquo;re going to make it</p>
+<p>so each object is a hash table,</p>
+<p>and you look up the methods, and here&rsquo;s how it works.</p>
+<p>And then I said, of course,</p>
+<p>the real Common Lisp object system is much more complicated.</p>
+<p>It&rsquo;s got all these efficiency type issues,</p>
+<p>and this is just a toy,</p>
+<p>and nobody would do this in real life.</p>
+<p>And it turns out Python pretty much did exactly</p>
+<p>what I said and said objects are just dictionaries.</p>
+<p>And yeah, they have a few little tricks as well.</p>
+<p>But mostly, the thing that would have been</p>
+<p>100 times too slow in the 80s</p>
+<p>is now plenty fast for most everything.</p>
+<p>So you had to, as a programmer,</p>
+<p>let go of perhaps an obsession</p>
+<p>that I remember coming up with</p>
+<p>of trying to write efficient code.</p>
+<p>Yeah, to say what really matters</p>
+<p>is the total time it takes to get the project done.</p>
+<p>And most of that&rsquo;s gonna be the programmer time.</p>
+<p>So if you&rsquo;re a little bit less efficient,</p>
+<p>but it makes it easier to understand and modify,</p>
+<p>then that&rsquo;s the right trade off.</p>
+<p>So you&rsquo;ve written quite a bit about Lisp.</p>
+<p>Your book on programming is in Lisp.</p>
+<p>You have a lot of code out there that&rsquo;s in Lisp.</p>
+<p>So myself and people who don&rsquo;t know what Lisp is</p>
+<p>should look it up.</p>
+<p>It&rsquo;s my favorite language for many AI researchers.</p>
+<p>It is a favorite language.</p>
+<p>The favorite language they never use these days.</p>
+<p>So what part of Lisp do you find most beautiful and powerful?</p>
+<p>So I think the beautiful part is the simplicity</p>
+<p>that in half a page, you can define the whole language.</p>
+<p>And other languages don&rsquo;t have that.</p>
+<p>So you feel like you can hold everything in your head.</p>
+<p>And then a lot of people say,</p>
+<p>well, then that&rsquo;s too simple.</p>
+<p>Here&rsquo;s all these things I wanna do.</p>
+<p>And my Java or Python or whatever</p>
+<p>has 100 or 200 or 300 different syntax rules</p>
+<p>and don&rsquo;t I need all those?</p>
+<p>And Lisp&rsquo;s answer was, no, we&rsquo;re only gonna give you</p>
+<p>eight or so syntax rules,</p>
+<p>but we&rsquo;re gonna allow you to define your own.</p>
+<p>And so that was a very powerful idea.</p>
+<p>And I think this idea of saying,</p>
+<p>I can start with my problem and with my data,</p>
+<p>and then I can build the language I want for that problem</p>
+<p>and for that data.</p>
+<p>And then I can make Lisp define that language.</p>
+<p>So you&rsquo;re sort of mixing levels and saying,</p>
+<p>I&rsquo;m simultaneously a programmer in a language</p>
+<p>and a language designer.</p>
+<p>And that allows a better match between your problem</p>
+<p>and your eventual code.</p>
+<p>And I think Lisp had done that better than other languages.</p>
+<p>Yeah, it&rsquo;s a very elegant implementation</p>
+<p>of functional programming.</p>
+<p>But why do you think Lisp has not had the mass adoption</p>
+<p>and success of languages like Python?</p>
+<p>Is it the parentheses?</p>
+<p>Is it all the parentheses?</p>
+<p>Yeah, so I think a couple things.</p>
+<p>So one was, I think it was designed for a single programmer</p>
+<p>or a small team and a skilled programmer</p>
+<p>who had the good taste to say,</p>
+<p>well, I am doing language design</p>
+<p>and I have to make good choices.</p>
+<p>And if you make good choices, that&rsquo;s great.</p>
+<p>If you make bad choices, you can hurt yourself</p>
+<p>and it can be hard for other people on the team</p>
+<p>to understand it.</p>
+<p>So I think there was a limit to the scale</p>
+<p>of the size of a project in terms of number of people</p>
+<p>that Lisp was good for.</p>
+<p>And as an industry, we kind of grew beyond that.</p>
+<p>I think it is in part the parentheses.</p>
+<p>You know, one of the jokes is the acronym for Lisp</p>
+<p>is lots of irritating, silly parentheses.</p>
+<p>My acronym was Lisp is syntactically pure,</p>
+<p>saying all you need is parentheses and atoms.</p>
+<p>But I remember, you know, as we had the AI textbook</p>
+<p>and because we did it in the nineties,</p>
+<p>we had pseudocode in the book,</p>
+<p>but then we said, well, we&rsquo;ll have Lisp online</p>
+<p>because that&rsquo;s the language of AI at the time.</p>
+<p>And I remember some of the students complaining</p>
+<p>because they hadn&rsquo;t had Lisp before</p>
+<p>and they didn&rsquo;t quite understand what was going on.</p>
+<p>And I remember one student complained,</p>
+<p>I don&rsquo;t understand how this pseudocode</p>
+<p>corresponds to this Lisp.</p>
+<p>And there was a one to one correspondence</p>
+<p>between the symbols in the code and the pseudocode.</p>
+<p>And the only thing difference was the parentheses.</p>
+<p>So I said, it must be that for some people,</p>
+<p>a certain number of left parentheses shuts off their brain.</p>
+<p>Yeah, it&rsquo;s very possible in that sense</p>
+<p>and Python just goes the other way.</p>
+<p>So that was the point at which I said,</p>
+<p>okay, can&rsquo;t have only Lisp as a language.</p>
+<p>Cause I don&rsquo;t wanna, you know,</p>
+<p>you only got 10 or 12 or 15 weeks or whatever it is</p>
+<p>to teach AI and I don&rsquo;t want to waste two weeks</p>
+<p>of that teaching Lisp.</p>
+<p>So I say, I gotta have another language.</p>
+<p>Java was the most popular language at the time.</p>
+<p>I started doing that.</p>
+<p>And then I said, it&rsquo;s really hard to have a one to one</p>
+<p>correspondence between the pseudocode and the Java</p>
+<p>because Java is so verbose.</p>
+<p>So then I said, I&rsquo;m gonna do a survey</p>
+<p>and find the language that&rsquo;s most like my pseudocode.</p>
+<p>And it turned out Python basically was my pseudocode.</p>
+<p>Somehow I had channeled Guido,</p>
+<p>designed a pseudocode that was the same as Python,</p>
+<p>although I hadn&rsquo;t heard of Python at that point.</p>
+<p>And from then on, that&rsquo;s what I&rsquo;ve been using</p>
+<p>cause it&rsquo;s been a good match.</p>
+<p>So what&rsquo;s the story in Python behind PyTudes?</p>
+<p>Your GitHub repository with puzzles and exercises</p>
+<p>in Python is pretty fun.</p>
+<p>Yeah, just it, it seems like fun, you know,</p>
+<p>I like doing puzzles and I like being an educator.</p>
+<p>I did a class with Udacity, Udacity 212, I think it was.</p>
+<p>It was basically problem solving using Python</p>
+<p>and looking at different problems.</p>
+<p>Does PyTudes feed that class in terms of the exercises?</p>
+<p>I was wondering what the&hellip;</p>
+<p>Yeah, so the class came first.</p>
+<p>Some of the stuff that&rsquo;s in PyTudes was write ups</p>
+<p>of what was in the class and then some of it</p>
+<p>was just continuing to work on new problems.</p>
+<p>So what&rsquo;s the organizing madness of PyTudes?</p>
+<p>Is it just a collection of cool exercises?</p>
+<p>Just whatever I thought was fun.</p>
+<p>Okay, awesome.</p>
+<p>So you were the director of search quality at Google</p>
+<p>from 2001 to 2005 in the early days</p>
+<p>when there&rsquo;s just a few employees</p>
+<p>and when the company was growing like crazy, right?</p>
+<p>So, I mean, Google revolutionized the way we discover,</p>
+<p>share and aggregate knowledge.</p>
+<p>So just, this is one of the fundamental aspects</p>
+<p>of civilization, right, is information being shared</p>
+<p>and there&rsquo;s different mechanisms throughout history</p>
+<p>but Google has just 10x improved that, right?</p>
+<p>And you&rsquo;re a part of that, right?</p>
+<p>People discovering that information.</p>
+<p>So what were some of the challenges on a philosophical</p>
+<p>or the technical level in those early days?</p>
+<p>It definitely was an exciting time</p>
+<p>and as you say, we were doubling in size every year</p>
+<p>and the challenges were we wanted</p>
+<p>to get the right answers, right?</p>
+<p>And we had to figure out what that meant.</p>
+<p>We had to implement that and we had to make it all efficient</p>
+<p>and we had to keep on testing</p>
+<p>and seeing if we were delivering good answers.</p>
+<p>And now when you say good answers,</p>
+<p>it means whatever people are typing in</p>
+<p>in terms of keywords, in terms of that kind of thing</p>
+<p>that the results they get are ordered</p>
+<p>by the desirability for them of those results.</p>
+<p>Like they&rsquo;re like, the first thing they click on</p>
+<p>will likely be the thing that they were actually looking for.</p>
+<p>Right, one of the metrics we had</p>
+<p>was focused on the first thing.</p>
+<p>Some of it was focused on the whole page.</p>
+<p>Some of it was focused on top three or so.</p>
+<p>So we looked at a lot of different metrics</p>
+<p>for how well we were doing</p>
+<p>and we broke it down into subclasses of,</p>
+<p>maybe here&rsquo;s a type of query that we&rsquo;re not doing well on</p>
+<p>and we try to fix that.</p>
+<p>Early on we started to realize that we were in an adversarial</p>
+<p>position, right, so we started thinking,</p>
+<p>well, we&rsquo;re kind of like the card catalog in the library,</p>
+<p>right, so the books are here and we&rsquo;re off to the side</p>
+<p>and we&rsquo;re just reflecting what&rsquo;s there.</p>
+<p>And then we realized every time we make a change,</p>
+<p>the webmasters make a change and it&rsquo;s game theoretic.</p>
+<p>And so we had to think not only of is this the right move</p>
+<p>for us to make now, but also if we make this move,</p>
+<p>what&rsquo;s the counter move gonna be?</p>
+<p>Is that gonna get us into a worse place,</p>
+<p>in which case we won&rsquo;t make that move,</p>
+<p>we&rsquo;ll make a different move.</p>
+<p>And did you find, I mean, I assume with the popularity</p>
+<p>and the growth of the internet</p>
+<p>that people were creating new content,</p>
+<p>so you&rsquo;re almost helping guide the creation of new content.</p>
+<p>Yeah, so that&rsquo;s certainly true, right,</p>
+<p>so we definitely changed the structure of the network.</p>
+<p>So if you think back in the very early days,</p>
+<p>Larry and Sergey had the PageRank paper</p>
+<p>and John Kleinberg had this hubs and authorities model,</p>
+<p>which says the web is made out of these hubs,</p>
+<p>which will be my page of cool links about dogs or whatever,</p>
+<p>and people would just list links.</p>
+<p>And then there&rsquo;d be authorities,</p>
+<p>which were the page about dogs that most people linked to.</p>
+<p>That doesn&rsquo;t happen anymore.</p>
+<p>People don&rsquo;t bother to say my page of cool links,</p>
+<p>because we took over that function, right,</p>
+<p>so we changed the way that worked.</p>
+<p>Did you imagine back then that the internet</p>
+<p>would be as massively vibrant as it is today?</p>
+<p>I mean, it was already growing quickly,</p>
+<p>but it&rsquo;s just another, I don&rsquo;t know if you&rsquo;ve ever,</p>
+<p>today, if you sit back and just look at the internet</p>
+<p>with wonder the amount of content</p>
+<p>that&rsquo;s just constantly being created,</p>
+<p>constantly being shared and deployed.</p>
+<p>Yeah, it&rsquo;s always been surprising to me.</p>
+<p>I guess I&rsquo;m not very good at predicting the future.</p>
+<p>And I remember being a graduate student in 1980 or so,</p>
+<p>and we had the ARPANET,</p>
+<p>and then there was this proposal to commercialize it,</p>
+<p>and have this internet, and this crazy Senator Gore</p>
+<p>thought that might be a good idea.</p>
+<p>And I remember thinking, oh, come on,</p>
+<p>you can&rsquo;t expect a commercial company</p>
+<p>to understand this technology.</p>
+<p>They&rsquo;ll never be able to do it.</p>
+<p>Yeah, okay, we can have this.com domain,</p>
+<p>but it won&rsquo;t go anywhere.</p>
+<p>So I was wrong, Al Gore was right.</p>
+<p>At the same time, the nature of what it means</p>
+<p>to be a commercial company has changed, too.</p>
+<p>So Google, in many ways, at its founding</p>
+<p>is different than what companies were before, I think.</p>
+<p>Right, so there&rsquo;s all these business models</p>
+<p>that are so different than what was possible back then.</p>
+<p>So in terms of predicting the future,</p>
+<p>what do you think it takes to build a system</p>
+<p>that approaches human level intelligence?</p>
+<p>You&rsquo;ve talked about, of course,</p>
+<p>that we shouldn&rsquo;t be so obsessed</p>
+<p>about creating human level intelligence.</p>
+<p>We just create systems that are very useful for humans.</p>
+<p>But what do you think it takes</p>
+<p>to approach that level?</p>
+<p>Right, so certainly I don&rsquo;t think</p>
+<p>human level intelligence is one thing, right?</p>
+<p>So I think there&rsquo;s lots of different tasks,</p>
+<p>lots of different capabilities.</p>
+<p>I also don&rsquo;t think that should be the goal, right?</p>
+<p>So I wouldn&rsquo;t wanna create a calculator</p>
+<p>that could do multiplication at human level, right?</p>
+<p>That would be a step backwards.</p>
+<p>And so for many things,</p>
+<p>we should be aiming far beyond human level</p>
+<p>for other things.</p>
+<p>Maybe human level is a good level to aim at.</p>
+<p>And for others, we&rsquo;d say,</p>
+<p>well, let&rsquo;s not bother doing this</p>
+<p>because we already have humans can take on those tasks.</p>
+<p>So as you say, I like to focus on what&rsquo;s a useful tool.</p>
+<p>And in some cases, being at human level</p>
+<p>is an important part of crossing that threshold</p>
+<p>to make the tool useful.</p>
+<p>So we see in things like these personal assistants now</p>
+<p>that you get either on your phone</p>
+<p>or on a speaker that sits on the table,</p>
+<p>you wanna be able to have a conversation with those.</p>
+<p>And I think as an industry,</p>
+<p>we haven&rsquo;t quite figured out what the right model is</p>
+<p>for what these things can do.</p>
+<p>And we&rsquo;re aiming towards,</p>
+<p>well, you just have a conversation with them</p>
+<p>the way you can with a person.</p>
+<p>But we haven&rsquo;t delivered on that model yet, right?</p>
+<p>So you can ask it, what&rsquo;s the weather?</p>
+<p>You can ask it, play some nice songs.</p>
+<p>And five or six other things,</p>
+<p>and then you run out of stuff that it can do.</p>
+<p>In terms of a deep, meaningful connection.</p>
+<p>So you&rsquo;ve mentioned the movie Her</p>
+<p>as one of your favorite AI movies.</p>
+<p>Do you think it&rsquo;s possible for a human being</p>
+<p>to fall in love with an AI assistant, as you mentioned?</p>
+<p>So taking this big leap from what&rsquo;s the weather</p>
+<p>to having a deep connection.</p>
+<p>Yeah, I think as people, that&rsquo;s what we love to do.</p>
+<p>And I was at a showing of Her</p>
+<p>where we had a panel discussion and somebody asked me,</p>
+<p>what other movie do you think Her is similar to?</p>
+<p>And my answer was Life of Brian,</p>
+<p>which is not a science fiction movie,</p>
+<p>but both movies are about wanting to believe</p>
+<p>in something that&rsquo;s not necessarily real.</p>
+<p>Yeah, by the way, for people that don&rsquo;t know,</p>
+<p>it&rsquo;s Monty Python.</p>
+<p>Yeah, it&rsquo;s been brilliantly put.</p>
+<p>Right, so I think that&rsquo;s just the way we are.</p>
+<p>We want to trust, we want to believe,</p>
+<p>we want to fall in love,</p>
+<p>and it doesn&rsquo;t necessarily take that much, right?</p>
+<p>So my kids fell in love with their teddy bear,</p>
+<p>and the teddy bear was not very interactive.</p>
+<p>So that&rsquo;s all us pushing our feelings</p>
+<p>onto our devices and our things,</p>
+<p>and I think that that&rsquo;s what we like to do,</p>
+<p>so we&rsquo;ll continue to do that.</p>
+<p>So yeah, as human beings, we long for that connection,</p>
+<p>and just AI has to do a little bit of work</p>
+<p>to catch us in the other end.</p>
+<p>Yeah, and certainly, if you can get to dog level,</p>
+<p>a lot of people have invested a lot of love in their pets.</p>
+<p>In their pets.</p>
+<p>Some people, as I&rsquo;ve been told,</p>
+<p>in working with autonomous vehicles,</p>
+<p>have invested a lot of love into their inanimate cars,</p>
+<p>so it really doesn&rsquo;t take much.</p>
+<p>So what is a good test to linger on a topic</p>
+<p>that may be silly or a little bit philosophical?</p>
+<p>What is a good test of intelligence in your view?</p>
+<p>Is natural conversation like in the Turing test</p>
+<p>a good test?</p>
+<p>Put another way, what would impress you</p>
+<p>if you saw a computer do it these days?</p>
+<p>Yeah, I mean, I get impressed all the time.</p>
+<p>Go playing, StarCraft playing, those are all pretty cool.</p>
+<p>And I think, sure, conversation is important.</p>
+<p>I think we sometimes have these tests</p>
+<p>where it&rsquo;s easy to fool the system, where</p>
+<p>you can have a chat bot that can have a conversation,</p>
+<p>but it never gets into a situation</p>
+<p>where it has to be deep enough that it really reveals itself</p>
+<p>as being intelligent or not.</p>
+<p>I think Turing suggested that, but I think if he were alive,</p>
+<p>he&rsquo;d say, you know, I didn&rsquo;t really mean that seriously.</p>
+<p>And I think, this is just my opinion,</p>
+<p>but I think Turing&rsquo;s point was not</p>
+<p>that this test of conversation is a good test.</p>
+<p>I think his point was having a test is the right thing.</p>
+<p>So rather than having the philosophers say, oh, no,</p>
+<p>AI is impossible, you should say, well,</p>
+<p>we&rsquo;ll just have a test, and then the result of that</p>
+<p>will tell us the answer.</p>
+<p>And it doesn&rsquo;t necessarily have to be a conversation test.</p>
+<p>That&rsquo;s right.</p>
+<p>And coming up a new, better test as the technology evolves</p>
+<p>is probably the right way.</p>
+<p>Do you worry, as a lot of the general public does about,</p>
+<p>not a lot, but some vocal part of the general public</p>
+<p>about the existential threat of artificial intelligence?</p>
+<p>So looking farther into the future, as you said,</p>
+<p>most of us are not able to predict much.</p>
+<p>So when shrouded in such mystery, there&rsquo;s a concern of,</p>
+<p>well, you start thinking about worst case.</p>
+<p>Is that something that occupies your mind, space, much?</p>
+<p>So I certainly think about threats.</p>
+<p>I think about dangers.</p>
+<p>And I think any new technology has positives and negatives.</p>
+<p>And if it&rsquo;s a powerful technology,</p>
+<p>it can be used for bad as well as for good.</p>
+<p>So I&rsquo;m certainly not worried about the robot</p>
+<p>apocalypse and the Terminator type scenarios.</p>
+<p>I am worried about change in employment.</p>
+<p>And are we going to be able to react fast enough</p>
+<p>to deal with that?</p>
+<p>I think we&rsquo;re already seeing it today, where</p>
+<p>a lot of people are disgruntled about the way</p>
+<p>income inequality is working.</p>
+<p>And automation could help accelerate</p>
+<p>those kinds of problems.</p>
+<p>I see powerful technologies can always be used as weapons,</p>
+<p>whether they&rsquo;re robots or drones or whatever.</p>
+<p>Some of that we&rsquo;re seeing due to AI.</p>
+<p>A lot of it, you don&rsquo;t need AI.</p>
+<p>And I don&rsquo;t know what&rsquo;s a worst threat,</p>
+<p>if it&rsquo;s an autonomous drone or it&rsquo;s CRISPR technology</p>
+<p>becoming available.</p>
+<p>Or we have lots of threats to face.</p>
+<p>And some of them involve AI, and some of them don&rsquo;t.</p>
+<p>So the threats that technology presents,</p>
+<p>are you, for the most part, optimistic about technology</p>
+<p>also alleviating those threats or creating new opportunities</p>
+<p>or protecting us from the more detrimental effects</p>
+<p>of these new technologies?</p>
+<p>I don&rsquo;t know.</p>
+<p>Again, it&rsquo;s hard to predict the future.</p>
+<p>And as a society so far, we&rsquo;ve survived</p>
+<p>nuclear bombs and other things.</p>
+<p>Of course, only societies that have survived</p>
+<p>are having this conversation.</p>
+<p>So maybe that&rsquo;s survivorship bias there.</p>
+<p>What problem stands out to you as exciting, challenging,</p>
+<p>impactful to work on in the near future for yourself,</p>
+<p>for the community, and broadly?</p>
+<p>So we talked about these assistance and conversation.</p>
+<p>I think that&rsquo;s a great area.</p>
+<p>I think combining common sense reasoning</p>
+<p>with the power of data is a great area.</p>
+<p>In which application?</p>
+<p>In conversation, or just broadly speaking?</p>
+<p>Just in general, yeah.</p>
+<p>As a programmer, I&rsquo;m interested in programming tools,</p>
+<p>both in terms of the current systems</p>
+<p>we have today with TensorFlow and so on.</p>
+<p>Can we make them much easier to use</p>
+<p>for a broader class of people?</p>
+<p>And also, can we apply machine learning</p>
+<p>to the more traditional type of programming?</p>
+<p>So when you go to Google and you type in a query</p>
+<p>and you spell something wrong, it says, did you mean?</p>
+<p>And the reason we&rsquo;re able to do that</p>
+<p>is because lots of other people made a similar error,</p>
+<p>and then they corrected it.</p>
+<p>We should be able to go into our code bases and our bug fix</p>
+<p>bases.</p>
+<p>And when I type a line of code, it should be able to say,</p>
+<p>did you mean such and such?</p>
+<p>If you type this today, you&rsquo;re probably going to type</p>
+<p>in this bug fix tomorrow.</p>
+<p>Yeah, that&rsquo;s a really exciting application</p>
+<p>of almost an assistant for the coding programming experience</p>
+<p>at every level.</p>
+<p>So I think I could safely speak for the entire AI community,</p>
+<p>first of all, for thanking you for the amazing work you&rsquo;ve</p>
+<p>done, certainly for the amazing work you&rsquo;ve done</p>
+<p>with AI and Modern Approach book.</p>
+<p>I think we&rsquo;re all looking forward very much</p>
+<p>for the fourth edition, and then the fifth edition, and so on.</p>
+<p>So Peter, thank you so much for talking today.</p>
+<p>Yeah, thank you.</p>
+<p>My pleasure.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

@@ -1,0 +1,2809 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Scott Aaronson,
+a professor at UT Austin,
+director of its Quantum Information Center,
+and previously a professor at MIT.
+His research interests center
+around the capabilities and limits of quantum computers
+and computational complexity theory more generally.
+He is an excellent writer
+and one of my favorite communicators
+of computer science in the world.
+We only had about an hour and a half of this conversation,'>
+<title>Lex Fridman Podcast - #72 - Scott Aaronson: Quantum Computing | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500072/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #72 - Scott Aaronson: Quantum Computing'>
+<meta property='og:description' content='The following is a conversation with Scott Aaronson,
+a professor at UT Austin,
+director of its Quantum Information Center,
+and previously a professor at MIT.
+His research interests center
+around the capabilities and limits of quantum computers
+and computational complexity theory more generally.
+He is an excellent writer
+and one of my favorite communicators
+of computer science in the world.
+We only had about an hour and a half of this conversation,'>
+<meta property='og:url' content='https://swiest.com/en/1310500072/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-05-11T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-05-11T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #72 - Scott Aaronson: Quantum Computing">
+<meta name="twitter:description" content="The following is a conversation with Scott Aaronson,
+a professor at UT Austin,
+director of its Quantum Information Center,
+and previously a professor at MIT.
+His research interests center
+around the capabilities and limits of quantum computers
+and computational complexity theory more generally.
+He is an excellent writer
+and one of my favorite communicators
+of computer science in the world.
+We only had about an hour and a half of this conversation,">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500072/">Lex Fridman Podcast - #72 - Scott Aaronson: Quantum Computing</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-05-11</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    72 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Scott Aaronson,</p>
+<p>a professor at UT Austin,</p>
+<p>director of its Quantum Information Center,</p>
+<p>and previously a professor at MIT.</p>
+<p>His research interests center</p>
+<p>around the capabilities and limits of quantum computers</p>
+<p>and computational complexity theory more generally.</p>
+<p>He is an excellent writer</p>
+<p>and one of my favorite communicators</p>
+<p>of computer science in the world.</p>
+<p>We only had about an hour and a half of this conversation,</p>
+<p>so I decided to focus on quantum computing.</p>
+<p>But I can see us talking again in the future</p>
+<p>on this podcast at some point</p>
+<p>about computational complexity theory</p>
+<p>and all the complexity classes that Scott catalogs</p>
+<p>in his amazing Complexity Zoo Wiki.</p>
+<p>As a quick aside,</p>
+<p>based on questions and comments I&rsquo;ve received,</p>
+<p>my goal with these conversations</p>
+<p>is to try to be in the background without ego</p>
+<p>and do three things.</p>
+<p>One, let the guests shine</p>
+<p>and try to discover together</p>
+<p>the most beautiful insights in their work</p>
+<p>and in their mind.</p>
+<p>Two, try to play devil&rsquo;s advocate</p>
+<p>just enough to provide a creative tension</p>
+<p>in exploring ideas through conversation.</p>
+<p>And three, to ask very basic questions</p>
+<p>about terminology, about concepts, about ideas.</p>
+<p>Many of the topics we talk about in the podcast</p>
+<p>I&rsquo;ve been studying for years</p>
+<p>as a grad student, as a researcher,</p>
+<p>and generally as a curious human who loves to read.</p>
+<p>But frankly, I see myself in these conversations</p>
+<p>as the main character</p>
+<p>for one of my favorite novels by Dostoevsky</p>
+<p>called The Idiot.</p>
+<p>I enjoy playing dumb.</p>
+<p>Clearly, it comes naturally.</p>
+<p>But the basic questions</p>
+<p>don&rsquo;t come from my ignorance of the subject</p>
+<p>but from an instinct that the fundamentals are simple.</p>
+<p>And if we linger on them</p>
+<p>from almost a naive perspective,</p>
+<p>we can draw an insightful thread</p>
+<p>from computer science to neuroscience</p>
+<p>to physics to philosophy</p>
+<p>and to artificial intelligence.</p>
+<p>This is the Artificial Intelligence Podcast.</p>
+<p>If you enjoy it, subscribe on YouTube,</p>
+<p>give it five stars on Apple Podcast,</p>
+<p>support it on Patreon,</p>
+<p>or simply connect with me on Twitter</p>
+<p>at Lex Friedman, spelled F R I D M A N.</p>
+<p>As usual, I&rsquo;ll do one or two minutes of ads now</p>
+<p>and never any ads in the middle</p>
+<p>that can break the flow of the conversation.</p>
+<p>I hope that works for you</p>
+<p>and doesn&rsquo;t hurt the listening experience.</p>
+<p>Quick summary of the ads.</p>
+<p>Two supporters today.</p>
+<p>First, get Cash App and use the code LEX PODCAST.</p>
+<p>Second, listen to the Tech Meme Ride Home podcast</p>
+<p>for tech news.</p>
+<p>Search Ride Home, two words, in your podcast app.</p>
+<p>This show is presented by Cash App,</p>
+<p>the number one finance app in the App Store.</p>
+<p>When you get it, use code LEX PODCAST.</p>
+<p>Cash App lets you send money to friends,</p>
+<p>buy Bitcoin, and invest in the stock market</p>
+<p>with as little as one dollar.</p>
+<p>Broker services are provided by Cash App Investing,</p>
+<p>a subsidiary of Square, a member SIPC.</p>
+<p>Since Cash App does fractional share trading,</p>
+<p>let me mention that the order execution algorithm</p>
+<p>that works behind the scenes</p>
+<p>to create the abstraction of fractional orders</p>
+<p>is an algorithmic marvel.</p>
+<p>So big props to the Cash App engineers</p>
+<p>for solving a hard problem that in the end</p>
+<p>provides an easy interface that takes a step up</p>
+<p>to the next layer of abstraction over the stock market,</p>
+<p>making trading more accessible for new investors</p>
+<p>and diversification much easier.</p>
+<p>So again, if you get Cash App from the App Store</p>
+<p>or Google Play and use the code LEX PODCAST,</p>
+<p>you&rsquo;ll get $10 and Cash App will also donate $10 to FIRST,</p>
+<p>one of my favorite organizations</p>
+<p>that is helping to advance robotics and STEM education</p>
+<p>for young people around the world.</p>
+<p>This episode is also supported</p>
+<p>by the Tech Meme Ride Home Podcast.</p>
+<p>It&rsquo;s a technology podcast I&rsquo;ve been listening to</p>
+<p>for a while and really enjoying.</p>
+<p>It goes straight to the point,</p>
+<p>gives you the tech news you need to know</p>
+<p>and provides minimal but essential context.</p>
+<p>It&rsquo;s released every day by 5 p.m. Eastern</p>
+<p>and is only about 15 to 20 minutes long.</p>
+<p>For fun, I like building apps on smartphones,</p>
+<p>most on Android, so I&rsquo;m always a little curious</p>
+<p>about new flagship phones that come out.</p>
+<p>I saw that Samsung announced the new Galaxy S20</p>
+<p>and of course, right away, Tech Meme Ride Home</p>
+<p>has a new episode that summarizes all that I needed to know</p>
+<p>about this new device.</p>
+<p>They&rsquo;ve also started to do weekend bonus episodes</p>
+<p>with interviews of people like AWOL founder Steve Case</p>
+<p>on investing and Gary Marcus on AI,</p>
+<p>who I&rsquo;ve also interviewed on this podcast.</p>
+<p>You can find the Tech Meme Ride Home Podcast</p>
+<p>if you search your podcast app for Ride Home, two words.</p>
+<p>Then subscribe, enjoy, and keep up to date</p>
+<p>with the latest tech news.</p>
+<p>And now, here&rsquo;s my conversation with Scott Aaronson.</p>
+<p>I sometimes get criticism from a listener here and there</p>
+<p>that while having a conversation</p>
+<p>with a world class mathematician, physicist,</p>
+<p>neurobiologist, aerospace engineer,</p>
+<p>or a theoretical computer scientist like yourself,</p>
+<p>I waste time by asking philosophical questions</p>
+<p>about free will, consciousness, mortality, love,</p>
+<p>nature of truth, super intelligence,</p>
+<p>whether time travel is possible,</p>
+<p>whether space time is emergent and fundamental,</p>
+<p>even the crazier questions like whether aliens exist,</p>
+<p>what their language might look like,</p>
+<p>what their math might look like,</p>
+<p>whether math is invented or discovered,</p>
+<p>and of course, whether we live in a simulation or not.</p>
+<p>So I try.</p>
+<p>Out with it.</p>
+<p>I try to dance back and forth from the deep technical</p>
+<p>to the philosophical, so I&rsquo;ve done that quite a bit.</p>
+<p>So you&rsquo;re a world class computer scientist,</p>
+<p>and yet you&rsquo;ve written about this very point,</p>
+<p>the philosophy is important for experts</p>
+<p>in any technical discipline,</p>
+<p>though they somehow seem to avoid this.</p>
+<p>So I thought it&rsquo;d be really interesting</p>
+<p>to talk to you about this point.</p>
+<p>Why should we computer scientists, mathematicians,</p>
+<p>physicists care about philosophy, do you think?</p>
+<p>Well, I would reframe the question a little bit.</p>
+<p>I mean, philosophy almost by definition</p>
+<p>is the subject that&rsquo;s concerned with the biggest questions</p>
+<p>that you could possibly ask, right?</p>
+<p>So the ones you mentioned, right?</p>
+<p>Are we living in a simulation?</p>
+<p>Are we alone in the universe?</p>
+<p>How should we even think about such questions?</p>
+<p>Is the future determined,</p>
+<p>and what do we even mean by it being determined?</p>
+<p>Why are we alive at the time we are</p>
+<p>and not at some other time?</p>
+<p>And when you sort of contemplate</p>
+<p>the enormity of those questions,</p>
+<p>I think you could ask,</p>
+<p>well, then why be concerned with anything else, right?</p>
+<p>Why not spend your whole life on those questions?</p>
+<p>I think in some sense,</p>
+<p>that is the right way to phrase the question.</p>
+<p>And actually, what we learned, I mean, throughout history,</p>
+<p>but really starting with the scientific revolution</p>
+<p>with Galileo and so on,</p>
+<p>is that there is a good reason to focus</p>
+<p>on narrower questions, more technical,</p>
+<p>mathematical or empirical questions.</p>
+<p>And that is that you can actually make progress on them,</p>
+<p>and you can actually often answer them.</p>
+<p>And sometimes they actually tell you something</p>
+<p>about the philosophical questions</p>
+<p>that sort of maybe motivated your curiosity as a child.</p>
+<p>They don&rsquo;t necessarily resolve the philosophical questions,</p>
+<p>but sometimes they reframe</p>
+<p>your whole understanding of them, right?</p>
+<p>And so for me, philosophy is just the thing</p>
+<p>that you have in the background from the very beginning</p>
+<p>that you want to, these are sort of the reasons</p>
+<p>why you went into intellectual life in the first place,</p>
+<p>at least the reasons why I did, right?</p>
+<p>But math and science are tools that we have</p>
+<p>for actually making progress.</p>
+<p>And hopefully even changing our understanding</p>
+<p>of these philosophical questions,</p>
+<p>sometimes even more than philosophy itself does.</p>
+<p>Why do you think computer scientists avoid these questions?</p>
+<p>We&rsquo;ll run away from them a little bit,</p>
+<p>at least in a technical scientific discourse.</p>
+<p>Well, I&rsquo;m not sure if they do so</p>
+<p>more than any other scientists do.</p>
+<p>I mean, Alan Turing was famously interested</p>
+<p>and his most famous, one of his two most famous papers</p>
+<p>was in a philosophy journal mind.</p>
+<p>It was the one where he proposed the Turing test.</p>
+<p>He took a Wittgenstein&rsquo;s course at Cambridge,</p>
+<p>argued with him.</p>
+<p>I just recently learned that little bit</p>
+<p>and it&rsquo;s actually fascinating.</p>
+<p>I was trying to look for resources</p>
+<p>in trying to understand where the sources of disagreement</p>
+<p>and debates between Wittgenstein and Turing were.</p>
+<p>That&rsquo;s interesting that these two minds</p>
+<p>have somehow met in the arc of history.</p>
+<p>Yeah, well, the transcript of the course,</p>
+<p>which was in 1939, right,</p>
+<p>is one of the more fascinating documents that I&rsquo;ve ever read</p>
+<p>because Wittgenstein is trying to say,</p>
+<p>well, all of these formal systems</p>
+<p>are just complete irrelevancies, right?</p>
+<p>If a formal system is irrelevant, who cares?</p>
+<p>Why does that matter in real life, right?</p>
+<p>And Turing is saying, well, look,</p>
+<p>if you use an inconsistent formal system to design a bridge,</p>
+<p>the bridge may collapse, right?</p>
+<p>And so Turing, in some sense, is thinking decades ahead,</p>
+<p>you know, I think, of where Wittgenstein is,</p>
+<p>to where the formal systems are actually going to be used</p>
+<p>in computers, right, to actually do things in the world.</p>
+<p>You know, and it&rsquo;s interesting that Turing</p>
+<p>actually dropped the course halfway through.</p>
+<p>Why?</p>
+<p>Because he had to go to Bletchley Park</p>
+<p>and work on something of more immediate importance.</p>
+<p>That&rsquo;s fascinating.</p>
+<p>Take a step from philosophy to actual,</p>
+<p>like the biggest possible step to actual engineering</p>
+<p>with actual real impact.</p>
+<p>Yeah, and I would say more generally, right,</p>
+<p>a lot of scientists are interested in philosophy,</p>
+<p>but they&rsquo;re also busy, right?</p>
+<p>And they have a lot on their plate,</p>
+<p>and there are a lot of sort of very concrete questions</p>
+<p>that are already not answered,</p>
+<p>but look like they might be answerable, right?</p>
+<p>And so then you could say, well, then why break your brain</p>
+<p>over these metaphysically unanswerable questions</p>
+<p>when there were all of these answerable ones instead?</p>
+<p>So I think, you know, for me,</p>
+<p>I enjoy talking about philosophy.</p>
+<p>I even go to philosophy conferences sometimes,</p>
+<p>such as the FQXI conferences.</p>
+<p>I enjoy interacting with philosophers.</p>
+<p>I would not want to be a professional philosopher</p>
+<p>because I like being in a field where I feel like,</p>
+<p>you know, if I get too confused</p>
+<p>about the sort of eternal questions,</p>
+<p>then I can actually make progress on something.</p>
+<p>Can you maybe link on that for just a little longer?</p>
+<p>What do you think is the difference?</p>
+<p>So like the corollary of the criticism</p>
+<p>that I mentioned previously,</p>
+<p>that why ask the philosophical questions</p>
+<p>of the mathematician is if you want</p>
+<p>to ask philosophical questions,</p>
+<p>then invite a real philosopher on and ask them.</p>
+<p>So what&rsquo;s the difference between the way</p>
+<p>a computer scientist or mathematician</p>
+<p>ponders a philosophical question</p>
+<p>and a philosopher ponders a philosophical question?</p>
+<p>Well, I mean, a lot of it just depends</p>
+<p>on the individual, right?</p>
+<p>It&rsquo;s hard to make generalizations about entire fields,</p>
+<p>but, you know, I think if we tried to,</p>
+<p>if we tried to stereotype, you know,</p>
+<p>we would say that scientists very often</p>
+<p>will be less careful in their use of words.</p>
+<p>You know, I mean, philosophers are really experts</p>
+<p>in sort of, you know, like when I talk to them,</p>
+<p>they will just pounce if I, you know,</p>
+<p>use the wrong phrase for something.</p>
+<p>Experts is a very nice word.</p>
+<p>You could say sticklers.</p>
+<p>Sticklers, yeah, yeah, yeah, or, you know,</p>
+<p>they will sort of interrogate my word choices,</p>
+<p>let&rsquo;s say, to a much greater extent</p>
+<p>than scientists would, right?</p>
+<p>And scientists, you know, will often,</p>
+<p>if you ask them about a philosophical problem,</p>
+<p>like the hard problem of consciousness</p>
+<p>or free will or whatever,</p>
+<p>they will try to relate it back to, you know,</p>
+<p>recent research, you know, research about neurobiology</p>
+<p>or, you know, the best of all is research</p>
+<p>that they personally are involved with, right?</p>
+<p>And, you know, of course they will want to talk about that,</p>
+<p>you know, and it is what they will think of, you know,</p>
+<p>and of course you could have an argument</p>
+<p>that maybe, you know, it&rsquo;s all interesting as it goes,</p>
+<p>but maybe none of it touches the philosophical question,</p>
+<p>right?</p>
+<p>But, you know, but maybe, you know, a science,</p>
+<p>you know, at least it, as I said,</p>
+<p>it does tell us concrete things.</p>
+<p>And, you know, even if like a deep dive into neurobiology</p>
+<p>will not answer the hard problem of consciousness,</p>
+<p>you know, maybe it can take us about as far as we can get</p>
+<p>toward, you know, expanding our minds about it,</p>
+<p>you know, toward thinking about it in a different way.</p>
+<p>Well, I mean, I think neurobiology can do that,</p>
+<p>but, you know, with these profound philosophical questions,</p>
+<p>I mean, also art and literature do that, right?</p>
+<p>They&rsquo;re all different ways</p>
+<p>of trying to approach these questions that, you know,</p>
+<p>we don&rsquo;t, for which we don&rsquo;t even know really</p>
+<p>what an answer would look like,</p>
+<p>but, and yet somehow we can&rsquo;t help,</p>
+<p>but keep returning to the questions.</p>
+<p>And you have a kind of mathematical,</p>
+<p>beautiful mathematical way of discussing this</p>
+<p>with the idea of Q prime.</p>
+<p>Oh, right.</p>
+<p>You write that usually the only way to make progress</p>
+<p>on the big questions, like the philosophical questions</p>
+<p>we&rsquo;re talking about now is to pick off smaller sub questions.</p>
+<p>Ideally sub questions that you can attack</p>
+<p>using math, empirical observation, or both.</p>
+<p>You define the idea of a Q prime.</p>
+<p>So given an unanswerable philosophical riddle Q,</p>
+<p>replace it with a merely, in quotes, scientific</p>
+<p>or mathematical question Q prime,</p>
+<p>which captures part of what people have wanted to know</p>
+<p>when they first asked Q.</p>
+<p>Then with luck, one solves Q prime.</p>
+<p>So you described some examples of such Q prime sub questions</p>
+<p>in your long essay titled,</p>
+<p>Why Philosophers Should Care About Computational Complexity.</p>
+<p>So you catalog the various Q primes</p>
+<p>on which you think theoretical computer science</p>
+<p>has made progress.</p>
+<p>Can you mention a few favorites, if any pop to mind,</p>
+<p>or do you remember some?</p>
+<p>Well, yeah.</p>
+<p>So, I mean, I would say some of the most famous examples</p>
+<p>in history of that sort of replacement were,</p>
+<p>I mean, to go back to Alan Turing, right?</p>
+<p>What he did in his computing machinery</p>
+<p>and intelligence paper was exactly,</p>
+<p>he explicitly started with the question,</p>
+<p>can machines think?</p>
+<p>And then he said, sorry,</p>
+<p>I think that question is too meaningless,</p>
+<p>but here&rsquo;s a different question.</p>
+<p>Could you program a computer</p>
+<p>so that you couldn&rsquo;t tell the difference</p>
+<p>between it and a human, right?</p>
+<p>And yeah.</p>
+<p>So in the very first few sentences,</p>
+<p>he in fact just formulates the Q prime question.</p>
+<p>He does precisely that.</p>
+<p>Or we could look at Gödel, right?</p>
+<p>Where you had these philosophers arguing for centuries</p>
+<p>about the limits of mathematical reasoning, right?</p>
+<p>The limits of formal systems.</p>
+<p>And then by the early 20th century,</p>
+<p>logicians, starting with Frege, Russell,</p>
+<p>and then most spectacularly Gödel,</p>
+<p>managed to reframe those questions as,</p>
+<p>look, we have these formal systems.</p>
+<p>They have these definite rules.</p>
+<p>Are there questions that we can phrase</p>
+<p>within the rules of these systems</p>
+<p>that are not provable within the rules of the systems?</p>
+<p>And can we prove that fact, right?</p>
+<p>And so that would be another example.</p>
+<p>You know, I had this essay called</p>
+<p>The Ghost in the Quantum Turing Machine.</p>
+<p>That was one of the crazier things I&rsquo;ve written,</p>
+<p>but I tried to do something,</p>
+<p>or to advocate doing something similar there for free will,</p>
+<p>where instead of talking about is free will real,</p>
+<p>where we get hung up on the meaning of,</p>
+<p>what exactly do we mean by freedom?</p>
+<p>And can you have, can you be,</p>
+<p>or do we mean compatibilist free will,</p>
+<p>libertarian free will?</p>
+<p>What do these things mean?</p>
+<p>You know, I suggested just asking the question,</p>
+<p>how well in principle, consistently with the laws of physics,</p>
+<p>could a person&rsquo;s behavior be predicted?</p>
+<p>You know, without, so let&rsquo;s say,</p>
+<p>destroying the person&rsquo;s brain, you know,</p>
+<p>taking it apart in the process of trying to predict them.</p>
+<p>And, you know, and that actually,</p>
+<p>asking that question gets you into all sorts of meaty</p>
+<p>and interesting issues, you know, issues of,</p>
+<p>what is the computational substrate of the brain?</p>
+<p>You know, or can you understand the brain, you know,</p>
+<p>just at the sort of level of the neurons, you know,</p>
+<p>at sort of the abstraction of a neural network,</p>
+<p>or do you need to go deeper to the, you know,</p>
+<p>molecular level and ultimately even to the quantum level?</p>
+<p>Right, and of course,</p>
+<p>that would put limits on predictability if you did.</p>
+<p>So you need to reduce,</p>
+<p>you need to reduce the mind to a computational device,</p>
+<p>like formalize it so then you can make predictions</p>
+<p>about what, you know, whether you could predict the behavior</p>
+<p>of the system. Well, if you were trying</p>
+<p>to predict a person, yeah, then presumably,</p>
+<p>you would need some model of their brain, right?</p>
+<p>And now the question becomes one of,</p>
+<p>how accurate can such a model become?</p>
+<p>Can you make a model that will be accurate enough</p>
+<p>to really seriously threaten people&rsquo;s sense of free will?</p>
+<p>You know, not just metaphysically, but like really,</p>
+<p>I have written in this envelope</p>
+<p>what you were going to say next.</p>
+<p>Is accuracy the right term here?</p>
+<p>So it&rsquo;s also a level of abstraction has to be right.</p>
+<p>So if you&rsquo;re accurate at the, somehow at the quantum level,</p>
+<p>that may not be convincing to us at the human level.</p>
+<p>Well, right, but the question is what accuracy</p>
+<p>at the sort of level of the underlying mechanisms</p>
+<p>do you need in order to predict the behavior, right?</p>
+<p>At the end of the day, the test is just,</p>
+<p>can you, you know, foresee what the person is going to do?</p>
+<p>Right, I am, you know, and in discussions of free will,</p>
+<p>you know, it seems like both sides wanna, you know,</p>
+<p>very quickly dismiss that question as irrelevant.</p>
+<p>Well, to me, it&rsquo;s totally relevant.</p>
+<p>Okay, because, you know, if someone says,</p>
+<p>oh, well, you know, a Laplace demon</p>
+<p>that knew the complete state of the universe,</p>
+<p>you know, could predict everything you&rsquo;re going to do,</p>
+<p>therefore you don&rsquo;t have free will.</p>
+<p>You know, it doesn&rsquo;t trouble me that much because,</p>
+<p>well, you know, I&rsquo;ve never met such a demon, right?</p>
+<p>You know, and we, you know, we even have some reasons</p>
+<p>to think, you know, maybe, you know,</p>
+<p>it could not exist as part of our world,</p>
+<p>you know, it&rsquo;s only an abstraction, a thought experiment.</p>
+<p>On the other hand, if someone said,</p>
+<p>well, you know, I have this brain scanning machine,</p>
+<p>you know, you step into it and then, you know,</p>
+<p>every paper that you will ever write, it will write,</p>
+<p>you know, every thought that you will have, you know,</p>
+<p>even right now about the machine itself, it will foresee.</p>
+<p>You know, well, if you can actually demonstrate that,</p>
+<p>then I think, you know, that sort of threatens</p>
+<p>my internal sense of having free will</p>
+<p>in a much more visceral way.</p>
+<p>You know, but now you notice that we&rsquo;re asking</p>
+<p>a much more empirical question.</p>
+<p>We&rsquo;re asking, is such a machine possible or isn&rsquo;t it?</p>
+<p>We&rsquo;re asking, if it&rsquo;s not possible,</p>
+<p>then what in the laws of physics</p>
+<p>or what about the behavior of the brain,</p>
+<p>you know, prevents it from existing?</p>
+<p>So if you could philosophize a little bit</p>
+<p>within this empirical question,</p>
+<p>where do you think would enter the,</p>
+<p>by which mechanism would enter the possibility</p>
+<p>that we can&rsquo;t predict the outcome?</p>
+<p>So there would be something</p>
+<p>that would be akin to a free will.</p>
+<p>Yeah, well, you could say the sort of obvious possibility,</p>
+<p>which was, you know, recognized by Eddington</p>
+<p>and many others about as soon as quantum mechanics</p>
+<p>was discovered in the 1920s, was that if,</p>
+<p>you know, let&rsquo;s say a sodium ion channel,</p>
+<p>you know, in the brain, right?</p>
+<p>You know, its behavior is chaotic, right?</p>
+<p>It&rsquo;s sort of, it&rsquo;s governed by these</p>
+<p>Hodgley–Huckskin equations in neuroscience, right?</p>
+<p>Which are differential equations</p>
+<p>that have a stochastic component, right?</p>
+<p>Now, where does, you know, and this ultimately governs,</p>
+<p>let&rsquo;s say whether a neuron will fire or not fire, right?</p>
+<p>So that&rsquo;s the basic chemical process</p>
+<p>or electrical process by which signals</p>
+<p>are sent in the brain.</p>
+<p>Exactly, exactly.</p>
+<p>And, you know, and so you could ask,</p>
+<p>well, where does the randomness in the process,</p>
+<p>you know, that neuroscientists,</p>
+<p>or what neuroscientists would treat as randomness,</p>
+<p>where does it come from?</p>
+<p>You know, ultimately it&rsquo;s thermal noise, right?</p>
+<p>Where does thermal noise come from?</p>
+<p>But ultimately, you know,</p>
+<p>there were some quantum mechanical events</p>
+<p>at the molecular level</p>
+<p>that are getting sort of chaotically amplified</p>
+<p>by, you know, a sort of butterfly effect.</p>
+<p>And so, you know, even if you knew</p>
+<p>the complete quantum state of someone&rsquo;s brain,</p>
+<p>you know, at best you could predict the probabilities</p>
+<p>that they would do one thing or do another thing, right?</p>
+<p>I think that part is actually relatively uncontroversial,</p>
+<p>right?</p>
+<p>The controversial question is whether any of it matters</p>
+<p>for the sort of philosophical questions that we care about.</p>
+<p>Because you could say, if all it&rsquo;s doing</p>
+<p>is just injecting some randomness</p>
+<p>into an otherwise completely mechanistic process,</p>
+<p>well, then who cares, right?</p>
+<p>And more concretely, if you could build a machine</p>
+<p>that, you know, could just calculate</p>
+<p>even just the probabilities</p>
+<p>of all of the possible things that you would do, right?</p>
+<p>And, you know, of all the things that said</p>
+<p>you had a 10% chance of doing,</p>
+<p>you did exactly a 10th of them, you know,</p>
+<p>and so on and so on.</p>
+<p>And that somehow also takes away the feeling of free will.</p>
+<p>Exactly.</p>
+<p>I mean, to me, it seems essentially just as bad</p>
+<p>as if the machine deterministically predicted you.</p>
+<p>It seems, you know, hardly different from that.</p>
+<p>So then, but a more subtle question</p>
+<p>is could you even learn enough</p>
+<p>about someone&rsquo;s brain to do that, okay?</p>
+<p>Because, you know, another central fact</p>
+<p>about quantum mechanics is that making a measurement</p>
+<p>on a quantum state is an inherently destructive operation.</p>
+<p>Okay, so, you know, if I want to measure the, you know,</p>
+<p>position of a particle, right?</p>
+<p>It was, well, before I measured,</p>
+<p>it had a superposition over many different positions.</p>
+<p>As soon as I measure, I localize it, right?</p>
+<p>So now I know the position,</p>
+<p>but I&rsquo;ve also fundamentally changed the state.</p>
+<p>And so you could say, well, maybe in trying to build</p>
+<p>a model of someone&rsquo;s brain that was accurate enough</p>
+<p>to actually, you know, make, let&rsquo;s say,</p>
+<p>even well calibrated probabilistic predictions</p>
+<p>of their future behavior,</p>
+<p>maybe you would have to make measurements</p>
+<p>that were just so accurate</p>
+<p>that you would just fundamentally alter their brain, okay?</p>
+<p>Or maybe not, maybe you only, you know,</p>
+<p>it would suffice to just make some nanorobots</p>
+<p>that just measured some sort of much larger scale,</p>
+<p>you know, macroscopic behavior, like, you know,</p>
+<p>what is this neuron doing?</p>
+<p>What is that neuron doing?</p>
+<p>Maybe that would be enough.</p>
+<p>See, but now, you know, what I claim is that</p>
+<p>we&rsquo;re now asking a question, you know,</p>
+<p>in which, you know, it is possible to envision</p>
+<p>what progress on it would look like.</p>
+<p>Yeah, but just as you said,</p>
+<p>that question may be slightly detached</p>
+<p>from the philosophical question in the sense</p>
+<p>if consciousness somehow has a role</p>
+<p>to the experience of free will.</p>
+<p>Because ultimately, when we&rsquo;re talking about free will,</p>
+<p>we&rsquo;re also talking about not just the predictability</p>
+<p>of our actions, but somehow the experience</p>
+<p>of that predictability.</p>
+<p>Yeah, well, I mean, a lot of philosophical questions</p>
+<p>ultimately, like, feedback to the hard problem</p>
+<p>of consciousness, you know,</p>
+<p>and as much as you can try to sort of talk around it</p>
+<p>or not, right?</p>
+<p>And, you know, and there is a reason</p>
+<p>why people try to talk around it,</p>
+<p>which is that, you know,</p>
+<p>Democritus talked about the hard problem of consciousness,</p>
+<p>you know, in 400 BC in terms that would be</p>
+<p>totally recognizable to us today, right?</p>
+<p>And it&rsquo;s really not clear if there&rsquo;s been progress since</p>
+<p>or what progress could possibly consist of.</p>
+<p>Is there a Q prime type of subquestion</p>
+<p>that could help us get at consciousness?</p>
+<p>It&rsquo;s something about consciousness.</p>
+<p>Well, I mean, well, I mean, there is the whole question</p>
+<p>of, you know, of AI, right?</p>
+<p>Of, you know, can you build a human level</p>
+<p>or superhuman level AI?</p>
+<p>And, you know, can it work in a completely different</p>
+<p>substrate from the brain?</p>
+<p>I mean, you know, and of course,</p>
+<p>that was Alan Turing&rsquo;s point.</p>
+<p>And, you know, and even if that was done,</p>
+<p>it&rsquo;s, you know, maybe people would still argue</p>
+<p>about the hard problem of consciousness, right?</p>
+<p>And yet, you know, my claim is a little different.</p>
+<p>My claim is that in a world where, you know,</p>
+<p>there were, you know, human level AIs</p>
+<p>or we&rsquo;d been even overtaken by such AIs,</p>
+<p>the entire discussion of the hard problem of consciousness</p>
+<p>would have a different character, right?</p>
+<p>It would take place in different terms in such a world,</p>
+<p>even if we hadn&rsquo;t answered the question.</p>
+<p>And my claim about free will would be similar, right?</p>
+<p>That if this prediction machine that I was talking about</p>
+<p>could actually be built, well, now the entire discussion</p>
+<p>of the, you know, of free will is sort of transformed</p>
+<p>by that, you know, even if in some sense</p>
+<p>the metaphysical question hasn&rsquo;t been answered.</p>
+<p>Yeah, exactly, it transforms it fundamentally</p>
+<p>because say that machine does tell you</p>
+<p>that it can predict perfectly</p>
+<p>and yet there is this deep experience of free will</p>
+<p>and then that changes the question completely.</p>
+<p>And it starts actually getting to the question</p>
+<p>of the AGI, the touring questions</p>
+<p>of the demonstration of free will,</p>
+<p>the demonstration of intelligence,</p>
+<p>the demonstration of consciousness,</p>
+<p>does that equal consciousness, intelligence and free will?</p>
+<p>But see, Alex, if every time I was contemplating a decision,</p>
+<p>you know, this machine had printed out an envelope,</p>
+<p>you know, where I could open it</p>
+<p>and see that it knew my decision,</p>
+<p>I think that actually would change</p>
+<p>my subjective experience of making decisions, right?</p>
+<p>I mean, it would.</p>
+<p>Does knowledge change your subjective experience?</p>
+<p>Well, you know, I mean, the knowledge</p>
+<p>that this machine had predicted everything I would do,</p>
+<p>I mean, it might drive me completely insane, right?</p>
+<p>But at any rate, it would change my experience</p>
+<p>to act, you know, to not just discuss such a machine</p>
+<p>as a thought experiment, but to actually see it.</p>
+<p>Yeah.</p>
+<p>I mean, you know, you could say at that point,</p>
+<p>you know, you could say, you know,</p>
+<p>why not simply call this machine</p>
+<p>a second instantiation of me and be done with it, right?</p>
+<p>What, you know, why even privilege the original me</p>
+<p>over this perfect duplicate that exists in the machine?</p>
+<p>Yeah, or there could be a religious experience with it too.</p>
+<p>It&rsquo;s kind of what God throughout the generations</p>
+<p>is supposed to have.</p>
+<p>That God kind of represents that perfect machine,</p>
+<p>is able to, I guess, actually,</p>
+<p>well, I don&rsquo;t even know what are the religious</p>
+<p>interpretations of free will.</p>
+<p>So if God knows perfectly everything in religion,</p>
+<p>in the various religions,</p>
+<p>where does free will fit into that?</p>
+<p>Do you know?</p>
+<p>That has been one of the big things that theologians</p>
+<p>have argued about for thousands of years.</p>
+<p>Yeah.</p>
+<p>You know, I am not a theologian,</p>
+<p>so maybe I shouldn&rsquo;t go there.</p>
+<p>So there&rsquo;s not a clear answer in a book like&hellip;</p>
+<p>I mean, this is, you know, the Calvinists debated this,</p>
+<p>the, you know, this has been, you know,</p>
+<p>I mean, different religious movements</p>
+<p>have taken different positions on that question,</p>
+<p>but that is how they think about it.</p>
+<p>You know, meanwhile, you know,</p>
+<p>a large part of sort of what animates,</p>
+<p>you know, theoretical computer science,</p>
+<p>you could say is, you know, we&rsquo;re asking sort of,</p>
+<p>what are the ultimate limits of, you know,</p>
+<p>what you can know or, you know, calculate or figure out</p>
+<p>by, you know, entities that you can actually build</p>
+<p>in the physical world, right?</p>
+<p>And if I were trying to explain it to a theologian,</p>
+<p>maybe I would say, you know, we are studying, you know,</p>
+<p>to what extent, you know,</p>
+<p>gods can be made manifest in the physical world.</p>
+<p>I&rsquo;m not sure my colleagues would like that.</p>
+<p>So let&rsquo;s talk about quantum computers for a second.</p>
+<p>Yeah, sure, sure.</p>
+<p>As you&rsquo;ve said, quantum computing,</p>
+<p>at least in the 1990s, was a profound story</p>
+<p>at the intersection of computer science,</p>
+<p>physics, engineering, math, and philosophy.</p>
+<p>So there&rsquo;s this broad and deep aspect to quantum computing</p>
+<p>that represents more than just the quantum computer.</p>
+<p>But can we start at the very basics?</p>
+<p>What is quantum computing?</p>
+<p>Yeah, so it&rsquo;s a proposal for a new type of computation,</p>
+<p>or let&rsquo;s say a new way to harness nature to do computation</p>
+<p>that is based on the principles of quantum mechanics.</p>
+<p>Okay, now the principles of quantum mechanics</p>
+<p>have been in place since 1926.</p>
+<p>You know, they haven&rsquo;t changed.</p>
+<p>You know, what&rsquo;s new is, you know, how we wanna use them.</p>
+<p>Okay, so what does quantum mechanics say about the world?</p>
+<p>You know, the physicists, I think, over the generations,</p>
+<p>you know, convinced people</p>
+<p>that that is an unbelievably complicated question</p>
+<p>and, you know, just give up on trying to understand it.</p>
+<p>I can let you in, not being a physicist,</p>
+<p>I can let you in on a secret,</p>
+<p>which is that it becomes a lot simpler</p>
+<p>if you do what we do in quantum information theory</p>
+<p>and sort of take the physics out of it.</p>
+<p>So the way that we think about quantum mechanics</p>
+<p>is sort of as a generalization</p>
+<p>of the rules of probability themselves.</p>
+<p>So, you know, you might say there was a 30% chance</p>
+<p>that it was going to snow today or something.</p>
+<p>You would never say that there was a negative 30% chance,</p>
+<p>right, that would be nonsense.</p>
+<p>Much less would you say that there was, you know,</p>
+<p>an I% chance, you know, square root of minus 1% chance.</p>
+<p>Now, the central discovery</p>
+<p>that sort of quantum mechanics made</p>
+<p>is that fundamentally the world is described by,</p>
+<p>or, you know, the sort of, let&rsquo;s say the possibilities</p>
+<p>for, you know, what a system could be doing</p>
+<p>are described using numbers called amplitudes, okay,</p>
+<p>which are like probabilities in some ways,</p>
+<p>but they are not probabilities.</p>
+<p>They can be positive.</p>
+<p>For one thing, they can be positive or negative.</p>
+<p>In fact, they can even be complex numbers.</p>
+<p>Okay, and if you&rsquo;ve heard of a quantum superposition,</p>
+<p>this just means some state of affairs</p>
+<p>where you assign an amplitude,</p>
+<p>one of these complex numbers,</p>
+<p>to every possible configuration</p>
+<p>that you could see a system in on measuring it.</p>
+<p>So for example, you might say that an electron</p>
+<p>has some amplitude for being here</p>
+<p>and some other amplitude for being there, right?</p>
+<p>Now, if you look to see where it is,</p>
+<p>you will localize it, right?</p>
+<p>You will sort of force the amplitudes</p>
+<p>to be converted into probabilities.</p>
+<p>That happens by taking their squared absolute value, okay,</p>
+<p>and then, you know, you can say</p>
+<p>either the electron will be here or it will be there.</p>
+<p>And, you know, knowing the amplitudes,</p>
+<p>you can predict at least the probabilities</p>
+<p>that you&rsquo;ll see each possible outcome, okay?</p>
+<p>But while a system is isolated</p>
+<p>from the whole rest of the universe,</p>
+<p>the rest of its environment,</p>
+<p>the amplitudes can change in time</p>
+<p>by rules that are different</p>
+<p>from the normal rules of probability</p>
+<p>and that are, you know, alien to our everyday experience.</p>
+<p>So anytime anyone ever tells you anything</p>
+<p>about the weirdness of the quantum world,</p>
+<p>you know, or assuming that they&rsquo;re not lying to you, right,</p>
+<p>they are telling you, you know,</p>
+<p>yet another consequence of nature</p>
+<p>being described by these amplitudes.</p>
+<p>So most famously, what amplitudes can do</p>
+<p>is that they can interfere with each other, okay?</p>
+<p>So in the famous double slit experiment,</p>
+<p>what happens is that you shoot a particle,</p>
+<p>like an electron, let&rsquo;s say,</p>
+<p>at a screen with two slits in it,</p>
+<p>and you find that there are, you know, on a second screen,</p>
+<p>now there are certain places</p>
+<p>where that electron will never end up,</p>
+<p>you know, after it passes through the first screen.</p>
+<p>And yet, if I close off one of the slits,</p>
+<p>then the electron can appear in that place, okay?</p>
+<p>So by decreasing the number of paths</p>
+<p>that the electron could take to get somewhere,</p>
+<p>you can increase the chance that it gets there, okay?</p>
+<p>Now, how is that possible?</p>
+<p>Well, it&rsquo;s because, you know, as we would say now,</p>
+<p>the electron has a superposition state, okay?</p>
+<p>It has some amplitude for reaching this point</p>
+<p>by going through the first slit.</p>
+<p>It has some other amplitude for reaching it</p>
+<p>by going through the second slit.</p>
+<p>But now, if one amplitude is positive</p>
+<p>and the other one is negative,</p>
+<p>then, you know, I have to add them all up, right?</p>
+<p>I have to add the amplitudes for every path</p>
+<p>that the electron could have taken to reach this point.</p>
+<p>And those amplitudes,</p>
+<p>if they&rsquo;re pointing in different directions,</p>
+<p>they can cancel each other out.</p>
+<p>That would mean the total amplitude is zero</p>
+<p>and the thing never happens at all.</p>
+<p>I close off one of the possibilities,</p>
+<p>then the amplitude is positive or it&rsquo;s negative,</p>
+<p>and now the thing can happen.</p>
+<p>Okay, so that is sort of the one trick of quantum mechanics.</p>
+<p>And now I can tell you what a quantum computer is.</p>
+<p>Okay, a quantum computer is a computer</p>
+<p>that tries to exploit, you know, exactly these phenomena,</p>
+<p>superposition, amplitudes, and interference,</p>
+<p>in order to solve certain problems much faster</p>
+<p>than we know how to solve them otherwise.</p>
+<p>So the basic building block of a quantum computer</p>
+<p>is what we call a quantum bit or a qubit.</p>
+<p>That just means a bit that has some amplitude for being zero</p>
+<p>and some other amplitude for being one.</p>
+<p>So it&rsquo;s a superposition of zero and one states, right?</p>
+<p>But now the key point is that if I&rsquo;ve got,</p>
+<p>let&rsquo;s say, a thousand qubits,</p>
+<p>the rules of quantum mechanics are completely unequivocal</p>
+<p>that I do not just need one ampli&hellip;</p>
+<p>You know, I don&rsquo;t just need amplitudes for each qubit separately.</p>
+<p>Okay, in general, I need an amplitude</p>
+<p>for every possible setting of all thousand of those bits, okay?</p>
+<p>So that what that means is two to the one thousand power amplitudes.</p>
+<p>Okay, if I had to write those down,</p>
+<p>or let&rsquo;s say in the memory of a conventional computer,</p>
+<p>if I had to write down two to the one thousand complex numbers,</p>
+<p>that would not fit within the entire observable universe.</p>
+<p>Okay, and yet, you know, quantum mechanics is unequivocal</p>
+<p>that if these qubits can all interact with each other,</p>
+<p>and in some sense, I need two to the one thousand parameters,</p>
+<p>you know, amplitudes to describe what is going on.</p>
+<p>Now, you know, now I can tell, you know, where all the popular articles,</p>
+<p>you know, about quantum computing go off the rails</p>
+<p>is that they say, you know, they sort of say what I just said,</p>
+<p>and then they say, oh, so the way a quantum computer works</p>
+<p>is just by trying every possible answer in parallel.</p>
+<p>You know, that sounds too good to be true,</p>
+<p>and unfortunately, it kind of is too good to be true.</p>
+<p>The problem is I could make a superposition</p>
+<p>over every possible answer to my problem, you know,</p>
+<p>even if there are two to the one thousand of them, right?</p>
+<p>I can easily do that.</p>
+<p>The trouble is for a computer to be useful,</p>
+<p>you&rsquo;ve got to, at some point, you&rsquo;ve got to look at it</p>
+<p>and see an output, right?</p>
+<p>And if I just measure a superposition over every possible answer,</p>
+<p>then the rules of quantum mechanics tell me</p>
+<p>that all I&rsquo;ll see will be a random answer.</p>
+<p>You know, if I just wanted a random answer,</p>
+<p>well, I could have picked one myself with a lot less trouble, right?</p>
+<p>So the entire trick with quantum computing,</p>
+<p>with every algorithm for a quantum computer,</p>
+<p>is that you try to choreograph a pattern</p>
+<p>of interference of amplitudes,</p>
+<p>and you try to do it so that for each wrong answer,</p>
+<p>some of the paths leading to that wrong answer</p>
+<p>have positive amplitudes and others have negative amplitudes.</p>
+<p>So on the whole, they cancel each other out, okay?</p>
+<p>Whereas all the paths leading to the right answer</p>
+<p>should reinforce each other, you know, should have amplitudes</p>
+<p>pointing the same direction.</p>
+<p>So the design of algorithms in the space</p>
+<p>is the choreography of the interferences.</p>
+<p>Precisely. That&rsquo;s precisely what it is.</p>
+<p>Can we take a brief step back?</p>
+<p>And you mentioned information.</p>
+<p>Yes.</p>
+<p>So in which part of this beautiful picture</p>
+<p>that you&rsquo;ve painted is information contained?</p>
+<p>Oh, well, information is at the core of everything</p>
+<p>that we&rsquo;ve been talking about, right?</p>
+<p>I mean, the bit is, you know, the basic unit of information</p>
+<p>since, you know, Claude Shannon&rsquo;s paper in 1948.</p>
+<p>You know, and, you know, of course, you know,</p>
+<p>people had the concept even before that, you know,</p>
+<p>he popularized the name, right?</p>
+<p>But I mean&hellip;</p>
+<p>But a bit is zero or one.</p>
+<p>That&rsquo;s right.</p>
+<p>So that&rsquo;s a basic element of information.</p>
+<p>That&rsquo;s right.</p>
+<p>And what we would say is that the basic unit</p>
+<p>of quantum information is the qubit,</p>
+<p>is, you know, the object, any object</p>
+<p>that can be maintained in this, or manipulated,</p>
+<p>in a superposition of zero and one states.</p>
+<p>Now, you know, sometimes people ask, well,</p>
+<p>but what is a qubit physically, right?</p>
+<p>And there are all these different, you know,</p>
+<p>proposals that are being pursued in parallel</p>
+<p>for how you implement qubits.</p>
+<p>There is, you know, superconducting quantum computing</p>
+<p>that was in the news recently</p>
+<p>because of Google&rsquo;s quantum supremacy experiment, right?</p>
+<p>Where you would have some little coils</p>
+<p>where a current can flow through them</p>
+<p>in two different energy states,</p>
+<p>one representing a zero, another representing a one.</p>
+<p>And if you cool these coils</p>
+<p>to just slightly above absolute zero,</p>
+<p>like a hundredth of a degree, then they superconduct.</p>
+<p>And then the current can actually be</p>
+<p>in a superposition of the two different states.</p>
+<p>So that&rsquo;s one kind of qubit.</p>
+<p>Another kind would be, you know,</p>
+<p>just an individual atomic nucleus, right?</p>
+<p>It has a spin.</p>
+<p>It could be spinning clockwise.</p>
+<p>It could be spinning counterclockwise,</p>
+<p>or it could be in a superposition of the two spin states.</p>
+<p>That is another qubit.</p>
+<p>But see, just like in the classical world, right?</p>
+<p>You could be a virtuoso programmer</p>
+<p>without having any idea of what a transistor is, right?</p>
+<p>Or how the bits are physically represented inside the machine,</p>
+<p>even that the machine uses electricity, right?</p>
+<p>You just care about the logic.</p>
+<p>It&rsquo;s sort of the same with quantum computing, right?</p>
+<p>Qubits could be realized by many,</p>
+<p>many different quantum systems.</p>
+<p>And yet all of those systems will lead to the same logic,</p>
+<p>you know, the logic of qubits and how, you know,</p>
+<p>how you measure them, how you change them over time.</p>
+<p>And so, you know, the subject of, you know,</p>
+<p>how qubits behave and what you can do with qubits,</p>
+<p>that is quantum information.</p>
+<p>So just to linger on that.</p>
+<p>Sure.</p>
+<p>So the physical design implementation of a qubit</p>
+<p>does not interfere with the,</p>
+<p>that next level of abstraction that you can program over it.</p>
+<p>So it truly is, the idea of it is, okay.</p>
+<p>Well, to be honest with you,</p>
+<p>today they do interfere with each other.</p>
+<p>That&rsquo;s because all the quantum computers</p>
+<p>we can build today are very noisy, right?</p>
+<p>And so sort of the, you know,</p>
+<p>the qubits are very far from perfect.</p>
+<p>And so the lower level sort of does affect the higher levels.</p>
+<p>And we sort of have to think about all of them at once.</p>
+<p>Okay, but eventually where we hope to get</p>
+<p>is to what are called error corrected quantum computers,</p>
+<p>where the qubits really do behave</p>
+<p>like perfect abstract qubits for as long as we want them to.</p>
+<p>And in that future, you know,</p>
+<p>a future that we can already sort of prove theorems about</p>
+<p>or think about today.</p>
+<p>But in that future, the logic of it</p>
+<p>really does become decoupled from the hardware.</p>
+<p>So if noise is currently like the biggest problem</p>
+<p>for quantum computing,</p>
+<p>and then the dream is error correcting quantum computers,</p>
+<p>can you just maybe describe what does it mean</p>
+<p>for there to be noise in the system?</p>
+<p>Absolutely, so yeah, so the problem</p>
+<p>is even a little more specific than noise.</p>
+<p>So the fundamental problem,</p>
+<p>if you&rsquo;re trying to actually build a quantum computer,</p>
+<p>you know, of any appreciable size,</p>
+<p>is something called decoherence.</p>
+<p>Okay, and this was recognized from the very beginning,</p>
+<p>you know, when people first started thinking about this</p>
+<p>in the 1990s.</p>
+<p>Now, what decoherence means</p>
+<p>is sort of the unwanted interaction</p>
+<p>between, you know, your qubits,</p>
+<p>you know, the state of your quantum computer</p>
+<p>and the external environment.</p>
+<p>Okay, and why is that such a problem?</p>
+<p>Well, I talked before about how, you know,</p>
+<p>when you measure a quantum system,</p>
+<p>so let&rsquo;s say if I measure a qubit</p>
+<p>that&rsquo;s in a superposition of zero and one states</p>
+<p>to ask it, you know, are you zero or are you one?</p>
+<p>Well, now I force it to make up its mind, right?</p>
+<p>And now, probabilistically, it chooses one or the other</p>
+<p>and now, you know, it&rsquo;s no longer a superposition,</p>
+<p>there&rsquo;s no longer amplitudes,</p>
+<p>there&rsquo;s just, there&rsquo;s some probability that I get a zero</p>
+<p>and there&rsquo;s some that I get a one.</p>
+<p>And now, the trouble is that it doesn&rsquo;t have to be me</p>
+<p>who&rsquo;s looking, okay?</p>
+<p>Or in fact, it doesn&rsquo;t have to be any conscious entity.</p>
+<p>Any kind of interaction with the external world</p>
+<p>that leaks out the information</p>
+<p>about whether this qubit was a zero or a one,</p>
+<p>sort of that causes the zerowness</p>
+<p>or the oneness of the qubit to be recorded</p>
+<p>in, you know, the radiation in the room,</p>
+<p>in the molecules of the air,</p>
+<p>in the wires that are connected to my device,</p>
+<p>any of that, as soon as the information leaks out,</p>
+<p>it is as if that qubit has been measured, okay?</p>
+<p>It is, you know, the state has now collapsed.</p>
+<p>You know, another way to say it</p>
+<p>is that it&rsquo;s become entangled with its environment, okay?</p>
+<p>But, you know, from the perspective of someone</p>
+<p>who&rsquo;s just looking at this qubit,</p>
+<p>it is as though it has lost its quantum state.</p>
+<p>And so, what this means is that</p>
+<p>if I want to do a quantum computation,</p>
+<p>I have to keep the qubits sort of fanatically</p>
+<p>well isolated from their environment.</p>
+<p>But then at the same time,</p>
+<p>they can&rsquo;t be perfectly isolated</p>
+<p>because I need to tell them what to do.</p>
+<p>I need to make them interact with each other,</p>
+<p>for one thing, and not only that,</p>
+<p>but in a precisely choreographed way, okay?</p>
+<p>And, you know, that is such a staggering problem, right?</p>
+<p>How do I isolate these qubits from the whole universe</p>
+<p>but then also tell them exactly what to do?</p>
+<p>I mean, you know, there were distinguished physicists</p>
+<p>and computer scientists in the 90s who said,</p>
+<p>this is fundamentally impossible, you know?</p>
+<p>The laws of physics will just never let you control qubits</p>
+<p>to the degree of accuracy that you&rsquo;re talking about.</p>
+<p>Now, what changed the views of most of us</p>
+<p>was a profound discovery in the mid to late 90s</p>
+<p>which was called the theory of quantum error correction</p>
+<p>and quantum fault tolerance, okay?</p>
+<p>And the upshot of that theory is that</p>
+<p>if I want to build a reliable quantum computer</p>
+<p>and scale it up to, you know, an arbitrary number</p>
+<p>of as many qubits as I want, you know,</p>
+<p>and doing as much on them as I want,</p>
+<p>I do not actually have to get the qubits</p>
+<p>perfectly isolated from their environment.</p>
+<p>It is enough to get them really, really, really well isolated, okay?</p>
+<p>And even if every qubit is sort of leaking,</p>
+<p>you know, its state into the environment at some rate,</p>
+<p>as long as that rate is low enough, okay,</p>
+<p>I can sort of encode the information that I care about</p>
+<p>in very clever ways across the collective states</p>
+<p>of multiple qubits, okay?</p>
+<p>In such a way that even if, you know,</p>
+<p>a small percentage of my qubits leak,</p>
+<p>well, I&rsquo;m constantly monitoring them</p>
+<p>to see if that leak happened.</p>
+<p>I can detect it and I can correct it.</p>
+<p>I can recover the information I care about</p>
+<p>from the remaining qubits, okay?</p>
+<p>And so, you know, you can build a reliable quantum computer</p>
+<p>even out of unreliable parts, right?</p>
+<p>Now, in some sense, you know,</p>
+<p>that discovery is what set the engineering agenda</p>
+<p>for quantum computing research</p>
+<p>from the 1990s until the present, okay?</p>
+<p>The goal has been, you know,</p>
+<p>engineer qubits that are not perfectly reliable</p>
+<p>but reliable enough that you can then use</p>
+<p>these error correcting codes</p>
+<p>to have them simulate qubits</p>
+<p>that are even more reliable than they are, right?</p>
+<p>The error correction becomes a net win</p>
+<p>rather than a net loss, right?</p>
+<p>And then once you reach that sort of crossover point,</p>
+<p>then, you know, your simulated qubits</p>
+<p>could in turn simulate qubits</p>
+<p>that are even more reliable and so on</p>
+<p>until you&rsquo;ve just, you know, effectively,</p>
+<p>you have arbitrarily reliable qubits.</p>
+<p>So long story short,</p>
+<p>we are not at that breakeven point yet.</p>
+<p>We&rsquo;re a hell of a lot closer than we were</p>
+<p>when people started doing this in the 90s,</p>
+<p>like orders of magnitude closer.</p>
+<p>But the key ingredient there</p>
+<p>is the more qubits, the better because&hellip;</p>
+<p>Ah, well, the more qubits,</p>
+<p>the larger the computation you can do, right?</p>
+<p>I mean, qubits are what constitute</p>
+<p>the memory of your quantum computer, right?</p>
+<p>But also for the, sorry,</p>
+<p>for the error correcting mechanism.</p>
+<p>Ah, yes.</p>
+<p>So the way I would say it</p>
+<p>is that error correction imposes an overhead</p>
+<p>in the number of qubits.</p>
+<p>And that is actually one of the biggest practical problems</p>
+<p>with building a scalable quantum computer.</p>
+<p>If you look at the error correcting codes,</p>
+<p>at least the ones that we know about today,</p>
+<p>and you look at, you know,</p>
+<p>what would it take to actually use a quantum computer</p>
+<p>to, you know, hack your credit card number,</p>
+<p>which is, you know,</p>
+<p>maybe, you know, the most famous application</p>
+<p>people talk about, right?</p>
+<p>Let&rsquo;s say to factor huge numbers</p>
+<p>and thereby break the RSA cryptosystem.</p>
+<p>Well, what that would take</p>
+<p>would be thousands of, several thousand logical qubits.</p>
+<p>But now with the known error correcting codes,</p>
+<p>each of those logical qubits</p>
+<p>would need to be encoded itself</p>
+<p>using thousands of physical qubits.</p>
+<p>So at that point,</p>
+<p>you&rsquo;re talking about millions of physical qubits.</p>
+<p>And in some sense,</p>
+<p>that is the reason why quantum computers</p>
+<p>are not breaking cryptography already.</p>
+<p>It&rsquo;s because of these immense overheads involved.</p>
+<p>So that overhead is additive or multiplicative?</p>
+<p>Well, it&rsquo;s multiplicative.</p>
+<p>I mean, it&rsquo;s like you take the number</p>
+<p>of logical qubits that you need</p>
+<p>in your abstract quantum circuit,</p>
+<p>you multiply it by a thousand or so.</p>
+<p>So, you know, there&rsquo;s a lot of work</p>
+<p>on, you know, inventing better,</p>
+<p>trying to invent better error correcting codes.</p>
+<p>Okay, that is the situation right now.</p>
+<p>In the meantime, we are now in,</p>
+<p>what the physicist John Preskill called</p>
+<p>the noisy intermediate scale quantum or NISQ era.</p>
+<p>And this is the era,</p>
+<p>you can think of it as sort of like the vacuum,</p>
+<p>you know, we&rsquo;re now entering the very early</p>
+<p>vacuum tube era of quantum computers.</p>
+<p>The quantum computer analog of the transistor</p>
+<p>has not been invented yet, right?</p>
+<p>That would be like true error correction, right?</p>
+<p>Where, you know, we are not or something else</p>
+<p>that would achieve the same effect, right?</p>
+<p>We are not there yet.</p>
+<p>But where we are now,</p>
+<p>let&rsquo;s say as of a few months ago,</p>
+<p>you know, as of Google&rsquo;s announcement</p>
+<p>of quantum supremacy,</p>
+<p>you know, we are now finally at the point</p>
+<p>where even with a non error corrected quantum computer,</p>
+<p>with, you know, these noisy devices,</p>
+<p>we can do something that is hard</p>
+<p>for classical computers to simulate, okay?</p>
+<p>So we can eke out some advantage.</p>
+<p>Now, will we in this noisy era</p>
+<p>be able to do something beyond</p>
+<p>what a classical computer can do</p>
+<p>that is also useful to someone?</p>
+<p>That we still don&rsquo;t know.</p>
+<p>People are going to be racing over the next decade</p>
+<p>to try to do that.</p>
+<p>By people, I mean, Google, IBM,</p>
+<p>you know, a bunch of startup companies.</p>
+<p>And research labs.</p>
+<p>Yeah, and research labs and governments.</p>
+<p>And yeah.</p>
+<p>You just mentioned a million things.</p>
+<p>Well, I&rsquo;ll backtrack for a second.</p>
+<p>Yeah, sure, sure.</p>
+<p>So we&rsquo;re in these vacuum tube days.</p>
+<p>Yeah, just entering them.</p>
+<p>And just entering, wow.</p>
+<p>Okay, so how do we escape the vacuum?</p>
+<p>So how do we get to,</p>
+<p>how do we get to where we are now with the CPU?</p>
+<p>Is this a fundamental engineering challenge?</p>
+<p>Is there breakthroughs on the physics side</p>
+<p>that are needed on the computer science side?</p>
+<p>Or is it a financial issue</p>
+<p>where much larger just sheer investment</p>
+<p>and excitement is needed?</p>
+<p>So, you know, those are excellent questions.</p>
+<p>My guess might, well, no, no.</p>
+<p>My guess would be all of the above.</p>
+<p>I mean, my guess, you know,</p>
+<p>I mean, you could say fundamentally</p>
+<p>it is an engineering issue, right?</p>
+<p>The theory has been in place since the 90s.</p>
+<p>You know, at least, you know, this is what,</p>
+<p>you know, error correction would look like.</p>
+<p>You know, we do not have the hardware</p>
+<p>that is at that level.</p>
+<p>But at the same time, you know,</p>
+<p>so you could just, you know, try to power through,</p>
+<p>you know, maybe even like, you know,</p>
+<p>if someone spent a trillion dollars</p>
+<p>on some quantum computing Manhattan project, right?</p>
+<p>Then conceivably they could just, you know,</p>
+<p>build an error corrected quantum computer</p>
+<p>as it was envisioned back in the 90s, right?</p>
+<p>I think the more plausible thing to happen</p>
+<p>is that there will be further theoretical breakthroughs</p>
+<p>and there will be further insights</p>
+<p>that will cut down the cost of doing this.</p>
+<p>So let&rsquo;s take a brief step to the philosophical.</p>
+<p>I just recently talked to Jim Keller</p>
+<p>who&rsquo;s sort of like the famed architect</p>
+<p>in the microprocessor world.</p>
+<p>And he&rsquo;s been told for decades,</p>
+<p>every year that the Moore&rsquo;s law is going to die this year.</p>
+<p>And he tries to argue that the Moore&rsquo;s law</p>
+<p>is still alive and well,</p>
+<p>and it&rsquo;ll be alive for quite a long time to come.</p>
+<p>How long?</p>
+<p>How long did he say?</p>
+<p>Well, the main point is it&rsquo;s still alive,</p>
+<p>but he thinks there&rsquo;s still a thousand X improvement</p>
+<p>just on shrinking the transition that&rsquo;s possible.</p>
+<p>Whatever.</p>
+<p>The point is that the exponential growth we see</p>
+<p>is actually a huge number of these S curves,</p>
+<p>just constant breakthroughs.</p>
+<p>At the philosophical level,</p>
+<p>why do you think we as descendants of apes</p>
+<p>were able to just keep coming up</p>
+<p>with these new breakthroughs on the CPU side</p>
+<p>is this something unique to this particular endeavor</p>
+<p>or will it be possible to replicate</p>
+<p>in the quantum computer space?</p>
+<p>Okay.</p>
+<p>All right.</p>
+<p>There was a lot there,</p>
+<p>but to break off something,</p>
+<p>I mean, I think we are in an extremely special period</p>
+<p>of human history, right?</p>
+<p>I mean, it is, you could say,</p>
+<p>obviously special in many ways, right?</p>
+<p>There are way more people alive</p>
+<p>than there have been</p>
+<p>and the whole future of the planet</p>
+<p>is in question in a way that it hasn&rsquo;t been</p>
+<p>for the rest of human history.</p>
+<p>But in particular, we are in the era</p>
+<p>where we finally figured out</p>
+<p>how to build universal machines,</p>
+<p>you could say, the things that we call computers,</p>
+<p>machines that you program to simulate the behavior</p>
+<p>of whatever machine you want.</p>
+<p>And once you&rsquo;ve sort of crossed this threshold</p>
+<p>of universality, you&rsquo;ve built,</p>
+<p>you could say, touring,</p>
+<p>you&rsquo;ve instantiated touring machines</p>
+<p>in the physical world.</p>
+<p>Well, then the main questions are ones of numbers.</p>
+<p>They are ones of how much memory can you access?</p>
+<p>How fast does it run?</p>
+<p>How many parallel processors?</p>
+<p>At least until quantum computing.</p>
+<p>Quantum computing is the one thing</p>
+<p>that changes what I just said, right?</p>
+<p>But as long as it&rsquo;s classical computing,</p>
+<p>then it&rsquo;s all questions of numbers.</p>
+<p>And you could say at a theoretical level,</p>
+<p>the computers that we have today</p>
+<p>are the same as the ones in the 50s.</p>
+<p>They&rsquo;re just millions of times faster</p>
+<p>and with millions of times more memory.</p>
+<p>And I think there&rsquo;s been an immense economic pressure</p>
+<p>to get more and more transistors,</p>
+<p>get them smaller and smaller,</p>
+<p>add more and more cores.</p>
+<p>And in some sense, a huge fraction</p>
+<p>of all of the technological progress</p>
+<p>that there is in all of civilization</p>
+<p>has gotten concentrated just more narrowly</p>
+<p>into just those problems, right?</p>
+<p>And so it has been one of the biggest success stories</p>
+<p>in the history of technology, right?</p>
+<p>There&rsquo;s, I mean, it is, I am as amazed by it</p>
+<p>as anyone else is, right?</p>
+<p>But at the same time, we also know that it,</p>
+<p>and I really do mean we know</p>
+<p>that it cannot continue indefinitely, okay?</p>
+<p>Because you will reach fundamental limits</p>
+<p>on how small you can possibly make a processor.</p>
+<p>And if you want a real proof</p>
+<p>that would justify my use of the word,</p>
+<p>we know that Moore&rsquo;s law has to end.</p>
+<p>I mean, ultimately you will reach the limits</p>
+<p>imposed by quantum gravity.</p>
+<p>If you tried to build a computer</p>
+<p>that operated at 10 to the 43 Hertz,</p>
+<p>so did 10 to the 43 operations per second,</p>
+<p>that computer would use so much energy</p>
+<p>that it would simply collapse through a black hole, okay?</p>
+<p>So in reality, we&rsquo;re going to reach the limits</p>
+<p>long before that, but that is a sufficient proof.</p>
+<p>That there&rsquo;s a limit.</p>
+<p>Yes, yes.</p>
+<p>But it would be interesting to try to understand</p>
+<p>the mechanism, the economic pressure that you said,</p>
+<p>just like the Cold War was a pressure on getting us,</p>
+<p>getting us, because my us is both the Soviet Union</p>
+<p>and the United States, but getting us,</p>
+<p>the two countries to get to hurry up,</p>
+<p>to get to space, to the moon,</p>
+<p>there seems to be that same kind of economic pressure</p>
+<p>that somehow created a chain of engineering breakthroughs</p>
+<p>that resulted in the Moore&rsquo;s law.</p>
+<p>And it&rsquo;d be nice to replicate.</p>
+<p>Yeah, well, I mean, some people are sort of,</p>
+<p>get depressed about the fact</p>
+<p>that technological progress may seem to have slowed down</p>
+<p>in many, many realms outside of computing, right?</p>
+<p>And there was this whole thing of we wanted flying cars</p>
+<p>and we only got Twitter instead, right?</p>
+<p>Yeah, good old Peter Thiel, yeah.</p>
+<p>Yeah, yeah, yeah, right, right, right.</p>
+<p>So then jumping to another really interesting topic</p>
+<p>that you mentioned, so Google announced with their work</p>
+<p>in the paper in Nature with quantum supremacy.</p>
+<p>Yes.</p>
+<p>Can you describe, again, back to the basic,</p>
+<p>what is perhaps not so basic, what is quantum supremacy?</p>
+<p>Absolutely, so quantum supremacy is a term</p>
+<p>that was coined by, again, by John Preskill in 2012.</p>
+<p>Not everyone likes the name, but it sort of stuck.</p>
+<p>We don&rsquo;t, we sort of haven&rsquo;t found a better alternative.</p>
+<p>It&rsquo;s technically quantum computational supremacy.</p>
+<p>Yeah, yeah, supremacy, that&rsquo;s right, that&rsquo;s right.</p>
+<p>But the basic idea is actually one that goes all the way back</p>
+<p>to the beginnings of quantum computing</p>
+<p>when Richard Feynman and David Deutsch, people like that,</p>
+<p>were talking about it in the early 80s.</p>
+<p>And quantum supremacy just refers to sort of the point</p>
+<p>in history when you can first use a quantum computer</p>
+<p>to do some well defined task much faster</p>
+<p>than any known algorithm running on any of the classical computers</p>
+<p>that are available, okay?</p>
+<p>So notice that I did not say a useful task, okay?</p>
+<p>It could be something completely artificial,</p>
+<p>but it&rsquo;s important that the task be well defined.</p>
+<p>So in other words, it is something that has right and wrong answers</p>
+<p>that are knowable independently of this device, right?</p>
+<p>And we can then run the device, see if it gets the right answer or not.</p>
+<p>Can you clarify a small point?</p>
+<p>You said much faster than a classical implementation.</p>
+<p>What about sort of what about the space with where the class,</p>
+<p>there&rsquo;s no, there&rsquo;s not, it doesn&rsquo;t even exist,</p>
+<p>a classical algorithm to show the power?</p>
+<p>So maybe I should clarify.</p>
+<p>Everything that a quantum computer can do,</p>
+<p>a classical computer can also eventually do, okay?</p>
+<p>And the reason why we know that is that a classical computer</p>
+<p>could always, you know, if it had no limits of time and memory,</p>
+<p>it could always just store the entire quantum state,</p>
+<p>you know, of your, you know, of the quantum,</p>
+<p>store a list of all the amplitudes,</p>
+<p>you know, in the state of the quantum computer,</p>
+<p>and then just, you know, do some linear algebra</p>
+<p>to just update that state, right?</p>
+<p>And so anything that quantum computers can do</p>
+<p>can also be done by classical computers,</p>
+<p>albeit exponentially slower in some cases.</p>
+<p>So quantum computers don&rsquo;t go into some magical place</p>
+<p>outside of Alan Turing&rsquo;s definition of computation.</p>
+<p>Precisely.</p>
+<p>They do not solve the halting problem.</p>
+<p>They cannot solve anything that is uncomputable</p>
+<p>in Alan Turing&rsquo;s sense.</p>
+<p>What we think they do change</p>
+<p>is what is efficiently computable, okay?</p>
+<p>And, you know, since the 1960s, you know,</p>
+<p>the word efficiently, you know,</p>
+<p>as well has been a central word in computer science,</p>
+<p>but it&rsquo;s sort of a code word for something technical,</p>
+<p>which is basically with polynomial scaling, you know,</p>
+<p>that as you get to larger and larger inputs,</p>
+<p>you would like an algorithm that uses an amount of time</p>
+<p>that scales only like the size of the input</p>
+<p>raised to some power</p>
+<p>and not exponentially with the size of the input, right?</p>
+<p>Yeah, so I do hope we get to talk again</p>
+<p>because one of the many topics</p>
+<p>that there&rsquo;s probably several hours worth of conversation on</p>
+<p>is complexity,</p>
+<p>which we probably won&rsquo;t even get a chance to touch today,</p>
+<p>but you briefly mentioned it,</p>
+<p>but let&rsquo;s maybe try to continue.</p>
+<p>So you said the definition of quantum supremacy</p>
+<p>is basically achieving a place</p>
+<p>where much faster on a formal,</p>
+<p>that quantum computer is much faster</p>
+<p>on a formal well defined problem</p>
+<p>that is or isn&rsquo;t useful.</p>
+<p>Yeah, yeah, yeah, right, right.</p>
+<p>And I would say that we really want three things, right?</p>
+<p>We want, first of all,</p>
+<p>the quantum computer to be much faster</p>
+<p>just in the literal sense of like number of seconds,</p>
+<p>you know, it&rsquo;s a solving this, you know,</p>
+<p>well defined, you know, problem.</p>
+<p>Secondly, we want it to be sort of, you know,</p>
+<p>for a problem where we really believe</p>
+<p>that a quantum computer has better scaling behavior, right?</p>
+<p>So it&rsquo;s not just an incidental, you know,</p>
+<p>matter of hardware,</p>
+<p>but it&rsquo;s that, you know,</p>
+<p>as you went to larger and larger inputs,</p>
+<p>you know, the classical scaling would be exponential</p>
+<p>and the scaling for the quantum algorithm</p>
+<p>would only be polynomial.</p>
+<p>And then thirdly, we want the first thing,</p>
+<p>the actual observed speed up</p>
+<p>to only be explainable in terms of the scaling behavior, right?</p>
+<p>So, you know, I want, you know,</p>
+<p>a real world, you know, a real problem to get solved,</p>
+<p>let&rsquo;s say by a quantum computer with 50 qubits or so,</p>
+<p>and for no one to be able to explain that in any way</p>
+<p>other than, well, you know, this computer involved a quantum state</p>
+<p>with two to the 50th power amplitudes.</p>
+<p>And, you know, a classical simulation,</p>
+<p>at least any that we know today,</p>
+<p>would require keeping track of two to the 50th numbers.</p>
+<p>And this is the reason why it was faster.</p>
+<p>So the intuition is that then if you demonstrate on 50 qubits,</p>
+<p>then once you get to 100 qubits,</p>
+<p>then it&rsquo;ll be even much more faster.</p>
+<p>Precisely, precisely.</p>
+<p>Yeah, and, you know, and quantum supremacy</p>
+<p>does not require error correction, right?</p>
+<p>We don&rsquo;t, you know, we don&rsquo;t have, you could say,</p>
+<p>true scalability yet or true, you know, error correction yet.</p>
+<p>But you could say quantum supremacy is already enough by itself</p>
+<p>to refute the skeptics who said a quantum computer</p>
+<p>will never outperform a classical computer for anything.</p>
+<p>But one, how do you demonstrate quantum supremacy?</p>
+<p>And two, what&rsquo;s up with these news articles</p>
+<p>I&rsquo;m reading that Google did so?</p>
+<p>Yeah, all right, well, great, great questions,</p>
+<p>because now you get into actually, you know,</p>
+<p>a lot of the work that I&rsquo;ve, you know,</p>
+<p>I and my students have been doing for the last decade,</p>
+<p>which was precisely about how do you demonstrate</p>
+<p>quantum supremacy using technologies that, you know,</p>
+<p>we thought would be available in the near future.</p>
+<p>And so one of the main things that we realized around 2011,</p>
+<p>and this was me and my student, Alex Arkhipov at MIT at the time,</p>
+<p>and independently of some others,</p>
+<p>including Bremner, Joseph, and Shepherd, okay?</p>
+<p>And the realization that we came to was that</p>
+<p>if you just want to prove that a quantum computer is faster,</p>
+<p>you know, and not do something useful with it,</p>
+<p>then there are huge advantages to sort of switching</p>
+<p>your attention from problems like factoring numbers</p>
+<p>that have a single right answer</p>
+<p>to what we call sampling problems.</p>
+<p>So these are problems where the goal is just to output</p>
+<p>a sample from some probability distribution,</p>
+<p>let&rsquo;s say over strings of 50 bits, right?</p>
+<p>So there are, you know, many, many,</p>
+<p>many possible valid outputs.</p>
+<p>You know, your computer will probably never even produce</p>
+<p>the same output twice, you know,</p>
+<p>if it&rsquo;s running as, even, you know,</p>
+<p>assuming it&rsquo;s running perfectly, okay?</p>
+<p>But the key is that some outputs are supposed</p>
+<p>to be likelier than other ones.</p>
+<p>So, sorry, to clarify, is there a set of outputs</p>
+<p>that are valid and set they&rsquo;re not,</p>
+<p>or is it more that the distribution</p>
+<p>of a particular kind of output is more,</p>
+<p>is like there&rsquo;s a specific distribution</p>
+<p>of a particular kind of output?</p>
+<p>Yeah, there&rsquo;s a specific distribution</p>
+<p>that you&rsquo;re trying to hit, right?</p>
+<p>Or, you know, that you&rsquo;re trying to sample from.</p>
+<p>Now, there are a lot of questions about this,</p>
+<p>you know, how do you do that, right?</p>
+<p>Now, how you do it, you know,</p>
+<p>it turns out that with a quantum computer,</p>
+<p>even with the noisy quantum computers</p>
+<p>that we have now, that we have today,</p>
+<p>what you can do is basically just apply</p>
+<p>a randomly chosen sequence of operations, right?</p>
+<p>So we, you know, in some of the, you know,</p>
+<p>that part is almost trivial, right?</p>
+<p>We just sort of get the qubits to interact</p>
+<p>in some random way,</p>
+<p>although a sort of precisely specified random way</p>
+<p>so we can repeat the exact same random sequence</p>
+<p>of interactions again and get another sample</p>
+<p>from that same distribution.</p>
+<p>And what this does is it basically,</p>
+<p>well, it creates a lot of garbage,</p>
+<p>but, you know, very specific garbage, right?</p>
+<p>So, you know, of all of the,</p>
+<p>so we&rsquo;re gonna talk about Google&rsquo;s device</p>
+<p>that were 53 qubits there, okay?</p>
+<p>And so there were two to the 53 power possible outputs.</p>
+<p>Now, for some of those outputs,</p>
+<p>you know, there was a little bit more</p>
+<p>destructive interference in their amplitude, okay?</p>
+<p>So their amplitudes were a little bit smaller.</p>
+<p>And for others, there was a little more</p>
+<p>constructive interference.</p>
+<p>You know, the amplitudes were a little bit</p>
+<p>more aligned with each other, you know,</p>
+<p>and so those were a little bit likelier, okay?</p>
+<p>All of the outputs are exponentially unlikely,</p>
+<p>but some are, let&rsquo;s say, two times or three times,</p>
+<p>you know, unlikelier than others, okay?</p>
+<p>And so you can define, you know,</p>
+<p>this sequence of operations that gives rise</p>
+<p>to this probability distribution.</p>
+<p>Okay, now the next question would be,</p>
+<p>well, how do you, you know,</p>
+<p>even if you&rsquo;re sampling from it,</p>
+<p>how do you verify that, right?</p>
+<p>How do you know?</p>
+<p>And so my students and I,</p>
+<p>and also the people at Google</p>
+<p>were doing the experiment,</p>
+<p>came up with statistical tests</p>
+<p>that you can apply to the outputs</p>
+<p>in order to try to verify, you know,</p>
+<p>what is, you know, that at least</p>
+<p>that some hard problem is being solved.</p>
+<p>The test that Google ended up using</p>
+<p>was something that they called</p>
+<p>the linear cross entropy benchmark, okay?</p>
+<p>And it&rsquo;s basically, you know,</p>
+<p>so the drawback of this test</p>
+<p>is that it requires, like,</p>
+<p>it requires you to do a two to the 53 time calculation</p>
+<p>with your classical computer, okay?</p>
+<p>So it&rsquo;s very expensive to do the test</p>
+<p>on a classical computer.</p>
+<p>The good news is&hellip;</p>
+<p>How big of a number is two to the 53?</p>
+<p>It&rsquo;s about nine quadrillion, okay?</p>
+<p>That doesn&rsquo;t help.</p>
+<p>Well, you know,</p>
+<p>it&rsquo;s, you want it in like scientific notation.</p>
+<p>No, no, no, what I mean is&hellip;</p>
+<p>Yeah, it is just&hellip;</p>
+<p>It&rsquo;s impossible to run on a&hellip;</p>
+<p>Yeah, so we will come back to that.</p>
+<p>It is just barely possible to run,</p>
+<p>we think, on the largest supercomputer</p>
+<p>that currently exists on Earth,</p>
+<p>which is called Summit at Oak Ridge National Lab, okay?</p>
+<p>Great, this is exciting.</p>
+<p>That&rsquo;s the short answer.</p>
+<p>So ironically, for this type of experiment,</p>
+<p>we don&rsquo;t want 100 qubits, okay?</p>
+<p>Because with 100 qubits, even if it works,</p>
+<p>we don&rsquo;t know how to verify the results, okay?</p>
+<p>So we want, you know, a number of qubits</p>
+<p>that is enough that, you know,</p>
+<p>the biggest classical computers on Earth</p>
+<p>will have to sweat, you know,</p>
+<p>and we&rsquo;ll just barely, you know,</p>
+<p>be able to keep up with the quantum computer,</p>
+<p>you know, using much more time,</p>
+<p>but they will still be able to do it</p>
+<p>in order that we can verify the results.</p>
+<p>Which is where the 53 comes from for the number of qubits?</p>
+<p>Basically, well, I mean, that&rsquo;s also,</p>
+<p>that&rsquo;s sort of, you know,</p>
+<p>I mean, that&rsquo;s sort of where they are now</p>
+<p>in terms of scaling, you know?</p>
+<p>And then, you know, soon, you know, that point will be passed.</p>
+<p>And then when you get to larger numbers of qubits,</p>
+<p>then, you know, these types of sampling experiments</p>
+<p>will no longer be so interesting</p>
+<p>because we won&rsquo;t even be able to verify the results</p>
+<p>and we&rsquo;ll have to switch to other types of computation.</p>
+<p>So with the sampling thing,</p>
+<p>you know, so the test that Google applied</p>
+<p>with this linear cross entropy benchmark</p>
+<p>was basically just take the samples that were generated,</p>
+<p>which are, you know, a very small subset</p>
+<p>of all the possible samples that there are.</p>
+<p>But for those, you calculate with your classical computer</p>
+<p>the probabilities that they should have been output.</p>
+<p>And you see, are those probabilities</p>
+<p>like larger than the mean?</p>
+<p>You know, so is the quantum computer biased</p>
+<p>toward outputting the strings that it&rsquo;s,</p>
+<p>you know, that you want it to be biased toward?</p>
+<p>Okay, and then finally,</p>
+<p>we come to a very crucial question,</p>
+<p>which is supposing that it does that.</p>
+<p>Well, how do we know that a classical computer</p>
+<p>could not have quickly done the same thing, right?</p>
+<p>How do we know that, you know,</p>
+<p>this couldn&rsquo;t have been spoofed by a classical computer, right?</p>
+<p>And so, well, the first answer is we don&rsquo;t know for sure</p>
+<p>because, you know, this takes us</p>
+<p>into questions of complexity theory.</p>
+<p>You know, I mean, questions of the magnitude</p>
+<p>of the P versus NP question and things like that, right?</p>
+<p>You know, we don&rsquo;t know how to rule out definitively</p>
+<p>that there could be fast classical algorithms</p>
+<p>for, you know, even simulating quantum mechanics</p>
+<p>and for, you know, simulating experiments like these,</p>
+<p>but we can give some evidence against that possibility.</p>
+<p>And that was sort of the, you know,</p>
+<p>the main thrust of a lot of the work</p>
+<p>that my colleagues and I did, you know,</p>
+<p>over the last decade,</p>
+<p>which is then sort of in around 2015 or so,</p>
+<p>what led to Google deciding to do this experiment.</p>
+<p>So is the kind of evidence here,</p>
+<p>first of all, the hard P equals NP problem that you mentioned</p>
+<p>and the kind of evidence that you were looking at,</p>
+<p>is that something you come to on a sheet of paper</p>
+<p>or is this something, are these empirical experiments?</p>
+<p>It&rsquo;s math for the most part.</p>
+<p>I mean, you know, it&rsquo;s also, you know,</p>
+<p>we have a bunch of methods</p>
+<p>that are known for simulating quantum circuits</p>
+<p>or quantum computations with classical computers.</p>
+<p>And so we have to try them all out</p>
+<p>and make sure that, you know, they don&rsquo;t work,</p>
+<p>you know, make sure that they have exponential scaling</p>
+<p>on, you know, these problems and not just theoretically,</p>
+<p>but with the actual range of parameters</p>
+<p>that are actually, you know, arising in Google&rsquo;s experiment.</p>
+<p>Okay, so there is an empirical component to it, right?</p>
+<p>But now on the theoretical side,</p>
+<p>you know, basically what we know how to do</p>
+<p>in theoretical computer science and computational complexity</p>
+<p>is, you know, we don&rsquo;t know how to prove</p>
+<p>that most of the problems we care about are hard,</p>
+<p>but we know how to pass the blame to someone else, okay?</p>
+<p>We know how to say, well, look, you know,</p>
+<p>I can&rsquo;t prove that this problem is hard,</p>
+<p>but if it is easy, then all these other things</p>
+<p>that, you know, you probably were much more confident</p>
+<p>or were hard, then those would be easy as well, okay?</p>
+<p>So we can give what are called reductions.</p>
+<p>This has been the basic strategy in, you know,</p>
+<p>NP completeness, right, in all of theoretical computer science</p>
+<p>and cryptography since the 1970s, really.</p>
+<p>And so we were able to give some reduction evidence</p>
+<p>for the hardness of simulating these sampling experiments,</p>
+<p>these sampling based quantum supremacy experiments.</p>
+<p>So reduction evidence is not as satisfactory as it should be.</p>
+<p>One of the biggest open problems in this area</p>
+<p>is to make it better.</p>
+<p>But, you know, we can do something.</p>
+<p>You know, certainly we can say that, you know,</p>
+<p>if there is a fast classical algorithm</p>
+<p>to spoof these experiments, then it has to be very,</p>
+<p>very unlike any of the algorithms that we know.</p>
+<p>TREVOR Which is kind of in the same kind</p>
+<p>of space of reasoning that people say P not equals NP.</p>
+<p>BENJAMIN Yeah, it&rsquo;s in the same spirit.</p>
+<p>TREVOR Okay, so Andrew Yang, a very intelligent</p>
+<p>and a presidential candidate with a lot of interesting ideas</p>
+<p>in all kinds of technological fields, tweeted that</p>
+<p>because of quantum computing, no code is uncrackable.</p>
+<p>Is he wrong or right?</p>
+<p>BENJAMIN He was premature, let&rsquo;s say.</p>
+<p>So, well, okay, wrong.</p>
+<p>Look, I&rsquo;m actually, you know, I&rsquo;m a fan of Andrew Yang.</p>
+<p>I like his ideas.</p>
+<p>I like his candidacy.</p>
+<p>I think that, you know, he may be ahead of his time</p>
+<p>with, you know, the universal basic income and so forth.</p>
+<p>And he may also be ahead of his time in that tweet</p>
+<p>that you referenced.</p>
+<p>So regarding using quantum computers</p>
+<p>to break cryptography, so the situation is this, okay?</p>
+<p>So the famous discovery of Peter Shor, you know, 26 years ago</p>
+<p>that really started quantum computing, you know,</p>
+<p>as an autonomous field was that if you built a full</p>
+<p>scalable quantum computer, then you could use it</p>
+<p>to efficiently find the prime factors of huge numbers</p>
+<p>and calculate discrete logarithms and solve</p>
+<p>a few other problems that are very, very special</p>
+<p>in character, right?</p>
+<p>They&rsquo;re not NP complete problems.</p>
+<p>We&rsquo;re pretty sure they&rsquo;re not, okay?</p>
+<p>But it so happens that most of the public key cryptography</p>
+<p>that we currently use to protect the internet</p>
+<p>is based on the belief that these problems are hard.</p>
+<p>Okay, what Shor showed is that once you get</p>
+<p>scalable quantum computers, then that&rsquo;s no longer true, okay?</p>
+<p>But now, you know, before people panic,</p>
+<p>there are two important points to understand here.</p>
+<p>Okay, the first is that quantum supremacy,</p>
+<p>the milestone that Google just achieved,</p>
+<p>is very, very far from the kind of scalable quantum computer</p>
+<p>that would be needed to actually threaten</p>
+<p>public key cryptography.</p>
+<p>Okay, so, you know, we touched on this earlier, right?</p>
+<p>But Google&rsquo;s device has 53 physical qubits, right?</p>
+<p>To threaten cryptography, you&rsquo;re talking, you know,</p>
+<p>with any of the known error correction methods,</p>
+<p>you&rsquo;re talking millions of physical qubits.</p>
+<p>Because error correction would be required</p>
+<p>to threaten cryptography.</p>
+<p>Yes, yes, yes, it certainly would, right?</p>
+<p>And, you know, how much, you know,</p>
+<p>how great will the overhead be from the error correction?</p>
+<p>That we don&rsquo;t know yet.</p>
+<p>But with the known codes, you&rsquo;re talking millions</p>
+<p>of physical qubits and of a much higher quality</p>
+<p>than any that we have now, okay?</p>
+<p>So, you know, I don&rsquo;t think that that is, you know,</p>
+<p>coming soon, although people who have secrets</p>
+<p>that, you know, need to stay secret for 20 years,</p>
+<p>you know, are already worried about this,</p>
+<p>you know, for the good reason that, you know,</p>
+<p>we presume that intelligence agencies</p>
+<p>are already scooping up data, you know,</p>
+<p>in the hope that eventually they&rsquo;ll be able to decode it</p>
+<p>once quantum computers become available, okay?</p>
+<p>So this brings me to the second point I wanted to make,</p>
+<p>which is that there are other public key cryptosystems</p>
+<p>that are known that we don&rsquo;t know how to break</p>
+<p>even with quantum computers, okay?</p>
+<p>And so there&rsquo;s a whole field devoted to this now,</p>
+<p>which is called post quantum cryptography, okay?</p>
+<p>And so there is already, so we have some good candidates now.</p>
+<p>The best known being what are called</p>
+<p>lattice based cryptosystems.</p>
+<p>And there is already some push to try to migrate</p>
+<p>to these cryptosystems.</p>
+<p>So NIST in the US is holding a competition</p>
+<p>to create standards for post quantum cryptography,</p>
+<p>which will be the first step in trying to get</p>
+<p>every web browser and every router to upgrade,</p>
+<p>you know, and use, you know, something like SSL</p>
+<p>that would be based on, you know,</p>
+<p>what we think is quantum secure cryptography.</p>
+<p>But, you know, this will be a long process.</p>
+<p>But, you know, it is something that people</p>
+<p>are already starting to do.</p>
+<p>And so, you know, I&rsquo;m sure this algorithm</p>
+<p>is sort of a dramatic discovery.</p>
+<p>You know, it could be a big deal</p>
+<p>for whatever intelligence agency</p>
+<p>first gets a scalable quantum computer,</p>
+<p>if no, at least certainly if no one else</p>
+<p>knows that they have it, right?</p>
+<p>But eventually we think that we could migrate</p>
+<p>the internet to the post quantum cryptography</p>
+<p>and then we&rsquo;d be more or less back where we started.</p>
+<p>Okay, so this is sort of not the application</p>
+<p>of quantum computing.</p>
+<p>I think that&rsquo;s really gonna change the world</p>
+<p>in a sustainable way, right?</p>
+<p>The big, by the way, the biggest practical application</p>
+<p>of quantum computing that we know about by far,</p>
+<p>I think is simply the simulation</p>
+<p>of quantum mechanics itself.</p>
+<p>In order to, you know, learn about chemical reactions,</p>
+<p>you know, design maybe new chemical processes,</p>
+<p>new materials, new drugs, new solar cells,</p>
+<p>new superconductors, all kinds of things like that.</p>
+<p>What&rsquo;s the size of a quantum computer</p>
+<p>that would be able to simulate the,</p>
+<p>you know, quantum mechanical systems themselves</p>
+<p>that would be impactful for the real world</p>
+<p>for the kind of chemical reactions</p>
+<p>and that kind of work?</p>
+<p>What scale are we talking about?</p>
+<p>Now you&rsquo;re asking a very, very current question,</p>
+<p>a very big question.</p>
+<p>People are going to be racing over the next decade</p>
+<p>to try to do useful quantum simulations</p>
+<p>even with, you know, 100 or 200 qubit quantum computers</p>
+<p>of the sort that we expect to be able to build</p>
+<p>over the next decade.</p>
+<p>Okay, so that might be, you know,</p>
+<p>the first application of quantum computing</p>
+<p>that we&rsquo;re able to realize, you know,</p>
+<p>or maybe it will prove to be too difficult</p>
+<p>and maybe even that will require fault tolerance</p>
+<p>or, you know, will require error correction.</p>
+<p>So there&rsquo;s an aggressive race to come up</p>
+<p>with the one case study kind of like Peter Schor</p>
+<p>with the idea that would just capture</p>
+<p>the world&rsquo;s imagination of like,</p>
+<p>look, we can actually do something very useful here.</p>
+<p>Right, but I think, you know, within the next decade,</p>
+<p>the best shot we have is certainly not,</p>
+<p>you know, using Schor&rsquo;s algorithm to break cryptography,</p>
+<p>you know, just because it requires,</p>
+<p>you know, too much in the way of error correction.</p>
+<p>The best shot we have is to do some quantum simulation</p>
+<p>that tells the material scientists</p>
+<p>or chemists or nuclear physicists,</p>
+<p>you know, something that is useful to them</p>
+<p>and that they didn&rsquo;t already know,</p>
+<p>you know, and you might only need one or two successes</p>
+<p>in order to change some, you know,</p>
+<p>billion dollar industries, right?</p>
+<p>Like, you know, the way that people make fertilizer right now</p>
+<p>is still based on the Haber Bosch process</p>
+<p>from a century ago.</p>
+<p>And it is some many body quantum mechanics problem</p>
+<p>that no one really understands, right?</p>
+<p>If you could design a better way to make fertilizer, right?</p>
+<p>That&rsquo;s, you know, billions of dollars right there.</p>
+<p>So those are sort of the applications</p>
+<p>that people are going to be aggressively racing toward</p>
+<p>over the next decade.</p>
+<p>Now, I don&rsquo;t know if they&rsquo;re gonna realize it or not,</p>
+<p>but, you know, they certainly at least have a shot.</p>
+<p>So it&rsquo;s gonna be a very, very interesting next decade.</p>
+<p>But just to clarify, what&rsquo;s your intuition?</p>
+<p>If a breakthrough like that comes with,</p>
+<p>is it possible for that breakthrough to be on 50</p>
+<p>to 100 qubits or is scale a fundamental thing</p>
+<p>like 500, 1000 plus qubits?</p>
+<p>Yeah, so I can tell you what the current studies are saying.</p>
+<p>You know, I think probably better to rely on that</p>
+<p>than on my intuition.</p>
+<p>But, you know, there was a group at Microsoft</p>
+<p>had a study a few years ago that said</p>
+<p>even with only about 100 qubits,</p>
+<p>you know, you could already learn something new</p>
+<p>about the chemical reaction that makes fertilizer, for example.</p>
+<p>The trouble is they&rsquo;re talking about 100 qubits</p>
+<p>and about a million layers of quantum gates.</p>
+<p>Okay, so basically they&rsquo;re talking about</p>
+<p>100 nearly perfect qubits.</p>
+<p>So the logical qubits, as you mentioned before.</p>
+<p>Yeah, exactly, 100 logical qubits.</p>
+<p>And now, you know, the hard part for the next decade</p>
+<p>is gonna be, well, what can we do</p>
+<p>with 100 to 200 noisy qubits?</p>
+<p>Yeah, is there error correction breakthroughs</p>
+<p>that might come without the need to do</p>
+<p>thousands or millions of physical qubits?</p>
+<p>Yeah, so people are gonna be pushing simultaneously</p>
+<p>on a bunch of different directions.</p>
+<p>One direction, of course,</p>
+<p>is just making the qubits better, right?</p>
+<p>And, you know, there is tremendous progress there.</p>
+<p>I mean, you know, the fidelity is like</p>
+<p>the accuracy of the qubits has improved</p>
+<p>by several orders of magnitude, you know,</p>
+<p>in the last decade or two.</p>
+<p>Okay, the second thing is designing better error,</p>
+<p>you know, let&rsquo;s say lower overhead error correcting codes</p>
+<p>and even short of doing the full recursive error correction.</p>
+<p>You know, there are these error mitigation strategies</p>
+<p>that you can use, you know, that may, you know,</p>
+<p>allow you to eke out a useful speed up in the near term.</p>
+<p>And then the third thing is just taking the quantum algorithms</p>
+<p>for simulating quantum chemistry or materials</p>
+<p>and making them more efficient.</p>
+<p>You know, and those algorithms</p>
+<p>are already dramatically more efficient</p>
+<p>than they were, let&rsquo;s say, five years ago.</p>
+<p>And so when, you know, I quoted these estimates</p>
+<p>like, you know, circuit depth of one million.</p>
+<p>And so, you know, I hope that because people will care enough</p>
+<p>that these numbers are gonna come down.</p>
+<p>So you&rsquo;re one of the world class researchers in this space.</p>
+<p>There&rsquo;s a few groups like you mentioned,</p>
+<p>Google and IBM working at this.</p>
+<p>There&rsquo;s other research labs, but you put also,</p>
+<p>you have an amazing blog.</p>
+<p>You just, you put a lot, you paid me to say it.</p>
+<p>You put a lot of effort sort of to communicating</p>
+<p>the science of this and communicating,</p>
+<p>exposing some of the BS and sort of the natural,</p>
+<p>just like in the AI space, the natural charlatanism,</p>
+<p>if that&rsquo;s a word in this, in the quantum mechanics in general,</p>
+<p>but quantum computers and so on.</p>
+<p>Can you give some notes about people or ideas</p>
+<p>that people like me or listeners in general</p>
+<p>from outside the field should be cautious of</p>
+<p>when they&rsquo;re taking in news headings</p>
+<p>that Google achieved quantum supremacy?</p>
+<p>So what should we look out for?</p>
+<p>Where&rsquo;s the charlatans in the space?</p>
+<p>Where&rsquo;s the BS?</p>
+<p>Yeah, so good question.</p>
+<p>Unfortunately, quantum computing is a little bit like</p>
+<p>cryptocurrency or deep learning.</p>
+<p>Like there is a core of something</p>
+<p>that is genuinely revolutionary and exciting.</p>
+<p>And because of that core, it attracts this sort of</p>
+<p>vast penumbra of people making just utterly ridiculous claims.</p>
+<p>And so with quantum computing, I mean,</p>
+<p>I would say that the main way that people go astray</p>
+<p>is by not focusing on sort of the question of,</p>
+<p>are you getting a speed up over a classical computer or not?</p>
+<p>And so people have like dismissed quantum supremacy</p>
+<p>because it&rsquo;s not useful, right?</p>
+<p>Or it&rsquo;s not itself, let&rsquo;s say, obviously useful for anything.</p>
+<p>Okay, but ironically, these are some of the same people</p>
+<p>who will go and say, well, we care about useful applications.</p>
+<p>We care about solving traffic routing</p>
+<p>and financial optimization and all these things.</p>
+<p>And that sounds really good, but their entire spiel</p>
+<p>is sort of counting on nobody asking the question,</p>
+<p>yes, but how well could a classical computer</p>
+<p>do the same thing, right?</p>
+<p>I really mean the entire thing is they say,</p>
+<p>well, a quantum computer can do this,</p>
+<p>a quantum computer can do that.</p>
+<p>A quantum computer can do that, right?</p>
+<p>And they just avoid the question,</p>
+<p>are you getting a speed up over a classical computer or not?</p>
+<p>And if so, how do you know?</p>
+<p>Have you really thought carefully about classical algorithms</p>
+<p>to solve the same problem, right?</p>
+<p>And a lot of the application areas</p>
+<p>that the companies and investors are most excited about</p>
+<p>that the popular press is most excited about</p>
+<p>where quantum computers have been things</p>
+<p>like machine learning, AI, optimization, okay?</p>
+<p>And the problem with that is that since the very beginning,</p>
+<p>even if you have a perfect fault tolerant,</p>
+<p>scalable quantum computer,</p>
+<p>we have known of only modest speed ups</p>
+<p>that you can get for these problems, okay?</p>
+<p>So there is a famous quantum algorithm</p>
+<p>called Grover&rsquo;s algorithm, okay?</p>
+<p>And what it can do is it can solve many,</p>
+<p>many of the problems that arise in AI,</p>
+<p>machine learning, optimization,</p>
+<p>including NP complete problems, okay?</p>
+<p>But it can solve them in about the square root</p>
+<p>of the number of steps that a classical computer would need</p>
+<p>for the same problems, okay?</p>
+<p>Now a square root speed up is important, it&rsquo;s impressive.</p>
+<p>It is not an exponential speed up, okay?</p>
+<p>So it is not the kind of game changer</p>
+<p>that let&rsquo;s say Shor&rsquo;s algorithm for factoring is,</p>
+<p>or for that matter that simulation of quantum mechanics is,</p>
+<p>okay, it is a more modest speed up.</p>
+<p>And let&rsquo;s say roughly, in theory,</p>
+<p>it could roughly double the size</p>
+<p>of the optimization problems that you could handle, right?</p>
+<p>And so because people found that I guess too boring</p>
+<p>or too unimpressive, they&rsquo;ve gone on to like invent</p>
+<p>all of these heuristic algorithms</p>
+<p>where because no one really understands them,</p>
+<p>you can just project your hopes onto them, right?</p>
+<p>That, well, maybe it gets an exponential speed up.</p>
+<p>You can&rsquo;t prove that it doesn&rsquo;t,</p>
+<p>and the burden is on you to prove</p>
+<p>that it doesn&rsquo;t get a speed up, right?</p>
+<p>And so they&rsquo;ve done an immense amount of that kind of thing.</p>
+<p>And a really worrying amount of the case</p>
+<p>for building a quantum computer has come to rest</p>
+<p>on this stuff that those of us in this field</p>
+<p>know perfectly well is on extremely shaky foundations.</p>
+<p>So the fundamental question is,</p>
+<p>show that there&rsquo;s a speed up over the classical.</p>
+<p>Absolutely.</p>
+<p>And in this space that you&rsquo;re referring to,</p>
+<p>which is actually really interesting,</p>
+<p>it&rsquo;s the area that a lot of people excited about</p>
+<p>is machine learning.</p>
+<p>So your sense is, do you think it will,</p>
+<p>I know that there&rsquo;s a lot of smoke currently,</p>
+<p>but do you think there actually eventually</p>
+<p>might be breakthroughs where you do get exponential speed ups</p>
+<p>in the machine learning space?</p>
+<p>Absolutely, there might be.</p>
+<p>I mean, I think we know of modest speed ups</p>
+<p>that you can get for these problems.</p>
+<p>I think, you know, whether you can get bigger speed ups</p>
+<p>is one of the biggest questions for quantum computing theory,</p>
+<p>you know, for people like me to be thinking about.</p>
+<p>Now, you know, we had actually recently</p>
+<p>a really, you know, a super exciting candidate</p>
+<p>for an exponential quantum speed up</p>
+<p>for a machine learning problem</p>
+<p>that people really care about.</p>
+<p>This is basically the Netflix problem,</p>
+<p>the problem of recommending products to users</p>
+<p>given some sparse data about their preferences.</p>
+<p>Karinidis and Prakash in 2016 had an algorithm</p>
+<p>for sampling recommendations that was exponentially faster</p>
+<p>than any known classical algorithm, right?</p>
+<p>And so, you know, a lot of people were excited.</p>
+<p>I was excited about it.</p>
+<p>I had an 18 year old undergrad by the name of Yilin Tang,</p>
+<p>and she was obviously brilliant.</p>
+<p>She was looking for a project.</p>
+<p>I gave her as a project,</p>
+<p>can you prove that this speed up is real?</p>
+<p>Can you prove that, you know, any classical algorithm</p>
+<p>would need to access exponentially more data, right?</p>
+<p>And, you know, this was a case where if that was true,</p>
+<p>this was not like a P versus NP type of question, right?</p>
+<p>This might well have been provable,</p>
+<p>but she worked on it for a year.</p>
+<p>She couldn&rsquo;t do it.</p>
+<p>Eventually she figured out why she couldn&rsquo;t do it.</p>
+<p>And the reason was that that was false.</p>
+<p>There is a classical algorithm</p>
+<p>with a similar performance to the quantum algorithm.</p>
+<p>So Yilin succeeded in dequantizing</p>
+<p>that machine learning algorithm.</p>
+<p>And then in the last couple of years,</p>
+<p>building on Yilin&rsquo;s breakthrough,</p>
+<p>a bunch of the other quantum machine learning algorithms</p>
+<p>that were proposed have now also been dequantized.</p>
+<p>Yeah.</p>
+<p>Okay, and so I would say, yeah.</p>
+<p>That&rsquo;s a kind of important backwards step.</p>
+<p>Yes.</p>
+<p>Like a forward step for science,</p>
+<p>but a step for quantum machine learning</p>
+<p>that precedes the big next forward step.</p>
+<p>Right, right, right.</p>
+<p>If it&rsquo;s possible.</p>
+<p>Right, now some people will say,</p>
+<p>well, you know, there&rsquo;s a silver lining in this cloud.</p>
+<p>They say, well, thinking about quantum computing</p>
+<p>has led to the discovery</p>
+<p>of potentially useful new classical algorithms.</p>
+<p>That&rsquo;s true.</p>
+<p>And so, you know, so you get these spinoff applications,</p>
+<p>but if you want a quantum speed up,</p>
+<p>you really have to think carefully about that.</p>
+<p>You know, Yilin&rsquo;s work was a perfect illustration of why.</p>
+<p>Right, and I think that, you know, the challenge,</p>
+<p>you know, the field is now open, right?</p>
+<p>Find a better example,</p>
+<p>find, you know, where quantum computers</p>
+<p>are going to deliver big gains for machine learning.</p>
+<p>You know, I am, you know,</p>
+<p>not only do I ardently support,</p>
+<p>you know, people thinking about that,</p>
+<p>I&rsquo;m trying to think about it myself</p>
+<p>and have my students and postdocs think about it,</p>
+<p>but we should not pretend</p>
+<p>that those speed ups are already established.</p>
+<p>And the problem comes when so many of the companies</p>
+<p>and, you know, and journalists in this space</p>
+<p>are pretending that.</p>
+<p>Like all good things, like life itself,</p>
+<p>this conversation must soon come to an end.</p>
+<p>Let me ask the most absurdly philosophical last question.</p>
+<p>What is the meaning of life?</p>
+<p>What gives your life fulfillment, purpose,</p>
+<p>happiness, and yeah, meaning?</p>
+<p>I would say, you know, number one,</p>
+<p>trying to discover new things about the world</p>
+<p>and share them and, you know, communicate</p>
+<p>and learn what other people have discovered.</p>
+<p>You know, number two, you know, my friends,</p>
+<p>my family, my kids, my students,</p>
+<p>you know, just the people around me.</p>
+<p>Number three, you know, trying, you know,</p>
+<p>when I can to, you know, make the world better</p>
+<p>in some small ways.</p>
+<p>And, you know, it&rsquo;s depressing that I can&rsquo;t do more</p>
+<p>and that, you know, the world is, you know,</p>
+<p>facing crises over, you know, the climate</p>
+<p>and over, you know, sort of resurgent authoritarianism</p>
+<p>and all these other things, but, you know,</p>
+<p>trying to stand against the things</p>
+<p>that I find horrible when I can.</p>
+<p>Let me ask you one more absurd question.</p>
+<p>What makes you smile?</p>
+<p>Well, yeah, I guess your question just did.</p>
+<p>I don&rsquo;t know.</p>
+<p>I thought I tried that absurd one on you.</p>
+<p>Well, it was a huge honor to talk to you.</p>
+<p>We&rsquo;ll probably talk to you for many more hours, Scott.</p>
+<p>Thank you so much.</p>
+<p>Well, thank you.</p>
+<p>Thank you.</p>
+<p>It was great.</p>
+<p>Thank you for listening to this conversation</p>
+<p>with Scott Aaronson.</p>
+<p>And thank you to our presenting sponsor, Cash App.</p>
+<p>Download it, use code LexPodcast,</p>
+<p>you&rsquo;ll get $10 and $10 will go to FIRST,</p>
+<p>an organization that inspires and educates young minds</p>
+<p>to become science and technology innovators of tomorrow.</p>
+<p>If you enjoy this podcast, subscribe on YouTube,</p>
+<p>give it five stars on Apple Podcast,</p>
+<p>support it on Patreon,</p>
+<p>or simply connect with me on Twitter at Lex Friedman.</p>
+<p>Now, let me leave you with some words</p>
+<p>from a funny and insightful blog post</p>
+<p>Scott wrote over 10 years ago</p>
+<p>on the ever present Malthusianisms in our daily lives.</p>
+<p>Quote, again and again,</p>
+<p>I&rsquo;ve undergone the humbling experience</p>
+<p>of first lamenting how badly something sucks,</p>
+<p>then only much later having the crucial insight</p>
+<p>that it&rsquo;s not sucking</p>
+<p>wouldn&rsquo;t have been a Nash equilibrium.</p>
+<p>Thank you for listening.</p>
+<p>I hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

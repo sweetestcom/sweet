@@ -1,0 +1,2498 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Vladimir Vapnik, part two, the second
+time we spoke on the podcast.
+He&amp;rsquo;s the coinventor of support vector machines, support vector clustering, VC
+theory, and many foundational ideas and statistical learning.
+He was born in the Soviet Union, worked at the Institute of Control Sciences
+in Moscow, then in the US, worked at AT&amp;amp;T, NEC labs, Facebook AI research,
+and now is a professor at Columbia University.'>
+<title>Lex Fridman Podcast - #71 - Vladimir Vapnik: Predicates, Invariants, and the Essence of Intelligence | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500071/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #71 - Vladimir Vapnik: Predicates, Invariants, and the Essence of Intelligence'>
+<meta property='og:description' content='The following is a conversation with Vladimir Vapnik, part two, the second
+time we spoke on the podcast.
+He&amp;rsquo;s the coinventor of support vector machines, support vector clustering, VC
+theory, and many foundational ideas and statistical learning.
+He was born in the Soviet Union, worked at the Institute of Control Sciences
+in Moscow, then in the US, worked at AT&amp;amp;T, NEC labs, Facebook AI research,
+and now is a professor at Columbia University.'>
+<meta property='og:url' content='https://swiest.com/en/1310500071/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-05-10T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-05-10T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #71 - Vladimir Vapnik: Predicates, Invariants, and the Essence of Intelligence">
+<meta name="twitter:description" content="The following is a conversation with Vladimir Vapnik, part two, the second
+time we spoke on the podcast.
+He&amp;rsquo;s the coinventor of support vector machines, support vector clustering, VC
+theory, and many foundational ideas and statistical learning.
+He was born in the Soviet Union, worked at the Institute of Control Sciences
+in Moscow, then in the US, worked at AT&amp;amp;T, NEC labs, Facebook AI research,
+and now is a professor at Columbia University.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500071/">Lex Fridman Podcast - #71 - Vladimir Vapnik: Predicates, Invariants, and the Essence of Intelligence</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-05-10</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    58 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Vladimir Vapnik, part two, the second</p>
+<p>time we spoke on the podcast.</p>
+<p>He&rsquo;s the coinventor of support vector machines, support vector clustering, VC</p>
+<p>theory, and many foundational ideas and statistical learning.</p>
+<p>He was born in the Soviet Union, worked at the Institute of Control Sciences</p>
+<p>in Moscow, then in the US, worked at AT&amp;T, NEC labs, Facebook AI research,</p>
+<p>and now is a professor at Columbia University.</p>
+<p>His work has been cited over 200,000 times.</p>
+<p>The first time we spoke on the podcast was just over a year</p>
+<p>ago, one of the early episodes.</p>
+<p>This time we spoke after a lecture he gave titled complete statistical theory</p>
+<p>of learning as part of the MIT series of lectures on deep learning</p>
+<p>and AI that I organized.</p>
+<p>I&rsquo;ll release the video of the lecture in the next few days.</p>
+<p>This podcast and lecture are independent from each other, so you don&rsquo;t need</p>
+<p>one to understand the other.</p>
+<p>The lecture is quite technical and math heavy, so if you do watch both, I</p>
+<p>recommend listening to this podcast first, since the podcast is</p>
+<p>probably a bit more accessible.</p>
+<p>This is the artificial intelligence podcast.</p>
+<p>If you enjoy it, subscribe on YouTube, give it five stars on Apple podcasts,</p>
+<p>support it on Patreon, or simply connect with me on Twitter</p>
+<p>at Lex Friedman spelled F R I D M A N.</p>
+<p>As usual, I&rsquo;ll do one or two minutes of ads now and never any ads in</p>
+<p>the middle that can break the flow of the conversation.</p>
+<p>I hope that works for you and doesn&rsquo;t hurt the listening experience.</p>
+<p>This show is presented by Cash App, the number one finance app in the app store.</p>
+<p>When you get it, use code LexPodcast.</p>
+<p>Cash App lets you send money to friends, buy Bitcoin, and invest in the</p>
+<p>stock market with as little as $1.</p>
+<p>Broker services are provided by Cash App Investing, a subsidiary of Square</p>
+<p>and member SIPC, since Cash App allows you to send and receive money</p>
+<p>digitally, peer to peer, and security in all digital transactions is very important.</p>
+<p>Let me mention that PCI data security standard, PCI DSS level one,</p>
+<p>that Cash App is compliant with.</p>
+<p>I&rsquo;m a big fan of standards for safety and security and PCI DSS is a good</p>
+<p>example of that, where a bunch of competitors got together and agreed</p>
+<p>that there needs to be a global standard around the security of transactions.</p>
+<p>Now we just need to do the same for autonomous vehicles</p>
+<p>and AI systems in general.</p>
+<p>So again, if you get Cash App from the app store or Google Play and use the code</p>
+<p>LexPodcast, you get $10 and Cash App will also donate $10 to FIRST, one of my</p>
+<p>favorite organizations that is helping to advance robotics and STEM education</p>
+<p>for young people around the world.</p>
+<p>And now here&rsquo;s my conversation with Vladimir Vapnik.</p>
+<p>You and I talked about Alan Turing yesterday a little bit and that he, as the</p>
+<p>father of artificial intelligence, may have instilled in our field, an ethic</p>
+<p>of engineering and not science, seeking more to build intelligence</p>
+<p>rather than to understand it.</p>
+<p>What do you think is the difference between these two paths of engineering</p>
+<p>intelligence and the science of intelligence?</p>
+<p>It&rsquo;s a completely different story.</p>
+<p>Engineering is a mutation of human activity.</p>
+<p>You have to make a device which behaves as humans behave, have all the functions</p>
+<p>of humans.</p>
+<p>It doesn&rsquo;t matter how you do it, but to understand what is intelligence,</p>
+<p>but to understand what is intelligence about, it&rsquo;s quite a different problem.</p>
+<p>So I think, I believe that it&rsquo;s somehow related to the predicate we talked</p>
+<p>yesterday about, because look at the Vladimir Propp&rsquo;s idea.</p>
+<p>He just found 31 here, predicates, he called it units, which can explain</p>
+<p>human behavior, at least in Russian tales.</p>
+<p>You look at Russian tales and derive from that.</p>
+<p>And then people realize that it&rsquo;s more wide than in Russian tales.</p>
+<p>It is in TV, in movie serials and so on and so on.</p>
+<p>So you&rsquo;re talking about Vladimir Propp, who in 1928 published a book,</p>
+<p>Morphology of the Folktale, describing 31 predicates that have this kind of</p>
+<p>sequential structure that a lot of the stories, narratives follow in Russian</p>
+<p>folklore and in other contexts.</p>
+<p>We&rsquo;ll talk about it.</p>
+<p>I&rsquo;d like to talk about predicates in a focused way, but let me, if you allow</p>
+<p>me to stay zoomed out on our friend, Alan Turing, and, you know, he inspired</p>
+<p>a generation with the imitation game.</p>
+<p>Yes.</p>
+<p>Do you think if we can linger on that a little bit longer, do you think we can</p>
+<p>learn, do you think learning to imitate intelligence can get us closer to the</p>
+<p>science, to understanding intelligence?</p>
+<p>So why do you think imitation is so far from understanding?</p>
+<p>I think that it is different between you have different goals.</p>
+<p>So your goal is to create something, something useful.</p>
+<p>Yeah.</p>
+<p>And that is great.</p>
+<p>And you can see how much things was done and I believe that it will be done even</p>
+<p>more, it&rsquo;s self driving cars and also the business, it is great.</p>
+<p>And it was inspired by Turing&rsquo;s vision.</p>
+<p>But understanding is very difficult.</p>
+<p>It&rsquo;s more or less philosophical category.</p>
+<p>What means understand the world?</p>
+<p>I believe in scheme which starts from Plato, that there exists world of ideas.</p>
+<p>I believe that intelligence, it is world of ideas, but it is world of pure ideas.</p>
+<p>And when you combine them with reality things, it creates, as in my case,</p>
+<p>invariants, which is very specific.</p>
+<p>And that&rsquo;s, I believe, the combination of ideas in way to constructing invariants.</p>
+<p>Constructing invariant is intelligence.</p>
+<p>But first of all, predicate, if you know, predicate and hopefully</p>
+<p>then not too much predicate exists.</p>
+<p>For example, 31 predicate for human behavior, it is not a lot.</p>
+<p>Vladimir Propp used 31, you can even call them predicate, 31</p>
+<p>predicates to describe stories, narratives.</p>
+<p>Do you think human behavior, how much of human behavior, how much of our</p>
+<p>world, our universe, all the things that matter in our existence can be</p>
+<p>summarized in predicates of the kind that Propp was working with?</p>
+<p>I think that we have a lot of form of behavior, but I think that</p>
+<p>predicate is much less because even in this example, which I gave you</p>
+<p>yesterday, you saw that predicate can be, one predicate can construct many</p>
+<p>different invariants depending on your data.</p>
+<p>They&rsquo;re applying to different data and they give different invariants.</p>
+<p>So, but pure ideas, maybe not so much.</p>
+<p>Not so many.</p>
+<p>I don&rsquo;t know about that, but my guess, I hope that&rsquo;s why challenge</p>
+<p>about digit recognition, how much you need.</p>
+<p>I think we&rsquo;ll talk about computer vision and 2D images a little bit</p>
+<p>in your challenge.</p>
+<p>That&rsquo;s exactly about intelligence.</p>
+<p>That&rsquo;s exactly, that&rsquo;s exactly about, no, that hopes to be exactly about</p>
+<p>the spirit of intelligence in the simplest possible way.</p>
+<p>Yeah, absolutely you should start the simplest way, otherwise you</p>
+<p>will not be able to do it.</p>
+<p>Well, there&rsquo;s an open question whether starting at the MNIST digit</p>
+<p>recognition is a step towards intelligence or it&rsquo;s an entirely different thing.</p>
+<p>I think that to beat records using say 100, 200 times less examples,</p>
+<p>you need intelligence.</p>
+<p>You need intelligence.</p>
+<p>So let&rsquo;s, because you use this term and it would be nice, I&rsquo;d like to</p>
+<p>ask simple, maybe even dumb questions.</p>
+<p>Let&rsquo;s start with a predicate.</p>
+<p>In terms of terms and how you think about it, what is a predicate?</p>
+<p>I don&rsquo;t know.</p>
+<p>I have a feeling formally they exist, but I believe that predicate for</p>
+<p>2D images, one of them is symmetry.</p>
+<p>Hold on a second.</p>
+<p>Sorry.</p>
+<p>Sorry, sorry to interrupt and pull you back.</p>
+<p>At the simplest level, we&rsquo;re not even, we&rsquo;re not being profound currently.</p>
+<p>A predicate is a statement of something that is true.</p>
+<p>Yes.</p>
+<p>Do you think of predicates as somehow probabilistic in nature or is this binary?</p>
+<p>This is truly constraints of logical statements about the world.</p>
+<p>In my definition, the simplest predicate is function.</p>
+<p>Function, and you can use this function to make inner product that is predicate.</p>
+<p>What&rsquo;s the input and what&rsquo;s the output of the function?</p>
+<p>Input is X, something which is input in reality.</p>
+<p>Say if you consider digit recognition, it pixel space input, but it is</p>
+<p>function which in pixel space, but it can be any function from pixel space and you</p>
+<p>choose, and I believe that there are several functions which is important for</p>
+<p>understanding of images.</p>
+<p>One of them is symmetry.</p>
+<p>It&rsquo;s not so simple construction as I described with the derivative, with all</p>
+<p>this stuff, but another, I believe, I don&rsquo;t know how many, is how well</p>
+<p>structurized is picture.</p>
+<p>Structurized?</p>
+<p>Yeah.</p>
+<p>What do you mean by structurized?</p>
+<p>It is formal definition.</p>
+<p>Say something heavy on the left corner, not so heavy in the middle and so on.</p>
+<p>You describe in general concept of what you assume.</p>
+<p>Concepts, some kind of universal concepts.</p>
+<p>Yeah, but I don&rsquo;t know how to formalize this.</p>
+<p>Do you?</p>
+<p>So this is the thing.</p>
+<p>There&rsquo;s a million ways we can talk about this.</p>
+<p>I&rsquo;ll keep bringing it up, but we humans have such concepts when we look at</p>
+<p>digits, but it&rsquo;s hard to put them, just like you&rsquo;re saying now, it&rsquo;s</p>
+<p>hard to put them into words.</p>
+<p>You know, that is example, when critics in music, trying to describe music,</p>
+<p>they use predicate and not too many predicate, but in different combination,</p>
+<p>but they have some special words for describing music and the same</p>
+<p>should be for images, but maybe there are critics who understand essence</p>
+<p>of what this image is about.</p>
+<p>Do you think there exists critics who can summarize the essence of</p>
+<p>images, human beings?</p>
+<p>I hope so, yes, but that&hellip;</p>
+<p>Explicitly state them on paper.</p>
+<p>The fundamental question I&rsquo;m asking is, do you think there exists a small</p>
+<p>set of predicates that will summarize images?</p>
+<p>It feels to our mind, like it does, that the concept of what makes a two</p>
+<p>and a three and a four&hellip;</p>
+<p>No, no, no, it&rsquo;s not on this level.</p>
+<p>It should not describe two, three, four.</p>
+<p>It describes some construction, which allow you to create invariance.</p>
+<p>And invariance, sorry to stick on this, but terminology.</p>
+<p>Invariance, it is property of your image.</p>
+<p>Say, I can say, looking on my image, it is more or less symmetric.</p>
+<p>Looking on my image, it is more or less symmetric, and I can give you value</p>
+<p>of symmetry, say, level of symmetry, using this function which I gave</p>
+<p>yesterday. And you can describe that your image has these characteristics</p>
+<p>exactly in the way how musical critics describe music.</p>
+<p>So, but this is invariant applied to specific data, to specific music,</p>
+<p>to something.</p>
+<p>I strongly believe in this plot ideas that there exists world of predicate</p>
+<p>and world of reality, and predicate and reality is somehow connected,</p>
+<p>and you have to know that.</p>
+<p>Let&rsquo;s talk about Plato a little bit.</p>
+<p>So you draw a line from Plato, to Hegel, to Wigner, to today.</p>
+<p>So Plato has forms, the theory of forms.</p>
+<p>So there&rsquo;s a world of ideas and a world of things, as you talk about,</p>
+<p>and there&rsquo;s a connection.</p>
+<p>And presumably the world of ideas is very small, and the world of things</p>
+<p>is arbitrarily big, but they&rsquo;re all what Plato calls them like, it&rsquo;s a shadow.</p>
+<p>The real world is a shadow from the world of forms.</p>
+<p>Yeah, you have projection of a world of ideas.</p>
+<p>Yeah, very poetic.</p>
+<p>In reality, you can realize this projection using these invariants</p>
+<p>because it is projection for own specific examples, which create specific features</p>
+<p>of specific objects.</p>
+<p>So the essence of intelligence is while only being able to observe</p>
+<p>the world of things, try to come up with a world of ideas.</p>
+<p>Exactly.</p>
+<p>Like in this music story, intelligent musical critics knows all these words</p>
+<p>and have a feeling about what they mean.</p>
+<p>I feel like that&rsquo;s a contradiction, intelligent music critics.</p>
+<p>But I think music is to be enjoyed in all its forms.</p>
+<p>The notion of critic, like a food critic.</p>
+<p>No, I don&rsquo;t want touch emotion.</p>
+<p>That&rsquo;s an interesting question.</p>
+<p>Does emotion&hellip;</p>
+<p>There&rsquo;s certain elements of the human psychology, of the human experience,</p>
+<p>which seem to almost contradict intelligence and reason.</p>
+<p>Like emotion, like fear, like love, all of those things,</p>
+<p>are those not connected in any way to the space of ideas?</p>
+<p>That I don&rsquo;t know.</p>
+<p>I just want to be concentrate on very simple story, on digit recognition.</p>
+<p>So you don&rsquo;t think you have to love and fear death in order to recognize digits?</p>
+<p>I don&rsquo;t know.</p>
+<p>Because it&rsquo;s so complicated.</p>
+<p>It involves a lot of stuff which I never considered.</p>
+<p>But I know about digit recognition.</p>
+<p>And I know that for digit recognition,</p>
+<p>to get records from small number of observations, you need predicate.</p>
+<p>But not special predicate for this problem.</p>
+<p>But universal predicate, which understand world of images.</p>
+<p>Of visual information.</p>
+<p>Visual, yes.</p>
+<p>But on the first step, they understand, say, world of handwritten digits,</p>
+<p>or characters, or something simple.</p>
+<p>So like you said, symmetry is an interesting one.</p>
+<p>No, that&rsquo;s what I think one of the predicate is related to symmetry.</p>
+<p>The level of symmetry.</p>
+<p>Okay, degree of symmetry.</p>
+<p>So you think symmetry at the bottom is a universal notion,</p>
+<p>and there&rsquo;s degrees of a single kind of symmetry,</p>
+<p>or is there many kinds of symmetries?</p>
+<p>Many kinds of symmetries.</p>
+<p>There is a symmetry, antisymmetry, say, letter S.</p>
+<p>So it has vertical antisymmetry.</p>
+<p>And it could be diagonal symmetry, vertical symmetry.</p>
+<p>So when you cut vertically the letter S&hellip;</p>
+<p>Yeah, then the upper part and lower part in different directions.</p>
+<p>Inverted, along the Y axis.</p>
+<p>But that&rsquo;s just like one example of symmetry, right?</p>
+<p>Isn&rsquo;t there like&hellip;</p>
+<p>Right, but there is a degree of symmetry.</p>
+<p>If you play all this iterative stuff to do tangent distance,</p>
+<p>whatever I describe, you can have a degree of symmetry.</p>
+<p>And that is what describing reason of image.</p>
+<p>It is the same as you will describe this image.</p>
+<p>Think about digit S, it has antisymmetry.</p>
+<p>Digit three is symmetric.</p>
+<p>More or less, look for symmetry.</p>
+<p>Do you think such concepts like symmetry,</p>
+<p>predicates like symmetry, is it a hierarchical set of concepts?</p>
+<p>Or are these independent, distinct predicates</p>
+<p>that we want to discover as some set of&hellip;</p>
+<p>No, there is an idea of symmetry.</p>
+<p>And you can, this idea of symmetry, make very general.</p>
+<p>Like degree of symmetry.</p>
+<p>If degree of symmetry can be zero, no symmetry at all.</p>
+<p>Or degree of symmetry, say, more or less symmetrical.</p>
+<p>But you have one of these descriptions.</p>
+<p>And symmetry can be different.</p>
+<p>As I told, horizontal, vertical, diagonal,</p>
+<p>and antisymmetry is also concept of symmetry.</p>
+<p>What about shape in general?</p>
+<p>I mean, symmetry is a fascinating notion, but&hellip;</p>
+<p>No, no, I&rsquo;m talking about digit.</p>
+<p>I would like to concentrate on all I would like to know,</p>
+<p>predicate for digit recognition.</p>
+<p>Yes, but symmetry is not enough for digit recognition, right?</p>
+<p>It is not necessarily for digit recognition.</p>
+<p>It helps to create invariant, which you can use</p>
+<p>when you will have examples for digit recognition.</p>
+<p>You have regular problem of digit recognition.</p>
+<p>You have examples of the first class or second class.</p>
+<p>Plus, you know that there exists concept of symmetry.</p>
+<p>And you apply, when you&rsquo;re looking for decision rule,</p>
+<p>you will apply concept of symmetry,</p>
+<p>of this level of symmetry, which you estimate from&hellip;</p>
+<p>So let&rsquo;s talk.</p>
+<p>Everything comes from weak convergence.</p>
+<p>What is convergence?</p>
+<p>What is weak convergence?</p>
+<p>What is strong convergence?</p>
+<p>I&rsquo;m sorry, I&rsquo;m gonna do this to you.</p>
+<p>What are we converging from and to?</p>
+<p>You&rsquo;re converging, you would like to have a function.</p>
+<p>The function which, say, indicator function,</p>
+<p>which indicate your digit five, for example.</p>
+<p>A classification task.</p>
+<p>Let&rsquo;s talk only about classification.</p>
+<p>So classification means you will say</p>
+<p>whether this is a five or not,</p>
+<p>or say which of the 10 digits it is.</p>
+<p>Right, right.</p>
+<p>I would like to have these functions.</p>
+<p>Then, I have some examples.</p>
+<p>I can consider property of these examples.</p>
+<p>Say, symmetry.</p>
+<p>And I can measure level of symmetry for every digit.</p>
+<p>And then I can take average from my training data.</p>
+<p>And I will consider only functions</p>
+<p>of conditional probability,</p>
+<p>which I&rsquo;m looking for my decision rule.</p>
+<p>Which applying to digits will give me the same average</p>
+<p>as I observe on training data.</p>
+<p>So, actually, this is different level</p>
+<p>of description of what you want.</p>
+<p>You want not just, you show not one digit.</p>
+<p>You show, this predicate, show general property</p>
+<p>of all digits which you have in mind.</p>
+<p>If you have in mind digit three,</p>
+<p>it gives you property of digit three.</p>
+<p>And you select as admissible set of function,</p>
+<p>only function, which keeps this property.</p>
+<p>You will not consider other functions.</p>
+<p>So, you immediately looking for smaller subset of function.</p>
+<p>That&rsquo;s what you mean by admissible functions.</p>
+<p>Admissible function, exactly.</p>
+<p>Which is still a pretty large,</p>
+<p>for the number three, is a large.</p>
+<p>It is pretty large, but if you have one predicate.</p>
+<p>But according to, there is a strong and weak convergence.</p>
+<p>Strong convergence is convergence in function.</p>
+<p>You&rsquo;re looking for the function on one function,</p>
+<p>and you&rsquo;re looking for another function.</p>
+<p>And square difference from them should be small.</p>
+<p>If you take difference in any points,</p>
+<p>make a square, make an integral, and it should be small.</p>
+<p>That is convergence in function.</p>
+<p>Suppose you have some function, any function.</p>
+<p>So, I would say, I say that some function</p>
+<p>converge to this function.</p>
+<p>If integral from square difference between them is small.</p>
+<p>That&rsquo;s the definition of strong convergence.</p>
+<p>That definition of strong convergence.</p>
+<p>Two functions, the integral, the difference, is small.</p>
+<p>Yeah, it is convergence in functions.</p>
+<p>Yeah.</p>
+<p>But you have different convergence in functionals.</p>
+<p>You take any function, you take some function, phi,</p>
+<p>and take inner product, this function, this f function.</p>
+<p>f0 function, which you want to find.</p>
+<p>And that gives you some value.</p>
+<p>So, you say that set of functions converge</p>
+<p>in inner product to this function,</p>
+<p>if this value of inner product converge to value f0.</p>
+<p>That is for one phi.</p>
+<p>But weak convergence requires that it converge for any</p>
+<p>function of Hilbert space.</p>
+<p>If it converge for any function of Hilbert space,</p>
+<p>then you will say that this is weak convergence.</p>
+<p>You can think that when you take integral,</p>
+<p>that is integral property of function.</p>
+<p>For example, if you will take sine or cosine,</p>
+<p>it is coefficient of, say, Fourier expansion.</p>
+<p>So, if it converge for all coefficients of Fourier</p>
+<p>expansion, so under some condition,</p>
+<p>it converge to function you&rsquo;re looking for.</p>
+<p>But weak convergence means any property.</p>
+<p>Convergence not point wise, but integral property</p>
+<p>of function.</p>
+<p>So, weak convergence means integral property of functions.</p>
+<p>When I&rsquo;m talking about predicate,</p>
+<p>I would like to formulate which integral properties</p>
+<p>I would like to have for convergence.</p>
+<p>So, and if I will take one predicated function,</p>
+<p>which I measure property, if I will use one predicate</p>
+<p>and say, I will consider only function which give me</p>
+<p>the same value as this predicate,</p>
+<p>I selecting set of functions from functions</p>
+<p>which is admissible in the sense that function which I&rsquo;m</p>
+<p>looking for in this set of functions</p>
+<p>because I checking in training data, it gives the same.</p>
+<p>Yeah, so it always has to be connected to the training</p>
+<p>data in terms of?</p>
+<p>Yeah, but property, you can know independent on training data.</p>
+<p>And this guy, prop, says that there is formal property,</p>
+<p>31 property.</p>
+<p>A fairy tale, a Russian fairy tale.</p>
+<p>But Russian fairy tale is not so interesting.</p>
+<p>More interesting that people apply this to movies,</p>
+<p>to theater, to different things.</p>
+<p>And the same works, they&rsquo;re universal.</p>
+<p>Well, so I would argue that there&rsquo;s</p>
+<p>a little bit of a difference between the kinds of things</p>
+<p>that were applied to which are essentially stories</p>
+<p>and digit recognition.</p>
+<p>It is the same story.</p>
+<p>You&rsquo;re saying digits, there&rsquo;s a story within the digit.</p>
+<p>Yeah.</p>
+<p>And so but my point is why I hope</p>
+<p>that it possible to beat record using not 60,000,</p>
+<p>but say 100 times less.</p>
+<p>Because instead, you will give predicates.</p>
+<p>And you will select your decision</p>
+<p>not from wide set of functions, but from set of functions</p>
+<p>which keeps this predicates.</p>
+<p>But predicate is not related just to digit recognition.</p>
+<p>Right.</p>
+<p>Like in Plato&rsquo;s case.</p>
+<p>Do you think it&rsquo;s possible to automatically discover</p>
+<p>the predicates?</p>
+<p>So you basically said that the essence of intelligence</p>
+<p>is the discovery of good predicates.</p>
+<p>Yeah.</p>
+<p>Now, the natural question is that&rsquo;s</p>
+<p>what Einstein was good at doing in physics.</p>
+<p>Can we make machines do these kinds</p>
+<p>of discovery of good predicates?</p>
+<p>Or is this ultimately a human endeavor?</p>
+<p>That I don&rsquo;t know.</p>
+<p>I don&rsquo;t think that machine can do.</p>
+<p>Because according to theory about weak convergence,</p>
+<p>any function from Hilbert space can be predicated.</p>
+<p>So you have infinite number of predicate in upper.</p>
+<p>And before, you don&rsquo;t know which predicate is good and which.</p>
+<p>But whatever prop show and why people call it breakthrough,</p>
+<p>that there is not too many predicate</p>
+<p>which cover most of situation happened in the world.</p>
+<p>Right.</p>
+<p>So there&rsquo;s a sea of predicates.</p>
+<p>And most of the only a small amount</p>
+<p>are useful for the kinds of things</p>
+<p>that happen in the world.</p>
+<p>I think that I would say only small part of predicate</p>
+<p>very useful.</p>
+<p>Useful all of them.</p>
+<p>Only very few are what we should let&rsquo;s call them</p>
+<p>good predicates.</p>
+<p>Very good predicates.</p>
+<p>So can we linger on it?</p>
+<p>What&rsquo;s your intuition?</p>
+<p>Why is it hard for a machine to discover good predicates?</p>
+<p>Even in my talk described how to do predicate.</p>
+<p>How to find new predicate.</p>
+<p>I&rsquo;m not sure that it is very good.</p>
+<p>What did you propose in your talk?</p>
+<p>No.</p>
+<p>In my talk, I gave example for diabetes.</p>
+<p>Diabetes, yeah.</p>
+<p>When we achieve some percent.</p>
+<p>So then we&rsquo;re looking for area where</p>
+<p>some sort of predicate, which I formulate,</p>
+<p>does not keeps invariant.</p>
+<p>So if it doesn&rsquo;t keep, I retrain my data.</p>
+<p>I select only function which keeps this invariant.</p>
+<p>And when I did it, I improved my performance.</p>
+<p>I can looking for this predicate.</p>
+<p>I know technically how to do that.</p>
+<p>And you can, of course, do it using machine.</p>
+<p>But I&rsquo;m not sure that we will construct the smartest</p>
+<p>predicate.</p>
+<p>But this is the, allow me to linger on it.</p>
+<p>Because that&rsquo;s the essence.</p>
+<p>That&rsquo;s the challenge.</p>
+<p>That is artificial.</p>
+<p>That&rsquo;s the human level intelligence</p>
+<p>that we seek is the discovery of these good predicates.</p>
+<p>You&rsquo;ve talked about deep learning as a way to,</p>
+<p>the predicates they use and the functions are mediocre.</p>
+<p>You can find better ones.</p>
+<p>Let&rsquo;s talk about deep learning.</p>
+<p>Sure, let&rsquo;s do it.</p>
+<p>I know only Jan&rsquo;s Likun convolutional network.</p>
+<p>And what else?</p>
+<p>I don&rsquo;t know.</p>
+<p>And it&rsquo;s a very simple convolution.</p>
+<p>There&rsquo;s not much else to know.</p>
+<p>To pixel left and right.</p>
+<p>I can do it like that with one predicate.</p>
+<p>Convolution is a single predicate.</p>
+<p>It&rsquo;s single.</p>
+<p>It&rsquo;s single predicate.</p>
+<p>Yes, but that&rsquo;s it.</p>
+<p>You know exactly.</p>
+<p>You take the derivative for translation and predicate.</p>
+<p>This should be kept.</p>
+<p>So that&rsquo;s a single predicate.</p>
+<p>But humans discovered that one.</p>
+<p>Or at least.</p>
+<p>Not it.</p>
+<p>That is a risk.</p>
+<p>Not too many predicates.</p>
+<p>And that is big story because Jan did it 25 years ago</p>
+<p>and nothing so clear was added to deep network.</p>
+<p>And then I don&rsquo;t understand why we</p>
+<p>should talk about deep network instead of talking</p>
+<p>about piecewise linear functions which keeps this predicate.</p>
+<p>Well, a counter argument is that maybe the amount</p>
+<p>of predicates necessary to solve general intelligence,</p>
+<p>say in the space of images, doing</p>
+<p>efficient recognition of handwritten digits</p>
+<p>is very small.</p>
+<p>And so we shouldn&rsquo;t be so obsessed about finding.</p>
+<p>We&rsquo;ll find other good predicates like convolution, for example.</p>
+<p>There has been other advancements</p>
+<p>like if you look at the work with attention,</p>
+<p>there&rsquo;s intentional mechanisms in especially used</p>
+<p>in natural language focusing the network&rsquo;s ability</p>
+<p>to learn at which part of the input to look at.</p>
+<p>The thing is, there&rsquo;s other things besides predicates</p>
+<p>that are important for the actual engineering mechanism</p>
+<p>of showing how much you can really</p>
+<p>do given these predicates.</p>
+<p>I mean, that&rsquo;s essentially the work of deep learning</p>
+<p>is constructing architectures that are able to be,</p>
+<p>given the training data, to be able to converge</p>
+<p>towards a function that can generalize well.</p>
+<p>It&rsquo;s an engineering problem.</p>
+<p>Yeah, I understand.</p>
+<p>But let&rsquo;s talk not on emotional level,</p>
+<p>but on a mathematical level.</p>
+<p>You have set of piecewise linear functions.</p>
+<p>It is all possible neural networks.</p>
+<p>It&rsquo;s just piecewise linear functions.</p>
+<p>It&rsquo;s many, many pieces.</p>
+<p>Large number of piecewise linear functions.</p>
+<p>Exactly.</p>
+<p>Very large.</p>
+<p>Almost feels like too large.</p>
+<p>It&rsquo;s still simpler than, say, convolution,</p>
+<p>than reproducing kernel Hilbert space, which</p>
+<p>have a Hilbert set of functions.</p>
+<p>What&rsquo;s Hilbert space?</p>
+<p>It&rsquo;s space with infinite number of coordinates,</p>
+<p>say, or function for expansion, something like that.</p>
+<p>So it&rsquo;s much richer.</p>
+<p>And when I&rsquo;m talking about closed form solution,</p>
+<p>I&rsquo;m talking about this set of function,</p>
+<p>not piecewise linear set, which is particular case of it</p>
+<p>is small part.</p>
+<p>So neural networks is a small part</p>
+<p>of the space of functions you&rsquo;re talking about.</p>
+<p>Say, small set of functions.</p>
+<p>Let me take that.</p>
+<p>But it is fine.</p>
+<p>It is fine.</p>
+<p>I don&rsquo;t want to discuss the small or big.</p>
+<p>You take advantage.</p>
+<p>So you have some set of functions.</p>
+<p>So now, when you&rsquo;re trying to create architecture,</p>
+<p>you would like to create admissible set of functions,</p>
+<p>which all your tricks to use not all functions,</p>
+<p>but some subset of this set of functions.</p>
+<p>Say, when you&rsquo;re introducing convolutional net,</p>
+<p>it is way to make this subset useful for you.</p>
+<p>But from my point of view, convolutional,</p>
+<p>it is something you want to keep some invariants,</p>
+<p>say, translation invariants.</p>
+<p>But now, if you understand this and you cannot explain</p>
+<p>on the level of ideas what neural network does,</p>
+<p>you should agree that it is much better</p>
+<p>to have a set of functions.</p>
+<p>And they say, this set of functions should be admissible.</p>
+<p>It must keep this invariant, this invariant,</p>
+<p>and that invariant.</p>
+<p>You know that as soon as you incorporate</p>
+<p>new invariant set of function, because smaller and smaller</p>
+<p>and smaller.</p>
+<p>But all the invariants are specified by you, the human.</p>
+<p>Yeah, but what I hope that there is a standard predicate,</p>
+<p>like PROPSHOW, that&rsquo;s what I want</p>
+<p>to find for digit recognition.</p>
+<p>If we start, it is completely new area,</p>
+<p>what is intelligence about on the level,</p>
+<p>starting from Plato&rsquo;s idea, what is world of ideas.</p>
+<p>And I believe that is not too many.</p>
+<p>But it is amusing that mathematicians doing something,</p>
+<p>a neural network in general function,</p>
+<p>but people from literature, from art, they use this all</p>
+<p>the time.</p>
+<p>That&rsquo;s right.</p>
+<p>Invariants saying, it is great how people describe music.</p>
+<p>We should learn from that.</p>
+<p>And something on this level.</p>
+<p>But so why Vladimir Propp, who was just theoretical,</p>
+<p>who studied theoretical literature, he found that.</p>
+<p>You know what?</p>
+<p>Let me throw that right back at you,</p>
+<p>because there&rsquo;s a little bit of a,</p>
+<p>that&rsquo;s less mathematical and more emotional, philosophical,</p>
+<p>Vladimir Propp.</p>
+<p>I mean, he wasn&rsquo;t doing math.</p>
+<p>No.</p>
+<p>And you just said another emotional statement,</p>
+<p>which is you believe that this Plato world of ideas is small.</p>
+<p>I hope.</p>
+<p>Do you, what&rsquo;s your intuition, though?</p>
+<p>If we can linger on it.</p>
+<p>You know, it is not just small or big.</p>
+<p>I know exactly.</p>
+<p>Then when I introducing some predicate,</p>
+<p>I decrease set of functions.</p>
+<p>But my goal to decrease set of function much.</p>
+<p>By as much as possible.</p>
+<p>Good predicate, which does this, then</p>
+<p>I should choose next predicate, which decrease set</p>
+<p>as much as possible.</p>
+<p>So set of good predicate, it is such</p>
+<p>that they decrease this amount of admissible function.</p>
+<p>So if each good predicate significantly</p>
+<p>reduces the set of admissible functions,</p>
+<p>that there naturally should not be that many good predicates.</p>
+<p>No, but if you reduce very well the VC dimension</p>
+<p>of the function, of admissible set of function, it&rsquo;s small.</p>
+<p>And you need not too much training data to do well.</p>
+<p>And VC dimension, by the way, is some measure of capacity</p>
+<p>of this set of functions.</p>
+<p>Right.</p>
+<p>Roughly speaking, how many function in this set.</p>
+<p>So you&rsquo;re decreasing, decreasing.</p>
+<p>And it makes easy for you to find function</p>
+<p>you&rsquo;re looking for.</p>
+<p>But the most important part, to create good admissible set</p>
+<p>of functions.</p>
+<p>And it probably, there are many ways.</p>
+<p>But the good predicates such that they can do that.</p>
+<p>So for this duck, you should know a little bit about duck.</p>
+<p>Because what are the three fundamental laws of ducks?</p>
+<p>Looks like a duck, swims like a duck, and quacks like a duck.</p>
+<p>You should know something about ducks to be able to.</p>
+<p>Not necessarily.</p>
+<p>Looks like, say, horse.</p>
+<p>It&rsquo;s also good.</p>
+<p>So it&rsquo;s not, it generalizes from ducks.</p>
+<p>And talk like, and make sound like horse or something.</p>
+<p>And run like horse, and moves like horse.</p>
+<p>It is general, it is general predicate</p>
+<p>that this applied to duck.</p>
+<p>But for duck, you can say, play chess like duck.</p>
+<p>You cannot say play chess like duck.</p>
+<p>Why not?</p>
+<p>So you&rsquo;re saying you can, but that would not be a good.</p>
+<p>No, you will not reduce a lot of functions.</p>
+<p>You would not do, yeah, you would not</p>
+<p>reduce the set of functions.</p>
+<p>So you can, the story is formal story, mathematical story.</p>
+<p>Is that you can use any function you want as a predicate.</p>
+<p>But some of them are good, some of them are not,</p>
+<p>because some of them reduce a lot of functions</p>
+<p>to admissible set of some of them.</p>
+<p>But the question is, and I&rsquo;ll probably</p>
+<p>keep asking this question, but how do we find such,</p>
+<p>what&rsquo;s your intuition?</p>
+<p>Handwritten recognition.</p>
+<p>How do we find the answer to your challenge?</p>
+<p>Yeah, I understand it like that.</p>
+<p>I understand what.</p>
+<p>What defined?</p>
+<p>What it means, I knew predicate.</p>
+<p>Yeah.</p>
+<p>Like guy who understand music can say this word,</p>
+<p>which he described when he listened to music.</p>
+<p>He understand music.</p>
+<p>He use not too many different, oh, you can do like prop.</p>
+<p>You can make collection.</p>
+<p>What he talking about music, about this, about that.</p>
+<p>It&rsquo;s not too many different situation he described.</p>
+<p>Because we mentioned Vladimir prop a bunch.</p>
+<p>Let me just mention, there&rsquo;s a sequence of 31</p>
+<p>structural notions that are common in stories.</p>
+<p>And I think.</p>
+<p>You call it units.</p>
+<p>Units.</p>
+<p>And I think they resonate.</p>
+<p>I mean, it starts just to give an example,</p>
+<p>obsession, a member of the hero&rsquo;s community,</p>
+<p>a family leaves the security of the home environment.</p>
+<p>Then it goes to the interdiction,</p>
+<p>a forbidding edict or command is passed upon the hero.</p>
+<p>Don&rsquo;t go there.</p>
+<p>Don&rsquo;t do this.</p>
+<p>The hero is warned against some action.</p>
+<p>Then step three, violation of interdiction.</p>
+<p>Break the rules, break out on your own.</p>
+<p>Then reconnaissance.</p>
+<p>The villain makes an effort to attain knowledge,</p>
+<p>needing to fulfill their plan, so on.</p>
+<p>It goes on like this, ends in a wedding, number 31.</p>
+<p>Happily ever after.</p>
+<p>No, he just gave description of all situations.</p>
+<p>He understands this world.</p>
+<p>Of folktales.</p>
+<p>Yeah, not folktales, but stories.</p>
+<p>And these stories not in just folktales.</p>
+<p>These stories in detective serials as well.</p>
+<p>And probably in our lives.</p>
+<p>We probably live.</p>
+<p>Read this.</p>
+<p>And then they wrote that this predicate is good</p>
+<p>for different situation.</p>
+<p>From movie, for theater.</p>
+<p>By the way, there&rsquo;s also criticism, right?</p>
+<p>There&rsquo;s an other way to interpret narratives</p>
+<p>from Claude Levi Strauss.</p>
+<p>I don&rsquo;t know.</p>
+<p>I am not in this business.</p>
+<p>No, I know, it&rsquo;s theoretical literature,</p>
+<p>but it&rsquo;s looking at paradigms behind things.</p>
+<p>It&rsquo;s always the discussion, yeah.</p>
+<p>But at least there is units.</p>
+<p>It&rsquo;s not too many units that can describe.</p>
+<p>But this guy probably gives another units.</p>
+<p>Or another way of&hellip;</p>
+<p>Exactly, another set of units.</p>
+<p>Another set of predicates.</p>
+<p>It doesn&rsquo;t matter how.</p>
+<p>But they exist.</p>
+<p>Probably.</p>
+<p>My question is, whether given those units,</p>
+<p>whether without our human brains to interpret these units,</p>
+<p>they would still hold as much power as they have.</p>
+<p>Meaning, are those units enough</p>
+<p>when we give them to an alien species?</p>
+<p>Let me ask you.</p>
+<p>Do you understand digit images?</p>
+<p>No, I don&rsquo;t understand.</p>
+<p>No, no, no.</p>
+<p>When you can recognize these digit images,</p>
+<p>it means that you understand.</p>
+<p>Yes, exactly.</p>
+<p>You understand characters, you understand&hellip;</p>
+<p>No, no, no, no.</p>
+<p>It&rsquo;s the imitation versus understanding question,</p>
+<p>because I don&rsquo;t understand the mechanism</p>
+<p>by which I understand.</p>
+<p>No, no, no.</p>
+<p>I&rsquo;m not talking about, I&rsquo;m talking about predicates.</p>
+<p>You understand that it involves symmetry,</p>
+<p>maybe structure, maybe something else.</p>
+<p>I cannot formulate.</p>
+<p>I just was able to find symmetries, degree of symmetries.</p>
+<p>That&rsquo;s really good.</p>
+<p>So this is a good line.</p>
+<p>I feel like I understand the basic elements</p>
+<p>of what makes a good hand recognition system my own.</p>
+<p>Like symmetry connects with me.</p>
+<p>It seems like that&rsquo;s a very powerful predicate.</p>
+<p>My question is, is there a lot more going on</p>
+<p>that we&rsquo;re not able to introspect?</p>
+<p>Maybe I need to be able to understand</p>
+<p>a huge amount in the world of ideas,</p>
+<p>thousands of predicates, millions of predicates</p>
+<p>in order to do hand recognition.</p>
+<p>I don&rsquo;t think so.</p>
+<p>So both your hope and your intuition</p>
+<p>are such that very few predicates are enough.</p>
+<p>You&rsquo;re using digits, you&rsquo;re using examples as well.</p>
+<p>Theory says that if you will use all possible functions</p>
+<p>from Hilbert space, all possible predicate,</p>
+<p>you don&rsquo;t need training data.</p>
+<p>You just will have admissible set of function</p>
+<p>which contain one function.</p>
+<p>Yes.</p>
+<p>So the trade off is when you&rsquo;re not using all predicates,</p>
+<p>you&rsquo;re only using a few good predicates</p>
+<p>you need to have some training data.</p>
+<p>Yes, exactly.</p>
+<p>The more good predicates you have,</p>
+<p>the less training data you need.</p>
+<p>Exactly.</p>
+<p>That is intelligent.</p>
+<p>Still, okay, I&rsquo;m gonna keep asking the same dumb question,</p>
+<p>handwritten recognition to solve the challenge.</p>
+<p>You kind of propose a challenge that says</p>
+<p>we should be able to get state of the art MNIST error rates</p>
+<p>by using very few, 60, maybe fewer examples per digit.</p>
+<p>What kind of predicates do you think it will look like?</p>
+<p>That is the challenge.</p>
+<p>So people who will solve this problem,</p>
+<p>they will answer.</p>
+<p>Do you think they&rsquo;ll be able to answer it</p>
+<p>in a human explainable way?</p>
+<p>They just need to write function, that&rsquo;s it.</p>
+<p>But so can that function be written, I guess,</p>
+<p>by an automated reasoning system?</p>
+<p>Whether we&rsquo;re talking about a neural network</p>
+<p>learning a particular function or another mechanism?</p>
+<p>No, I&rsquo;m not against neural network.</p>
+<p>I&rsquo;m against admissible set of function</p>
+<p>which create neural network.</p>
+<p>You did it by hand.</p>
+<p>You don&rsquo;t do it by invariance, by predicate, by reason.</p>
+<p>But neural networks can then reverse,</p>
+<p>do the reverse step of helping you find a function</p>
+<p>that just, the task of a neural network</p>
+<p>is to find a disentangled representation, for example,</p>
+<p>that they call, is to find that one predicate function</p>
+<p>that&rsquo;s really capture some kind of essence.</p>
+<p>One, not the entire essence, but one very useful essence</p>
+<p>of this particular visual space.</p>
+<p>Do you think that&rsquo;s possible?</p>
+<p>Listen, I&rsquo;m grasping, hoping there&rsquo;s an automated way</p>
+<p>to find good predicates, right?</p>
+<p>So the question is what are the mechanisms</p>
+<p>of finding good predicates, ideas</p>
+<p>that you think we should pursue?</p>
+<p>A young grad student listening right now.</p>
+<p>I gave example.</p>
+<p>So find situation where predicate which you&rsquo;re suggesting</p>
+<p>don&rsquo;t create invariant.</p>
+<p>It&rsquo;s like in physics.</p>
+<p>Find situation where existing theory cannot explain it.</p>
+<p>Find situation where the existing theory</p>
+<p>can&rsquo;t explain it.</p>
+<p>So you&rsquo;re finding contradictions.</p>
+<p>Find contradiction, and then remove this contradiction.</p>
+<p>But in my case, what means contradiction,</p>
+<p>you find function which, if you will use this function,</p>
+<p>you&rsquo;re not keeping invariants.</p>
+<p>This is really the process of discovering contradictions.</p>
+<p>Yeah.</p>
+<p>It is like in physics.</p>
+<p>Find situation where you have contradiction</p>
+<p>for one of the property, for one of the predicate.</p>
+<p>Then include this predicate, making invariants,</p>
+<p>and solve again this problem.</p>
+<p>Now you don&rsquo;t have contradiction.</p>
+<p>But it is not the best way, probably, I don&rsquo;t know,</p>
+<p>to looking for predicate.</p>
+<p>That&rsquo;s just one way, okay.</p>
+<p>That, no, no, it is brute force way.</p>
+<p>The brute force way.</p>
+<p>What about the ideas of what,</p>
+<p>big umbrella term of symbolic AI?</p>
+<p>There&rsquo;s what in the 80s with expert systems,</p>
+<p>sort of logic reasoning based systems.</p>
+<p>Is there hope there to find some,</p>
+<p>through sort of deductive reasoning,</p>
+<p>to find good predicates?</p>
+<p>I don&rsquo;t think so.</p>
+<p>I think that just logic is not enough.</p>
+<p>It&rsquo;s kind of a compelling notion, though.</p>
+<p>You know, that when smart people sit in a room</p>
+<p>and reason through things, it seems compelling.</p>
+<p>And making our machines do the same is also compelling.</p>
+<p>So, everything is very simple.</p>
+<p>When you have infinite number of predicate,</p>
+<p>you can choose the function you want.</p>
+<p>You have invariants and you can choose the function you want.</p>
+<p>But you have to have not too many invariants</p>
+<p>to solve the problem.</p>
+<p>So, and have from infinite number of function</p>
+<p>to select finite number</p>
+<p>and hopefully small number of functions,</p>
+<p>which is good enough to extract small set</p>
+<p>of admissible functions.</p>
+<p>So, they will be admissible, it&rsquo;s for sure,</p>
+<p>because every function just decrease set of function</p>
+<p>and leaving it admissible.</p>
+<p>But it will be small.</p>
+<p>But why do you think logic based systems don&rsquo;t,</p>
+<p>can&rsquo;t help, intuition, not?</p>
+<p>Because you should know reality.</p>
+<p>You should know life.</p>
+<p>This guy like Propp, he knows something.</p>
+<p>And he tried to put in invariant his understanding.</p>
+<p>That&rsquo;s the human, yeah, but see,</p>
+<p>you&rsquo;re putting too much value into Vladimir Propp</p>
+<p>knowing something.</p>
+<p>No, it is, in the story, what means you know life?</p>
+<p>What it means?</p>
+<p>You know common sense.</p>
+<p>No, no, you know something.</p>
+<p>Common sense, it is some rules.</p>
+<p>You think so?</p>
+<p>Common sense is simply rules?</p>
+<p>Common sense is every, it&rsquo;s mortality,</p>
+<p>it&rsquo;s fear of death, it&rsquo;s love, it&rsquo;s spirituality,</p>
+<p>it&rsquo;s happiness and sadness.</p>
+<p>All of it is tied up into understanding gravity,</p>
+<p>which is what we think of as common sense.</p>
+<p>I don&rsquo;t really need to discuss so wide.</p>
+<p>I want to discuss, understand digit recognition.</p>
+<p>Anytime I bring up love and death,</p>
+<p>you bring it back to digit recognition, I like it.</p>
+<p>No, you know, it is durable because there is a challenge.</p>
+<p>Yeah.</p>
+<p>Which I see how to solve it.</p>
+<p>If I will have a student concentrate on this work,</p>
+<p>I will suggest something to solve.</p>
+<p>You mean handwritten record?</p>
+<p>Yeah, it&rsquo;s a beautifully simple, elegant, and yet.</p>
+<p>I think that I know invariants which will solve this.</p>
+<p>You do?</p>
+<p>I think so, yes.</p>
+<p>But it is not universal, it is maybe,</p>
+<p>I want some universal invariants</p>
+<p>which are good not only for digit recognition,</p>
+<p>for image understanding.</p>
+<p>So let me ask, how hard do you think</p>
+<p>is 2D image understanding?</p>
+<p>So if we, we can kind of intuit handwritten recognition.</p>
+<p>How big of a step, leap, journey is it from that?</p>
+<p>If I gave you good, if I solved your challenge</p>
+<p>for handwritten recognition,</p>
+<p>how long would my journey then be from that</p>
+<p>to understanding more general, natural images?</p>
+<p>Immediately, you will understand this</p>
+<p>as soon as you will make a record.</p>
+<p>Because it is not for free.</p>
+<p>As soon as you will create several invariants</p>
+<p>which will help you to get the same performance</p>
+<p>that the best neural net did using 100,</p>
+<p>there might be more than 100 times less examples,</p>
+<p>you have to have something smart to do that.</p>
+<p>And you&rsquo;re saying?</p>
+<p>That is invariant, it is predicate.</p>
+<p>Because you should put some idea how to do that.</p>
+<p>But okay, let me just pause.</p>
+<p>Maybe it&rsquo;s a trivial point, maybe not.</p>
+<p>But handwritten recognition feels like a 2D,</p>
+<p>two dimensional problem.</p>
+<p>And it seems like how much complicated is the fact</p>
+<p>that most images are projection of a three dimensional world</p>
+<p>onto a 2D plane.</p>
+<p>It feels like for a three dimensional world,</p>
+<p>we need to start understanding common sense</p>
+<p>in order to understand an image.</p>
+<p>It&rsquo;s no longer visual shape and symmetry.</p>
+<p>It&rsquo;s having to start to understand concepts</p>
+<p>of, understand life.</p>
+<p>Yeah, you&rsquo;re talking that there are different invariant,</p>
+<p>different predicate, yeah.</p>
+<p>And potentially much larger number.</p>
+<p>You know, maybe, but let&rsquo;s start from simple.</p>
+<p>Yeah, but you said that it would be immediate.</p>
+<p>No, you know, I cannot think about things</p>
+<p>which I don&rsquo;t understand.</p>
+<p>This I understand, but I&rsquo;m sure that I don&rsquo;t understand</p>
+<p>everything there.</p>
+<p>Yeah, that&rsquo;s the difference.</p>
+<p>Do as simple as possible, but not simpler.</p>
+<p>And that is exact case.</p>
+<p>With handwritten.</p>
+<p>Yeah, but that&rsquo;s the difference between you and I.</p>
+<p>I welcome and enjoy thinking about things</p>
+<p>I completely don&rsquo;t understand.</p>
+<p>Because to me, it&rsquo;s a natural extension</p>
+<p>without having solved handwritten recognition</p>
+<p>to wonder how difficult is the next step</p>
+<p>of understanding 2D, 3D images.</p>
+<p>Because ultimately, while the science of intelligence</p>
+<p>is fascinating, it&rsquo;s also fascinating to see</p>
+<p>how that maps to the engineering of intelligence.</p>
+<p>And recognizing handwritten digits is not,</p>
+<p>doesn&rsquo;t help you, it might, it may not help you</p>
+<p>with the problem of general intelligence.</p>
+<p>We don&rsquo;t know.</p>
+<p>It&rsquo;ll help you a little bit.</p>
+<p>We don&rsquo;t know how much.</p>
+<p>It&rsquo;s unclear.</p>
+<p>Yeah.</p>
+<p>It might very much.</p>
+<p>But I would like to make a remark.</p>
+<p>Yes.</p>
+<p>I start not from very primitive problem,</p>
+<p>make a challenge problem.</p>
+<p>I start with very general problem, with PLATO.</p>
+<p>So you understand, and it comes from PLATO</p>
+<p>to digit recognition.</p>
+<p>So you basically took PLATO and the world</p>
+<p>of forms and ideas and mapped and projected</p>
+<p>into the clearest, simplest formulation</p>
+<p>of that big world.</p>
+<p>You know, I would say that I did not understand PLATO</p>
+<p>until recently, and until I consider</p>
+<p>the convergence and then predicate,</p>
+<p>and then, oh, this is what PLATO told.</p>
+<p>So.</p>
+<p>Can you linger on that?</p>
+<p>Like why, how do you think about this world of ideas</p>
+<p>and world of things in PLATO?</p>
+<p>No, it is metaphor.</p>
+<p>It is.</p>
+<p>It&rsquo;s a metaphor, for sure.</p>
+<p>Yeah.</p>
+<p>It&rsquo;s a compelling, it&rsquo;s a poetic</p>
+<p>and a beautiful metaphor.</p>
+<p>Yeah, yeah, yeah.</p>
+<p>But what, can you?</p>
+<p>But it is a way how you should try to understand</p>
+<p>how to talk ideas in the world.</p>
+<p>So from my point of view,</p>
+<p>it is very clear, but it is lying.</p>
+<p>All the time, people looking for that.</p>
+<p>Say, PLATO, then Hegel, whatever reasonable it exists,</p>
+<p>whatever exists, it is reasonable.</p>
+<p>I don&rsquo;t know what he have in mind reasonable.</p>
+<p>Right, this philosophers again,</p>
+<p>their words. No, no, no, no, no, no, no.</p>
+<p>It is next stop of Wigner.</p>
+<p>That mathematics understand something of reality.</p>
+<p>It is the same PLATO line.</p>
+<p>And then it comes suddenly to Vladimir Propp.</p>
+<p>Look, 31 ideas, 31 units, and this corrects everything.</p>
+<p>There&rsquo;s abstractions, ideas that represent our world.</p>
+<p>Our world, and we should always try to reach into that.</p>
+<p>Yeah, but you should make a projection on reality.</p>
+<p>But understanding is, it is abstract ideas.</p>
+<p>You have in your mind several abstract ideas</p>
+<p>which you can apply to reality.</p>
+<p>And reality in this case,</p>
+<p>so if you look at machine learning as data.</p>
+<p>This example, data.</p>
+<p>Data.</p>
+<p>Okay, let me put this on you</p>
+<p>because I&rsquo;m an emotional creature.</p>
+<p>I&rsquo;m not a mathematical creature like you.</p>
+<p>I find compelling the idea,</p>
+<p>forget the space, the sea of functions.</p>
+<p>There&rsquo;s also a sea of data in the world.</p>
+<p>And I find compelling that there might be,</p>
+<p>like you said, teacher,</p>
+<p>small examples of data that are most useful</p>
+<p>for discovering good,</p>
+<p>whether it&rsquo;s predicates or good functions,</p>
+<p>that the selection of data may be a powerful journey,</p>
+<p>a useful, you know, coming up with a mechanism</p>
+<p>for selecting good data might be useful too.</p>
+<p>Do you find this idea of finding the right data set</p>
+<p>interesting at all?</p>
+<p>Or do you kind of take the data set as a given?</p>
+<p>I think that it is, you know, my theme is very simple.</p>
+<p>You have huge set of functions.</p>
+<p>If you will apply, and you have not too many data,</p>
+<p>if you pick up function which describes this data,</p>
+<p>you will do not very well.</p>
+<p>You will.</p>
+<p>Like randomly pick up.</p>
+<p>Yeah, you will overfit.</p>
+<p>Yeah, it will be overfitting.</p>
+<p>So you should decrease set of function</p>
+<p>from which you&rsquo;re picking up one.</p>
+<p>So you should go somehow to admissible set of function.</p>
+<p>And this, what about weak conversions?</p>
+<p>So, but from another point of view,</p>
+<p>to make admissible set of function,</p>
+<p>you need just a DG, just function</p>
+<p>which you will take in inner product,</p>
+<p>which you will measure property of your function.</p>
+<p>And that is how it works.</p>
+<p>No, I get it, I get it, I understand it,</p>
+<p>but do you, the reality is.</p>
+<p>But let&rsquo;s think about examples.</p>
+<p>You have huge set of function,</p>
+<p>and you have several examples.</p>
+<p>If you just trying to keep, take function</p>
+<p>which satisfies these examples, you still will overfit.</p>
+<p>You need decrease, you need admissible set of function.</p>
+<p>Absolutely, but what, say you have more data than functions.</p>
+<p>So sort of consider the, I mean,</p>
+<p>maybe not more data than functions,</p>
+<p>because that&rsquo;s impossible.</p>
+<p>But what, I was trying to be poetic for a second.</p>
+<p>I mean, you have a huge amount of data,</p>
+<p>a huge amount of examples.</p>
+<p>But amount of function can be even bigger.</p>
+<p>It can get bigger, I understand.</p>
+<p>Everything is.</p>
+<p>There&rsquo;s always a bigger boat.</p>
+<p>Full Hilbert space.</p>
+<p>I got you, but okay.</p>
+<p>But you don&rsquo;t find the world of data</p>
+<p>to be an interesting optimization space.</p>
+<p>Like the optimization should be in the space of functions.</p>
+<p>Creating admissible set of functions.</p>
+<p>Admissible set of functions.</p>
+<p>No, you know, even from the classical business theory,</p>
+<p>from structure risk minimization,</p>
+<p>you should organize function in the way</p>
+<p>that they will be useful for you.</p>
+<p>Right.</p>
+<p>And that is admissible set.</p>
+<p>The way you&rsquo;re thinking about useful</p>
+<p>is you&rsquo;re given a small set of examples.</p>
+<p>Useful small, small set of function</p>
+<p>which contain function I&rsquo;m looking for.</p>
+<p>Yeah, but looking for based on</p>
+<p>the empirical set of small examples.</p>
+<p>Yeah, but that is another story.</p>
+<p>I don&rsquo;t touch it.</p>
+<p>Because I believe that this small examples</p>
+<p>is not too small.</p>
+<p>Say 60 per class.</p>
+<p>Law of large numbers works.</p>
+<p>I don&rsquo;t need uniform law.</p>
+<p>The story is that in statistics there are two law.</p>
+<p>Law of large numbers and uniform law of large numbers.</p>
+<p>So I want to be in situation where I use</p>
+<p>law of large numbers but not uniform law of large numbers.</p>
+<p>Right, so 60 is law of large, it&rsquo;s large enough.</p>
+<p>I hope, no, it still need some evaluations,</p>
+<p>some bonds.</p>
+<p>But the idea is the following that</p>
+<p>if you trust that</p>
+<p>say this average gives you something close to expectations</p>
+<p>so you can talk about that, about this predicate.</p>
+<p>And that is basis of human intelligence.</p>
+<p>Good predicates is the,</p>
+<p>the discovery of good predicates is the basis of human intelligence.</p>
+<p>It is discoverer of your understanding world.</p>
+<p>Of your methodology of understanding world.</p>
+<p>Because you have several function</p>
+<p>which you will apply to reality.</p>
+<p>Can you say that again?</p>
+<p>So you&rsquo;re&hellip;</p>
+<p>You have several functions predicate.</p>
+<p>But they&rsquo;re abstract.</p>
+<p>Yes.</p>
+<p>Then you will apply them to reality, to your data.</p>
+<p>And you will create in this way predicate.</p>
+<p>Which is useful for your task.</p>
+<p>But predicate are not related specifically to your task.</p>
+<p>To this your task.</p>
+<p>It is abstract functions.</p>
+<p>Which being applying, applied to&hellip;</p>
+<p>Many tasks that you might be interested in.</p>
+<p>It might be many tasks, I don&rsquo;t know.</p>
+<p>Or&hellip;</p>
+<p>Different tasks.</p>
+<p>Well they should be many tasks, right?</p>
+<p>I believe like, like in prop case.</p>
+<p>It was for fairytales, but it&rsquo;s happened everywhere.</p>
+<p>Okay, so we talked about images a little bit.</p>
+<p>But, can we talk about Noam Chomsky for a second?</p>
+<p>No, I believe I&hellip;</p>
+<p>I don&rsquo;t know him very well.</p>
+<p>Personally, well&hellip;</p>
+<p>Not personally, I don&rsquo;t know.</p>
+<p>His ideas.</p>
+<p>Well let me just say,</p>
+<p>do you think language, human language,</p>
+<p>is essential to expressing ideas?</p>
+<p>As Noam Chomsky believes.</p>
+<p>So like, language is at the core</p>
+<p>of our formation of predicates.</p>
+<p>The human language.</p>
+<p>For me, language and all the story of language</p>
+<p>is very complicated.</p>
+<p>I don&rsquo;t understand this.</p>
+<p>And I am not&hellip;</p>
+<p>I thought about&hellip;</p>
+<p>Nobody does.</p>
+<p>I am not ready to work on that.</p>
+<p>Because it&rsquo;s so huge.</p>
+<p>It is not for me, and I believe not for our century.</p>
+<p>The 21st century.</p>
+<p>Not for 21st century.</p>
+<p>You should learn something, a lot of stuff,</p>
+<p>from simple task like digit recognition.</p>
+<p>So you think, okay, you think digital recognition,</p>
+<p>2D image, how would you more abstractly define</p>
+<p>digit recognition?</p>
+<p>It&rsquo;s 2D image, symbol recognition, essentially.</p>
+<p>I mean, I&rsquo;m trying to get a sense,</p>
+<p>sort of thinking about it now,</p>
+<p>having worked with MNIST forever,</p>
+<p>how small of a subset is this</p>
+<p>of the general vision recognition problem</p>
+<p>and the general intelligence problem?</p>
+<p>Is it&hellip;</p>
+<p>Yeah.</p>
+<p>Is it a giant subset?</p>
+<p>Is it not?</p>
+<p>And how far away is language?</p>
+<p>You know, let me refer to Einstein.</p>
+<p>Take the simplest problem, as simple as possible,</p>
+<p>but not simpler.</p>
+<p>And this is challenge, this simple problem.</p>
+<p>But it&rsquo;s simple by idea, but not simple to get it.</p>
+<p>When you will do this, you will find some predicate,</p>
+<p>which helps it a bit.</p>
+<p>Well, yeah, I mean, with Einstein, you can,</p>
+<p>you look at general relativity,</p>
+<p>but that doesn&rsquo;t help you with quantum mechanics.</p>
+<p>That&rsquo;s another story.</p>
+<p>You don&rsquo;t have any universal instrument.</p>
+<p>Yes, so I&rsquo;m trying to wonder which space we&rsquo;re in,</p>
+<p>whether handwritten recognition is like general relativity,</p>
+<p>and then language is like quantum mechanics.</p>
+<p>So you&rsquo;re still gonna have to do a lot of mess</p>
+<p>to universalize it.</p>
+<p>But I&rsquo;m trying to see,</p>
+<p>so what&rsquo;s your intuition why handwritten recognition</p>
+<p>is easier than language?</p>
+<p>Just, I think a lot of people would agree with that,</p>
+<p>but if you could elucidate sort of the intuition of why.</p>
+<p>I don&rsquo;t know, no, I don&rsquo;t think in this direction.</p>
+<p>I just think in directions that this is problem,</p>
+<p>which if we will solve it well,</p>
+<p>we will create some abstract understanding of images.</p>
+<p>Maybe not all images.</p>
+<p>I would like to talk to guys who doing in real images</p>
+<p>in Columbia University.</p>
+<p>What kind of images, unreal?</p>
+<p>Real images.</p>
+<p>Yeah, what they&rsquo;re ready, is there a predicate,</p>
+<p>what can be predicate?</p>
+<p>I still symmetry will play role in real life images,</p>
+<p>in any real life images, 2D images.</p>
+<p>Let&rsquo;s talk about 2D images.</p>
+<p>Because that&rsquo;s what we know.</p>
+<p>A neural network was created for 2D images.</p>
+<p>So the people I know in vision science, for example,</p>
+<p>the people who study human vision,</p>
+<p>that they usually go to the world of symbols</p>
+<p>and like handwritten recognition,</p>
+<p>but not really, it&rsquo;s other kinds of symbols</p>
+<p>to study our visual perception system.</p>
+<p>As far as I know, not much predicate type of thinking</p>
+<p>is understood about our vision system.</p>
+<p>They did not think in this direction.</p>
+<p>They don&rsquo;t, yeah, but how do you even begin</p>
+<p>to think in that direction?</p>
+<p>That&rsquo;s a, I would like to discuss with them.</p>
+<p>Yeah.</p>
+<p>Because if we will be able to show that it is what working,</p>
+<p>and theoretical scheme, it&rsquo;s not so bad.</p>
+<p>So the unfortunate, so if we compare to language,</p>
+<p>language is like letters, finite set of letters,</p>
+<p>and a finite set of ways you can put together those letters.</p>
+<p>So it feels more amenable to kind of analysis.</p>
+<p>With natural images, there is so many pixels.</p>
+<p>No, no, no, letter, language is much, much more complicated.</p>
+<p>It&rsquo;s involved a lot of different stuff.</p>
+<p>It&rsquo;s not just understanding of very simple class of tasks.</p>
+<p>I would like to see list of task with language involved.</p>
+<p>Yes, so there&rsquo;s a lot of nice benchmarks now</p>
+<p>in natural language processing from the very trivial,</p>
+<p>like understanding the elements of a sentence,</p>
+<p>to question answering, to much more complicated</p>
+<p>where you talk about open domain dialogue.</p>
+<p>The natural question is, with handwritten recognition,</p>
+<p>is really the first step of understanding</p>
+<p>visual information.</p>
+<p>Right.</p>
+<p>But even our records show that we go in the wrong direction</p>
+<p>because we need 60,000 digits.</p>
+<p>So even this first step, so forget about talking</p>
+<p>about the full journey, this first step</p>
+<p>should be taking in the right direction.</p>
+<p>No, no, wrong direction because 60,000 is unacceptable.</p>
+<p>No, I&rsquo;m saying it should be taken in the right direction</p>
+<p>because 60,000 is not acceptable.</p>
+<p>If you can talk, it&rsquo;s great, we have half percent of error.</p>
+<p>And hopefully the step from doing hand recognition</p>
+<p>using very few examples, the step towards what babies do</p>
+<p>when they crawl and understand their physical environment.</p>
+<p>I know you don&rsquo;t know about babies.</p>
+<p>If you will do from very small examples,</p>
+<p>you will find principles which are different</p>
+<p>from what we&rsquo;re using now.</p>
+<p>And so it&rsquo;s more or less clear.</p>
+<p>That means that you will use weak convergence,</p>
+<p>not just strong convergence.</p>
+<p>Do you think these principles</p>
+<p>will naturally be human interpretable?</p>
+<p>Oh, yeah.</p>
+<p>So like when we&rsquo;ll be able to explain them</p>
+<p>and have a nice presentation to show</p>
+<p>what those principles are, or are they very,</p>
+<p>going to be very kind of abstract kinds of functions?</p>
+<p>For example, I talked yesterday about symmetry.</p>
+<p>Yes.</p>
+<p>And I gave very simple examples.</p>
+<p>The same will be like that.</p>
+<p>You gave like a predicate of a basic for?</p>
+<p>For symmetries.</p>
+<p>Yes, for different symmetries and you have for?</p>
+<p>Degree of symmetries, that is important.</p>
+<p>Not just symmetry.</p>
+<p>Existence doesn&rsquo;t exist, degree of symmetry.</p>
+<p>Yeah, for handwritten recognition.</p>
+<p>No, it&rsquo;s not for handwritten, it&rsquo;s for any images.</p>
+<p>But I would like apply to handwritten.</p>
+<p>Right, in theory it&rsquo;s more general, okay, okay.</p>
+<p>So a lot of the things we&rsquo;ve been talking about</p>
+<p>falls, we&rsquo;ve been talking about philosophy a little bit,</p>
+<p>but also about mathematics and statistics.</p>
+<p>A lot of it falls into this idea,</p>
+<p>a universal idea of statistical theory of learning.</p>
+<p>What is the most beautiful and sort of powerful</p>
+<p>or essential idea you&rsquo;ve come across,</p>
+<p>even just for yourself personally in the world</p>
+<p>of statistics or statistic theory of learning?</p>
+<p>Probably uniform convergence, which we did</p>
+<p>with Alexei Chilvonenkis.</p>
+<p>Can you describe universal convergence?</p>
+<p>You have law of large numbers.</p>
+<p>So for any function, expectation of function,</p>
+<p>average of function converged to expectation.</p>
+<p>But if you have set of functions,</p>
+<p>for any function it is true.</p>
+<p>But it should converge simultaneously</p>
+<p>for all set of functions.</p>
+<p>And for learning, you need uniform convergence.</p>
+<p>Just convergence is not enough.</p>
+<p>Because when you pick up one which gives minimum,</p>
+<p>you can pick up one function which does not converge</p>
+<p>and it will give you the best answer for this function.</p>
+<p>So you need uniform convergence to guarantee learning.</p>
+<p>So learning does not rely on trivial law of large numbers,</p>
+<p>it relies on universal law.</p>
+<p>But idea of convergence exists in statistics for a long time.</p>
+<p>But it is interesting that as I think about myself,</p>
+<p>how stupid I was 50 years, I did not see weak convergence.</p>
+<p>I work on strong convergence.</p>
+<p>But now I think that most powerful is weak convergence.</p>
+<p>Because it makes admissible set of functions.</p>
+<p>And even in all proverbs,</p>
+<p>when people try to understand recognition about dog law,</p>
+<p>looks like a dog and so on, they use weak convergence.</p>
+<p>People in language, they understand this.</p>
+<p>But when we&rsquo;re trying to create artificial intelligence,</p>
+<p>we want event in different way.</p>
+<p>We just consider strong convergence arguments.</p>
+<p>So reducing the set of admissible functions,</p>
+<p>you think there should be effort put into understanding</p>
+<p>the properties of weak convergence?</p>
+<p>You know, in classical mathematics, in Gilbert space,</p>
+<p>there are only two ways,</p>
+<p>two form of convergence, strong and weak.</p>
+<p>Now we can use both.</p>
+<p>That means that we did everything.</p>
+<p>And it so happened that when we use Hilbert space,</p>
+<p>which is very rich space, space of continuous functions,</p>
+<p>which has integral and square.</p>
+<p>So we can apply weak and strong convergence for learning</p>
+<p>and have closed form solution.</p>
+<p>So for computationally simple.</p>
+<p>For me, it is sign that it is right way.</p>
+<p>Because you don&rsquo;t need any heuristic here,</p>
+<p>just do whatever you want.</p>
+<p>But now the only what left is this concept</p>
+<p>of what is predicate, but it is not statistics.</p>
+<p>By the way, I like the fact that you think that heuristics</p>
+<p>are a mess that should be removed from the system.</p>
+<p>So closed form solution is the ultimate goal.</p>
+<p>No, it so happened that when you&rsquo;re using right instrument,</p>
+<p>you have closed form solution.</p>
+<p>Do you think intelligence, human level intelligence,</p>
+<p>when we create it,</p>
+<p>will have something like a closed form solution?</p>
+<p>You know, now I&rsquo;m looking on bounds,</p>
+<p>which I gave bounds for convergence.</p>
+<p>And when I&rsquo;m looking for bounds,</p>
+<p>I&rsquo;m thinking what is the most appropriate kernel</p>
+<p>for this bound would be.</p>
+<p>So we know that in say,</p>
+<p>all our businesses, we use radial basis function.</p>
+<p>But looking on the bound,</p>
+<p>I think that I start to understand that maybe</p>
+<p>we need to make corrections to radial basis function</p>
+<p>to be closer to work better for this bounds.</p>
+<p>So I&rsquo;m again trying to understand what type of kernel</p>
+<p>have best approximation,</p>
+<p>best fit to this bound.</p>
+<p>Sure, so there&rsquo;s a lot of interesting work</p>
+<p>that could be done in discovering better functions</p>
+<p>than radial basis functions for bounds you find.</p>
+<p>It still comes from,</p>
+<p>you&rsquo;re looking to mass and trying to understand what.</p>
+<p>From your own mind, looking at the, I don&rsquo;t know.</p>
+<p>Then I&rsquo;m trying to understand what will be good for that.</p>
+<p>Yeah, but to me, there&rsquo;s still a beauty.</p>
+<p>Again, maybe I&rsquo;m a descendant of Alan Turing to heuristics.</p>
+<p>To me, ultimately, intelligence will be a mess of heuristics.</p>
+<p>And that&rsquo;s the engineering answer, I guess.</p>
+<p>Absolutely.</p>
+<p>When you&rsquo;re doing say, self driving cars,</p>
+<p>the great guy who will do this.</p>
+<p>It doesn&rsquo;t matter what theory behind that.</p>
+<p>Who has a better feeling how to apply it.</p>
+<p>But by the way, it is the same story about predicates.</p>
+<p>Because you cannot create rule for,</p>
+<p>situation is much more than you have rule for that.</p>
+<p>But maybe you can have more abstract rule</p>
+<p>than it will be less literal.</p>
+<p>It is the same story about ideas</p>
+<p>and ideas applied to specific cases.</p>
+<p>But still you should reach.</p>
+<p>You cannot avoid this.</p>
+<p>Yes, of course.</p>
+<p>But you should still reach for the ideas</p>
+<p>to understand the science.</p>
+<p>Okay, let me kind of ask, do you think neural networks</p>
+<p>or functions can be made to reason?</p>
+<p>So what do you think, we&rsquo;ve been talking about intelligence,</p>
+<p>but this idea of reasoning,</p>
+<p>there&rsquo;s an element of sequentially disassembling,</p>
+<p>interpreting the images.</p>
+<p>So when you think of handwritten recognition, we kind of think</p>
+<p>that there&rsquo;ll be a single, there&rsquo;s an input and output.</p>
+<p>There&rsquo;s not a recurrence.</p>
+<p>What do you think about sort of the idea of recurrence,</p>
+<p>of going back to memory and thinking through this</p>
+<p>sort of sequentially mangling the different representations</p>
+<p>over and over until you arrive at a conclusion?</p>
+<p>Or is ultimately all that can be wrapped up into a function?</p>
+<p>No, you&rsquo;re suggesting that let us use this type of algorithm.</p>
+<p>When I started thinking, I first of all,</p>
+<p>starting to understand what I want.</p>
+<p>Can I write down what I want?</p>
+<p>And then I&rsquo;m trying to formalize.</p>
+<p>And when I do that, I think I have to solve this problem.</p>
+<p>And till now I did not see a situation where you need recurrence.</p>
+<p>But do you observe human beings?</p>
+<p>Yeah.</p>
+<p>You try to, it&rsquo;s the imitation question, right?</p>
+<p>It seems that human beings reason</p>
+<p>this kind of sequentially sort of,</p>
+<p>does that inspire in you a thought that we need to add that</p>
+<p>into our intelligence systems?</p>
+<p>You&rsquo;re saying, okay, I mean, you&rsquo;ve kind of answered saying</p>
+<p>until now I haven&rsquo;t seen a need for it.</p>
+<p>And so because of that, you don&rsquo;t see a reason</p>
+<p>to think about it.</p>
+<p>You know, most of things I don&rsquo;t understand.</p>
+<p>In reasoning in human, it is for me too complicated.</p>
+<p>For me, the most difficult part is to ask questions,</p>
+<p>to good questions, how it works,</p>
+<p>how people asking questions, I don&rsquo;t know this.</p>
+<p>You said that machine learning is not only</p>
+<p>about technical things, speaking of questions,</p>
+<p>but it&rsquo;s also about philosophy.</p>
+<p>So what role does philosophy play in machine learning?</p>
+<p>We talked about Plato, but generally thinking</p>
+<p>in this philosophical way, does it have,</p>
+<p>how does philosophy and math fit together in your mind?</p>
+<p>First ideas and then their implementation.</p>
+<p>It&rsquo;s like predicate, like say admissible set of functions.</p>
+<p>It comes together, everything.</p>
+<p>Because the first iteration of theory was done 50 years ago.</p>
+<p>I told that, this is theory.</p>
+<p>So everything&rsquo;s there, if you have data you can,</p>
+<p>and your set of function has not big capacity.</p>
+<p>So low VC dimension, you can do that.</p>
+<p>You can make structural risk minimization, control capacity.</p>
+<p>But you was not able to make admissible set of function good.</p>
+<p>Now when suddenly realize that we did not use</p>
+<p>another idea of convergence, which we can,</p>
+<p>everything comes together.</p>
+<p>But those are mathematical notions.</p>
+<p>Philosophy plays a role of simply saying</p>
+<p>that we should be swimming in the space of ideas.</p>
+<p>Let&rsquo;s talk what is philosophy.</p>
+<p>Philosophy means understanding of life.</p>
+<p>So understanding of life, say people like Plata,</p>
+<p>they understand on very high abstract level of life.</p>
+<p>So, and whatever I doing,</p>
+<p>just implementation of my understanding of life.</p>
+<p>But every new step, it is very difficult.</p>
+<p>For example, to find this idea</p>
+<p>that we need big convergence was not simple for me.</p>
+<p>So that required thinking about life a little bit.</p>
+<p>Hard to trace, but there was some thought process.</p>
+<p>I&rsquo;m working, I&rsquo;m thinking about the same problem</p>
+<p>for 50 years or more, and again, and again, and again.</p>
+<p>I&rsquo;m trying to be honest and that is very important.</p>
+<p>Not to be very enthusiastic, but concentrate</p>
+<p>on whatever we was not able to achieve, for example.</p>
+<p>And understand why.</p>
+<p>And now I understand that because I believe in math,</p>
+<p>I believe that in Wigner&rsquo;s idea.</p>
+<p>But now when I see that there are only two way</p>
+<p>of convergence and we&rsquo;re using both,</p>
+<p>that means that we must do as well as people doing.</p>
+<p>But now, exactly in philosophy</p>
+<p>and what we know about predicate,</p>
+<p>how we understand life, can we describe as a predicate.</p>
+<p>I thought about that and that is more or less obvious</p>
+<p>level of symmetry.</p>
+<p>But next, I have a feeling,</p>
+<p>it&rsquo;s something about structures.</p>
+<p>But I don&rsquo;t know how to formulate,</p>
+<p>how to measure measure of structure and all this stuff.</p>
+<p>And the guy who will solve this challenge problem,</p>
+<p>then when we were looking how he did it,</p>
+<p>probably just only symmetry is not enough.</p>
+<p>But something like symmetry will be there.</p>
+<p>Structure will be there.</p>
+<p>Oh yeah, absolutely.</p>
+<p>Symmetry will be there and level of symmetry will be there.</p>
+<p>And level of symmetry, antisymmetry, diagonal, vertical.</p>
+<p>And I even don&rsquo;t know how you can use</p>
+<p>in different direction idea of symmetry, it&rsquo;s very general.</p>
+<p>But it will be there.</p>
+<p>I think that people very sensitive to idea of symmetry.</p>
+<p>But there are several ideas like symmetry.</p>
+<p>As I would like to learn.</p>
+<p>But you cannot learn just thinking about that.</p>
+<p>You should do challenging problems</p>
+<p>and then analyze them, why it was able to solve them.</p>
+<p>And then you will see.</p>
+<p>Very simple things, it&rsquo;s not easy to find.</p>
+<p>But even with talking about this every time.</p>
+<p>I was surprised, I tried to understand.</p>
+<p>These people describe in language</p>
+<p>strong convergence mechanism for learning.</p>
+<p>I did not see, I don&rsquo;t know.</p>
+<p>But weak convergence, this dark story</p>
+<p>and story like that when you will explain to kid,</p>
+<p>you will use weak convergence argument.</p>
+<p>It looks like it does like it does that.</p>
+<p>But when you try to formalize, you&rsquo;re just ignoring this.</p>
+<p>Why, why 50 years from start of machine learning?</p>
+<p>And that&rsquo;s the role of philosophy, thinking about life.</p>
+<p>I think that maybe, I don&rsquo;t know.</p>
+<p>Maybe this is theory also, we should blame for that</p>
+<p>because empirical risk minimization and all this stuff.</p>
+<p>And if you read now textbooks,</p>
+<p>they just about bound about empirical risk minimization.</p>
+<p>They don&rsquo;t looking for another problem like admissible set.</p>
+<p>But on the topic of life, perhaps we,</p>
+<p>you could talk in Russian for a little bit.</p>
+<p>What&rsquo;s your favorite memory from childhood?</p>
+<p>Oh, music.</p>
+<p>How about, can you try to answer in Russian?</p>
+<p>Music?</p>
+<p>It was very cool when&hellip;</p>
+<p>What kind of music?</p>
+<p>Classic music.</p>
+<p>What&rsquo;s your favorite?</p>
+<p>Well, different composers.</p>
+<p>At first, it was Vivaldi, I was surprised that it was possible.</p>
+<p>And then when I understood Bach, I was absolutely shocked.</p>
+<p>By the way, from him I think that there is a predicate,</p>
+<p>like a structure.</p>
+<p>In Bach?</p>
+<p>Well, of course.</p>
+<p>Because you can just feel the structure.</p>
+<p>And I don&rsquo;t think that different elements of life</p>
+<p>are very much divided, in the sense of predicates.</p>
+<p>Everywhere structure, in painting structure,</p>
+<p>in human relations structure.</p>
+<p>Here&rsquo;s how to find these high level predicates, it&rsquo;s&hellip;</p>
+<p>In Bach and in life, everything is connected.</p>
+<p>Now that we&rsquo;re talking about Bach,</p>
+<p>let&rsquo;s switch back to English,</p>
+<p>because I like Beethoven and Chopin, so&hellip;</p>
+<p>Well, Chopin, it&rsquo;s another amusing story.</p>
+<p>But Bach, if we talk about predicates,</p>
+<p>Bach probably has the most sort of</p>
+<p>well defined predicates that underlie it.</p>
+<p>It is very interesting to read what critics</p>
+<p>are writing about Bach, which words they&rsquo;re using.</p>
+<p>They&rsquo;re trying to describe predicates.</p>
+<p>And then Chopin, it is very different vocabulary,</p>
+<p>very different predicates.</p>
+<p>And I think that if you will make collection of that,</p>
+<p>so maybe from this you can describe predicate</p>
+<p>for digit recognition as well.</p>
+<p>From Bach and Chopin.</p>
+<p>No, no, no, not from Bach and Chopin.</p>
+<p>From the critic interpretation of the music, yeah.</p>
+<p>When they&rsquo;re trying to explain you music, what they use.</p>
+<p>As they use, they describe high level ideas</p>
+<p>of platos ideas, what behind this music.</p>
+<p>That&rsquo;s brilliant.</p>
+<p>So art is not self explanatory in some sense.</p>
+<p>So you have to try to convert it into ideas.</p>
+<p>It is ill post problems.</p>
+<p>When you go from ideas to the representation,</p>
+<p>it is easy way.</p>
+<p>But when you&rsquo;re trying to go Bach, it is ill post problems.</p>
+<p>But nevertheless, I believe that when you&rsquo;re looking</p>
+<p>from that, even from art, you will be able to find</p>
+<p>predicates for digit recognition.</p>
+<p>That&rsquo;s such a fascinating and powerful notion.</p>
+<p>Do you ponder your own mortality?</p>
+<p>Do you think about it?</p>
+<p>Do you fear it?</p>
+<p>Do you draw insight from it?</p>
+<p>About mortality, no, yeah.</p>
+<p>Are you afraid of death?</p>
+<p>Not too much, not too much.</p>
+<p>It is pity that I will not be able to do something</p>
+<p>which I think I have a feeling to do that.</p>
+<p>For example, I will be very happy to work with guys</p>
+<p>theoretician from music to write this collection</p>
+<p>of description, how they describe music,</p>
+<p>how they use that predicate, and from art as well.</p>
+<p>Then take what is in common and try to understand</p>
+<p>predicate which is absolute for everything.</p>
+<p>And then use that for visual recognition</p>
+<p>and see if there is a connection.</p>
+<p>Yeah, exactly.</p>
+<p>Ah, there&rsquo;s still time.</p>
+<p>We got time.</p>
+<p>Ha ha ha ha.</p>
+<p>Yeah.</p>
+<p>We got time.</p>
+<p>It take years and years and years.</p>
+<p>Yes, yeah, it&rsquo;s a long way.</p>
+<p>Well, see, you&rsquo;ve got the patient mathematicians mind.</p>
+<p>I think it could be done very quickly and very beautifully.</p>
+<p>I think it&rsquo;s a really elegant idea.</p>
+<p>Yeah, but also.</p>
+<p>Some of many.</p>
+<p>Yeah, you know, the most time,</p>
+<p>it is not to make this collection to understand</p>
+<p>what is the common to think about that once again</p>
+<p>and again and again.</p>
+<p>Again and again and again, but I think sometimes,</p>
+<p>especially just when you say this idea now,</p>
+<p>even just putting together the collection</p>
+<p>and looking at the different sets of data,</p>
+<p>language, trying to interpret music,</p>
+<p>criticize music, and images,</p>
+<p>I think there&rsquo;ll be sparks of ideas that&rsquo;ll come.</p>
+<p>Of course, again and again, you&rsquo;ll come up with better ideas,</p>
+<p>but even just that notion is a beautiful notion.</p>
+<p>I even have some example.</p>
+<p>Yes, so I have friend</p>
+<p>who was specialist in Russian poetry.</p>
+<p>She is professor of Russian poetry.</p>
+<p>He did not write poems,</p>
+<p>but she know a lot of stuff.</p>
+<p>She make book, several books,</p>
+<p>and one of them is a collection of Russian poetry.</p>
+<p>She have images of Russian poetry.</p>
+<p>She collect all images of Russian poetry.</p>
+<p>And I ask her to do following.</p>
+<p>You have NIPS, digit recognition,</p>
+<p>and we get 100 digits,</p>
+<p>or maybe less than 100.</p>
+<p>I don&rsquo;t remember, maybe 50 digits.</p>
+<p>And try from poetical point of view,</p>
+<p>describe every image which she see,</p>
+<p>using only words of images of Russian poetry.</p>
+<p>And she did it.</p>
+<p>And then we tried to,</p>
+<p>I call it learning using privileged information.</p>
+<p>I call it privileged information.</p>
+<p>You have on two languages.</p>
+<p>One language is just image of digit,</p>
+<p>and another language, poetic description of this image.</p>
+<p>And this is privileged information.</p>
+<p>And there is an algorithm when you&rsquo;re working</p>
+<p>using privileged information, you&rsquo;re doing better.</p>
+<p>Much better, so.</p>
+<p>So there&rsquo;s something there.</p>
+<p>Something there.</p>
+<p>And there is a, in NEC,</p>
+<p>she unfortunately died.</p>
+<p>The collection of digits</p>
+<p>in poetic descriptions of these digits.</p>
+<p>Yeah.</p>
+<p>So there&rsquo;s something there in that poetic description.</p>
+<p>But I think that there is a abstract ideas</p>
+<p>on the plot of level of ideas.</p>
+<p>Yeah, that they&rsquo;re there.</p>
+<p>That could be discovered.</p>
+<p>And music seems to be a good entry point.</p>
+<p>But as soon as we start with this challenge problem.</p>
+<p>The challenge problem.</p>
+<p>Listen.</p>
+<p>It immediately connected to all this stuff.</p>
+<p>Especially with your talk and this podcast,</p>
+<p>and I&rsquo;ll do whatever I can to advertise it.</p>
+<p>It&rsquo;s such a clean, beautiful Einstein like formulation</p>
+<p>of the challenge before us.</p>
+<p>Right.</p>
+<p>Let me ask another absurd question.</p>
+<p>We talked about mortality.</p>
+<p>We talked about philosophy of life.</p>
+<p>What do you think is the meaning of life?</p>
+<p>What&rsquo;s the predicate for mysterious existence here on earth?</p>
+<p>I don&rsquo;t know.</p>
+<p>It&rsquo;s very interesting how we have,</p>
+<p>in Russia, I don&rsquo;t know if you know the guy Strugatsky.</p>
+<p>They are writing fiction.</p>
+<p>They&rsquo;re thinking about human, what&rsquo;s going on.</p>
+<p>And they have idea that there are developing</p>
+<p>two type of people, common people and very smart people.</p>
+<p>They just started.</p>
+<p>And these two branches of people will go</p>
+<p>in different direction very soon.</p>
+<p>So that&rsquo;s what they&rsquo;re thinking about that.</p>
+<p>So the purpose of life is to create two paths.</p>
+<p>Two paths.</p>
+<p>Of human societies.</p>
+<p>Yes.</p>
+<p>Simple people and more complicated people.</p>
+<p>Which do you like best?</p>
+<p>The simple people or the complicated ones?</p>
+<p>I don&rsquo;t know that it is just his fantasy,</p>
+<p>but you know, every week we have guy</p>
+<p>who is just a writer and also a theorist of literature.</p>
+<p>And he explain how he understand literature</p>
+<p>and human relationship.</p>
+<p>How he see life.</p>
+<p>And I understood that I&rsquo;m just small kids</p>
+<p>comparing to him.</p>
+<p>He&rsquo;s very smart guy in understanding life.</p>
+<p>He knows this predicate.</p>
+<p>He knows big blocks of life.</p>
+<p>I am used every time when I listen to him.</p>
+<p>And he just talking about literature.</p>
+<p>And I think that I was surprised.</p>
+<p>So the managers in big companies,</p>
+<p>most of them are guys who study English language</p>
+<p>and English literature.</p>
+<p>So why?</p>
+<p>Because they understand life.</p>
+<p>They understand models.</p>
+<p>And among them,</p>
+<p>maybe many talented critics just analyzing this.</p>
+<p>And this is big science like property.</p>
+<p>This is blocks.</p>
+<p>That&rsquo;s very smart.</p>
+<p>It amazes me that you are and continue to be humbled</p>
+<p>by the brilliance of others.</p>
+<p>I&rsquo;m very modest about myself.</p>
+<p>I see so smart guys around.</p>
+<p>Well, let me be immodest for you.</p>
+<p>You&rsquo;re one of the greatest mathematicians,</p>
+<p>statisticians of our time.</p>
+<p>It&rsquo;s truly an honor.</p>
+<p>Thank you for talking again.</p>
+<p>And let&rsquo;s talk.</p>
+<p>It is not.</p>
+<p>I know my limits.</p>
+<p>Let&rsquo;s talk again when your challenge is taken on</p>
+<p>and solved by grad student.</p>
+<p>Especially when they use it.</p>
+<p>It happens.</p>
+<p>Maybe music will be involved.</p>
+<p>Latimer, thank you so much.</p>
+<p>It&rsquo;s been an honor. Thank you very much.</p>
+<p>Thanks for listening to this conversation</p>
+<p>with Latimer Vapnik.</p>
+<p>And thank you to our presenting sponsor, Cash App.</p>
+<p>Download it, use code LexPodcast.</p>
+<p>You&rsquo;ll get $10 and $10 will go to FIRST,</p>
+<p>an organization that inspires and educates young minds</p>
+<p>to become science and technology innovators of tomorrow.</p>
+<p>If you enjoy this podcast, subscribe on YouTube,</p>
+<p>give us five stars on Apple Podcast,</p>
+<p>support it on Patreon,</p>
+<p>or simply connect with me on Twitter at Lex Friedman.</p>
+<p>And now, let me leave you with some words</p>
+<p>from Latimer Vapnik.</p>
+<p>When solving a problem of interest,</p>
+<p>do not solve a more general problem</p>
+<p>as an intermediate step.</p>
+<p>Thank you for listening.</p>
+<p>I hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

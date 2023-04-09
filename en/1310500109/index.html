@@ -1,0 +1,3117 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Brian Kernighan,
+a professor of computer science at Princeton University.
+He was a key figure in the computer science community
+in the early Unix days, alongside Unix creators,
+Ken Thompson and Dennis Ritchie.
+He coauthored the C programming language with Dennis Ritchie,
+the creator of C, and has written a lot of books
+on programming, computers, and life,
+including The Practice of Programming,
+the Go programming language, and his latest,'>
+<title>Lex Fridman Podcast - #109 - Brian Kernighan: UNIX, C, AWK, AMPL, and Go Programming | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500109/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #109 - Brian Kernighan: UNIX, C, AWK, AMPL, and Go Programming'>
+<meta property='og:description' content='The following is a conversation with Brian Kernighan,
+a professor of computer science at Princeton University.
+He was a key figure in the computer science community
+in the early Unix days, alongside Unix creators,
+Ken Thompson and Dennis Ritchie.
+He coauthored the C programming language with Dennis Ritchie,
+the creator of C, and has written a lot of books
+on programming, computers, and life,
+including The Practice of Programming,
+the Go programming language, and his latest,'>
+<meta property='og:url' content='https://swiest.com/en/1310500109/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-06-17T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-06-17T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #109 - Brian Kernighan: UNIX, C, AWK, AMPL, and Go Programming">
+<meta name="twitter:description" content="The following is a conversation with Brian Kernighan,
+a professor of computer science at Princeton University.
+He was a key figure in the computer science community
+in the early Unix days, alongside Unix creators,
+Ken Thompson and Dennis Ritchie.
+He coauthored the C programming language with Dennis Ritchie,
+the creator of C, and has written a lot of books
+on programming, computers, and life,
+including The Practice of Programming,
+the Go programming language, and his latest,">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500109/">Lex Fridman Podcast - #109 - Brian Kernighan: UNIX, C, AWK, AMPL, and Go Programming</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-17</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    83 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Brian Kernighan,</p>
+<p>a professor of computer science at Princeton University.</p>
+<p>He was a key figure in the computer science community</p>
+<p>in the early Unix days, alongside Unix creators,</p>
+<p>Ken Thompson and Dennis Ritchie.</p>
+<p>He coauthored the C programming language with Dennis Ritchie,</p>
+<p>the creator of C, and has written a lot of books</p>
+<p>on programming, computers, and life,</p>
+<p>including The Practice of Programming,</p>
+<p>the Go programming language, and his latest,</p>
+<p>Unix, A History and a Memoir.</p>
+<p>He cocreated AUK, the text processing language</p>
+<p>used by Linux folks like myself.</p>
+<p>He co designed Ample, an algebraic modeling language</p>
+<p>that I personally love and have used a lot in my life</p>
+<p>for large scale optimization.</p>
+<p>I think I can keep going for a long time</p>
+<p>with his creations and accomplishments,</p>
+<p>which is funny because given all that,</p>
+<p>he&rsquo;s one of the most humble and kind people</p>
+<p>I&rsquo;ve spoken to on this podcast.</p>
+<p>Quick summary of the ads, two new sponsors,</p>
+<p>the amazing self cooling 8sleep mattress</p>
+<p>and Raycon earbuds.</p>
+<p>Please consider supporting the podcast</p>
+<p>by going to 8sleep.com slash Lex</p>
+<p>and going to buyraycon.com slash Lex.</p>
+<p>Click the links, buy the stuff.</p>
+<p>It really is the best way to support this podcast</p>
+<p>and the journey I&rsquo;m on.</p>
+<p>If you enjoy this thing, subscribe on YouTube,</p>
+<p>review it with 5,000 Apple podcasts,</p>
+<p>support it on Patreon,</p>
+<p>or connect with me on Twitter at Lex Friedman.</p>
+<p>As usual, I&rsquo;ll do a few minutes of ads now</p>
+<p>and never any ads in the middle</p>
+<p>that could break the flow of the conversation.</p>
+<p>This show is sponsored by 8sleep</p>
+<p>and it&rsquo;s incredible pod pro mattress</p>
+<p>that you can check out at 8sleep.com slash Lex</p>
+<p>to get $200 off.</p>
+<p>The mattress controls temperature with an app</p>
+<p>and can cool down to as low as 55 degrees.</p>
+<p>Research shows that temperature has a big impact</p>
+<p>on the quality of our sleep.</p>
+<p>Anecdotally, it&rsquo;s been a game changer for me.</p>
+<p>I love it.</p>
+<p>The pod pro is packed with sensors</p>
+<p>that track heart rate, heart rate variability,</p>
+<p>and respiratory rate,</p>
+<p>showing it all on their app once you wake up.</p>
+<p>Plus, if you have a partner,</p>
+<p>you can control the temperature of each side of the bed.</p>
+<p>I don&rsquo;t happen to have one,</p>
+<p>but the 8sleep app reminds me</p>
+<p>that I should probably get on that.</p>
+<p>So ladies, if a temperature controlled mattress</p>
+<p>isn&rsquo;t a good reason to apply,</p>
+<p>I don&rsquo;t know what is.</p>
+<p>The app&rsquo;s health metrics are amazing,</p>
+<p>but the cooling alone is honestly worth the money.</p>
+<p>As some of you know, I don&rsquo;t always sleep,</p>
+<p>but when I do, I choose the 8sleep pod pro mattress.</p>
+<p>Check it out at 8sleep.com slash Lex</p>
+<p>to get $200 off.</p>
+<p>This show is also sponsored by Raycon earbuds.</p>
+<p>Get them at buyraycon.com slash lex.</p>
+<p>They&rsquo;ve quickly become my main method</p>
+<p>of listening to podcasts, audio books,</p>
+<p>and music when I run,</p>
+<p>do the pushups and pullups</p>
+<p>that I&rsquo;ve begun to hate at this point,</p>
+<p>or just living life.</p>
+<p>In fact, I often listen to brown noise with these</p>
+<p>when I&rsquo;m thinking deeply about something.</p>
+<p>It helps me focus the mind.</p>
+<p>They&rsquo;re super comfortable, pair easily,</p>
+<p>great sound, great bass, six hours of playtime.</p>
+<p>In fact, for fun, I have one of the earbuds in now</p>
+<p>and I&rsquo;m listening to Europa by Santana,</p>
+<p>probably one of my favorite guitar songs.</p>
+<p>It kind of makes me feel like I&rsquo;m in a music video.</p>
+<p>So they told me to say that a bunch of celebrities</p>
+<p>use these like Snoop Dogg, Melissa Etheridge, and Cardi B.</p>
+<p>I don&rsquo;t even know who Cardi B is,</p>
+<p>but her earbud game is on point.</p>
+<p>To mention celebrities I actually care about,</p>
+<p>I&rsquo;m sure if Richard Feynman was still with us,</p>
+<p>he&rsquo;d be listening to the Joe Rogan Experience</p>
+<p>with Raycon earbuds.</p>
+<p>Get them at buyraycon.com slash lex.</p>
+<p>It&rsquo;s how they know I sent you</p>
+<p>and increases the chance that he&rsquo;ll support</p>
+<p>this podcast in the future.</p>
+<p>So for all of the sponsors, click all of the links.</p>
+<p>It really helps this podcast.</p>
+<p>And now, here&rsquo;s my conversation with Brian Kernighan.</p>
+<p>Unix started being developed 50 years ago.</p>
+<p>It&rsquo;d be more than 50 years ago.</p>
+<p>Can you tell the story like you describe in your new book</p>
+<p>of how Unix was created?</p>
+<p>Ha, if I can remember that far back,</p>
+<p>it was some while ago.</p>
+<p>So I think the gist of it is that at Bell Labs,</p>
+<p>in 1969, there were a group of people</p>
+<p>who had just finished working on the Multics project,</p>
+<p>which was itself a follow on to CTSS.</p>
+<p>So we can go back sort of an infinite regress in time,</p>
+<p>but the CTSS was a very, very, very nice time sharing system.</p>
+<p>It was very nice to use.</p>
+<p>I actually used it that summer I spent in Cambridge in 1966.</p>
+<p>What was the hardware there?</p>
+<p>So what&rsquo;s the operating system, what&rsquo;s the hardware there?</p>
+<p>What&rsquo;s the CTSS look like?</p>
+<p>So CTSS looked like kind of like</p>
+<p>a standard time sharing system.</p>
+<p>Certainly at the time, it was the only time sharing.</p>
+<p>Let&rsquo;s go back to the basics.</p>
+<p>What&rsquo;s a time sharing system?</p>
+<p>Okay, in the beginning was the word</p>
+<p>and the word was the system.</p>
+<p>And then there was time sharing systems.</p>
+<p>Yeah, if we go back into, let&rsquo;s call it the 1950s</p>
+<p>and early 1960s, most computing was done on very big</p>
+<p>computers, physically big, although not terribly powerful</p>
+<p>by today&rsquo;s standards, that were maintained</p>
+<p>in very large rooms and you use things like punch cards</p>
+<p>to write your programs on and talk to them.</p>
+<p>So you would take a deck of cards,</p>
+<p>write your program on it, send it over a counter,</p>
+<p>hand it to an operator and some while later</p>
+<p>back would come something that said,</p>
+<p>oh, you made a mistake and then you&rsquo;d recycle.</p>
+<p>And so it was very, very slow.</p>
+<p>So the idea of time sharing was that you take</p>
+<p>basically that same computer, but connect to it</p>
+<p>with something that looked like an electric typewriter.</p>
+<p>They could be a long distance away, it could be close,</p>
+<p>but fundamentally what the operating system did</p>
+<p>was to give each person who was connected to it</p>
+<p>and wanting to do something a small slice of time</p>
+<p>to do a particular job.</p>
+<p>So I might be editing a file, so I would be typing</p>
+<p>and every time I hit a keystroke,</p>
+<p>the operating system would wake up and said,</p>
+<p>oh, he typed character, let me remember that.</p>
+<p>Then it&rsquo;d go back to doing something else.</p>
+<p>So it&rsquo;d be going around and around a group of people</p>
+<p>who were trying to get something done, giving each</p>
+<p>a small slice of time and giving them each the illusion</p>
+<p>that they pretty much had the whole machine to themselves</p>
+<p>and hence time sharing, that is sharing the computing time</p>
+<p>resource of the computer among a number of people</p>
+<p>who were doing it.</p>
+<p>Without the individual people being aware</p>
+<p>that there&rsquo;s others in a sense, the illusion,</p>
+<p>the feelings that the machine is your own.</p>
+<p>Pretty much that was the idea.</p>
+<p>Yes, if it were well done and if it were fast enough</p>
+<p>and other people weren&rsquo;t doing too much,</p>
+<p>you did have the illusion that you had the whole machine</p>
+<p>to yourself and it was very much better</p>
+<p>than the punch card model.</p>
+<p>And so CTSS, the compatible time sharing system</p>
+<p>was I think arguably the first of these.</p>
+<p>It was done I guess technically in 64 or something like that.</p>
+<p>It ran on an IBM 7094, slightly modified</p>
+<p>to have twice as much memory as the norm.</p>
+<p>It had two banks of 32K words instead of one.</p>
+<p>So.</p>
+<p>32K words, yeah.</p>
+<p>Each word was 36 bits, so call it</p>
+<p>about 150 kilobytes times two.</p>
+<p>So by today&rsquo;s standards, that&rsquo;s down in the noise.</p>
+<p>But at the time, that was a lot of memory</p>
+<p>and memory was expensive.</p>
+<p>So CTSS was just a wonderful environment to work on.</p>
+<p>It was done by the people at MIT,</p>
+<p>led by Fernando Corbato, Corby who died just earlier</p>
+<p>this year, and a bunch of other folks.</p>
+<p>So I spent the summer of 66 working on that,</p>
+<p>had a great time, met a lot of really nice people</p>
+<p>and indirectly knew of people at Bell Labs</p>
+<p>who were also working on a follow on to CTSS</p>
+<p>that was called Multics.</p>
+<p>So Multics was meant to be the system</p>
+<p>that would do everything that CTSS did</p>
+<p>but do it better for a larger population.</p>
+<p>All the usual stuff.</p>
+<p>Now the actual time sharing, the scheduling,</p>
+<p>what&rsquo;s the algorithm that performs the scheduling?</p>
+<p>What&rsquo;s that look like?</p>
+<p>How much magic is there?</p>
+<p>What are the metrics?</p>
+<p>How does it all work in the beginning?</p>
+<p>So the answer is I don&rsquo;t have a clue.</p>
+<p>I think the basic idea was nothing more</p>
+<p>than who all wants to get something done.</p>
+<p>Suppose that things are very quiet</p>
+<p>in the middle of the night,</p>
+<p>then I get all the time that I want.</p>
+<p>Suppose that you and I are contending at high noon</p>
+<p>for something like that,</p>
+<p>then probably the simplest algorithm is a round robin one</p>
+<p>that gives you a bit of time, gives me a bit of time.</p>
+<p>And then we could adapt to that.</p>
+<p>Like what are you trying to do?</p>
+<p>Are you text editing or are you compiling or something?</p>
+<p>And then we might adjust the scheduler</p>
+<p>according to things like that.</p>
+<p>So okay, so Multics was trying to just do some of the,</p>
+<p>clean it up a little bit.</p>
+<p>Well, it was meant to be much more than that.</p>
+<p>So Multics was the multiplexed information</p>
+<p>and computing service and it was meant to be</p>
+<p>a very large thing that would provide computing utility.</p>
+<p>Something that where you could actually think of it</p>
+<p>as just a plug in the wall service.</p>
+<p>Sort of like cloud computing today.</p>
+<p>Same idea, but 50 odd years earlier.</p>
+<p>And so what Multics offered</p>
+<p>was a richer operating system environment,</p>
+<p>a piece of hardware that was better designed</p>
+<p>for doing the kind of sharing of resources.</p>
+<p>And presumably lots of other things.</p>
+<p>Do you think people at that time had the dream</p>
+<p>of what cloud computing is starting to become now,</p>
+<p>which is computing is everywhere.</p>
+<p>That you can just plug in almost,</p>
+<p>and you never know how the magic works.</p>
+<p>You just kind of plug in, add your little computation</p>
+<p>that you need to perform and it does it.</p>
+<p>Was that the dream?</p>
+<p>I don&rsquo;t know where that was the dream.</p>
+<p>I wasn&rsquo;t part of it at that point.</p>
+<p>I remember I was an intern for summer.</p>
+<p>But my sense is given that it was over 50 years ago,</p>
+<p>yeah, they had that idea that it was an information utility.</p>
+<p>That it was something where if you had a computing task to do,</p>
+<p>you could just go and do it.</p>
+<p>Now I&rsquo;m betting that they didn&rsquo;t have the same view</p>
+<p>of computing for the masses, let&rsquo;s call it.</p>
+<p>The idea that your grandmother would be shopping on Amazon.</p>
+<p>I don&rsquo;t think that was part of it.</p>
+<p>But if your grandmother were a programmer,</p>
+<p>it might be very easy for her to go and use</p>
+<p>this kind of utility.</p>
+<p>What was your dream of computers at that time?</p>
+<p>What did you see as the future of computers?</p>
+<p>Because you have predicted what computers are today.</p>
+<p>Oh, short answer, absolutely not.</p>
+<p>I have no clue.</p>
+<p>I&rsquo;m not sure I had a dream.</p>
+<p>It was a dream job in the sense that I really enjoyed</p>
+<p>what I was doing.</p>
+<p>I was surrounded by really, really nice people.</p>
+<p>Cambridge is a very fine city to live in in the summer,</p>
+<p>less so in the winter when it snows.</p>
+<p>But in the summer, it was a delightful time.</p>
+<p>And so I really enjoyed all of that stuff.</p>
+<p>And I learned things.</p>
+<p>And I think the good fortune of being there for summer</p>
+<p>led me then to get a summer job at Bell Labs</p>
+<p>the following summer.</p>
+<p>And that was quite useful for the future.</p>
+<p>So Bell Labs is this magical, legendary place.</p>
+<p>So first of all, where is Bell Labs?</p>
+<p>And can you start talking about that journey</p>
+<p>towards Unix at Bell Labs?</p>
+<p>Yeah, so Bell Labs is physically scattered around,</p>
+<p>at the time, scattered around New Jersey.</p>
+<p>The primary location is in a town called Murray Hill,</p>
+<p>or a location called Murray Hill is actually</p>
+<p>across the boundary between two small towns in New Jersey</p>
+<p>called New Providence and Berkeley Heights.</p>
+<p>Think of it as about 15, 20 miles straight west</p>
+<p>of New York City, and therefore about an hour north</p>
+<p>of here in Princeton.</p>
+<p>And at that time, it had, make up a number,</p>
+<p>three or 4,000 people there, many of whom had PhDs</p>
+<p>and mostly doing physical sciences,</p>
+<p>chemistry, physics, materials kinds of things,</p>
+<p>but very strong math and rapidly growing interest</p>
+<p>in computing as people realized you could do things</p>
+<p>with computers that you might not have been able</p>
+<p>to do before.</p>
+<p>You could replace labs with computers</p>
+<p>that had worked on models of what was going on.</p>
+<p>So that was the essence of Bell Labs.</p>
+<p>And again, I wasn&rsquo;t a permanent employee there.</p>
+<p>That was another internship.</p>
+<p>I got lucky in internships.</p>
+<p>I mean, if you could just linger on it a little bit,</p>
+<p>what was the, what was in the air there?</p>
+<p>Because some of the, the number of Nobel Prizes,</p>
+<p>the number of Turing Awards and just legendary</p>
+<p>computer scientists that come from their inventions,</p>
+<p>including developments, including Unix,</p>
+<p>it&rsquo;s just, it&rsquo;s unbelievable.</p>
+<p>So was there something special about that place?</p>
+<p>Oh, I think there was very definitely something special.</p>
+<p>I mentioned the number of people,</p>
+<p>it&rsquo;s a very large number of people, very highly skilled</p>
+<p>and working in an environment</p>
+<p>where there was always something interesting to work on</p>
+<p>because the goal of Bell Labs,</p>
+<p>which was a small part of AT&amp;T,</p>
+<p>which provided basically the country&rsquo;s phone service.</p>
+<p>The goal of AT&amp;T was to provide service for everybody.</p>
+<p>And the goal of Bell Labs was to try and make that service</p>
+<p>keep getting better, so improving service.</p>
+<p>And that meant doing research on a lot of different things,</p>
+<p>physical devices, like the transistor</p>
+<p>or fiber optical cables or microwave systems,</p>
+<p>all of these things the labs worked on.</p>
+<p>And it was kind of just the beginning of real boom times</p>
+<p>in computing as well.</p>
+<p>Because when I was there, I went there first in 66.</p>
+<p>So computing was at that point fairly young.</p>
+<p>And so people were discovering</p>
+<p>that you could do lots of things with computers.</p>
+<p>So how was Unix born?</p>
+<p>So Multics, in spite of having an enormous number</p>
+<p>of really good ideas and lots of good people working on it,</p>
+<p>fundamentally didn&rsquo;t live up, at least in the short run,</p>
+<p>and I think ultimately really ever,</p>
+<p>to its goal of being this information utility.</p>
+<p>It was too expensive and certainly what was promised</p>
+<p>was delivered much too late.</p>
+<p>And so in roughly the beginning of 1969,</p>
+<p>Bell Labs pulled out of the project.</p>
+<p>The project at that point had included MIT, Bell Labs,</p>
+<p>and General Electric, General Electric made computers.</p>
+<p>So General Electric was the hardware operation.</p>
+<p>So Bell Labs, realizing this wasn&rsquo;t going anywhere</p>
+<p>on a timescale they cared about, pulled out of the project.</p>
+<p>And this left several people with an acquired taste</p>
+<p>for really, really nice computing environments,</p>
+<p>but no computing environment.</p>
+<p>And so they started thinking about what could you do</p>
+<p>if you were going to design a new operating system</p>
+<p>that would provide the same kind of comfortable computing</p>
+<p>as CTSS had, but also the facilities of something</p>
+<p>like Multics sort of brought forward.</p>
+<p>And so they did a lot of paper design stuff.</p>
+<p>And at the same time, Ken Thompson found</p>
+<p>what is characterized as a little used PDP 7,</p>
+<p>where he started to do experiments with file systems,</p>
+<p>just how do you store information on a computer</p>
+<p>in a efficient way, and then this famous story</p>
+<p>that his wife went away to California for three weeks,</p>
+<p>taking their one year old son, and three weeks,</p>
+<p>and he sat down and wrote an operating system,</p>
+<p>which ultimately became Unix.</p>
+<p>So software productivity was good in those days.</p>
+<p>So PDP, what&rsquo;s a PDP 7?</p>
+<p>So it&rsquo;s a piece of hardware.</p>
+<p>Yeah, it&rsquo;s a piece of hardware.</p>
+<p>It was one of early machines made</p>
+<p>by Digital Equipment Corporation, DEC,</p>
+<p>and it was a mini computer, so called.</p>
+<p>It had, I would have to look up the numbers exactly,</p>
+<p>but it had a very small amount of memory,</p>
+<p>maybe 16K, 16 bit words, or something like that,</p>
+<p>relatively slow, probably not super expensive.</p>
+<p>Maybe, again, making this up, I&rsquo;d have to look it up,</p>
+<p>$100,000 or something like that.</p>
+<p>Which is not super expensive in those days, right?</p>
+<p>It was expensive.</p>
+<p>It was enough that you and I probably</p>
+<p>wouldn&rsquo;t be able to buy one,</p>
+<p>but a modest group of people could get together.</p>
+<p>But in any case, it came out, if I recall, in 1964.</p>
+<p>So by 1969, it was getting a little obsolete,</p>
+<p>and that&rsquo;s why it was little used.</p>
+<p>If you can sort of comment,</p>
+<p>what do you think it&rsquo;s like</p>
+<p>to write an operating system like that?</p>
+<p>So that process that Ken went through in three weeks,</p>
+<p>because you were, I mean, you&rsquo;re a part of that process.</p>
+<p>You contributed a lot to Unix&rsquo;s early development.</p>
+<p>So what do you think it takes to do that first step,</p>
+<p>that first kind of, from design to reality on the PDP?</p>
+<p>Well, let me correct one thing.</p>
+<p>I had nothing to do with it.</p>
+<p>So I did not write it.</p>
+<p>I have never written operating system code.</p>
+<p>And so I don&rsquo;t know.</p>
+<p>Now an operating system is simply code.</p>
+<p>And this first one wasn&rsquo;t very big,</p>
+<p>but it&rsquo;s something that lets you run processes,</p>
+<p>lets you execute some kind of code that has been written.</p>
+<p>It lets you store information for periods of time</p>
+<p>so that it doesn&rsquo;t go away when you turn the power off</p>
+<p>or reboot or something like that.</p>
+<p>And there&rsquo;s kind of a core set of tools</p>
+<p>that are technically not part of an operating system,</p>
+<p>but you probably need them.</p>
+<p>In this case, Ken wrote an assembler</p>
+<p>for the PDP 7 that worked.</p>
+<p>He needed a text editor</p>
+<p>so that he could actually create text.</p>
+<p>He had the file system stuff that he had been working on,</p>
+<p>and then the rest of it was just a way</p>
+<p>to load things, executable code from the file system</p>
+<p>into the memory, give it control,</p>
+<p>and then recover control when it was finished</p>
+<p>or in some other way quit.</p>
+<p>What was the code written in,</p>
+<p>primarily the programming language?</p>
+<p>Was it in assembly?</p>
+<p>Yeah, PDP 7 assembler that Ken created.</p>
+<p>These things were assembly language</p>
+<p>until probably the, call it 1973 or 74, something like that.</p>
+<p>Forgive me if it&rsquo;s a dumb question,</p>
+<p>but it feels like a daunting task</p>
+<p>to write any kind of complex system in assembly.</p>
+<p>Absolutely.</p>
+<p>It feels like impossible to do any kind</p>
+<p>of what we think of as software engineering with assembly,</p>
+<p>because to work on a big picture sort of.</p>
+<p>I think it&rsquo;s hard.</p>
+<p>It&rsquo;s been a long time since I wrote assembly language.</p>
+<p>It is absolutely true that in assembly language,</p>
+<p>if you make a mistake, nobody tells you.</p>
+<p>There are no training wheels whatsoever.</p>
+<p>And so stuff doesn&rsquo;t work.</p>
+<p>Now what?</p>
+<p>There&rsquo;s no debuggers.</p>
+<p>Well, there could be debuggers,</p>
+<p>but that&rsquo;s the same problem, right?</p>
+<p>How do you actually get something</p>
+<p>that will help you debug it?</p>
+<p>So part of it is an ability to see the big picture.</p>
+<p>Now these systems were not big in the sense</p>
+<p>that today&rsquo;s pictures are.</p>
+<p>So the big picture was in some sense more manageable.</p>
+<p>I mean, then realistically,</p>
+<p>there&rsquo;s an enormous variation</p>
+<p>in the capabilities of programmers.</p>
+<p>And Ken Thompson, who did that first one,</p>
+<p>is kind of the singularity, in my experience, of programmers.</p>
+<p>With no disrespect to you or even to me,</p>
+<p>he&rsquo;s in several leagues removed.</p>
+<p>I know there&rsquo;s levels.</p>
+<p>It&rsquo;s a fascinating thing that there are unique stars</p>
+<p>in particular in the programming space</p>
+<p>and at a particular time.</p>
+<p>You know, the time matters too,</p>
+<p>the timing of when that person comes along.</p>
+<p>And a wife does have to leave.</p>
+<p>There&rsquo;s this weird timing that happens</p>
+<p>and then all of a sudden something beautiful is created.</p>
+<p>I mean, how does it make you feel</p>
+<p>that there&rsquo;s a system that was created in three weeks</p>
+<p>or maybe you can even say on a whim,</p>
+<p>but not really, but of course, quickly,</p>
+<p>that is now, you could think of most of the computers</p>
+<p>in the world run on a Unix like system?</p>
+<p>Right.</p>
+<p>How do you interpret, like,</p>
+<p>if you kind of zoom from the alien perspective,</p>
+<p>if you were just observing Earth,</p>
+<p>and all of a sudden these computers took over the world</p>
+<p>and they started from this little initial seed of Unix,</p>
+<p>how does that make you feel?</p>
+<p>It&rsquo;s quite surprising.</p>
+<p>And you asked earlier about prediction.</p>
+<p>The answer is no.</p>
+<p>There&rsquo;s no way you could predict that kind of evolution.</p>
+<p>And I don&rsquo;t know whether it was inevitable</p>
+<p>or just a whole sequence of blind luck.</p>
+<p>I suspect more of the latter.</p>
+<p>And so I look at it and think, gee, that&rsquo;s kind of neat.</p>
+<p>I think the real question is what does Ken think about that?</p>
+<p>Because he&rsquo;s the guy arguably from whom it really came.</p>
+<p>You know, tremendous contributions from Dennis Ritchie</p>
+<p>and then others around in that Bell Labs environment.</p>
+<p>But, you know, if you had to pick a single person,</p>
+<p>that would be Ken.</p>
+<p>So you&rsquo;ve written a new book,</p>
+<p>Unix, a history and a memoir.</p>
+<p>Are there some memorable human stories,</p>
+<p>funny or profound from that time</p>
+<p>that just kind of stand out?</p>
+<p>Oh, there&rsquo;s a lot of them in his book.</p>
+<p>Oh, there&rsquo;s a lot of them in a sense.</p>
+<p>And again, it&rsquo;s a question of can you resurrect them</p>
+<p>in real time?</p>
+<p>Never.</p>
+<p>His memory fails.</p>
+<p>But I think part of it was that Bell Labs at the time</p>
+<p>was a very special kind of place to work</p>
+<p>because there were a lot of interesting people</p>
+<p>and the environment was very, very open and free.</p>
+<p>It was a very cooperative environment,</p>
+<p>very friendly environment.</p>
+<p>And so if you had an interesting problem,</p>
+<p>you go and talk to somebody</p>
+<p>and they might help you with the solution.</p>
+<p>And it was a kind of a fun environment too,</p>
+<p>in which people did strange things</p>
+<p>and often tweaking the bureaucracy in one way or another.</p>
+<p>So rebellious in certain kinds of ways.</p>
+<p>In some ways, yeah, absolutely.</p>
+<p>I think most people didn&rsquo;t take too kindly</p>
+<p>to the bureaucracy and I&rsquo;m sure the bureaucracy</p>
+<p>put up with an enormous amount</p>
+<p>that they didn&rsquo;t really want to.</p>
+<p>So maybe to linger on it a little bit,</p>
+<p>do you have a sense of what the philosophy</p>
+<p>that characterizes Unix is, the design?</p>
+<p>Not just the initial, but just carry through the years,</p>
+<p>just being there, being around it.</p>
+<p>What&rsquo;s the fundamental philosophy behind the system?</p>
+<p>I think one aspect of fundamental philosophy</p>
+<p>was to provide an environment that made it easy to write</p>
+<p>or easier, productive to write programs.</p>
+<p>So it was meant as a programmer environment.</p>
+<p>It wasn&rsquo;t meant specifically as something</p>
+<p>to do some other kind of job.</p>
+<p>For example, it was used extensively for word processing,</p>
+<p>but it wasn&rsquo;t designed as a word processing system.</p>
+<p>It was used extensively for lab control,</p>
+<p>but it wasn&rsquo;t designed for that.</p>
+<p>It was used extensively as a front end</p>
+<p>for big other systems, big dumb systems,</p>
+<p>but it wasn&rsquo;t designed for that.</p>
+<p>It was meant to be an environment</p>
+<p>where it was really easy to write programs.</p>
+<p>So the programmers could be highly productive.</p>
+<p>And part of that was to be a community.</p>
+<p>And there&rsquo;s some observation from Dennis Ritchie,</p>
+<p>I think at the end of the book,</p>
+<p>that says that from his standpoint,</p>
+<p>the real goal was to create a community</p>
+<p>where people could work as programmers on a system.</p>
+<p>And I think in that sense, certainly for many, many years,</p>
+<p>it succeeded quite well at that.</p>
+<p>And part of that is the technical aspects</p>
+<p>of because it made it really easy to write programs,</p>
+<p>people did write interesting programs.</p>
+<p>Those programs tended to be used by other programmers.</p>
+<p>And so it was kind of a virtuous circle</p>
+<p>of more and more stuff coming up</p>
+<p>that was really good for programmers.</p>
+<p>And you were part of that community of programmers.</p>
+<p>So what was it like writing programs in that early Unix?</p>
+<p>It was a blast.</p>
+<p>It really was.</p>
+<p>You know, I like to program.</p>
+<p>I&rsquo;m not a terribly good programmer,</p>
+<p>but it was a lot of fun to write code.</p>
+<p>And in the early days, there was an enormous amount</p>
+<p>of what you would today, I suppose,</p>
+<p>called low hanging fruit.</p>
+<p>People hadn&rsquo;t done things before.</p>
+<p>And this was this new environment</p>
+<p>and the whole combination of nice tools</p>
+<p>and very responsive system and tremendous colleagues</p>
+<p>made it possible to write code.</p>
+<p>You could have an idea in the morning.</p>
+<p>You could do an experiment with it.</p>
+<p>You could have something limping along that night</p>
+<p>or the next day and people would react to it.</p>
+<p>And they would say, oh, that&rsquo;s wonderful,</p>
+<p>but you&rsquo;re really screwed up here.</p>
+<p>And the feedback loop was then very, very short and tight.</p>
+<p>And so a lot of things got developed fairly quickly</p>
+<p>that in many cases still exist today.</p>
+<p>And I think that was part of what made it fun</p>
+<p>because programming itself is fun.</p>
+<p>It&rsquo;s puzzle solving in a variety of ways,</p>
+<p>but I think it&rsquo;s even more fun when you do something</p>
+<p>that somebody else then uses.</p>
+<p>Even if they whine about it not working,</p>
+<p>the fact that they used it is part of the reward mechanism.</p>
+<p>And what was the method of interaction,</p>
+<p>the communication, that feedback loop?</p>
+<p>I mean, this is before the internet.</p>
+<p>Certainly before the internet.</p>
+<p>It was mostly physical right there.</p>
+<p>Somebody would come into your office and say something.</p>
+<p>So these places are all close by,</p>
+<p>like offices are nearby, so really lively interaction.</p>
+<p>Yeah, yeah.</p>
+<p>Bell Labs was fundamentally one giant building</p>
+<p>and most of the people were involved in this unique stuff.</p>
+<p>We&rsquo;re in two or three quarters and there was a room.</p>
+<p>Oh, how big was it?</p>
+<p>Probably call it 50 feet by 50 feet.</p>
+<p>Make up a number of that which had some access</p>
+<p>to computers there as well as in offices</p>
+<p>and people hung out there and it had a coffee machine.</p>
+<p>And so it was mostly very physical.</p>
+<p>We did use email, of course.</p>
+<p>But it was fundamentally, for a long time,</p>
+<p>all on one machine.</p>
+<p>So there was no need for internet.</p>
+<p>It&rsquo;s fascinating to think about what computing</p>
+<p>would be today without Bell Labs.</p>
+<p>It seems so many, the people being in the vicinity</p>
+<p>of each other, sort of getting that quick feedback,</p>
+<p>working together, so many brilliant people.</p>
+<p>I don&rsquo;t know where else that could have existed</p>
+<p>in the world given how that came together.</p>
+<p>Yeah, how does that make you feel</p>
+<p>that little element of history?</p>
+<p>Well, I think that&rsquo;s very nice,</p>
+<p>but in a sense it&rsquo;s survivor bias</p>
+<p>and if it hadn&rsquo;t happened at Bell Labs,</p>
+<p>there were other places that were doing</p>
+<p>really interesting work as well.</p>
+<p>Xerox PARC is perhaps the most obvious one.</p>
+<p>Xerox PARC contributed an enormous amount</p>
+<p>of good material and many of the things</p>
+<p>we take for granted today in the same way</p>
+<p>came from Xerox PARC experience.</p>
+<p>I don&rsquo;t think they capitalized in the long run as much.</p>
+<p>Their parent company was perhaps not as lucky</p>
+<p>in capitalizing on this, who knows?</p>
+<p>But that&rsquo;s certainly another place</p>
+<p>where there was a tremendous amount of influence.</p>
+<p>There were a lot of good university activities.</p>
+<p>MIT was obviously no slouch in this kind of thing</p>
+<p>and others as well.</p>
+<p>So Unix turned out to be open source</p>
+<p>because of the various ways that AT&amp;T operated</p>
+<p>and sort of it had to, the focus was on telephones.</p>
+<p>I think that&rsquo;s a mischaracterization in a sense.</p>
+<p>It absolutely was not open source.</p>
+<p>It was very definitely proprietary, licensed,</p>
+<p>but it was licensed freely to universities</p>
+<p>in source code form for many years.</p>
+<p>And because of that, generations of university students</p>
+<p>and their faculty people grew up knowing about Unix</p>
+<p>and there was enough expertise in the community</p>
+<p>that it then became possible for people</p>
+<p>to kind of go off in their own direction</p>
+<p>and build something that looked Unix like.</p>
+<p>The Berkeley version of Unix started with that licensed code</p>
+<p>and gradually picked up enough of its own code contributions,</p>
+<p>notably from people like Bill Joy,</p>
+<p>that eventually it was able to become completely free</p>
+<p>of any AT&amp;T code.</p>
+<p>Now, there was an enormous amount of legal jockeying</p>
+<p>around this in the late, early to late 80s, early 90s,</p>
+<p>something like that.</p>
+<p>And then, I guess the open source movement</p>
+<p>might&rsquo;ve started when Richard Stallman started</p>
+<p>to think about this in the late 80s.</p>
+<p>And by 1991, when Torvalds decided he was going</p>
+<p>to do a Unix like operating system,</p>
+<p>there was enough expertise in the community</p>
+<p>that first he had a target, he could see what to do</p>
+<p>because the kind of the Unix system call interface</p>
+<p>and the tools and so on were there.</p>
+<p>And so he was able to build an operating system</p>
+<p>that at this point, when you say Unix,</p>
+<p>in many cases, what you&rsquo;re really thinking is Linux.</p>
+<p>Linux, yeah.</p>
+<p>But it&rsquo;s funny that from my distant perception,</p>
+<p>I felt that Unix was open source</p>
+<p>without actually knowing it.</p>
+<p>But what you&rsquo;re really saying, it was just freely licensed.</p>
+<p>It was freely licensed.</p>
+<p>So it felt open source in a sense</p>
+<p>because universities are not trying to make money,</p>
+<p>so it felt open source in a sense</p>
+<p>that you can get access if you wanted.</p>
+<p>Right, and a very, very, very large number of universities</p>
+<p>had the license and they were able to talk</p>
+<p>to all the other universities who had the license.</p>
+<p>And so technically not open,</p>
+<p>technically belonging to AT&amp;T, pragmatically pretty open.</p>
+<p>And so there&rsquo;s a ripple effect</p>
+<p>that all the faculty and the students then all grew up</p>
+<p>and then they went throughout the world</p>
+<p>and permeated in that kind of way.</p>
+<p>So what kind of features do you think make</p>
+<p>for a good operating system?</p>
+<p>If you take the lessons of Unix,</p>
+<p>you said make it easy for programmers.</p>
+<p>That seems to be an important one.</p>
+<p>But also Unix turned out to be exceptionally robust</p>
+<p>and efficient.</p>
+<p>Right.</p>
+<p>So is that an accident when you focus on the programmer</p>
+<p>or is that a natural outcome?</p>
+<p>I think part of the reason for efficiency</p>
+<p>was that it began on extremely modest hardware,</p>
+<p>very, very, very tiny.</p>
+<p>And so you couldn&rsquo;t get carried away.</p>
+<p>You couldn&rsquo;t do a lot of complicated things</p>
+<p>because you just didn&rsquo;t have the resources,</p>
+<p>either processor speed or memory.</p>
+<p>And so that enforced a certain minimality of mechanisms</p>
+<p>and maybe a search for generalizations</p>
+<p>so that you would find one mechanism</p>
+<p>that served for a lot of different things</p>
+<p>rather than having lots of different special cases.</p>
+<p>I think the file system in Unix is a good example</p>
+<p>of that file system interface in its fundamental form</p>
+<p>is extremely straightforward.</p>
+<p>And that means that you can write code</p>
+<p>very, very effectively for the file system.</p>
+<p>And then one of those ideas, one of those generalizations</p>
+<p>is that gee, that file system interface works</p>
+<p>for all kinds of other things as well.</p>
+<p>And so in particular, the idea of reading</p>
+<p>and writing to devices is the same as reading</p>
+<p>and writing to a disc that has a file system.</p>
+<p>And then that gets carried further in other parts</p>
+<p>of the world.</p>
+<p>Processes become, in effect, files in a file system.</p>
+<p>And the Plan 9 operating system, which came along,</p>
+<p>I guess, in the late 80s or something like that,</p>
+<p>took a lot of those ideas from the original Unix</p>
+<p>and tried to push the generalization even further</p>
+<p>so that in Plan 9, a lot of different resources</p>
+<p>are file systems.</p>
+<p>They all share that interface.</p>
+<p>So that would be one example where finding the right model</p>
+<p>of how to do something means that an awful lot of things</p>
+<p>become simpler, and it means, therefore,</p>
+<p>that more people can do useful, interesting things</p>
+<p>with them without having to think as hard about it.</p>
+<p>So you said you&rsquo;re not a very good programmer.</p>
+<p>That&rsquo;s true.</p>
+<p>You&rsquo;re the most modest human being, okay,</p>
+<p>but you&rsquo;ll continue saying that.</p>
+<p>I understand how this works.</p>
+<p>But you do radiate a sort of love for programming.</p>
+<p>So let me ask, do you think programming</p>
+<p>is more an art or a science?</p>
+<p>Is it creativity or kind of rigor?</p>
+<p>I think it&rsquo;s some of each.</p>
+<p>It&rsquo;s some combination.</p>
+<p>Some of the art is figuring out what it is</p>
+<p>that you really want to do.</p>
+<p>What should that program be?</p>
+<p>What would make a good program?</p>
+<p>And that&rsquo;s some understanding of what the task is,</p>
+<p>what the people who might use this program want.</p>
+<p>And I think that&rsquo;s art in many respects.</p>
+<p>The science part is trying to figure out how to do it well.</p>
+<p>And some of that is real computer sciencey stuff,</p>
+<p>like what algorithm should we use at some point?</p>
+<p>Mostly in the sense of being careful to use algorithms</p>
+<p>that will actually work properly, scale properly,</p>
+<p>avoiding quadratic algorithms</p>
+<p>when a linear algorithm should be the right thing,</p>
+<p>that kind of more formal view of it.</p>
+<p>Same thing for data structures.</p>
+<p>But also it&rsquo;s, I think, an engineering field as well.</p>
+<p>And engineering is not quite the same as science</p>
+<p>because engineering, you&rsquo;re working with constraints.</p>
+<p>You have to figure out not only what</p>
+<p>is a good algorithm for this kind of thing,</p>
+<p>but what&rsquo;s the most appropriate algorithm given</p>
+<p>the amount of time we have to compute,</p>
+<p>the amount of time we have to program,</p>
+<p>what&rsquo;s likely to happen in the future with maintenance,</p>
+<p>who&rsquo;s going to pick this up in the future, all</p>
+<p>of those kind of things that if you&rsquo;re an engineer,</p>
+<p>you get to worry about.</p>
+<p>Whereas if you think of yourself as a scientist,</p>
+<p>well, you can maybe push them over the horizon in a way.</p>
+<p>And if you&rsquo;re an artist, what&rsquo;s that?</p>
+<p>So just on your own personal level,</p>
+<p>what&rsquo;s your process like of writing a program?</p>
+<p>Say, a small and large sort of tinkering with stuff.</p>
+<p>Do you just start coding right away</p>
+<p>and just kind of evolve iteratively with a loose notion?</p>
+<p>Or do you plan on a sheet of paper first</p>
+<p>and then kind of design in what they teach you</p>
+<p>in the kind of software engineering courses</p>
+<p>in undergrad or something like that?</p>
+<p>What&rsquo;s your process like?</p>
+<p>It&rsquo;s certainly much more the informal incremental.</p>
+<p>First, I don&rsquo;t write big programs at this point.</p>
+<p>It&rsquo;s been a long time since I wrote a program that</p>
+<p>was more than I call it a few hundred or more lines,</p>
+<p>something like that.</p>
+<p>Many of the programs I write are experiments</p>
+<p>for either something I&rsquo;m curious about</p>
+<p>or often for something that I want to talk about in a class.</p>
+<p>So those necessarily tend to be relatively small.</p>
+<p>A lot of the kind of code I write these days</p>
+<p>tends to be for sort of exploratory data analysis</p>
+<p>where I&rsquo;ve got some collection of data</p>
+<p>and I want to try and figure out what on earth is going on in it.</p>
+<p>And for that, those programs tend to be very small.</p>
+<p>Sometimes you&rsquo;re not even programming.</p>
+<p>You&rsquo;re just using existing tools like counting things.</p>
+<p>Or sometimes you&rsquo;re writing OX scripts</p>
+<p>because two or three lines will tell you</p>
+<p>something about a piece of data.</p>
+<p>And then when it gets bigger, well, then I</p>
+<p>will probably write something in Python</p>
+<p>because that scales better up to call it a few hundred lines</p>
+<p>or something like that.</p>
+<p>And it&rsquo;s been a long time since I wrote programs</p>
+<p>that were much more than that.</p>
+<p>Speaking of data exploration and OX, first, what is OX?</p>
+<p>So OX is a scripting language that</p>
+<p>was done by myself, Al Aho, and Peter Weinberger.</p>
+<p>We did that originally in the late 70s.</p>
+<p>It was a language that was meant to make it really easy</p>
+<p>to do quick and dirty tasks like counting things</p>
+<p>or selecting interesting information from basically</p>
+<p>all text files, rearranging it in some way or summarizing it.</p>
+<p>It runs a command on each line of a file.</p>
+<p>I mean, it&rsquo;s still exceptionally widely used today.</p>
+<p>Oh, absolutely.</p>
+<p>Yeah.</p>
+<p>It&rsquo;s so simple and elegant, sort of the way to explore data.</p>
+<p>Turns out you can just write a script that</p>
+<p>does something seemingly trivial in a single line,</p>
+<p>and giving you that slice of the data</p>
+<p>somehow reveals something fundamental about the data.</p>
+<p>And that seems to work still.</p>
+<p>Yeah, it&rsquo;s very good for that kind of thing.</p>
+<p>That&rsquo;s sort of what it was meant for.</p>
+<p>I think what we didn&rsquo;t appreciate</p>
+<p>was that the model was actually quite good for a lot of data</p>
+<p>processing kinds of tasks and that it&rsquo;s</p>
+<p>kept going as long as it has because at this point,</p>
+<p>it&rsquo;s over 40 years old, and it&rsquo;s still, I think, a useful tool.</p>
+<p>And well, this is paternal interest, I guess.</p>
+<p>But I think in terms of programming languages,</p>
+<p>you get the most bang for the buck by learning AUC.</p>
+<p>And it doesn&rsquo;t scale the big programs,</p>
+<p>but it does pretty darn well on these little things</p>
+<p>where you just want to see all the somethings in something.</p>
+<p>So yeah, I probably write more AUC than anything else</p>
+<p>at this point.</p>
+<p>So what kind of stuff do you love about AUC?</p>
+<p>Is there, if you can comment on sort of things</p>
+<p>that give you joy when you can, in a simple program,</p>
+<p>reveal something about the data.</p>
+<p>Is there something that stands out from particular features?</p>
+<p>I think it&rsquo;s mostly the selection of default behaviors.</p>
+<p>You sort of hinted at it a moment ago.</p>
+<p>What AUC does is to read through a set of files,</p>
+<p>and then within each file, it writes</p>
+<p>through each of the lines.</p>
+<p>And then on each of the lines, it has a set of patterns</p>
+<p>that it looks for.</p>
+<p>That&rsquo;s your AUC program.</p>
+<p>And if one of the patterns matches,</p>
+<p>there is a corresponding action that you might perform.</p>
+<p>And so it&rsquo;s kind of a quadruply nested loop or something</p>
+<p>like that.</p>
+<p>And that&rsquo;s all completely automatic.</p>
+<p>You don&rsquo;t have to say anything about it.</p>
+<p>You just write the pattern and the action,</p>
+<p>and then run the data by it.</p>
+<p>And so that paradigm for programming</p>
+<p>is a very natural and effective one.</p>
+<p>And I think we captured that reasonably well in AUC.</p>
+<p>And it does other things for free as well.</p>
+<p>It splits the data into fields so that on each line,</p>
+<p>there is fields separated by white space or something.</p>
+<p>And so it does that for free.</p>
+<p>You don&rsquo;t have to say anything about it.</p>
+<p>And it collects information as it goes along,</p>
+<p>like what line are we on?</p>
+<p>How many fields are there on this line?</p>
+<p>So lots of things that just make it so that a program which</p>
+<p>in another language, let&rsquo;s say Python,</p>
+<p>would be five, 10, 20 lines in AUC is one or two lines.</p>
+<p>And so because it&rsquo;s one or two lines,</p>
+<p>you can do it on the shell.</p>
+<p>You don&rsquo;t have to open up another whole thing.</p>
+<p>You can just do it right there in the interaction</p>
+<p>with the operatives directly.</p>
+<p>Is there other shell commands that you love over the years</p>
+<p>like you really enjoy using?</p>
+<p>Oh, grep.</p>
+<p>Grep?</p>
+<p>Grep&rsquo;s the only one.</p>
+<p>Yeah, grep does everything.</p>
+<p>So grep is a simpler version of AUC, I would say?</p>
+<p>In some sense, yeah, right.</p>
+<p>What is grep?</p>
+<p>So grep basically searches the input</p>
+<p>for particular patterns, regular expressions,</p>
+<p>technically, of a certain class.</p>
+<p>And it has that same paradigm that AUC does.</p>
+<p>It&rsquo;s a pattern action thing.</p>
+<p>It reads through all the files and then</p>
+<p>all the lines in each file.</p>
+<p>But it has a single pattern, which</p>
+<p>is the regular expression you&rsquo;re looking for,</p>
+<p>and a single action printed if it matches.</p>
+<p>So in that sense, it&rsquo;s a much simpler version.</p>
+<p>And you could write grep in AUC as a one liner.</p>
+<p>And I use grep probably more than anything else</p>
+<p>at this point just because it&rsquo;s so convenient and natural.</p>
+<p>Why do you think it&rsquo;s such a powerful tool, grep and AUC?</p>
+<p>Why do you think operating systems like Windows,</p>
+<p>for example, don&rsquo;t have it?</p>
+<p>You can, of course, I use, which is amazing now,</p>
+<p>there&rsquo;s Windows for Linux.</p>
+<p>So which you could basically use all the fun stuff</p>
+<p>like AUC and grep inside of Windows.</p>
+<p>But Windows naturally, as part of the graphical interface,</p>
+<p>the simplicity of grep, searching</p>
+<p>through a bunch of files and just popping up naturally.</p>
+<p>Why do you think that&rsquo;s unique to the Linux environment?</p>
+<p>I don&rsquo;t know.</p>
+<p>It&rsquo;s not strictly unique, but it&rsquo;s certainly focused there.</p>
+<p>And I think some of it&rsquo;s the weight of history</p>
+<p>that Windows came from MS DOS.</p>
+<p>MS DOS was a pretty pathetic operating system,</p>
+<p>although common on an unboundedly large number</p>
+<p>of machines.</p>
+<p>But somewhere in roughly the 90s,</p>
+<p>Windows became a graphical system.</p>
+<p>And I think Microsoft spent a lot of their energy</p>
+<p>on making that graphical interface what it is.</p>
+<p>And that&rsquo;s a different model of computing.</p>
+<p>It&rsquo;s a model of computing where you point and click</p>
+<p>and sort of experiment with menus.</p>
+<p>It&rsquo;s a model of computing works rather well for people</p>
+<p>who are not programmers and just want to get something done,</p>
+<p>whereas teaching something like the command line</p>
+<p>to nonprogrammers turns out to sometimes be</p>
+<p>an uphill struggle.</p>
+<p>And so I think Microsoft probably</p>
+<p>was right in what they did.</p>
+<p>Now you mentioned Whistle or whatever</p>
+<p>it&rsquo;s called, the Winix, Linux.</p>
+<p>Whistle.</p>
+<p>I wonder what it&rsquo;s pronounced.</p>
+<p>WSL is what I&rsquo;ve never actually pronounced.</p>
+<p>Whistle, I like it.</p>
+<p>I have no idea.</p>
+<p>But there have been things like that for longest.</p>
+<p>Cygwin, for example, which is a wonderful collection of take</p>
+<p>all your favorite tools from Unix and Linux</p>
+<p>and just make them work perfectly on Windows.</p>
+<p>And so that&rsquo;s something that&rsquo;s been going on</p>
+<p>for at least 20 years, if not longer.</p>
+<p>And I use that on my one remaining Windows machine</p>
+<p>routinely because if you&rsquo;re doing something that</p>
+<p>is batch computing, suitable for command line,</p>
+<p>that&rsquo;s the right way to do it.</p>
+<p>Because the Windows equivalents are, if nothing else,</p>
+<p>not familiar to me.</p>
+<p>But I would definitely recommend to people</p>
+<p>if they don&rsquo;t use Cygwin to try Whistle.</p>
+<p>Yes.</p>
+<p>I&rsquo;ve been so excited that I could write scripts quickly</p>
+<p>in Windows.</p>
+<p>It&rsquo;s changed my life.</p>
+<p>OK, what&rsquo;s your perfect programming setup?</p>
+<p>What computer, what operating system, what keyboard,</p>
+<p>what editor?</p>
+<p>Yeah, perfect is too strong a word.</p>
+<p>It&rsquo;s way too strong a word.</p>
+<p>What I use by default, I have, at this point,</p>
+<p>a 13 inch MacBook Air, which I use</p>
+<p>because it&rsquo;s kind of a reasonable balance</p>
+<p>of the various things I need.</p>
+<p>I can carry it around.</p>
+<p>It&rsquo;s got enough computing, horsepower, screen&rsquo;s</p>
+<p>big enough, keyboard&rsquo;s OK.</p>
+<p>And so I basically do most of my computing on that.</p>
+<p>I have a big iMac in my office that I use from time to time</p>
+<p>as well, especially when I need a big screen,</p>
+<p>but otherwise, it tends not to be used that much.</p>
+<p>Editor.</p>
+<p>I use mostly SAM, which is an editor that Rob Pike wrote</p>
+<p>long ago at Bell Labs.</p>
+<p>Sorry to interrupt.</p>
+<p>Does that precede VI?</p>
+<p>Does that precede iMac?</p>
+<p>It post dates both VI and iMacs.</p>
+<p>It is derived from Rob&rsquo;s experience with ED and VI.</p>
+<p>What&rsquo;s ED?</p>
+<p>That&rsquo;s the original Unix editor.</p>
+<p>Oh, wow.</p>
+<p>Dated probably before you were born.</p>
+<p>So actually, what&rsquo;s the history of editors?</p>
+<p>Can you briefly, because it&rsquo;s such a fact.</p>
+<p>I use Emacs, I&rsquo;m sorry to say.</p>
+<p>Sorry to come out with that.</p>
+<p>But what&rsquo;s the kind of interplay there?</p>
+<p>So in ancient times, call it the first time sharing systems,</p>
+<p>going back to what we were talking about.</p>
+<p>There was an editor on CTSS that I don&rsquo;t even</p>
+<p>remember what it was called.</p>
+<p>It might have been edit, where you could type text, program</p>
+<p>text, and it would do something, or document text.</p>
+<p>You could save the text.</p>
+<p>And save it.</p>
+<p>You could edit it.</p>
+<p>The usual thing that you would get in an editor.</p>
+<p>And Ken Thompson wrote an editor called QED, which</p>
+<p>was very, very powerful.</p>
+<p>But these were all totally A, command based.</p>
+<p>They were not mouse or cursor based,</p>
+<p>because it was before mice and even before cursors,</p>
+<p>because they were running on terminals that printed on paper.</p>
+<p>No CRT type displays, let alone LEDs.</p>
+<p>And so then when Unix came along, Ken took QED</p>
+<p>and stripped it way, way, way, way down.</p>
+<p>And that became an editor that he called ED.</p>
+<p>And it was very simple.</p>
+<p>But it was a line oriented editor.</p>
+<p>And so you could load a file.</p>
+<p>And then you could talk about the lines one</p>
+<p>through the last line.</p>
+<p>And you could print ranges of lines.</p>
+<p>You could add text.</p>
+<p>You could delete text.</p>
+<p>You could change text.</p>
+<p>Or you could do a substitute command</p>
+<p>that would change things within a line or within groups</p>
+<p>of lines.</p>
+<p>So you can work on parts of a file, essentially.</p>
+<p>Yeah.</p>
+<p>You can work on any part of it, the whole thing or whatever.</p>
+<p>But it was entirely command line based.</p>
+<p>And it was entirely on paper.</p>
+<p>Paper.</p>
+<p>And that meant that you changed it.</p>
+<p>Yeah, right.</p>
+<p>Real paper.</p>
+<p>And so if you changed a line, you</p>
+<p>had to print that line using up another line of paper</p>
+<p>to see what the change caused.</p>
+<p>So when CRT displays came along, then you</p>
+<p>could start to use cursor control.</p>
+<p>And you could sort of move where you were on the screen.</p>
+<p>Without reprinting every time.</p>
+<p>Without reprinting.</p>
+<p>And there were a number of editors there.</p>
+<p>The one that I was most familiar with and still use</p>
+<p>is VI, which was done by Bill Choi.</p>
+<p>And so that dates from probably the late 70s, as I guess.</p>
+<p>And it took full advantage of the cursor controls.</p>
+<p>I suspect that Emacs was roughly at the same time.</p>
+<p>But I don&rsquo;t know.</p>
+<p>I&rsquo;ve never internalized Emacs.</p>
+<p>So at this point, I stopped using ED, although I still can.</p>
+<p>I use VI sometimes, and I use SAM when I can.</p>
+<p>And SAM is available on most systems?</p>
+<p>It is available.</p>
+<p>You have to download it yourself from, typically,</p>
+<p>the Plan 9 operating system distribution.</p>
+<p>It&rsquo;s been maintained by people there.</p>
+<p>And so I&rsquo;ll get home tonight.</p>
+<p>I&rsquo;ll try it.</p>
+<p>It&rsquo;s cool.</p>
+<p>It sounds fascinating.</p>
+<p>Although my love is with Lisp and Emacs,</p>
+<p>I&rsquo;ve went into that hippie world of.</p>
+<p>I think it&rsquo;s a lot of things.</p>
+<p>Religion, where you&rsquo;re brought up with.</p>
+<p>Yeah, that&rsquo;s true.</p>
+<p>That&rsquo;s true.</p>
+<p>Most of the actual programming I do is C, C++, and Python.</p>
+<p>But my weird sort of, yeah, my religious upbringing is in Lisp.</p>
+<p>So can you take on the impossible task</p>
+<p>and give a brief history of programming languages</p>
+<p>from your perspective?</p>
+<p>So I guess you could say programming languages started</p>
+<p>probably in, what, the late 40s or something like that.</p>
+<p>People used to program computers by basically putting</p>
+<p>in zeros and ones.</p>
+<p>Using something like switches on a console.</p>
+<p>And then, or maybe holes in paper tapes.</p>
+<p>Something like that.</p>
+<p>So extremely tedious, awful, whatever.</p>
+<p>And so I think the first programming languages</p>
+<p>were relatively crude assembly languages,</p>
+<p>where people would basically write</p>
+<p>a program that would convert mnemonics like add ADD</p>
+<p>into whatever the bit pattern was</p>
+<p>that corresponded to an ADD instruction.</p>
+<p>And they would do the clerical work of figuring out</p>
+<p>where things were.</p>
+<p>So you could put a name on a location in a program,</p>
+<p>and the assembler would figure out</p>
+<p>where that corresponded to when the thing was all put together</p>
+<p>and dropped into memory.</p>
+<p>And early on, and this would be the late 40s and very early</p>
+<p>50s, there were assemblers written for the various machines</p>
+<p>that people used.</p>
+<p>You may have seen in the paper just a couple of days ago,</p>
+<p>Tony Berker died.</p>
+<p>He did this thing in Manchester called AutoCode, a language</p>
+<p>which I knew only by name.</p>
+<p>But it sounds like it was a flavor of assembly language,</p>
+<p>sort of a little higher in some ways.</p>
+<p>And it replaced a language that Alan Turing wrote,</p>
+<p>which you put in zeros and ones.</p>
+<p>But you put it in backwards order,</p>
+<p>because that was a hardware word.</p>
+<p>Very strange.</p>
+<p>That&rsquo;s right.</p>
+<p>Yeah, yeah, that&rsquo;s right.</p>
+<p>Backwards.</p>
+<p>So assembly languages, let&rsquo;s call that the early 1950s.</p>
+<p>And so every different flavor of computer</p>
+<p>has its own assembly language.</p>
+<p>So the EDSAC had its, and the Manchester had its,</p>
+<p>and the IBM whatever, 790 or 704, or whatever had its,</p>
+<p>and so on.</p>
+<p>So everybody had their own assembly language.</p>
+<p>And assembly languages have a few commands, additions,</p>
+<p>subtraction, then branching of some kind,</p>
+<p>if then type of situation.</p>
+<p>Right, they have exactly, in their simplest form at least,</p>
+<p>one instruction per, or one assembly language instruction</p>
+<p>per instruction in the machine&rsquo;s repertoire.</p>
+<p>And so you have to know the machine intimately</p>
+<p>to be able to write programs in it.</p>
+<p>And if you write an assembly language program</p>
+<p>for one kind of machine, and then you say,</p>
+<p>gee, it&rsquo;s nice, I&rsquo;d like a different machine, start over.</p>
+<p>OK, so very bad.</p>
+<p>And so what happened in the late 50s</p>
+<p>was people realized you could play this game again,</p>
+<p>and you could move up a level in writing or creating languages</p>
+<p>that were closer to the way that real people might think</p>
+<p>about how to write code.</p>
+<p>And there were, I guess, arguably three or four</p>
+<p>at that time period.</p>
+<p>There was FORTRAN, which came from IBM,</p>
+<p>which was formula translation, meant</p>
+<p>to make it easy to do scientific and engineering</p>
+<p>computations.</p>
+<p>I didn&rsquo;t know that, formula translation, that&rsquo;s wow.</p>
+<p>That&rsquo;s what I stood for.</p>
+<p>There was COBOL, which is the Common Business Oriented</p>
+<p>Language that Grace Hopper and others worked on,</p>
+<p>which was aimed at business kinds of tasks.</p>
+<p>There was ALGOL, which was mostly</p>
+<p>meant to describe algorithmic computations.</p>
+<p>I guess you could argue BASIC was in there somewhere.</p>
+<p>I think it&rsquo;s just a little later.</p>
+<p>And so all of those moved the level up,</p>
+<p>and so they were closer to what you and I might think of</p>
+<p>as we were trying to write a program.</p>
+<p>And they were focused on different domains, FORTRAN</p>
+<p>for formula translation, engineering computations,</p>
+<p>let&rsquo;s say COBOL for business, that kind of thing.</p>
+<p>And still used today, at least FORTRAN probably.</p>
+<p>Oh, yeah, COBOL, too.</p>
+<p>But the deal was that once you moved up that level,</p>
+<p>then you, let&rsquo;s call it FORTRAN, you</p>
+<p>had a language that was not tied to a particular kind</p>
+<p>of hardware, because a different compiler would compile</p>
+<p>for a different kind of hardware.</p>
+<p>And that meant two things.</p>
+<p>It meant you only had to write the program once, which</p>
+<p>is very important.</p>
+<p>And it meant that you could, in fact,</p>
+<p>if you were a random engineer, physicist, whatever,</p>
+<p>you could write that program yourself.</p>
+<p>You didn&rsquo;t have to hire a programmer to do it for you.</p>
+<p>It might not be as good as you&rsquo;d get with a real programmer,</p>
+<p>but it was pretty good.</p>
+<p>And so it democratized and made much more broadly available</p>
+<p>the ability to write code.</p>
+<p>So it puts the power of programming</p>
+<p>into the hands of people like you.</p>
+<p>Yeah, anybody who is willing to invest some time in learning</p>
+<p>a programming language and is not then tied</p>
+<p>to a particular kind of computer.</p>
+<p>And then in the 70s, you get system programming languages,</p>
+<p>of which C is the survivor.</p>
+<p>And what does system programming language mean?</p>
+<p>Programs that, programming languages</p>
+<p>that would take on the kinds of things</p>
+<p>that were necessary to write so called system programs.</p>
+<p>Things like text editors, or assemblers, or compilers,</p>
+<p>or operating systems themselves.</p>
+<p>Those kinds of things.</p>
+<p>And Fortran.</p>
+<p>They have to be feature rich.</p>
+<p>They have to be able to do a lot of stuff.</p>
+<p>A lot of memory management, access processes,</p>
+<p>and all that kind of stuff.</p>
+<p>It&rsquo;s a different flavor of what they&rsquo;re doing.</p>
+<p>They&rsquo;re much more in touch with the actual machine,</p>
+<p>but in a positive way.</p>
+<p>That is, you can talk about memory in a more controlled</p>
+<p>way.</p>
+<p>You can talk about the different data types</p>
+<p>that the machine supports, and more ways</p>
+<p>to structure and organize data.</p>
+<p>And so the system programming languages,</p>
+<p>there was a lot of effort in that in the,</p>
+<p>call it the late 60s, early 70s.</p>
+<p>C is, I think, the only real survivor of that.</p>
+<p>And then what happens after that?</p>
+<p>You get things like object oriented programming languages.</p>
+<p>Because as you write programs in a language like C,</p>
+<p>at some point scale gets to you.</p>
+<p>And it&rsquo;s too hard to keep track of the pieces.</p>
+<p>And there&rsquo;s no guardrails, or training wheels,</p>
+<p>or something like that to prevent you</p>
+<p>from doing bad things.</p>
+<p>So C++ comes out of that tradition.</p>
+<p>And then it took off from there.</p>
+<p>I mean, there&rsquo;s also a parallel, slightly parallel track</p>
+<p>with a little bit of functional stuff with Lisp and so on.</p>
+<p>But I guess from that point, it&rsquo;s</p>
+<p>just an explosion of languages.</p>
+<p>There&rsquo;s the Java story.</p>
+<p>There&rsquo;s the JavaScript.</p>
+<p>There&rsquo;s all the stuff that the cool kids these days</p>
+<p>are doing with Rust and all that.</p>
+<p>So what&rsquo;s to you?</p>
+<p>You wrote a book, C Programming Language.</p>
+<p>And C is probably one of the most important languages</p>
+<p>in the history of programming languages,</p>
+<p>if you kind of look at impact.</p>
+<p>What do you think is the most elegant or powerful part of C?</p>
+<p>Why did it survive?</p>
+<p>Why did it have such a long lasting impact?</p>
+<p>I think it found a sweet spot of expressiveness,</p>
+<p>so that you could rewrite things in a pretty natural way,</p>
+<p>and efficiency, which was particularly important when</p>
+<p>computers were not nearly as powerful as they are today.</p>
+<p>You&rsquo;ve got to put yourself back 50 years,</p>
+<p>almost, in terms of what computers could do.</p>
+<p>And that&rsquo;s roughly four or five generations,</p>
+<p>decades of Moore&rsquo;s law, right?</p>
+<p>So expressiveness and efficiency and, I don&rsquo;t know,</p>
+<p>perhaps the environment that it came with as well,</p>
+<p>which was Unix.</p>
+<p>So it meant if you wrote a program,</p>
+<p>it could be used on all those computers that ran Unix.</p>
+<p>And that was all of those computers,</p>
+<p>because they were all written in C.</p>
+<p>And that was Unix, the operating system itself,</p>
+<p>was portable, as were all the tools.</p>
+<p>So it all worked together, again,</p>
+<p>in one of these things where things</p>
+<p>fit on each other in a positive cycle.</p>
+<p>What did it take to write sort of a definitive book,</p>
+<p>probably definitive book on all of program,</p>
+<p>like it&rsquo;s more definitive to a particular language</p>
+<p>than any other book on any other language,</p>
+<p>and did two really powerful things,</p>
+<p>which is popularized the language,</p>
+<p>at least from my perspective, maybe you can correct me.</p>
+<p>And second is created a standard of how, you know,</p>
+<p>how this language is supposed to be used and applied.</p>
+<p>So what did it take?</p>
+<p>Did you have those kinds of ambitions in mind</p>
+<p>when working on that?</p>
+<p>Is this some kind of joke?</p>
+<p>No, of course not.</p>
+<p>So it&rsquo;s an accident of timing, skill, and just luck?</p>
+<p>A lot of it is, clearly.</p>
+<p>Timing was good.</p>
+<p>Now, Dennis and I wrote the book in 1977.</p>
+<p>Dennis Ritchie.</p>
+<p>Yeah, right.</p>
+<p>And at that point, Unix was starting to spread.</p>
+<p>I don&rsquo;t know how many there were,</p>
+<p>but it would be dozens to hundreds of Unix systems.</p>
+<p>And C was also available on other kinds of computers</p>
+<p>that had nothing to do with Unix.</p>
+<p>And so the language had some potential.</p>
+<p>And there were no other books on C,</p>
+<p>and Bell Labs was really the only source for it.</p>
+<p>And Dennis, of course, was authoritative</p>
+<p>because it was his language.</p>
+<p>And he had written the reference manual,</p>
+<p>which is a marvelous example</p>
+<p>of how to write a reference manual.</p>
+<p>Really, really very, very well done.</p>
+<p>So I twisted his arm until he agreed to write a book,</p>
+<p>and then we wrote a book.</p>
+<p>And the virtue or advantage, at least,</p>
+<p>I guess, of going first is that then other people</p>
+<p>have to follow you if they&rsquo;re gonna do anything.</p>
+<p>And I think it worked well because Dennis</p>
+<p>was a superb writer.</p>
+<p>I mean, he really, really did.</p>
+<p>And the reference manual in that book is his, period.</p>
+<p>I had nothing to do with that at all.</p>
+<p>So just crystal clear prose and very, very well expressed.</p>
+<p>And then he and I, I wrote most of the expository material.</p>
+<p>And then he and I sort of did the usual ping ponging</p>
+<p>back and forth, refining it.</p>
+<p>But I spent a lot of time trying to find examples</p>
+<p>that would sort of hang together</p>
+<p>and that would tell people what they might need</p>
+<p>to know at about the right time</p>
+<p>that they should be thinking about needing it.</p>
+<p>And I&rsquo;m not sure it completely succeeded,</p>
+<p>but it mostly worked out fairly well.</p>
+<p>What do you think is the power of example?</p>
+<p>I mean, you&rsquo;re the creator, at least one of the first people</p>
+<p>to do the Hello World program, which is like the example.</p>
+<p>If aliens discover our civilization hundreds of years</p>
+<p>from now, it&rsquo;ll probably be Hello World programs,</p>
+<p>just like a half broken robot communicating with them</p>
+<p>with the Hello World.</p>
+<p>So what, and that&rsquo;s a representative example.</p>
+<p>So what do you find powerful about examples?</p>
+<p>I think a good example will tell you how to do something</p>
+<p>and it will be representative of,</p>
+<p>you might not want to do exactly that,</p>
+<p>but you will want to do something that&rsquo;s at least</p>
+<p>in that same general vein.</p>
+<p>And so a lot of the examples in the C book were picked</p>
+<p>for these very, very simple, straightforward</p>
+<p>text processing problems that were typical of Unix.</p>
+<p>I want to read input and write it out again.</p>
+<p>There&rsquo;s a copy command.</p>
+<p>I want to read input and do something to it</p>
+<p>and write it out again.</p>
+<p>There&rsquo;s a grab.</p>
+<p>And so that kind of find things that are representative</p>
+<p>of what people want to do and spell those out</p>
+<p>so that they can then take those and see the core parts</p>
+<p>and modify them to their taste.</p>
+<p>And I think that a lot of programming books that,</p>
+<p>I don&rsquo;t look at programming books</p>
+<p>a tremendous amount these days, but when I do,</p>
+<p>a lot of them don&rsquo;t do that.</p>
+<p>They don&rsquo;t give you examples that are both realistic</p>
+<p>and something you might want to do.</p>
+<p>Some of them are pure syntax.</p>
+<p>Here&rsquo;s how you add three numbers.</p>
+<p>Well, come on, I could figure that out.</p>
+<p>Tell me how I would get those three numbers</p>
+<p>into the computer and how we would do something useful</p>
+<p>with them and then how I put them back out again,</p>
+<p>neatly formatted.</p>
+<p>And especially if you follow that example,</p>
+<p>there is something magical of doing something</p>
+<p>that feels useful.</p>
+<p>Yeah, right.</p>
+<p>And I think it&rsquo;s the attempt,</p>
+<p>and it&rsquo;s absolutely not perfect,</p>
+<p>but the attempt in all cases was to get something</p>
+<p>that was going to be either directly useful</p>
+<p>or would be very representative of useful things</p>
+<p>that a programmer might want to do.</p>
+<p>But within that vein of fundamentally text processing,</p>
+<p>reading text, doing something, writing text.</p>
+<p>So you&rsquo;ve also written a book on Go language.</p>
+<p>I have to admit, so I worked at Google for a while</p>
+<p>and I&rsquo;ve never used Go.</p>
+<p>Well, you missed something.</p>
+<p>Well, I know I missed something for sure.</p>
+<p>I mean, so Go and Rust are two languages</p>
+<p>that I hear very, spoken very highly of</p>
+<p>and I wish I would like to, well, there&rsquo;s a lot of them.</p>
+<p>There&rsquo;s Julia, there&rsquo;s all these incredible modern languages.</p>
+<p>But if you can comment before,</p>
+<p>or maybe comment on what do you find,</p>
+<p>where does Go sit in this broad spectrum of languages?</p>
+<p>And also, how do you yourself feel</p>
+<p>about this wide range of powerful, interesting languages</p>
+<p>that you may never even get to try to explore</p>
+<p>because of time?</p>
+<p>So I think, so Go first comes from that same</p>
+<p>Bell Labs tradition in part, not exclusively,</p>
+<p>but two of the three creators, Ken Thompson and Rob Pike.</p>
+<p>So literally, the people.</p>
+<p>Yeah, the people.</p>
+<p>And then with this very, very useful influence</p>
+<p>from the European school in particular,</p>
+<p>the Claude Speer influence through Robert Griesemer,</p>
+<p>who was, I guess, a second generation down student at ETH.</p>
+<p>And so that&rsquo;s an interesting combination of things.</p>
+<p>And so some ways, Go captures the good parts of C,</p>
+<p>it looks sort of like C, it&rsquo;s sometimes characterized as C</p>
+<p>for the 21st century.</p>
+<p>On the surface, it looks very, very much like C.</p>
+<p>But at the same time, it has some interesting</p>
+<p>data structuring capabilities.</p>
+<p>And then I think the part that I would say</p>
+<p>is particularly useful, and again, I&rsquo;m not a Go expert.</p>
+<p>In spite of coauthoring the book,</p>
+<p>about 90% of the work was done by Alan Donovan,</p>
+<p>my coauthor, who is a Go expert.</p>
+<p>But Go provides a very nice model of concurrency.</p>
+<p>It&rsquo;s basically the cooperating,</p>
+<p>communicating sequential processes that Tony Hoare</p>
+<p>set forth, jeez, I don&rsquo;t know, 40 plus years ago.</p>
+<p>And Go routines are, to my mind, a very natural way</p>
+<p>to talk about parallel computation.</p>
+<p>And in the few experiments I&rsquo;ve done with them,</p>
+<p>they&rsquo;re easy to write, and typically it&rsquo;s gonna work,</p>
+<p>and very efficient as well.</p>
+<p>So I think that&rsquo;s one place where Go stands out,</p>
+<p>that that model of parallel computation</p>
+<p>is very, very easy and nice to work with.</p>
+<p>Just to comment on that, do you think C foresaw,</p>
+<p>or the early Unix days foresaw threads</p>
+<p>and massively parallel computation?</p>
+<p>I would guess not really.</p>
+<p>I mean, maybe it was seen, but not at the level</p>
+<p>where it was something you had to do anything about.</p>
+<p>For a long time, processors got faster,</p>
+<p>and then processors stopped getting faster</p>
+<p>because of things like power consumption</p>
+<p>and heat generation.</p>
+<p>And so what happened instead was that instead</p>
+<p>of processors getting faster,</p>
+<p>there started to be more of them.</p>
+<p>And that&rsquo;s where that parallel thread stuff comes in.</p>
+<p>So if you can comment on all the other languages,</p>
+<p>is it break your heart that you&rsquo;ll never get to explore them?</p>
+<p>How do you feel about the full variety?</p>
+<p>It&rsquo;s not break my heart,</p>
+<p>but I would love to be able to try more of these languages.</p>
+<p>The closest I&rsquo;ve come is in a class</p>
+<p>that I often teach in the spring here.</p>
+<p>It&rsquo;s a programming class, and I often give,</p>
+<p>I have one sort of small example that I will write</p>
+<p>in as many languages as I possibly can.</p>
+<p>I&rsquo;ve got it in 20 languages.</p>
+<p>At this point, and that&rsquo;s so I do a minimal experiment</p>
+<p>with a language just to say, okay,</p>
+<p>I have this trivial task, which I understand the task,</p>
+<p>and it takes 15 lines in awk,</p>
+<p>and not much more in a variety of other languages.</p>
+<p>So how big is it?</p>
+<p>How fast does it run?</p>
+<p>And what pain did I go through to learn how to do it?</p>
+<p>And that&rsquo;s like anecdotal, right?</p>
+<p>It&rsquo;s very, very, very, very, very, very, very,</p>
+<p>very, very narrowly focused.</p>
+<p>I think data, I like that term.</p>
+<p>So yeah, but still, it&rsquo;s a little sample,</p>
+<p>because you get to, I think the hardest step</p>
+<p>of the programming language is probably the first step,</p>
+<p>right, so there you&rsquo;re taking the first step.</p>
+<p>Yeah, and so my experience with some languages</p>
+<p>is very positive, like Lua,</p>
+<p>a scripting language I had never used,</p>
+<p>and I took my little program.</p>
+<p>The program is a trivial formatter.</p>
+<p>It just takes in lines of text of varying lengths,</p>
+<p>and it puts them out in lines</p>
+<p>that have no more than 60 characters on each line.</p>
+<p>So think of it as just kind of the flow of process</p>
+<p>in a browser or something.</p>
+<p>So it&rsquo;s a very short program.</p>
+<p>And in Lua, I downloaded Lua,</p>
+<p>and in an hour, I had it working,</p>
+<p>never having written Lua in my life,</p>
+<p>just going with online documentation.</p>
+<p>I did the same thing in Scala,</p>
+<p>which you can think of as a flavor of Java, equally trivial.</p>
+<p>I did it in Haskell.</p>
+<p>It took me several weeks.</p>
+<p>But it did run like a turtle.</p>
+<p>And I did it in Fortran 90, and it was painful,</p>
+<p>but it worked, and I tried it in Rust,</p>
+<p>and it took me several days to get it working</p>
+<p>because the model of memory management</p>
+<p>was just a little unfamiliar to me.</p>
+<p>And the problem I had with Rust,</p>
+<p>and it&rsquo;s back to what we were just talking about,</p>
+<p>I couldn&rsquo;t find good, consistent documentation on Rust.</p>
+<p>Now, this was several years ago,</p>
+<p>and I&rsquo;m sure things have stabilized,</p>
+<p>but at the time, everything in the Rust world</p>
+<p>seemed to be changing rapidly,</p>
+<p>and so you would find what looked like a working example,</p>
+<p>and it wouldn&rsquo;t work with the version</p>
+<p>of the language that I had.</p>
+<p>So it took longer than it should have.</p>
+<p>Rust is a language I would like to get back to,</p>
+<p>but probably won&rsquo;t.</p>
+<p>I think one of the issues,</p>
+<p>you have to have something you want to do.</p>
+<p>If you don&rsquo;t have something that is the right combination,</p>
+<p>if I want to do it, and yet I have enough disposable time,</p>
+<p>whatever, to make it worth learning a new language</p>
+<p>at the same time, it&rsquo;s never gonna happen.</p>
+<p>So what do you think about another language of JavaScript?</p>
+<p>That&rsquo;s this&hellip;</p>
+<p>Well, let me just sort of comment on what I said.</p>
+<p>When I was brought up, sort of JavaScript was seen as</p>
+<p>probably like the ugliest language possible,</p>
+<p>and yet it&rsquo;s quite arguably, quite possibly taking over,</p>
+<p>not just the front end and the back end of the internet,</p>
+<p>but possibly in the future taking over everything,</p>
+<p>because they&rsquo;ve now learned to make it very efficient.</p>
+<p>And so what do you think about this?</p>
+<p>Yeah, well, I think you&rsquo;ve captured it in a lot of ways.</p>
+<p>When it first came out,</p>
+<p>JavaScript was deemed to be fairly irregular</p>
+<p>and an ugly language, and certainly in the academy,</p>
+<p>if you said you were working on JavaScript,</p>
+<p>people would ridicule you.</p>
+<p>It was just not fit for academics to work on.</p>
+<p>I think a lot of that has evolved.</p>
+<p>The language itself has evolved,</p>
+<p>and certainly the technology of compiling it</p>
+<p>is fantastically better than it was.</p>
+<p>And so in that sense,</p>
+<p>it&rsquo;s absolutely a viable solution on back ends,</p>
+<p>as well as the front ends.</p>
+<p>Used well, I think it&rsquo;s a pretty good language.</p>
+<p>I&rsquo;ve written a modest amount of it,</p>
+<p>and I&rsquo;ve played with JavaScript translators</p>
+<p>and things like that.</p>
+<p>I&rsquo;m not a real expert,</p>
+<p>and it&rsquo;s hard to keep up even there</p>
+<p>with the new things that come along with it.</p>
+<p>So I don&rsquo;t know whether it will ever take over the world.</p>
+<p>I think not, but it&rsquo;s certainly an important language,</p>
+<p>and worth knowing more about.</p>
+<p>There&rsquo;s, maybe to get your comment on something,</p>
+<p>which JavaScript, and actually most languages,</p>
+<p>sort of Python, such a big part of the experience</p>
+<p>of programming with those languages includes libraries,</p>
+<p>sort of using, building on top of the code</p>
+<p>that other people have built.</p>
+<p>I think that&rsquo;s probably different from the experience</p>
+<p>that we just talked about from Unix and C days,</p>
+<p>when you&rsquo;re building stuff from scratch.</p>
+<p>What do you think about this world</p>
+<p>of essentially leveraging, building up libraries</p>
+<p>on top of each other and leveraging them?</p>
+<p>Yeah, no, that&rsquo;s a very perceptive kind of question.</p>
+<p>One of the reasons programming was fun in the old days</p>
+<p>was that you were really building it all yourself.</p>
+<p>The number of libraries you had to deal with</p>
+<p>was quite small.</p>
+<p>Maybe it was printf, or the standard library,</p>
+<p>or something like that, and that is not the case today.</p>
+<p>And if you want to do something in,</p>
+<p>you mentioned Python and JavaScript,</p>
+<p>and those are the two fine examples,</p>
+<p>you have to typically download a boatload of other stuff,</p>
+<p>and you have no idea what you&rsquo;re getting,</p>
+<p>absolutely nothing.</p>
+<p>I&rsquo;ve been doing some playing with machine learning</p>
+<p>over the last couple of days,</p>
+<p>and geez, something doesn&rsquo;t work.</p>
+<p>Well, you pip install this, okay,</p>
+<p>and down comes another one,</p>
+<p>okay, and down comes another gazillion megabytes of something</p>
+<p>and you have no idea what it was.</p>
+<p>And if you&rsquo;re lucky, it works.</p>
+<p>And if it doesn&rsquo;t work, you have no recourse.</p>
+<p>There&rsquo;s absolutely no way you could figure out</p>
+<p>which of these thousand different packages.</p>
+<p>And I think it&rsquo;s worse in the NPM environment</p>
+<p>for JavaScript.</p>
+<p>I think there&rsquo;s less discipline, less control there.</p>
+<p>And there&rsquo;s aspects of not just not understanding</p>
+<p>how it works, but there&rsquo;s security issues,</p>
+<p>there&rsquo;s robustness issues,</p>
+<p>so you don&rsquo;t wanna run a nuclear power plant</p>
+<p>using JavaScript, essentially.</p>
+<p>Probably not.</p>
+<p>So speaking to the variety of languages,</p>
+<p>do you think that variety is good,</p>
+<p>or do you hope, think that over time,</p>
+<p>we should converge towards one, two, three</p>
+<p>programming languages?</p>
+<p>You mentioned to the Bell Lab days</p>
+<p>when people could sort of, the community of it,</p>
+<p>and the more languages you have,</p>
+<p>the more you separate the communities.</p>
+<p>There&rsquo;s the Ruby community,</p>
+<p>there&rsquo;s the Python community,</p>
+<p>there&rsquo;s C++ community.</p>
+<p>Do you hope that they&rsquo;ll unite one day</p>
+<p>to just one or two languages?</p>
+<p>I certainly don&rsquo;t hope it.</p>
+<p>I&rsquo;m not sure that that&rsquo;s right,</p>
+<p>because I honestly don&rsquo;t think there is one language</p>
+<p>that will suffice for all the programming needs of the world.</p>
+<p>Are there too many at this point?</p>
+<p>Well, arguably.</p>
+<p>But I think if you look at the sort of the distribution</p>
+<p>of how they are used,</p>
+<p>there&rsquo;s something called a dozen languages</p>
+<p>that probably account for 95% of all programming</p>
+<p>at this point, and that doesn&rsquo;t seem unreasonable.</p>
+<p>And then there&rsquo;s another, well, 2,000 languages</p>
+<p>that are still in use that nobody uses,</p>
+<p>and, or at least don&rsquo;t use in any quantity.</p>
+<p>But I think new languages are a good idea in many respects,</p>
+<p>because they&rsquo;re often a chance to explore an idea</p>
+<p>of how language might help.</p>
+<p>I think that&rsquo;s one of the positive things</p>
+<p>about functional languages, for example.</p>
+<p>They&rsquo;re a particularly good place</p>
+<p>where people have explored ideas</p>
+<p>that at the time didn&rsquo;t seem feasible,</p>
+<p>but ultimately have wound up</p>
+<p>as part of mainstream languages as well.</p>
+<p>I mean, just go back as early as Recursion Lisp</p>
+<p>and then follow forward functions as first class citizens</p>
+<p>and pattern based languages,</p>
+<p>and gee, I don&rsquo;t know, closures,</p>
+<p>and just on and on and on.</p>
+<p>Lambda&rsquo;s interesting ideas that showed up first</p>
+<p>in, let&rsquo;s call it broadly,</p>
+<p>the functional programming community,</p>
+<p>and then find their way into mainstream languages.</p>
+<p>Yeah, it&rsquo;s a playground for rebels.</p>
+<p>Yeah, exactly, and so I think the languages</p>
+<p>in the playground themselves are probably not going</p>
+<p>to be the mainstream, at least for some while,</p>
+<p>but the ideas that come from there are invaluable.</p>
+<p>So let&rsquo;s go to something that, when I found out recently,</p>
+<p>so I&rsquo;ve known that you&rsquo;ve done a million things,</p>
+<p>but one of the things I wasn&rsquo;t aware of,</p>
+<p>that you had a role in Ample,</p>
+<p>and before you interrupt me by minimizing your role in it.</p>
+<p>Ample is for minimizing functions.</p>
+<p>Yeah, minimizing functions, right, exactly.</p>
+<p>Can I just say that the elegance and abstraction power</p>
+<p>of Ample is incredible,</p>
+<p>when I first came to it about 10 years ago or so.</p>
+<p>Can you describe what is the Ample language?</p>
+<p>Sure, so Ample is a language for mathematical programming,</p>
+<p>technical term, think of it as linear programming,</p>
+<p>that is setting up systems of linear equations</p>
+<p>that are of some sort of system of constraints,</p>
+<p>so that you have a bunch of things</p>
+<p>that have to be less than this, greater than that,</p>
+<p>whatever, and you&rsquo;re trying to find a set of values</p>
+<p>for some decision variables that will maximize</p>
+<p>or minimize some objective function,</p>
+<p>so it&rsquo;s a way of solving a particular kind</p>
+<p>of optimization problem,</p>
+<p>a very formal sort of optimization problem,</p>
+<p>but one that&rsquo;s exceptionally useful.</p>
+<p>And it specifies, so there&rsquo;s objective function constraints</p>
+<p>and variables that become separate</p>
+<p>from the data it operates on.</p>
+<p>Right.</p>
+<p>So that kind of separation allows you to,</p>
+<p>put on different hats,</p>
+<p>one put the hat of an optimization person</p>
+<p>and then put another hat of a data person</p>
+<p>and dance back and forth,</p>
+<p>and also separate the actual solvers,</p>
+<p>the optimization systems that do the solving.</p>
+<p>Then you can have other people come to the table</p>
+<p>and then build their solvers,</p>
+<p>whether it&rsquo;s linear or nonlinear,</p>
+<p>convex, nonconvex, that kind of stuff.</p>
+<p>So what is the,</p>
+<p>to you as, maybe you can comment</p>
+<p>how you got into that world</p>
+<p>and what is the beautiful or interesting idea to you</p>
+<p>from the world of optimization?</p>
+<p>Sure.</p>
+<p>So I preface it by saying I&rsquo;m absolutely not an expert</p>
+<p>on this and most of the important work in AMPL</p>
+<p>comes from my two partners in crime on that,</p>
+<p>Bob Forer, who was a professor</p>
+<p>in the Industrial Engineering</p>
+<p>and Management Science Department at Northwestern,</p>
+<p>and my colleague at Bell Labs, Dave Gay,</p>
+<p>who was a numerical analyst and optimization person.</p>
+<p>So the deal is linear programming.</p>
+<p>Preface this by saying I don&rsquo;t.</p>
+<p>Let&rsquo;s stay with linear programming.</p>
+<p>Yeah, linear programming is the simplest example of this.</p>
+<p>So linear programming, as it&rsquo;s taught in school,</p>
+<p>is that you have a big matrix,</p>
+<p>which is always called A,</p>
+<p>and you say AX is less than or equal to B.</p>
+<p>So B is a set of constraints,</p>
+<p>X is the decision variables,</p>
+<p>and A is how the decision variables are combined</p>
+<p>to set up the various constraints.</p>
+<p>So A is a matrix and X and B are vectors.</p>
+<p>And then there&rsquo;s an objective function,</p>
+<p>which is just a sum of a bunch of Xs</p>
+<p>and some coefficients on them,</p>
+<p>and that&rsquo;s the thing you want to optimize.</p>
+<p>The problem is that in the real world,</p>
+<p>that matrix A is a very, very, very intricate,</p>
+<p>very large and very sparse matrix</p>
+<p>where the various components of the model</p>
+<p>are distributed among the coefficients</p>
+<p>in a way that is totally unobvious to anybody.</p>
+<p>And so what you need is some way</p>
+<p>to express the original model,</p>
+<p>which you and I would write,</p>
+<p>you know, we&rsquo;d write mathematics on the board,</p>
+<p>and the sum of this is greater</p>
+<p>than the sum of that kind of thing.</p>
+<p>So you need a language to write those kinds of constraints.</p>
+<p>And Bob Forer, for a long time,</p>
+<p>had been interested in modeling languages,</p>
+<p>languages that made it possible to do this.</p>
+<p>There was a modeling language around called GAMS,</p>
+<p>the General Algebraic Modeling System,</p>
+<p>but it looked very much like Fortran.</p>
+<p>It was kind of clunky.</p>
+<p>And so Bob spent a sabbatical year at Bell Labs in 1984,</p>
+<p>and he and, there&rsquo;s only the office across from me,</p>
+<p>and it&rsquo;s always geography,</p>
+<p>and he and Dave Gay and I started talking</p>
+<p>about this kind of thing,</p>
+<p>and he wanted to design a language that would make it</p>
+<p>so that you could take these algebraic specifications,</p>
+<p>you know, summation signs over sets,</p>
+<p>and that you would write on the board</p>
+<p>and convert them into basically this A matrix,</p>
+<p>and then pass that off to a solver,</p>
+<p>which is an entirely separate thing.</p>
+<p>And so we talked about the design of the language.</p>
+<p>I don&rsquo;t remember any of the details of this now,</p>
+<p>but it&rsquo;s kind of an obvious thing.</p>
+<p>You&rsquo;re just writing out mathematical expressions</p>
+<p>in a Fortran like, sorry,</p>
+<p>an algebraic but textual like language.</p>
+<p>And I wrote the first version of this Ample program,</p>
+<p>my first C++ program, and.</p>
+<p>It&rsquo;s written in C++?</p>
+<p>Yeah.</p>
+<p>And so I did that fairly quickly.</p>
+<p>We wrote, it was, you know, 3,000 lines or something,</p>
+<p>so it wasn&rsquo;t very big,</p>
+<p>but it sort of showed the feasibility of it</p>
+<p>that you could actually do something that was easy</p>
+<p>for people to specify models</p>
+<p>and convert it into something that a solver could work with.</p>
+<p>At the same time, as you say,</p>
+<p>the model and the data are separate things.</p>
+<p>So one model would then work with all kinds</p>
+<p>of different data in the same way</p>
+<p>that lots of programs do the same thing,</p>
+<p>but with different data.</p>
+<p>So one of the really nice things</p>
+<p>is the specification of the models,</p>
+<p>human, just kind of like, as you say, is human readable.</p>
+<p>Like I literally, I remember on stuff I worked,</p>
+<p>I would send it to colleagues</p>
+<p>that I&rsquo;m pretty sure never programmed in their life,</p>
+<p>just to understand what the optimization problem is.</p>
+<p>I think, how hard is it to convert that?</p>
+<p>You said there&rsquo;s a first prototype in C++</p>
+<p>to convert that into something</p>
+<p>that could actually be used by the solver.</p>
+<p>It&rsquo;s not too bad,</p>
+<p>because most of the solvers have some mechanism</p>
+<p>that lets them import a model in a form.</p>
+<p>It might be as simple as the matrix itself</p>
+<p>in just some representation,</p>
+<p>or if you&rsquo;re doing things that are not linear programming,</p>
+<p>then there may be some mechanism</p>
+<p>that lets you provide things like functions to be called,</p>
+<p>or other constraints on the model.</p>
+<p>So all AMPL does is to generate that kind of thing,</p>
+<p>and then solver deals with all the hard work,</p>
+<p>and then when the solver comes back with numbers,</p>
+<p>AMPL converts those back into your original form,</p>
+<p>so you know how much of each thing you should be buying,</p>
+<p>or making, or shipping, or whatever.</p>
+<p>So we did that in 84, and I haven&rsquo;t had a lot to do</p>
+<p>with it since, except that we wrote a couple of versions</p>
+<p>of a book on it.</p>
+<p>Which is one of the greatest books ever written.</p>
+<p>I love that book.</p>
+<p>I don&rsquo;t know why.</p>
+<p>It&rsquo;s an excellent book.</p>
+<p>Bob Farrer wrote most of it,</p>
+<p>and so it&rsquo;s really, really well done.</p>
+<p>He must have been a dynamite teacher.</p>
+<p>And typeset in LaTeX.</p>
+<p>No, no, no, are you kidding?</p>
+<p>I remember liking the typography, so I don&rsquo;t know.</p>
+<p>We did it with DROF.</p>
+<p>I don&rsquo;t even know what that is.</p>
+<p>Yeah, exactly.</p>
+<p>You&rsquo;re too young.</p>
+<p>Uh oh, oh boy.</p>
+<p>I think of DROF as a predecessor</p>
+<p>to the tech family of things.</p>
+<p>It&rsquo;s a formatter that was done at Bell Labs</p>
+<p>in this same period of the very early 70s</p>
+<p>that predates tech and things like that</p>
+<p>by five to 10 years.</p>
+<p>But it was nevertheless, I&rsquo;m going by memories.</p>
+<p>I remember it being beautiful.</p>
+<p>Yeah, it was nicely done.</p>
+<p>Outside of Unix, C, A, Golang,</p>
+<p>all the things we talked about.</p>
+<p>All the amazing work you&rsquo;ve done.</p>
+<p>You&rsquo;ve also done work in graph theory.</p>
+<p>Let me ask this crazy out there question.</p>
+<p>If you had to make a bet,</p>
+<p>and I had to force you to make a bet,</p>
+<p>do you think P equals NP?</p>
+<p>The answer is no,</p>
+<p>although I&rsquo;m told that somebody asked Jeff Dean</p>
+<p>if that was, under what conditions P would equal NP,</p>
+<p>and he said either P is zero or N is one.</p>
+<p>Or vice versa, I&rsquo;ve forgotten.</p>
+<p>This is why Jeff Dean is a lot smarter than I am.</p>
+<p>Yeah.</p>
+<p>So, but your intuition is, uh.</p>
+<p>I have no, I have no intuition,</p>
+<p>but I&rsquo;ve got a lot of colleagues who&rsquo;ve got intuition</p>
+<p>and their betting is no.</p>
+<p>That&rsquo;s the popular, that&rsquo;s the popular bet.</p>
+<p>Okay, so what is computational complexity theory?</p>
+<p>And do you think these kinds of complexity classes,</p>
+<p>especially as you&rsquo;ve taught in this modern world,</p>
+<p>are still a useful way to understand</p>
+<p>the hardness of problems?</p>
+<p>I don&rsquo;t do that stuff.</p>
+<p>The last time I touched anything to do with that</p>
+<p>was before. Many, many years ago.</p>
+<p>Was before it was invented.</p>
+<p>Because I, it&rsquo;s literally true.</p>
+<p>I did my PhD thesis on graph.</p>
+<p>Before Big O notation.</p>
+<p>Oh, absolutely.</p>
+<p>Before, I did this in 1968,</p>
+<p>and I worked on graph partitioning,</p>
+<p>which is this question.</p>
+<p>You&rsquo;ve got a graph that is a nodes and edges kind of graph,</p>
+<p>and the edges have weights,</p>
+<p>and you just want to divide the nodes into two piles</p>
+<p>of equal size so that the number of edges</p>
+<p>that goes from one side to the other</p>
+<p>is as small as possible.</p>
+<p>And we.</p>
+<p>You developed, so that problem is hard.</p>
+<p>Well, as it turns out,</p>
+<p>I worked with Shen Lin at Bell Labs on this,</p>
+<p>and we were never able to come up with anything</p>
+<p>that was guaranteed to give the right answer.</p>
+<p>We came up with heuristics that worked pretty darn well,</p>
+<p>and I peeled off some special cases for my thesis,</p>
+<p>but it was just hard.</p>
+<p>And that was just about the time that Steve Cook</p>
+<p>was showing that there were classes of problems</p>
+<p>that appeared to be really hard,</p>
+<p>of which graph partitioning was one.</p>
+<p>But this, my expertise, such as it was,</p>
+<p>totally predates that development.</p>
+<p>Oh, interesting.</p>
+<p>So the heuristic, which now,</p>
+<p>carries the two of yours names</p>
+<p>for the traveling salesman problem,</p>
+<p>and then for the graph partitioning.</p>
+<p>That was, like, how did you,</p>
+<p>you weren&rsquo;t even thinking in terms of classes.</p>
+<p>You were just trying to find.</p>
+<p>There was no such idea.</p>
+<p>A heuristic that kinda does the job pretty well.</p>
+<p>You were trying to find something that did the job,</p>
+<p>and there was nothing that you would call,</p>
+<p>let&rsquo;s say, a closed form or algorithmic thing</p>
+<p>that would give you a guaranteed right answer.</p>
+<p>I mean, compare graph partitioning to max flow min cut,</p>
+<p>or something like that.</p>
+<p>That&rsquo;s the same problem,</p>
+<p>except there&rsquo;s no constraint on the number of nodes</p>
+<p>on one side or the other of the cut.</p>
+<p>And that means it&rsquo;s an easy problem,</p>
+<p>at least as I understand it.</p>
+<p>Whereas the constraint that says</p>
+<p>the two have to be constrained in size</p>
+<p>makes it a hard problem.</p>
+<p>Yeah, so Robert Frost says that poem</p>
+<p>where you had to choose two paths.</p>
+<p>So why did you,</p>
+<p>is there another alternate universe</p>
+<p>in which you pursued the Don Knuth path</p>
+<p>of algorithm design, sort of?</p>
+<p>Not smart enough.</p>
+<p>You&rsquo;re infinitely modest,</p>
+<p>but so you pursued your kind of love of programming.</p>
+<p>I mean, when you look back to those,</p>
+<p>I mean, just looking into that world,</p>
+<p>does that just seem like a distant world</p>
+<p>of theoretical computer science?</p>
+<p>Then is it fundamentally different</p>
+<p>from the world of programming?</p>
+<p>I don&rsquo;t know.</p>
+<p>I mean, certainly, in all seriousness,</p>
+<p>I just didn&rsquo;t have the talent for it.</p>
+<p>When I got here as a grad student to Princeton</p>
+<p>and I started to think about research</p>
+<p>at the end of my, I don&rsquo;t know,</p>
+<p>first year or something like that,</p>
+<p>I worked briefly with John Hopcroft,</p>
+<p>who is absolutely, you know,</p>
+<p>you mentioned during award winner, et cetera,</p>
+<p>a great guy, and it became crystal clear</p>
+<p>I was not cut out for this stuff, period, okay.</p>
+<p>And so I moved into things</p>
+<p>where I was more cut out for it,</p>
+<p>and that tended to be things like writing programs</p>
+<p>and then ultimately writing books.</p>
+<p>You said that in Toronto as an undergrad,</p>
+<p>you did a senior thesis or a literature survey</p>
+<p>on artificial intelligence.</p>
+<p>This was 1964.</p>
+<p>Correct.</p>
+<p>What was the AI landscape, ideas, dreams at that time?</p>
+<p>I think that was one of the,</p>
+<p>well, you&rsquo;ve heard of AI winners.</p>
+<p>This is whatever the opposite was,</p>
+<p>AI summer or something.</p>
+<p>It was one of these things where people thought</p>
+<p>that, boy, we could do anything with computers,</p>
+<p>that all these hard problems, we could,</p>
+<p>computers will solve them.</p>
+<p>They will do machine translation.</p>
+<p>They will play games like chess.</p>
+<p>They will do, you know, prove theorems in geometry.</p>
+<p>There are all kinds of examples like that</p>
+<p>where people thought, boy,</p>
+<p>we could really do those sorts of things.</p>
+<p>And, you know, I read The Kool Aid in some sense.</p>
+<p>There&rsquo;s a wonderful collection of papers</p>
+<p>called Computers and Thought that was published</p>
+<p>in about that era and people were very optimistic.</p>
+<p>And then of course it turned out that</p>
+<p>what people thought was just a few years down the pike</p>
+<p>was more than a few years down the pike.</p>
+<p>And some parts of that are more or less now</p>
+<p>sort of under control.</p>
+<p>We finally do play games like Go and chess</p>
+<p>and so on better than people do,</p>
+<p>but there are others and machine translation</p>
+<p>is a lot better than it used to be,</p>
+<p>but that&rsquo;s, you know, 50, close to 60 years of progress</p>
+<p>and a lot of evolution in hardware</p>
+<p>and a tremendous amount more data up on which</p>
+<p>you can build systems that actually can learn</p>
+<p>from some of that data.</p>
+<p>And the infrastructure to support developers</p>
+<p>working together, like an open source movement,</p>
+<p>the internet, period, is also empowering.</p>
+<p>But what lessons do you draw from that,</p>
+<p>the opposite of winter, that optimism?</p>
+<p>Well, I guess the lesson is that in the short run</p>
+<p>it&rsquo;s pretty easy to be too pessimistic</p>
+<p>or maybe too optimistic and in the long run</p>
+<p>you probably shouldn&rsquo;t be too pessimistic.</p>
+<p>I&rsquo;m not saying that very well.</p>
+<p>It reminds me of this remark from Arthur Clarke,</p>
+<p>a science fiction author, who says, you know,</p>
+<p>when some distinguished but elderly person</p>
+<p>says that something is possible, he&rsquo;s probably right.</p>
+<p>And if he says it&rsquo;s impossible, he&rsquo;s almost surely wrong.</p>
+<p>But you don&rsquo;t know what the time scale is.</p>
+<p>The time scale is critical, right.</p>
+<p>So what are your thoughts on this new summer of AI</p>
+<p>now in the work with machine learning and neural networks?</p>
+<p>You&rsquo;ve kind of mentioned that you started to try to explore</p>
+<p>and look into this world that seems fundamentally different</p>
+<p>from the world of heuristics and algorithms like search,</p>
+<p>that it&rsquo;s now purely sort of trying to take</p>
+<p>huge amounts of data and learn from that data, right,</p>
+<p>programs from the data.</p>
+<p>Yeah, look, I think it&rsquo;s very interesting.</p>
+<p>I am incredibly far from an expert.</p>
+<p>Most of what I know I&rsquo;ve learned from my students</p>
+<p>and they&rsquo;re probably disappointed</p>
+<p>in how little I&rsquo;ve learned from them.</p>
+<p>But I think it has tremendous potential</p>
+<p>for certain kinds of things.</p>
+<p>I mean, games is one where it obviously has had an effect</p>
+<p>on some of the others as well.</p>
+<p>I think there&rsquo;s, and this is speaking from</p>
+<p>definitely not expertise,</p>
+<p>I think there are serious problems</p>
+<p>in certain kinds of machine learning at least</p>
+<p>because what they&rsquo;re learning from</p>
+<p>is the data that we give them.</p>
+<p>And if the data we give them has something wrong with it,</p>
+<p>then what they learn from it is probably wrong too.</p>
+<p>And the obvious thing is some kind of bias in the data.</p>
+<p>That the data has stuff in it like, I don&rsquo;t know,</p>
+<p>women aren&rsquo;t as good as men at something, okay.</p>
+<p>That&rsquo;s just flat wrong.</p>
+<p>But if it&rsquo;s in the data because of historical treatment,</p>
+<p>then that machine learning stuff will propagate that.</p>
+<p>And that is a serious worry.</p>
+<p>The positive part of that is what machine learning does</p>
+<p>is reveal the bias in the data</p>
+<p>and puts a mirror to our own society.</p>
+<p>And in so doing helps us remove the bias,</p>
+<p>you know, helps us work on ourselves.</p>
+<p>Puts a mirror to ourselves.</p>
+<p>Yeah, that&rsquo;s an optimistic point of view.</p>
+<p>And if it works that way, that would be absolutely great.</p>
+<p>And what I don&rsquo;t know is whether it does work that way</p>
+<p>or whether the AI mechanisms</p>
+<p>or machine learning mechanisms reinforce</p>
+<p>and amplify things that have been wrong in the past.</p>
+<p>And I don&rsquo;t know, but I think that&rsquo;s a serious thing</p>
+<p>that we have to be concerned about.</p>
+<p>Let me ask you an out there question, okay.</p>
+<p>I know nobody knows, but what do you think it takes</p>
+<p>to build a system of human level intelligence?</p>
+<p>That&rsquo;s been the dream from the 60s.</p>
+<p>We talk about games, about language,</p>
+<p>about image recognition, but really the dream</p>
+<p>is to create human level or superhuman level intelligence.</p>
+<p>What do you think it takes to do that?</p>
+<p>And are we close?</p>
+<p>I haven&rsquo;t a clue and I don&rsquo;t know, roughly speaking.</p>
+<p>I mean, this was Turing.</p>
+<p>I was trying to trick you into a hypothesis.</p>
+<p>Yeah, I mean, Turing talked about this</p>
+<p>in his paper on machine intelligence back in, geez,</p>
+<p>I don&rsquo;t know, early 50s or something like that.</p>
+<p>And he had the idea of the Turing test.</p>
+<p>And I don&rsquo;t know what the Turing test is.</p>
+<p>It&rsquo;s a good test of intelligence.</p>
+<p>I don&rsquo;t know.</p>
+<p>It&rsquo;s an interesting test.</p>
+<p>At least it&rsquo;s in some vague sense objective,</p>
+<p>whether you can read anything into the conclusions</p>
+<p>is a different story.</p>
+<p>Do you have worries, concerns, excitement</p>
+<p>about the future of artificial intelligence?</p>
+<p>So there&rsquo;s a lot of people who are worried</p>
+<p>and you can speak broadly</p>
+<p>than just artificial intelligence.</p>
+<p>It&rsquo;s basically computing taking over the world</p>
+<p>in various forms.</p>
+<p>Are you excited by this future,</p>
+<p>this possibility of computing being everywhere</p>
+<p>or are you worried?</p>
+<p>It&rsquo;s some combination of those.</p>
+<p>I think almost all technologies over the long run</p>
+<p>are for good, but there&rsquo;s plenty of examples</p>
+<p>where they haven&rsquo;t been good either over a long run</p>
+<p>for some people or over a short run.</p>
+<p>And computing is one of those.</p>
+<p>And AI within it is gonna be one of those as well,</p>
+<p>but computing broadly.</p>
+<p>I mean, for just a today example is privacy,</p>
+<p>that the use of things like social media and so on</p>
+<p>means that, and the commercial surveillance</p>
+<p>means that there&rsquo;s an enormous amount more known about us</p>
+<p>by people, other businesses, government, whatever,</p>
+<p>than perhaps one ought to feel comfortable with.</p>
+<p>So that&rsquo;s an example.</p>
+<p>So that&rsquo;s an example of a possible negative effect</p>
+<p>of computing being everywhere.</p>
+<p>It&rsquo;s an interesting one</p>
+<p>because it could also be a positive, if leveraged correctly.</p>
+<p>There&rsquo;s a big if there.</p>
+<p>So I have a deep interest in human psychology</p>
+<p>and humans seem to be very paranoid about this data thing</p>
+<p>that varies depending on age group.</p>
+<p>It seems like the younger folks.</p>
+<p>So it&rsquo;s exciting to me to see what society looks like</p>
+<p>50 years from now, that the concerns about privacy</p>
+<p>might be flipped on their head</p>
+<p>based purely on human psychology</p>
+<p>versus actual concerns or not.</p>
+<p>What do you think about Moore&rsquo;s Law?</p>
+<p>Well, you said a lot of stuff we&rsquo;ve talked,</p>
+<p>you talked about programming languages in their design,</p>
+<p>in their ideas that come from the constraints</p>
+<p>in the systems they operate in.</p>
+<p>Do you think Moore&rsquo;s Law,</p>
+<p>the exponential improvement of systems</p>
+<p>will continue indefinitely?</p>
+<p>There&rsquo;s a mix of opinions on that currently,</p>
+<p>or do you think there&rsquo;ll be a plateau?</p>
+<p>Well, the frivolous answer is no exponential</p>
+<p>it can go on forever.</p>
+<p>You run out of something.</p>
+<p>Just as we said, timescale matters.</p>
+<p>So if it goes on long enough, that might be all we need.</p>
+<p>Yeah, right, won&rsquo;t matter to us.</p>
+<p>So I don&rsquo;t know, we&rsquo;ve seen places</p>
+<p>where Moore&rsquo;s Law has changed.</p>
+<p>For example, mentioned earlier,</p>
+<p>processors don&rsquo;t get faster anymore,</p>
+<p>but you use that same growth of the ability</p>
+<p>to put more things in a given area</p>
+<p>to grow them horizontally instead of vertically as it were</p>
+<p>so you can get more and more processors</p>
+<p>or memory or whatever on the same chip.</p>
+<p>Is that gonna run into a limitation?</p>
+<p>Presumably, because at some point</p>
+<p>you get down to the individual atoms.</p>
+<p>And so you gotta find some way around that.</p>
+<p>Will we find some way around that?</p>
+<p>I don&rsquo;t know, I just said that if I say it won&rsquo;t,</p>
+<p>I&rsquo;ll be wrong, so perhaps we will.</p>
+<p>So I just talked to Jim Keller and he says,</p>
+<p>so he actually describes, he argues</p>
+<p>that the Moore&rsquo;s Law will continue for a long, long time</p>
+<p>because you mentioned the atom.</p>
+<p>We actually have, I think, a thousand fold increase,</p>
+<p>still decreased in size, still possible</p>
+<p>before we get to the quantum level.</p>
+<p>So there&rsquo;s still a lot of possibilities.</p>
+<p>He thinks he&rsquo;ll continue indefinitely,</p>
+<p>which is an interesting optimistic viewpoint.</p>
+<p>But how do you think the programming languages</p>
+<p>will change with this increase?</p>
+<p>Whether we hit a wall or not,</p>
+<p>what do you think, do you think there&rsquo;ll be</p>
+<p>a fundamental change in the way</p>
+<p>programming languages are designed?</p>
+<p>I don&rsquo;t know about that.</p>
+<p>I think what will happen is continuation</p>
+<p>of what we see in some areas, at least,</p>
+<p>which is that more programming will be done</p>
+<p>by programs than by people, and that more will be done</p>
+<p>by sort of declarative rather than procedural mechanisms</p>
+<p>where I&rsquo;ll say, I want this to happen.</p>
+<p>You figure out how.</p>
+<p>And that is, in many cases, at this point,</p>
+<p>domain of specialized languages for narrow domains,</p>
+<p>but you can imagine that broadening out.</p>
+<p>And so I don&rsquo;t have to say so much, in so much detail,</p>
+<p>some collection of software, let&rsquo;s call it languages</p>
+<p>or programs or something, will figure out</p>
+<p>how to do what I want to do.</p>
+<p>Interesting, so increased levels of abstraction.</p>
+<p>Yeah.</p>
+<p>And one day getting to the human level,</p>
+<p>where we can just use natural language.</p>
+<p>Could be possible.</p>
+<p>So you taught, so teach a course,</p>
+<p>Computers in Our World, here at Princeton,</p>
+<p>that introduces computing and programming to nonmajors.</p>
+<p>What, just from that experience,</p>
+<p>what advice do you have for people</p>
+<p>who don&rsquo;t know anything about programming</p>
+<p>but are kind of curious about this world,</p>
+<p>or programming seems to become more and more</p>
+<p>of a fundamental skill that people need to be</p>
+<p>at least aware of?</p>
+<p>Yeah, well, I couldn&rsquo;t recommend a good book.</p>
+<p>What&rsquo;s that?</p>
+<p>The book I wrote for the course.</p>
+<p>I think this is one of these questions of,</p>
+<p>should everybody know how to program?</p>
+<p>And I think the answer is probably not,</p>
+<p>but I think everybody should at least understand</p>
+<p>sort of what it is, so that if you say to somebody,</p>
+<p>I&rsquo;m a programmer, they have a notion of what that might be,</p>
+<p>or if you say this is a program,</p>
+<p>or this was decided by a computer running a program,</p>
+<p>that they have some vague intuitive understanding</p>
+<p>and accurate understanding of what that might imply.</p>
+<p>So part of what I&rsquo;m doing in this course,</p>
+<p>which is very definitely for nontechnical people,</p>
+<p>and a typical person in it is a history or English major,</p>
+<p>try and explain how computers work,</p>
+<p>how they do their thing, what programming is,</p>
+<p>how you write a program,</p>
+<p>and how computers talk to each other,</p>
+<p>and what do they do when they&rsquo;re talking to each other.</p>
+<p>And then I would say nobody, very rarely,</p>
+<p>and does anybody in that course go on</p>
+<p>to become a real serious programmer,</p>
+<p>but at least they&rsquo;ve got a somewhat better idea</p>
+<p>of what all this stuff is about, not just the programming,</p>
+<p>but the technology behind computers and communications.</p>
+<p>Do they try and write a program themselves?</p>
+<p>Oh yeah, yeah, a very small amount.</p>
+<p>I introduced them to how machines work at a level below,</p>
+<p>high level languages, so we have kind of a toy machine</p>
+<p>that has a very small repertoire, a dozen instructions,</p>
+<p>and they write trivial assembly language programs for that.</p>
+<p>Wow, that&rsquo;s interesting.</p>
+<p>So can you just, if you were to give a flavor</p>
+<p>to people of the programming world,</p>
+<p>of the competing world,</p>
+<p>what are the examples they should go with?</p>
+<p>So a little bit of assembly to get a sense</p>
+<p>at the lowest level of what the program is really doing.</p>
+<p>Yeah, I mean, in some sense,</p>
+<p>there&rsquo;s no such thing as the lowest level</p>
+<p>because you can keep going down,</p>
+<p>but that&rsquo;s the place where I drew the line.</p>
+<p>So the idea that computers have a fairly small repertoire</p>
+<p>of very simple instructions that they can do,</p>
+<p>like add and subtract and branch and so on,</p>
+<p>as you mentioned earlier,</p>
+<p>and that you can write code at that level</p>
+<p>and it will get things done,</p>
+<p>and then you have the levels of abstraction</p>
+<p>that we get with higher level languages,</p>
+<p>like Fortran or C or whatever,</p>
+<p>and that makes it easier to write the code</p>
+<p>and less dependent on particular architectures.</p>
+<p>And then we talk about a lot of the different kinds</p>
+<p>of programs that they use all the time</p>
+<p>that they don&rsquo;t probably realize are programs,</p>
+<p>like they&rsquo;re running Mac OS on their computers</p>
+<p>or maybe Windows, and they&rsquo;re downloading apps</p>
+<p>on their phones, and all of those things are programs</p>
+<p>that are just what we just talked about,</p>
+<p>except at a grand scale.</p>
+<p>And it&rsquo;s easy to forget that they&rsquo;re actual programs</p>
+<p>that people program.</p>
+<p>There&rsquo;s engineers that wrote those things.</p>
+<p>Yeah, right.</p>
+<p>And so in a way, I&rsquo;m expecting them</p>
+<p>to make an enormous conceptual leap</p>
+<p>from their five or 10 line toy assembly language thing</p>
+<p>that adds two or three numbers to something</p>
+<p>that is a browser on their phone or whatever,</p>
+<p>but it&rsquo;s really the same thing.</p>
+<p>So if you look in broad strokes at history,</p>
+<p>what do you think the world,</p>
+<p>how do you think the world changed because of computers?</p>
+<p>It&rsquo;s hard to sometimes see the big picture</p>
+<p>when you&rsquo;re in it, but I guess I&rsquo;m asking</p>
+<p>if there&rsquo;s something you&rsquo;ve noticed over the years</p>
+<p>that, like you were mentioning,</p>
+<p>the students are more distracted looking at their,</p>
+<p>now there&rsquo;s a device to look at.</p>
+<p>Right.</p>
+<p>I think computing has changed a tremendous amount,</p>
+<p>obviously, but I think one aspect of that</p>
+<p>is the way that people interact with each other,</p>
+<p>both locally and far away.</p>
+<p>And when I was the age of those kids,</p>
+<p>making a phone call to somewhere was a big deal</p>
+<p>because it costs serious money.</p>
+<p>And this was in the 60s, right?</p>
+<p>And today people don&rsquo;t make phone calls,</p>
+<p>they send texts or something like that.</p>
+<p>So there&rsquo;s an up and down in what people do.</p>
+<p>People think nothing of having correspondence,</p>
+<p>regular meetings, video, whatever,</p>
+<p>with friends or family or whatever</p>
+<p>in any other part of the world,</p>
+<p>and they don&rsquo;t think about that at all.</p>
+<p>And so that&rsquo;s just the communication aspect of it.</p>
+<p>Do you think that brings us closer together</p>
+<p>or does it make us,</p>
+<p>does it take us away from the closeness</p>
+<p>of human to human contact?</p>
+<p>I think it depends a lot on all kinds of things.</p>
+<p>So I trade mail with my brother and sister in Canada</p>
+<p>much more often than I used to talk to them on the phone.</p>
+<p>So probably every two or three days,</p>
+<p>I get something or send something to them.</p>
+<p>Whereas 20 years ago,</p>
+<p>I probably wouldn&rsquo;t have talked to them</p>
+<p>on the phone nearly as much.</p>
+<p>So in that sense, that&rsquo;s brought my brother and sister</p>
+<p>and I closer together.</p>
+<p>That&rsquo;s a good thing.</p>
+<p>I watch the kids on campus</p>
+<p>and they&rsquo;re mostly walking around with their heads down,</p>
+<p>fooling with their phones</p>
+<p>to the point where I have to duck them.</p>
+<p>I don&rsquo;t know that that has brought them closer together</p>
+<p>in some ways.</p>
+<p>There&rsquo;s sociological research that says people are,</p>
+<p>in fact, not as close together as they used to be.</p>
+<p>I don&rsquo;t know where that&rsquo;s really true,</p>
+<p>but I can see potential downsides</p>
+<p>and kids where you think,</p>
+<p>come on, wake up and smell the coffee or whatever.</p>
+<p>That&rsquo;s right.</p>
+<p>But if you look at, again, nobody can predict the future,</p>
+<p>but are you excited?</p>
+<p>Kind of touched this a little bit with AI,</p>
+<p>but are you excited by the future in the next 10, 20 years</p>
+<p>that computing will bring?</p>
+<p>You were there when there was no computers really.</p>
+<p>And now computers are everywhere all over the world</p>
+<p>and Africa and Asia and just every person,</p>
+<p>almost every person in the world has a device.</p>
+<p>So are you hopeful, optimistic about that future?</p>
+<p>It&rsquo;s mixed, if the truth be told.</p>
+<p>I mean, I think there are some things about that</p>
+<p>that are good.</p>
+<p>I think there&rsquo;s the potential for people</p>
+<p>to improve their lives all over the place</p>
+<p>and that&rsquo;s obviously good.</p>
+<p>And at the same time, at least in the short run,</p>
+<p>you can see lots and lots of bad</p>
+<p>as people become more tribalistic or parochial</p>
+<p>in their interests and it&rsquo;s an enormous amount</p>
+<p>more us than them and people are using computers</p>
+<p>in all kinds of ways to mislead or misrepresent</p>
+<p>or flat out lie about what&rsquo;s going on</p>
+<p>and that is affecting politics locally</p>
+<p>and I think everywhere in the world.</p>
+<p>Yeah, the long term effect on political systems</p>
+<p>and so on is who knows.</p>
+<p>Who knows indeed.</p>
+<p>The people now have a voice which is a powerful thing.</p>
+<p>People who are oppressed have a voice</p>
+<p>but also everybody has a voice</p>
+<p>and the chaos that emerges from that</p>
+<p>is fascinating to watch.</p>
+<p>Yeah, yeah, it&rsquo;s kind of scary.</p>
+<p>If you can go back and relive a moment in your life,</p>
+<p>one that made you truly happy outside of family</p>
+<p>or was profoundly transformative,</p>
+<p>is there a moment or moments that jump out at you</p>
+<p>from memory?</p>
+<p>I don&rsquo;t think specific moments.</p>
+<p>I think there were lots and lots and lots of good times</p>
+<p>at Bell Labs where you would build something</p>
+<p>and it worked.</p>
+<p>Did you say it worked?</p>
+<p>So the moment it worked.</p>
+<p>Yeah, and somebody used it and they said,</p>
+<p>gee, that&rsquo;s neat.</p>
+<p>Those kinds of things happened quite often</p>
+<p>in that sort of golden era in the 70s when Unix was young</p>
+<p>and there was all this low hanging fruit</p>
+<p>and interesting things to work on</p>
+<p>and a group of people who kind of,</p>
+<p>we were all together in this and if you did something,</p>
+<p>they would try it out for you.</p>
+<p>And I think that was in some sense,</p>
+<p>a really, really good time.</p>
+<p>And AUK was, was AUK an example of that?</p>
+<p>That when you built it and people used it?</p>
+<p>Yeah, absolutely.</p>
+<p>And now millions of people use it.</p>
+<p>And all your stupid mistakes are right there</p>
+<p>for them to look at, right?</p>
+<p>So it&rsquo;s mixed.</p>
+<p>Yeah, it&rsquo;s terrifying, vulnerable</p>
+<p>but it&rsquo;s beautiful because it does have a positive impact</p>
+<p>on so, so many people.</p>
+<p>So I think there&rsquo;s no better way to end it.</p>
+<p>Brian, thank you so much for talking to us, it was an honor.</p>
+<p>Okay, my pleasure.</p>
+<p>Good fun.</p>
+<p>Thank you for listening to this conversation</p>
+<p>with Brian Kernighan and thank you to our sponsors,</p>
+<p>8 Sleep Mattress and Raycon Earbuds.</p>
+<p>Please consider supporting this podcast</p>
+<p>by going to 8sleep.com slash Lex and to buyraycon.com</p>
+<p>slash Lex, click the links, buy the stuff.</p>
+<p>These both are amazing products.</p>
+<p>It really is the best way to support this podcast</p>
+<p>and the journey I&rsquo;m on.</p>
+<p>It&rsquo;s how they know I sent you and increases the chance</p>
+<p>that they&rsquo;ll actually support this podcast in the future.</p>
+<p>If you enjoy this thing, subscribe on YouTube,</p>
+<p>review it with 5 Stars and Apple Podcast,</p>
+<p>support it on Patreon or connect with me on Twitter</p>
+<p>at Lex Friedman, spelled somehow miraculously</p>
+<p>without the letter E, just F R I D M A N</p>
+<p>because when we immigrated to this country,</p>
+<p>we were not so good at spelling.</p>
+<p>And now let me leave you with some words</p>
+<p>from Brian Kernighan, don&rsquo;t comment bad code, rewrite it.</p>
+<p>Thank you for listening and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

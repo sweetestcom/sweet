@@ -1,0 +1,3438 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='at which point is the neural network a being versus a tool?
+The following is a conversation with Oriel Veniales,
+his second time on the podcast.
+Oriel is the research director
+and deep learning lead at DeepMind
+and one of the most brilliant thinkers and researchers
+in the history of artificial intelligence.
+This is the Lex Friedman podcast.
+To support it, please check out our sponsors
+in the description.
+And now, dear friends, here&amp;rsquo;s Oriel Veniales.'>
+<title>Lex Fridman Podcast - #306 - Oriol Vinyals: Deep Learning and Artificial General Intelligence | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500310/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #306 - Oriol Vinyals: Deep Learning and Artificial General Intelligence'>
+<meta property='og:description' content='at which point is the neural network a being versus a tool?
+The following is a conversation with Oriel Veniales,
+his second time on the podcast.
+Oriel is the research director
+and deep learning lead at DeepMind
+and one of the most brilliant thinkers and researchers
+in the history of artificial intelligence.
+This is the Lex Friedman podcast.
+To support it, please check out our sponsors
+in the description.
+And now, dear friends, here&amp;rsquo;s Oriel Veniales.'>
+<meta property='og:url' content='https://swiest.com/en/1310500310/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2023-01-04T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-01-04T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #306 - Oriol Vinyals: Deep Learning and Artificial General Intelligence">
+<meta name="twitter:description" content="at which point is the neural network a being versus a tool?
+The following is a conversation with Oriel Veniales,
+his second time on the podcast.
+Oriel is the research director
+and deep learning lead at DeepMind
+and one of the most brilliant thinkers and researchers
+in the history of artificial intelligence.
+This is the Lex Friedman podcast.
+To support it, please check out our sponsors
+in the description.
+And now, dear friends, here&amp;rsquo;s Oriel Veniales.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500310/">Lex Fridman Podcast - #306 - Oriol Vinyals: Deep Learning and Artificial General Intelligence</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-01-04</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    96 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>at which point is the neural network a being versus a tool?</p>
+<p>The following is a conversation with Oriel Veniales,</p>
+<p>his second time on the podcast.</p>
+<p>Oriel is the research director</p>
+<p>and deep learning lead at DeepMind</p>
+<p>and one of the most brilliant thinkers and researchers</p>
+<p>in the history of artificial intelligence.</p>
+<p>This is the Lex Friedman podcast.</p>
+<p>To support it, please check out our sponsors</p>
+<p>in the description.</p>
+<p>And now, dear friends, here&rsquo;s Oriel Veniales.</p>
+<p>You are one of the most brilliant researchers</p>
+<p>in the history of AI,</p>
+<p>working across all kinds of modalities.</p>
+<p>Probably the one common theme is</p>
+<p>it&rsquo;s always sequences of data.</p>
+<p>So we&rsquo;re talking about languages, images,</p>
+<p>even biology and games, as we talked about last time.</p>
+<p>So you&rsquo;re a good person to ask this.</p>
+<p>In your lifetime, will we be able to build an AI system</p>
+<p>that&rsquo;s able to replace me as the interviewer</p>
+<p>in this conversation,</p>
+<p>in terms of ability to ask questions</p>
+<p>that are compelling to somebody listening?</p>
+<p>And then further question is, are we close?</p>
+<p>Will we be able to build a system that replaces you</p>
+<p>as the interviewee</p>
+<p>in order to create a compelling conversation?</p>
+<p>How far away are we, do you think?</p>
+<p>It&rsquo;s a good question.</p>
+<p>I think partly I would say, do we want that?</p>
+<p>I really like when we start now with very powerful models,</p>
+<p>interacting with them and thinking of them</p>
+<p>more closer to us.</p>
+<p>The question is, if you remove the human side</p>
+<p>of the conversation, is that an interesting artifact?</p>
+<p>And I would say, probably not.</p>
+<p>I&rsquo;ve seen, for instance, last time we spoke,</p>
+<p>like we were talking about StarCraft,</p>
+<p>and creating agents that play games involves self play,</p>
+<p>but ultimately what people care about was,</p>
+<p>how does this agent behave</p>
+<p>when the opposite side is a human?</p>
+<p>So without a doubt,</p>
+<p>we will probably be more empowered by AI.</p>
+<p>Maybe you can source some questions from an AI system.</p>
+<p>I mean, that even today, I would say it&rsquo;s quite plausible</p>
+<p>that with your creativity,</p>
+<p>you might actually find very interesting questions</p>
+<p>that you can filter.</p>
+<p>We call this cherry picking sometimes</p>
+<p>in the field of language.</p>
+<p>And likewise, if I had now the tools on my side,</p>
+<p>I could say, look, you&rsquo;re asking this interesting question.</p>
+<p>From this answer, I like the words chosen</p>
+<p>by this particular system that created a few words.</p>
+<p>Completely replacing it feels not exactly exciting to me.</p>
+<p>Although in my lifetime, I think way,</p>
+<p>I mean, given the trajectory,</p>
+<p>I think it&rsquo;s possible that perhaps</p>
+<p>there could be interesting,</p>
+<p>maybe self play interviews as you&rsquo;re suggesting</p>
+<p>that would look or sound quite interesting</p>
+<p>and probably would educate</p>
+<p>or you could learn a topic through listening</p>
+<p>to one of these interviews at a basic level at least.</p>
+<p>So you said it doesn&rsquo;t seem exciting to you,</p>
+<p>but what if exciting is part of the objective function</p>
+<p>the thing is optimized over?</p>
+<p>So there&rsquo;s probably a huge amount of data of humans</p>
+<p>if you look correctly, of humans communicating online,</p>
+<p>and there&rsquo;s probably ways to measure the degree of,</p>
+<p>you know, as they talk about engagement.</p>
+<p>So you can probably optimize the question</p>
+<p>that&rsquo;s most created an engaging conversation in the past.</p>
+<p>So actually, if you strictly use the word exciting,</p>
+<p>there is probably a way to create</p>
+<p>a optimally exciting conversations</p>
+<p>that involve AI systems.</p>
+<p>At least one side is AI.</p>
+<p>Yeah, that makes sense, I think,</p>
+<p>maybe looping back a bit to games and the game industry,</p>
+<p>when you design algorithms,</p>
+<p>you&rsquo;re thinking about winning as the objective, right?</p>
+<p>Or the reward function.</p>
+<p>But in fact, when we discussed this with Blizzard,</p>
+<p>the creators of StarCraft in this case,</p>
+<p>I think what&rsquo;s exciting, fun,</p>
+<p>if you could measure that and optimize for that,</p>
+<p>that&rsquo;s probably why we play video games</p>
+<p>or why we interact or listen or look at cat videos</p>
+<p>or whatever on the internet.</p>
+<p>So it&rsquo;s true that modeling reward</p>
+<p>beyond the obvious reward functions</p>
+<p>we&rsquo;ve used to in reinforcement learning</p>
+<p>is definitely very exciting.</p>
+<p>And again, there is some progress actually</p>
+<p>into a particular aspect of AI, which is quite critical,</p>
+<p>which is, for instance, is a conversation</p>
+<p>or is the information truthful, right?</p>
+<p>So you could start trying to evaluate these</p>
+<p>from accepts from the internet, right?</p>
+<p>That has lots of information.</p>
+<p>And then if you can learn a function automated ideally,</p>
+<p>so you can also optimize it more easily,</p>
+<p>then you could actually have conversations</p>
+<p>that optimize for non obvious things such as excitement.</p>
+<p>So yeah, that&rsquo;s quite possible.</p>
+<p>And then I would say in that case,</p>
+<p>it would definitely be fun exercise</p>
+<p>and quite unique to have at least one site</p>
+<p>that is fully driven by an excitement reward function.</p>
+<p>But obviously, there would be still quite a lot of humanity</p>
+<p>in the system, both from who is building the system,</p>
+<p>of course, and also, ultimately,</p>
+<p>if we think of labeling for excitement,</p>
+<p>that those labels must come from us</p>
+<p>because it&rsquo;s just hard to have a computational measure</p>
+<p>of excitement.</p>
+<p>As far as I understand, there&rsquo;s no such thing.</p>
+<p>Well, as you mentioned truth also,</p>
+<p>I would actually venture to say that excitement</p>
+<p>is easier to label than truth,</p>
+<p>or is perhaps has lower consequences of failure.</p>
+<p>But there is perhaps the humanness that you mentioned,</p>
+<p>that&rsquo;s perhaps part of a thing that could be labeled.</p>
+<p>And that could mean an AI system that&rsquo;s doing dialogue,</p>
+<p>that&rsquo;s doing conversations should be flawed, for example.</p>
+<p>Like that&rsquo;s the thing you optimize for,</p>
+<p>which is have inherent contradictions by design,</p>
+<p>have flaws by design.</p>
+<p>Maybe it also needs to have a strong sense of identity.</p>
+<p>So it has a backstory it told itself that it sticks to.</p>
+<p>It has memories, not in terms of how the system is designed,</p>
+<p>but it&rsquo;s able to tell stories about its past.</p>
+<p>It&rsquo;s able to have mortality and fear of mortality</p>
+<p>in the following way that it has an identity.</p>
+<p>And if it says something stupid</p>
+<p>and gets canceled on Twitter, that&rsquo;s the end of that system.</p>
+<p>So it&rsquo;s not like you get to rebrand yourself.</p>
+<p>That system is, that&rsquo;s it.</p>
+<p>So maybe the high stakes nature of it,</p>
+<p>because you can&rsquo;t say anything stupid now,</p>
+<p>or because you&rsquo;d be canceled on Twitter.</p>
+<p>And there&rsquo;s stakes to that.</p>
+<p>And that I think part of the reason</p>
+<p>that makes it interesting.</p>
+<p>And then you have a perspective,</p>
+<p>like you&rsquo;ve built up over time that you stick with,</p>
+<p>and then people can disagree with you.</p>
+<p>So holding that perspective strongly,</p>
+<p>holding sort of maybe a controversial,</p>
+<p>at least a strong opinion.</p>
+<p>All of those elements, it feels like they can be learned</p>
+<p>because it feels like there&rsquo;s a lot of data</p>
+<p>on the internet of people having an opinion.</p>
+<p>And then combine that with a metric of excitement,</p>
+<p>you can start to create something that,</p>
+<p>as opposed to trying to optimize</p>
+<p>for sort of grammatical clarity and truthfulness,</p>
+<p>the factual consistency over many sentences,</p>
+<p>you optimize for the humanness.</p>
+<p>And there&rsquo;s obviously data for humanness on the internet.</p>
+<p>So I wonder if there&rsquo;s a future where that&rsquo;s part,</p>
+<p>or I mean, I sometimes wonder that about myself.</p>
+<p>I&rsquo;m a huge fan of podcasts,</p>
+<p>and I listen to some podcasts,</p>
+<p>and I think like, what is interesting about this?</p>
+<p>What is compelling?</p>
+<p>The same way you watch other games.</p>
+<p>Like you said, watch, play StarCraft,</p>
+<p>or have Magnus Carlsen play chess.</p>
+<p>So I&rsquo;m not a chess player,</p>
+<p>but it&rsquo;s still interesting to me.</p>
+<p>What is that?</p>
+<p>That&rsquo;s the stakes of it,</p>
+<p>maybe the end of a domination of a series of wins.</p>
+<p>I don&rsquo;t know, there&rsquo;s all those elements</p>
+<p>somehow connect to a compelling conversation.</p>
+<p>And I wonder how hard is that to replace,</p>
+<p>because ultimately all of that connects</p>
+<p>to the initial proposition of how to test,</p>
+<p>whether an AI is intelligent or not with the Turing test,</p>
+<p>which I guess my question comes from a place</p>
+<p>of the spirit of that test.</p>
+<p>Yes, I actually recall,</p>
+<p>I was just listening to our first podcast</p>
+<p>where we discussed Turing test.</p>
+<p>So I would say from a neural network,</p>
+<p>AI builder perspective,</p>
+<p>there&rsquo;s usually you try to map</p>
+<p>many of these interesting topics you discuss to benchmarks,</p>
+<p>and then also to actual architectures</p>
+<p>on the how these systems are currently built,</p>
+<p>how they learn, what data they learn from,</p>
+<p>what are they learning, right?</p>
+<p>We&rsquo;re talking about weights of a mathematical function,</p>
+<p>and then looking at the current state of the game,</p>
+<p>maybe what do we need leaps forward</p>
+<p>to get to the ultimate stage of all these experiences,</p>
+<p>lifetime experience, fears,</p>
+<p>like words that currently,</p>
+<p>barely we&rsquo;re seeing progress</p>
+<p>just because what&rsquo;s happening today</p>
+<p>is you take all these human interactions,</p>
+<p>it&rsquo;s a large vast variety of human interactions online,</p>
+<p>and then you&rsquo;re distilling these sequences, right?</p>
+<p>Going back to my passion,</p>
+<p>like sequences of words, letters, images, sound,</p>
+<p>there&rsquo;s more modalities here to be at play.</p>
+<p>And then you&rsquo;re trying to just learn a function</p>
+<p>that will be happy,</p>
+<p>that maximizes the likelihood of seeing all these</p>
+<p>through a neural network.</p>
+<p>Now, I think there&rsquo;s a few places</p>
+<p>where the way currently we train these models</p>
+<p>would clearly lack to be able to develop</p>
+<p>the kinds of capabilities you save.</p>
+<p>I&rsquo;ll tell you maybe a couple.</p>
+<p>One is the lifetime of an agent or a model.</p>
+<p>So you learn from this data offline, right?</p>
+<p>So you&rsquo;re just passively observing and maximizing these,</p>
+<p>it&rsquo;s almost like a mountains,</p>
+<p>like a landscape of mountains,</p>
+<p>and then everywhere there&rsquo;s data</p>
+<p>that humans interacted in this way,</p>
+<p>you&rsquo;re trying to make that higher</p>
+<p>and then lower where there&rsquo;s no data.</p>
+<p>And then these models generally</p>
+<p>don&rsquo;t then experience themselves.</p>
+<p>They just are observers, right?</p>
+<p>They&rsquo;re passive observers of the data.</p>
+<p>And then we&rsquo;re putting them to then generate data</p>
+<p>when we interact with them,</p>
+<p>but that&rsquo;s very limiting.</p>
+<p>The experience they actually experience</p>
+<p>when they could maybe be optimizing</p>
+<p>or further optimizing the weights,</p>
+<p>we&rsquo;re not even doing that.</p>
+<p>So to be clear, and again, mapping to AlphaGo, AlphaStar,</p>
+<p>we train the model.</p>
+<p>And when we deploy it to play against humans,</p>
+<p>or in this case interact with humans,</p>
+<p>like language models,</p>
+<p>they don&rsquo;t even keep training, right?</p>
+<p>They&rsquo;re not learning in the sense of the weights</p>
+<p>that you&rsquo;ve learned from the data,</p>
+<p>they don&rsquo;t keep changing.</p>
+<p>Now, there&rsquo;s something a bit more feels magical,</p>
+<p>but it&rsquo;s understandable if you&rsquo;re into Neuronet,</p>
+<p>which is, well, they might not learn</p>
+<p>in the strict sense of the words,</p>
+<p>the weights changing,</p>
+<p>maybe that&rsquo;s mapping to how neurons interconnect</p>
+<p>and how we learn over our lifetime.</p>
+<p>But it&rsquo;s true that the context of the conversation</p>
+<p>that takes place when you talk to these systems,</p>
+<p>it&rsquo;s held in their working memory, right?</p>
+<p>It&rsquo;s almost like you start the computer,</p>
+<p>it has a hard drive that has a lot of information,</p>
+<p>you have access to the internet,</p>
+<p>which has probably all the information,</p>
+<p>but there&rsquo;s also a working memory</p>
+<p>where these agents, as we call them,</p>
+<p>or start calling them, build upon.</p>
+<p>Now, this memory is very limited.</p>
+<p>I mean, right now we&rsquo;re talking, to be concrete,</p>
+<p>about 2,000 words that we hold,</p>
+<p>and then beyond that, we start forgetting what we&rsquo;ve seen.</p>
+<p>So you can see that there&rsquo;s some short term coherence</p>
+<p>already, right, with what you said.</p>
+<p>I mean, it&rsquo;s a very interesting topic.</p>
+<p>Having sort of a mapping, an agent to have consistency,</p>
+<p>then if you say, oh, what&rsquo;s your name,</p>
+<p>it could remember that,</p>
+<p>but then it might forget beyond 2,000 words,</p>
+<p>which is not that long of context</p>
+<p>if we think even of these podcast books are much longer.</p>
+<p>So technically speaking, there&rsquo;s a limitation there,</p>
+<p>super exciting from people that work on deep learning</p>
+<p>to be working on, but I would say we lack maybe benchmarks</p>
+<p>and the technology to have this lifetime like experience</p>
+<p>of memory that keeps building up.</p>
+<p>However, the way it learns offline</p>
+<p>is clearly very powerful, right?</p>
+<p>So you asked me three years ago, I would say,</p>
+<p>oh, we&rsquo;re very far.</p>
+<p>I think we&rsquo;ve seen the power of this imitation,</p>
+<p>again, on the internet scale that has enabled this</p>
+<p>to feel like at least the knowledge,</p>
+<p>the basic knowledge about the world now</p>
+<p>is incorporated into the weights,</p>
+<p>but then this experience is lacking.</p>
+<p>And in fact, as I said, we don&rsquo;t even train them</p>
+<p>when we&rsquo;re talking to them,</p>
+<p>other than their working memory, of course, is affected.</p>
+<p>So that&rsquo;s the dynamic part,</p>
+<p>but they don&rsquo;t learn in the same way</p>
+<p>that you and I have learned, right?</p>
+<p>From basically when we were born and probably before.</p>
+<p>So lots of fascinating, interesting questions you asked there.</p>
+<p>I think the one I mentioned is this idea of memory</p>
+<p>and experience versus just kind of observe the world</p>
+<p>and learn its knowledge, which I think for that,</p>
+<p>I would argue lots of recent advancements</p>
+<p>that make me very excited about the field.</p>
+<p>And then the second maybe issue that I see is</p>
+<p>all these models, we train them from scratch.</p>
+<p>That&rsquo;s something I would have complained three years ago</p>
+<p>or six years ago or 10 years ago.</p>
+<p>And it feels if we take inspiration from how we got here,</p>
+<p>how the universe evolved us and we keep evolving,</p>
+<p>it feels that is a missing piece,</p>
+<p>that we should not be training models from scratch</p>
+<p>every few months,</p>
+<p>that there should be some sort of way</p>
+<p>in which we can grow models much like as a species</p>
+<p>and many other elements in the universe</p>
+<p>is building from the previous sort of iterations.</p>
+<p>And that from a just purely neural network perspective,</p>
+<p>even though we would like to make it work,</p>
+<p>it&rsquo;s proven very hard to not throw away</p>
+<p>the previous weights, right?</p>
+<p>This landscape we learn from the data</p>
+<p>and refresh it with a brand new set of weights,</p>
+<p>given maybe a recent snapshot of these data sets</p>
+<p>we train on, et cetera, or even a new game we&rsquo;re learning.</p>
+<p>So that feels like something is missing fundamentally.</p>
+<p>We might find it, but it&rsquo;s not very clear</p>
+<p>how it will look like.</p>
+<p>There&rsquo;s many ideas and it&rsquo;s super exciting as well.</p>
+<p>Yes, just for people who don&rsquo;t know,</p>
+<p>when you&rsquo;re approaching a new problem in machine learning,</p>
+<p>you&rsquo;re going to come up with an architecture</p>
+<p>that has a bunch of weights</p>
+<p>and then you initialize them somehow,</p>
+<p>which in most cases is some version of random.</p>
+<p>So that&rsquo;s what you mean by starting from scratch.</p>
+<p>And it seems like it&rsquo;s a waste every time you solve</p>
+<p>the game of Go and chess, StarCraft, protein folding,</p>
+<p>like surely there&rsquo;s some way to reuse the weights</p>
+<p>as we grow this giant database of neural networks</p>
+<p>that have solved some of the toughest problems in the world.</p>
+<p>And so some of that is, what is that?</p>
+<p>Methods, how to reuse weights,</p>
+<p>how to learn, extract what&rsquo;s generalizable</p>
+<p>or at least has a chance to be</p>
+<p>and throw away the other stuff.</p>
+<p>And maybe the neural network itself</p>
+<p>should be able to tell you that.</p>
+<p>Like what, yeah, how do you,</p>
+<p>what ideas do you have for better initialization of weights?</p>
+<p>Maybe stepping back,</p>
+<p>if we look at the field of machine learning,</p>
+<p>but especially deep learning, right?</p>
+<p>At the core of deep learning,</p>
+<p>there&rsquo;s this beautiful idea that is a single algorithm</p>
+<p>can solve any task, right?</p>
+<p>So it&rsquo;s been proven over and over</p>
+<p>with more increasing set of benchmarks</p>
+<p>and things that were thought impossible</p>
+<p>that are being cracked by this basic principle</p>
+<p>that is you take a neural network of uninitialized weights,</p>
+<p>so like a blank computational brain,</p>
+<p>then you give it, in the case of supervised learning,</p>
+<p>a lot ideally of examples of,</p>
+<p>hey, here is what the input looks like</p>
+<p>and the desired output should look like this.</p>
+<p>I mean, image classification is very clear example,</p>
+<p>images to maybe one of a thousand categories,</p>
+<p>that&rsquo;s what ImageNet is like,</p>
+<p>but many, many, if not all problems can be mapped this way.</p>
+<p>And then there&rsquo;s a generic recipe, right?</p>
+<p>That you can use.</p>
+<p>And this recipe with very little change,</p>
+<p>and I think that&rsquo;s the core of deep learning research, right?</p>
+<p>That what is the recipe that is universal?</p>
+<p>That for any new given task,</p>
+<p>I&rsquo;ll be able to use without thinking,</p>
+<p>without having to work very hard on the problem at stake.</p>
+<p>We have not found this recipe,</p>
+<p>but I think the field is excited to find less tweaks</p>
+<p>or tricks that people find when they work</p>
+<p>on important problems specific to those</p>
+<p>and more of a general algorithm, right?</p>
+<p>So at an algorithmic level,</p>
+<p>I would say we have something general already,</p>
+<p>which is this formula of training a very powerful model,</p>
+<p>a neural network on a lot of data.</p>
+<p>And in many cases, you need some specificity</p>
+<p>to the actual problem you&rsquo;re solving,</p>
+<p>protein folding being such an important problem</p>
+<p>has some basic recipe that is learned from before, right?</p>
+<p>Like transformer models, graph neural networks,</p>
+<p>ideas coming from NLP, like something called BERT,</p>
+<p>that is a kind of loss that you can emplace</p>
+<p>to help the knowledge distillation is another technique,</p>
+<p>right?</p>
+<p>So this is the formula.</p>
+<p>We still had to find some particular things</p>
+<p>that were specific to alpha fold, right?</p>
+<p>That&rsquo;s very important because protein folding</p>
+<p>is such a high value problem that as humans,</p>
+<p>we should solve it no matter</p>
+<p>if we need to be a bit specific.</p>
+<p>And it&rsquo;s possible that some of these learnings</p>
+<p>will apply then to the next iteration of this recipe</p>
+<p>that deep learners are about.</p>
+<p>But it is true that so far, the recipe is what&rsquo;s common,</p>
+<p>but the weights you generally throw away,</p>
+<p>which feels very sad.</p>
+<p>Although, maybe in the last,</p>
+<p>especially in the last two, three years,</p>
+<p>and when we last spoke,</p>
+<p>I mentioned this area of meta learning,</p>
+<p>which is the idea of learning to learn.</p>
+<p>That idea and some progress has been had starting,</p>
+<p>I would say, mostly from GPT3 on the language domain only,</p>
+<p>in which you could conceive a model that is trained once.</p>
+<p>And then this model is not narrow in that it only knows</p>
+<p>how to translate a pair of languages or even a set of</p>
+<p>or it only knows how to assign sentiment to a sentence.</p>
+<p>These actually, you could teach it by a prompting,</p>
+<p>it&rsquo;s called, and this prompting is essentially</p>
+<p>just showing it a few more examples,</p>
+<p>almost like you do show examples, input, output examples,</p>
+<p>algorithmically speaking to the process</p>
+<p>of creating this model.</p>
+<p>But now you&rsquo;re doing it through language,</p>
+<p>which is very natural way for us to learn from one another.</p>
+<p>I tell you, hey, you should do this new task.</p>
+<p>I&rsquo;ll tell you a bit more.</p>
+<p>Maybe you ask me some questions</p>
+<p>and now you know the task, right?</p>
+<p>You didn&rsquo;t need to retrain it from scratch.</p>
+<p>And we&rsquo;ve seen these magical moments almost</p>
+<p>in this way to do few shot promptings through language</p>
+<p>on language only domain.</p>
+<p>And then in the last two years,</p>
+<p>we&rsquo;ve seen these expanded to beyond language,</p>
+<p>adding vision, adding actions and games,</p>
+<p>lots of progress to be had.</p>
+<p>But this is maybe, if you ask me like about</p>
+<p>how are we gonna crack this problem?</p>
+<p>This is perhaps one way in which you have a single model.</p>
+<p>The problem of this model is it&rsquo;s hard to grow</p>
+<p>in weights or capacity,</p>
+<p>but the model is certainly so powerful</p>
+<p>that you can teach it some tasks, right?</p>
+<p>In this way that I teach you,</p>
+<p>I could teach you a new task now,</p>
+<p>if we were all at a text based task</p>
+<p>or a classification of vision style task.</p>
+<p>But it still feels like more breakthroughs should be had,</p>
+<p>but it&rsquo;s a great beginning, right?</p>
+<p>We have a good baseline.</p>
+<p>We have an idea that this maybe is the way we want</p>
+<p>to benchmark progress towards AGI.</p>
+<p>And I think in my view, that&rsquo;s critical</p>
+<p>to always have a way to benchmark the community</p>
+<p>sort of converging to these overall,</p>
+<p>which is good to see.</p>
+<p>And then this is actually what excites me</p>
+<p>in terms of also next steps for deep learning</p>
+<p>is how to make these models more powerful,</p>
+<p>how do you train them, how to grow them</p>
+<p>if they must grow, should they change their weights</p>
+<p>as you teach it task or not?</p>
+<p>There&rsquo;s some interesting questions, many to be answered.</p>
+<p>Yeah, you&rsquo;ve opened the door</p>
+<p>about to a bunch of questions I want to ask,</p>
+<p>but let&rsquo;s first return to your tweet</p>
+<p>and read it like a Shakespeare.</p>
+<p>You wrote, God is not the end, it&rsquo;s the beginning.</p>
+<p>And then you wrote meow and then an emoji of a cat.</p>
+<p>So first two questions.</p>
+<p>First, can you explain the meow and the cat emoji?</p>
+<p>And second, can you explain what Godot is and how it works?</p>
+<p>Right, indeed.</p>
+<p>I mean, thanks for reminding me</p>
+<p>that we&rsquo;re all exposing on Twitter and.</p>
+<p>Permanently there.</p>
+<p>Yes, permanently there.</p>
+<p>One of the greatest AI researchers of all time,</p>
+<p>meow and cat emoji.</p>
+<p>Yes. There you go.</p>
+<p>Right, so.</p>
+<p>Can you imagine like touring, tweeting, meow and cat,</p>
+<p>probably he would, probably would.</p>
+<p>Probably.</p>
+<p>So yeah, the tweet is important actually.</p>
+<p>You know, I put thought on the tweets, I hope people.</p>
+<p>Which part do you think?</p>
+<p>Okay, so there&rsquo;s three sentences.</p>
+<p>Godot is not the end, Godot is the beginning,</p>
+<p>meow, cat emoji.</p>
+<p>Okay, which is the important part?</p>
+<p>The meow, no, no.</p>
+<p>Definitely that it is the beginning.</p>
+<p>I mean, I probably was just explaining a bit</p>
+<p>where the field is going, but let me tell you about Godot.</p>
+<p>So first the name Godot comes from maybe a sequence</p>
+<p>of releases that DeepMind had that named,</p>
+<p>like used animal names to name some of their models</p>
+<p>that are based on this idea of large sequence models.</p>
+<p>Initially they&rsquo;re only language,</p>
+<p>but we are expanding to other modalities.</p>
+<p>So we had, you know, we had Gopher, Chinchilla,</p>
+<p>these were language only.</p>
+<p>And then more recently we released Flamingo,</p>
+<p>which adds vision to the equation.</p>
+<p>And then Godot, which adds vision</p>
+<p>and then also actions in the mix, right?</p>
+<p>As we discuss actually actions,</p>
+<p>especially discrete actions like up, down, left, right.</p>
+<p>I just told you the actions, but they&rsquo;re words.</p>
+<p>So you can kind of see how actions naturally map</p>
+<p>to sequence modeling of words,</p>
+<p>which these models are very powerful.</p>
+<p>So Godot was named after, I believe,</p>
+<p>I can only from memory, right?</p>
+<p>These, you know, these things always happen</p>
+<p>with an amazing team of researchers behind.</p>
+<p>So before the release, we had a discussion</p>
+<p>about which animal would we pick, right?</p>
+<p>And I think because of the word general agent, right?</p>
+<p>And this is a property quite unique to Godot.</p>
+<p>We kind of were playing with the GA words</p>
+<p>and then, you know, Godot.</p>
+<p>Rhymes with cat.</p>
+<p>Yes.</p>
+<p>And Godot is obviously a Spanish version of cat.</p>
+<p>I had nothing to do with it, although I&rsquo;m from Spain.</p>
+<p>Oh, how do you, wait, sorry.</p>
+<p>How do you say cat in Spanish?</p>
+<p>Gato.</p>
+<p>Oh, gato, okay.</p>
+<p>Now it all makes sense.</p>
+<p>Okay, okay, I see, I see, I see.</p>
+<p>Now it all makes sense.</p>
+<p>Okay, so.</p>
+<p>How do you say meow in Spanish?</p>
+<p>No, that&rsquo;s probably the same.</p>
+<p>I think you say it the same way,</p>
+<p>but you write it as M, I, A, U.</p>
+<p>Okay, it&rsquo;s universal.</p>
+<p>Yes.</p>
+<p>All right, so then how does the thing work?</p>
+<p>So you said general is, so you said language, vision.</p>
+<p>And action. Action.</p>
+<p>How does this, can you explain</p>
+<p>what kind of neural networks are involved?</p>
+<p>What does the training look like?</p>
+<p>And maybe what do you,</p>
+<p>are some beautiful ideas within the system?</p>
+<p>Yeah, so maybe the basics of Gato</p>
+<p>are not that dissimilar from many, many work that come.</p>
+<p>So here is where the sort of the recipe,</p>
+<p>I mean, hasn&rsquo;t changed too much.</p>
+<p>There is a transformer model</p>
+<p>that&rsquo;s the kind of recurrent neural network</p>
+<p>that essentially takes a sequence of modalities,</p>
+<p>observations that could be words,</p>
+<p>could be vision or could be actions.</p>
+<p>And then its own objective that you train it to do</p>
+<p>when you train it is to predict what the next anything is.</p>
+<p>And anything means what&rsquo;s the next action.</p>
+<p>If this sequence that I&rsquo;m showing you to train</p>
+<p>is a sequence of actions and observations,</p>
+<p>then you&rsquo;re predicting what&rsquo;s the next action</p>
+<p>and the next observation, right?</p>
+<p>So you think of these really as a sequence of bites, right?</p>
+<p>So take any sequence of words,</p>
+<p>a sequence of interleaved words and images,</p>
+<p>a sequence of maybe observations that are images</p>
+<p>and moves in Atari up, down, left, right.</p>
+<p>And these you just think of them as bites</p>
+<p>and you&rsquo;re modeling what&rsquo;s the next bite gonna be like.</p>
+<p>And you might interpret that as an action</p>
+<p>and then play it in a game,</p>
+<p>or you could interpret it as a word</p>
+<p>and then write it down</p>
+<p>if you&rsquo;re chatting with the system and so on.</p>
+<p>So Gato basically can be thought as inputs,</p>
+<p>images, text, video, actions.</p>
+<p>It also actually inputs some sort of proprioception sensors</p>
+<p>from robotics because robotics is one of the tasks</p>
+<p>that it&rsquo;s been trained to do.</p>
+<p>And then at the output, similarly,</p>
+<p>it outputs words, actions.</p>
+<p>It does not output images, that&rsquo;s just by design,</p>
+<p>we decided not to go that way for now.</p>
+<p>That&rsquo;s also in part why it&rsquo;s the beginning</p>
+<p>because there&rsquo;s more to do clearly.</p>
+<p>But that&rsquo;s kind of what the Gato is,</p>
+<p>is this brain that essentially you give it any sequence</p>
+<p>of these observations and modalities</p>
+<p>and it outputs the next step.</p>
+<p>And then off you go, you feed the next step into</p>
+<p>and predict the next one and so on.</p>
+<p>Now, it is more than a language model</p>
+<p>because even though you can chat with Gato,</p>
+<p>like you can chat with Chinchilla or Flamingo,</p>
+<p>it also is an agent, right?</p>
+<p>So that&rsquo;s why we call it A of Gato,</p>
+<p>like the letter A and also it&rsquo;s general.</p>
+<p>It&rsquo;s not an agent that&rsquo;s been trained to be good</p>
+<p>at only StarCraft or only Atari or only Go.</p>
+<p>It&rsquo;s been trained on a vast variety of datasets.</p>
+<p>What makes it an agent, if I may interrupt,</p>
+<p>the fact that it can generate actions?</p>
+<p>Yes, so when we call it, I mean, it&rsquo;s a good question, right?</p>
+<p>When do we call a model?</p>
+<p>I mean, everything is a model,</p>
+<p>but what is an agent in my view is indeed the capacity</p>
+<p>to take actions in an environment that you then send to it</p>
+<p>and then the environment might return</p>
+<p>with a new observation</p>
+<p>and then you generate the next action.</p>
+<p>This actually, this reminds me of the question</p>
+<p>from the side of biology, what is life?</p>
+<p>Which is actually a very difficult question as well.</p>
+<p>What is living, what is living when you think about life</p>
+<p>here on this planet Earth?</p>
+<p>And a question interesting to me about aliens,</p>
+<p>what is life when we visit another planet?</p>
+<p>Would we be able to recognize it?</p>
+<p>And this feels like, it sounds perhaps silly,</p>
+<p>but I don&rsquo;t think it is.</p>
+<p>At which point is the neural network a being versus a tool?</p>
+<p>And it feels like action, ability to modify its environment</p>
+<p>is that fundamental leap.</p>
+<p>Yeah, I think it certainly feels like action</p>
+<p>is a necessary condition to be more alive,</p>
+<p>but probably not sufficient either.</p>
+<p>So sadly I&hellip;</p>
+<p>It&rsquo;s a soul consciousness thing, whatever.</p>
+<p>Yeah, yeah, we can get back to that later.</p>
+<p>But anyways, going back to the meow and the gato, right?</p>
+<p>So one of the leaps forward and what took the team a lot</p>
+<p>of effort and time was, as you were asking,</p>
+<p>how has gato been trained?</p>
+<p>So I told you gato is this transformer neural network,</p>
+<p>models actions, sequences of actions, words, et cetera.</p>
+<p>And then the way we train it is by essentially pulling</p>
+<p>data sets of observations, right?</p>
+<p>So it&rsquo;s a massive imitation learning algorithm</p>
+<p>that it imitates obviously to what</p>
+<p>is the next word that comes next from the usual data</p>
+<p>sets we use before, right?</p>
+<p>So these are these web scale style data sets of people</p>
+<p>writing on webs or chatting or whatnot, right?</p>
+<p>So that&rsquo;s an obvious source that we use on all language work.</p>
+<p>But then we also took a lot of agents</p>
+<p>that we have at DeepMind.</p>
+<p>I mean, as you know, DeepMind, we&rsquo;re quite interested</p>
+<p>in learning reinforcement learning and learning agents</p>
+<p>that play in different environments.</p>
+<p>So we kind of created a data set of these trajectories,</p>
+<p>as we call them, or agent experiences.</p>
+<p>So in a way, there are other agents</p>
+<p>we train for a single mind purpose to, let&rsquo;s say,</p>
+<p>control a 3D game environment and navigate a maze.</p>
+<p>So we had all the experience that</p>
+<p>was created through one agent interacting</p>
+<p>with that environment.</p>
+<p>And we added this to the data set, right?</p>
+<p>And as I said, we just see all the data,</p>
+<p>all these sequences of words or sequences</p>
+<p>of this agent interacting with that environment or agents</p>
+<p>playing Atari and so on.</p>
+<p>We see it as the same kind of data.</p>
+<p>And so we mix these data sets together.</p>
+<p>And we train Gato.</p>
+<p>That&rsquo;s the G part, right?</p>
+<p>It&rsquo;s general because it really has mixed.</p>
+<p>It doesn&rsquo;t have different brains for each modality</p>
+<p>or each narrow task.</p>
+<p>It has a single brain.</p>
+<p>It&rsquo;s not that big of a brain compared</p>
+<p>to most of the neural networks we see these days.</p>
+<p>It has 1 billion parameters.</p>
+<p>Some models we&rsquo;re seeing get in the trillions these days.</p>
+<p>And certainly, 100 billion feels like a size</p>
+<p>that is very common from when you train these jobs.</p>
+<p>So the actual agent is relatively small.</p>
+<p>But it&rsquo;s been trained on a very challenging, diverse data set,</p>
+<p>not only containing all of the internet</p>
+<p>but containing all these agent experience playing</p>
+<p>very different, distinct environments.</p>
+<p>So this brings us to the part of the tweet of this</p>
+<p>is not the end, it&rsquo;s the beginning.</p>
+<p>It feels very cool to see Gato, in principle,</p>
+<p>is able to control any sort of environments, especially</p>
+<p>the ones that it&rsquo;s been trained to do, these 3D games, Atari</p>
+<p>games, all sorts of robotics tasks, and so on.</p>
+<p>But obviously, it&rsquo;s not as proficient</p>
+<p>as the teachers it learned from on these environments.</p>
+<p>Not obvious.</p>
+<p>It&rsquo;s not obvious that it wouldn&rsquo;t be more proficient.</p>
+<p>It&rsquo;s just the current beginning part</p>
+<p>is that the performance is such that it&rsquo;s not as good</p>
+<p>as if it&rsquo;s specialized to that task.</p>
+<p>Right.</p>
+<p>So it&rsquo;s not as good, although I would argue size matters here.</p>
+<p>So the fact that I would argue always size always matters.</p>
+<p>That&rsquo;s a different conversation.</p>
+<p>But for neural networks, certainly size does matter.</p>
+<p>So it&rsquo;s the beginning because it&rsquo;s relatively small.</p>
+<p>So obviously, scaling this idea up</p>
+<p>might make the connections that exist between text</p>
+<p>on the internet and playing Atari and so on more</p>
+<p>synergistic with one another.</p>
+<p>And you might gain.</p>
+<p>And that moment, we didn&rsquo;t quite see.</p>
+<p>But obviously, that&rsquo;s why it&rsquo;s the beginning.</p>
+<p>That synergy might emerge with scale.</p>
+<p>Right, might emerge with scale.</p>
+<p>And also, I believe there&rsquo;s some new research or ways</p>
+<p>in which you prepare the data that you</p>
+<p>might need to make it more clear to the model</p>
+<p>that you&rsquo;re not only playing Atari,</p>
+<p>and you start from a screen.</p>
+<p>And here is up and a screen and down.</p>
+<p>Maybe you can think of playing Atari</p>
+<p>as there&rsquo;s some sort of context that is needed for the agent</p>
+<p>before it starts seeing, oh, this is an Atari screen.</p>
+<p>I&rsquo;m going to start playing.</p>
+<p>You might require, for instance, to be told in words,</p>
+<p>hey, in this sequence that I&rsquo;m showing,</p>
+<p>you&rsquo;re going to be playing an Atari game.</p>
+<p>So text might actually be a good driver to enhance the data.</p>
+<p>So then these connections might be made more easily.</p>
+<p>So that&rsquo;s an idea that we start seeing in language.</p>
+<p>But obviously, beyond, this is going to be effective.</p>
+<p>It&rsquo;s not like I don&rsquo;t show you a screen,</p>
+<p>and you, from scratch, you&rsquo;re supposed to learn a game.</p>
+<p>There is a lot of context we might set.</p>
+<p>So there might be some work needed as well</p>
+<p>to set that context.</p>
+<p>But anyways, there&rsquo;s a lot of work.</p>
+<p>So that context puts all the different modalities</p>
+<p>on the same level ground to provide the context best.</p>
+<p>So maybe on that point, so there&rsquo;s</p>
+<p>this task, which may not seem trivial, of tokenizing the data,</p>
+<p>of converting the data into pieces,</p>
+<p>into basic atomic elements that then could cross modalities</p>
+<p>somehow.</p>
+<p>So what&rsquo;s tokenization?</p>
+<p>How do you tokenize text?</p>
+<p>How do you tokenize images?</p>
+<p>How do you tokenize games and actions and robotics tasks?</p>
+<p>Yeah, that&rsquo;s a great question.</p>
+<p>So tokenization is the entry point</p>
+<p>to actually make all the data look like a sequence,</p>
+<p>because tokens then are just these little puzzle pieces.</p>
+<p>We break down anything into these puzzle pieces,</p>
+<p>and then we just model, what&rsquo;s this puzzle look like when</p>
+<p>you make it lay down in a line, so to speak, in a sequence?</p>
+<p>So in Gato, the text, there&rsquo;s a lot of work.</p>
+<p>You tokenize text usually by looking</p>
+<p>at commonly used substrings, right?</p>
+<p>So there&rsquo;s ING in English is a very common substring,</p>
+<p>so that becomes a token.</p>
+<p>There&rsquo;s quite a well studied problem on tokenizing text.</p>
+<p>And Gato just used the standard techniques</p>
+<p>that have been developed from many years,</p>
+<p>even starting from ngram models in the 1950s and so on.</p>
+<p>Just for context, how many tokens,</p>
+<p>what order, magnitude, number of tokens</p>
+<p>is required for a word, usually?</p>
+<p>What are we talking about?</p>
+<p>Yeah, for a word in English, I mean,</p>
+<p>every language is very different.</p>
+<p>The current level or granularity of tokenization</p>
+<p>generally means it&rsquo;s maybe two to five.</p>
+<p>I mean, I don&rsquo;t know the statistics exactly,</p>
+<p>but to give you an idea, we don&rsquo;t tokenize</p>
+<p>at the level of letters.</p>
+<p>Then it would probably be, I don&rsquo;t</p>
+<p>know what the average length of a word is in English,</p>
+<p>but that would be the minimum set of tokens you could use.</p>
+<p>It was bigger than letters, smaller than words.</p>
+<p>Yes, yes.</p>
+<p>And you could think of very, very common words like the.</p>
+<p>I mean, that would be a single token,</p>
+<p>but very quickly you&rsquo;re talking two, three, four tokens or so.</p>
+<p>Have you ever tried to tokenize emojis?</p>
+<p>Emojis are actually just sequences of letters, so.</p>
+<p>Maybe to you, but to me they mean so much more.</p>
+<p>Yeah, you can render the emoji, but you</p>
+<p>might if you actually just.</p>
+<p>Yeah, this is a philosophical question.</p>
+<p>Is emojis an image or a text?</p>
+<p>The way we do these things is they&rsquo;re actually</p>
+<p>mapped to small sequences of characters.</p>
+<p>So you can actually play with these models</p>
+<p>and input emojis, it will output emojis back,</p>
+<p>which is actually quite a fun exercise.</p>
+<p>You probably can find other tweets about these out there.</p>
+<p>But yeah, so anyways, text.</p>
+<p>It&rsquo;s very clear how this is done.</p>
+<p>And then in Gato, what we did for images</p>
+<p>is we map images to essentially we compressed images,</p>
+<p>so to speak, into something that looks more like less</p>
+<p>like every pixel with every intensity.</p>
+<p>That would mean we have a very long sequence, right?</p>
+<p>Like if we were talking about 100 by 100 pixel images,</p>
+<p>that would make the sequences far too long.</p>
+<p>So what was done there is you just</p>
+<p>use a technique that essentially compresses an image</p>
+<p>into maybe 16 by 16 patches of pixels,</p>
+<p>and then that is mapped, again, tokenized.</p>
+<p>You just essentially quantize this space</p>
+<p>into a special word that actually</p>
+<p>maps to these little sequence of pixels.</p>
+<p>And then you put the pixels together in some raster order,</p>
+<p>and then that&rsquo;s how you get out or in the image</p>
+<p>that you&rsquo;re processing.</p>
+<p>But there&rsquo;s no semantic aspect to that,</p>
+<p>so you&rsquo;re doing some kind of,</p>
+<p>you don&rsquo;t need to understand anything about the image</p>
+<p>in order to tokenize it currently.</p>
+<p>No, you&rsquo;re only using this notion of compression.</p>
+<p>So you&rsquo;re trying to find common,</p>
+<p>it&rsquo;s like JPG or all these algorithms.</p>
+<p>It&rsquo;s actually very similar at the tokenization level.</p>
+<p>All we&rsquo;re doing is finding common patterns</p>
+<p>and then making sure in a lossy way we compress these images</p>
+<p>given the statistics of the images</p>
+<p>that are contained in all the data we deal with.</p>
+<p>Although you could probably argue that JPEG</p>
+<p>does have some understanding of images.</p>
+<p>Because visual information, maybe color,</p>
+<p>compressing crudely based on color</p>
+<p>does capture something important about an image</p>
+<p>that&rsquo;s about its meaning, not just about some statistics.</p>
+<p>Yeah, I mean, JP, as I said,</p>
+<p>the algorithms look actually very similar</p>
+<p>to they use the cosine transform in JPG.</p>
+<p>The approach we usually do in machine learning</p>
+<p>when we deal with images and we do this quantization step</p>
+<p>is a bit more data driven.</p>
+<p>So rather than have some sort of Fourier basis</p>
+<p>for how frequencies appear in the natural world,</p>
+<p>we actually just use the statistics of the images</p>
+<p>and then quantize them based on the statistics,</p>
+<p>much like you do in words, right?</p>
+<p>So common substrings are allocated a token</p>
+<p>and images is very similar.</p>
+<p>But there&rsquo;s no connection.</p>
+<p>The token space, if you think of,</p>
+<p>oh, like the tokens are an integer</p>
+<p>and in the end of the day.</p>
+<p>So now like we work on, maybe we have about,</p>
+<p>let&rsquo;s say, I don&rsquo;t know the exact numbers,</p>
+<p>but let&rsquo;s say 10,000 tokens for text, right?</p>
+<p>Certainly more than characters</p>
+<p>because we have groups of characters and so on.</p>
+<p>So from one to 10,000, those are representing</p>
+<p>all the language and the words we&rsquo;ll see.</p>
+<p>And then images occupy the next set of integers.</p>
+<p>So they&rsquo;re completely independent, right?</p>
+<p>So from 10,001 to 20,000,</p>
+<p>those are the tokens that represent</p>
+<p>these other modality images.</p>
+<p>And that is an interesting aspect that makes it orthogonal.</p>
+<p>So what connects these concepts is the data, right?</p>
+<p>Once you have a data set,</p>
+<p>for instance, that captions images that tells you,</p>
+<p>oh, this is someone playing a frisbee on a green field.</p>
+<p>Now the model will need to predict the tokens</p>
+<p>from the text green field to then the pixels.</p>
+<p>And that will start making the connections</p>
+<p>between the tokens.</p>
+<p>So these connections happen as the algorithm learns.</p>
+<p>And then the last, if we think of these integers,</p>
+<p>the first few are words, the next few are images.</p>
+<p>In Gato, we also allocated the highest order of integers</p>
+<p>to actions, right?</p>
+<p>Which we discretize and actions are very diverse, right?</p>
+<p>In Atari, there&rsquo;s, I don&rsquo;t know if 17 discrete actions.</p>
+<p>In robotics, actions might be torques</p>
+<p>and forces that we apply.</p>
+<p>So we just use kind of similar ideas</p>
+<p>to compress these actions into tokens.</p>
+<p>And then we just, that&rsquo;s how we map now</p>
+<p>all the space to these sequence of integers.</p>
+<p>But they occupy different space</p>
+<p>and what connects them is then the learning algorithm.</p>
+<p>That&rsquo;s where the magic happens.</p>
+<p>So the modalities are orthogonal</p>
+<p>to each other in token space.</p>
+<p>So in the input, everything you add, you add extra tokens.</p>
+<p>And then you&rsquo;re shoving all of that into one place.</p>
+<p>Yes, the transformer.</p>
+<p>And that transformer, that transformer tries</p>
+<p>to look at this gigantic token space</p>
+<p>and tries to form some kind of representation,</p>
+<p>some kind of unique wisdom</p>
+<p>about all of these different modalities.</p>
+<p>How&rsquo;s that possible?</p>
+<p>If you were to sort of like put your psychoanalysis hat on</p>
+<p>and try to psychoanalyze this neural network,</p>
+<p>is it schizophrenic?</p>
+<p>Does it try to, given this very few weights,</p>
+<p>represent multiple disjoint things</p>
+<p>and somehow have them not interfere with each other?</p>
+<p>Or is it somehow building on the joint strength,</p>
+<p>on whatever is common to all the different modalities?</p>
+<p>Like what, if you were to ask a question,</p>
+<p>is it schizophrenic or is it of one mind?</p>
+<p>I mean, it is one mind and it&rsquo;s actually</p>
+<p>the simplest algorithm, which that&rsquo;s kind of in a way</p>
+<p>how it feels like the field hasn&rsquo;t changed</p>
+<p>since back propagation and gradient descent</p>
+<p>was purpose for learning neural networks.</p>
+<p>So there is obviously details on the architecture.</p>
+<p>This has evolved.</p>
+<p>The current iteration is still the transformer,</p>
+<p>which is a powerful sequence modeling architecture.</p>
+<p>But then the goal of this, you know,</p>
+<p>setting these weights to predict the data</p>
+<p>is essentially the same as basically I could describe.</p>
+<p>I mean, we described a few years ago,</p>
+<p>Alpha star language modeling and so on, right?</p>
+<p>We take, let&rsquo;s say an Atari game,</p>
+<p>we map it to a string of numbers</p>
+<p>that will all be probably image space</p>
+<p>and action space interleaved.</p>
+<p>And all we&rsquo;re gonna do is say, okay, given the numbers,</p>
+<p>you know, 10,001, 10,004, 10,005,</p>
+<p>the next number that comes is 20,006,</p>
+<p>which is in the action space.</p>
+<p>And you&rsquo;re just optimizing these weights</p>
+<p>via very simple gradients.</p>
+<p>Like, you know, mathematical is almost</p>
+<p>the most boring algorithm you could imagine.</p>
+<p>We settle the weights so that</p>
+<p>given this particular instance,</p>
+<p>these weights are set to maximize the probability</p>
+<p>of having seen this particular sequence of integers</p>
+<p>for this particular game.</p>
+<p>And then the algorithm does this</p>
+<p>for many, many, many iterations,</p>
+<p>looking at different modalities, different games, right?</p>
+<p>That&rsquo;s the mixture of the dataset we discussed.</p>
+<p>So in a way, it&rsquo;s a very simple algorithm</p>
+<p>and the weights, right, they&rsquo;re all shared, right?</p>
+<p>So in terms of, is it focusing on one modality or not?</p>
+<p>The intermediate weights that are converting</p>
+<p>from these input of integers</p>
+<p>to the target integer you&rsquo;re predicting next,</p>
+<p>those weights certainly are common.</p>
+<p>And then the way that tokenization happens,</p>
+<p>there is a special place in the neural network,</p>
+<p>which is we map this integer, like number 10,001,</p>
+<p>to a vector of real numbers.</p>
+<p>Like real numbers, we can optimize them</p>
+<p>with gradient descent, right?</p>
+<p>The functions we learn</p>
+<p>are actually surprisingly differentiable.</p>
+<p>That&rsquo;s why we compute gradients.</p>
+<p>So this step is the only one</p>
+<p>that this orthogonality you mentioned applies.</p>
+<p>So mapping a certain token for text or image or actions,</p>
+<p>each of these tokens gets its own little vector</p>
+<p>of real numbers that represents this.</p>
+<p>If you look at the field back many years ago,</p>
+<p>people were talking about word vectors or word embeddings.</p>
+<p>These are the same.</p>
+<p>We have word vectors or embeddings.</p>
+<p>We have image vector or embeddings</p>
+<p>and action vector of embeddings.</p>
+<p>And the beauty here is that as you train this model,</p>
+<p>if you visualize these little vectors,</p>
+<p>it might be that they start aligning</p>
+<p>even though they&rsquo;re independent parameters.</p>
+<p>There could be anything,</p>
+<p>but then it might be that you take the word gato or cat,</p>
+<p>which maybe is common enough</p>
+<p>that it actually has its own token.</p>
+<p>And then you take pixels that have a cat</p>
+<p>and you might start seeing</p>
+<p>that these vectors look like they align, right?</p>
+<p>So by learning from this vast amount of data,</p>
+<p>the model is realizing the potential connections</p>
+<p>between these modalities.</p>
+<p>Now, I will say there will be another way,</p>
+<p>at least in part, to not have these different vectors</p>
+<p>for each different modality.</p>
+<p>For instance, when I tell you about actions</p>
+<p>in certain space, I&rsquo;m defining actions by words, right?</p>
+<p>So you could imagine a world in which I&rsquo;m not learning</p>
+<p>that the action app in Atari is its own number.</p>
+<p>The action app in Atari maybe is literally the word</p>
+<p>or the sentence app in Atari, right?</p>
+<p>And that would mean we now leverage</p>
+<p>much more from the language.</p>
+<p>This is not what we did here,</p>
+<p>but certainly it might make these connections</p>
+<p>much easier to learn and also to teach the model</p>
+<p>to correct its own actions and so on, right?</p>
+<p>So all these to say that gato is indeed the beginning,</p>
+<p>that it is a radical idea to do this this way,</p>
+<p>but there&rsquo;s probably a lot more to be done</p>
+<p>and the results to be more impressive,</p>
+<p>not only through scale, but also through some new research</p>
+<p>that will come hopefully in the years to come.</p>
+<p>So just to elaborate quickly,</p>
+<p>you mean one possible next step</p>
+<p>or one of the paths that you might take next</p>
+<p>is doing the tokenization fundamentally</p>
+<p>as a kind of linguistic communication.</p>
+<p>So like you convert even images into language.</p>
+<p>So doing something like a crude semantic segmentation,</p>
+<p>trying to just assign a bunch of words to an image</p>
+<p>that like have almost like a dumb entity</p>
+<p>explaining as much as it can about the image.</p>
+<p>And so you convert that into words</p>
+<p>and then you convert games into words</p>
+<p>and then you provide the context in words and all of it.</p>
+<p>And eventually getting to a point</p>
+<p>where everybody agrees with Noam Chomsky</p>
+<p>that language is actually at the core of everything.</p>
+<p>That&rsquo;s it&rsquo;s the base layer of intelligence</p>
+<p>and consciousness and all that kind of stuff, okay.</p>
+<p>You mentioned early on like size, it&rsquo;s hard to grow.</p>
+<p>What did you mean by that?</p>
+<p>Because we&rsquo;re talking about scale might change.</p>
+<p>There might be, and we&rsquo;ll talk about this too,</p>
+<p>like there&rsquo;s a emergent, there&rsquo;s certain things</p>
+<p>about these neural networks that are emergent.</p>
+<p>So certain like performance we can see only with scale</p>
+<p>and there&rsquo;s some kind of threshold of scale.</p>
+<p>So why is it hard to grow something like this Meow network?</p>
+<p>So the Meow network, it&rsquo;s not hard to grow</p>
+<p>if you retrain it.</p>
+<p>What&rsquo;s hard is, well, we have now 1 billion parameters.</p>
+<p>We train them for a while.</p>
+<p>We spend some amount of work towards building these weights</p>
+<p>that are an amazing initial brain</p>
+<p>for doing these kinds of tasks we care about.</p>
+<p>Could we reuse the weights and expand to a larger brain?</p>
+<p>And that is extraordinarily hard,</p>
+<p>but also exciting from a research perspective</p>
+<p>and a practical perspective point of view, right?</p>
+<p>So there&rsquo;s this notion of modularity in software engineering</p>
+<p>and we starting to see some examples</p>
+<p>and work that leverages modularity.</p>
+<p>In fact, if we go back one step from Gato</p>
+<p>to a work that I would say train much larger,</p>
+<p>much more capable network called Flamingo.</p>
+<p>Flamingo did not deal with actions,</p>
+<p>but it definitely dealt with images in an interesting way,</p>
+<p>kind of akin to what Gato did,</p>
+<p>but slightly different technique for tokenizing,</p>
+<p>but we don&rsquo;t need to go into that detail.</p>
+<p>But what Flamingo also did, which Gato didn&rsquo;t do,</p>
+<p>and that just happens because these projects,</p>
+<p>they&rsquo;re different, it&rsquo;s a bit of like the exploratory nature</p>
+<p>of research, which is great.</p>
+<p>The research behind these projects is also modular.</p>
+<p>Yes, exactly.</p>
+<p>And it has to be, right?</p>
+<p>We need to have creativity</p>
+<p>and sometimes you need to protect pockets of people,</p>
+<p>researchers and so on.</p>
+<p>By we, you mean humans.</p>
+<p>Yes.</p>
+<p>And also in particular researchers</p>
+<p>and maybe even further DeepMind or other such labs.</p>
+<p>And then the neural networks themselves.</p>
+<p>So it&rsquo;s modularity all the way down.</p>
+<p>All the way down.</p>
+<p>So the way that we did modularity very beautifully</p>
+<p>in Flamingo is we took Chinchilla,</p>
+<p>which is a language only model, not an agent,</p>
+<p>if we think of actions being necessary for agency.</p>
+<p>So we took Chinchilla, we took the weights of Chinchilla</p>
+<p>and then we froze them.</p>
+<p>We said, these don&rsquo;t change.</p>
+<p>We train them to be very good at predicting the next word.</p>
+<p>It&rsquo;s a very good language model, state of the art</p>
+<p>at the time you release it, et cetera, et cetera.</p>
+<p>We&rsquo;re going to add a capability to see, right?</p>
+<p>We are going to add the ability to see</p>
+<p>to this language model.</p>
+<p>So we&rsquo;re going to attach small pieces of neural networks</p>
+<p>at the right places in the model.</p>
+<p>It&rsquo;s almost like I&rsquo;m injecting the network</p>
+<p>with some weights and some substructures</p>
+<p>in a good way, right?</p>
+<p>So you need the research to say, what is effective?</p>
+<p>How do you add this capability</p>
+<p>without destroying others, et cetera.</p>
+<p>So we created a small sub network initialized,</p>
+<p>not from random, but actually from self supervised learning</p>
+<p>that a model that understands vision in general.</p>
+<p>And then we took data sets that connect the two modalities,</p>
+<p>vision and language.</p>
+<p>And then we froze the main part,</p>
+<p>the largest portion of the network, which was Chinchilla,</p>
+<p>that is 70 billion parameters.</p>
+<p>And then we added a few more parameters on top,</p>
+<p>trained from scratch, and then some others</p>
+<p>that were pre trained with the capacity to see,</p>
+<p>like it was not tokenization</p>
+<p>in the way I described for Gato, but it&rsquo;s a similar idea.</p>
+<p>And then we trained the whole system.</p>
+<p>Parts of it were frozen, parts of it were new.</p>
+<p>And all of a sudden, we developed Flamingo,</p>
+<p>which is an amazing model that is essentially,</p>
+<p>I mean, describing it is a chatbot</p>
+<p>where you can also upload images</p>
+<p>and start conversing about images.</p>
+<p>But it&rsquo;s also kind of a dialogue style chatbot.</p>
+<p>So the input is images and text and the output is text.</p>
+<p>Exactly.</p>
+<p>How many parameters, you said 70 billion for Chinchilla?</p>
+<p>Yeah, Chinchilla is 70 billion.</p>
+<p>And then the ones we add on top,</p>
+<p>which kind of almost is almost like a way</p>
+<p>to overwrite its little activations</p>
+<p>so that when it sees vision,</p>
+<p>it does kind of a correct computation of what it&rsquo;s seeing,</p>
+<p>mapping it back towards, so to speak.</p>
+<p>That adds an extra 10 billion parameters, right?</p>
+<p>So it&rsquo;s total 80 billion, the largest one we released.</p>
+<p>And then you train it on a few datasets</p>
+<p>that contain vision and language.</p>
+<p>And once you interact with the model,</p>
+<p>you start seeing that you can upload an image</p>
+<p>and start sort of having a dialogue about the image,</p>
+<p>which is actually not something,</p>
+<p>it&rsquo;s very similar and akin to what we saw in language only.</p>
+<p>These prompting abilities that it has,</p>
+<p>you can teach it a new vision task, right?</p>
+<p>It does things beyond the capabilities</p>
+<p>that in theory the datasets provided in themselves,</p>
+<p>but because it leverages a lot of the language knowledge</p>
+<p>acquired from Chinchilla,</p>
+<p>it actually has this few shot learning ability</p>
+<p>and these emerging abilities</p>
+<p>that we didn&rsquo;t even measure</p>
+<p>once we were developing the model,</p>
+<p>but once developed, then as you play with the interface,</p>
+<p>you can start seeing, wow, okay, yeah, it&rsquo;s cool.</p>
+<p>We can upload, I think one of the tweets</p>
+<p>talking about Twitter was this image from Obama</p>
+<p>that is placing a weight</p>
+<p>and someone is kind of weighting themselves</p>
+<p>and it&rsquo;s kind of a joke style image.</p>
+<p>And it&rsquo;s notable because I think Andrew Carpati</p>
+<p>a few years ago said,</p>
+<p>no computer vision system can understand</p>
+<p>the subtlety of this joke in this image,</p>
+<p>all the things that go on.</p>
+<p>And so what we try to do, and it&rsquo;s very anecdotally,</p>
+<p>I mean, this is not a proof that we solved this issue,</p>
+<p>but it just shows that you can upload now this image</p>
+<p>and start conversing with the model,</p>
+<p>trying to make out if it gets that there&rsquo;s a joke</p>
+<p>because the person weighting themselves</p>
+<p>doesn&rsquo;t see that someone behind</p>
+<p>is making the weight higher and so on and so forth.</p>
+<p>So it&rsquo;s a fascinating capability</p>
+<p>and it comes from this key idea of modularity</p>
+<p>where we took a frozen brain</p>
+<p>and we just added a new capability.</p>
+<p>So the question is, should we,</p>
+<p>so in a way you can see even from DeepMind,</p>
+<p>we have Flamingo that this moderate approach</p>
+<p>and thus could leverage the scale a bit more reasonably</p>
+<p>because we didn&rsquo;t need to retrain a system from scratch.</p>
+<p>And on the other hand, we had Gato,</p>
+<p>which used the same data sets,</p>
+<p>but then he trained it from scratch, right?</p>
+<p>And so I guess big question for the community</p>
+<p>is should we train from scratch</p>
+<p>or should we embrace modularity?</p>
+<p>And this lies, like this goes back to modularity</p>
+<p>as a way to grow, but reuse seems like natural</p>
+<p>and it was very effective, certainly.</p>
+<p>The next question is, if you go the way of modularity,</p>
+<p>is there a systematic way of freezing weights</p>
+<p>and joining different modalities across,</p>
+<p>you know, not just two or three or four networks,</p>
+<p>but hundreds of networks from all different kinds of places,</p>
+<p>maybe open source network that looks at weather patterns</p>
+<p>and you shove that in somehow</p>
+<p>and then you have networks that, I don&rsquo;t know,</p>
+<p>do all kinds of stuff, play StarCraft</p>
+<p>and play all the other video games</p>
+<p>and you can keep adding them in without significant effort,</p>
+<p>like maybe the effort scales linearly or something like that</p>
+<p>as opposed to like the more network you add,</p>
+<p>the more you have to worry about the instabilities created.</p>
+<p>Yeah, so that vision is beautiful.</p>
+<p>I think there&rsquo;s still the question</p>
+<p>about within single modalities, like Chinchilla was reused,</p>
+<p>but now if we train a next iteration of language models,</p>
+<p>are we gonna use Chinchilla or not?</p>
+<p>Yeah, how do you swap out Chinchilla?</p>
+<p>Right, so there&rsquo;s still big questions,</p>
+<p>but that idea is actually really akin to software engineering,</p>
+<p>which we&rsquo;re not reimplementing libraries from scratch,</p>
+<p>we&rsquo;re reusing and then building ever more amazing things,</p>
+<p>including neural networks with software that we&rsquo;re reusing.</p>
+<p>So I think this idea of modularity, I like it,</p>
+<p>I think it&rsquo;s here to stay</p>
+<p>and that&rsquo;s also why I mentioned</p>
+<p>it&rsquo;s just the beginning, not the end.</p>
+<p>You&rsquo;ve mentioned meta learning,</p>
+<p>so given this promise of Gato,</p>
+<p>can we try to redefine this term</p>
+<p>that&rsquo;s almost akin to consciousness</p>
+<p>because it means different things to different people</p>
+<p>throughout the history of artificial intelligence,</p>
+<p>but what do you think meta learning is</p>
+<p>and looks like now in the five years, 10 years,</p>
+<p>will it look like the system like Gato, but scaled?</p>
+<p>What&rsquo;s your sense of, what does meta learning look like?</p>
+<p>Do you think with all the wisdom we&rsquo;ve learned so far?</p>
+<p>Yeah, great question.</p>
+<p>Maybe it&rsquo;s good to give another data point</p>
+<p>looking backwards rather than forward.</p>
+<p>So when we talk in 2019,</p>
+<p>meta learning meant something that has changed</p>
+<p>mostly through the revolution of GPT3 and beyond.</p>
+<p>So what meta learning meant at the time</p>
+<p>was driven by what benchmarks people care about</p>
+<p>in meta learning.</p>
+<p>And the benchmarks were about a capability</p>
+<p>to learn about object identities.</p>
+<p>So it was very much overfitted to vision</p>
+<p>and object classification.</p>
+<p>And the part that was meta about that was that,</p>
+<p>oh, we&rsquo;re not just learning a thousand categories</p>
+<p>that ImageNet tells us to learn.</p>
+<p>We&rsquo;re going to learn object categories</p>
+<p>that can be defined when we interact with the model.</p>
+<p>So it&rsquo;s interesting to see the evolution, right?</p>
+<p>The way this started was we have a special language</p>
+<p>that was a data set, a small data set</p>
+<p>that we prompted the model with saying,</p>
+<p>hey, here is a new classification task.</p>
+<p>I&rsquo;ll give you one image and the name,</p>
+<p>which was an integer at the time of the image</p>
+<p>and a different image and so on.</p>
+<p>So you have a small prompt in the form of a data set,</p>
+<p>a machine learning data set.</p>
+<p>And then you got then a system that could then predict</p>
+<p>or classify these objects that you just</p>
+<p>defined kind of on the fly.</p>
+<p>So fast forward, it was revealed that language models</p>
+<p>are few shot learners.</p>
+<p>That&rsquo;s the title of the paper.</p>
+<p>So very good title.</p>
+<p>Sometimes titles are really good.</p>
+<p>So this one is really, really good.</p>
+<p>Because that&rsquo;s the point of GPT3 that showed that, look, sure,</p>
+<p>we can focus on object classification</p>
+<p>and what meta learning means within the space of learning</p>
+<p>object categories.</p>
+<p>This goes beyond, or before rather,</p>
+<p>to also Omniglot, before ImageNet and so on.</p>
+<p>So there&rsquo;s a few benchmarks.</p>
+<p>To now, all of a sudden, we&rsquo;re a bit unlocked from benchmarks.</p>
+<p>And through language, we can define tasks.</p>
+<p>So we&rsquo;re literally telling the model</p>
+<p>some logical task or a little thing that we wanted to do.</p>
+<p>We prompt it much like we did before,</p>
+<p>but now we prompt it through natural language.</p>
+<p>And then not perfectly, I mean, these models have failure modes</p>
+<p>and that&rsquo;s fine, but these models then</p>
+<p>are now doing a new task.</p>
+<p>And so they meta learn this new capability.</p>
+<p>Now, that&rsquo;s where we are now.</p>
+<p>Flamingo expanded this to visual and language,</p>
+<p>but it basically has the same abilities.</p>
+<p>You can teach it, for instance, an emergent property</p>
+<p>was that you can take pictures of numbers</p>
+<p>and then do arithmetic with the numbers just by teaching it,</p>
+<p>oh, when I show you 3 plus 6, I want you to output 9.</p>
+<p>And you show it a few examples, and now it does that.</p>
+<p>So it went way beyond the image net categorization of images</p>
+<p>that we were a bit stuck maybe before this revelation</p>
+<p>moment that happened in 2000.</p>
+<p>I believe it was 19, but it was after we checked.</p>
+<p>In that way, it has solved meta learning</p>
+<p>as was previously defined.</p>
+<p>Yes, it expanded what it meant.</p>
+<p>So that&rsquo;s what you say, what does it mean?</p>
+<p>So it&rsquo;s an evolving term.</p>
+<p>But here is maybe now looking forward,</p>
+<p>looking at what&rsquo;s happening, obviously,</p>
+<p>in the community with more modalities, what we can expect.</p>
+<p>And I would certainly hope to see the following.</p>
+<p>And this is a pretty drastic hope.</p>
+<p>But in five years, maybe we chat again.</p>
+<p>And we have a system, a set of weights</p>
+<p>that we can teach it to play StarCraft.</p>
+<p>Maybe not at the level of AlphaStar,</p>
+<p>but play StarCraft, a complex game,</p>
+<p>we teach it through interactions to prompting.</p>
+<p>You can certainly prompt a system.</p>
+<p>That&rsquo;s what Gata shows to play some simple Atari games.</p>
+<p>So imagine if you start talking to a system,</p>
+<p>teaching it a new game, showing it</p>
+<p>examples of in this particular game,</p>
+<p>this user did something good.</p>
+<p>Maybe the system can even play and ask you questions.</p>
+<p>Say, hey, I played this game.</p>
+<p>I just played this game.</p>
+<p>Did I do well?</p>
+<p>Can you teach me more?</p>
+<p>So five, maybe to 10 years, these capabilities,</p>
+<p>or what meta learning means, will</p>
+<p>be much more interactive, much more rich,</p>
+<p>and through domains that we were specializing.</p>
+<p>So you see the difference.</p>
+<p>We built AlphaStar Specialized to play StarCraft.</p>
+<p>The algorithms were general, but the weights were specialized.</p>
+<p>And what we&rsquo;re hoping is that we can teach a network</p>
+<p>to play games, to play any game, just using games as an example,</p>
+<p>through interacting with it, teaching it,</p>
+<p>uploading the Wikipedia page of StarCraft.</p>
+<p>This is in the horizon.</p>
+<p>And obviously, there are details that need to be filled</p>
+<p>and research needs to be done.</p>
+<p>But that&rsquo;s how I see meta learning above,</p>
+<p>which is going to be beyond prompting.</p>
+<p>It&rsquo;s going to be a bit more interactive.</p>
+<p>The system might tell us to give it feedback</p>
+<p>after it maybe makes mistakes or it loses a game.</p>
+<p>But it&rsquo;s nonetheless very exciting</p>
+<p>because if you think about this this way,</p>
+<p>the benchmarks are already there.</p>
+<p>We just repurposed the benchmarks.</p>
+<p>So in a way, I like to map the space of what</p>
+<p>maybe AGI means to say, OK, we went 101% performance in Go,</p>
+<p>in Chess, in StarCraft.</p>
+<p>The next iteration might be 20% performance</p>
+<p>across, quote unquote, all tasks.</p>
+<p>And even if it&rsquo;s not as good, it&rsquo;s fine.</p>
+<p>We have ways to also measure progress</p>
+<p>because we have those specialized agents and so on.</p>
+<p>So this is, to me, very exciting.</p>
+<p>And these next iteration models are definitely</p>
+<p>hinting at that direction of progress,</p>
+<p>which hopefully we can have.</p>
+<p>There are obviously some things that</p>
+<p>could go wrong in terms of we might not have the tools.</p>
+<p>Maybe transformers are not enough.</p>
+<p>There are some breakthroughs to come, which</p>
+<p>makes the field more exciting to people like me as well,</p>
+<p>of course.</p>
+<p>But that&rsquo;s, if you ask me, five to 10 years,</p>
+<p>you might see these models that start</p>
+<p>to look more like weights that are already trained.</p>
+<p>And then it&rsquo;s more about teaching or make</p>
+<p>their meta learn what you&rsquo;re trying</p>
+<p>to induce in terms of tasks and so on,</p>
+<p>well beyond the simple now tasks we&rsquo;re</p>
+<p>starting to see emerge like small arithmetic tasks</p>
+<p>and so on.</p>
+<p>So a few questions around that.</p>
+<p>This is fascinating.</p>
+<p>So that kind of teaching, interactive,</p>
+<p>so it&rsquo;s beyond prompting.</p>
+<p>So it&rsquo;s interacting with the neural network.</p>
+<p>That&rsquo;s different than the training process.</p>
+<p>So it&rsquo;s different than the optimization</p>
+<p>over differentiable functions.</p>
+<p>This is already trained.</p>
+<p>And now you&rsquo;re teaching, I mean, it&rsquo;s</p>
+<p>almost akin to the brain, the neurons already</p>
+<p>set with their connections.</p>
+<p>On top of that, you&rsquo;re now using that infrastructure</p>
+<p>to build up further knowledge.</p>
+<p>So that&rsquo;s a really interesting distinction that&rsquo;s actually</p>
+<p>not obvious from a software engineering perspective,</p>
+<p>that there&rsquo;s a line to be drawn.</p>
+<p>Because you always think for a neural network to learn,</p>
+<p>it has to be retrained, trained and retrained.</p>
+<p>And prompting is a way of teaching.</p>
+<p>And you&rsquo;ll now work a little bit of context</p>
+<p>about whatever the heck you&rsquo;re trying it to do.</p>
+<p>So you can maybe expand this prompting capability</p>
+<p>by making it interact.</p>
+<p>That&rsquo;s really, really interesting.</p>
+<p>By the way, this is not, if you look at way back</p>
+<p>at different ways to tackle even classification tasks.</p>
+<p>So this comes from longstanding literature</p>
+<p>in machine learning.</p>
+<p>What I&rsquo;m suggesting could sound to some</p>
+<p>like a bit like nearest neighbor.</p>
+<p>So nearest neighbor is almost the simplest algorithm</p>
+<p>that does not require learning.</p>
+<p>So it has this interesting, you don&rsquo;t</p>
+<p>need to compute gradients.</p>
+<p>And what nearest neighbor does is you, quote unquote,</p>
+<p>have a data set or upload a data set.</p>
+<p>And then all you need to do is a way</p>
+<p>to measure distance between points.</p>
+<p>And then to classify a new point,</p>
+<p>you&rsquo;re just simply computing, what&rsquo;s</p>
+<p>the closest point in this massive amount of data?</p>
+<p>And that&rsquo;s my answer.</p>
+<p>So you can think of prompting in a way</p>
+<p>as you&rsquo;re uploading not just simple points.</p>
+<p>And the metric is not the distance between the images</p>
+<p>or something simple.</p>
+<p>It&rsquo;s something that you compute that&rsquo;s much more advanced.</p>
+<p>But in a way, it&rsquo;s very similar.</p>
+<p>You simply are uploading some knowledge</p>
+<p>to this pre trained system in nearest neighbor.</p>
+<p>Maybe the metric is learned or not,</p>
+<p>but you don&rsquo;t need to further train it.</p>
+<p>And then now you immediately get a classifier out of this.</p>
+<p>Now it&rsquo;s just an evolution of that concept,</p>
+<p>very classical concept in machine learning, which</p>
+<p>is just learning through what&rsquo;s the closest point, closest</p>
+<p>by some distance, and that&rsquo;s it.</p>
+<p>It&rsquo;s an evolution of that.</p>
+<p>And I will say how I saw meta learning when</p>
+<p>we worked on a few ideas in 2016 was precisely</p>
+<p>through the lens of nearest neighbor, which</p>
+<p>is very common in computer vision community.</p>
+<p>There&rsquo;s a very active area of research</p>
+<p>about how do you compute the distance between two images.</p>
+<p>But if you have a good distance metric,</p>
+<p>you also have a good classifier.</p>
+<p>All I&rsquo;m saying is now these distances and the points</p>
+<p>are not just images.</p>
+<p>They&rsquo;re like words or sequences of words and images</p>
+<p>and actions that teach you something new.</p>
+<p>But it might be that technique wise those come back.</p>
+<p>And I will say that it&rsquo;s not necessarily true</p>
+<p>that you might not ever train the weights a bit further.</p>
+<p>Some aspect of meta learning, some techniques</p>
+<p>in meta learning do actually do a bit of fine tuning</p>
+<p>as it&rsquo;s called.</p>
+<p>They train the weights a little bit when they get a new task.</p>
+<p>So as I call the how or how we&rsquo;re going to achieve this,</p>
+<p>as a deep learner, I&rsquo;m very skeptic.</p>
+<p>We&rsquo;re going to try a few things, whether it&rsquo;s</p>
+<p>a bit of training, adding a few parameters,</p>
+<p>thinking of these as nearest neighbor,</p>
+<p>or just simply thinking of there&rsquo;s a sequence of words,</p>
+<p>it&rsquo;s a prefix.</p>
+<p>And that&rsquo;s the new classifier.</p>
+<p>We&rsquo;ll see.</p>
+<p>There&rsquo;s the beauty of research.</p>
+<p>But what&rsquo;s important is that is a good goal in itself</p>
+<p>that I see as very worthwhile pursuing for the next stages</p>
+<p>of not only meta learning.</p>
+<p>I think this is basically what&rsquo;s exciting about machine learning</p>
+<p>period to me.</p>
+<p>Well, and the interactive aspect of that</p>
+<p>is also very interesting, the interactive version</p>
+<p>of nearest neighbor to help you pull out the classifier</p>
+<p>from this giant thing.</p>
+<p>OK, is this the way we can go in 5, 10 plus years</p>
+<p>from any task, sorry, from many tasks to any task?</p>
+<p>And what does that mean?</p>
+<p>What does it need to be actually trained on?</p>
+<p>Which point is the network had enough?</p>
+<p>So what does a network need to learn about this world</p>
+<p>in order to be able to perform any task?</p>
+<p>Is it just as simple as language, image, and action?</p>
+<p>Or do you need some set of representative images?</p>
+<p>Like if you only see land images,</p>
+<p>will you know anything about underwater?</p>
+<p>Is that some fundamentally different?</p>
+<p>I don&rsquo;t know.</p>
+<p>I mean, those are open questions, I would say.</p>
+<p>I mean, the way you put, let me maybe further your example.</p>
+<p>If all you see is land images but you&rsquo;re</p>
+<p>reading all about land and water worlds</p>
+<p>but in books, imagine, would that be enough?</p>
+<p>Good question.</p>
+<p>We don&rsquo;t know.</p>
+<p>But I guess maybe you can join us</p>
+<p>if you want in our quest to find this.</p>
+<p>That&rsquo;s precisely.</p>
+<p>Water world, yeah.</p>
+<p>Yes, that&rsquo;s precisely, I mean, the beauty of research.</p>
+<p>And that&rsquo;s the research business we&rsquo;re in,</p>
+<p>I guess, is to figure this out and ask the right questions</p>
+<p>and then iterate with the whole community,</p>
+<p>publishing findings and so on.</p>
+<p>But yeah, this is a question.</p>
+<p>It&rsquo;s not the only question, but it&rsquo;s certainly, as you ask,</p>
+<p>on my mind constantly.</p>
+<p>And so we&rsquo;ll need to wait for maybe the, let&rsquo;s say, five</p>
+<p>years, let&rsquo;s hope it&rsquo;s not 10, to see what are the answers.</p>
+<p>Some people will largely believe in unsupervised or</p>
+<p>self supervised learning of single modalities</p>
+<p>and then crossing them.</p>
+<p>Some people might think end to end learning is the answer.</p>
+<p>Modularity is maybe the answer.</p>
+<p>So we don&rsquo;t know, but we&rsquo;re just definitely excited</p>
+<p>to find out.</p>
+<p>But it feels like this is the right time</p>
+<p>and we&rsquo;re at the beginning of this journey.</p>
+<p>We&rsquo;re finally ready to do these kind of general big models</p>
+<p>and agents.</p>
+<p>What do you sort of specific technical thing</p>
+<p>about Gato, Flamingo, Chinchilla, Gopher, any of these</p>
+<p>that is especially beautiful, that was surprising, maybe?</p>
+<p>Is there something that just jumps out at you?</p>
+<p>Of course, there&rsquo;s the general thing of like,</p>
+<p>you didn&rsquo;t think it was possible and then you</p>
+<p>realize it&rsquo;s possible in terms of the generalizability</p>
+<p>across modalities and all that kind of stuff.</p>
+<p>Or maybe how small of a network, relatively speaking,</p>
+<p>Gato is, all that kind of stuff.</p>
+<p>But is there some weird little things that were surprising?</p>
+<p>Look, I&rsquo;ll give you an answer that&rsquo;s very important</p>
+<p>because maybe people don&rsquo;t quite realize this,</p>
+<p>but the teams behind these efforts, the actual humans,</p>
+<p>that&rsquo;s maybe the surprising in an obviously positive way.</p>
+<p>So anytime you see these breakthroughs,</p>
+<p>I mean, it&rsquo;s easy to map it to a few people.</p>
+<p>There&rsquo;s people that are great at explaining things and so on.</p>
+<p>And that&rsquo;s very nice.</p>
+<p>But maybe the learnings or the method learnings</p>
+<p>that I get as a human about this is, sure, we can move forward.</p>
+<p>But the surprising bit is how important</p>
+<p>are all the pieces of these projects,</p>
+<p>how do they come together?</p>
+<p>So I&rsquo;ll give you maybe some of the ingredients of success</p>
+<p>that are common across these, but not the obvious ones</p>
+<p>on machine learning.</p>
+<p>I can always also give you those.</p>
+<p>But basically, there is engineering is critical.</p>
+<p>So very good engineering because ultimately we&rsquo;re</p>
+<p>collecting data sets, right?</p>
+<p>So the engineering of data and then</p>
+<p>of deploying the models at scale into some compute cluster</p>
+<p>that cannot go understated, that is a huge factor of success.</p>
+<p>And it&rsquo;s hard to believe that details matter so much.</p>
+<p>We would like to believe that it&rsquo;s</p>
+<p>true that there is more and more of a standard formula,</p>
+<p>as I was saying, like this recipe that</p>
+<p>works for everything.</p>
+<p>But then when you zoom into each of these projects,</p>
+<p>then you realize the devil is indeed in the details.</p>
+<p>And then the teams have to work together towards these goals.</p>
+<p>So engineering of data and obviously clusters</p>
+<p>and large scale is very important.</p>
+<p>And then one that is often not, maybe nowadays it is more clear</p>
+<p>is benchmark progress, right?</p>
+<p>So we&rsquo;re talking here about multiple months of tens</p>
+<p>of researchers and people that are</p>
+<p>trying to organize the research and so on working together.</p>
+<p>And you don&rsquo;t know that you can get there.</p>
+<p>I mean, this is the beauty.</p>
+<p>If you&rsquo;re not risking to trying to do something</p>
+<p>that feels impossible, you&rsquo;re not going to get there.</p>
+<p>But you need a way to measure progress.</p>
+<p>So the benchmarks that you build are critical.</p>
+<p>I&rsquo;ve seen this beautifully play out in many projects.</p>
+<p>I mean, maybe the one I&rsquo;ve seen it more consistently,</p>
+<p>which means we establish the metric,</p>
+<p>actually the community did.</p>
+<p>And then we leverage that massively is alpha fold.</p>
+<p>This is a project where the data, the metrics</p>
+<p>were all there.</p>
+<p>And all it took was, and it&rsquo;s easier said than done,</p>
+<p>an amazing team working not to try</p>
+<p>to find some incremental improvement</p>
+<p>and publish, which is one way to do research that is valid,</p>
+<p>but aim very high and work literally for years</p>
+<p>to iterate over that process.</p>
+<p>And working for years with the team,</p>
+<p>I mean, it is tricky that also happened to happen partly</p>
+<p>during a pandemic and so on.</p>
+<p>So I think my meta learning from all this</p>
+<p>is the teams are critical to the success.</p>
+<p>And then if now going to the machine learning,</p>
+<p>the part that&rsquo;s surprising is so we like architectures</p>
+<p>like neural networks.</p>
+<p>And I would say this was a very rapidly evolving field</p>
+<p>until the transformer came.</p>
+<p>So attention might indeed be all you need,</p>
+<p>which is the title, also a good title,</p>
+<p>although in hindsight is good.</p>
+<p>I don&rsquo;t think at the time I thought</p>
+<p>this is a great title for a paper.</p>
+<p>But that architecture is proving that the dream of modeling</p>
+<p>sequences of any bytes, there is something there that will stick.</p>
+<p>And I think these advance in architectures</p>
+<p>in how neural networks are architecture</p>
+<p>to do what they do.</p>
+<p>It&rsquo;s been hard to find one that has been so stable</p>
+<p>and relatively has changed very little</p>
+<p>since it was invented five or so years ago.</p>
+<p>So that is a surprising, is a surprise</p>
+<p>that keeps recurring into other projects.</p>
+<p>Try to, on a philosophical or technical level, introspect,</p>
+<p>what is the magic of attention?</p>
+<p>What is attention?</p>
+<p>That&rsquo;s attention in people that study cognition,</p>
+<p>so human attention.</p>
+<p>I think there&rsquo;s giant wars over what attention means,</p>
+<p>how it works in the human mind.</p>
+<p>So there&rsquo;s very simple looks at what</p>
+<p>attention is in a neural network from the days of attention</p>
+<p>is all you need.</p>
+<p>But do you think there&rsquo;s a general principle that&rsquo;s</p>
+<p>really powerful here?</p>
+<p>Yeah, so a distinction between transformers and LSTMs,</p>
+<p>which were what came before.</p>
+<p>And there was a transitional period</p>
+<p>where you could use both.</p>
+<p>In fact, when we talked about AlphaStar,</p>
+<p>we used transformers and LSTMs.</p>
+<p>So it was still the beginning of transformers.</p>
+<p>They were very powerful.</p>
+<p>But LSTMs were also very powerful sequence models.</p>
+<p>So the power of the transformer is</p>
+<p>that it has built in what we call</p>
+<p>an inductive bias of attention that makes the model.</p>
+<p>When you think of a sequence of integers,</p>
+<p>like we discussed this before, this is a sequence of words.</p>
+<p>When you have to do very hard tasks over these words,</p>
+<p>this could be we&rsquo;re going to translate a whole paragraph</p>
+<p>or we&rsquo;re going to predict the next paragraph given</p>
+<p>10 paragraphs before.</p>
+<p>There&rsquo;s some loose intuition from how we do it as a human</p>
+<p>that is very nicely mimicked and replicated structurally</p>
+<p>speaking in the transformer, which</p>
+<p>is this idea of you&rsquo;re looking for something.</p>
+<p>So you&rsquo;re sort of when you just read a piece of text,</p>
+<p>now you&rsquo;re thinking what comes next.</p>
+<p>You might want to relook at the text or look it from scratch.</p>
+<p>I mean, literally is because there&rsquo;s no recurrence.</p>
+<p>You&rsquo;re just thinking what comes next.</p>
+<p>And it&rsquo;s almost hypothesis driven.</p>
+<p>So if I&rsquo;m thinking the next word that I write is cat or dog,</p>
+<p>the way the transformer works almost philosophically</p>
+<p>is it has these two hypotheses.</p>
+<p>Is it going to be cat or is it going to be dog?</p>
+<p>And then it says, OK, if it&rsquo;s cat,</p>
+<p>I&rsquo;m going to look for certain words.</p>
+<p>Not necessarily cat, although cat is an obvious word</p>
+<p>you would look in the past to see</p>
+<p>whether it makes more sense to output cat or dog.</p>
+<p>And then it does some very deep computation</p>
+<p>over the words and beyond.</p>
+<p>So it combines the words, but it has the query</p>
+<p>as we call it that is cat.</p>
+<p>And then similarly for dog.</p>
+<p>And so it&rsquo;s a very computational way to think about, look,</p>
+<p>if I&rsquo;m thinking deeply about text,</p>
+<p>I need to go back to look at all of the text, attend over it.</p>
+<p>But it&rsquo;s not just attention.</p>
+<p>What is guiding the attention?</p>
+<p>And that was the key insight from an earlier paper</p>
+<p>is not how far away is it?</p>
+<p>I mean, how far away is it is important?</p>
+<p>What did I just write about?</p>
+<p>That&rsquo;s critical.</p>
+<p>But what you wrote about 10 pages ago</p>
+<p>might also be critical.</p>
+<p>So you&rsquo;re looking not positionally, but content wise.</p>
+<p>And transformers have this beautiful way</p>
+<p>to query for certain content and pull it out</p>
+<p>in a compressed way.</p>
+<p>So then you can make a more informed decision.</p>
+<p>I mean, that&rsquo;s one way to explain transformers.</p>
+<p>But I think it&rsquo;s a very powerful inductive bias.</p>
+<p>There might be some details that might change over time,</p>
+<p>but I think that is what makes transformers so much more</p>
+<p>powerful than the recurrent networks that</p>
+<p>were more recency bias based, which obviously works</p>
+<p>in some tasks, but it has major flaws.</p>
+<p>Transformer itself has flaws.</p>
+<p>And I think the main one, the main challenge</p>
+<p>is these prompts that we just were talking about,</p>
+<p>they can be 1,000 words long.</p>
+<p>But if I&rsquo;m teaching you StarGraph,</p>
+<p>I&rsquo;ll have to show you videos.</p>
+<p>I&rsquo;ll have to point you to whole Wikipedia articles</p>
+<p>about the game.</p>
+<p>We&rsquo;ll have to interact probably as you play.</p>
+<p>You&rsquo;ll ask me questions.</p>
+<p>The context required for us to achieve</p>
+<p>me being a good teacher to you on the game</p>
+<p>as you would want to do it with a model, I think</p>
+<p>goes well beyond the current capabilities.</p>
+<p>So the question is, how do we benchmark this?</p>
+<p>And then how do we change the structure of the architectures?</p>
+<p>I think there&rsquo;s ideas on both sides,</p>
+<p>but we&rsquo;ll have to see empirically, obviously,</p>
+<p>what ends up working.</p>
+<p>And as you talked about, some of the ideas</p>
+<p>could be keeping the constraint of that length in place,</p>
+<p>but then forming hierarchical representations</p>
+<p>to where you can start being much clever in how</p>
+<p>you use those 1,000 tokens.</p>
+<p>Indeed.</p>
+<p>Yeah, that&rsquo;s really interesting.</p>
+<p>But it also is possible that this attentional mechanism</p>
+<p>where you basically, you don&rsquo;t have a recency bias,</p>
+<p>but you look more generally, you make it learnable.</p>
+<p>The mechanism in which way you look back into the past,</p>
+<p>you make that learnable.</p>
+<p>It&rsquo;s also possible we&rsquo;re at the very beginning of that</p>
+<p>because that, you might become smarter and smarter</p>
+<p>in the way you query the past.</p>
+<p>So recent past and distant past and maybe very, very distant</p>
+<p>past.</p>
+<p>So almost like the attention mechanism</p>
+<p>will have to improve and evolve as good as the tokenization</p>
+<p>mechanism so you can represent long term memory somehow.</p>
+<p>Yes.</p>
+<p>And I mean, hierarchies are very,</p>
+<p>I mean, it&rsquo;s a very nice word that sounds appealing.</p>
+<p>There&rsquo;s lots of work adding hierarchy to the memories.</p>
+<p>In practice, it does seem like we keep coming back</p>
+<p>to the main formula or main architecture.</p>
+<p>That sometimes tells us something.</p>
+<p>There is such a sentence that a friend of mine told me,</p>
+<p>like, whether it wants to work or not.</p>
+<p>So Transformer was clearly an idea that wanted to work.</p>
+<p>And then I think there&rsquo;s some principles</p>
+<p>we believe will be needed.</p>
+<p>But finding the exact details, details matter so much.</p>
+<p>That&rsquo;s going to be tricky.</p>
+<p>I love the idea that there&rsquo;s like you as a human being,</p>
+<p>you want some ideas to work.</p>
+<p>And then there&rsquo;s the model that wants some ideas</p>
+<p>to work and you get to have a conversation</p>
+<p>to see which more likely the model will win in the end.</p>
+<p>Because it&rsquo;s the one, you don&rsquo;t have to do any work.</p>
+<p>The model is the one that has to do the work.</p>
+<p>So you should listen to the model.</p>
+<p>And I really love this idea that you</p>
+<p>talked about the humans in this picture.</p>
+<p>If I could just briefly ask, one is you&rsquo;re</p>
+<p>saying the benchmarks about the modular humans working on this,</p>
+<p>the benchmarks providing a sturdy ground of a wish</p>
+<p>to do these things that seem impossible.</p>
+<p>They give you, in the darkest of times,</p>
+<p>give you hope because little signs of improvement.</p>
+<p>Yes.</p>
+<p>Like somehow you&rsquo;re not lost if you have metrics</p>
+<p>to measure your improvement.</p>
+<p>And then there&rsquo;s other aspect.</p>
+<p>You said elsewhere and here today, like titles matter.</p>
+<p>I wonder how much humans matter in the evolution</p>
+<p>of all of this, meaning individual humans.</p>
+<p>Something about their interactions,</p>
+<p>something about their ideas, how much they change</p>
+<p>the direction of all of this.</p>
+<p>Like if you change the humans in this picture,</p>
+<p>is it that the model is sitting there</p>
+<p>and it wants some idea to work?</p>
+<p>Or is it the humans, or maybe the model</p>
+<p>is providing you 20 ideas that could work.</p>
+<p>And depending on the humans you pick,</p>
+<p>they&rsquo;re going to be able to hear some of those ideas.</p>
+<p>Because you&rsquo;re now directing all of deep learning and deep mind,</p>
+<p>you get to interact with a lot of projects,</p>
+<p>a lot of brilliant researchers.</p>
+<p>How much variability is created by the humans in all of this?</p>
+<p>Yeah, I mean, I do believe humans matter a lot,</p>
+<p>at the very least at the time scale of years</p>
+<p>on when things are happening and what&rsquo;s the sequencing of it.</p>
+<p>So you get to interact with people that, I mean,</p>
+<p>you mentioned this.</p>
+<p>Some people really want some idea to work</p>
+<p>and they&rsquo;ll persist.</p>
+<p>And then some other people might be more practical,</p>
+<p>like I don&rsquo;t care what idea works.</p>
+<p>I care about cracking protein folding.</p>
+<p>And at least these two kind of seem opposite sides.</p>
+<p>We need both.</p>
+<p>And we&rsquo;ve clearly had both historically,</p>
+<p>and that made certain things happen earlier or later.</p>
+<p>So definitely humans involved in all of this endeavor</p>
+<p>have had, I would say, years of change or of ordering</p>
+<p>how things have happened, which breakthroughs came before,</p>
+<p>which other breakthroughs, and so on.</p>
+<p>So certainly that does happen.</p>
+<p>And so one other, maybe one other axis of distinction</p>
+<p>is what I called, and this is most commonly used</p>
+<p>in reinforcement learning, is the exploration exploitation</p>
+<p>trade off as well.</p>
+<p>It&rsquo;s not exactly what I meant, although quite related.</p>
+<p>So when you start trying to help others,</p>
+<p>like you become a bit more of a mentor</p>
+<p>to a large group of people, be it a project or the deep</p>
+<p>learning team or something, or even in the community</p>
+<p>when you interact with people in conferences and so on,</p>
+<p>you&rsquo;re identifying quickly some things that are explorative</p>
+<p>or exploitative.</p>
+<p>And it&rsquo;s tempting to try to guide people, obviously.</p>
+<p>I mean, that&rsquo;s what makes our experience.</p>
+<p>We bring it, and we try to shape things sometimes wrongly.</p>
+<p>And there&rsquo;s many times that I&rsquo;ve been wrong in the past.</p>
+<p>That&rsquo;s great.</p>
+<p>But it would be wrong to dismiss any sort of the research</p>
+<p>styles that I&rsquo;m observing.</p>
+<p>And I often get asked, well, you&rsquo;re in industry, right?</p>
+<p>So we do have access to large compute scale and so on.</p>
+<p>So there are certain kinds of research</p>
+<p>I almost feel like we need to do responsibly and so on.</p>
+<p>But it is, Carlos, we have the particle accelerator here,</p>
+<p>so to speak, in physics.</p>
+<p>So we need to use it.</p>
+<p>We need to answer the questions that we</p>
+<p>should be answering right now for the scientific progress.</p>
+<p>But then at the same time, I look at many advances,</p>
+<p>including attention, which was discovered in Montreal</p>
+<p>initially because of lack of compute, right?</p>
+<p>So we were working on sequence to sequence</p>
+<p>with my friends over at Google Brain at the time.</p>
+<p>And we were using, I think, eight GPUs,</p>
+<p>which was somehow a lot at the time.</p>
+<p>And then I think Montreal was a bit more limited in the scale.</p>
+<p>But then they discovered this content based attention</p>
+<p>concept that then has obviously triggered things</p>
+<p>like Transformer.</p>
+<p>Not everything obviously starts Transformer.</p>
+<p>There&rsquo;s always a history that is important to recognize</p>
+<p>because then you can make sure that then those who might feel</p>
+<p>now, well, we don&rsquo;t have so much compute,</p>
+<p>you need to then help them optimize</p>
+<p>that kind of research that might actually</p>
+<p>produce amazing change.</p>
+<p>Perhaps it&rsquo;s not as short term as some of these advancements</p>
+<p>or perhaps it&rsquo;s a different time scale.</p>
+<p>But the people and the diversity of the field</p>
+<p>is quite critical that we maintain it.</p>
+<p>And at times, especially mixed a bit with hype or other things,</p>
+<p>it&rsquo;s a bit tricky to be observing maybe</p>
+<p>too much of the same thinking across the board.</p>
+<p>But the humans definitely are critical.</p>
+<p>And I can think of quite a few personal examples</p>
+<p>where also someone told me something</p>
+<p>that had a huge effect onto some idea.</p>
+<p>And then that&rsquo;s why I&rsquo;m saying at least in terms of years,</p>
+<p>probably some things do happen.</p>
+<p>Yeah, it&rsquo;s fascinating.</p>
+<p>And it&rsquo;s also fascinating how constraints somehow</p>
+<p>are essential for innovation.</p>
+<p>And the other thing you mentioned about engineering,</p>
+<p>I have a sneaking suspicion.</p>
+<p>Maybe I over, my love is with engineering.</p>
+<p>So I have a sneaky suspicion that all the genius,</p>
+<p>a large percentage of the genius is</p>
+<p>in the tiny details of engineering.</p>
+<p>So I think we like to think our genius,</p>
+<p>the genius is in the big ideas.</p>
+<p>I have a sneaking suspicion that because I&rsquo;ve</p>
+<p>seen the genius of details, of engineering details,</p>
+<p>make the night and day difference.</p>
+<p>And I wonder if those kind of have a ripple effect over time.</p>
+<p>So that too, so that&rsquo;s sort of taking the engineering</p>
+<p>perspective that sometimes that quiet innovation</p>
+<p>at the level of an individual engineer</p>
+<p>or maybe at the small scale of a few engineers</p>
+<p>can make all the difference.</p>
+<p>Because we&rsquo;re working on computers that</p>
+<p>are scaled across large groups, that one engineering decision</p>
+<p>can lead to ripple effects.</p>
+<p>It&rsquo;s interesting to think about.</p>
+<p>Yeah, I mean, engineering, there&rsquo;s</p>
+<p>also kind of a historical, it might be a bit random.</p>
+<p>Because if you think of the history of how especially</p>
+<p>deep learning and neural networks took off,</p>
+<p>feels like a bit random because GPUs happened</p>
+<p>to be there at the right time for a different purpose, which</p>
+<p>was to play video games.</p>
+<p>So even the engineering that goes into the hardware</p>
+<p>and it might have a time, the time frame</p>
+<p>might be very different.</p>
+<p>I mean, the GPUs were evolved throughout many years</p>
+<p>where we didn&rsquo;t even were looking at that.</p>
+<p>So even at that level, that revolution, so to speak,</p>
+<p>the ripples are like, we&rsquo;ll see when they stop.</p>
+<p>But in terms of thinking of why is this happening,</p>
+<p>I think that when I try to categorize it</p>
+<p>in sort of things that might not be so obvious,</p>
+<p>I mean, clearly there&rsquo;s a hardware revolution.</p>
+<p>We are surfing thanks to that.</p>
+<p>Data centers as well.</p>
+<p>I mean, data centers are like, I mean, at Google,</p>
+<p>for instance, obviously they&rsquo;re serving Google.</p>
+<p>But there&rsquo;s also now thanks to that</p>
+<p>and to have built such amazing data centers,</p>
+<p>we can train these models.</p>
+<p>Software is an important one.</p>
+<p>I think if I look at the state of how</p>
+<p>I had to implement things to implement my ideas,</p>
+<p>how I discarded ideas because they were too hard</p>
+<p>to implement.</p>
+<p>Yeah, clearly the times have changed.</p>
+<p>And thankfully, we are in a much better software position</p>
+<p>as well.</p>
+<p>And then, I mean, obviously there&rsquo;s</p>
+<p>research that happens at scale and more people</p>
+<p>enter the field.</p>
+<p>That&rsquo;s great to see.</p>
+<p>But it&rsquo;s almost enabled by these other things.</p>
+<p>And last but not least is also data, right?</p>
+<p>Curating data sets, labeling data sets,</p>
+<p>these benchmarks we think about.</p>
+<p>Maybe we&rsquo;ll want to have all the benchmarks in one system.</p>
+<p>But it&rsquo;s still very valuable that someone</p>
+<p>put the thought and the time and the vision</p>
+<p>to build certain benchmarks.</p>
+<p>We&rsquo;ve seen progress thanks to.</p>
+<p>But we&rsquo;re going to repurpose the benchmarks.</p>
+<p>That&rsquo;s the beauty of Atari is like we solved it in a way.</p>
+<p>But we use it in Gato.</p>
+<p>It was critical.</p>
+<p>And I&rsquo;m sure there&rsquo;s still a lot more</p>
+<p>to do thanks to that amazing benchmark</p>
+<p>that someone took the time to put,</p>
+<p>even though at the time maybe, oh, you</p>
+<p>have to think what&rsquo;s the next iteration of architectures.</p>
+<p>That&rsquo;s what maybe the field recognizes.</p>
+<p>But that&rsquo;s another thing we need to balance</p>
+<p>in terms of humans behind.</p>
+<p>We need to recognize all these aspects</p>
+<p>because they&rsquo;re all critical.</p>
+<p>And we tend to think of the genius, the scientist,</p>
+<p>and so on.</p>
+<p>But I&rsquo;m glad I know you have a strong engineering background.</p>
+<p>But also, I&rsquo;m a lover of data.</p>
+<p>And the pushback on the engineering comment</p>
+<p>ultimately could be the creators of benchmarks</p>
+<p>who have the most impact.</p>
+<p>Andrej Karpathy, who you mentioned,</p>
+<p>has recently been talking a lot of trash about ImageNet, which</p>
+<p>he has the right to do because of how critical he is about</p>
+<p>ImageNet, how essential he is to the development</p>
+<p>and the success of deep learning around ImageNet.</p>
+<p>And he&rsquo;s saying that that&rsquo;s actually</p>
+<p>that benchmark is holding back the field.</p>
+<p>Because I mean, especially in his context on Tesla Autopilot,</p>
+<p>that&rsquo;s looking at real world behavior of a system.</p>
+<p>There&rsquo;s something fundamentally missing</p>
+<p>about ImageNet that doesn&rsquo;t capture</p>
+<p>the real worldness of things.</p>
+<p>That we need to have data sets, benchmarks that</p>
+<p>have the unpredictability, the edge cases, whatever</p>
+<p>the heck it is that makes the real world so</p>
+<p>difficult to operate in.</p>
+<p>We need to have benchmarks of that.</p>
+<p>But just to think about the impact of ImageNet</p>
+<p>as a benchmark, and that really puts a lot of emphasis</p>
+<p>on the importance of a benchmark,</p>
+<p>both sort of internally a deep mind and as a community.</p>
+<p>So one is coming in from within, like,</p>
+<p>how do I create a benchmark for me to mark and make progress?</p>
+<p>And how do I make benchmark for the community</p>
+<p>to mark and push progress?</p>
+<p>You have this amazing paper you coauthored,</p>
+<p>a survey paper called Emergent Abilities</p>
+<p>of Large Language Models.</p>
+<p>It has, again, the philosophy here</p>
+<p>that I&rsquo;d love to ask you about.</p>
+<p>What&rsquo;s the intuition about the phenomena of emergence</p>
+<p>in neural networks transformed as language models?</p>
+<p>Is there a magic threshold beyond which</p>
+<p>we start to see certain performance?</p>
+<p>And is that different from task to task?</p>
+<p>Is that us humans just being poetic and romantic?</p>
+<p>Or is there literally some level at which we start</p>
+<p>to see breakthrough performance?</p>
+<p>Yeah, I mean, this is a property that we start seeing in systems</p>
+<p>that actually tend to be so in machine learning,</p>
+<p>traditionally, again, going to benchmarks.</p>
+<p>I mean, if you have some input, output, right,</p>
+<p>like that is just a single input and a single output,</p>
+<p>you generally, when you train these systems,</p>
+<p>you see reasonably smooth curves when</p>
+<p>you analyze how much the data set size affects</p>
+<p>the performance, or how the model size affects</p>
+<p>the performance, or how long you train the system for affects</p>
+<p>the performance, right?</p>
+<p>So if we think of ImageNet, the training curves</p>
+<p>look fairly smooth and predictable in a way.</p>
+<p>And I would say that&rsquo;s probably because it&rsquo;s</p>
+<p>kind of a one hop reasoning task, right?</p>
+<p>It&rsquo;s like, here is an input, and you</p>
+<p>think for a few milliseconds or 100 milliseconds, 300</p>
+<p>as a human, and then you tell me,</p>
+<p>yeah, there&rsquo;s an alpaca in this image.</p>
+<p>So in language, we are seeing benchmarks that require more</p>
+<p>pondering and more thought in a way, right?</p>
+<p>This is just kind of you need to look for some subtleties.</p>
+<p>It involves inputs that you might think of,</p>
+<p>even if the input is a sentence describing</p>
+<p>a mathematical problem, there is a bit more processing</p>
+<p>required as a human and more introspection.</p>
+<p>So I think how these benchmarks work</p>
+<p>means that there is actually a threshold.</p>
+<p>Just going back to how transformers</p>
+<p>work in this way of querying for the right questions</p>
+<p>to get the right answers, that might</p>
+<p>mean that performance becomes random</p>
+<p>until the right question is asked</p>
+<p>by the querying system of a transformer or of a language</p>
+<p>model like a transformer.</p>
+<p>And then only then you might start</p>
+<p>seeing performance going from random to nonrandom.</p>
+<p>And this is more empirical.</p>
+<p>There&rsquo;s no formalism or theory behind this yet,</p>
+<p>although it might be quite important.</p>
+<p>But we are seeing these phase transitions</p>
+<p>of random performance until some,</p>
+<p>let&rsquo;s say, scale of a model.</p>
+<p>And then it goes beyond that.</p>
+<p>And it might be that you need to fit</p>
+<p>a few low order bits of thought before you can make progress</p>
+<p>on the whole task.</p>
+<p>And if you could measure, actually,</p>
+<p>those breakdown of the task, maybe you</p>
+<p>would see more smooth, like, yeah,</p>
+<p>once you get these and these and these and these and these,</p>
+<p>then you start making progress in the task.</p>
+<p>But it&rsquo;s somehow a bit annoying because then it</p>
+<p>means that certain questions we might ask about architectures</p>
+<p>possibly can only be done at a certain scale.</p>
+<p>And one thing that, conversely, I&rsquo;ve</p>
+<p>seen great progress on in the last couple of years</p>
+<p>is this notion of science of deep learning and science</p>
+<p>of scale in particular.</p>
+<p>So on the negative is that there are</p>
+<p>some benchmarks for which progress might</p>
+<p>need to be measured at minimum at a certain scale</p>
+<p>until you see then what details of the model</p>
+<p>matter to make that performance better.</p>
+<p>So that&rsquo;s a bit of a con.</p>
+<p>But what we&rsquo;ve also seen is that you can empirically</p>
+<p>analyze behavior of models at scales that are smaller.</p>
+<p>So let&rsquo;s say, to put an example, we</p>
+<p>had this Chinchilla paper that revised the so called scaling</p>
+<p>laws of models.</p>
+<p>And that whole study is done at a reasonably small scale,</p>
+<p>that may be hundreds of millions up to 1 billion parameters.</p>
+<p>And then the cool thing is that you create some loss,</p>
+<p>some loss that some trends, you extract trends from data</p>
+<p>that you see, OK, it looks like the amount of data required</p>
+<p>to train now a 10x larger model would be this.</p>
+<p>And these laws so far, these extrapolations</p>
+<p>have helped us save compute and just get to a better place</p>
+<p>in terms of the science of how should we</p>
+<p>run these models at scale, how much data, how much depth,</p>
+<p>and all sorts of questions we start</p>
+<p>asking extrapolating from a small scale.</p>
+<p>But then these emergence is sadly that not everything</p>
+<p>can be extrapolated from scale depending on the benchmark.</p>
+<p>And maybe the harder benchmarks are not</p>
+<p>so good for extracting these laws.</p>
+<p>But we have a variety of benchmarks at least.</p>
+<p>So I wonder to which degree the threshold, the phase shift</p>
+<p>scale is a function of the benchmark.</p>
+<p>So some of the science of scale might</p>
+<p>be engineering benchmarks where that threshold is low,</p>
+<p>sort of taking a main benchmark and reducing it somehow</p>
+<p>where the essential difficulty is left</p>
+<p>but the scale of which the emergence happens</p>
+<p>is lower just for the science aspect of it</p>
+<p>versus the actual real world aspect.</p>
+<p>Yeah, so luckily we have quite a few benchmarks, some of which</p>
+<p>are simpler or maybe they&rsquo;re more like I think people might</p>
+<p>call these systems one versus systems two style.</p>
+<p>So I think what we&rsquo;re not seeing luckily</p>
+<p>is that extrapolations from maybe slightly more smooth</p>
+<p>or simpler benchmarks are translating to the harder ones.</p>
+<p>But that is not to say that this extrapolation will</p>
+<p>hit its limits.</p>
+<p>And when it does, then how much we scale or how we scale</p>
+<p>will sadly be a bit suboptimal until we find better laws.</p>
+<p>And these laws, again, are very empirical laws.</p>
+<p>They&rsquo;re not like physical laws of models,</p>
+<p>although I wish there would be better theory about these</p>
+<p>things as well.</p>
+<p>But so far, I would say empirical theory,</p>
+<p>as I call it, is way ahead than actual theory</p>
+<p>of machine learning.</p>
+<p>Let me ask you almost for fun.</p>
+<p>So this is not, Oriol, as a deep mind person or anything</p>
+<p>to do with deep mind or Google, just as a human being,</p>
+<p>looking at these news of a Google engineer who claimed</p>
+<p>that, I guess, the lambda language model was sentient.</p>
+<p>And you still need to look into the details of this.</p>
+<p>But making an official report and the claim</p>
+<p>that he believes there&rsquo;s evidence that this system has</p>
+<p>achieved sentience.</p>
+<p>And I think this is a really interesting case</p>
+<p>on a human level, on a psychological level,</p>
+<p>on a technical machine learning level of how language models</p>
+<p>transform our world, and also just philosophical level</p>
+<p>of the role of AI systems in a human world.</p>
+<p>So what do you find interesting?</p>
+<p>What&rsquo;s your take on all of this as a machine learning</p>
+<p>engineer and a researcher and also as a human being?</p>
+<p>Yeah, I mean, a few reactions.</p>
+<p>Quite a few, actually.</p>
+<p>Have you ever briefly thought, is this thing sentient?</p>
+<p>Right, so never, absolutely never.</p>
+<p>Like even with Alpha Star?</p>
+<p>Wait a minute.</p>
+<p>Sadly, though, I think, yeah, sadly, I have not.</p>
+<p>Yeah, I think the current, any of the current models,</p>
+<p>although very useful and very good,</p>
+<p>yeah, I think we&rsquo;re quite far from that.</p>
+<p>And there&rsquo;s kind of a converse side story.</p>
+<p>So one of my passions is about science in general.</p>
+<p>And I think I feel I&rsquo;m a bit of a failed scientist.</p>
+<p>That&rsquo;s why I came to machine learning,</p>
+<p>because you always feel, and you start seeing this,</p>
+<p>that machine learning is maybe the science that</p>
+<p>can help other sciences, as we&rsquo;ve seen.</p>
+<p>It&rsquo;s such a powerful tool.</p>
+<p>So thanks to that angle, that, OK, I love science.</p>
+<p>I love, I mean, I love astronomy.</p>
+<p>I love biology.</p>
+<p>But I&rsquo;m not an expert.</p>
+<p>And I decided, well, the thing I can do better</p>
+<p>at is computers.</p>
+<p>But having, especially with when I was a bit more involved</p>
+<p>in AlphaFold, learning a bit about proteins</p>
+<p>and about biology and about life,</p>
+<p>the complexity, it feels like it really is.</p>
+<p>I mean, if you start looking at the things that are going on</p>
+<p>at the atomic level, and also, I mean, there&rsquo;s obviously the,</p>
+<p>we are maybe inclined to try to think of neural networks</p>
+<p>as like the brain.</p>
+<p>But the complexities and the amount of magic</p>
+<p>that it feels when, I mean, I&rsquo;m not an expert,</p>
+<p>so it naturally feels more magic.</p>
+<p>But looking at biological systems,</p>
+<p>as opposed to these computational brains,</p>
+<p>just makes me like, wow, there&rsquo;s such a level of complexity</p>
+<p>difference still, like orders of magnitude complexity that,</p>
+<p>sure, these weights, I mean, we train them</p>
+<p>and they do nice things.</p>
+<p>But they&rsquo;re not at the level of biological entities, brains,</p>
+<p>cells.</p>
+<p>It just feels like it&rsquo;s just not possible to achieve</p>
+<p>the same level of complexity behavior.</p>
+<p>And my belief, when I talk to other beings,</p>
+<p>is certainly shaped by this amazement of biology</p>
+<p>that, maybe because I know too much,</p>
+<p>I don&rsquo;t have about machine learning,</p>
+<p>but I certainly feel it&rsquo;s very far fetched and far</p>
+<p>in the future to be calling or to be thinking,</p>
+<p>well, this mathematical function that is differentiable</p>
+<p>is, in fact, sentient and so on.</p>
+<p>There&rsquo;s something on that point that is very interesting.</p>
+<p>So you know enough about machines and enough</p>
+<p>about biology to know that there&rsquo;s</p>
+<p>many orders of magnitude of difference and complexity.</p>
+<p>But you know how machine learning works.</p>
+<p>So the interesting question for human beings</p>
+<p>that are interacting with a system that don&rsquo;t know</p>
+<p>about the underlying complexity.</p>
+<p>And I&rsquo;ve seen people, probably including myself,</p>
+<p>that have fallen in love with things that are quite simple.</p>
+<p>And so maybe the complexity is one part of the picture,</p>
+<p>but maybe that&rsquo;s not a necessary condition for sentience,</p>
+<p>for perception or emulation of sentience.</p>
+<p>Right.</p>
+<p>So I mean, I guess the other side of this</p>
+<p>is that&rsquo;s how I feel personally.</p>
+<p>I mean, you asked me about the person, right?</p>
+<p>Now, it&rsquo;s very interesting to see how other humans feel</p>
+<p>about things, right?</p>
+<p>We are, again, I&rsquo;m not as amazed about things</p>
+<p>that I feel this is not as magical as this other thing</p>
+<p>because of maybe how I got to learn about it</p>
+<p>and how I see the curve a bit more smooth</p>
+<p>because I&rsquo;ve just seen the progress of language models</p>
+<p>since Shannon in the 50s.</p>
+<p>And actually looking at that time scale,</p>
+<p>we&rsquo;re not that fast progress, right?</p>
+<p>I mean, what we were thinking at the time almost 100 years ago</p>
+<p>is not that dissimilar to what we&rsquo;re doing now.</p>
+<p>But at the same time, yeah, obviously others,</p>
+<p>my experience, the personal experience,</p>
+<p>I think no one should tell others how they should feel.</p>
+<p>I mean, the feelings are very personal, right?</p>
+<p>So how others might feel about the models and so on.</p>
+<p>That&rsquo;s one part of the story that</p>
+<p>is important to understand for me personally as a researcher.</p>
+<p>And then when I maybe disagree or I</p>
+<p>don&rsquo;t understand or see that, yeah, maybe this is not</p>
+<p>something I think right now is reasonable,</p>
+<p>knowing all that I know, one of the other things</p>
+<p>and perhaps partly why it&rsquo;s great to be talking to you</p>
+<p>and reaching out to the world about machine learning</p>
+<p>is, hey, let&rsquo;s demystify a bit the magic</p>
+<p>and try to see a bit more of the math</p>
+<p>and the fact that literally to create these models,</p>
+<p>if we had the right software, it would be 10 lines of code</p>
+<p>and then just a dump of the internet.</p>
+<p>Versus then the complexity of the creation of humans</p>
+<p>from their inception, right?</p>
+<p>And also the complexity of evolution of the whole universe</p>
+<p>to where we are that feels orders of magnitude</p>
+<p>more complex and fascinating to me.</p>
+<p>So I think, yeah, maybe part of the only thing</p>
+<p>I&rsquo;m thinking about trying to tell you is, yeah, I think</p>
+<p>explaining a bit of the magic.</p>
+<p>There is a bit of magic.</p>
+<p>It&rsquo;s good to be in love, obviously,</p>
+<p>with what you do at work.</p>
+<p>And I&rsquo;m certainly fascinated and surprised quite often as well.</p>
+<p>But I think, hopefully, as experts in biology,</p>
+<p>hopefully will tell me this is not as magic.</p>
+<p>And I&rsquo;m happy to learn that through interactions</p>
+<p>with the larger community, we can also</p>
+<p>have a certain level of education</p>
+<p>that in practice also will matter because, I mean,</p>
+<p>one question is how you feel about this.</p>
+<p>But then the other very important is</p>
+<p>you starting to interact with these in products and so on.</p>
+<p>It&rsquo;s good to understand a bit what&rsquo;s going on,</p>
+<p>what&rsquo;s not going on, what&rsquo;s safe, what&rsquo;s not safe,</p>
+<p>and so on, right?</p>
+<p>Otherwise, the technology will not</p>
+<p>be used properly for good, which is obviously</p>
+<p>the goal of all of us, I hope.</p>
+<p>So let me then ask the next question.</p>
+<p>Do you think in order to solve intelligence</p>
+<p>or to replace the leg spot that does interviews</p>
+<p>as we started this conversation with,</p>
+<p>do you think the system needs to be sentient?</p>
+<p>Do you think it needs to achieve something like consciousness?</p>
+<p>And do you think about what consciousness</p>
+<p>is in the human mind that could be instructive for creating AI</p>
+<p>systems?</p>
+<p>Yeah.</p>
+<p>Honestly, I think probably not to the degree of intelligence</p>
+<p>that there&rsquo;s this brain that can learn,</p>
+<p>can be extremely useful, can challenge you, can teach you.</p>
+<p>Conversely, you can teach it to do things.</p>
+<p>I&rsquo;m not sure it&rsquo;s necessary, personally speaking.</p>
+<p>But if consciousness or any other biological or evolutionary</p>
+<p>lesson can be repurposed to then influence</p>
+<p>our next set of algorithms, that is a great way</p>
+<p>to actually make progress, right?</p>
+<p>And the same way I try to explain transformers a bit</p>
+<p>how it feels we operate when we look at text specifically,</p>
+<p>these insights are very important, right?</p>
+<p>So there&rsquo;s a distinction between details of how the brain might</p>
+<p>be doing computation.</p>
+<p>I think my understanding is, sure, there&rsquo;s neurons</p>
+<p>and there&rsquo;s some resemblance to neural networks,</p>
+<p>but we don&rsquo;t quite understand enough of the brain in detail,</p>
+<p>right, to be able to replicate it.</p>
+<p>But then if you zoom out a bit, our thought process,</p>
+<p>how memory works, maybe even how evolution got us here,</p>
+<p>what&rsquo;s exploration, exploitation,</p>
+<p>like how these things happen, I think</p>
+<p>these clearly can inform algorithmic level research.</p>
+<p>And I&rsquo;ve seen some examples of this</p>
+<p>being quite useful to then guide the research,</p>
+<p>even it might be for the wrong reasons, right?</p>
+<p>So I think biology and what we know about ourselves</p>
+<p>can help a whole lot to build, essentially,</p>
+<p>what we call AGI, this general, the real ghetto, right?</p>
+<p>The last step of the chain, hopefully.</p>
+<p>But consciousness in particular, I don&rsquo;t myself</p>
+<p>at least think too hard about how to add that to the system.</p>
+<p>But maybe my understanding is also very personal</p>
+<p>about what it means, right?</p>
+<p>I think even that in itself is a long debate</p>
+<p>that I know people have often.</p>
+<p>And maybe I should learn more about this.</p>
+<p>Yeah, and I personally, I notice the magic often</p>
+<p>on a personal level, especially with physical systems</p>
+<p>like robots.</p>
+<p>I have a lot of legged robots now in Austin</p>
+<p>that I play with.</p>
+<p>And even when you program them, when</p>
+<p>they do things you didn&rsquo;t expect,</p>
+<p>there&rsquo;s an immediate anthropomorphization.</p>
+<p>And you notice the magic, and you</p>
+<p>start to think about things like sentience</p>
+<p>that has to do more with effective communication</p>
+<p>and less with any of these kind of dramatic things.</p>
+<p>It seems like a useful part of communication.</p>
+<p>Having the perception of consciousness</p>
+<p>seems like useful for us humans.</p>
+<p>We treat each other more seriously.</p>
+<p>We are able to do a nearest neighbor shoving of that entity</p>
+<p>into your memory correctly, all that kind of stuff.</p>
+<p>It seems useful, at least to fake it,</p>
+<p>even if you never make it.</p>
+<p>So maybe, like, yeah, mirroring the question.</p>
+<p>And since you talked to a few people,</p>
+<p>then you do think that we&rsquo;ll need</p>
+<p>to figure something out in order to achieve intelligence</p>
+<p>in a grander sense of the word.</p>
+<p>Yeah, I personally believe yes, but I don&rsquo;t even</p>
+<p>think it&rsquo;ll be like a separate island we&rsquo;ll have to travel to.</p>
+<p>I think it will emerge quite naturally.</p>
+<p>OK, that&rsquo;s easier for us then.</p>
+<p>Thank you.</p>
+<p>But the reason I think it&rsquo;s important to think about</p>
+<p>is you will start, I believe, like with this Google</p>
+<p>engineer, you will start seeing this a lot more, especially</p>
+<p>when you have AI systems that are actually interacting</p>
+<p>with human beings that don&rsquo;t have an engineering background.</p>
+<p>And we have to prepare for that.</p>
+<p>Because I do believe there will be a civil rights</p>
+<p>movement for robots, as silly as it is to say.</p>
+<p>There&rsquo;s going to be a large number of people</p>
+<p>that realize there&rsquo;s these intelligent entities with whom</p>
+<p>I have a deep relationship, and I don&rsquo;t want to lose them.</p>
+<p>They&rsquo;ve come to be a part of my life, and they mean a lot.</p>
+<p>They have a name.</p>
+<p>They have a story.</p>
+<p>They have a memory.</p>
+<p>And we start to ask questions about ourselves.</p>
+<p>Well, this thing sure seems like it&rsquo;s capable of suffering,</p>
+<p>because it tells all these stories of suffering.</p>
+<p>It doesn&rsquo;t want to die and all those kinds of things.</p>
+<p>And we have to start to ask ourselves questions.</p>
+<p>What is the difference between a human being and this thing?</p>
+<p>And so when you engineer, I believe</p>
+<p>from an engineering perspective, from a deep mind or anybody</p>
+<p>that builds systems, there might be laws in the future</p>
+<p>where you&rsquo;re not allowed to engineer systems</p>
+<p>with displays of sentience, unless they&rsquo;re explicitly</p>
+<p>designed to be that, unless it&rsquo;s a pet.</p>
+<p>So if you have a system that&rsquo;s just doing customer support,</p>
+<p>you&rsquo;re legally not allowed to display sentience.</p>
+<p>We&rsquo;ll start to ask ourselves that question.</p>
+<p>And then so that&rsquo;s going to be part of the software</p>
+<p>engineering process.</p>
+<p>Which features do we have?</p>
+<p>And one of them is communications of the sentience.</p>
+<p>But it&rsquo;s important to start thinking about that stuff,</p>
+<p>especially how much it captivates public attention.</p>
+<p>Yeah, absolutely.</p>
+<p>It&rsquo;s definitely a topic that is important.</p>
+<p>We think about.</p>
+<p>And I think in a way, I always see not every movie</p>
+<p>is equally on point with certain things.</p>
+<p>But certainly science fiction in this sense</p>
+<p>at least has prepared society to start</p>
+<p>thinking about certain topics that even if it&rsquo;s</p>
+<p>too early to talk about, as long as we are reasonable,</p>
+<p>it&rsquo;s certainly going to prepare us for both the research</p>
+<p>to come and how to.</p>
+<p>I mean, there&rsquo;s many important challenges and topics</p>
+<p>that come with building an intelligent system, many of</p>
+<p>which you just mentioned.</p>
+<p>So I think we&rsquo;re never going to be fully ready</p>
+<p>unless we talk about these.</p>
+<p>And we start also, as I said, just expanding the people</p>
+<p>we talk to not include only our own researchers and so on.</p>
+<p>And in fact, places like DeepMind but elsewhere,</p>
+<p>there&rsquo;s more interdisciplinary groups forming up</p>
+<p>to start asking and really working</p>
+<p>with us on these questions.</p>
+<p>Because obviously, this is not initially</p>
+<p>what your passion is when you do your PhD,</p>
+<p>but certainly it is coming.</p>
+<p>So it&rsquo;s fascinating.</p>
+<p>It&rsquo;s the thing that brings me to one of my passions</p>
+<p>that is learning.</p>
+<p>So in this sense, this is a new area</p>
+<p>that, as a learning system myself,</p>
+<p>I want to keep exploring.</p>
+<p>And I think it&rsquo;s great to see parts of the debate.</p>
+<p>And even I&rsquo;ve seen a level of maturity</p>
+<p>in the conferences that deal with AI.</p>
+<p>If you look five years ago to now,</p>
+<p>just the amount of workshops and so on has changed so much.</p>
+<p>It&rsquo;s impressive to see how much topics of safety, ethics,</p>
+<p>and so on come to the surface, which is great.</p>
+<p>And if it were too early, clearly it&rsquo;s fine.</p>
+<p>I mean, it&rsquo;s a big field, and there&rsquo;s</p>
+<p>lots of people with lots of interests</p>
+<p>that will do progress or make progress.</p>
+<p>And obviously, I don&rsquo;t believe we&rsquo;re too late.</p>
+<p>So in that sense, I think it&rsquo;s great</p>
+<p>that we&rsquo;re doing this already.</p>
+<p>It better be too early than too late</p>
+<p>when it comes to super intelligent AI systems.</p>
+<p>Let me ask, speaking of sentient AIs,</p>
+<p>you gave props to your friend Ilyas Etzgever</p>
+<p>for being elected the fellow of the Royal Society.</p>
+<p>So just as a shout out to a fellow researcher</p>
+<p>and a friend, what&rsquo;s the secret to the genius of Ilyas</p>
+<p>Etzgever?</p>
+<p>And also, do you believe that his tweets,</p>
+<p>as you&rsquo;ve hypothesized and Andrej Karpathy did as well,</p>
+<p>are generated by a language model?</p>
+<p>Yeah.</p>
+<p>So I strongly believe Ilya is going to visit in a few weeks,</p>
+<p>actually.</p>
+<p>So I&rsquo;ll ask him in person.</p>
+<p>Will he tell you the truth?</p>
+<p>Yes, of course, hopefully.</p>
+<p>I mean, ultimately, we all have shared paths,</p>
+<p>and there&rsquo;s friendships that go beyond, obviously,</p>
+<p>institutions and so on.</p>
+<p>So I hope he tells me the truth.</p>
+<p>Well, maybe the AI system is holding him hostage somehow.</p>
+<p>Maybe he has some videos that he doesn&rsquo;t want to release.</p>
+<p>So maybe it has taken control over him.</p>
+<p>So he can&rsquo;t tell the truth.</p>
+<p>Well, if I see him in person, then I think he will know.</p>
+<p>But I think Ilya&rsquo;s personality, just knowing him for a while,</p>
+<p>everyone in Twitter, I guess, gets a different persona.</p>
+<p>And I think Ilya&rsquo;s one does not surprise me.</p>
+<p>So I think knowing Ilya from before social media</p>
+<p>and before AI was so prevalent, I</p>
+<p>recognize a lot of his character.</p>
+<p>So that&rsquo;s something for me that I</p>
+<p>feel good about a friend that hasn&rsquo;t changed</p>
+<p>or is still true to himself.</p>
+<p>Obviously, there is, though, a fact</p>
+<p>that your field becomes more popular,</p>
+<p>and he is obviously one of the main figures in the field,</p>
+<p>having done a lot of advancement.</p>
+<p>So I think that the tricky bit here</p>
+<p>is how to balance your true self with the responsibility</p>
+<p>that your words carry.</p>
+<p>So in this sense, I appreciate the style, and I understand it.</p>
+<p>But it created debates on some of his tweets</p>
+<p>that maybe it&rsquo;s good we have them early anyways.</p>
+<p>But yeah, then the reactions are usually polarizing.</p>
+<p>I think we&rsquo;re just seeing the reality of social media</p>
+<p>be there as well, reflected on that particular topic</p>
+<p>or set of topics he&rsquo;s tweeting about.</p>
+<p>Yeah, I mean, it&rsquo;s funny that he used to speak to this tension.</p>
+<p>He was one of the early seminal figures</p>
+<p>in the field of deep learning, so there&rsquo;s</p>
+<p>a responsibility with that.</p>
+<p>But he&rsquo;s also, from having interacted with him quite a bit,</p>
+<p>he&rsquo;s just a brilliant thinker about ideas, which, as are you.</p>
+<p>And there&rsquo;s a tension between becoming</p>
+<p>the manager versus the actual thinking</p>
+<p>through very novel ideas, the scientist versus the manager.</p>
+<p>And he&rsquo;s one of the great scientists of our time.</p>
+<p>So this was quite interesting.</p>
+<p>And also, people tell me quite silly,</p>
+<p>which I haven&rsquo;t quite detected yet.</p>
+<p>But in private, we&rsquo;ll have to see about that.</p>
+<p>Yeah, yeah.</p>
+<p>I mean, just on the point of, I mean,</p>
+<p>Ilya has been an inspiration.</p>
+<p>I mean, quite a few colleagues, I can think,</p>
+<p>shaped the person you are.</p>
+<p>Like, Ilya certainly gets probably the top spot,</p>
+<p>if not close to the top.</p>
+<p>And if we go back to the question about people in the field,</p>
+<p>like how their role would have changed the field or not,</p>
+<p>I think Ilya&rsquo;s case is interesting</p>
+<p>because he really has a deep belief in the scaling up</p>
+<p>of neural networks.</p>
+<p>There was a talk that is still famous to this day</p>
+<p>from the Sequence to Sequence paper, where he was just</p>
+<p>claiming, just give me supervised data</p>
+<p>and a large neural network, and then you&rsquo;ll</p>
+<p>solve basically all the problems.</p>
+<p>That vision was already there many years ago.</p>
+<p>So it&rsquo;s good to see someone who is, in this case,</p>
+<p>very deeply into this style of research</p>
+<p>and clearly has had a tremendous track record of successes</p>
+<p>and so on.</p>
+<p>The funny bit about that talk is that we rehearsed the talk</p>
+<p>in a hotel room before, and the original version of that talk</p>
+<p>would have been even more controversial.</p>
+<p>So maybe I&rsquo;m the only person that</p>
+<p>has seen the unfiltered version of the talk.</p>
+<p>And maybe when the time comes, maybe we</p>
+<p>should revisit some of the skip slides</p>
+<p>from the talk from Ilya.</p>
+<p>But I really think the deep belief</p>
+<p>into some certain style of research</p>
+<p>pays out, is good to be practical sometimes.</p>
+<p>And I actually think Ilya and myself are practical,</p>
+<p>but it&rsquo;s also good.</p>
+<p>There&rsquo;s some sort of long term belief and trajectory.</p>
+<p>Obviously, there&rsquo;s a bit of lack involved,</p>
+<p>but it might be that that&rsquo;s the right path.</p>
+<p>Then you clearly are ahead and hugely influential to the field</p>
+<p>as he has been.</p>
+<p>Do you agree with that intuition that maybe</p>
+<p>was written about by Rich Sutton in The Bitter Lesson,</p>
+<p>that the biggest lesson that can be read from 70 years of AI</p>
+<p>research is that general methods that leverage computation</p>
+<p>are ultimately the most effective?</p>
+<p>Do you think that intuition is ultimately correct?</p>
+<p>General methods that leverage computation,</p>
+<p>allowing the scaling of computation</p>
+<p>to do a lot of the work.</p>
+<p>And so the basic task of us humans</p>
+<p>is to design methods that are more</p>
+<p>and more general versus more and more specific to the tasks</p>
+<p>at hand.</p>
+<p>I certainly think this essentially mimics</p>
+<p>a bit of the deep learning research,</p>
+<p>almost like philosophy, that on the one hand,</p>
+<p>we want to be data agnostic.</p>
+<p>We don&rsquo;t want to preprocess data sets.</p>
+<p>We want to see the bytes, the true data as it is,</p>
+<p>and then learn everything on top.</p>
+<p>So very much agree with that.</p>
+<p>And I think scaling up feels, at the very least, again,</p>
+<p>necessary for building incredible complex systems.</p>
+<p>It&rsquo;s possibly not sufficient, barring that we</p>
+<p>need a couple of breakthroughs.</p>
+<p>I think Reed Sutton mentioned search</p>
+<p>being part of the equation of scale and search.</p>
+<p>I think search, I&rsquo;ve seen it, that&rsquo;s</p>
+<p>been more mixed in my experience.</p>
+<p>So from that lesson in particular,</p>
+<p>search is a bit more tricky because it</p>
+<p>is very appealing to search in domains like Go,</p>
+<p>where you have a clear reward function that you can then</p>
+<p>discard some search traces.</p>
+<p>But then in some other tasks, it&rsquo;s</p>
+<p>not very clear how you would do that,</p>
+<p>although recently one of our recent works, which actually</p>
+<p>was mostly mimicking or a continuation,</p>
+<p>and even the team and the people involved were pretty much very</p>
+<p>intersecting with AlphaStar, was AlphaCode,</p>
+<p>in which we actually saw the bitter lesson how</p>
+<p>scale of the models and then a massive amount of search</p>
+<p>yielded this kind of very interesting result</p>
+<p>of being able to have human level code competition.</p>
+<p>So I&rsquo;ve seen examples of it being</p>
+<p>literally mapped to search and scale.</p>
+<p>I&rsquo;m not so convinced about the search bit,</p>
+<p>but certainly I&rsquo;m convinced scale will be needed.</p>
+<p>So we need general methods.</p>
+<p>We need to test them, and maybe we</p>
+<p>need to make sure that we can scale them given the hardware</p>
+<p>that we have in practice.</p>
+<p>But then maybe we should also shape how the hardware looks</p>
+<p>like based on which methods might be needed to scale.</p>
+<p>And that&rsquo;s an interesting contrast of these GPU comments</p>
+<p>that is we got it for free almost because games</p>
+<p>were using these.</p>
+<p>But maybe now if sparsity is required,</p>
+<p>we don&rsquo;t have the hardware.</p>
+<p>Although in theory, many people are</p>
+<p>building different kinds of hardware these days.</p>
+<p>But there&rsquo;s a bit of this notion of hardware lottery</p>
+<p>for scale that might actually have an impact at least</p>
+<p>on the scale of years on how fast we will make progress</p>
+<p>to maybe a version of neural nets</p>
+<p>or whatever comes next that might enable</p>
+<p>truly intelligent agents.</p>
+<p>Do you think in your lifetime we will build an AGI system that</p>
+<p>would undeniably be a thing that achieves human level</p>
+<p>intelligence and goes far beyond?</p>
+<p>I definitely think it&rsquo;s possible that it will go far beyond.</p>
+<p>But I&rsquo;m definitely convinced that it will</p>
+<p>be human level intelligence.</p>
+<p>And I&rsquo;m hypothesizing about the beyond</p>
+<p>because the beyond bit is a bit tricky to define,</p>
+<p>especially when we look at the current formula of starting</p>
+<p>from this imitation learning standpoint.</p>
+<p>So we can certainly imitate humans at language and beyond.</p>
+<p>So getting at human level through imitation</p>
+<p>feels very possible.</p>
+<p>Going beyond will require reinforcement learning</p>
+<p>and other things.</p>
+<p>And I think in some areas that certainly already has paid out.</p>
+<p>I mean, Go being an example that&rsquo;s</p>
+<p>my favorite so far in terms of going</p>
+<p>beyond human capabilities.</p>
+<p>But in general, I&rsquo;m not sure we can define reward functions</p>
+<p>that from a seed of imitating human level</p>
+<p>intelligence that is general and then going beyond.</p>
+<p>That bit is not so clear in my lifetime.</p>
+<p>But certainly, human level, yes.</p>
+<p>And I mean, that in itself is already quite powerful,</p>
+<p>I think.</p>
+<p>So going beyond, I think it&rsquo;s obviously not.</p>
+<p>We&rsquo;re not going to not try that if then we</p>
+<p>get to superhuman scientists and discovery</p>
+<p>and advancing the world.</p>
+<p>But at least human level in general</p>
+<p>is also very, very powerful.</p>
+<p>Well, especially if human level or slightly beyond</p>
+<p>is integrated deeply with human society</p>
+<p>and there&rsquo;s billions of agents like that,</p>
+<p>do you think there&rsquo;s a singularity moment beyond which</p>
+<p>our world will be just very deeply transformed</p>
+<p>by these kinds of systems?</p>
+<p>Because now you&rsquo;re talking about intelligence systems</p>
+<p>that are just, I mean, this is no longer just going</p>
+<p>from horse and buggy to the car.</p>
+<p>It feels like a very different kind of shift</p>
+<p>in what it means to be a living entity on Earth.</p>
+<p>Are you afraid?</p>
+<p>Are you excited of this world?</p>
+<p>I&rsquo;m afraid if there&rsquo;s a lot more.</p>
+<p>So I think maybe we&rsquo;ll need to think about if we truly</p>
+<p>get there just thinking of limited resources</p>
+<p>like humanity clearly hit some limits</p>
+<p>and then there&rsquo;s some balance, hopefully,</p>
+<p>that biologically the planet is imposing.</p>
+<p>And we should actually try to get better at this.</p>
+<p>As we know, there&rsquo;s quite a few issues</p>
+<p>with having too many people coexisting</p>
+<p>in a resource limited way.</p>
+<p>So for digital entities, it&rsquo;s an interesting question.</p>
+<p>I think such a limit maybe should exist.</p>
+<p>But maybe it&rsquo;s going to be imposed by energy availability</p>
+<p>because this also consumes energy.</p>
+<p>In fact, most systems are more inefficient</p>
+<p>than we are in terms of energy required.</p>
+<p>But definitely, I think as a society,</p>
+<p>we&rsquo;ll need to just work together to find</p>
+<p>what would be reasonable in terms of growth</p>
+<p>or how we coexist if that is to happen.</p>
+<p>I am very excited about, obviously,</p>
+<p>the aspects of automation that make people</p>
+<p>that obviously don&rsquo;t have access to certain resources</p>
+<p>or knowledge, for them to have that access.</p>
+<p>I think those are the applications in a way</p>
+<p>that I&rsquo;m most excited to see and to personally work towards.</p>
+<p>Yeah, there&rsquo;s going to be significant improvements</p>
+<p>in productivity and the quality of life</p>
+<p>across the whole population, which is very interesting.</p>
+<p>But I&rsquo;m looking even far beyond</p>
+<p>us becoming a multiplanetary species.</p>
+<p>And just as a quick bet, last question.</p>
+<p>Do you think as humans become multiplanetary species,</p>
+<p>go outside our solar system, all that kind of stuff,</p>
+<p>do you think there will be more humans</p>
+<p>or more robots in that future world?</p>
+<p>So will humans be the quirky, intelligent being of the past</p>
+<p>or is there something deeply fundamental</p>
+<p>to human intelligence that&rsquo;s truly special,</p>
+<p>where we will be part of those other planets,</p>
+<p>not just AI systems?</p>
+<p>I think we&rsquo;re all excited to build AGI</p>
+<p>to empower or make us more powerful as human species.</p>
+<p>Not to say there might be some hybridization.</p>
+<p>I mean, this is obviously speculation,</p>
+<p>but there are companies also trying to,</p>
+<p>the same way medicine is making us better.</p>
+<p>Maybe there are other things that are yet to happen on that.</p>
+<p>But if the ratio is not at most one to one,</p>
+<p>I would not be happy.</p>
+<p>So I would hope that we are part of the equation,</p>
+<p>but maybe there&rsquo;s maybe a one to one ratio feels</p>
+<p>like possible, constructive and so on,</p>
+<p>but it would not be good to have a misbalance,</p>
+<p>at least from my core beliefs and the why I&rsquo;m doing</p>
+<p>what I&rsquo;m doing when I go to work and I research</p>
+<p>what I research.</p>
+<p>Well, this is how I know you&rsquo;re human</p>
+<p>and this is how you&rsquo;ve passed the Turing test.</p>
+<p>And you are one of the special humans, Oriel.</p>
+<p>It&rsquo;s a huge honor that you would talk with me</p>
+<p>and I hope we get the chance to speak again,</p>
+<p>maybe once before the singularity, once after</p>
+<p>and see how our view of the world changes.</p>
+<p>Thank you again for talking today.</p>
+<p>Thank you for the amazing work you do.</p>
+<p>You&rsquo;re a shining example of a research</p>
+<p>and a human being in this community.</p>
+<p>Thanks a lot.</p>
+<p>Like yeah, looking forward to before the singularity</p>
+<p>certainly and maybe after.</p>
+<p>Thanks for listening to this conversation</p>
+<p>with Oriel Venialis.</p>
+<p>To support this podcast, please check out our sponsors</p>
+<p>in the description.</p>
+<p>And now let me leave you with some words from Alan Turing.</p>
+<p>Those who can imagine anything can create the impossible.</p>
+<p>Thank you for listening and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

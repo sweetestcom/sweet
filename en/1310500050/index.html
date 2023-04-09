@@ -1,0 +1,2295 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Michael Kearns.
+He&amp;rsquo;s a professor at the University of Pennsylvania
+and a coauthor of the new book, Ethical Algorithm,
+that is the focus of much of this conversation.
+It includes algorithmic fairness, bias, privacy,
+and ethics in general.
+But that is just one of many fields
+that Michael is a world class researcher in,
+some of which we touch on quickly,
+including learning theory'>
+<title>Lex Fridman Podcast - #50 - Michael Kearns: Algorithmic Fairness, Bias, Privacy, and Ethics in Machine Learning | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500050/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #50 - Michael Kearns: Algorithmic Fairness, Bias, Privacy, and Ethics in Machine Learning'>
+<meta property='og:description' content='The following is a conversation with Michael Kearns.
+He&amp;rsquo;s a professor at the University of Pennsylvania
+and a coauthor of the new book, Ethical Algorithm,
+that is the focus of much of this conversation.
+It includes algorithmic fairness, bias, privacy,
+and ethics in general.
+But that is just one of many fields
+that Michael is a world class researcher in,
+some of which we touch on quickly,
+including learning theory'>
+<meta property='og:url' content='https://swiest.com/en/1310500050/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-04-19T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-04-19T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #50 - Michael Kearns: Algorithmic Fairness, Bias, Privacy, and Ethics in Machine Learning">
+<meta name="twitter:description" content="The following is a conversation with Michael Kearns.
+He&amp;rsquo;s a professor at the University of Pennsylvania
+and a coauthor of the new book, Ethical Algorithm,
+that is the focus of much of this conversation.
+It includes algorithmic fairness, bias, privacy,
+and ethics in general.
+But that is just one of many fields
+that Michael is a world class researcher in,
+some of which we touch on quickly,
+including learning theory">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500050/">Lex Fridman Podcast - #50 - Michael Kearns: Algorithmic Fairness, Bias, Privacy, and Ethics in Machine Learning</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-04-19</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    85 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Michael Kearns.</p>
+<p>He&rsquo;s a professor at the University of Pennsylvania</p>
+<p>and a coauthor of the new book, Ethical Algorithm,</p>
+<p>that is the focus of much of this conversation.</p>
+<p>It includes algorithmic fairness, bias, privacy,</p>
+<p>and ethics in general.</p>
+<p>But that is just one of many fields</p>
+<p>that Michael is a world class researcher in,</p>
+<p>some of which we touch on quickly,</p>
+<p>including learning theory</p>
+<p>or the theoretical foundation of machine learning,</p>
+<p>game theory, quantitative finance,</p>
+<p>computational social science, and much more.</p>
+<p>But on a personal note,</p>
+<p>when I was an undergrad, early on,</p>
+<p>I worked with Michael</p>
+<p>on an algorithmic trading project</p>
+<p>and competition that he led.</p>
+<p>That&rsquo;s when I first fell in love</p>
+<p>with algorithmic game theory.</p>
+<p>While most of my research life</p>
+<p>has been in machine learning</p>
+<p>and human robot interaction,</p>
+<p>the systematic way that game theory</p>
+<p>reveals the beautiful structure</p>
+<p>in our competitive and cooperating world of humans</p>
+<p>has been a continued inspiration to me.</p>
+<p>So for that and other things,</p>
+<p>I&rsquo;m deeply thankful to Michael</p>
+<p>and really enjoyed having this conversation</p>
+<p>again in person after so many years.</p>
+<p>This is the Artificial Intelligence Podcast.</p>
+<p>If you enjoy it, subscribe on YouTube,</p>
+<p>give it five stars on Apple Podcast,</p>
+<p>support on Patreon,</p>
+<p>or simply connect with me on Twitter</p>
+<p>at Lex Friedman, spelled F R I D M A N.</p>
+<p>This episode is supported</p>
+<p>by an amazing podcast called Pessimists Archive.</p>
+<p>Jason, the host of the show,</p>
+<p>reached out to me looking to support this podcast,</p>
+<p>and so I listened to it, to check it out.</p>
+<p>And by listened, I mean I went through it,</p>
+<p>Netflix binge style, at least five episodes in a row.</p>
+<p>It&rsquo;s not one of my favorite podcasts,</p>
+<p>and I think it should be one of the top podcasts</p>
+<p>in the world, frankly.</p>
+<p>It&rsquo;s a history show</p>
+<p>about why people resist new things.</p>
+<p>Each episode looks at a moment in history</p>
+<p>when something new was introduced,</p>
+<p>something that today we think of as commonplace,</p>
+<p>like recorded music, umbrellas, bicycles, cars,</p>
+<p>chess, coffee, the elevator,</p>
+<p>and the show explores why it freaked everyone out.</p>
+<p>The latest episode on mirrors and vanity</p>
+<p>still stays with me as I think about vanity</p>
+<p>in the modern day of the Twitter world.</p>
+<p>That&rsquo;s the fascinating thing about the show,</p>
+<p>is that stuff that happened long ago,</p>
+<p>especially in terms of our fear of new things,</p>
+<p>repeats itself in the modern day,</p>
+<p>and so has many lessons for us to think about</p>
+<p>in terms of human psychology</p>
+<p>and the role of technology in our society.</p>
+<p>Anyway, you should subscribe</p>
+<p>and listen to Pessimist Archive.</p>
+<p>I highly recommend it.</p>
+<p>And now, here&rsquo;s my conversation with Michael Kearns.</p>
+<p>You mentioned reading Fear and Loathing in Las Vegas</p>
+<p>in high school, and having a more,</p>
+<p>or a bit more of a literary mind.</p>
+<p>So, what books, non technical, non computer science,</p>
+<p>would you say had the biggest impact on your life,</p>
+<p>either intellectually or emotionally?</p>
+<p>You&rsquo;ve dug deep into my history, I see.</p>
+<p>Went deep.</p>
+<p>Yeah, I think, well, my favorite novel is</p>
+<p>Infinite Jest by David Foster Wallace,</p>
+<p>which actually, coincidentally,</p>
+<p>much of it takes place in the halls of buildings</p>
+<p>right around us here at MIT.</p>
+<p>So that certainly had a big influence on me.</p>
+<p>And as you noticed, like, when I was in high school,</p>
+<p>I actually even started college as an English major.</p>
+<p>So, I was very influenced by sort of that genre of journalism</p>
+<p>at the time, and thought I wanted to be a writer,</p>
+<p>and then realized that an English major teaches you to read,</p>
+<p>but it doesn&rsquo;t teach you how to write,</p>
+<p>and then I became interested in math</p>
+<p>and computer science instead.</p>
+<p>Well, in your new book, Ethical Algorithm,</p>
+<p>you kind of sneak up from an algorithmic perspective</p>
+<p>on these deep, profound philosophical questions</p>
+<p>of fairness, of privacy.</p>
+<p>In thinking about these topics,</p>
+<p>how often do you return to that literary mind that you had?</p>
+<p>Yeah, I&rsquo;d like to claim there was a deeper connection,</p>
+<p>but, you know, I think both Aaron and I</p>
+<p>kind of came at these topics first and foremost</p>
+<p>from a technical angle.</p>
+<p>I mean, you know, I kind of consider myself primarily</p>
+<p>and originally a machine learning researcher,</p>
+<p>and I think as we just watched, like the rest of the society,</p>
+<p>the field technically advance, and then quickly on the heels</p>
+<p>of that kind of the buzzkill of all of the antisocial behavior</p>
+<p>by algorithms, just kind of realized</p>
+<p>there was an opportunity for us to do something about it</p>
+<p>from a research perspective.</p>
+<p>You know, more to the point in your question,</p>
+<p>I mean, I do have an uncle who is literally a moral philosopher,</p>
+<p>and so in the early days of my life,</p>
+<p>he was a philosopher, and so in the early days</p>
+<p>of our technical work on fairness topics,</p>
+<p>I would occasionally, you know, run ideas behind him.</p>
+<p>So, I mean, I remember an early email I sent to him</p>
+<p>in which I said, like, oh, you know,</p>
+<p>here&rsquo;s a specific definition of algorithmic fairness</p>
+<p>that we think is some sort of variant of Rawlsian fairness.</p>
+<p>What do you think?</p>
+<p>And I thought I was asking a yes or no question,</p>
+<p>and I got back your kind of classical philosopher&rsquo;s</p>
+<p>response saying, well, it depends.</p>
+<p>Hey, then you might conclude this, and that&rsquo;s when I realized</p>
+<p>that there was a real kind of rift between the ways</p>
+<p>philosophers and others had thought about things</p>
+<p>like fairness, you know, from sort of a humanitarian perspective</p>
+<p>and the way that you needed to think about it</p>
+<p>as a computer scientist if you were going to kind of</p>
+<p>implement actual algorithmic solutions.</p>
+<p>But I would say the algorithmic solutions take care</p>
+<p>of some of the low hanging fruit.</p>
+<p>Sort of the problem is a lot of algorithms,</p>
+<p>when they don&rsquo;t consider fairness,</p>
+<p>they are just terribly unfair.</p>
+<p>And when they don&rsquo;t consider privacy,</p>
+<p>they&rsquo;re terribly, they violate privacy.</p>
+<p>Sort of the algorithmic approach fixes big problems.</p>
+<p>But there&rsquo;s still, when you start pushing into the gray area,</p>
+<p>that&rsquo;s when you start getting into this philosophy</p>
+<p>of what it means to be fair, starting from Plato,</p>
+<p>what is justice kind of questions?</p>
+<p>Yeah, I think that&rsquo;s right.</p>
+<p>And I mean, I would even not go as far as you want to say</p>
+<p>that sort of the algorithmic work in these areas</p>
+<p>is solving like the biggest problems.</p>
+<p>And, you know, we discuss in the book,</p>
+<p>the fact that really we are, there&rsquo;s a sense in which</p>
+<p>we&rsquo;re kind of looking where the light is in that,</p>
+<p>you know, for example, if police are racist</p>
+<p>in who they decide to stop and frisk,</p>
+<p>and that goes into the data,</p>
+<p>there&rsquo;s sort of no undoing that downstream</p>
+<p>by kind of clever algorithmic methods.</p>
+<p>And I think, especially in fairness,</p>
+<p>I mean, I think less so in privacy,</p>
+<p>where we feel like the community kind of really has settled</p>
+<p>on the right definition, which is differential privacy.</p>
+<p>If you just look at the algorithmic fairness literature</p>
+<p>already, you can see it&rsquo;s going to be much more of a mess.</p>
+<p>And, you know, you&rsquo;ve got these theorems saying,</p>
+<p>here are three entirely reasonable,</p>
+<p>desirable notions of fairness.</p>
+<p>And, you know, here&rsquo;s a proof that you cannot simultaneously</p>
+<p>have all three of them.</p>
+<p>So I think we know that algorithmic fairness</p>
+<p>compared to algorithmic privacy</p>
+<p>is going to be kind of a harder problem.</p>
+<p>And it will have to revisit, I think,</p>
+<p>things that have been thought about by,</p>
+<p>you know, many generations of scholars before us.</p>
+<p>So it&rsquo;s very early days for fairness, I think.</p>
+<p>TK So before we get into the details</p>
+<p>of differential privacy, and on the fairness side,</p>
+<p>let me linger on the philosophy a bit.</p>
+<p>Do you think most people are fundamentally good?</p>
+<p>Or do most of us have both the capacity</p>
+<p>for good and evil within us?</p>
+<p>SB I mean, I&rsquo;m an optimist.</p>
+<p>I tend to think that most people are good</p>
+<p>and want to do right.</p>
+<p>And that deviations from that are, you know,</p>
+<p>kind of usually due to circumstance,</p>
+<p>not due to people being bad at heart.</p>
+<p>TK With people with power,</p>
+<p>are people at the heads of governments,</p>
+<p>people at the heads of companies,</p>
+<p>people at the heads of, maybe, so financial power markets,</p>
+<p>do you think the distribution there is also,</p>
+<p>most people are good and have good intent?</p>
+<p>SB Yeah, I do.</p>
+<p>I mean, my statement wasn&rsquo;t qualified to people</p>
+<p>not in positions of power.</p>
+<p>I mean, I think what happens in a lot of the, you know,</p>
+<p>the cliche about absolute power corrupts absolutely.</p>
+<p>I mean, you know, I think even short of that,</p>
+<p>you know, having spent a lot of time on Wall Street,</p>
+<p>and also in arenas very, very different from Wall Street,</p>
+<p>like academia, you know, one of the things</p>
+<p>I think I&rsquo;ve benefited from by moving between</p>
+<p>two very different worlds is you become aware</p>
+<p>that, you know, these worlds kind of develop</p>
+<p>their own social norms, and they develop</p>
+<p>their own rationales for, you know,</p>
+<p>behavior, for instance, that might look</p>
+<p>unusual to outsiders.</p>
+<p>But when you&rsquo;re in that world,</p>
+<p>it doesn&rsquo;t feel unusual at all.</p>
+<p>And I think this is true of a lot of,</p>
+<p>you know, professional cultures, for instance.</p>
+<p>And, you know, so then your maybe slippery slope</p>
+<p>is too strong of a word.</p>
+<p>But, you know, you&rsquo;re in some world</p>
+<p>where you&rsquo;re mainly around other people</p>
+<p>with the same kind of viewpoints and training</p>
+<p>and worldview as you.</p>
+<p>And I think that&rsquo;s more of a source of,</p>
+<p>of, you know, kind of abuses of power</p>
+<p>than sort of, you know, there being good people</p>
+<p>and evil people, and that somehow the evil people</p>
+<p>are the ones that somehow rise to power.</p>
+<p>Oh, that&rsquo;s really interesting.</p>
+<p>So it&rsquo;s the, within the social norms</p>
+<p>constructed by that particular group of people,</p>
+<p>you&rsquo;re all trying to do good.</p>
+<p>But because as a group, you might be,</p>
+<p>you might drift into something</p>
+<p>that for the broader population,</p>
+<p>it does not align with the values of society.</p>
+<p>That kind of, that&rsquo;s the word.</p>
+<p>Yeah, I mean, or not that you drift,</p>
+<p>but even the things that don&rsquo;t make sense</p>
+<p>to the outside world don&rsquo;t seem unusual to you.</p>
+<p>So it&rsquo;s not sort of like a good or a bad thing,</p>
+<p>but, you know, like, so for instance,</p>
+<p>you know, on, in the world of finance, right?</p>
+<p>There&rsquo;s a lot of complicated types of activity</p>
+<p>that if you are not immersed in that world,</p>
+<p>you cannot see why the purpose of that,</p>
+<p>you know, that activity exists at all.</p>
+<p>It just seems like, you know, completely useless</p>
+<p>and people just like, you know, pushing money around.</p>
+<p>And when you&rsquo;re in that world, right,</p>
+<p>you&rsquo;re, and you learn more,</p>
+<p>your view does become more nuanced, right?</p>
+<p>You realize, okay, there is actually a function</p>
+<p>to this activity.</p>
+<p>And in some cases, you would conclude that actually,</p>
+<p>if magically we could eradicate this activity tomorrow,</p>
+<p>it would come back because it actually is like</p>
+<p>serving some useful purpose.</p>
+<p>It&rsquo;s just a useful purpose that&rsquo;s very difficult</p>
+<p>for outsiders to see.</p>
+<p>And so I think, you know, lots of professional work</p>
+<p>environments or cultures, as I might put it,</p>
+<p>kind of have these social norms that, you know,</p>
+<p>don&rsquo;t make sense to the outside world.</p>
+<p>Academia is the same, right?</p>
+<p>I mean, lots of people look at academia and say,</p>
+<p>you know, what the hell are all of you people doing?</p>
+<p>Why are you paid so much in some cases</p>
+<p>at taxpayer expenses to do, you know,</p>
+<p>to publish papers that nobody reads?</p>
+<p>You know, but when you&rsquo;re in that world,</p>
+<p>you come to see the value for it.</p>
+<p>And, but even though you might not be able to explain it</p>
+<p>to, you know, the person in the street.</p>
+<p>Right.</p>
+<p>And in the case of the financial sector,</p>
+<p>tools like credit might not make sense to people.</p>
+<p>Like, it&rsquo;s a good example of something that does seem</p>
+<p>to pop up and be useful or just the power of markets</p>
+<p>and just in general capitalism.</p>
+<p>Yeah.</p>
+<p>In finance, I think the primary example</p>
+<p>I would give is leverage, right?</p>
+<p>So being allowed to borrow, to sort of use ten times</p>
+<p>as much money as you&rsquo;ve actually borrowed, right?</p>
+<p>So that&rsquo;s an example of something that before I had</p>
+<p>any experience in financial markets,</p>
+<p>I might have looked at and said,</p>
+<p>well, what is the purpose of that?</p>
+<p>That just seems very dangerous and it is dangerous</p>
+<p>and it has proven dangerous.</p>
+<p>But, you know, if the fact of the matter is that,</p>
+<p>you know, sort of on some particular time scale,</p>
+<p>you are holding positions that are,</p>
+<p>you know, very unlikely to, you know,</p>
+<p>lose, you know, your value at risk or variance</p>
+<p>is like one or five percent, then it kind of makes sense</p>
+<p>that you would be allowed to use a little bit more</p>
+<p>than you have because you have, you know,</p>
+<p>some confidence that you&rsquo;re not going to lose</p>
+<p>it all in a single day.</p>
+<p>Now, of course, when that happens,</p>
+<p>we&rsquo;ve seen what happens, you know, not too long ago.</p>
+<p>But, you know, but the idea that it serves</p>
+<p>no useful economic purpose under any circumstances</p>
+<p>is definitely not true.</p>
+<p>We&rsquo;ll return to the other side of the coast,</p>
+<p>Silicon Valley, and the problems there as we talk about privacy,</p>
+<p>as we talk about fairness.</p>
+<p>At the high level, and I&rsquo;ll ask some sort of basic questions</p>
+<p>with the hope to get at the fundamental nature of reality.</p>
+<p>But from a very high level, what is an ethical algorithm?</p>
+<p>So I can say that an algorithm has a running time</p>
+<p>of using big O notation n log n.</p>
+<p>I can say that a machine learning algorithm</p>
+<p>classified cat versus dog with 97 percent accuracy.</p>
+<p>Do you think there will one day be a way to measure</p>
+<p>sort of in the same compelling way as the big O notation</p>
+<p>of this algorithm is 97 percent ethical?</p>
+<p>First of all, let me riff for a second on your specific n log n example.</p>
+<p>So because early in the book when we&rsquo;re just kind of trying to describe</p>
+<p>algorithms period, we say like, okay, you know,</p>
+<p>what&rsquo;s an example of an algorithm or an algorithmic problem?</p>
+<p>First of all, like it&rsquo;s sorting, right?</p>
+<p>You have a bunch of index cards with numbers on them</p>
+<p>and you want to sort them.</p>
+<p>And we describe, you know, an algorithm that sweeps all the way through,</p>
+<p>finds the smallest number, puts it at the front,</p>
+<p>then sweeps through again, finds the second smallest number.</p>
+<p>So we make the point that this is an algorithm</p>
+<p>and it&rsquo;s also a bad algorithm in the sense that, you know,</p>
+<p>it&rsquo;s quadratic rather than n log n,</p>
+<p>which we know is kind of optimal for sorting.</p>
+<p>And we make the point that sort of like, you know,</p>
+<p>so even within the confines of a very precisely specified problem,</p>
+<p>there, you know, there might be many, many different algorithms</p>
+<p>for the same problem with different properties.</p>
+<p>Like some might be faster in terms of running time,</p>
+<p>some might use less memory, some might have, you know,</p>
+<p>better distributed implementations.</p>
+<p>And so the point is that already we&rsquo;re used to, you know,</p>
+<p>in computer science thinking about trade offs</p>
+<p>between different types of quantities and resources</p>
+<p>and there being, you know, better and worse algorithms.</p>
+<p>And our book is about that part of algorithmic ethics</p>
+<p>that we know how to kind of put on that same kind of quantitative footing right now.</p>
+<p>So, you know, just to say something that our book is not about,</p>
+<p>our book is not about kind of broad, fuzzy notions of fairness.</p>
+<p>It&rsquo;s about very specific notions of fairness.</p>
+<p>There&rsquo;s more than one of them.</p>
+<p>There are tensions between them, right?</p>
+<p>But if you pick one of them, you can do something akin to saying</p>
+<p>that this algorithm is 97% ethical.</p>
+<p>You can say, for instance, the, you know, for this lending model,</p>
+<p>the false rejection rate on black people and white people is within 3%, right?</p>
+<p>So we might call that a 97% ethical algorithm and a 100% ethical algorithm</p>
+<p>would mean that that difference is 0%.</p>
+<p>In that case, fairness is specified when two groups, however,</p>
+<p>they&rsquo;re defined are given to you.</p>
+<p>That&rsquo;s right.</p>
+<p>So the, and then you can sort of mathematically start describing the algorithm.</p>
+<p>But nevertheless, the part where the two groups are given to you,</p>
+<p>I mean, unlike running time, you know, we don&rsquo;t in computer science</p>
+<p>talk about how fast an algorithm feels like when it runs.</p>
+<p>True.</p>
+<p>We measure it and ethical starts getting into feelings.</p>
+<p>So, for example, an algorithm runs, you know, if it runs in the background,</p>
+<p>it doesn&rsquo;t disturb the performance of my system.</p>
+<p>It&rsquo;ll feel nice.</p>
+<p>I&rsquo;ll be okay with it.</p>
+<p>But if it overloads the system, it&rsquo;ll feel unpleasant.</p>
+<p>So in that same way, ethics, there&rsquo;s a feeling of how socially acceptable it is.</p>
+<p>How does it represent the moral standards of our society today?</p>
+<p>So in that sense, and sorry to linger on that first of high,</p>
+<p>low philosophical questions.</p>
+<p>Do you have a sense we&rsquo;ll be able to measure how ethical an algorithm is?</p>
+<p>First of all, I didn&rsquo;t, certainly didn&rsquo;t mean to give the impression that you can kind of</p>
+<p>measure, you know, memory speed trade offs, you know, and that there&rsquo;s a complete mapping from</p>
+<p>that onto kind of fairness, for instance, or ethics and accuracy, for example.</p>
+<p>In the type of fairness definitions that are largely the objects of study today and starting</p>
+<p>to be deployed, you as the user of the definitions, you need to make some hard decisions before you</p>
+<p>even get to the point of designing fair algorithms.</p>
+<p>One of them, for instance, is deciding who it is that you&rsquo;re worried about protecting,</p>
+<p>who you&rsquo;re worried about being harmed by, for instance, some notion of discrimination or</p>
+<p>unfairness.</p>
+<p>And then you need to also decide what constitutes harm.</p>
+<p>So, for instance, in a lending application, maybe you decide that, you know, falsely rejecting</p>
+<p>a creditworthy individual, you know, sort of a false negative, is the real harm and that false</p>
+<p>positives, i.e. people that are not creditworthy or are not gonna repay your loan, that get a loan,</p>
+<p>you might think of them as lucky.</p>
+<p>And so that&rsquo;s not a harm, although it&rsquo;s not clear that if you don&rsquo;t have the means to repay a loan,</p>
+<p>that being given a loan is not also a harm.</p>
+<p>So, you know, the literature is sort of so far quite limited in that you sort of need to say,</p>
+<p>who do you want to protect and what would constitute harm to that group?</p>
+<p>And when you ask questions like, will algorithms feel ethical?</p>
+<p>One way in which they won&rsquo;t, under the definitions that I&rsquo;m describing, is if, you know, if you are</p>
+<p>an individual who is falsely denied a loan, incorrectly denied a loan, all of these definitions</p>
+<p>basically say like, well, you know, your compensation is the knowledge that we are also</p>
+<p>falsely denying loans to other people, you know, in other groups at the same rate that we&rsquo;re doing</p>
+<p>it to you.</p>
+<p>And, you know, and so there is actually this interesting even technical tension in the field</p>
+<p>right now between these sort of group notions of fairness and notions of fairness that might</p>
+<p>actually feel like real fairness to individuals, right?</p>
+<p>They might really feel like their particular interests are being protected or thought about</p>
+<p>by the algorithm rather than just, you know, the groups that they happen to be members of.</p>
+<p>Is there parallels to the big O notation of worst case analysis?</p>
+<p>So, is it important to looking at the worst violation of fairness for an individual?</p>
+<p>Is it important to minimize that one individual?</p>
+<p>So like worst case analysis, is that something you think about or?</p>
+<p>I mean, I think we&rsquo;re not even at the point where we can sensibly think about that.</p>
+<p>So first of all, you know, we&rsquo;re talking here both about fairness applied at the group level,</p>
+<p>which is a relatively weak thing, but it&rsquo;s better than nothing.</p>
+<p>And also the more ambitious thing of trying to give some individual promises, but even</p>
+<p>that doesn&rsquo;t incorporate, I think something that you&rsquo;re hinting at here is what I might</p>
+<p>call subjective fairness, right?</p>
+<p>So a lot of the definitions, I mean, all of the definitions in the algorithmic fairness</p>
+<p>literature are what I would kind of call received wisdom definitions.</p>
+<p>It&rsquo;s sort of, you know, somebody like me sits around and things like, okay, you know, I</p>
+<p>think here&rsquo;s a technical definition of fairness that I think people should want or that they</p>
+<p>should, you know, think of as some notion of fairness, maybe not the only one, maybe</p>
+<p>not the best one, maybe not the last one.</p>
+<p>But we really actually don&rsquo;t know from a subjective standpoint, like what people really</p>
+<p>think is fair.</p>
+<p>You know, we just started doing a little bit of work in our group at actually doing kind</p>
+<p>of human subject experiments in which we, you know, ask people about, you know, we ask</p>
+<p>them questions about fairness, we survey them, we, you know, we show them pairs of individuals</p>
+<p>in, let&rsquo;s say, a criminal recidivism prediction setting, and we ask them, do you think these</p>
+<p>two individuals should be treated the same as a matter of fairness?</p>
+<p>And to my knowledge, there&rsquo;s not a large literature in which ordinary people are asked</p>
+<p>about, you know, they have sort of notions of their subjective fairness elicited from</p>
+<p>them.</p>
+<p>It&rsquo;s mainly, you know, kind of scholars who think about fairness kind of making up their</p>
+<p>own definitions.</p>
+<p>And I think this needs to change actually for many social norms, not just for fairness,</p>
+<p>right?</p>
+<p>So there&rsquo;s a lot of discussion these days in the AI community about interpretable AI</p>
+<p>or understandable AI.</p>
+<p>And as far as I can tell, everybody agrees that deep learning or at least the outputs</p>
+<p>of deep learning are not very understandable, and people might agree that sparse linear</p>
+<p>models with integer coefficients are more understandable.</p>
+<p>But nobody&rsquo;s really asked people.</p>
+<p>You know, there&rsquo;s very little literature on, you know, sort of showing people models</p>
+<p>and asking them, do they understand what the model is doing?</p>
+<p>And I think that in all these topics, as these fields mature, we need to start doing more</p>
+<p>behavioral work.</p>
+<p>Yeah, which is one of my deep passions is psychology.</p>
+<p>And I always thought computer scientists will be the best future psychologists in a sense</p>
+<p>that data is, especially in this modern world, the data is a really powerful way to understand</p>
+<p>and study human behavior.</p>
+<p>And you&rsquo;ve explored that with your game theory side of work as well.</p>
+<p>Yeah, I&rsquo;d like to think that what you say is true about computer scientists and psychology</p>
+<p>from my own limited wandering into human subject experiments.</p>
+<p>We have a great deal to learn, not just computer science, but AI and machine learning more</p>
+<p>specifically, I kind of think of as imperialist research communities in that, you know, kind</p>
+<p>of like physicists in an earlier generation, computer scientists kind of don&rsquo;t think of</p>
+<p>any scientific topic that&rsquo;s off limits to them.</p>
+<p>They will like freely wander into areas that others have been thinking about for decades</p>
+<p>or longer.</p>
+<p>And, you know, we usually tend to embarrass ourselves in those efforts for some amount</p>
+<p>of time.</p>
+<p>Like, you know, I think reinforcement learning is a good example, right?</p>
+<p>So a lot of the early work in reinforcement learning, I have complete sympathy for the</p>
+<p>control theorists that looked at this and said like, okay, you are reinventing stuff</p>
+<p>that we&rsquo;ve known since like the forties, right?</p>
+<p>But, you know, in my view, eventually this sort of, you know, computer scientists have</p>
+<p>made significant contributions to that field, even though we kind of embarrassed ourselves</p>
+<p>for the first decade.</p>
+<p>So I think if computer scientists are gonna start engaging in kind of psychology, human</p>
+<p>subjects type of research, we should expect to be embarrassing ourselves for a good 10</p>
+<p>years or so, and then hope that it turns out as well as, you know, some other areas that</p>
+<p>we&rsquo;ve waded into.</p>
+<p>So you kind of mentioned this, just to linger on the idea of an ethical algorithm, of idea</p>
+<p>of groups, sort of group thinking and individual thinking.</p>
+<p>And we&rsquo;re struggling that.</p>
+<p>One of the amazing things about algorithms and your book and just this field of study</p>
+<p>is it gets us to ask, like forcing machines, converting these ideas into algorithms is</p>
+<p>forcing us to ask questions of ourselves as a human civilization.</p>
+<p>So there&rsquo;s a lot of people now in public discourse doing sort of group thinking, thinking like</p>
+<p>there&rsquo;s particular sets of groups that we don&rsquo;t wanna discriminate against and so on.</p>
+<p>And then there is individuals, sort of in the individual life stories, the struggles</p>
+<p>they went through and so on.</p>
+<p>Now, like in philosophy, it&rsquo;s easier to do group thinking because you don&rsquo;t, it&rsquo;s very</p>
+<p>hard to think about individuals.</p>
+<p>There&rsquo;s so much variability, but with data, you can start to actually say, you know what</p>
+<p>group thinking is too crude.</p>
+<p>You&rsquo;re actually doing more discrimination by thinking in terms of groups and individuals.</p>
+<p>Can you linger on that kind of idea of group versus individual and ethics?</p>
+<p>And is it good to continue thinking in terms of groups in algorithms?</p>
+<p>So let me start by answering a very good high level question with a slightly narrow technical</p>
+<p>response, which is these group definitions of fairness, like here&rsquo;s a few groups, like</p>
+<p>different racial groups, maybe gender groups, maybe age, what have you.</p>
+<p>And let&rsquo;s make sure that for none of these groups, do we have a false negative rate,</p>
+<p>which is much higher than any other one of these groups.</p>
+<p>Okay, so these are kind of classic group aggregate notions of fairness.</p>
+<p>And you know, but at the end of the day, an individual you can think of as a combination</p>
+<p>of all of their attributes, right?</p>
+<p>They&rsquo;re a member of a racial group, they have a gender, they have an age, and many other</p>
+<p>demographic properties that are not biological, but that are still very strong determinants</p>
+<p>of outcome and personality and the like.</p>
+<p>So one, I think, useful spectrum is to sort of think about that array between the group</p>
+<p>and the specific individual, and to realize that in some ways, asking for fairness at</p>
+<p>the individual level is to sort of ask for group fairness simultaneously for all possible</p>
+<p>combinations of groups.</p>
+<p>So in particular, you know, if I build a predictive model that meets some definition of fairness,</p>
+<p>definition of fairness by race, by gender, by age, by what have you, marginally, to get</p>
+<p>it slightly technical, sort of independently, I shouldn&rsquo;t expect that model to not discriminate</p>
+<p>against disabled Hispanic women over age 55, making less than $50,000 a year annually,</p>
+<p>even though I might have protected each one of those attributes marginally.</p>
+<p>So the optimization, actually, that&rsquo;s a fascinating way to put it.</p>
+<p>So you&rsquo;re just optimizing, the one way to achieve the optimizing fairness for individuals</p>
+<p>is just to add more and more definitions of groups that each individual belongs to.</p>
+<p>That&rsquo;s right.</p>
+<p>So, you know, at the end of the day, we could think of all of ourselves as groups of size</p>
+<p>one because eventually there&rsquo;s some attribute that separates you from me and everybody else</p>
+<p>in the world, okay?</p>
+<p>And so it is possible to put, you know, these incredibly coarse ways of thinking about fairness</p>
+<p>and these very, very individualistic specific ways on a common scale.</p>
+<p>And you know, one of the things we&rsquo;ve worked on from a research perspective is, you know,</p>
+<p>so we sort of know how to, you know, in relative terms, we know how to provide fairness guarantees</p>
+<p>at the core system of the scale.</p>
+<p>We don&rsquo;t know how to provide kind of sensible, tractable, realistic fairness guarantees at</p>
+<p>the individual level, but maybe we could start creeping towards that by dealing with more</p>
+<p>refined subgroups.</p>
+<p>I mean, we gave a name to this phenomenon where, you know, you protect, you enforce</p>
+<p>some definition of fairness for a bunch of marginal attributes or features, but then</p>
+<p>you find yourself discriminating against a combination of them.</p>
+<p>We call that fairness gerrymandering because like political gerrymandering, you know, you&rsquo;re</p>
+<p>giving some guarantee at the aggregate level, but when you kind of look in a more granular</p>
+<p>way at what&rsquo;s going on, you realize that you&rsquo;re achieving that aggregate guarantee by sort</p>
+<p>of favoring some groups and discriminating against other ones.</p>
+<p>And so there are, you know, it&rsquo;s early days, but there are algorithmic approaches that</p>
+<p>let you start creeping towards that, you know, individual end of the spectrum.</p>
+<p>Does there need to be human input in the form of weighing the value of the importance of</p>
+<p>each kind of group?</p>
+<p>So for example, is it like, so gender, say crudely speaking, male and female, and then</p>
+<p>different races, are we as humans supposed to put value on saying gender is 0.6 and race</p>
+<p>is 0.4 in terms of in the big optimization of achieving fairness?</p>
+<p>Is that kind of what humans are supposed to do here?</p>
+<p>I mean, of course, you know, I don&rsquo;t need to tell you that, of course, technically one</p>
+<p>could incorporate such weights if you wanted to into a definition of fairness.</p>
+<p>You know, fairness is an interesting topic in that having worked in the book being about</p>
+<p>both fairness, privacy, and many other social norms, fairness, of course, is a much, much</p>
+<p>more loaded topic.</p>
+<p>So privacy, I mean, people want privacy, people don&rsquo;t like violations of privacy, violations</p>
+<p>of privacy cause damage, angst, and bad publicity for the companies that are victims of them.</p>
+<p>But sort of everybody agrees more data privacy would be better than less data privacy.</p>
+<p>And you don&rsquo;t have these, somehow the discussions of fairness don&rsquo;t become politicized along</p>
+<p>other dimensions like race and about gender and, you know, whether we, and, you know,</p>
+<p>you quickly find yourselves kind of revisiting topics that have been kind of unresolved forever,</p>
+<p>like affirmative action, right?</p>
+<p>Sort of, you know, like, why are you protecting, and some people will say, why are you protecting</p>
+<p>this particular racial group?</p>
+<p>And others will say, well, we need to do that as a matter of retribution.</p>
+<p>Other people will say, it&rsquo;s a matter of economic opportunity.</p>
+<p>And I don&rsquo;t know which of, you know, whether any of these are the right answers, but you</p>
+<p>sort of, fairness is sort of special in that as soon as you start talking about it, you</p>
+<p>inevitably have to participate in debates about fair to whom, at what expense to who</p>
+<p>else.</p>
+<p>I mean, even in criminal justice, right, you know, where people talk about fairness in</p>
+<p>criminal sentencing or, you know, predicting failures to appear or making parole decisions</p>
+<p>or the like, they will, you know, they&rsquo;ll point out that, well, these definitions of</p>
+<p>fairness are all about fairness for the criminals.</p>
+<p>And what about fairness for the victims, right?</p>
+<p>So when I basically say something like, well, the false incarceration rate for black people</p>
+<p>and white people needs to be roughly the same, you know, there&rsquo;s no mention of potential</p>
+<p>victims of criminals in such a fairness definition.</p>
+<p>And that&rsquo;s the realm of public discourse.</p>
+<p>I should actually recommend, I just listened to people listening, Intelligence Squares</p>
+<p>debates, US edition just had a debate.</p>
+<p>They have this structure where you have old Oxford style or whatever they&rsquo;re called, debates,</p>
+<p>you know, it&rsquo;s two versus two and they talked about affirmative action and it was incredibly</p>
+<p>interesting that there&rsquo;s really good points on every side of this issue, which is fascinating</p>
+<p>to listen to.</p>
+<p>Yeah, yeah, I agree.</p>
+<p>And so it&rsquo;s interesting to be a researcher trying to do, for the most part, technical</p>
+<p>algorithmic work, but Aaron and I both quickly learned you cannot do that and then go out</p>
+<p>and talk about it and expect people to take it seriously if you&rsquo;re unwilling to engage</p>
+<p>in these broader debates that are entirely extra algorithmic, right?</p>
+<p>They&rsquo;re not about, you know, algorithms and making algorithms better.</p>
+<p>They&rsquo;re sort of, you know, as you said, sort of like, what should society be protecting</p>
+<p>in the first place?</p>
+<p>When you discuss the fairness, an algorithm that achieves fairness, whether in the constraints</p>
+<p>and the objective function, there&rsquo;s an immediate kind of analysis you can perform, which is</p>
+<p>saying, if you care about fairness in gender, this is the amount that you have to pay for</p>
+<p>it in terms of the performance of the system.</p>
+<p>Like do you, is there a role for statements like that in a table, in a paper, or do you</p>
+<p>want to really not touch that?</p>
+<p>No, no, we want to touch that and we do touch it.</p>
+<p>So I mean, just again, to make sure I&rsquo;m not promising your viewers more than we know how</p>
+<p>to provide, but if you pick a definition of fairness, like I&rsquo;m worried about gender discrimination</p>
+<p>and you pick a notion of harm, like false rejection for a loan, for example, and you</p>
+<p>give me a model, I can definitely, first of all, go audit that model.</p>
+<p>It&rsquo;s easy for me to go, you know, from data to kind of say like, okay, your false rejection</p>
+<p>rate on women is this much higher than it is on men, okay?</p>
+<p>But once you also put the fairness into your objective function, I mean, I think the table</p>
+<p>that you&rsquo;re talking about is what we would call the Pareto curve, right?</p>
+<p>You can literally trace out, and we give examples of such plots on real data sets in the book,</p>
+<p>you have two axes.</p>
+<p>On the X axis is your error, on the Y axis is unfairness by whatever, you know, if it&rsquo;s</p>
+<p>like the disparity between false rejection rates between two groups.</p>
+<p>And you know, your algorithm now has a knob that basically says, how strongly do I want</p>
+<p>to enforce fairness?</p>
+<p>And the less unfair, you know, if the two axes are error and unfairness, we&rsquo;d like to</p>
+<p>be at zero, zero.</p>
+<p>We&rsquo;d like zero error and zero unfairness simultaneously.</p>
+<p>Anybody who works in machine learning knows that you&rsquo;re generally not going to get to</p>
+<p>zero error period without any fairness constraint whatsoever.</p>
+<p>So that&rsquo;s not going to happen.</p>
+<p>But in general, you know, you&rsquo;ll get this, you&rsquo;ll get some kind of convex curve that</p>
+<p>specifies the numerical trade off you face.</p>
+<p>You know, if I want to go from 17% error down to 16% error, what will be the increase in</p>
+<p>unfairness that I experienced as a result of that?</p>
+<p>And so this curve kind of specifies the, you know, kind of undominated models.</p>
+<p>Models that are off that curve are, you know, can be strictly improved in one or both dimensions.</p>
+<p>You can, you know, either make the error better or the unfairness better or both.</p>
+<p>And I think our view is that not only are these objects, these Pareto curves, you know,</p>
+<p>with efficient frontiers as you might call them, not only are they valuable scientific</p>
+<p>objects, I actually think that they in the near term might need to be the interface between</p>
+<p>researchers working in the field and stakeholders in given problems.</p>
+<p>So you know, you could really imagine telling a criminal jurisdiction, look, if you&rsquo;re concerned</p>
+<p>about racial fairness, but you&rsquo;re also concerned about accuracy.</p>
+<p>You want to, you know, you want to release on parole people that are not going to recommit</p>
+<p>a violent crime and you don&rsquo;t want to release the ones who are.</p>
+<p>So you know, that&rsquo;s accuracy.</p>
+<p>But if you also care about those, you know, the mistakes you make not being disproportionately</p>
+<p>on one racial group or another, you can show this curve.</p>
+<p>I&rsquo;m hoping that in the near future, it&rsquo;ll be possible to explain these curves to non</p>
+<p>technical people that are the ones that have to make the decision, where do we want to</p>
+<p>be on this curve?</p>
+<p>Like, what are the relative merits or value of having lower error versus lower unfairness?</p>
+<p>You know, that&rsquo;s not something computer scientists should be deciding for society, right?</p>
+<p>That, you know, the people in the field, so to speak, the policymakers, the regulators,</p>
+<p>that&rsquo;s who should be making these decisions.</p>
+<p>But I think and hope that they can be made to understand that these trade offs generally</p>
+<p>exist and that you need to pick a point and like, and ignoring the trade off, you know,</p>
+<p>you&rsquo;re implicitly picking a point anyway, right?</p>
+<p>You just don&rsquo;t know it and you&rsquo;re not admitting it.</p>
+<p>Just to linger on the point of trade offs, I think that&rsquo;s a really important thing to</p>
+<p>sort of think about.</p>
+<p>So you think when we start to optimize for fairness, there&rsquo;s almost always in most system</p>
+<p>going to be trade offs.</p>
+<p>Can you like, what&rsquo;s the trade off between just to clarify, there have been some sort</p>
+<p>of technical terms thrown around, but sort of a perfectly fair world.</p>
+<p>Why is that?</p>
+<p>Why will somebody be upset about that?</p>
+<p>The specific trade off I talked about just in order to make things very concrete was</p>
+<p>between numerical error and some numerical measure of unfairness.</p>
+<p>What is numerical error in the case of&hellip;</p>
+<p>Just like say predictive error, like, you know, the probability or frequency with which</p>
+<p>you release somebody on parole who then goes on to recommit a violent crime or keep incarcerated</p>
+<p>somebody who would not have recommitted a violent crime.</p>
+<p>So in the case of awarding somebody parole or giving somebody parole or letting them</p>
+<p>out on parole, you don&rsquo;t want them to recommit a crime.</p>
+<p>So it&rsquo;s your system failed in prediction if they happen to do a crime.</p>
+<p>Okay, so that&rsquo;s one axis.</p>
+<p>And what&rsquo;s the fairness axis?</p>
+<p>So then the fairness axis might be the difference between racial groups in the kind of false</p>
+<p>positive predictions, namely people that I kept incarcerated predicting that they would</p>
+<p>recommit a violent crime when in fact they wouldn&rsquo;t have.</p>
+<p>Right.</p>
+<p>And the unfairness of that, just to linger it and allow me to in eloquently to try to</p>
+<p>sort of describe why that&rsquo;s unfair, why unfairness is there.</p>
+<p>The unfairness you want to get rid of is that in the judge&rsquo;s mind, the bias of having being</p>
+<p>brought up to society, the slight racial bias, the racism that exists in the society, you</p>
+<p>want to remove that from the system.</p>
+<p>Another way that&rsquo;s been debated is sort of equality of opportunity versus equality of</p>
+<p>outcome.</p>
+<p>And there&rsquo;s a weird dance there that&rsquo;s really difficult to get right.</p>
+<p>And we don&rsquo;t, affirmative action is exploring that space.</p>
+<p>Right.</p>
+<p>And then this also quickly bleeds into questions like, well, maybe if one group really does</p>
+<p>recommit crimes at a higher rate, the reason for that is that at some earlier point in</p>
+<p>the pipeline or earlier in their lives, they didn&rsquo;t receive the same resources that the</p>
+<p>other group did.</p>
+<p>And so there&rsquo;s always in kind of fairness discussions, the possibility that the real</p>
+<p>injustice came earlier, right?</p>
+<p>Earlier in this individual&rsquo;s life, earlier in this group&rsquo;s history, et cetera, et cetera.</p>
+<p>And so a lot of the fairness discussion is almost, the goal is for it to be a corrective</p>
+<p>mechanism to account for the injustice earlier in life.</p>
+<p>By some definitions of fairness or some theories of fairness, yeah.</p>
+<p>Others would say like, look, it&rsquo;s not to correct that injustice, it&rsquo;s just to kind of level</p>
+<p>the playing field right now and not falsely incarcerate more people of one group than</p>
+<p>another group.</p>
+<p>But I mean, I think just it might be helpful just to demystify a little bit about the many</p>
+<p>ways in which bias or unfairness can come into algorithms, especially in the machine</p>
+<p>learning era, right?</p>
+<p>I think many of your viewers have probably heard these examples before, but let&rsquo;s say</p>
+<p>I&rsquo;m building a face recognition system, right?</p>
+<p>And so I&rsquo;m kind of gathering lots of images of faces and trying to train the system to</p>
+<p>recognize new faces of those individuals from training on a training set of those faces</p>
+<p>of individuals.</p>
+<p>And it shouldn&rsquo;t surprise anybody or certainly not anybody in the field of machine learning</p>
+<p>if my training data set was primarily white males and I&rsquo;m training the model to maximize</p>
+<p>the overall accuracy on my training data set, that the model can reduce its error most by</p>
+<p>getting things right on the white males that constitute the majority of the data set, even</p>
+<p>if that means that on other groups, they will be less accurate, okay?</p>
+<p>Now, there&rsquo;s a bunch of ways you could think about addressing this.</p>
+<p>One is to deliberately put into the objective of the algorithm not to optimize the error</p>
+<p>at the expense of this discrimination, and then you&rsquo;re kind of back in the land of these</p>
+<p>kind of two dimensional numerical trade offs.</p>
+<p>A valid counter argument is to say like, well, no, you don&rsquo;t have to, there&rsquo;s no, you know,</p>
+<p>the notion of the tension between error and accuracy here is a false one.</p>
+<p>You could instead just go out and get much more data on these other groups that are in</p>
+<p>the minority and, you know, equalize your data set, or you could train a separate model</p>
+<p>on those subgroups and, you know, have multiple models.</p>
+<p>The point I think we would, you know, we tried to make in the book is that those things have</p>
+<p>cost too, right?</p>
+<p>Going out and gathering more data on groups that are relatively rare compared to your</p>
+<p>plurality or more majority group that, you know, it may not cost you in the accuracy</p>
+<p>of the model, but it&rsquo;s going to cost, you know, it&rsquo;s going to cost the company developing</p>
+<p>this model more money to develop that, and it also costs more money to build separate</p>
+<p>predictive models and to implement and deploy them.</p>
+<p>So even if you can find a way to avoid the tension between error and accuracy in training</p>
+<p>a model, you might push the cost somewhere else, like money, like development time, research</p>
+<p>time and the like.</p>
+<p>There are fundamentally difficult philosophical questions, in fairness, and we live in a very</p>
+<p>divisive political climate, outraged culture.</p>
+<p>There is alt right folks on 4chan, trolls.</p>
+<p>There is social justice warriors on Twitter.</p>
+<p>There&rsquo;s very divisive, outraged folks on all sides of every kind of system.</p>
+<p>How do you, how do we as engineers build ethical algorithms in such divisive culture?</p>
+<p>Do you think they could be disjoint?</p>
+<p>The human has to inject your values, and then you can optimize over those values.</p>
+<p>But in our times, when you start actually applying these systems, things get a little</p>
+<p>bit challenging for the public discourse.</p>
+<p>How do you think we can proceed?</p>
+<p>Yeah, I mean, for the most part in the book, a point that we try to take some pains to</p>
+<p>make is that we don&rsquo;t view ourselves or people like us as being in the position of deciding</p>
+<p>for society what the right social norms are, what the right definitions of fairness are.</p>
+<p>Our main point is to just show that if society or the relevant stakeholders in a particular</p>
+<p>domain can come to agreement on those sorts of things, there&rsquo;s a way of encoding that</p>
+<p>into algorithms in many cases, not in all cases.</p>
+<p>One other misconception that hopefully we definitely dispel is sometimes people read</p>
+<p>the title of the book and I think not unnaturally fear that what we&rsquo;re suggesting is that the</p>
+<p>algorithms themselves should decide what those social norms are and develop their own notions</p>
+<p>of fairness and privacy or ethics, and we&rsquo;re definitely not suggesting that.</p>
+<p>The title of the book is Ethical Algorithm, by the way, and I didn&rsquo;t think of that interpretation</p>
+<p>of the title.</p>
+<p>That&rsquo;s interesting.</p>
+<p>Yeah, yeah.</p>
+<p>I mean, especially these days where people are concerned about the robots becoming our</p>
+<p>overlords, the idea that the robots would also sort of develop their own social norms</p>
+<p>is just one step away from that.</p>
+<p>But I do think, obviously, despite disclaimer that people like us shouldn&rsquo;t be making those</p>
+<p>decisions for society, we are kind of living in a world where in many ways computer scientists</p>
+<p>have made some decisions that have fundamentally changed the nature of our society and democracy</p>
+<p>and sort of civil discourse and deliberation in ways that I think most people generally</p>
+<p>feel are bad these days, right?</p>
+<p>But they had to make, so if we look at people at the heads of companies and so on, they</p>
+<p>had to make those decisions, right?</p>
+<p>There has to be decisions, so there&rsquo;s two options, either you kind of put your head</p>
+<p>in the sand and don&rsquo;t think about these things and just let the algorithm do what it does,</p>
+<p>or you make decisions about what you value, you know, of injecting moral values into the</p>
+<p>algorithm.</p>
+<p>Look, I never mean to be an apologist for the tech industry, but I think it&rsquo;s a little</p>
+<p>bit too far to sort of say that explicit decisions were made about these things.</p>
+<p>So let&rsquo;s, for instance, take social media platforms, right?</p>
+<p>So like many inventions in technology and computer science, a lot of these platforms</p>
+<p>that we now use regularly kind of started as curiosities, right?</p>
+<p>I remember when things like Facebook came out and its predecessors like Friendster,</p>
+<p>which nobody even remembers now, people really wonder, like, why would anybody want to spend</p>
+<p>time doing that?</p>
+<p>I mean, even the web when it first came out, when it wasn&rsquo;t populated with much content</p>
+<p>and it was largely kind of hobbyists building their own kind of ramshackle websites, a lot</p>
+<p>of people looked at this and said, well, what is the purpose of this thing?</p>
+<p>Why is this interesting?</p>
+<p>Who would want to do this?</p>
+<p>And so even things like Facebook and Twitter, yes, technical decisions were made by engineers,</p>
+<p>by scientists, by executives in the design of those platforms, but, you know, I don&rsquo;t</p>
+<p>think 10 years ago anyone anticipated that those platforms, for instance, might kind</p>
+<p>of acquire undue, you know, influence on political discourse or on the outcomes of elections.</p>
+<p>And I think the scrutiny that these companies are getting now is entirely appropriate, but</p>
+<p>I think it&rsquo;s a little too harsh to kind of look at history and sort of say like, oh,</p>
+<p>you should have been able to anticipate that this would happen with your platform.</p>
+<p>And in this sort of gaming chapter of the book, one of the points we&rsquo;re making is that,</p>
+<p>you know, these platforms, right, they don&rsquo;t operate in isolation.</p>
+<p>So unlike the other topics we&rsquo;re discussing, like fairness and privacy, like those are</p>
+<p>really cases where algorithms can operate on your data and make decisions about you</p>
+<p>and you&rsquo;re not even aware of it, okay?</p>
+<p>Things like Facebook and Twitter, these are, you know, these are systems, right?</p>
+<p>These are social systems and their evolution, even their technical evolution because machine</p>
+<p>learning is involved, is driven in no small part by the behavior of the users themselves</p>
+<p>and how the users decide to adopt them and how to use them.</p>
+<p>And so, you know, I&rsquo;m kind of like who really knew that, you know, until we saw it happen,</p>
+<p>who knew that these things might be able to influence the outcome of elections?</p>
+<p>Who knew that, you know, they might polarize political discourse because of the ability</p>
+<p>to, you know, decide who you interact with on the platform and also with the platform</p>
+<p>naturally using machine learning to optimize for your own interest that they would further</p>
+<p>isolate us from each other and, you know, like feed us all basically just the stuff</p>
+<p>that we already agreed with.</p>
+<p>So I think, you know, we&rsquo;ve come to that outcome, I think, largely, but I think it&rsquo;s</p>
+<p>something that we all learned together, including the companies as these things happen.</p>
+<p>You asked like, well, are there algorithmic remedies to these kinds of things?</p>
+<p>And again, these are big problems that are not going to be solved with, you know, somebody</p>
+<p>going in and changing a few lines of code somewhere in a social media platform.</p>
+<p>But I do think in many ways, there are definitely ways of making things better.</p>
+<p>I mean, like an obvious recommendation that we make at some point in the book is like,</p>
+<p>look, you know, to the extent that we think that machine learning applied for personalization</p>
+<p>purposes in things like newsfeed, you know, or other platforms has led to polarization</p>
+<p>and intolerance of opposing viewpoints.</p>
+<p>As you know, right, these algorithms have models, right, and they kind of place people</p>
+<p>in some kind of metric space, and they place content in that space, and they sort of know</p>
+<p>the extent to which I have an affinity for a particular type of content.</p>
+<p>And by the same token, they also probably have that same model probably gives you a</p>
+<p>good idea of the stuff I&rsquo;m likely to violently disagree with or be offended by, okay?</p>
+<p>So you know, in this case, there really is some knob you could tune that says like, instead</p>
+<p>of showing people only what they like and what they want, let&rsquo;s show them some stuff</p>
+<p>that we think that they don&rsquo;t like, or that&rsquo;s a little bit further away.</p>
+<p>And you could even imagine users being able to control this, you know, just like everybody</p>
+<p>gets a slider, and that slider says like, you know, how much stuff do you want to see</p>
+<p>that&rsquo;s kind of, you know, you might disagree with, or is at least further from your interest.</p>
+<p>It&rsquo;s almost like an exploration button.</p>
+<p>So just get your intuition.</p>
+<p>Do you think engagement, so like you staying on the platform, you&rsquo;re staying engaged.</p>
+<p>Do you think fairness, ideas of fairness won&rsquo;t emerge?</p>
+<p>Like how bad is it to just optimize for engagement?</p>
+<p>Do you think we&rsquo;ll run into big trouble if we&rsquo;re just optimizing for how much you love</p>
+<p>the platform?</p>
+<p>Well, I mean, optimizing for engagement kind of got us where we are.</p>
+<p>So do you, one, have faith that it&rsquo;s possible to do better?</p>
+<p>And two, if it is, how do we do better?</p>
+<p>I mean, it&rsquo;s definitely possible to do different, right?</p>
+<p>And again, you know, it&rsquo;s not as if I think that doing something different than optimizing</p>
+<p>for engagement won&rsquo;t cost these companies in real ways, including revenue and profitability</p>
+<p>potentially.</p>
+<p>In the short term at least.</p>
+<p>Yeah.</p>
+<p>In the short term.</p>
+<p>Right.</p>
+<p>And again, you know, if I worked at these companies, I&rsquo;m sure that it would have seemed</p>
+<p>like the most natural thing in the world also to want to optimize engagement, right?</p>
+<p>And that&rsquo;s good for users in some sense.</p>
+<p>You want them to be, you know, vested in the platform and enjoying it and finding it useful,</p>
+<p>interesting, and or productive.</p>
+<p>But you know, my point is, is that the idea that there is, that it&rsquo;s sort of out of their</p>
+<p>hands as you said, or that there&rsquo;s nothing to do about it, never say never, but that</p>
+<p>strikes me as implausible as a machine learning person, right?</p>
+<p>I mean, these companies are driven by machine learning and this optimization of engagement</p>
+<p>is essentially driven by machine learning, right?</p>
+<p>It&rsquo;s driven by not just machine learning, but you know, very, very large scale A, B</p>
+<p>experimentation where you kind of tweak some element of the user interface or tweak some</p>
+<p>component of an algorithm or tweak some component or feature of your click through prediction</p>
+<p>model.</p>
+<p>And my point is, is that anytime you know how to optimize for something, you, you know,</p>
+<p>by def, almost by definition, that solution tells you how not to optimize for it or to</p>
+<p>do something different.</p>
+<p>Engagement can be measured.</p>
+<p>So sort of optimizing for sort of minimizing divisiveness or maximizing intellectual growth</p>
+<p>over the lifetime of a human being are very difficult to measure.</p>
+<p>That&rsquo;s right.</p>
+<p>And I&rsquo;m not claiming that doing something different will immediately make it apparent</p>
+<p>that this is a good thing for society and in particular, I mean, I think one way of</p>
+<p>thinking about where we are on some of these social media platforms is that, you know,</p>
+<p>it kind of feels a bit like we&rsquo;re in a bad equilibrium, right?</p>
+<p>That these systems are helping us all kind of optimize something myopically and selfishly</p>
+<p>for ourselves and of course, from an individual standpoint at any given moment, like why would</p>
+<p>I want to see things in my newsfeed that I found irrelevant, offensive or, you know,</p>
+<p>or the like, okay?</p>
+<p>But you know, maybe by all of us, you know, having these platforms myopically optimized</p>
+<p>in our interests, we have reached a collective outcome as a society that we&rsquo;re unhappy with</p>
+<p>in different ways.</p>
+<p>Let&rsquo;s say with respect to things like, you know, political discourse and tolerance of</p>
+<p>opposing viewpoints.</p>
+<p>And if Mark Zuckerberg gave you a call and said, I&rsquo;m thinking of taking a sabbatical,</p>
+<p>could you run Facebook for me for six months?</p>
+<p>What would you, how?</p>
+<p>I think no thanks would be my first response, but there are many aspects of being the head</p>
+<p>of the entire company that are kind of entirely exogenous to many of the things that we&rsquo;re</p>
+<p>discussing here.</p>
+<p>Yes.</p>
+<p>And so I don&rsquo;t really think I would need to be CEO of Facebook to kind of implement the,</p>
+<p>you know, more limited set of solutions that I might imagine.</p>
+<p>But I think one concrete thing they could do is they could experiment with letting people</p>
+<p>who chose to, to see more stuff in their newsfeed that is not entirely kind of chosen to optimize</p>
+<p>for their particular interests, beliefs, et cetera.</p>
+<p>So the, the kind of thing, so I could speak to YouTube, but I think Facebook probably</p>
+<p>does something similar is they&rsquo;re quite effective at automatically finding what sorts of groups</p>
+<p>you belong to, not based on race or gender or so on, but based on the kind of stuff you</p>
+<p>enjoy watching in the case of YouTube.</p>
+<p>Sort of, it&rsquo;s a, it&rsquo;s a difficult thing for Facebook or YouTube to then say, well, you</p>
+<p>know what?</p>
+<p>We&rsquo;re going to show you something from a very different cluster.</p>
+<p>Even though we believe algorithmically, you&rsquo;re unlikely to enjoy that thing sort of that&rsquo;s</p>
+<p>a weird jump to make.</p>
+<p>There has to be a human, like at the very top of that system that says, well, that will</p>
+<p>be longterm healthy for you.</p>
+<p>That&rsquo;s more than an algorithmic decision.</p>
+<p>Or that same person could say that&rsquo;ll be longterm healthy for the platform or for the platform&rsquo;s</p>
+<p>influence on society outside of the platform, right?</p>
+<p>And it, you know, it&rsquo;s easy for me to sit here and say these things, but conceptually</p>
+<p>I do not think that these are kind of totally or should, they shouldn&rsquo;t be kind of completely</p>
+<p>alien ideas, right?</p>
+<p>That, you know, you could try things like this and it wouldn&rsquo;t be, you know, we wouldn&rsquo;t</p>
+<p>have to invent entirely new science to do it because if we&rsquo;re all already embedded in</p>
+<p>some metric space and there&rsquo;s a notion of distance between you and me and every other,</p>
+<p>every piece of content, then, you know, we know exactly, you know, the same model that</p>
+<p>tells, you know, dictates how to make me really happy also tells how to make me as unhappy</p>
+<p>as possible as well.</p>
+<p>Right.</p>
+<p>The focus in your book and algorithmic fairness research today in general is on machine learning,</p>
+<p>like we said, is data, but, and just even the entire AI field right now is captivated</p>
+<p>with machine learning, with deep learning.</p>
+<p>Do you think ideas in symbolic AI or totally other kinds of approaches are interesting,</p>
+<p>useful in the space, have some promising ideas in terms of fairness?</p>
+<p>I haven&rsquo;t thought about that question specifically in the context of fairness.</p>
+<p>I definitely would agree with that statement in the large, right?</p>
+<p>I mean, I am, you know, one of many machine learning researchers who do believe that the</p>
+<p>great successes that have been shown in machine learning recently are great successes, but</p>
+<p>they&rsquo;re on a pretty narrow set of tasks.</p>
+<p>I mean, I don&rsquo;t, I don&rsquo;t think we&rsquo;re kind of notably closer to general artificial intelligence</p>
+<p>now than we were when I started my career.</p>
+<p>I mean, there&rsquo;s been progress and I do think that we are kind of as a community, maybe</p>
+<p>looking a bit where the light is, but the light is shining pretty bright there right</p>
+<p>now and we&rsquo;re finding a lot of stuff.</p>
+<p>So I don&rsquo;t want to like argue with the progress that&rsquo;s been made in areas like deep learning,</p>
+<p>for example.</p>
+<p>This touches another sort of related thing that you mentioned and that people might misinterpret</p>
+<p>from the title of your book, ethical algorithm.</p>
+<p>Is it possible for the algorithm to automate some of those decisions?</p>
+<p>Sort of a higher level decisions of what kind of, like what, what should be fair, what should</p>
+<p>be fair.</p>
+<p>The more you know about a field, the more aware you are of its limitations.</p>
+<p>And so I&rsquo;m a, I&rsquo;m pretty leery of sort of trying, you know, there&rsquo;s, there&rsquo;s so much</p>
+<p>we don&rsquo;t all, we already don&rsquo;t know in fairness, even when we&rsquo;re the ones picking the fairness</p>
+<p>definitions and, you know, comparing alternatives and thinking about the tensions between different</p>
+<p>definitions that the idea of kind of letting the algorithm start exploring as well.</p>
+<p>I definitely think, you know, this is a much narrower statement.</p>
+<p>I definitely think that kind of algorithmic auditing for different types of unfairness,</p>
+<p>right?</p>
+<p>So like in this gerrymandering example where I might want to prevent not just discrimination</p>
+<p>against very broad categories, but against combinations of broad categories.</p>
+<p>You know, you quickly get to a point where there&rsquo;s a lot of, a lot of categories.</p>
+<p>There&rsquo;s a lot of combinations of end features and, you know, you can use algorithmic techniques</p>
+<p>to sort of try to find the subgroups on which you&rsquo;re discriminating the most and try to</p>
+<p>fix that.</p>
+<p>That&rsquo;s actually kind of the form of one of the algorithms we developed for this fairness</p>
+<p>gerrymandering problem.</p>
+<p>But I&rsquo;m, I&rsquo;m, you know, partly because of our technological, you know, our sort of our</p>
+<p>scientific ignorance on these topics right now.</p>
+<p>And also partly just because these topics are so loaded emotionally for people that</p>
+<p>I just don&rsquo;t see the value.</p>
+<p>I mean, again, never say never, but I just don&rsquo;t think we&rsquo;re at a moment where it&rsquo;s</p>
+<p>a great time for computer scientists to be rolling out the idea like, hey, you know,</p>
+<p>you know, not only have we kind of figured fairness out, but, you know, we think the</p>
+<p>algorithm should start deciding what&rsquo;s fair or giving input on that decision.</p>
+<p>I just don&rsquo;t, it&rsquo;s like the cost benefit analysis to the field of kind of going there</p>
+<p>right now just doesn&rsquo;t seem worth it to me.</p>
+<p>That said, I should say that I think computer scientists should be more philosophically,</p>
+<p>like should enrich their thinking about these kinds of things.</p>
+<p>I think it&rsquo;s been too often used as an excuse for roboticists working on autonomous vehicles,</p>
+<p>for example, to not think about the human factor or psychology or safety in the same</p>
+<p>way like computer science design algorithms that have been sort of using it as an excuse.</p>
+<p>And I think it&rsquo;s time for basically everybody to become a computer scientist.</p>
+<p>I was about to agree with everything you said except that last point.</p>
+<p>I think that the other way of looking at it is that I think computer scientists, you know,</p>
+<p>and many of us are, but we need to weigh it out into the world more, right?</p>
+<p>I mean, just the influence that computer science and therefore computer scientists have had</p>
+<p>on society at large just like has exponentially magnified in the last 10 or 20 years or so.</p>
+<p>And you know, before when we were just tinkering around amongst ourselves and it didn&rsquo;t matter</p>
+<p>that much, there was no need for sort of computer scientists to be citizens of the world more</p>
+<p>broadly.</p>
+<p>And I think those days need to be over very, very fast.</p>
+<p>And I&rsquo;m not saying everybody needs to do it, but to me, like the right way of doing it</p>
+<p>is to not to sort of think that everybody else is going to become a computer scientist.</p>
+<p>But you know, I think people are becoming more sophisticated about computer science,</p>
+<p>even lay people.</p>
+<p>You know, I think one of the reasons we decided to write this book is we thought 10 years</p>
+<p>ago I wouldn&rsquo;t have tried this just because I just didn&rsquo;t think that sort of people&rsquo;s</p>
+<p>awareness of algorithms and machine learning, you know, the general population would have</p>
+<p>been high.</p>
+<p>I mean, you would have had to first, you know, write one of the many books kind of just explicating</p>
+<p>that topic to a lay audience first.</p>
+<p>Now I think we&rsquo;re at the point where like lots of people without any technical training</p>
+<p>at all know enough about algorithms and machine learning that you can start getting to these</p>
+<p>nuances of things like ethical algorithms.</p>
+<p>I think we agree that there needs to be much more mixing, but I think a lot of the onus</p>
+<p>of that mixing needs to be on the computer science community.</p>
+<p>Yeah.</p>
+<p>So just to linger on the disagreement, because I do disagree with you on the point that I</p>
+<p>think if you&rsquo;re a biologist, if you&rsquo;re a chemist, if you&rsquo;re an MBA business person, all of those</p>
+<p>things you can, like if you learned a program, and not only program, if you learned to do</p>
+<p>machine learning, if you learned to do data science, you immediately become much more</p>
+<p>powerful in the kinds of things you can do.</p>
+<p>And therefore literature, like library sciences, like, so you were speaking, I think, I think</p>
+<p>it holds true what you&rsquo;re saying for the next few years.</p>
+<p>But long term, if you&rsquo;re interested to me, if you&rsquo;re interested in philosophy, you should</p>
+<p>learn a program, because then you can scrape data and study what people are thinking about</p>
+<p>on Twitter, and then start making philosophical conclusions about the meaning of life.</p>
+<p>I just feel like the access to data, the digitization of whatever problem you&rsquo;re trying to solve,</p>
+<p>will fundamentally change what it means to be a computer scientist.</p>
+<p>I mean, a computer scientist in 20, 30 years will go back to being Donald Knuth style theoretical</p>
+<p>computer science, and everybody would be doing basically, exploring the kinds of ideas that</p>
+<p>you explore in your book.</p>
+<p>It won&rsquo;t be a computer science major.</p>
+<p>Yeah, I mean, I don&rsquo;t think I disagree enough, but I think that that trend of more and more</p>
+<p>people in more and more disciplines adopting ideas from computer science, learning how</p>
+<p>to code, I think that that trend seems firmly underway.</p>
+<p>I mean, you know, like an interesting digressive question along these lines is maybe in 50</p>
+<p>years, there won&rsquo;t be computer science departments anymore, because the field will just sort</p>
+<p>of be ambient in all of the different disciplines.</p>
+<p>And people will look back and having a computer science department will look like having an</p>
+<p>electricity department or something that&rsquo;s like, you know, everybody uses this, it&rsquo;s</p>
+<p>just out there.</p>
+<p>I mean, I do think there will always be that kind of Knuth style core to it, but it&rsquo;s not</p>
+<p>an implausible path that we kind of get to the point where the academic discipline of</p>
+<p>computer science becomes somewhat marginalized because of its very success in kind of infiltrating</p>
+<p>all of science and society and the humanities, etcetera.</p>
+<p>What is differential privacy, or more broadly, algorithmic privacy?</p>
+<p>Algorithmic privacy more broadly is just the study or the notion of privacy definitions</p>
+<p>or norms being encoded inside of algorithms.</p>
+<p>And so, you know, I think we count among this body of work just, you know, the literature</p>
+<p>and practice of things like data anonymization, which we kind of at the beginning of our discussion</p>
+<p>of privacy say like, okay, this is sort of a notion of algorithmic privacy.</p>
+<p>It kind of tells you, you know, something to go do with data, but, you know, our view</p>
+<p>is that it&rsquo;s, and I think this is now, you know, quite widespread, that it&rsquo;s, you know,</p>
+<p>despite the fact that those notions of anonymization kind of redacting and coarsening are the most</p>
+<p>widely adopted technical solutions for data privacy, they are like deeply fundamentally</p>
+<p>flawed.</p>
+<p>And so, you know, to your first question, what is differential privacy?</p>
+<p>Differential privacy seems to be a much, much better notion of privacy that kind of avoids</p>
+<p>a lot of the weaknesses of anonymization notions while still letting us do useful stuff with</p>
+<p>data.</p>
+<p>What is anonymization of data?</p>
+<p>So by anonymization, I&rsquo;m, you know, kind of referring to techniques like I have a database.</p>
+<p>The rows of that database are, let&rsquo;s say, individual people&rsquo;s medical records, okay?</p>
+<p>And I want to let people use that data.</p>
+<p>Maybe I want to let researchers access that data to build predictive models for some disease,</p>
+<p>but I&rsquo;m worried that that will leak, you know, sensitive information about specific people&rsquo;s</p>
+<p>medical records.</p>
+<p>So anonymization broadly refers to the set of techniques where I say like, okay, I&rsquo;m</p>
+<p>first going to like, I&rsquo;m going to delete the column with people&rsquo;s names.</p>
+<p>I&rsquo;m going to not put, you know, so that would be like a redaction, right?</p>
+<p>I&rsquo;m just redacting that information.</p>
+<p>I am going to take ages and I&rsquo;m not going to like say your exact age.</p>
+<p>I&rsquo;m going to say whether you&rsquo;re, you know, zero to 10, 10 to 20, 20 to 30, I might put</p>
+<p>the first three digits of your zip code, but not the last two, et cetera, et cetera.</p>
+<p>And so the idea is that through some series of operations like this on the data, I anonymize</p>
+<p>it.</p>
+<p>You know, another term of art that&rsquo;s used is removing personally identifiable information.</p>
+<p>And you know, this is basically the most common way of providing data privacy, but that it&rsquo;s</p>
+<p>in a way that still lets people access the, some variant form of the data.</p>
+<p>So at a slightly broader picture, as you talk about what does anonymization mean when you</p>
+<p>have multiple database, like with a Netflix prize, when you can start combining stuff</p>
+<p>together.</p>
+<p>So this is exactly the problem with these notions, right?</p>
+<p>Is that notions of a anonymization, removing personally identifiable information, the kind</p>
+<p>of fundamental conceptual flaw is that, you know, these definitions kind of pretend as</p>
+<p>if the data set in question is the only data set that exists in the world or that ever</p>
+<p>will exist in the future.</p>
+<p>And of course, things like the Netflix prize and many, many other examples since the Netflix</p>
+<p>prize, I think that was one of the earliest ones though, you know, you can reidentify</p>
+<p>people that were, you know, that were anonymized in the data set by taking that anonymized</p>
+<p>data set and combining it with other allegedly anonymized data sets and maybe publicly available</p>
+<p>information about you.</p>
+<p>You know,</p>
+<p>for people who don&rsquo;t know the Netflix prize was, was being publicly released this data.</p>
+<p>So the names from those rows were removed, but what was released is the preference or</p>
+<p>the ratings of what movies you like and you don&rsquo;t like.</p>
+<p>And from that combined with other things, I think forum posts and so on, you can start</p>
+<p>to figure out</p>
+<p>I guess it was specifically the internet movie database where, where lots of Netflix users</p>
+<p>publicly rate their movie, you know, their movie preferences.</p>
+<p>And so the anonymized data and Netflix, when it&rsquo;s just this phenomenon, I think that we&rsquo;ve</p>
+<p>all come to realize in the last decade or so is that just knowing a few apparently irrelevant</p>
+<p>innocuous things about you can often act as a fingerprint.</p>
+<p>Like if I know, you know, what, what rating you gave to these 10 movies and the date on</p>
+<p>which you entered these movies, this is almost like a fingerprint for you in the sea of all</p>
+<p>Netflix users.</p>
+<p>There were just another paper on this in science or nature of about a month ago that, you know,</p>
+<p>kind of 18 attributes.</p>
+<p>I mean, my favorite example of this is, was actually a paper from several years ago now</p>
+<p>where it was shown that just from your likes on Facebook, just from the time, you know,</p>
+<p>the things on which you clicked on the thumbs up button on the platform, not using any information,</p>
+<p>demographic information, nothing about who your friends are, just knowing the content</p>
+<p>that you had liked was enough to, you know, in the aggregate accurately predict things</p>
+<p>like sexual orientation, drug and alcohol use, whether you were the child of divorced parents.</p>
+<p>So we live in this era where, you know, even the apparently irrelevant data that we offer</p>
+<p>about ourselves on public platforms and forums often unbeknownst to us, more or less acts</p>
+<p>as signature or, you know, fingerprint.</p>
+<p>And that if you can kind of, you know, do a join between that kind of data and allegedly</p>
+<p>anonymized data, you have real trouble.</p>
+<p>So is there hope for any kind of privacy in a world where a few likes can identify you?</p>
+<p>So there is differential privacy, right?</p>
+<p>What is differential privacy?</p>
+<p>Yeah, so differential privacy basically is a kind of alternate, much stronger notion</p>
+<p>of privacy than these anonymization ideas.</p>
+<p>And, you know, it&rsquo;s a technical definition, but like the spirit of it is we compare two</p>
+<p>alternate worlds, okay?</p>
+<p>So let&rsquo;s suppose I&rsquo;m a researcher and I want to do, you know, there&rsquo;s a database of medical</p>
+<p>records and one of them is yours, and I want to use that database of medical records to</p>
+<p>build a predictive model for some disease.</p>
+<p>So based on people&rsquo;s symptoms and test results and the like, I want to, you know, build a</p>
+<p>probably model predicting the probability that people have disease.</p>
+<p>So, you know, this is the type of scientific research that we would like to be allowed</p>
+<p>to continue.</p>
+<p>And in differential privacy, you ask a very particular counterfactual question.</p>
+<p>We basically compare two alternatives.</p>
+<p>One is when I do this, I build this model on the database of medical records, including</p>
+<p>your medical record.</p>
+<p>And the other one is where I do the same exercise with the same database with just your medical</p>
+<p>record removed.</p>
+<p>So basically, you know, it&rsquo;s two databases, one with N records in it and one with N minus</p>
+<p>one records in it.</p>
+<p>The N minus one records are the same, and the only one that&rsquo;s missing in the second</p>
+<p>case is your medical record.</p>
+<p>So differential privacy basically says that any harms that might come to you from the</p>
+<p>analysis in which your data was included are essentially nearly identical to the harms</p>
+<p>that would have come to you if the same analysis had been done without your medical record</p>
+<p>included.</p>
+<p>So in other words, this doesn&rsquo;t say that bad things cannot happen to you as a result of</p>
+<p>data analysis.</p>
+<p>It just says that these bad things were going to happen to you already, even if your data</p>
+<p>wasn&rsquo;t included.</p>
+<p>And to give a very concrete example, right, you know, like we discussed at some length,</p>
+<p>the study that, you know, in the 50s that was done that established the link between</p>
+<p>smoking and lung cancer.</p>
+<p>And we make the point that, like, well, if your data was used in that analysis and, you</p>
+<p>know, the world kind of knew that you were a smoker because, you know, there was no stigma</p>
+<p>associated with smoking before those findings, real harm might have come to you as a result</p>
+<p>of that study that your data was included in.</p>
+<p>In particular, your insurer now might have a higher posterior belief that you might have</p>
+<p>lung cancer and raise your premium.</p>
+<p>So you&rsquo;ve suffered economic damage.</p>
+<p>But the point is, is that if the same analysis has been done with all the other N minus one</p>
+<p>medical records and just yours missing, the outcome would have been the same.</p>
+<p>Or your data wasn&rsquo;t idiosyncratically crucial to establishing the link between smoking and</p>
+<p>lung cancer because the link between smoking and lung cancer is like a fact about the world</p>
+<p>that can be discovered with any sufficiently large database of medical records.</p>
+<p>But that&rsquo;s a very low value of harm.</p>
+<p>Yeah.</p>
+<p>So that&rsquo;s showing that very little harm is done.</p>
+<p>Great.</p>
+<p>But how what is the mechanism of differential privacy?</p>
+<p>So that&rsquo;s the kind of beautiful statement of it.</p>
+<p>It&rsquo;s the mechanism by which privacy is preserved.</p>
+<p>Yeah.</p>
+<p>So it&rsquo;s basically by adding noise to computations, right?</p>
+<p>So the basic idea is that every differentially private algorithm, first of all, or every</p>
+<p>good differentially private algorithm, every useful one, is a probabilistic algorithm.</p>
+<p>So it doesn&rsquo;t, on a given input, if you gave the algorithm the same input multiple times,</p>
+<p>it would give different outputs each time from some distribution.</p>
+<p>And the way you achieve differential privacy algorithmically is by kind of carefully and</p>
+<p>tastefully adding noise to a computation in the right places.</p>
+<p>And to give a very concrete example, if I wanna compute the average of a set of numbers,</p>
+<p>the non private way of doing that is to take those numbers and average them and release</p>
+<p>like a numerically precise value for the average.</p>
+<p>In differential privacy, you wouldn&rsquo;t do that.</p>
+<p>You would first compute that average to numerical precisions, and then you&rsquo;d add some noise</p>
+<p>to it, right?</p>
+<p>You&rsquo;d add some kind of zero mean, Gaussian or exponential noise to it so that the actual</p>
+<p>value you output is not the exact mean, but it&rsquo;ll be close to the mean, but it&rsquo;ll be close&hellip;</p>
+<p>The noise that you add will sort of prove that nobody can kind of reverse engineer any</p>
+<p>particular value that went into the average.</p>
+<p>So noise is a savior.</p>
+<p>How many algorithms can be aided by adding noise?</p>
+<p>Yeah, so I&rsquo;m a relatively recent member of the differential privacy community.</p>
+<p>My co author, Aaron Roth is really one of the founders of the field and has done a great</p>
+<p>deal of work and I&rsquo;ve learned a tremendous amount working with him on it.</p>
+<p>It&rsquo;s a pretty grown up field already.</p>
+<p>Yeah, but now it&rsquo;s pretty mature.</p>
+<p>But I must admit, the first time I saw the definition of differential privacy, my reaction</p>
+<p>was like, wow, that is a clever definition and it&rsquo;s really making very strong promises.</p>
+<p>And I first saw the definition in much earlier days and my first reaction was like, well,</p>
+<p>my worry about this definition would be that it&rsquo;s a great definition of privacy, but that</p>
+<p>it&rsquo;ll be so restrictive that we won&rsquo;t really be able to use it.</p>
+<p>We won&rsquo;t be able to compute many things in a differentially private way.</p>
+<p>So that&rsquo;s one of the great successes of the field, I think, is in showing that the opposite</p>
+<p>is true and that most things that we know how to compute, absent any privacy considerations,</p>
+<p>can be computed in a differentially private way.</p>
+<p>So for example, pretty much all of statistics and machine learning can be done differentially</p>
+<p>privately.</p>
+<p>So pick your favorite machine learning algorithm, back propagation and neural networks, cart</p>
+<p>for decision trees, support vector machines, boosting, you name it, as well as classic</p>
+<p>hypothesis testing and the like in statistics.</p>
+<p>None of those algorithms are differentially private in their original form.</p>
+<p>All of them have modifications that add noise to the computation in different places in</p>
+<p>different ways that achieve differential privacy.</p>
+<p>So this really means that to the extent that we&rsquo;ve become a scientific community very dependent</p>
+<p>on the use of machine learning and statistical modeling and data analysis, we really do have</p>
+<p>a path to provide privacy guarantees to those methods and so we can still enjoy the benefits</p>
+<p>of the data science era while providing rather robust privacy guarantees to individuals.</p>
+<p>So perhaps a slightly crazy question, but if we take the ideas of differential privacy</p>
+<p>and take it to the nature of truth that&rsquo;s being explored currently.</p>
+<p>So what&rsquo;s your most favorite and least favorite food?</p>
+<p>Hmm.</p>
+<p>I&rsquo;m not a real foodie, so I&rsquo;m a big fan of spaghetti.</p>
+<p>Spaghetti?</p>
+<p>Yeah.</p>
+<p>What do you really don&rsquo;t like?</p>
+<p>I really don&rsquo;t like cauliflower.</p>
+<p>Wow, I love cauliflower.</p>
+<p>Okay.</p>
+<p>Is there one way to protect your preference for spaghetti by having an information campaign</p>
+<p>bloggers and so on of bots saying that you like cauliflower?</p>
+<p>So like this kind of the same kind of noise ideas, I mean if you think of in our politics</p>
+<p>today there&rsquo;s this idea of Russia hacking our elections.</p>
+<p>What&rsquo;s meant there I believe is bots spreading different kinds of information.</p>
+<p>Is that a kind of privacy or is that too much of a stretch?</p>
+<p>No it&rsquo;s not a stretch.</p>
+<p>I&rsquo;ve not seen those ideas, you know, that is not a technique that to my knowledge will</p>
+<p>provide differential privacy, but to give an example like one very specific example</p>
+<p>about what you&rsquo;re discussing is there was a very interesting project at NYU I think</p>
+<p>led by Helen Nissenbaum there in which they basically built a browser plugin that tried</p>
+<p>to essentially obfuscate your Google searches.</p>
+<p>So to the extent that you&rsquo;re worried that Google is using your searches to build, you</p>
+<p>know, predictive models about you to decide what ads to show you which they might very</p>
+<p>reasonably want to do, but if you object to that they built this widget you could plug</p>
+<p>in and basically whenever you put in a query into Google it would send that query to Google,</p>
+<p>but in the background all of the time from your browser it would just be sending this</p>
+<p>torrent of irrelevant queries to the search engine.</p>
+<p>So you know it&rsquo;s like a weed and chaff thing so you know out of every thousand queries</p>
+<p>let&rsquo;s say that Google was receiving from your browser one of them was one that you put in</p>
+<p>but the other 999 were not okay so it&rsquo;s the same kind of idea kind of you know privacy</p>
+<p>by obfuscation.</p>
+<p>So I think that&rsquo;s an interesting idea, doesn&rsquo;t give you differential privacy.</p>
+<p>It&rsquo;s also I was actually talking to somebody at one of the large tech companies recently</p>
+<p>about the fact that you know just this kind of thing that there are some times when the</p>
+<p>response to my data needs to be very specific to my data right like I type mountain biking</p>
+<p>into Google, I want results on mountain biking and I really want Google to know that I typed</p>
+<p>in mountain biking, I don&rsquo;t want noise added to that.</p>
+<p>And so I think there&rsquo;s sort of maybe even interesting technical questions around notions</p>
+<p>of privacy that are appropriate where you know it&rsquo;s not that my data is part of some</p>
+<p>aggregate like medical records and that we&rsquo;re trying to discover important correlations</p>
+<p>and facts about the world at large but rather you know there&rsquo;s a service that I really want</p>
+<p>to you know pay attention to my specific data yet I still want some kind of privacy guarantee</p>
+<p>and I think these kind of obfuscation ideas are sort of one way of getting at that but</p>
+<p>maybe there are others as well.</p>
+<p>So where do you think we&rsquo;ll land in this algorithm driven society in terms of privacy?</p>
+<p>So sort of China like Kai Fuli describes you know it&rsquo;s collecting a lot of data on its</p>
+<p>citizens but in the best form it&rsquo;s actually able to provide a lot of sort of protect human</p>
+<p>rights and provide a lot of amazing services and it&rsquo;s worst forms that can violate those</p>
+<p>human rights and limit services.</p>
+<p>So where do you think we&rsquo;ll land because algorithms are powerful when they use data.</p>
+<p>So as a society do you think we&rsquo;ll give over more data?</p>
+<p>Is it possible to protect the privacy of that data?</p>
+<p>So I&rsquo;m optimistic about the possibility of you know balancing the desire for individual</p>
+<p>privacy and individual control of privacy with kind of societally and commercially beneficial</p>
+<p>uses of data not unrelated to differential privacy or suggestions that say like well</p>
+<p>individuals should have control of their data.</p>
+<p>They should be able to limit the uses of that data.</p>
+<p>They should even you know there&rsquo;s you know fledgling discussions going on in research</p>
+<p>circles about allowing people selective use of their data and being compensated for it.</p>
+<p>And then you get to sort of very interesting economic questions like pricing right.</p>
+<p>And one interesting idea is that maybe differential privacy would also you know be a conceptual</p>
+<p>framework in which you could talk about the relative value of different people&rsquo;s data</p>
+<p>like you know to demystify this a little bit.</p>
+<p>If I&rsquo;m trying to build a predictive model for some rare disease and I&rsquo;m trying to use</p>
+<p>machine learning to do it, it&rsquo;s easy to get negative examples because the disease is rare</p>
+<p>right.</p>
+<p>But I really want to have lots of people with the disease in my data set okay.</p>
+<p>And so somehow those people&rsquo;s data with respect to this application is much more valuable</p>
+<p>to me than just like the background population.</p>
+<p>And so maybe they should be compensated more for it.</p>
+<p>And so you know I think these are kind of very, very fledgling conceptual questions</p>
+<p>that maybe we&rsquo;ll have kind of technical thought on them sometime in the coming years.</p>
+<p>But I do think we&rsquo;ll you know to kind of get more directly answer your question.</p>
+<p>I think I&rsquo;m optimistic at this point from what I&rsquo;ve seen that we will land at some you</p>
+<p>know better compromise than we&rsquo;re at right now where again you know privacy guarantees</p>
+<p>are few far between and weak and users have very, very little control.</p>
+<p>And I&rsquo;m optimistic that we&rsquo;ll land in something that you know provides better privacy overall</p>
+<p>and more individual control of data and privacy.</p>
+<p>But you know I think to get there it&rsquo;s again just like fairness it&rsquo;s not going to be enough</p>
+<p>to propose algorithmic solutions.</p>
+<p>There&rsquo;s going to have to be a whole kind of regulatory legal process that prods companies</p>
+<p>and other parties to kind of adopt solutions.</p>
+<p>And I think you&rsquo;ve mentioned the word control a lot and I think giving people control that&rsquo;s</p>
+<p>something that people don&rsquo;t quite have in a lot of these algorithms and that&rsquo;s a really</p>
+<p>interesting idea of giving them control.</p>
+<p>Some of that is actually literally an interface design question sort of just enabling because</p>
+<p>I think it&rsquo;s good for everybody to give users control.</p>
+<p>It&rsquo;s almost not a trade off except that you have to hire people that are good at interface</p>
+<p>design.</p>
+<p>Yeah.</p>
+<p>I mean the other thing that has to be said right is that you know it&rsquo;s a cliche but you</p>
+<p>know we as the users of many systems platforms and apps you know we are the product.</p>
+<p>We are not the customer.</p>
+<p>The customer are advertisers and our data is the product.</p>
+<p>Okay.</p>
+<p>So it&rsquo;s one thing to kind of suggest more individual control of data and privacy and</p>
+<p>uses but this you know if this happens in sufficient degree it will upend the entire</p>
+<p>economic model that has supported the internet to date.</p>
+<p>And so some other economic model will have to be you know we&rsquo;ll have to replace it.</p>
+<p>So the idea of markets you mentioned by exposing the economic model to the people they will</p>
+<p>then become a market.</p>
+<p>They could be participants in it.</p>
+<p>And you know this isn&rsquo;t you know this is not a weird idea right because there are markets</p>
+<p>for data already.</p>
+<p>It&rsquo;s just that consumers are not participants and there&rsquo;s like you know there&rsquo;s sort of</p>
+<p>you know publishers and content providers on one side that have inventory and then their</p>
+<p>advertisers on the others and you know you know Google and Facebook are running you know</p>
+<p>they&rsquo;re pretty much their entire revenue stream is by running two sided markets between those</p>
+<p>parties right.</p>
+<p>And so it&rsquo;s not a crazy idea that there would be like a three sided market or that you know</p>
+<p>that on one side of the market or the other we would have proxies representing our interest.</p>
+<p>It&rsquo;s not you know it&rsquo;s not a crazy idea but it would it&rsquo;s not a crazy technical idea but</p>
+<p>it would have pretty extreme economic consequences.</p>
+<p>Speaking of markets a lot of fascinating aspects of this world arise not from individual human</p>
+<p>beings but from the interaction of human beings.</p>
+<p>You&rsquo;ve done a lot of work in game theory.</p>
+<p>First can you say what is game theory and how does it help us model and study?</p>
+<p>Yeah game theory of course let us give credit where it&rsquo;s due.</p>
+<p>You know it comes from the economist first and foremost but as I&rsquo;ve mentioned before</p>
+<p>like you know computer scientists never hesitate to wander into other people&rsquo;s turf and so</p>
+<p>there is now this 20 year old field called algorithmic game theory.</p>
+<p>But you know game theory first and foremost is a mathematical framework for reasoning</p>
+<p>about collective outcomes in systems of interacting individuals.</p>
+<p>You know so you need at least two people to get started in game theory and many people</p>
+<p>are probably familiar with Prisoner&rsquo;s Dilemma as kind of a classic example of game theory</p>
+<p>and a classic example where everybody looking out for their own individual interests leads</p>
+<p>to a collective outcome that&rsquo;s kind of worse for everybody than what might be possible</p>
+<p>if they cooperated for example.</p>
+<p>But cooperation is not an equilibrium in Prisoner&rsquo;s Dilemma.</p>
+<p>And so my work in the field of algorithmic game theory more generally in these areas</p>
+<p>kind of looks at settings in which the number of actors is potentially extraordinarily large</p>
+<p>and their incentives might be quite complicated and kind of hard to model directly but you</p>
+<p>still want kind of algorithmic ways of kind of predicting what will happen or influencing</p>
+<p>what will happen in the design of platforms.</p>
+<p>So what to you is the most beautiful idea that you&rsquo;ve encountered in game theory?</p>
+<p>There&rsquo;s a lot of them.</p>
+<p>I&rsquo;m a big fan of the field.</p>
+<p>I mean you know I mean technical answers to that of course would include Nash&rsquo;s work just</p>
+<p>establishing that you know there is a competitive equilibrium under very very general circumstances</p>
+<p>which in many ways kind of put the field on a firm conceptual footing because if you don&rsquo;t</p>
+<p>have equilibrium it&rsquo;s kind of hard to ever reason about what might happen since you know</p>
+<p>there&rsquo;s just no stability.</p>
+<p>So just the idea that stability can emerge when there&rsquo;s multiple.</p>
+<p>Not that it will necessarily emerge just that it&rsquo;s possible right.</p>
+<p>Like the existence of equilibrium doesn&rsquo;t mean that sort of natural iterative behavior</p>
+<p>will necessarily lead to it.</p>
+<p>In the real world.</p>
+<p>Yeah.</p>
+<p>Maybe answering a slightly less personally than you asked the question I think within</p>
+<p>the field of algorithmic game theory perhaps the single most important kind of technical</p>
+<p>contribution that&rsquo;s been made is the realization between close connections between machine</p>
+<p>learning and game theory and in particular between game theory and the branch of machine</p>
+<p>learning that&rsquo;s known as no regret learning and this sort of provides a very general framework</p>
+<p>in which a bunch of players interacting in a game or a system each one kind of doing</p>
+<p>something that&rsquo;s in their self interest will actually kind of reach an equilibrium and</p>
+<p>actually reach an equilibrium in a you know a pretty you know a rather you know short</p>
+<p>amount of steps.</p>
+<p>So you kind of mentioned acting greedily can somehow end up pretty good for everybody.</p>
+<p>Or pretty bad.</p>
+<p>Yeah.</p>
+<p>It will end up stable.</p>
+<p>Yeah.</p>
+<p>Right.</p>
+<p>And and you know stability or equilibrium by itself is neither is not necessarily either</p>
+<p>a good thing or a bad thing.</p>
+<p>So what&rsquo;s the connection between machine learning and the ideas.</p>
+<p>Well I think we kind of talked about these ideas already in kind of a non technical way</p>
+<p>which is maybe the more interesting way of understanding them first which is you know</p>
+<p>we have many systems platforms and apps these days that work really hard to use our data</p>
+<p>and the data of everybody else on the platform to selfishly optimize on behalf of each user.</p>
+<p>OK.</p>
+<p>So you know let me let me give I think the cleanest example which is just driving apps</p>
+<p>navigation apps like you know Google Maps and Waze where you know miraculously compared</p>
+<p>to when I was growing up at least you know the objective would be the same when you wanted</p>
+<p>to drive from point A to point B spend the least time driving not necessarily minimize</p>
+<p>the distance but minimize the time.</p>
+<p>Right.</p>
+<p>And when I was growing up like the only resources you had to do that were like maps in the car</p>
+<p>which literally just told you what roads were available and then you might have like half</p>
+<p>hourly traffic reports just about the major freeways but not about side roads.</p>
+<p>So you were pretty much on your own.</p>
+<p>And now we&rsquo;ve got these apps you pull it out and you say I want to go from point A to point</p>
+<p>B and in response kind of to what everybody else is doing if you like what all the other</p>
+<p>players in this game are doing right now here&rsquo;s the you know the route that minimizes your</p>
+<p>driving time.</p>
+<p>So it is really kind of computing a selfish best response for each of us in response to</p>
+<p>what all of the rest of us are doing at any given moment.</p>
+<p>And so you know I think it&rsquo;s quite fair to think of these apps as driving or nudging</p>
+<p>us all towards the competitive or Nash equilibrium of that game.</p>
+<p>Now you might ask like well that sounds great why is that a bad thing.</p>
+<p>Well you know it&rsquo;s known both in theory and with some limited studies from actual like</p>
+<p>traffic data that all of us being in this competitive equilibrium might cause our collective</p>
+<p>driving time to be higher maybe significantly higher than it would be under other solutions.</p>
+<p>And then you have to talk about what those other solutions might be and what the algorithms</p>
+<p>to implement them are which we do discuss in the kind of game theory chapter of the</p>
+<p>book.</p>
+<p>But similarly you know on social media platforms or on Amazon you know all these algorithms</p>
+<p>that are essentially trying to optimize our behalf they&rsquo;re driving us in a colloquial</p>
+<p>sense towards some kind of competitive equilibrium and you know one of the most important lessons</p>
+<p>of game theory is that just because we&rsquo;re at equilibrium doesn&rsquo;t mean that there&rsquo;s not</p>
+<p>a solution in which some or maybe even all of us might be better off.</p>
+<p>And then the connection to machine learning of course is that in all these platforms I&rsquo;ve</p>
+<p>mentioned the optimization that they&rsquo;re doing on our behalf is driven by machine learning</p>
+<p>you know like predicting where the traffic will be predicting what products I&rsquo;m going</p>
+<p>to like predicting what would make me happy in my newsfeed.</p>
+<p>Now in terms of the stability and the promise of that I have to ask just out of curiosity</p>
+<p>how stable are these mechanisms that you game theory is just the economist came up with</p>
+<p>and we all know that economists don&rsquo;t live in the real world just kidding sort of what&rsquo;s</p>
+<p>do you think when we look at the fact that we haven&rsquo;t blown ourselves up from the from</p>
+<p>a game theoretic concept of mutually shared destruction what are the odds that we destroy</p>
+<p>ourselves with nuclear weapons as one example of a stable game theoretic system?</p>
+<p>Just to prime your viewers a little bit I mean I think you&rsquo;re referring to the fact</p>
+<p>that game theory was taken quite seriously back in the 60s as a tool for reasoning about</p>
+<p>kind of Soviet US nuclear armament disarmament detente things like that.</p>
+<p>I&rsquo;ll be honest as huge of a fan as I am of game theory and its kind of rich history it</p>
+<p>still surprises me that you know you had people at the RAND Corporation back in those days</p>
+<p>kind of drawing up you know two by two tables and one the row player is you know the US</p>
+<p>and the column player is Russia and that they were taking seriously you know I&rsquo;m sure if</p>
+<p>I was there maybe it wouldn&rsquo;t have seemed as naive as it does at the time you know.</p>
+<p>Seems to have worked which is why it seems naive.</p>
+<p>Well we&rsquo;re still here.</p>
+<p>We&rsquo;re still here in that sense.</p>
+<p>Yeah even though I kind of laugh at those efforts they were more sensible then than</p>
+<p>they would be now right because there were sort of only two nuclear powers at the time</p>
+<p>and you didn&rsquo;t have to worry about deterring new entrants and who was developing the capacity</p>
+<p>and so we have many you know it&rsquo;s definitely a game with more players now and more potential</p>
+<p>entrants.</p>
+<p>I&rsquo;m not in general somebody who advocates using kind of simple mathematical models when</p>
+<p>the stakes are as high as things like that and the complexities are very political and</p>
+<p>social but we are still here.</p>
+<p>So you&rsquo;ve worn many hats one of which the one that first caused me to become a big fan</p>
+<p>of your work many years ago is algorithmic trading.</p>
+<p>So I have to just ask a question about this because you have so much fascinating work</p>
+<p>there in the 21st century what role do you think algorithms have in space of trading</p>
+<p>investment in the financial sector?</p>
+<p>Yeah it&rsquo;s a good question I mean in the time I&rsquo;ve spent on Wall Street and in finance you</p>
+<p>know I&rsquo;ve seen a clear progression and I think it&rsquo;s a progression that kind of models the</p>
+<p>use of algorithms and automation more generally in society which is you know the things that</p>
+<p>kind of get taken over by the algos first are sort of the things that computers are</p>
+<p>obviously better at than people right so you know so first of all there needed to be this</p>
+<p>era of automation right where just you know financial exchanges became largely electronic</p>
+<p>which then enabled the possibility of you know trading becoming more algorithmic because</p>
+<p>once you know that exchanges are electronic an algorithm can submit an order through an</p>
+<p>API just as well as a human can do at a monitor quickly can read all the data so yeah and</p>
+<p>so you know I think the places where algorithmic trading have had the greatest inroads and</p>
+<p>had the first inroads were in kind of execution problems kind of optimized execution problems</p>
+<p>so what I mean by that is at a large brokerage firm for example one of the lines of business</p>
+<p>might be on behalf of large institutional clients taking you know what we might consider</p>
+<p>difficult trade so it&rsquo;s not like a mom and pop investor saying I want to buy a hundred</p>
+<p>shares of Microsoft it&rsquo;s a large hedge fund saying you know I want to buy a very very</p>
+<p>large stake in Apple and I want to do it over the span of a day and it&rsquo;s such a large volume</p>
+<p>that if you&rsquo;re not clever about how you break that trade up not just over time but over</p>
+<p>perhaps multiple different electronic exchanges that all let you trade Apple on their platform</p>
+<p>you know you will you will move you&rsquo;ll push prices around in a way that hurts your your</p>
+<p>execution so you know this is the kind of you know this is an optimization problem this</p>
+<p>is a control problem right and so machines are better we we know how to design algorithms</p>
+<p>you know that are better at that kind of thing than a person is going to be able to do because</p>
+<p>we can take volumes of historical and real time data to kind of optimize the schedule</p>
+<p>with which we trade and you know similarly high frequency trading you know which is closely</p>
+<p>related but not the same as optimized execution where you&rsquo;re just trying to spot very very</p>
+<p>temporary you know mispricings between exchanges or within an asset itself or just predict</p>
+<p>directional movement of a stock because of the kind of very very low level granular buying</p>
+<p>and selling data in the in the exchange machines are good at this kind of stuff it&rsquo;s kind of</p>
+<p>like the mechanics of trading what about the can machines do long terms of prediction yeah</p>
+<p>so I think we are in an era where you know clearly there have been some very successful</p>
+<p>you know quant hedge funds that are you know in what we would traditionally call you know</p>
+<p>still in this the stat arb regime like so you know what&rsquo;s that stat arb referring to</p>
+<p>statistical arbitrage but but for the purposes of this conversation what it really means</p>
+<p>is making directional predictions in asset price movement or returns your prediction</p>
+<p>about that directional movement is good for you know you you have a view that it&rsquo;s valid</p>
+<p>for some period of time between a few seconds and a few days and that&rsquo;s the amount of time</p>
+<p>that you&rsquo;re going to kind of get into the position hold it and then hopefully be right</p>
+<p>about the directional movement and you know buy low and sell high as the cliche goes.</p>
+<p>So that is a you know kind of a sweet spot I think for quant trading and investing right</p>
+<p>now and has been for some time when you really get to kind of more Warren Buffett style timescales</p>
+<p>right like you know my cartoon of Warren Buffett is that you know Warren Buffett sits and thinks</p>
+<p>what the long term value of Apple really should be and he doesn&rsquo;t even look at what Apple</p>
+<p>is doing today he just decides you know you know I think that this is what its long term</p>
+<p>value is and it&rsquo;s far from that right now and so I&rsquo;m going to buy some Apple or you</p>
+<p>know short some Apple and I&rsquo;m going to I&rsquo;m going to sit on that for 10 or 20 years okay.</p>
+<p>So when you&rsquo;re at that kind of timescale or even more than just a few days all kinds of</p>
+<p>other sources of risk and information you know so now you&rsquo;re talking about holding things</p>
+<p>through recessions and economic cycles, wars can break out.</p>
+<p>So there you have to understand human nature at a level that.</p>
+<p>Yeah and you need to just be able to ingest many many more sources of data that are on</p>
+<p>wildly different timescales right.</p>
+<p>So if I&rsquo;m an HFT I&rsquo;m a high frequency trader like I don&rsquo;t I don&rsquo;t I really my main source</p>
+<p>of data is just the data from the exchanges themselves about the activity in the exchanges</p>
+<p>right and maybe I need to pay you know I need to keep an eye on the news right because you</p>
+<p>know that can cause sudden you know the CEO gets caught in a scandal or you know gets</p>
+<p>run over by a bus or something that can cause very sudden changes but you know I don&rsquo;t need</p>
+<p>to understand economic cycles I don&rsquo;t need to understand recessions I don&rsquo;t need to worry</p>
+<p>about the political situation or war breaking out in this part of the world because you</p>
+<p>know all I need to know is as long as that&rsquo;s not going to happen in the next 500 milliseconds</p>
+<p>then you know my model is good.</p>
+<p>When you get to these longer timescales you really have to worry about that kind of stuff</p>
+<p>and people in the machine learning community are starting to think about this.</p>
+<p>We held a we jointly sponsored a workshop at Penn with the Federal Reserve Bank of Philadelphia</p>
+<p>a little more than a year ago on you know I think the title is something like machine</p>
+<p>learning for macroeconomic prediction.</p>
+<p>You know macroeconomic referring specifically to these longer timescales and you know it</p>
+<p>was an interesting conference but it you know my it left me with greater confidence that</p>
+<p>we have a long way to go to you know and so I think that people that you know in the grand</p>
+<p>scheme of things you know if somebody asked me like well whose job on Wall Street is safe</p>
+<p>from the bots I think people that are at that longer you know timescale and have that appetite</p>
+<p>for all the risks involved in long term investing and that really need kind of not just algorithms</p>
+<p>that can optimize from data but they need views on stuff they need views on the political</p>
+<p>landscape economic cycles and the like and I think you know they&rsquo;re they&rsquo;re they&rsquo;re pretty</p>
+<p>safe for a while as far as I can tell.</p>
+<p>So Warren Buffett&rsquo;s job is not seeing you know a robo Warren Buffett anytime soon.</p>
+<p>Give him comfort.</p>
+<p>Last question.</p>
+<p>If you could go back to if there&rsquo;s a day in your life you could relive because it made</p>
+<p>you truly happy.</p>
+<p>Maybe you outside family what otherwise you know what what what day would it be.</p>
+<p>But can you look back you remember just being profoundly transformed in some way or blissful.</p>
+<p>I&rsquo;ll answer a slightly different question which is like what&rsquo;s a day in my my life or</p>
+<p>my career that was kind of a watershed moment.</p>
+<p>I went straight from undergrad to doctoral studies and you know that&rsquo;s not at all atypical</p>
+<p>and I&rsquo;m also from an academic family like my my dad was a professor my uncle on his</p>
+<p>side as a professor both my grandfathers were professors.</p>
+<p>All kinds of majors to philosophy.</p>
+<p>Yeah they&rsquo;re kind of all over the map yeah and I was a grad student here just up the</p>
+<p>river at Harvard and came to study with Les Valiant which was a wonderful experience.</p>
+<p>But you know I remember my first year of graduate school I was generally pretty unhappy and</p>
+<p>I was unhappy because you know at Berkeley as an undergraduate you know yeah I studied</p>
+<p>a lot of math and computer science but it was a huge school first of all and I took</p>
+<p>a lot of other courses as we&rsquo;ve discussed I started as an English major and took history</p>
+<p>courses and art history classes and had friends you know that did all kinds of different things.</p>
+<p>And you know Harvard&rsquo;s a much smaller institution than Berkeley and its computer science department</p>
+<p>especially at that time was was a much smaller place than it is now.</p>
+<p>And I suddenly just felt very you know like I&rsquo;d gone from this very big world to this</p>
+<p>highly specialized world and now all of the classes I was taking were computer science</p>
+<p>classes and I was only in classes with math and computer science people.</p>
+<p>And so I was you know I thought often in that first year of grad school about whether I</p>
+<p>really wanted to stick with it or not and you know I thought like oh I could you know</p>
+<p>stop with a master&rsquo;s I could go back to the Bay Area and to California and you know this</p>
+<p>was in one of the early periods where there was you know like you could definitely get</p>
+<p>a relatively good job paying job at one of the one of the tech companies back you know</p>
+<p>that were the big tech companies back then.</p>
+<p>And so I distinctly remember like kind of a late spring day when I was kind of you know</p>
+<p>sitting in Boston Common and kind of really just kind of chewing over what I wanted to</p>
+<p>do with my life and I realized like okay and I think this is where my academic background</p>
+<p>helped me a great deal.</p>
+<p>I sort of realized you know yeah you&rsquo;re not having a great time right now this feels really</p>
+<p>narrowing but you know that you&rsquo;re here for research eventually and to do something original</p>
+<p>and to try to you know carve out a career where you kind of you know choose what you</p>
+<p>want to think about you know and have a great deal of independence.</p>
+<p>And so you know at that point I really didn&rsquo;t have any real research experience yet I mean</p>
+<p>it was trying to think about some problems with very little success but I knew that like</p>
+<p>I hadn&rsquo;t really tried to do the thing that I knew I&rsquo;d come to do and so I thought you</p>
+<p>know I&rsquo;m going to stick through it for the summer and you know and that was very formative</p>
+<p>because I went from kind of contemplating quitting to you know a year later it being</p>
+<p>very clear to me I was going to finish because I still had a ways to go but I kind of started</p>
+<p>doing research it was going well it was really interesting and it was sort of a complete</p>
+<p>transformation you know it&rsquo;s just that transition that I think every doctoral student makes</p>
+<p>at some point which is to sort of go from being like a student of what&rsquo;s been done before</p>
+<p>to doing you know your own thing and figure out what makes you interested in what your</p>
+<p>strengths and weaknesses are as a researcher and once you know I kind of made that decision</p>
+<p>on that particular day at that particular moment in Boston Common you know I&rsquo;m glad</p>
+<p>I made that decision.</p>
+<p>And also just accepting the painful nature of that journey.</p>
+<p>Yeah exactly exactly.</p>
+<p>In that moment said I&rsquo;m gonna I&rsquo;m gonna stick it out yeah I&rsquo;m gonna stick around for a while.</p>
+<p>Well Michael I&rsquo;ve looked off do you work for a long time it&rsquo;s really nice to talk to you</p>
+<p>thank you so much.</p>
+<p>It&rsquo;s great to get back in touch with you too and see how great you&rsquo;re doing as well.</p>
+<p>Thanks a lot.</p>
+<p>Thank you.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

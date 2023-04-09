@@ -1,0 +1,3812 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with George Hotz.
+He&amp;rsquo;s the founder of Kama AI,
+a machine learning based vehicle automation company.
+He is most certainly an outspoken personality
+in the field of AI and technology in general.
+He first gained recognition for being the first person
+to carry or unlock an iPhone.
+And since then, he&amp;rsquo;s done quite a few interesting things
+at the intersection of hardware and software.
+This is the Artificial Intelligence Podcast.'>
+<title>Lex Fridman Podcast - #31 - George Hotz: Comma.ai, OpenPilot, and Autonomous Vehicles | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500031/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #31 - George Hotz: Comma.ai, OpenPilot, and Autonomous Vehicles'>
+<meta property='og:description' content='The following is a conversation with George Hotz.
+He&amp;rsquo;s the founder of Kama AI,
+a machine learning based vehicle automation company.
+He is most certainly an outspoken personality
+in the field of AI and technology in general.
+He first gained recognition for being the first person
+to carry or unlock an iPhone.
+And since then, he&amp;rsquo;s done quite a few interesting things
+at the intersection of hardware and software.
+This is the Artificial Intelligence Podcast.'>
+<meta property='og:url' content='https://swiest.com/en/1310500031/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-03-31T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-31T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #31 - George Hotz: Comma.ai, OpenPilot, and Autonomous Vehicles">
+<meta name="twitter:description" content="The following is a conversation with George Hotz.
+He&amp;rsquo;s the founder of Kama AI,
+a machine learning based vehicle automation company.
+He is most certainly an outspoken personality
+in the field of AI and technology in general.
+He first gained recognition for being the first person
+to carry or unlock an iPhone.
+And since then, he&amp;rsquo;s done quite a few interesting things
+at the intersection of hardware and software.
+This is the Artificial Intelligence Podcast.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500031/">Lex Fridman Podcast - #31 - George Hotz: Comma.ai, OpenPilot, and Autonomous Vehicles</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-03-31</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    101 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with George Hotz.</p>
+<p>He&rsquo;s the founder of Kama AI,</p>
+<p>a machine learning based vehicle automation company.</p>
+<p>He is most certainly an outspoken personality</p>
+<p>in the field of AI and technology in general.</p>
+<p>He first gained recognition for being the first person</p>
+<p>to carry or unlock an iPhone.</p>
+<p>And since then, he&rsquo;s done quite a few interesting things</p>
+<p>at the intersection of hardware and software.</p>
+<p>This is the Artificial Intelligence Podcast.</p>
+<p>If you enjoy it, subscribe on YouTube,</p>
+<p>give it five stars on iTunes, support it on Patreon,</p>
+<p>or simply connect with me on Twitter</p>
+<p>at Lex Friedman, spelled F R I D M A N.</p>
+<p>And I&rsquo;d like to give a special thank you</p>
+<p>to Jennifer from Canada</p>
+<p>for her support of the podcast on Patreon.</p>
+<p>Merci beaucoup, Jennifer.</p>
+<p>She&rsquo;s been a friend and an engineering colleague</p>
+<p>for many years since I was in grad school.</p>
+<p>Your support means a lot</p>
+<p>and inspires me to keep this series going.</p>
+<p>And now, here&rsquo;s my conversation with George Hotz.</p>
+<p>Do you think we&rsquo;re living in a simulation?</p>
+<p>Yes, but it may be unfalsifiable.</p>
+<p>What do you mean by unfalsifiable?</p>
+<p>So if the simulation is designed in such a way</p>
+<p>that they did like a formal proof</p>
+<p>to show that no information can get in and out,</p>
+<p>and if their hardware is designed</p>
+<p>for the anything in the simulation</p>
+<p>to always keep the hardware in spec,</p>
+<p>it may be impossible to prove</p>
+<p>whether we&rsquo;re in a simulation or not.</p>
+<p>So they&rsquo;ve designed it such that it&rsquo;s a closed system</p>
+<p>you can&rsquo;t get outside the system.</p>
+<p>Well, maybe it&rsquo;s one of three worlds.</p>
+<p>We&rsquo;re either in a simulation which can be exploited,</p>
+<p>we&rsquo;re in a simulation which not only can&rsquo;t be exploited,</p>
+<p>but like the same thing&rsquo;s true about VMs.</p>
+<p>A really well designed VM,</p>
+<p>you can&rsquo;t even detect if you&rsquo;re in a VM or not.</p>
+<p>That&rsquo;s brilliant.</p>
+<p>So the simulation is running on a virtual machine.</p>
+<p>But now in reality, all VMs have ways to detect.</p>
+<p>That&rsquo;s the point.</p>
+<p>I mean, you&rsquo;ve done quite a bit of hacking yourself.</p>
+<p>So you should know that really any complicated system</p>
+<p>will have ways in and out.</p>
+<p>So this isn&rsquo;t necessarily true going forward.</p>
+<p>I spent my time away from Comma,</p>
+<p>I learned Coq, it&rsquo;s a dependently typed,</p>
+<p>it&rsquo;s a language for writing math proofs in.</p>
+<p>And if you write code that compiles in a language like that,</p>
+<p>it is correct by definition.</p>
+<p>The types check its correctness.</p>
+<p>So it&rsquo;s possible that the simulation</p>
+<p>is written in a language like this, in which case, yeah.</p>
+<p>Yeah, but that can&rsquo;t be sufficiently expressive</p>
+<p>a language like that.</p>
+<p>Oh, it can.</p>
+<p>It can be?</p>
+<p>Oh, yeah.</p>
+<p>Okay, well, so all right, so.</p>
+<p>The simulation doesn&rsquo;t have to be Turing complete</p>
+<p>if it has a scheduled end date.</p>
+<p>Looks like it does actually with entropy.</p>
+<p>I mean, I don&rsquo;t think that a simulation</p>
+<p>that results in something as complicated as the universe</p>
+<p>would have a form of proof of correctness, right?</p>
+<p>It&rsquo;s possible, of course.</p>
+<p>We have no idea how good their tooling is.</p>
+<p>And we have no idea how complicated</p>
+<p>the universe computer really is.</p>
+<p>It may be quite simple.</p>
+<p>It&rsquo;s just very large, right?</p>
+<p>It&rsquo;s very, it&rsquo;s definitely very large.</p>
+<p>But the fundamental rules might be super simple.</p>
+<p>Yeah, Conway&rsquo;s getting a life kind of stuff.</p>
+<p>Right.</p>
+<p>So if you could hack,</p>
+<p>so imagine a simulation that is hackable,</p>
+<p>if you could hack it,</p>
+<p>what would you change about the,</p>
+<p>like how would you approach hacking a simulation?</p>
+<p>The reason I gave that talk.</p>
+<p>By the way, I&rsquo;m not familiar with the talk you gave.</p>
+<p>I just read that you talked about escaping the simulation</p>
+<p>or something like that.</p>
+<p>So maybe you can tell me a little bit about the theme</p>
+<p>and the message there too.</p>
+<p>It wasn&rsquo;t a very practical talk</p>
+<p>about how to actually escape a simulation.</p>
+<p>It was more about a way of restructuring</p>
+<p>an us versus them narrative.</p>
+<p>If</p>
+<p>we continue on the path we&rsquo;re going with technology,</p>
+<p>I think we&rsquo;re in big trouble,</p>
+<p>like as a species and not just as a species,</p>
+<p>but even as me as an individual member of the species.</p>
+<p>So if we could change rhetoric</p>
+<p>to be more like to think upwards,</p>
+<p>like to think about that we&rsquo;re in a simulation</p>
+<p>and how we could get out,</p>
+<p>already we&rsquo;d be on the right path.</p>
+<p>What you actually do once you do that,</p>
+<p>well, I assume I would have acquired way more intelligence</p>
+<p>in the process of doing that.</p>
+<p>So I&rsquo;ll just ask that.</p>
+<p>So the thinking upwards,</p>
+<p>what kind of ideas,</p>
+<p>what kind of breakthrough ideas</p>
+<p>do you think thinking in that way could inspire?</p>
+<p>And why did you say upwards?</p>
+<p>Upwards.</p>
+<p>Into space?</p>
+<p>Are you thinking sort of exploration in all forms?</p>
+<p>The space narrative</p>
+<p>that held for the modernist generation</p>
+<p>doesn&rsquo;t hold as well for the postmodern generation.</p>
+<p>What&rsquo;s the space narrative?</p>
+<p>Are we talking about the same space,</p>
+<p>the three dimensional space?</p>
+<p>No, no, no, space, like going on space,</p>
+<p>like building like Elon Musk,</p>
+<p>like we&rsquo;re going to build rockets,</p>
+<p>we&rsquo;re going to go to Mars,</p>
+<p>we&rsquo;re going to colonize the universe.</p>
+<p>And the narrative you&rsquo;re referring,</p>
+<p>I was born in the Soviet Union,</p>
+<p>you&rsquo;re referring to the race to space.</p>
+<p>The race to space, yeah.</p>
+<p>Explore, okay.</p>
+<p>That was a great modernist narrative.</p>
+<p>Yeah.</p>
+<p>It doesn&rsquo;t seem to hold the same weight in today&rsquo;s culture.</p>
+<p>I&rsquo;m hoping for good postmodern narratives that replace it.</p>
+<p>So let&rsquo;s think, so you work a lot with AI.</p>
+<p>So AI is one formulation of that narrative.</p>
+<p>There could be also,</p>
+<p>I don&rsquo;t know how much you do in VR and AR.</p>
+<p>Yeah.</p>
+<p>That&rsquo;s another, I know less about it,</p>
+<p>but every time I play with it in our research,</p>
+<p>it&rsquo;s fascinating, that virtual world.</p>
+<p>Are you interested in the virtual world?</p>
+<p>I would like to move to virtual reality.</p>
+<p>In terms of your work?</p>
+<p>No, I would like to physically move there.</p>
+<p>The apartment I can rent in the cloud</p>
+<p>is way better than the apartment</p>
+<p>I can rent in the real world.</p>
+<p>Well, it&rsquo;s all relative, isn&rsquo;t it?</p>
+<p>Because others will have very nice apartments too,</p>
+<p>so you&rsquo;ll be inferior in the virtual world as well.</p>
+<p>No, but that&rsquo;s not how I view the world, right?</p>
+<p>I don&rsquo;t view the world,</p>
+<p>I mean, it&rsquo;s a very almost zero sum ish way</p>
+<p>to view the world.</p>
+<p>Say like, my great apartment isn&rsquo;t great</p>
+<p>because my neighbor has one too.</p>
+<p>No, my great apartment is great</p>
+<p>because look at this dishwasher, man.</p>
+<p>You just touch the dish and it&rsquo;s washed, right?</p>
+<p>And that is great in and of itself</p>
+<p>if I have the only apartment</p>
+<p>or if everybody had the apartment.</p>
+<p>I don&rsquo;t care.</p>
+<p>So you have fundamental gratitude.</p>
+<p>The world first learned of George Hots</p>
+<p>in August 2007, maybe before then,</p>
+<p>but certainly in August 2007</p>
+<p>when you were the first person to unlock,</p>
+<p>carry unlock an iPhone.</p>
+<p>How did you get into hacking?</p>
+<p>What was the first system</p>
+<p>you discovered vulnerabilities for and broke into?</p>
+<p>So that was really kind of the first thing.</p>
+<p>I had a book in 2006 called Grey Hat Hacking.</p>
+<p>And I guess I realized that if you acquired</p>
+<p>these sort of powers, you could control the world.</p>
+<p>But I didn&rsquo;t really know that much</p>
+<p>about computers back then.</p>
+<p>I started with electronics.</p>
+<p>The first iPhone hack was physical.</p>
+<p>Cardware.</p>
+<p>You had to open it up and pull an address line high.</p>
+<p>And it was because I didn&rsquo;t really know</p>
+<p>about software exploitation.</p>
+<p>I learned that all in the next few years</p>
+<p>and I got very good at it.</p>
+<p>But back then I knew about like how memory chips</p>
+<p>are connected to processors and stuff.</p>
+<p>You knew about software and programming.</p>
+<p>You just didn&rsquo;t know.</p>
+<p>Oh really?</p>
+<p>So your view of the world and computers</p>
+<p>was physical, was hardware.</p>
+<p>Actually, if you read the code that I released</p>
+<p>with that in August 2007, it&rsquo;s atrocious.</p>
+<p>What language was it?</p>
+<p>C.</p>
+<p>C, nice.</p>
+<p>And in a broken sort of state machine ask C.</p>
+<p>I didn&rsquo;t know how to program.</p>
+<p>Yeah.</p>
+<p>So how did you learn to program?</p>
+<p>What was your journey?</p>
+<p>Cause I mean, we&rsquo;ll talk about it.</p>
+<p>You&rsquo;ve live streamed some of your programming.</p>
+<p>This chaotic, beautiful mess.</p>
+<p>How did you arrive at that?</p>
+<p>Years and years of practice.</p>
+<p>I interned at Google after the summer</p>
+<p>after the iPhone unlock.</p>
+<p>And I did a contract for them where I built hardware</p>
+<p>for Street View and I wrote a software library</p>
+<p>to interact with it.</p>
+<p>And it was terrible code.</p>
+<p>And for the first time I got feedback from people</p>
+<p>who I respected saying, no, like don&rsquo;t write code like this.</p>
+<p>Now, of course, just getting that feedback is not enough.</p>
+<p>The way that I really got good was I wanted to write</p>
+<p>this thing like that could emulate and then visualize</p>
+<p>like arm binaries.</p>
+<p>Cause I wanted to hack the iPhone better.</p>
+<p>And I didn&rsquo;t like that I couldn&rsquo;t like see</p>
+<p>what the, I couldn&rsquo;t single step through the processor</p>
+<p>because I had no debugger on there,</p>
+<p>especially for the low level things like the boot rum</p>
+<p>and the bootloader.</p>
+<p>So I tried to build this tool to do it.</p>
+<p>And I built the tool once and it was terrible.</p>
+<p>I built the tool a second time, it was terrible.</p>
+<p>I built the tool a third time.</p>
+<p>This was by the time I was at Facebook, it was kind of okay.</p>
+<p>And then I built the tool a fourth time</p>
+<p>when I was a Google intern again in 2014.</p>
+<p>And that was the first time I was like,</p>
+<p>this is finally usable.</p>
+<p>How do you pronounce this Kira?</p>
+<p>Kira, yeah.</p>
+<p>So it&rsquo;s essentially the most efficient way</p>
+<p>to visualize the change of state of the computer</p>
+<p>as the program is running.</p>
+<p>That&rsquo;s what you mean by debugger.</p>
+<p>Yeah, it&rsquo;s a timeless debugger.</p>
+<p>So you can rewind just as easily as going forward.</p>
+<p>Think about if you&rsquo;re using GDB,</p>
+<p>you have to put a watch on a variable.</p>
+<p>If you wanna see if that variable changes.</p>
+<p>In Kira, you can just click on that variable</p>
+<p>and then it shows every single time</p>
+<p>when that variable was changed or accessed.</p>
+<p>Think about it like Git for your computers, the run log.</p>
+<p>So there&rsquo;s like a deep log of the state of the computer</p>
+<p>as the program runs and you can rewind.</p>
+<p>Why isn&rsquo;t that, maybe it is, maybe you can educate me.</p>
+<p>Why isn&rsquo;t that kind of debugging used more often?</p>
+<p>Cause the tooling&rsquo;s bad.</p>
+<p>Well, two things.</p>
+<p>One, if you&rsquo;re trying to debug Chrome,</p>
+<p>Chrome is a 200 megabyte binary</p>
+<p>that runs slowly on desktops.</p>
+<p>So that&rsquo;s gonna be really hard to use for that.</p>
+<p>But it&rsquo;s really good to use for like CTFs</p>
+<p>and for boot roms and for small parts of code.</p>
+<p>So it&rsquo;s hard if you&rsquo;re trying to debug like massive systems.</p>
+<p>What&rsquo;s a CTF and what&rsquo;s a boot rom?</p>
+<p>A boot rom is the first code that executes</p>
+<p>the minute you give power to your iPhone.</p>
+<p>Okay.</p>
+<p>And CTF where these competitions</p>
+<p>that I played capture the flag.</p>
+<p>Capture the flag, I was gonna ask you about that.</p>
+<p>What are those, look at,</p>
+<p>I watched a couple of videos on YouTube,</p>
+<p>those look fascinating.</p>
+<p>What have you learned about maybe</p>
+<p>at the high level of vulnerability of systems</p>
+<p>from these competitions?</p>
+<p>I feel like in the heyday of CTFs,</p>
+<p>you had all of the best security people in the world</p>
+<p>challenging each other and coming up</p>
+<p>with new toy exploitable things over here.</p>
+<p>And then everybody, okay, who can break it?</p>
+<p>And when you break it, you get like,</p>
+<p>there&rsquo;s like a file on the server called flag.</p>
+<p>And then there&rsquo;s a program running,</p>
+<p>listening on a socket that&rsquo;s vulnerable.</p>
+<p>So you write an exploit, you get a shell,</p>
+<p>and then you cat flag, and then you type the flag</p>
+<p>into like a web based scoreboard and you get points.</p>
+<p>So the goal is essentially,</p>
+<p>to find an exploit in the system</p>
+<p>that allows you to run shell,</p>
+<p>to run arbitrary code on that system.</p>
+<p>That&rsquo;s one of the categories.</p>
+<p>That&rsquo;s like the pwnable category.</p>
+<p>Pwnable?</p>
+<p>Yeah, pwnable.</p>
+<p>It&rsquo;s like, you know, you pwn the program.</p>
+<p>It&rsquo;s a program that&rsquo;s, yeah.</p>
+<p>Yeah, you know, first of all, I apologize.</p>
+<p>I&rsquo;m gonna say it&rsquo;s because I&rsquo;m Russian,</p>
+<p>but maybe you can help educate me.</p>
+<p>Some video game like misspelled own way back in the day.</p>
+<p>Yeah, and it&rsquo;s just, I wonder if there&rsquo;s a definition.</p>
+<p>I&rsquo;ll have to go to Urban Dictionary for it.</p>
+<p>It&rsquo;ll be interesting to see what it says.</p>
+<p>Okay, so what was the heyday of CTF, by the way?</p>
+<p>But was it, what decade are we talking about?</p>
+<p>I think like, I mean, maybe unbiased</p>
+<p>because it&rsquo;s the era that I played,</p>
+<p>but like 2011 to 2015,</p>
+<p>because the modern CTF scene</p>
+<p>is similar to the modern competitive programming scene.</p>
+<p>You have people who like do drills.</p>
+<p>You have people who practice.</p>
+<p>And then once you&rsquo;ve done that,</p>
+<p>you&rsquo;ve turned it less into a game of generic computer skill</p>
+<p>and more into a game of, okay,</p>
+<p>you drill on these five categories.</p>
+<p>And then before that, it wasn&rsquo;t,</p>
+<p>it didn&rsquo;t have like as much attention as it had.</p>
+<p>I don&rsquo;t know, they were like,</p>
+<p>I won $30,000 once in Korea for one of these competitions.</p>
+<p>Holy crap.</p>
+<p>Yeah, they were, they were, that was.</p>
+<p>So that means, I mean, money is money,</p>
+<p>but that means there was probably good people there.</p>
+<p>Exactly, yeah.</p>
+<p>Are the challenges human constructed</p>
+<p>or are they grounded in some real flaws and real systems?</p>
+<p>Usually they&rsquo;re human constructed,</p>
+<p>but they&rsquo;re usually inspired by real flaws.</p>
+<p>What kind of systems are imagined</p>
+<p>is really focused on mobile.</p>
+<p>Like what has vulnerabilities these days?</p>
+<p>Is it primarily mobile systems like Android?</p>
+<p>Oh, everything does.</p>
+<p>Still. Yeah, of course.</p>
+<p>The price has kind of gone up</p>
+<p>because less and less people can find them.</p>
+<p>And what&rsquo;s happened in security</p>
+<p>is now if you want to like jailbreak an iPhone,</p>
+<p>you don&rsquo;t need one exploit anymore, you need nine.</p>
+<p>Nine chained together, what would it mean?</p>
+<p>Yeah, wow.</p>
+<p>Okay, so it&rsquo;s really,</p>
+<p>what&rsquo;s the benefit speaking higher level</p>
+<p>philosophically about hacking?</p>
+<p>I mean, it sounds from everything I&rsquo;ve seen about you,</p>
+<p>you just love the challenge</p>
+<p>and you don&rsquo;t want to do anything.</p>
+<p>You don&rsquo;t want to bring that exploit out into the world</p>
+<p>and do any actual, let it run wild.</p>
+<p>You just want to solve it</p>
+<p>and then you go on to the next thing.</p>
+<p>Oh yeah, I mean, doing criminal stuff&rsquo;s not really worth it.</p>
+<p>And I&rsquo;ll actually use the same argument</p>
+<p>for why I don&rsquo;t do defense for why I don&rsquo;t do crime.</p>
+<p>If you want to defend a system,</p>
+<p>say the system has 10 holes, right?</p>
+<p>If you find nine of those holes as a defender,</p>
+<p>you still lose because the attacker</p>
+<p>gets in through the last one.</p>
+<p>If you&rsquo;re an attacker,</p>
+<p>you only have to find one out of the 10.</p>
+<p>But if you&rsquo;re a criminal,</p>
+<p>if you log on with a VPN nine out of the 10 times,</p>
+<p>but one time you forget, you&rsquo;re done.</p>
+<p>Because you&rsquo;re caught, okay.</p>
+<p>Because you only have to mess up once</p>
+<p>to be caught as a criminal.</p>
+<p>That&rsquo;s why I&rsquo;m not a criminal.</p>
+<p>But okay, let me,</p>
+<p>because I was having a discussion with somebody</p>
+<p>just at a high level about nuclear weapons actually,</p>
+<p>why we&rsquo;re having blown ourselves up yet.</p>
+<p>And my feeling is all the smart people in the world,</p>
+<p>if you look at the distribution of smart people,</p>
+<p>smart people are generally good.</p>
+<p>And then this other person I was talking to,</p>
+<p>Sean Carroll, the physicist,</p>
+<p>and he was saying, no, good and bad people</p>
+<p>are evenly distributed amongst everybody.</p>
+<p>My sense was good hackers are in general good people</p>
+<p>and they don&rsquo;t want to mess with the world.</p>
+<p>What&rsquo;s your sense?</p>
+<p>I&rsquo;m not even sure about that.</p>
+<p>Like,</p>
+<p>I have a nice life.</p>
+<p>Crime wouldn&rsquo;t get me anything.</p>
+<p>But if you&rsquo;re good and you have these skills,</p>
+<p>you probably have a nice life too, right?</p>
+<p>Right, you can use it for other things.</p>
+<p>But is there an ethical,</p>
+<p>is there a little voice in your head that says,</p>
+<p>well, yeah, if you could hack something</p>
+<p>to where you could hurt people</p>
+<p>and you could earn a lot of money doing it though,</p>
+<p>not hurt physically perhaps,</p>
+<p>but disrupt their life in some kind of way,</p>
+<p>isn&rsquo;t there a little voice that says?</p>
+<p>Well, two things.</p>
+<p>One, I don&rsquo;t really care about money.</p>
+<p>So like the money wouldn&rsquo;t be an incentive.</p>
+<p>The thrill might be an incentive.</p>
+<p>But when I was 19, I read Crime and Punishment.</p>
+<p>And that was another great one</p>
+<p>that talked me out of ever really doing crime.</p>
+<p>Cause it&rsquo;s like, that&rsquo;s gonna be me.</p>
+<p>I&rsquo;d get away with it, but it would just run through my head.</p>
+<p>Even if I got away with it, you know?</p>
+<p>And then you do crime for long enough,</p>
+<p>you&rsquo;ll never get away with it.</p>
+<p>That&rsquo;s right.</p>
+<p>In the end, that&rsquo;s a good reason to be good.</p>
+<p>I wouldn&rsquo;t say I&rsquo;m good.</p>
+<p>I would just say I&rsquo;m not bad.</p>
+<p>You&rsquo;re a talented programmer and a hacker</p>
+<p>in a good positive sense of the word.</p>
+<p>You&rsquo;ve played around,</p>
+<p>found vulnerabilities in various systems.</p>
+<p>What have you learned broadly</p>
+<p>about the design of systems and so on</p>
+<p>from that whole process?</p>
+<p>You learn to not take things</p>
+<p>for what people say they are,</p>
+<p>but you look at things for what they actually are.</p>
+<p>Yeah.</p>
+<p>I understand that&rsquo;s what you tell me it is,</p>
+<p>but what does it do?</p>
+<p>Right.</p>
+<p>And you have nice visualization tools</p>
+<p>to really know what it&rsquo;s really doing.</p>
+<p>Oh, I wish.</p>
+<p>I&rsquo;m a better programmer now than I was in 2014.</p>
+<p>I said, Kira, that was the first tool</p>
+<p>that I wrote that was usable.</p>
+<p>I wouldn&rsquo;t say the code was great.</p>
+<p>I still wouldn&rsquo;t say my code is great.</p>
+<p>So how was your evolution as a programmer except practice?</p>
+<p>So you started with C.</p>
+<p>At which point did you pick up Python?</p>
+<p>Because you&rsquo;re pretty big in Python now.</p>
+<p>Now, yeah, in college.</p>
+<p>I went to Carnegie Mellon when I was 22.</p>
+<p>I went back.</p>
+<p>I&rsquo;m like, all right,</p>
+<p>I&rsquo;m gonna take all your hardest CS courses.</p>
+<p>We&rsquo;ll see how I do, right?</p>
+<p>Like, did I miss anything</p>
+<p>by not having a real undergraduate education?</p>
+<p>Took operating systems, compilers, AI,</p>
+<p>and they&rsquo;re like a freshman wheat or math course.</p>
+<p>And&hellip;</p>
+<p>Operating systems, some of those classes</p>
+<p>you mentioned are pretty tough, actually.</p>
+<p>They&rsquo;re great.</p>
+<p>At least the 2012, circa 2012,</p>
+<p>operating systems and compilers were two of the,</p>
+<p>they were the best classes I&rsquo;ve ever taken in my life.</p>
+<p>Because you write an operating system</p>
+<p>and you write a compiler.</p>
+<p>I wrote my operating system in C</p>
+<p>and I wrote my compiler in Haskell,</p>
+<p>but somehow I picked up Python that semester as well.</p>
+<p>I started using it for the CTFs, actually.</p>
+<p>That&rsquo;s when I really started to get into CTFs</p>
+<p>and CTFs, you&rsquo;re all, it&rsquo;s a race against the clock.</p>
+<p>So I can&rsquo;t write things in C.</p>
+<p>Oh, there&rsquo;s a clock component.</p>
+<p>So you really want to use the programming languages</p>
+<p>so you can be fastest.</p>
+<p>48 hours, pwn as many of these challenges as you can.</p>
+<p>Pwn.</p>
+<p>Yeah, you got like a hundred points of challenge.</p>
+<p>Whatever team gets the most.</p>
+<p>You were both at Facebook and Google for a brief stint.</p>
+<p>Yeah.</p>
+<p>With Project Zero actually at Google for five months</p>
+<p>where you developed Kira.</p>
+<p>What was Project Zero about in general?</p>
+<p>What, I&rsquo;m just curious about the security efforts</p>
+<p>in these companies.</p>
+<p>Well, Project Zero started the same time I went there.</p>
+<p>What years are there?</p>
+<p>2015.</p>
+<p>So that was right at the beginning of Project Zero.</p>
+<p>It&rsquo;s small.</p>
+<p>It&rsquo;s Google&rsquo;s offensive security team.</p>
+<p>I&rsquo;ll try to give the best public facing explanation</p>
+<p>that I can.</p>
+<p>So the idea is basically these vulnerabilities</p>
+<p>exist in the world.</p>
+<p>Nation states have them.</p>
+<p>Some high powered bad actors have them.</p>
+<p>Sometime people will find these vulnerabilities</p>
+<p>and submit them in bug bounties to the companies.</p>
+<p>But a lot of the companies don&rsquo;t really care.</p>
+<p>They don&rsquo;t even fix the bug.</p>
+<p>It doesn&rsquo;t hurt for there to be a vulnerability.</p>
+<p>So Project Zero is like, we&rsquo;re going to do it different.</p>
+<p>We&rsquo;re going to announce a vulnerability</p>
+<p>and we&rsquo;re going to give them 90 days to fix it.</p>
+<p>And then whether they fix it or not,</p>
+<p>we&rsquo;re going to drop the zero day.</p>
+<p>Oh, wow.</p>
+<p>We&rsquo;re going to drop the weapon.</p>
+<p>That&rsquo;s so cool.</p>
+<p>That is so cool.</p>
+<p>I love the deadlines.</p>
+<p>Oh, that&rsquo;s so cool.</p>
+<p>Give them real deadlines.</p>
+<p>Yeah.</p>
+<p>And I think it&rsquo;s done a lot for moving the industry forward.</p>
+<p>I watched your coding sessions on the streamed online.</p>
+<p>You code things up, the basic projects,</p>
+<p>usually from scratch.</p>
+<p>I would say sort of as a programmer myself,</p>
+<p>just watching you that you type really fast</p>
+<p>and your brain works in both brilliant and chaotic ways.</p>
+<p>I don&rsquo;t know if that&rsquo;s always true,</p>
+<p>but certainly for the live streams.</p>
+<p>So it&rsquo;s interesting to me because I&rsquo;m more,</p>
+<p>I&rsquo;m much slower and systematic and careful.</p>
+<p>And you just move, I mean,</p>
+<p>probably in order of magnitude faster.</p>
+<p>So I&rsquo;m curious, is there a method to your madness?</p>
+<p>Is it just who you are?</p>
+<p>There&rsquo;s pros and cons.</p>
+<p>There&rsquo;s pros and cons to my programming style.</p>
+<p>And I&rsquo;m aware of them.</p>
+<p>Like if you ask me to like get something up</p>
+<p>and working quickly with like an API</p>
+<p>that&rsquo;s kind of undocumented,</p>
+<p>I will do this super fast</p>
+<p>because I will throw things at it until it works.</p>
+<p>If you ask me to take a vector and rotate it 90 degrees</p>
+<p>and then flip it over the XY plane,</p>
+<p>I&rsquo;ll spam program for two hours and won&rsquo;t get it.</p>
+<p>Oh, because it&rsquo;s something that you could do</p>
+<p>with a sheet of paper, think through design,</p>
+<p>and then just, do you really just throw stuff at the wall</p>
+<p>and you get so good at it that it usually works?</p>
+<p>I should become better at the other kind as well.</p>
+<p>Sometimes I&rsquo;ll do things methodically.</p>
+<p>It&rsquo;s nowhere near as entertaining on the Twitch streams.</p>
+<p>I do exaggerate it a bit on the Twitch streams as well.</p>
+<p>The Twitch streams, I mean,</p>
+<p>what do you want to see a game or you want to see</p>
+<p>actions per minute, right?</p>
+<p>I&rsquo;ll show you APM for programming too.</p>
+<p>Yeah, I recommend people go to it.</p>
+<p>I think I watched, I watched probably several hours</p>
+<p>of you, like I&rsquo;ve actually left you programming</p>
+<p>in the background while I was programming</p>
+<p>because you made me, it was like watching</p>
+<p>a really good gamer.</p>
+<p>It&rsquo;s like energizes you because you&rsquo;re like moving so fast.</p>
+<p>It&rsquo;s so, it&rsquo;s awesome.</p>
+<p>It&rsquo;s inspiring and it made me jealous that like,</p>
+<p>because my own programming is inadequate</p>
+<p>in terms of speed.</p>
+<p>Oh, I was like.</p>
+<p>So I&rsquo;m twice as frantic on the live streams</p>
+<p>as I am when I code without them.</p>
+<p>It&rsquo;s super entertaining.</p>
+<p>So I wasn&rsquo;t even paying attention to what you were coding,</p>
+<p>which is great.</p>
+<p>It&rsquo;s just watching you switch windows and Vim I guess</p>
+<p>is the most.</p>
+<p>Yeah, there&rsquo;s Vim on screen.</p>
+<p>I&rsquo;ve developed the workload at Facebook</p>
+<p>and stuck with it.</p>
+<p>How do you learn new programming tools,</p>
+<p>ideas, techniques these days?</p>
+<p>What&rsquo;s your like a methodology for learning new things?</p>
+<p>So I wrote for comma, the distributed file systems</p>
+<p>out in the world are extremely complex.</p>
+<p>Like if you want to install something like like like Ceph,</p>
+<p>Ceph is I think the like open infrastructure</p>
+<p>distributed file system,</p>
+<p>or there&rsquo;s like newer ones like seaweed FS,</p>
+<p>but these are all like 10,000 plus line projects.</p>
+<p>I think some of them are even a hundred thousand line</p>
+<p>and just configuring them as a nightmare.</p>
+<p>So I wrote, I wrote one, it&rsquo;s 200 lines</p>
+<p>and it&rsquo;s, it uses like NGINX and volume servers</p>
+<p>and has this little master server that I wrote in Go.</p>
+<p>And the way I go, this,</p>
+<p>if I would say that I&rsquo;m proud per line of any code I wrote,</p>
+<p>maybe there&rsquo;s some exploits that I think are beautiful.</p>
+<p>And then this, this is 200 lines.</p>
+<p>And just the way that I thought about it,</p>
+<p>I think was very good.</p>
+<p>And the reason it&rsquo;s very good is because</p>
+<p>that was the fourth version of it that I wrote.</p>
+<p>And I had three versions that I threw away.</p>
+<p>You mentioned, did you say Go?</p>
+<p>I wrote in Go, yeah.</p>
+<p>In Go.</p>
+<p>Is that a functional language?</p>
+<p>I forget what Go is.</p>
+<p>Go is Google&rsquo;s language.</p>
+<p>Right.</p>
+<p>It&rsquo;s not functional.</p>
+<p>It&rsquo;s some, it&rsquo;s like in a way it&rsquo;s C++, but easier.</p>
+<p>It&rsquo;s, it&rsquo;s strongly typed.</p>
+<p>It has a nice ecosystem around it.</p>
+<p>When I first looked at it, I was like, this is like Python,</p>
+<p>but it takes twice as long to do anything.</p>
+<p>Yeah.</p>
+<p>Now that I&rsquo;ve, OpenPilot is migrating to C,</p>
+<p>but it still has large Python components.</p>
+<p>I now understand why Python doesn&rsquo;t work</p>
+<p>for large code bases and why you want something like Go.</p>
+<p>Interesting.</p>
+<p>So why, why doesn&rsquo;t Python work for,</p>
+<p>so even most, speaking for myself at least,</p>
+<p>like we do a lot of stuff,</p>
+<p>basically demo level work with autonomous vehicles</p>
+<p>and most of the work is Python.</p>
+<p>Yeah.</p>
+<p>Why doesn&rsquo;t Python work for large code bases?</p>
+<p>Because, well, lack of type checking is a big part.</p>
+<p>So errors creep in.</p>
+<p>Yeah.</p>
+<p>And like, you don&rsquo;t know,</p>
+<p>the compiler can tell you like nothing, right?</p>
+<p>So everything is either, you know,</p>
+<p>like, like syntax errors, fine.</p>
+<p>But if you misspell a variable in Python,</p>
+<p>the compiler won&rsquo;t catch that.</p>
+<p>There&rsquo;s like linters that can catch it some of the time.</p>
+<p>There&rsquo;s no types.</p>
+<p>This is really the biggest downside.</p>
+<p>And then, well, Python&rsquo;s slow, but that&rsquo;s not related to it.</p>
+<p>Well, maybe it&rsquo;s kind of related to it, so it&rsquo;s lack of.</p>
+<p>So what&rsquo;s, what&rsquo;s in your toolbox these days?</p>
+<p>Is it Python?</p>
+<p>What else?</p>
+<p>I need to move to something else.</p>
+<p>My adventure into dependently typed languages,</p>
+<p>I love these languages.</p>
+<p>They just have like syntax from the 80s.</p>
+<p>What do you think about JavaScript?</p>
+<p>ES6, like the modern, or TypeScript?</p>
+<p>JavaScript is,</p>
+<p>the whole ecosystem is unbelievably confusing.</p>
+<p>Right.</p>
+<p>NPM updates a package from 0.2.2 to 0.2.5,</p>
+<p>and that breaks your Babel linter,</p>
+<p>which translates your ES5 into ES6,</p>
+<p>which doesn&rsquo;t run on, so.</p>
+<p>Why do I have to compile my JavaScript again, huh?</p>
+<p>It may be the future, though.</p>
+<p>You think about, I mean,</p>
+<p>I&rsquo;ve embraced JavaScript recently,</p>
+<p>just because, just like I&rsquo;ve continually embraced PHP,</p>
+<p>it seems that these worst possible languages</p>
+<p>live on for the longest, like cockroaches never die.</p>
+<p>Yeah.</p>
+<p>Well, it&rsquo;s in the browser, and it&rsquo;s fast.</p>
+<p>It&rsquo;s fast.</p>
+<p>Yeah.</p>
+<p>It&rsquo;s in the browser, and compute might stay,</p>
+<p>become, you know, the browser.</p>
+<p>It&rsquo;s unclear what the role of the browser is</p>
+<p>in terms of distributed computation in the future, so.</p>
+<p>JavaScript is definitely here to stay.</p>
+<p>Yeah.</p>
+<p>It&rsquo;s interesting if autonomous vehicles</p>
+<p>will run on JavaScript one day.</p>
+<p>I mean, you have to consider these possibilities.</p>
+<p>Well, all our debug tools are JavaScript.</p>
+<p>We actually just open sourced them.</p>
+<p>We have a tool, Explorer,</p>
+<p>which you can annotate your disengagements,</p>
+<p>and we have a tool, Cabana,</p>
+<p>which lets you analyze the can traffic from the car.</p>
+<p>So basically, anytime you&rsquo;re visualizing something</p>
+<p>about the log, you&rsquo;re using JavaScript.</p>
+<p>Well, the web is the best UI toolkit by far, so.</p>
+<p>And then, you know what?</p>
+<p>You&rsquo;re coding in JavaScript.</p>
+<p>We have a React guy.</p>
+<p>He&rsquo;s good.</p>
+<p>React, nice.</p>
+<p>Let&rsquo;s get into it.</p>
+<p>So let&rsquo;s talk autonomous vehicles.</p>
+<p>Yeah.</p>
+<p>You founded Comma AI.</p>
+<p>Let&rsquo;s, at a high level,</p>
+<p>how did you get into the world of vehicle automation?</p>
+<p>Can you also just, for people who don&rsquo;t know,</p>
+<p>tell the story of Comma AI?</p>
+<p>Sure.</p>
+<p>So I was working at this AI startup,</p>
+<p>and a friend approached me,</p>
+<p>and he&rsquo;s like, dude, I don&rsquo;t know where this is going,</p>
+<p>but the coolest applied AI problem today</p>
+<p>is self driving cars.</p>
+<p>I&rsquo;m like, well, absolutely.</p>
+<p>You want to meet with Elon Musk,</p>
+<p>and he&rsquo;s looking for somebody to build a vision system</p>
+<p>for autopilot.</p>
+<p>This is when they were still on AP1.</p>
+<p>They were still using Mobileye.</p>
+<p>Elon, back then, was looking for a replacement,</p>
+<p>and he brought me in,</p>
+<p>and we talked about a contract</p>
+<p>where I would deliver something</p>
+<p>that meets Mobileye level performance.</p>
+<p>I would get paid $12 million if I could deliver it tomorrow,</p>
+<p>and I would lose $1 million</p>
+<p>for every month I didn&rsquo;t deliver.</p>
+<p>Yeah.</p>
+<p>So I was like, okay, this is a great deal.</p>
+<p>This is a super exciting challenge.</p>
+<p>You know what?</p>
+<p>Even if it takes me 10 months,</p>
+<p>I get $2 million.</p>
+<p>It&rsquo;s good.</p>
+<p>Maybe I can finish up in five.</p>
+<p>Maybe I don&rsquo;t finish it at all,</p>
+<p>and I get paid nothing,</p>
+<p>and I can still work for 12 months for free.</p>
+<p>So maybe just take a pause on that.</p>
+<p>I&rsquo;m also curious about this</p>
+<p>because I&rsquo;ve been working in robotics for a long time,</p>
+<p>and I&rsquo;m curious to see a person like you</p>
+<p>just step in and sort of somewhat naive,</p>
+<p>but brilliant, right?</p>
+<p>So that&rsquo;s the best place to be</p>
+<p>because you basically full steam take on a problem.</p>
+<p>How confident, how, from that time,</p>
+<p>because you know a lot more now,</p>
+<p>at that time, how hard do you think it is</p>
+<p>to solve all of autonomous driving?</p>
+<p>I remember I suggested to Elon in the meeting</p>
+<p>putting a GPU behind each camera</p>
+<p>to keep the compute local.</p>
+<p>This is an incredibly stupid idea.</p>
+<p>I leave the meeting 10 minutes later,</p>
+<p>and I&rsquo;m like, I could have spent a little bit of time</p>
+<p>thinking about this problem before I went in.</p>
+<p>Why is it a stupid idea?</p>
+<p>Oh, just send all your cameras to one big GPU.</p>
+<p>You&rsquo;re much better off doing that.</p>
+<p>Oh, sorry.</p>
+<p>You said behind every camera have a GPU.</p>
+<p>Every camera have a small GPU.</p>
+<p>I was like, oh, I&rsquo;ll put the first few layers</p>
+<p>of my comms there.</p>
+<p>Ugh, why&rsquo;d I say that?</p>
+<p>That&rsquo;s possible.</p>
+<p>It&rsquo;s possible, but it&rsquo;s a bad idea.</p>
+<p>It&rsquo;s not obviously a bad idea.</p>
+<p>Pretty obviously bad,</p>
+<p>but whether it&rsquo;s actually a bad idea or not,</p>
+<p>I left that meeting with Elon, beating myself up.</p>
+<p>I&rsquo;m like, why&rsquo;d I say something stupid?</p>
+<p>Yeah, you haven&rsquo;t at least thought through</p>
+<p>every aspect of it, yeah.</p>
+<p>He&rsquo;s very sharp too.</p>
+<p>Usually in life, I get away with saying stupid things</p>
+<p>and then kind of course,</p>
+<p>oh, right away he called me out about it.</p>
+<p>And usually in life, I get away with saying stupid things</p>
+<p>and then a lot of times people don&rsquo;t even notice</p>
+<p>and I&rsquo;ll correct it and bring the conversation back.</p>
+<p>But with Elon, it was like, nope, okay, well.</p>
+<p>That&rsquo;s not at all why the contract fell through.</p>
+<p>I was much more prepared the second time I met him.</p>
+<p>Yeah, but in general, how hard did you think it is?</p>
+<p>Like 12 months is a tough timeline.</p>
+<p>Oh, I just thought I&rsquo;d clone Mobileye IQ3.</p>
+<p>I didn&rsquo;t think I&rsquo;d solve level five self driving</p>
+<p>or anything.</p>
+<p>So the goal there was to do lane keeping, good lane keeping.</p>
+<p>I saw, my friend showed me the outputs from a Mobileye</p>
+<p>and the outputs from a Mobileye was just basically</p>
+<p>two lanes at a position of a lead car.</p>
+<p>I&rsquo;m like, I can gather a data set and train this net</p>
+<p>in weeks and I did.</p>
+<p>Well, first time I tried the implementation of Mobileye</p>
+<p>in a Tesla, I was really surprised how good it is.</p>
+<p>It&rsquo;s going incredibly good.</p>
+<p>Cause I thought it&rsquo;s just cause I&rsquo;ve done a lot</p>
+<p>of computer vision, I thought it&rsquo;d be a lot harder</p>
+<p>to create a system that that&rsquo;s stable.</p>
+<p>So I was personally surprised, you know,</p>
+<p>have to admit it.</p>
+<p>Cause I was kind of skeptical before trying it.</p>
+<p>Cause I thought it would go in and out a lot more.</p>
+<p>It would get disengaged a lot more and it&rsquo;s pretty robust.</p>
+<p>So what, how hard is the problem when you tackled it?</p>
+<p>So I think AP1 was great.</p>
+<p>Like Elon talked about disengagements on the 405 down in LA</p>
+<p>with like the lane marks are kind of faded</p>
+<p>and the Mobileye system would drop out.</p>
+<p>Like I had something up and working that I would say</p>
+<p>was like the same quality in three months.</p>
+<p>Same quality, but how do you know?</p>
+<p>You say stuff like that confidently, but you can&rsquo;t,</p>
+<p>and I love it, but the question is you can&rsquo;t,</p>
+<p>you&rsquo;re kind of going by feel cause you test it out.</p>
+<p>Absolutely, absolutely.</p>
+<p>Like I would take, I borrowed my friend&rsquo;s Tesla.</p>
+<p>I would take AP1 out for a drive</p>
+<p>and then I would take my system out for a drive.</p>
+<p>And it seems reasonably like the same.</p>
+<p>So the 405, how hard is it to create something</p>
+<p>that could actually be a product that&rsquo;s deployed?</p>
+<p>I mean, I&rsquo;ve read an article where Elon,</p>
+<p>this respondent said something about you saying</p>
+<p>that to build autopilot is more complicated</p>
+<p>than a single George Hodge level job.</p>
+<p>How hard is that job to create something</p>
+<p>that would work across globally?</p>
+<p>Why don&rsquo;t think globally is the challenge?</p>
+<p>But Elon followed that up by saying</p>
+<p>it&rsquo;s gonna take two years in a company of 10 people.</p>
+<p>And here I am four years later with a company of 12 people.</p>
+<p>And I think we still have another two to go.</p>
+<p>Two years, so yeah.</p>
+<p>So what do you think about how Tesla is progressing</p>
+<p>with autopilot of V2, V3?</p>
+<p>I think we&rsquo;ve kept pace with them pretty well.</p>
+<p>I think navigate and autopilot is terrible.</p>
+<p>We had some demo features internally of the same stuff</p>
+<p>and we would test it.</p>
+<p>And I&rsquo;m like, I&rsquo;m not shipping this</p>
+<p>even as like open source software to people.</p>
+<p>Why do you think it&rsquo;s terrible?</p>
+<p>Consumer Reports does a great job of describing it.</p>
+<p>Like when it makes a lane change,</p>
+<p>it does it worse than a human.</p>
+<p>You shouldn&rsquo;t ship things like autopilot, open pilot.</p>
+<p>They lane keep better than a human.</p>
+<p>If you turn it on for a stretch of a highway,</p>
+<p>like an hour long, it&rsquo;s never gonna touch a lane line.</p>
+<p>Human will touch probably a lane line twice.</p>
+<p>You just inspired me.</p>
+<p>I don&rsquo;t know if you&rsquo;re grounded in data on that.</p>
+<p>I read your paper.</p>
+<p>Okay, but that&rsquo;s interesting.</p>
+<p>I wonder actually how often we touch lane lines</p>
+<p>in general, like a little bit,</p>
+<p>because it is.</p>
+<p>I could answer that question pretty easily</p>
+<p>with the common data set.</p>
+<p>Yeah, I&rsquo;m curious.</p>
+<p>I&rsquo;ve never answered it.</p>
+<p>I don&rsquo;t know.</p>
+<p>I just, two is like my personal.</p>
+<p>It feels right.</p>
+<p>That&rsquo;s interesting.</p>
+<p>Because every time you touch a lane,</p>
+<p>that&rsquo;s a source of a little bit of stress</p>
+<p>and kind of lane keeping is removing that stress.</p>
+<p>That&rsquo;s ultimately the biggest value add honestly</p>
+<p>is just removing the stress of having to stay in lane.</p>
+<p>And I think honestly, I don&rsquo;t think people fully realize,</p>
+<p>first of all, that that&rsquo;s a big value add,</p>
+<p>but also that that&rsquo;s all it is.</p>
+<p>And that not only, I find it a huge value add.</p>
+<p>I drove down when we moved to San Diego,</p>
+<p>I drove down in a enterprise rental car and I missed it.</p>
+<p>So I missed having the system so much.</p>
+<p>It&rsquo;s so much more tiring to drive without it.</p>
+<p>It is that lane centering.</p>
+<p>That&rsquo;s the key feature.</p>
+<p>Yeah.</p>
+<p>And in a way, it&rsquo;s the only feature</p>
+<p>that actually adds value to people&rsquo;s lives</p>
+<p>in autonomous vehicles today.</p>
+<p>Waymo does not add value to people&rsquo;s lives.</p>
+<p>It&rsquo;s a more expensive, slower Uber.</p>
+<p>Maybe someday it&rsquo;ll be this big cliff where it adds value,</p>
+<p>but I don&rsquo;t usually believe it.</p>
+<p>It is fascinating.</p>
+<p>I haven&rsquo;t talked to, this is good.</p>
+<p>Cause I haven&rsquo;t, I have intuitively,</p>
+<p>but I think we&rsquo;re making it explicit now.</p>
+<p>I actually believe that really good lane keeping</p>
+<p>is a reason to buy a car.</p>
+<p>Will be a reason to buy a car and it&rsquo;s a huge value add.</p>
+<p>I&rsquo;ve never, until we just started talking about it,</p>
+<p>I haven&rsquo;t really quite realized it.</p>
+<p>That I&rsquo;ve felt with Elon&rsquo;s chase of level four</p>
+<p>is not the correct chase.</p>
+<p>It was on, cause you should just say Tesla has the best</p>
+<p>as if from a Tesla perspective, say,</p>
+<p>Tesla has the best lane keeping.</p>
+<p>Comma AI should say, Comma AI is the best lane keeping.</p>
+<p>And that is it.</p>
+<p>Yeah. Yeah.</p>
+<p>So do you think?</p>
+<p>You have to do the longitudinal as well.</p>
+<p>You can&rsquo;t just lane keep.</p>
+<p>You have to do ACC,</p>
+<p>but ACC is much more forgiving than lane keep,</p>
+<p>especially on the highway.</p>
+<p>By the way, are you Comma AI&rsquo;s camera only, correct?</p>
+<p>No, we use the radar.</p>
+<p>From the car, you&rsquo;re able to get the, okay.</p>
+<p>Hmm?</p>
+<p>We can do a camera only now.</p>
+<p>It&rsquo;s gotten to the point,</p>
+<p>but we leave the radar there as like a, it&rsquo;s fusion now.</p>
+<p>Okay, so let&rsquo;s maybe talk through some of the system specs</p>
+<p>on the hardware.</p>
+<p>What&rsquo;s the hardware side of what you&rsquo;re providing?</p>
+<p>What&rsquo;s the capabilities on the software side</p>
+<p>with OpenPilot and so on?</p>
+<p>So OpenPilot, as the box that we sell, that it runs on,</p>
+<p>it&rsquo;s a phone in a plastic case.</p>
+<p>It&rsquo;s nothing special.</p>
+<p>We sell it without the software.</p>
+<p>So you buy the phone, it&rsquo;s just easy.</p>
+<p>It&rsquo;ll be easy set up, but it&rsquo;s sold with no software.</p>
+<p>OpenPilot right now is about to be 0.6.</p>
+<p>When it gets to 1.0,</p>
+<p>I think we&rsquo;ll be ready for a consumer product.</p>
+<p>We&rsquo;re not gonna add any new features.</p>
+<p>We&rsquo;re just gonna make the lane keeping really, really good.</p>
+<p>Okay, I got it.</p>
+<p>So what do we have right now?</p>
+<p>It&rsquo;s a Snapdragon 820.</p>
+<p>It&rsquo;s a Sony IMX 298 forward facing camera.</p>
+<p>Driver monitoring camera,</p>
+<p>it&rsquo;s just a selfie camera on the phone.</p>
+<p>And a CAN transceiver,</p>
+<p>maybe there&rsquo;s a little thing called PANDAS.</p>
+<p>And they talk over USB to the phone</p>
+<p>and then they have three CAN buses</p>
+<p>that they talk to the car.</p>
+<p>One of those CAN buses is the radar CAN bus.</p>
+<p>One of them is the main car CAN bus</p>
+<p>and the other one is the proxy camera CAN bus.</p>
+<p>We leave the existing camera in place</p>
+<p>so we don&rsquo;t turn AEB off.</p>
+<p>Right now, we still turn AEB off</p>
+<p>if you&rsquo;re using our longitudinal,</p>
+<p>but we&rsquo;re gonna fix that before 1.0.</p>
+<p>Got it.</p>
+<p>Wow, that&rsquo;s cool.</p>
+<p>And it&rsquo;s CAN both ways.</p>
+<p>So how are you able to control vehicles?</p>
+<p>So we proxy,</p>
+<p>the vehicles that we work with</p>
+<p>already have a lane keeping assist system.</p>
+<p>So lane keeping assist can mean a huge variety of things.</p>
+<p>It can mean it will apply a small torque to the wheel</p>
+<p>after you&rsquo;ve already crossed a lane line by a foot,</p>
+<p>which is the system in the older Toyotas</p>
+<p>versus like, I think Tesla still calls it</p>
+<p>lane keeping assist,</p>
+<p>where it&rsquo;ll keep you perfectly</p>
+<p>in the center of the lane on the highway.</p>
+<p>You can control, like with the joystick, the car.</p>
+<p>So these cars already have the capability of drive by wire.</p>
+<p>So is it trivial to convert a car that it operates with?</p>
+<p>OpenPILOT is able to control the steering?</p>
+<p>Oh, a new car or a car that we,</p>
+<p>so we have support now for 45 different makes of cars.</p>
+<p>What are the cars in general?</p>
+<p>Mostly Hondas and Toyotas.</p>
+<p>We support almost every Honda and Toyota made this year.</p>
+<p>And then a bunch of GMs, a bunch of Subarus,</p>
+<p>a bunch of Chevys.</p>
+<p>It doesn&rsquo;t have to be like a Prius,</p>
+<p>it could be a Corolla as well.</p>
+<p>Oh, the 2020 Corolla is the best car with OpenPILOT.</p>
+<p>It just came out.</p>
+<p>The actuator has less lag than the older Corolla.</p>
+<p>I think I started watching a video with your,</p>
+<p>I mean, the way you make videos is awesome.</p>
+<p>You&rsquo;re just literally at the dealership streaming.</p>
+<p>Yeah, I had my friend on the phone,</p>
+<p>I&rsquo;m like, bro, you wanna stream for an hour?</p>
+<p>Yeah, and basically, like if stuff goes a little wrong,</p>
+<p>you&rsquo;re just like, you just go with it.</p>
+<p>Yeah, I love it.</p>
+<p>Well, it&rsquo;s real.</p>
+<p>Yeah, it&rsquo;s real.</p>
+<p>That&rsquo;s so beautiful and it&rsquo;s so in contrast</p>
+<p>to the way other companies</p>
+<p>would put together a video like that.</p>
+<p>Kind of why I like to do it like that.</p>
+<p>Good.</p>
+<p>I mean, if you become super rich one day and successful,</p>
+<p>I hope you keep it that way</p>
+<p>because I think that&rsquo;s actually what people love,</p>
+<p>that kind of genuine.</p>
+<p>Oh, it&rsquo;s all that has value to me.</p>
+<p>Money has no, if I sell out to like make money,</p>
+<p>I sold out, it doesn&rsquo;t matter.</p>
+<p>What do I get?</p>
+<p>Yacht?</p>
+<p>I don&rsquo;t want a yacht.</p>
+<p>And I think Tesla&rsquo;s actually has a small inkling</p>
+<p>of that as well with Autonomy Day.</p>
+<p>They did reveal more than, I mean, of course,</p>
+<p>there&rsquo;s marketing communications, you could tell,</p>
+<p>but it&rsquo;s more than most companies would reveal,</p>
+<p>which is, I hope they go towards that direction more,</p>
+<p>other companies, GM, Ford.</p>
+<p>Oh, Tesla&rsquo;s gonna win level five.</p>
+<p>They really are.</p>
+<p>So let&rsquo;s talk about it.</p>
+<p>You think, you&rsquo;re focused on level two currently?</p>
+<p>Currently.</p>
+<p>We&rsquo;re gonna be one to two years behind Tesla</p>
+<p>getting to level five.</p>
+<p>Okay.</p>
+<p>We&rsquo;re Android, right?</p>
+<p>We&rsquo;re Android.</p>
+<p>You&rsquo;re Android.</p>
+<p>I&rsquo;m just saying, once Tesla gets it,</p>
+<p>we&rsquo;re one to two years behind.</p>
+<p>I&rsquo;m not making any timeline on when Tesla&rsquo;s</p>
+<p>gonna get it. That&rsquo;s right.</p>
+<p>You did, that was brilliant.</p>
+<p>I&rsquo;m sorry, Tesla investors,</p>
+<p>if you think you&rsquo;re gonna have an autonomous</p>
+<p>Robo Taxi fleet by the end of the year.</p>
+<p>Yeah, so that&rsquo;s.</p>
+<p>I&rsquo;ll bet against that.</p>
+<p>So what do you think about this?</p>
+<p>The most level four companies</p>
+<p>are kind of just doing their usual safety driver,</p>
+<p>doing full autonomy kind of testing.</p>
+<p>And then Tesla does basically trying to go</p>
+<p>from lane keeping to full autonomy.</p>
+<p>What do you think about that approach?</p>
+<p>How successful would it be?</p>
+<p>It&rsquo;s a ton better approach.</p>
+<p>Because Tesla is gathering data on a scale</p>
+<p>that none of them are.</p>
+<p>They&rsquo;re putting real users behind the wheel of the cars.</p>
+<p>It&rsquo;s, I think, the only strategy that works.</p>
+<p>The incremental.</p>
+<p>Well, so there&rsquo;s a few components to Tesla approach</p>
+<p>that&rsquo;s more than just the incrementalists.</p>
+<p>What you spoke with is the ones, the software,</p>
+<p>so over the air software updates.</p>
+<p>Necessity.</p>
+<p>I mean Waymo crews have those too.</p>
+<p>Those aren&rsquo;t.</p>
+<p>But.</p>
+<p>Those differentiate from the automakers.</p>
+<p>Right, no lane keeping systems have,</p>
+<p>no cars with lane keeping system have that except Tesla.</p>
+<p>Yeah.</p>
+<p>And the other one is the data, the other direction,</p>
+<p>which is the ability to query the data.</p>
+<p>I don&rsquo;t think they&rsquo;re actually collecting</p>
+<p>as much data as people think,</p>
+<p>but the ability to turn on collection and turn it off.</p>
+<p>So I&rsquo;m both in the robotics world</p>
+<p>and the psychology human factors world.</p>
+<p>Many people believe that level two autonomy is problematic</p>
+<p>because of the human factor.</p>
+<p>Like the more the task is automated,</p>
+<p>the more there&rsquo;s a vigilance decrement.</p>
+<p>You start to fall asleep.</p>
+<p>You start to become complacent,</p>
+<p>start texting more and so on.</p>
+<p>Do you worry about that?</p>
+<p>Cause if we&rsquo;re talking about transition from lane keeping</p>
+<p>to full autonomy, if you&rsquo;re spending 80% of the time,</p>
+<p>not supervising the machine,</p>
+<p>do you worry about what that means</p>
+<p>to the safety of the drivers?</p>
+<p>One, we don&rsquo;t consider open pilot to be 1.0</p>
+<p>until we have 100% driver monitoring.</p>
+<p>You can cheat right now, our driver monitoring system.</p>
+<p>There&rsquo;s a few ways to cheat it.</p>
+<p>They&rsquo;re pretty obvious.</p>
+<p>We&rsquo;re working on making that better.</p>
+<p>Before we ship a consumer product that can drive cars,</p>
+<p>I want to make sure that I have driver monitoring</p>
+<p>that you can&rsquo;t cheat.</p>
+<p>What&rsquo;s like a successful driver monitoring system look like?</p>
+<p>Is it all about just keeping your eyes on the road?</p>
+<p>Well, a few things.</p>
+<p>So that&rsquo;s what we went with at first for driver monitoring.</p>
+<p>I&rsquo;m checking, I&rsquo;m actually looking at</p>
+<p>where your head is looking.</p>
+<p>The camera&rsquo;s not that high resolution.</p>
+<p>Eyes are a little bit hard to get.</p>
+<p>Well, head is this big.</p>
+<p>I mean, that&rsquo;s.</p>
+<p>Head is good.</p>
+<p>And actually a lot of it, just psychology wise,</p>
+<p>to have that monitor constantly there,</p>
+<p>it reminds you that you have to be paying attention.</p>
+<p>But we want to go further.</p>
+<p>We just hired someone full time</p>
+<p>to come on to do the driver monitoring.</p>
+<p>I want to detect phone in frame</p>
+<p>and I want to make sure you&rsquo;re not sleeping.</p>
+<p>How much does the camera see of the body?</p>
+<p>This one, not enough.</p>
+<p>Not enough.</p>
+<p>The next one, everything.</p>
+<p>Well, it&rsquo;s interesting, Fisheye,</p>
+<p>because we&rsquo;re doing just data collection, not real time.</p>
+<p>But Fisheye is a beautiful,</p>
+<p>being able to capture the body.</p>
+<p>And the smartphone is really like the biggest problem.</p>
+<p>I&rsquo;ll show you.</p>
+<p>I can show you one of the pictures from our new system.</p>
+<p>Awesome, so you&rsquo;re basically saying</p>
+<p>the driver monitoring will be the answer to that.</p>
+<p>I think the other point</p>
+<p>that you raised in your paper is good as well.</p>
+<p>You&rsquo;re not asking a human to supervise a machine</p>
+<p>without giving them the,</p>
+<p>they can take over at any time.</p>
+<p>Right.</p>
+<p>Our safety model, you can take over.</p>
+<p>We disengage on both the gas or the brake.</p>
+<p>We don&rsquo;t disengage on steering.</p>
+<p>I don&rsquo;t feel you have to.</p>
+<p>But we disengage on gas or brake.</p>
+<p>So it&rsquo;s very easy for you to take over</p>
+<p>and it&rsquo;s very easy for you to reengage.</p>
+<p>That switching should be super cheap.</p>
+<p>The cars that require,</p>
+<p>even autopilot requires a double press.</p>
+<p>That&rsquo;s almost, I see, I don&rsquo;t like that.</p>
+<p>And then the cancel, to cancel in autopilot,</p>
+<p>you either have to press cancel,</p>
+<p>which no one knows what that is, so they press the brake.</p>
+<p>But a lot of times you don&rsquo;t actually want</p>
+<p>to press the brake.</p>
+<p>You want to press the gas.</p>
+<p>So you should cancel on gas.</p>
+<p>Or wiggle the steering wheel, which is bad as well.</p>
+<p>Wow, that&rsquo;s brilliant.</p>
+<p>I haven&rsquo;t heard anyone articulate that point.</p>
+<p>Oh, this is all I think about.</p>
+<p>It&rsquo;s the, because I think,</p>
+<p>I think actually Tesla has done a better job</p>
+<p>than most automakers at making that frictionless.</p>
+<p>But you just described that it could be even better.</p>
+<p>I love Super Cruise as an experience once it&rsquo;s engaged.</p>
+<p>I don&rsquo;t know if you&rsquo;ve used it,</p>
+<p>but getting the thing to try to engage.</p>
+<p>Yeah, I&rsquo;ve used the, I&rsquo;ve driven Super Cruise a lot.</p>
+<p>So what&rsquo;s your thoughts on the Super Cruise system?</p>
+<p>You disengage Super Cruise and it falls back to ACC.</p>
+<p>So my car&rsquo;s like still accelerating.</p>
+<p>It feels weird.</p>
+<p>Otherwise, when you actually have Super Cruise engaged</p>
+<p>on the highway, it is phenomenal.</p>
+<p>We bought that Cadillac.</p>
+<p>We just sold it.</p>
+<p>But we bought it just to like experience this.</p>
+<p>And I wanted everyone in the office to be like,</p>
+<p>this is what we&rsquo;re striving to build.</p>
+<p>GM pioneering with the driver monitoring.</p>
+<p>You like their driver monitoring system?</p>
+<p>It has some bugs.</p>
+<p>If there&rsquo;s a sun shining back here, it&rsquo;ll be blind to you.</p>
+<p>Right.</p>
+<p>But overall, mostly, yeah.</p>
+<p>That&rsquo;s so cool that you know all this stuff.</p>
+<p>I don&rsquo;t often talk to people that,</p>
+<p>because it&rsquo;s such a rare car, unfortunately, currently.</p>
+<p>We bought one explicitly for this.</p>
+<p>We lost like 25K in the deprecation,</p>
+<p>but I feel it&rsquo;s worth it.</p>
+<p>I was very pleasantly surprised that GM system</p>
+<p>was so innovative and really wasn&rsquo;t advertised much,</p>
+<p>wasn&rsquo;t talked about much.</p>
+<p>Yeah.</p>
+<p>And I was nervous that it would die,</p>
+<p>that it would disappear.</p>
+<p>Well, they put it on the wrong car.</p>
+<p>They should have put it on the Bolt</p>
+<p>and not some weird Cadillac that nobody bought.</p>
+<p>I think that&rsquo;s gonna be into,</p>
+<p>they&rsquo;re saying at least it&rsquo;s gonna be</p>
+<p>into their entire fleet.</p>
+<p>So what do you think about,</p>
+<p>as long as we&rsquo;re on the driver monitoring,</p>
+<p>what do you think about Elon Musk&rsquo;s claim</p>
+<p>that driver monitoring is not needed?</p>
+<p>Normally, I love his claims.</p>
+<p>That one is stupid.</p>
+<p>And, you know, he&rsquo;s not gonna have his level five fleet</p>
+<p>by the end of the year.</p>
+<p>Hopefully he&rsquo;s like, okay, I was wrong.</p>
+<p>I&rsquo;m gonna add driver monitoring.</p>
+<p>Because when these systems get to the point</p>
+<p>that they&rsquo;re only messing up once every thousand miles,</p>
+<p>you absolutely need driver monitoring.</p>
+<p>So let me play, cause I agree with you,</p>
+<p>but let me play devil&rsquo;s advocate.</p>
+<p>One possibility is that without driver monitoring,</p>
+<p>people are able to monitor, self regulate,</p>
+<p>monitor themselves.</p>
+<p>You know, that, so your idea is.</p>
+<p>You&rsquo;ve seen all the people sleeping in Teslas?</p>
+<p>Yeah, well, I&rsquo;m a little skeptical</p>
+<p>of all the people sleeping in Teslas</p>
+<p>because I&rsquo;ve stopped paying attention to that kind of stuff</p>
+<p>because I want to see real data.</p>
+<p>It&rsquo;s too much glorified.</p>
+<p>It doesn&rsquo;t feel scientific to me.</p>
+<p>So I want to know how many people are really sleeping</p>
+<p>in Teslas versus sleeping.</p>
+<p>I was driving here sleep deprived in a car</p>
+<p>with no automation.</p>
+<p>I was falling asleep.</p>
+<p>I agree that it&rsquo;s hypey.</p>
+<p>It&rsquo;s just like, you know what?</p>
+<p>If you want to put driver monitoring,</p>
+<p>I rented a, my last autopilot experience</p>
+<p>was I rented a model three in March and drove it around.</p>
+<p>The wheel thing is annoying.</p>
+<p>And the reason the wheel thing is annoying,</p>
+<p>we use the wheel thing as well,</p>
+<p>but we don&rsquo;t disengage on wheel.</p>
+<p>For Tesla, you have to touch the wheel just enough</p>
+<p>to trigger the torque sensor, to tell it that you&rsquo;re there,</p>
+<p>but not enough as to disengage it,</p>
+<p>which don&rsquo;t use it for two things.</p>
+<p>Don&rsquo;t disengage on wheel.</p>
+<p>You don&rsquo;t have to.</p>
+<p>That whole experience, wow, beautifully put.</p>
+<p>All of those elements,</p>
+<p>even if you don&rsquo;t have driver monitoring,</p>
+<p>that whole experience needs to be better.</p>
+<p>Driver monitoring, I think would make,</p>
+<p>I mean, I think Super Cruise is a better experience</p>
+<p>once it&rsquo;s engaged over autopilot.</p>
+<p>I think Super Cruise is a transition</p>
+<p>to engagement and disengagement are significantly worse.</p>
+<p>Yeah.</p>
+<p>Well, there&rsquo;s a tricky thing,</p>
+<p>because if I were to criticize Super Cruise is,</p>
+<p>it&rsquo;s a little too crude.</p>
+<p>And I think like six seconds or something,</p>
+<p>if you look off road, it&rsquo;ll start warning you.</p>
+<p>It&rsquo;s some ridiculously long period of time.</p>
+<p>And just the way,</p>
+<p>I think it&rsquo;s basically, it&rsquo;s a binary.</p>
+<p>It should be adaptive.</p>
+<p>Yeah, it needs to learn more about you.</p>
+<p>It needs to communicate what it sees about you more.</p>
+<p>Tesla shows what it sees about the external world.</p>
+<p>It would be nice if Super Cruise would tell us</p>
+<p>what it sees about the internal world.</p>
+<p>It&rsquo;s even worse than that.</p>
+<p>You press the button to engage</p>
+<p>and it just says Super Cruise unavailable.</p>
+<p>Yeah. Why?</p>
+<p>Why?</p>
+<p>Yeah, that transparency is good.</p>
+<p>We&rsquo;ve renamed the driver monitoring packet to driver state.</p>
+<p>Driver state.</p>
+<p>We have car state packet, which has the state of the car.</p>
+<p>And you have driver state packet,</p>
+<p>which has the state of the driver.</p>
+<p>So what is the&hellip;</p>
+<p>Estimate their BAC.</p>
+<p>What&rsquo;s BAC?</p>
+<p>Blood alcohol content.</p>
+<p>You think that&rsquo;s possible with computer vision?</p>
+<p>Absolutely.</p>
+<p>To me, it&rsquo;s an open question.</p>
+<p>I haven&rsquo;t looked into it too much.</p>
+<p>Actually, I quite seriously looked at the literature.</p>
+<p>It&rsquo;s not obvious to me that from the eyes and so on,</p>
+<p>you can tell.</p>
+<p>You might need stuff from the car as well.</p>
+<p>Yeah.</p>
+<p>You might need how they&rsquo;re controlling the car, right?</p>
+<p>And that&rsquo;s fundamentally at the end of the day,</p>
+<p>what you care about.</p>
+<p>But I think, especially when people are really drunk,</p>
+<p>they&rsquo;re not controlling the car nearly as smoothly</p>
+<p>as they would look at them walking, right?</p>
+<p>The car is like an extension of the body.</p>
+<p>So I think you could totally detect.</p>
+<p>And if you could fix people who are drunk, distracted,</p>
+<p>asleep, if you fix those three.</p>
+<p>Yeah, that&rsquo;s huge.</p>
+<p>So what are the current limitations of open pilot?</p>
+<p>What are the main problems that still need to be solved?</p>
+<p>We&rsquo;re hopefully fixing a few of them in 06.</p>
+<p>We&rsquo;re not as good as autopilot at stop cars.</p>
+<p>So if you&rsquo;re coming up to a red light at 55,</p>
+<p>so it&rsquo;s the radar stopped car problem, which</p>
+<p>is responsible for two autopilot accidents,</p>
+<p>it&rsquo;s hard to differentiate a stopped car from a signpost.</p>
+<p>Yeah, a static object.</p>
+<p>So you have to fuse.</p>
+<p>You have to do this visually.</p>
+<p>There&rsquo;s no way from the radar data to tell the difference.</p>
+<p>Maybe you can make a map, but I don&rsquo;t really</p>
+<p>believe in mapping at all anymore.</p>
+<p>Wait, wait, wait, what, you don&rsquo;t believe in mapping?</p>
+<p>No.</p>
+<p>So you basically, the open pilot solution</p>
+<p>is saying react to the environment as you see it,</p>
+<p>just like human beings do.</p>
+<p>And then eventually, when you want</p>
+<p>to do navigate on open pilot, I&rsquo;ll</p>
+<p>train the net to look at ways.</p>
+<p>I&rsquo;ll run ways in the background, I&rsquo;ll</p>
+<p>train a confident way.</p>
+<p>Are you using GPS at all?</p>
+<p>We use it to ground truth.</p>
+<p>We use it to very carefully ground truth the paths.</p>
+<p>We have a stack which can recover relative to 10</p>
+<p>centimeters over one minute.</p>
+<p>And then we use that to ground truth exactly where</p>
+<p>the car went in that local part of the environment,</p>
+<p>but it&rsquo;s all local.</p>
+<p>How are you testing in general, just for yourself,</p>
+<p>like experiments and stuff?</p>
+<p>Where are you located?</p>
+<p>San Diego.</p>
+<p>Yeah.</p>
+<p>OK.</p>
+<p>So you basically drive around there, collect some data,</p>
+<p>and watch the performance?</p>
+<p>We have a simulator now.</p>
+<p>And we have, our simulator is really cool.</p>
+<p>Our simulator is not, it&rsquo;s not like a Unity based simulator.</p>
+<p>Our simulator lets us load in real state.</p>
+<p>What do you mean?</p>
+<p>We can load in a drive and simulate</p>
+<p>what the system would have done on the historical data.</p>
+<p>Ooh, nice.</p>
+<p>Interesting.</p>
+<p>So what, yeah.</p>
+<p>Right now we&rsquo;re only using it for testing,</p>
+<p>but as soon as we start using it for training, that&rsquo;s it.</p>
+<p>That&rsquo;s all that matters.</p>
+<p>What&rsquo;s your feeling about the real world versus simulation?</p>
+<p>Do you like simulation for training,</p>
+<p>if this moves to training?</p>
+<p>So we have to distinguish two types of simulators, right?</p>
+<p>There&rsquo;s a simulator that is completely fake.</p>
+<p>I could get my car to drive around in GTA.</p>
+<p>I feel that this kind of simulator is useless.</p>
+<p>You&rsquo;re never, there&rsquo;s so many.</p>
+<p>My analogy here is like, OK, fine.</p>
+<p>You&rsquo;re not solving the computer vision problem,</p>
+<p>but you&rsquo;re solving the computer graphics problem.</p>
+<p>Right.</p>
+<p>And you don&rsquo;t think you can get very far by creating</p>
+<p>ultra realistic graphics?</p>
+<p>No, because you can create ultra realistic graphics</p>
+<p>of the road, now create ultra realistic behavioral models</p>
+<p>of the other cars.</p>
+<p>Oh, well, I&rsquo;ll just use myself driving.</p>
+<p>No, you won&rsquo;t.</p>
+<p>You need actual human behavior, because that&rsquo;s</p>
+<p>what you&rsquo;re trying to learn.</p>
+<p>Driving does not have a spec.</p>
+<p>The definition of driving is what humans do when they drive.</p>
+<p>Whatever Waymo does, I don&rsquo;t think it&rsquo;s driving.</p>
+<p>Right.</p>
+<p>Well, I think actually Waymo and others,</p>
+<p>if there&rsquo;s any use for reinforcement learning,</p>
+<p>I&rsquo;ve seen it used quite well.</p>
+<p>I study pedestrians a lot, too, is</p>
+<p>try to train models from real data of how pedestrians move,</p>
+<p>and try to use reinforcement learning models to make</p>
+<p>pedestrians move in human like ways.</p>
+<p>By that point, you&rsquo;ve already gone so many layers,</p>
+<p>you detected a pedestrian?</p>
+<p>Did you hand code the feature vector of their state?</p>
+<p>Did you guys learn anything from computer vision</p>
+<p>before deep learning?</p>
+<p>Well, OK, I feel like this is.</p>
+<p>So perception to you is the sticking point.</p>
+<p>I mean, what&rsquo;s the hardest part of the stack here?</p>
+<p>There is no human understandable feature vector separating</p>
+<p>perception and planning.</p>
+<p>That&rsquo;s the best way I can put that.</p>
+<p>There is no, so it&rsquo;s all together,</p>
+<p>and it&rsquo;s a joint problem.</p>
+<p>So you can take localization.</p>
+<p>Localization and planning, there is</p>
+<p>a human understandable feature vector between these two</p>
+<p>things.</p>
+<p>I mean, OK, so I have like three degrees position,</p>
+<p>three degrees orientation, and those derivatives,</p>
+<p>maybe those second derivatives.</p>
+<p>That&rsquo;s human understandable.</p>
+<p>That&rsquo;s physical.</p>
+<p>Between perception and planning, so like Waymo</p>
+<p>has a perception stack and then a planner.</p>
+<p>And one of the things Waymo does right</p>
+<p>is they have a simulator that can separate those two.</p>
+<p>They can like replay their perception data</p>
+<p>and test their system, which is what</p>
+<p>I&rsquo;m talking about about like the two</p>
+<p>different kinds of simulators.</p>
+<p>There&rsquo;s the kind that can work on real data,</p>
+<p>and there&rsquo;s the kind that can&rsquo;t work on real data.</p>
+<p>Now, the problem is that I don&rsquo;t think you can hand code</p>
+<p>a feature vector, right?</p>
+<p>Like you have some list of like, oh, here&rsquo;s</p>
+<p>my list of cars in the scenes.</p>
+<p>Here&rsquo;s my list of pedestrians in the scene.</p>
+<p>This isn&rsquo;t what humans are doing.</p>
+<p>What are humans doing?</p>
+<p>Global.</p>
+<p>And you&rsquo;re saying that&rsquo;s too difficult to hand engineer.</p>
+<p>I&rsquo;m saying that there is no state vector given a perfect.</p>
+<p>I could give you the best team of engineers in the world</p>
+<p>to build a perception system and the best team</p>
+<p>to build a planner.</p>
+<p>All you have to do is define the state vector</p>
+<p>that separates those two.</p>
+<p>I&rsquo;m missing the state vector that separates those two.</p>
+<p>What do you mean?</p>
+<p>So what is the output of your perception system?</p>
+<p>Output of the perception system, it&rsquo;s, OK, well,</p>
+<p>there&rsquo;s several ways to do it.</p>
+<p>One is the SLAM components localization.</p>
+<p>The other is drivable area, drivable space.</p>
+<p>Drivable space, yeah.</p>
+<p>And then there&rsquo;s the different objects in the scene.</p>
+<p>And different objects in the scene over time,</p>
+<p>maybe, to give you input to then try</p>
+<p>to start modeling the trajectories of those objects.</p>
+<p>Sure.</p>
+<p>That&rsquo;s it.</p>
+<p>I can give you a concrete example</p>
+<p>of something you missed.</p>
+<p>What&rsquo;s that?</p>
+<p>So say there&rsquo;s a bush in the scene.</p>
+<p>Humans understand that when they see this bush</p>
+<p>that there may or may not be a car behind that bush.</p>
+<p>Drivable area and a list of objects does not include that.</p>
+<p>Humans are doing this constantly at the simplest intersections.</p>
+<p>So now you have to talk about occluded area.</p>
+<p>But even that, what do you mean by occluded?</p>
+<p>OK, so I can&rsquo;t see it.</p>
+<p>Well, if it&rsquo;s the other side of a house, I don&rsquo;t care.</p>
+<p>What&rsquo;s the likelihood that there&rsquo;s</p>
+<p>a car in that occluded area?</p>
+<p>And if you say, OK, we&rsquo;ll add that,</p>
+<p>I can come up with 10 more examples that you can&rsquo;t add.</p>
+<p>Certainly, occluded area would be something</p>
+<p>that Simulator would have because it&rsquo;s</p>
+<p>simulating the entire occlusion is part of it.</p>
+<p>Occlusion is part of a vision stack.</p>
+<p>But what I&rsquo;m saying is if you have a hand engineered,</p>
+<p>if your perception system output can</p>
+<p>be written in a spec document, it is incomplete.</p>
+<p>Yeah, I mean, certainly, it&rsquo;s hard to argue with that</p>
+<p>because in the end, that&rsquo;s going to be true.</p>
+<p>Yeah, and I&rsquo;ll tell you what the output of our perception</p>
+<p>system is.</p>
+<p>What&rsquo;s that?</p>
+<p>It&rsquo;s a 1,024 dimensional vector, trained by neural net.</p>
+<p>Oh, you know that.</p>
+<p>No, it&rsquo;s 1,024 dimensions of who knows what.</p>
+<p>Because it&rsquo;s operating on real data.</p>
+<p>Yeah.</p>
+<p>And that&rsquo;s the perception.</p>
+<p>That&rsquo;s the perception state.</p>
+<p>Think about an autoencoder for faces.</p>
+<p>If you have an autoencoder for faces and you say</p>
+<p>it has 256 dimensions in the middle,</p>
+<p>and I&rsquo;m taking a face over here and projecting it</p>
+<p>to a face over here.</p>
+<p>Can you hand label all 256 of those dimensions?</p>
+<p>Well, no, but those have to generate automatically.</p>
+<p>But even if you tried to do it by hand,</p>
+<p>could you come up with a spec between your encoder</p>
+<p>and your decoder?</p>
+<p>No, because it wasn&rsquo;t designed, but there.</p>
+<p>No, no, no, but if you could design it.</p>
+<p>If you could design a face reconstructor system,</p>
+<p>could you come up with a spec?</p>
+<p>No, but I think we&rsquo;re missing here a little bit.</p>
+<p>I think you&rsquo;re just being very poetic about expressing</p>
+<p>a fundamental problem of simulators,</p>
+<p>that they&rsquo;re going to be missing so much that the feature</p>
+<p>vector will just look fundamentally different</p>
+<p>in the simulated world than the real world.</p>
+<p>I&rsquo;m not making a claim about simulators.</p>
+<p>I&rsquo;m making a claim about the spec division</p>
+<p>between perception and planning, even in your system.</p>
+<p>Just in general.</p>
+<p>If you&rsquo;re trying to build a car that drives,</p>
+<p>if you&rsquo;re trying to hand code the output of your perception</p>
+<p>system, like saying, here&rsquo;s a list of all the cars</p>
+<p>in the scene, here&rsquo;s a list of all the people,</p>
+<p>here&rsquo;s a list of the occluded areas,</p>
+<p>here&rsquo;s a vector of drivable areas, it&rsquo;s insufficient.</p>
+<p>And if you start to believe that,</p>
+<p>you realize that what Waymo and Cruz are doing is impossible.</p>
+<p>Currently, what we&rsquo;re doing is the perception problem</p>
+<p>is converting the scene into a chessboard.</p>
+<p>And then you reason some basic reasoning</p>
+<p>around that chessboard.</p>
+<p>And you&rsquo;re saying that really, there&rsquo;s a lot missing there.</p>
+<p>First of all, why are we talking about this?</p>
+<p>Because isn&rsquo;t this a full autonomy?</p>
+<p>Is this something you think about?</p>
+<p>Oh, I want to win self driving cars.</p>
+<p>So your definition of win includes?</p>
+<p>Level four or five.</p>
+<p>Level five.</p>
+<p>I don&rsquo;t think level four is a real thing.</p>
+<p>I want to build the AlphaGo of driving.</p>
+<p>So AlphaGo is really end to end.</p>
+<p>Yeah.</p>
+<p>Is, yeah, it&rsquo;s end to end.</p>
+<p>And do you think this whole problem,</p>
+<p>is that also kind of what you&rsquo;re getting at</p>
+<p>with the perception and the planning?</p>
+<p>Is that this whole problem, the right way to do it</p>
+<p>is really to learn the entire thing.</p>
+<p>I&rsquo;ll argue that not only is it the right way,</p>
+<p>it&rsquo;s the only way that&rsquo;s going to exceed human performance.</p>
+<p>Well.</p>
+<p>It&rsquo;s certainly true for Go.</p>
+<p>Everyone who tried to hand code Go things</p>
+<p>built human inferior things.</p>
+<p>And then someone came along and wrote some 10,000 line thing</p>
+<p>that doesn&rsquo;t know anything about Go that beat everybody.</p>
+<p>It&rsquo;s 10,000 lines.</p>
+<p>True, in that sense, the open question then</p>
+<p>that maybe I can ask you is driving is much harder than Go.</p>
+<p>The open question is how much harder?</p>
+<p>So how, because I think the Elon Musk approach here</p>
+<p>with planning and perception is similar</p>
+<p>to what you&rsquo;re describing,</p>
+<p>which is really turning into not some kind of modular thing,</p>
+<p>but really do formulate it as a learning problem</p>
+<p>and solve the learning problem with scale.</p>
+<p>So how many years, put one is how many years</p>
+<p>would it take to solve this problem</p>
+<p>or just how hard is this freaking problem?</p>
+<p>Well, the cool thing is I think there&rsquo;s a lot of value</p>
+<p>that we can deliver along the way.</p>
+<p>I think that you can build lane keeping assist actually</p>
+<p>plus adaptive cruise control, plus, okay, looking at ways,</p>
+<p>extends to like all of driving.</p>
+<p>Yeah, most of driving, right?</p>
+<p>Oh, your adaptive cruise control treats red lights</p>
+<p>like cars, okay.</p>
+<p>So let&rsquo;s jump around.</p>
+<p>You mentioned that you didn&rsquo;t like navigate an autopilot.</p>
+<p>What advice, how would you make it better?</p>
+<p>Do you think as a feature that if it&rsquo;s done really well,</p>
+<p>it&rsquo;s a good feature?</p>
+<p>I think that it&rsquo;s too reliant on like hand coded hacks</p>
+<p>for like, how does navigate an autopilot do a lane change?</p>
+<p>It actually does the same lane change every time</p>
+<p>and it feels mechanical.</p>
+<p>Humans do different lane changes.</p>
+<p>Humans sometime will do a slow one,</p>
+<p>sometimes do a fast one.</p>
+<p>Navigate an autopilot, at least every time I use it,</p>
+<p>it is the identical lane change.</p>
+<p>How do you learn?</p>
+<p>I mean, this is a fundamental thing actually</p>
+<p>is the braking and then accelerating</p>
+<p>something that&rsquo;s still, Tesla probably does it better</p>
+<p>than most cars, but it still doesn&rsquo;t do a great job</p>
+<p>of creating a comfortable natural experience.</p>
+<p>And navigate an autopilot is just lane changes</p>
+<p>and extension of that.</p>
+<p>So how do you learn to do a natural lane change?</p>
+<p>So we have it and I can talk about how it works.</p>
+<p>So I feel that we have the solution for lateral.</p>
+<p>We don&rsquo;t yet have the solution for longitudinal.</p>
+<p>There&rsquo;s a few reasons longitudinal is harder than lateral.</p>
+<p>The lane change component,</p>
+<p>the way that we train on it very simply</p>
+<p>is like our model has an input</p>
+<p>for whether it&rsquo;s doing a lane change or not.</p>
+<p>And then when we train the end to end model,</p>
+<p>we hand label all the lane changes,</p>
+<p>cause you have to.</p>
+<p>I&rsquo;ve struggled a long time about not wanting to do that,</p>
+<p>but I think you have to.</p>
+<p>Or the training data.</p>
+<p>For the training data, right?</p>
+<p>Oh, we actually, we have an automatic ground truther</p>
+<p>which automatically labels all the lane changes.</p>
+<p>Was that possible?</p>
+<p>To automatically label the lane changes?</p>
+<p>Yeah.</p>
+<p>Yeah, detect the lane, I see when it crosses it, right?</p>
+<p>And I don&rsquo;t have to get that high percent accuracy,</p>
+<p>but it&rsquo;s like 95, good enough.</p>
+<p>Now I set the bit when it&rsquo;s doing the lane change</p>
+<p>in the end to end learning.</p>
+<p>And then I set it to zero when it&rsquo;s not doing a lane change.</p>
+<p>So now if I wanted to do a lane change at test time,</p>
+<p>I just put the bit to a one and it&rsquo;ll do a lane change.</p>
+<p>Yeah, but so if you look at the space of lane change,</p>
+<p>you know, some percentage, not a hundred percent</p>
+<p>that we make as humans is not a pleasant experience</p>
+<p>cause we messed some part of it up.</p>
+<p>It&rsquo;s nerve wracking to change the look,</p>
+<p>you have to see, it has to accelerate.</p>
+<p>How do we label the ones that are natural and feel good?</p>
+<p>You know, that&rsquo;s the, cause that&rsquo;s your ultimate criticism.</p>
+<p>The current navigate and autopilot</p>
+<p>just doesn&rsquo;t feel good.</p>
+<p>Well, the current navigate and autopilot</p>
+<p>is a hand coded policy written by an engineer in a room</p>
+<p>who probably went out and tested it a few times on the 280.</p>
+<p>Probably a more, a better version of that, but yes.</p>
+<p>That&rsquo;s how we would have written it at Comma AI.</p>
+<p>Yeah, yeah, yeah.</p>
+<p>Maybe Tesla did, Tesla, they tested it in the end.</p>
+<p>That might&rsquo;ve been two engineers.</p>
+<p>Two engineers, yeah.</p>
+<p>No, but so if you learn the lane change,</p>
+<p>if you learn how to do a lane change from data,</p>
+<p>just like you have a label that says lane change</p>
+<p>and then you put it in when you want it</p>
+<p>to do the lane change,</p>
+<p>it&rsquo;ll automatically do the lane change</p>
+<p>that&rsquo;s appropriate for the situation.</p>
+<p>Now, to get at the problem of some humans</p>
+<p>do bad lane changes,</p>
+<p>we haven&rsquo;t worked too much on this problem yet.</p>
+<p>It&rsquo;s not that much of a problem in practice.</p>
+<p>My theory is that all good drivers are good in the same way</p>
+<p>and all bad drivers are bad in different ways.</p>
+<p>And we&rsquo;ve seen some data to back this up.</p>
+<p>Well, beautifully put.</p>
+<p>So you just basically, if that&rsquo;s true hypothesis,</p>
+<p>then your task is to discover the good drivers.</p>
+<p>The good drivers stand out because they&rsquo;re in one cluster</p>
+<p>and the bad drivers are scattered all over the place</p>
+<p>and your net learns the cluster.</p>
+<p>Yeah, that&rsquo;s, so you just learn from the good drivers</p>
+<p>and they&rsquo;re easy to cluster.</p>
+<p>In fact, we learned from all of them</p>
+<p>and the net automatically learns the policy</p>
+<p>that&rsquo;s like the majority,</p>
+<p>but we&rsquo;ll eventually probably have to filter them out.</p>
+<p>If that theory is true, I hope it&rsquo;s true</p>
+<p>because the counter theory is there is many clusters,</p>
+<p>maybe arbitrarily many clusters of good drivers.</p>
+<p>Because if there&rsquo;s one cluster of good drivers,</p>
+<p>you can at least discover a set of policies.</p>
+<p>You can learn a set of policies,</p>
+<p>which would be good universally.</p>
+<p>Yeah.</p>
+<p>That would be a nice, that would be nice if it&rsquo;s true.</p>
+<p>And you&rsquo;re saying that there is some evidence that.</p>
+<p>Let&rsquo;s say lane changes can be clustered into four clusters.</p>
+<p>Right. Right.</p>
+<p>There&rsquo;s this finite level of.</p>
+<p>I would argue that all four of those are good clusters.</p>
+<p>All the things that are random are noise and probably bad.</p>
+<p>And which one of the four you pick,</p>
+<p>or maybe it&rsquo;s 10 or maybe it&rsquo;s 20.</p>
+<p>You can learn that.</p>
+<p>It&rsquo;s context dependent.</p>
+<p>It depends on the scene.</p>
+<p>And the hope is it&rsquo;s not too dependent on the driver.</p>
+<p>Yeah. The hope is that it all washes out.</p>
+<p>The hope is that there&rsquo;s, that the distribution&rsquo;s not bimodal.</p>
+<p>The hope is that it&rsquo;s a nice Gaussian.</p>
+<p>So what advice would you give to Tesla,</p>
+<p>how to fix, how to improve navigating autopilot?</p>
+<p>That&rsquo;s the lessons that you&rsquo;ve learned from Comm AI?</p>
+<p>The only real advice I would give to Tesla</p>
+<p>is please put driver monitoring in your cars.</p>
+<p>With respect to improving it?</p>
+<p>You can&rsquo;t do that anymore.</p>
+<p>I decided to interrupt, but you know,</p>
+<p>there&rsquo;s a practical nature of many of hundreds of thousands</p>
+<p>of cars being produced that don&rsquo;t have</p>
+<p>a good driver facing camera.</p>
+<p>The Model 3 has a selfie cam.</p>
+<p>Is it not good enough?</p>
+<p>Did they not put IR LEDs for night?</p>
+<p>That&rsquo;s a good question.</p>
+<p>But I do know that it&rsquo;s fisheye</p>
+<p>and it&rsquo;s relatively low resolution.</p>
+<p>So it&rsquo;s really not designed.</p>
+<p>It wasn&rsquo;t.</p>
+<p>It wasn&rsquo;t designed for driver monitoring.</p>
+<p>You can hope that you can kind of scrape up</p>
+<p>and have something from it.</p>
+<p>Yeah.</p>
+<p>But why didn&rsquo;t they put it in today?</p>
+<p>Put it in today.</p>
+<p>Every time I&rsquo;ve heard Karpathy talk about the problem</p>
+<p>and talking about like software 2.0</p>
+<p>and how the machine learning is gobbling up everything,</p>
+<p>I think this is absolutely the right strategy.</p>
+<p>I think that he didn&rsquo;t write navigate on autopilot.</p>
+<p>I think somebody else did</p>
+<p>and kind of hacked it on top of that stuff.</p>
+<p>I think when Karpathy says, wait a second,</p>
+<p>why did we hand code this lane change policy</p>
+<p>with all these magic numbers?</p>
+<p>We&rsquo;re gonna learn it from data.</p>
+<p>They&rsquo;ll fix it.</p>
+<p>They already know what to do there.</p>
+<p>Well, that&rsquo;s Andrei&rsquo;s job</p>
+<p>is to turn everything into a learning problem</p>
+<p>and collect a huge amount of data.</p>
+<p>The reality is though,</p>
+<p>not every problem can be turned into a learning problem</p>
+<p>in the short term.</p>
+<p>In the end, everything will be a learning problem.</p>
+<p>The reality is like if you wanna build L5 vehicles today,</p>
+<p>it will likely involve no learning.</p>
+<p>And that&rsquo;s the reality is,</p>
+<p>so at which point does learning start?</p>
+<p>It&rsquo;s the crutch statement that LiDAR is a crutch.</p>
+<p>At which point will learning</p>
+<p>get up to part of human performance?</p>
+<p>It&rsquo;s over human performance on ImageNet,</p>
+<p>classification, on driving, it&rsquo;s a question still.</p>
+<p>It is a question.</p>
+<p>I&rsquo;ll say this, I&rsquo;m here to play for 10 years.</p>
+<p>I&rsquo;m not here to try to,</p>
+<p>I&rsquo;m here to play for 10 years and make money along the way.</p>
+<p>I&rsquo;m not here to try to promise people</p>
+<p>that I&rsquo;m gonna have my L5 taxi network</p>
+<p>up and working in two years.</p>
+<p>Do you think that was a mistake?</p>
+<p>Yes.</p>
+<p>What do you think was the motivation behind saying that?</p>
+<p>Other companies are also promising L5 vehicles</p>
+<p>with very different approaches in 2020, 2021, 2022.</p>
+<p>If anybody would like to bet me</p>
+<p>that those things do not pan out, I will bet you.</p>
+<p>Even money, even money, I&rsquo;ll bet you as much as you want.</p>
+<p>Yeah.</p>
+<p>So are you worried about what&rsquo;s going to happen?</p>
+<p>Cause you&rsquo;re not in full agreement on that.</p>
+<p>What&rsquo;s going to happen when 2022, 21 come around</p>
+<p>and nobody has fleets of autonomous vehicles?</p>
+<p>Well, you can look at the history.</p>
+<p>If you go back five years ago,</p>
+<p>they were all promised by 2018 and 2017.</p>
+<p>But they weren&rsquo;t that strong of promises.</p>
+<p>I mean, Ford really declared pretty,</p>
+<p>I think not many have declared as like definitively</p>
+<p>as they have now these dates.</p>
+<p>Well, okay, so let&rsquo;s separate L4 and L5.</p>
+<p>Do I think that it&rsquo;s possible for Waymo to continue to kind</p>
+<p>of like hack on their system</p>
+<p>until it gets to level four in Chandler, Arizona?</p>
+<p>Yes.</p>
+<p>When there&rsquo;s no safety driver?</p>
+<p>Chandler, Arizona?</p>
+<p>Yeah.</p>
+<p>By, sorry, which year are we talking about?</p>
+<p>Oh, I even think that&rsquo;s possible by like 2020, 2021.</p>
+<p>But level four, Chandler, Arizona,</p>
+<p>not level five, New York City.</p>
+<p>Level four, meaning some very defined streets,</p>
+<p>it works out really well.</p>
+<p>Very defined streets.</p>
+<p>And then practically these streets are pretty empty.</p>
+<p>If most of the streets are covered in Waymo&rsquo;s,</p>
+<p>Waymo can kind of change the definition of what driving is.</p>
+<p>Right?</p>
+<p>If your self driving network</p>
+<p>is the majority of cars in an area,</p>
+<p>they only need to be safe with respect to each other</p>
+<p>and all the humans will need to learn to adapt to them.</p>
+<p>Now go drive in downtown New York.</p>
+<p>Well, yeah, that&rsquo;s.</p>
+<p>I mean, already you can talk about autonomy</p>
+<p>and like on farms, it already works great</p>
+<p>because you can really just follow the GPS line.</p>
+<p>So what does success look like for common AI?</p>
+<p>What are the milestones?</p>
+<p>Like where you can sit back with some champagne</p>
+<p>and say, we did it, boys and girls?</p>
+<p>Well, it&rsquo;s never over.</p>
+<p>Yeah, but.</p>
+<p>You must drink champagne and celebrate.</p>
+<p>So what is a good, what are some wins?</p>
+<p>A big milestone that we&rsquo;re hoping for</p>
+<p>by mid next year is profitability of the company.</p>
+<p>And we&rsquo;re gonna have to revisit the idea</p>
+<p>of selling a consumer product,</p>
+<p>but it&rsquo;s not gonna be like the comma one.</p>
+<p>When we do it, it&rsquo;s gonna be perfect.</p>
+<p>Open pilot has gotten so much better in the last two years.</p>
+<p>We&rsquo;re gonna have a few features.</p>
+<p>We&rsquo;re gonna have a hundred percent driver monitoring.</p>
+<p>We&rsquo;re gonna disable no safety features in the car.</p>
+<p>Actually, I think it&rsquo;d be really cool</p>
+<p>what we&rsquo;re doing right now.</p>
+<p>Our project this week is we&rsquo;re analyzing the data set</p>
+<p>and looking for all the AEB triggers</p>
+<p>from the manufacturer systems.</p>
+<p>We have better data set on that than the manufacturers.</p>
+<p>How much, just how many,</p>
+<p>does Toyota have 10 million miles of real world driving</p>
+<p>to know how many times their AEB triggered?</p>
+<p>So let me give you, cause you asked, right?</p>
+<p>Financial advice.</p>
+<p>Yeah.</p>
+<p>Cause I work with a lot of automakers</p>
+<p>and one possible source of money for you,</p>
+<p>which I&rsquo;ll be excited to see you take on</p>
+<p>is basically selling the data.</p>
+<p>So, which is something that most people,</p>
+<p>and not selling in a way where here, here at Automaker,</p>
+<p>but creating, we&rsquo;ve done this actually at MIT,</p>
+<p>not for money purposes,</p>
+<p>but you could do it for significant money purposes</p>
+<p>and make the world a better place by creating a consortia</p>
+<p>where automakers would pay in</p>
+<p>and then they get to have free access to the data.</p>
+<p>And I think a lot of people are really hungry for that</p>
+<p>and would pay significant amount of money for it.</p>
+<p>Here&rsquo;s the problem with that.</p>
+<p>I like this idea all in theory.</p>
+<p>It&rsquo;d be very easy for me to give them access to my servers</p>
+<p>and we already have all open source tools</p>
+<p>to access this data.</p>
+<p>It&rsquo;s in a great format.</p>
+<p>We have a great pipeline,</p>
+<p>but they&rsquo;re gonna put me in the room</p>
+<p>with some business development guy.</p>
+<p>And I&rsquo;m gonna have to talk to this guy</p>
+<p>and he&rsquo;s not gonna know most of the words I&rsquo;m saying.</p>
+<p>I&rsquo;m not willing to tolerate that.</p>
+<p>Okay, Mick Jagger.</p>
+<p>No, no, no, no, no.</p>
+<p>I think I agree with you.</p>
+<p>I&rsquo;m the same way, but you just tell them the terms</p>
+<p>and there&rsquo;s no discussion needed.</p>
+<p>If I could just tell them the terms,</p>
+<p>Yeah.</p>
+<p>and like, all right, who wants access to my data?</p>
+<p>I will sell it to you for, let&rsquo;s say,</p>
+<p>you want a subscription?</p>
+<p>I&rsquo;ll sell to you for 100K a month.</p>
+<p>Anyone.</p>
+<p>100K a month.</p>
+<p>I&rsquo;ll give you access to this data subscription.</p>
+<p>Yeah.</p>
+<p>Yeah, I think that&rsquo;s kind of fair.</p>
+<p>Came up with that number off the top of my head.</p>
+<p>If somebody sends me like a three line email</p>
+<p>where it&rsquo;s like, we would like to pay 100K a month</p>
+<p>to get access to your data.</p>
+<p>We would agree to like reasonable privacy terms</p>
+<p>of the people who are in the data set.</p>
+<p>I would be happy to do it,</p>
+<p>but that&rsquo;s not going to be the email.</p>
+<p>The email is going to be, hey,</p>
+<p>do you have some time in the next month</p>
+<p>where we can sit down and we can,</p>
+<p>I don&rsquo;t have time for that.</p>
+<p>We&rsquo;re moving too fast.</p>
+<p>Yeah.</p>
+<p>You could politely respond to that email,</p>
+<p>but not saying, I don&rsquo;t have any time for your bullshit.</p>
+<p>You say, oh, well, unfortunately these are the terms.</p>
+<p>And so this is, we try to,</p>
+<p>we brought the cost down for you</p>
+<p>in order to minimize the friction and communication.</p>
+<p>Absolutely.</p>
+<p>Here&rsquo;s the, whatever it is,</p>
+<p>one, two million dollars a year and you have access.</p>
+<p>And it&rsquo;s not like I get that email from like,</p>
+<p>but okay, am I going to reach out?</p>
+<p>Am I going to hire a business development person</p>
+<p>who&rsquo;s going to reach out to the automakers?</p>
+<p>No way.</p>
+<p>Yeah. Okay.</p>
+<p>I got you.</p>
+<p>If they reached into me, I&rsquo;m not going to ignore the email.</p>
+<p>I&rsquo;ll come back with something like,</p>
+<p>yeah, if you&rsquo;re willing to pay 100K a month</p>
+<p>for access to the data, I&rsquo;m happy to set that up.</p>
+<p>That&rsquo;s worth my engineering time.</p>
+<p>That&rsquo;s actually quite insightful of you.</p>
+<p>You&rsquo;re right.</p>
+<p>Probably because many of the automakers</p>
+<p>are quite a bit old school,</p>
+<p>there will be a need to reach out and they want it,</p>
+<p>but there&rsquo;ll need to be some communication.</p>
+<p>You&rsquo;re right.</p>
+<p>Mobileye circa 2015 had the lowest R&amp;D spend</p>
+<p>of any chip maker, like per, per,</p>
+<p>and you look at all the people who work for them</p>
+<p>and it&rsquo;s all business development people</p>
+<p>because the car companies are impossible to work with.</p>
+<p>Yeah.</p>
+<p>So you&rsquo;re, you have no patience for that</p>
+<p>and you&rsquo;re, you&rsquo;re legit Android, huh?</p>
+<p>I have something to do, right?</p>
+<p>Like, like it&rsquo;s not like, it&rsquo;s not like,</p>
+<p>I don&rsquo;t, like, I don&rsquo;t mean to like be a dick</p>
+<p>and say like, I don&rsquo;t have patience for that,</p>
+<p>but it&rsquo;s like that stuff doesn&rsquo;t help us</p>
+<p>with our goal of winning self driving cars.</p>
+<p>If I want money in the short term,</p>
+<p>if I showed off like the actual,</p>
+<p>like the learning tech that we have,</p>
+<p>it&rsquo;s, it&rsquo;s somewhat sad.</p>
+<p>Like it&rsquo;s years and years ahead of everybody else&rsquo;s.</p>
+<p>Not to, maybe not Tesla&rsquo;s.</p>
+<p>I think Tesla has some more stuff to us actually.</p>
+<p>Yeah.</p>
+<p>I think Tesla has similar stuff,</p>
+<p>but when you compare it to like</p>
+<p>what the Toyota Research Institute has,</p>
+<p>you&rsquo;re not even close to what we have.</p>
+<p>No comments.</p>
+<p>But I also can&rsquo;t, I have to take your comments.</p>
+<p>I intuitively believe you,</p>
+<p>but I have to take it with a grain of salt</p>
+<p>because I mean, you are an inspiration</p>
+<p>because you basically don&rsquo;t care about a lot of things</p>
+<p>that other companies care about.</p>
+<p>You don&rsquo;t try to bullshit in a sense,</p>
+<p>like make up stuff.</p>
+<p>So to drive up valuation, you&rsquo;re really very real</p>
+<p>and you&rsquo;re trying to solve the problem</p>
+<p>and admire that a lot.</p>
+<p>What I don&rsquo;t necessarily fully can&rsquo;t trust you on,</p>
+<p>with all due respect, is how good it is, right?</p>
+<p>I can only, but I also know how bad others are.</p>
+<p>And so.</p>
+<p>I&rsquo;ll say two things about, trust but verify, right?</p>
+<p>I&rsquo;ll say two things about that.</p>
+<p>One is try, get in a 2020 Corolla</p>
+<p>and try open pilot 0.6 when it comes out next month.</p>
+<p>I think already you&rsquo;ll look at this</p>
+<p>and you&rsquo;ll be like, this is already really good.</p>
+<p>And then I could be doing that all with hand labelers</p>
+<p>and all with like the same approach that Mobileye uses.</p>
+<p>When we release a model that no longer has the lanes in it,</p>
+<p>that only outputs a path,</p>
+<p>then think about how we did that machine learning</p>
+<p>and then right away when you see,</p>
+<p>and that&rsquo;s gonna be an open pilot,</p>
+<p>that&rsquo;s gonna be an open pilot before 1.0.</p>
+<p>When you see that model,</p>
+<p>you&rsquo;ll know that everything I&rsquo;m saying is true</p>
+<p>because how else did I get that model?</p>
+<p>Good.</p>
+<p>You know what I&rsquo;m saying is true about the simulator.</p>
+<p>Yeah, yeah, this is super exciting, that&rsquo;s super exciting.</p>
+<p>But like, you know, I listened to your talk with Kyle</p>
+<p>and Kyle was originally building the aftermarket system</p>
+<p>and he gave up on it because of technical challenges,</p>
+<p>because of the fact that he&rsquo;s gonna have to support</p>
+<p>20 to 50 cars, we support 45,</p>
+<p>because what is he gonna do</p>
+<p>when the manufacturer ABS system triggers?</p>
+<p>We have alerts and warnings to deal with all of that</p>
+<p>and all the cars.</p>
+<p>And how is he going to formally verify it?</p>
+<p>Well, I got 10 million miles of data,</p>
+<p>it&rsquo;s probably better,</p>
+<p>it&rsquo;s probably better verified than the spec.</p>
+<p>Yeah, I&rsquo;m glad you&rsquo;re here talking to me.</p>
+<p>This is, I&rsquo;ll remember this day,</p>
+<p>because it&rsquo;s interesting.</p>
+<p>If you look at Kyle&rsquo;s from cruise,</p>
+<p>I&rsquo;m sure they have a large number</p>
+<p>of business development folks</p>
+<p>and you work with, he&rsquo;s working with GM,</p>
+<p>you could work with Argo AI, working with Ford.</p>
+<p>It&rsquo;s interesting because chances that you fail,</p>
+<p>business wise, like bankrupt, are pretty high.</p>
+<p>Yeah.</p>
+<p>And yet, it&rsquo;s the Android model,</p>
+<p>is you&rsquo;re actually taking on the problem.</p>
+<p>So that&rsquo;s really inspiring, I mean.</p>
+<p>Well, I have a long term way for Comma to make money too.</p>
+<p>And one of the nice things</p>
+<p>when you really take on the problem,</p>
+<p>which is my hope for Autopilot, for example,</p>
+<p>is things you don&rsquo;t expect,</p>
+<p>ways to make money or create value</p>
+<p>that you don&rsquo;t expect will pop up.</p>
+<p>Oh, I&rsquo;ve known how to do it since kind of,</p>
+<p>2017 is the first time I said it.</p>
+<p>Which part, to know how to do which part?</p>
+<p>Our long term plan is to be a car insurance company.</p>
+<p>Insurance, yeah, I love it, yep, yep.</p>
+<p>I make driving twice as safe.</p>
+<p>Not only that, I have the best data</p>
+<p>such to know who statistically is the safest drivers.</p>
+<p>And oh, oh, we see you, we see you driving unsafely,</p>
+<p>we&rsquo;re not gonna insure you.</p>
+<p>And that causes a bifurcation in the market</p>
+<p>because the only people who can&rsquo;t get Comma insurance</p>
+<p>are the bad drivers, Geico can insure them,</p>
+<p>their premiums are crazy high,</p>
+<p>our premiums are crazy low.</p>
+<p>We&rsquo;ll win car insurance, take over that whole market.</p>
+<p>Okay, so.</p>
+<p>If we win, if we win.</p>
+<p>But that&rsquo;s what I&rsquo;m saying,</p>
+<p>how do you turn Comma into a $10 billion company?</p>
+<p>It&rsquo;s that.</p>
+<p>That&rsquo;s right.</p>
+<p>So you, Elon Musk, who else?</p>
+<p>Who else is thinking like this and working like this</p>
+<p>in your view?</p>
+<p>Who are the competitors?</p>
+<p>Are there people seriously,</p>
+<p>I don&rsquo;t think anyone that I&rsquo;m aware of</p>
+<p>is seriously taking on lane keeping,</p>
+<p>like where it&rsquo;s a huge business</p>
+<p>that turns eventually into full autonomy</p>
+<p>that then creates, yeah, like that creates other businesses</p>
+<p>on top of it and so on.</p>
+<p>Thinks insurance, thinks all kinds of ideas like that.</p>
+<p>Do you know anyone else thinking like this?</p>
+<p>Not really.</p>
+<p>That&rsquo;s interesting.</p>
+<p>I mean, my sense is everybody turns to that</p>
+<p>in like four or five years.</p>
+<p>Like Ford, once the autonomy doesn&rsquo;t fall through.</p>
+<p>Yeah.</p>
+<p>But at this time.</p>
+<p>Elon&rsquo;s the iOS.</p>
+<p>By the way, he paved the way for all of us.</p>
+<p>It&rsquo;s the iOS, true.</p>
+<p>I would not be doing Comma AI today</p>
+<p>if it was not for those conversations with Elon.</p>
+<p>And if it were not for him saying like,</p>
+<p>I think he said like,</p>
+<p>well, obviously we&rsquo;re not gonna use LiDAR,</p>
+<p>we use cameras, humans use cameras.</p>
+<p>So what do you think about that?</p>
+<p>How important is LiDAR?</p>
+<p>Everybody else on L5 is using LiDAR.</p>
+<p>What are your thoughts on his provocative statement</p>
+<p>that LiDAR is a crutch?</p>
+<p>See, sometimes he&rsquo;ll say dumb things,</p>
+<p>like the driver monitoring thing,</p>
+<p>but sometimes he&rsquo;ll say absolutely, completely,</p>
+<p>100% obviously true things.</p>
+<p>Of course LiDAR is a crutch.</p>
+<p>It&rsquo;s not even a good crutch.</p>
+<p>You&rsquo;re not even using it.</p>
+<p>Oh, they&rsquo;re using it for localization.</p>
+<p>Yeah.</p>
+<p>Which isn&rsquo;t good in the first place.</p>
+<p>If you have to localize your car to centimeters</p>
+<p>in order to drive, like that&rsquo;s not driving.</p>
+<p>Currently not doing much machine learning</p>
+<p>I thought for LiDAR data.</p>
+<p>Meaning like to help you in the task of,</p>
+<p>general task of perception.</p>
+<p>The main goal of those LiDARs on those cars</p>
+<p>I think is actually localization more than perception.</p>
+<p>Or at least that&rsquo;s what they use them for.</p>
+<p>Yeah, that&rsquo;s true.</p>
+<p>If you want to localize to centimeters,</p>
+<p>you can&rsquo;t use GPS.</p>
+<p>The fanciest GPS in the world can&rsquo;t do it.</p>
+<p>Especially if you&rsquo;re under tree cover and stuff.</p>
+<p>With LiDAR you can do this pretty easily.</p>
+<p>So you really, they&rsquo;re not taking on,</p>
+<p>I mean in some research they&rsquo;re using it for perception,</p>
+<p>but, and they&rsquo;re certainly not, which is sad,</p>
+<p>they&rsquo;re not fusing it well with vision.</p>
+<p>They do use it for perception.</p>
+<p>I&rsquo;m not saying they don&rsquo;t use it for perception,</p>
+<p>but the thing that, they have vision based</p>
+<p>and radar based perception systems as well.</p>
+<p>You could remove the LiDAR and keep around</p>
+<p>a lot of the dynamic object perception.</p>
+<p>You want to get centimeter accurate localization?</p>
+<p>Good luck doing that with anything else.</p>
+<p>So what should Cruz, Waymo do?</p>
+<p>Like what would be your advice to them now?</p>
+<p>I mean Waymo is actually,</p>
+<p>they&rsquo;re, I mean they&rsquo;re doing, they&rsquo;re serious.</p>
+<p>Waymo out of the ball of them are quite</p>
+<p>so serious about the long game.</p>
+<p>If L5 is a lot, requires 50 years,</p>
+<p>I think Waymo will be the only one left standing at the end</p>
+<p>with the, given the financial backing that they have.</p>
+<p>Buku Google bucks.</p>
+<p>I&rsquo;ll say nice things about both Waymo and Cruz.</p>
+<p>Let&rsquo;s do it.</p>
+<p>Nice is good.</p>
+<p>Waymo is by far the furthest along with technology.</p>
+<p>Waymo has a three to five year lead on all the competitors.</p>
+<p>If that, if the Waymo looking stack works,</p>
+<p>maybe three year lead.</p>
+<p>If the Waymo looking stack works,</p>
+<p>they have a three year lead.</p>
+<p>Now I argue that Waymo has spent too much money</p>
+<p>to recapitalize, to gain back their losses</p>
+<p>in those three years.</p>
+<p>Also self driving cars have no network effect like that.</p>
+<p>Uber has a network effect.</p>
+<p>You have a market, you have drivers and you have riders.</p>
+<p>Self driving cars, you have capital and you have riders.</p>
+<p>There&rsquo;s no network effect.</p>
+<p>If I want to blanket a new city in self driving cars,</p>
+<p>I buy the off the shelf Chinese knockoff self driving cars</p>
+<p>and I buy enough of them in the city.</p>
+<p>I can&rsquo;t do that with drivers.</p>
+<p>And that&rsquo;s why Uber has a first mover advantage</p>
+<p>that no self driving car company will.</p>
+<p>Can you disentangle that a little bit?</p>
+<p>Uber, you&rsquo;re not talking about Uber,</p>
+<p>the autonomous vehicle Uber.</p>
+<p>You&rsquo;re talking about the Uber car, the, yeah.</p>
+<p>I&rsquo;m Uber.</p>
+<p>I open for business in Austin, Texas, let&rsquo;s say.</p>
+<p>I need to attract both sides of the market.</p>
+<p>I need to both get drivers on my platform</p>
+<p>and riders on my platform.</p>
+<p>And I need to keep them both sufficiently happy, right?</p>
+<p>Riders aren&rsquo;t gonna use it</p>
+<p>if it takes more than five minutes for an Uber to show up.</p>
+<p>Drivers aren&rsquo;t gonna use it</p>
+<p>if they have to sit around all day and there&rsquo;s no riders.</p>
+<p>So you have to carefully balance a market.</p>
+<p>And whenever you have to carefully balance a market,</p>
+<p>there&rsquo;s a great first mover advantage</p>
+<p>because there&rsquo;s a switching cost for everybody, right?</p>
+<p>The drivers and the riders</p>
+<p>would have to switch at the same time.</p>
+<p>Let&rsquo;s even say that, you know, let&rsquo;s say a Luber shows up</p>
+<p>and Luber somehow, you know, agrees to do things</p>
+<p>at a bigger, you know, we&rsquo;re just gonna,</p>
+<p>we&rsquo;ve done it more efficiently, right?</p>
+<p>Luber is only takes 5% of a cut</p>
+<p>instead of the 10% that Uber takes.</p>
+<p>No one is gonna switch</p>
+<p>because the switching cost is higher than that 5%.</p>
+<p>So you actually can, in markets like that,</p>
+<p>you have a first mover advantage.</p>
+<p>Yeah.</p>
+<p>Autonomous vehicles of the level five variety</p>
+<p>have no first mover advantage.</p>
+<p>If the technology becomes commoditized,</p>
+<p>say I wanna go to a new city, look at the scooters.</p>
+<p>It&rsquo;s gonna look a lot more like scooters.</p>
+<p>Every person with a checkbook</p>
+<p>can blanket a city in scooters.</p>
+<p>And that&rsquo;s why you have 10 different scooter companies.</p>
+<p>Which one&rsquo;s gonna win?</p>
+<p>It&rsquo;s a race to the bottom.</p>
+<p>It&rsquo;s a terrible market to be in</p>
+<p>because there&rsquo;s no market for scooters.</p>
+<p>And the scooters don&rsquo;t get a say</p>
+<p>in whether they wanna be bought and deployed to a city</p>
+<p>or not. Right.</p>
+<p>So the, yeah.</p>
+<p>We&rsquo;re gonna entice the scooters</p>
+<p>with subsidies and deals and.</p>
+<p>So whenever you have to invest that capital,</p>
+<p>it doesn&rsquo;t.</p>
+<p>It doesn&rsquo;t come back.</p>
+<p>Yeah.</p>
+<p>That can&rsquo;t be your main criticism of the Waymo approach.</p>
+<p>Oh, I&rsquo;m saying even if it does technically work.</p>
+<p>Even if it does technically work, that&rsquo;s a problem.</p>
+<p>Yeah.</p>
+<p>I don&rsquo;t know if I were to say,</p>
+<p>I would say you&rsquo;re already there.</p>
+<p>I haven&rsquo;t even thought about that,</p>
+<p>but I would say the bigger challenge</p>
+<p>is the technical approach.</p>
+<p>The.</p>
+<p>So Waymo&rsquo;s cruises.</p>
+<p>And not just the technical approach,</p>
+<p>but of creating value.</p>
+<p>I still don&rsquo;t understand how you beat Uber,</p>
+<p>the human driven cars.</p>
+<p>In terms of financially,</p>
+<p>it doesn&rsquo;t make sense to me</p>
+<p>that people wanna get in an autonomous vehicle.</p>
+<p>I don&rsquo;t understand how you make money.</p>
+<p>In the longterm, yes.</p>
+<p>Like real longterm.</p>
+<p>But it just feels like there&rsquo;s too much</p>
+<p>capital investment needed.</p>
+<p>Oh, and they&rsquo;re gonna be worse than Ubers</p>
+<p>because they&rsquo;re gonna stop for every little thing,</p>
+<p>everywhere.</p>
+<p>I&rsquo;ll say a nice thing about cruise.</p>
+<p>That was my nice thing about Waymo.</p>
+<p>They&rsquo;re three years ahead.</p>
+<p>Wait, what was the nice?</p>
+<p>Oh, because they&rsquo;re three.</p>
+<p>They&rsquo;re three years technically ahead of everybody.</p>
+<p>Their tech stack is great.</p>
+<p>My nice thing about cruise is GM buying them</p>
+<p>was a great move for GM.</p>
+<p>For $1 billion,</p>
+<p>GM bought an insurance policy against Waymo.</p>
+<p>They put, cruise is three years behind Waymo.</p>
+<p>That means Google will get a monopoly on the technology</p>
+<p>for at most three years.</p>
+<p>And if technology works,</p>
+<p>so you might not even be right about the three years,</p>
+<p>it might be less.</p>
+<p>Might be less.</p>
+<p>Cruise actually might not be that far behind.</p>
+<p>I don&rsquo;t know how much Waymo has waffled around</p>
+<p>or how much of it actually is just that long tail.</p>
+<p>Yeah, okay.</p>
+<p>If that&rsquo;s the best you could say in terms of nice things,</p>
+<p>that&rsquo;s more of a nice thing for GM</p>
+<p>that that&rsquo;s the smart insurance policy.</p>
+<p>It&rsquo;s a smart insurance policy.</p>
+<p>I mean, I think that&rsquo;s how,</p>
+<p>I can&rsquo;t see cruise working out any other.</p>
+<p>For cruise to leapfrog Waymo would really surprise me.</p>
+<p>Yeah, so let&rsquo;s talk about</p>
+<p>the underlying assumption of everything is.</p>
+<p>We&rsquo;re not gonna leapfrog Tesla.</p>
+<p>Tesla would have to seriously mess up for us</p>
+<p>because you&rsquo;re.</p>
+<p>Okay, so the way you leapfrog, right?</p>
+<p>Is you come up with an idea</p>
+<p>or you take a direction perhaps secretly</p>
+<p>that the other people aren&rsquo;t taking.</p>
+<p>And so the cruise, Waymo,</p>
+<p>even Aurora.</p>
+<p>I don&rsquo;t know Aurora, Zooks is the same stack as well.</p>
+<p>They&rsquo;re all the same code base even.</p>
+<p>And they&rsquo;re all the same DARPA Urban Challenge code base.</p>
+<p>So the question is,</p>
+<p>do you think there&rsquo;s a room for brilliance and innovation</p>
+<p>that will change everything?</p>
+<p>Like say, okay, so I&rsquo;ll give you examples.</p>
+<p>It could be if revolution and mapping, for example,</p>
+<p>that allow you to map things,</p>
+<p>do HD maps of the whole world,</p>
+<p>all weather conditions somehow really well,</p>
+<p>or revolution and simulation</p>
+<p>to where the all the way you said before becomes incorrect.</p>
+<p>That kind of thing.</p>
+<p>Any room for breakthrough innovation?</p>
+<p>What I said before about,</p>
+<p>oh, they actually get the whole thing.</p>
+<p>Well, I&rsquo;ll say this about,</p>
+<p>we divide driving into three problems</p>
+<p>and I actually haven&rsquo;t solved the third yet,</p>
+<p>but I haven&rsquo;t had you how to do it.</p>
+<p>So there&rsquo;s the static.</p>
+<p>The static driving problem is assuming</p>
+<p>you are the only car on the road, right?</p>
+<p>And this problem can be solved 100%</p>
+<p>with mapping and localization.</p>
+<p>This is why farms work the way they do.</p>
+<p>If all you have to deal with is the static problem</p>
+<p>and you can statically schedule your machines, right?</p>
+<p>It&rsquo;s the same as like statically scheduling processes.</p>
+<p>You can statically schedule your tractors</p>
+<p>to never hit each other on their paths, right?</p>
+<p>Cause they know the speed they go at.</p>
+<p>So that&rsquo;s the static driving problem.</p>
+<p>Maps only helps you with the static driving problem.</p>
+<p>Yeah, the question about static driving,</p>
+<p>you&rsquo;ve just made it sound like it&rsquo;s really easy.</p>
+<p>Static driving is really easy.</p>
+<p>How easy?</p>
+<p>How, well, cause the whole drifting out of lane,</p>
+<p>when Tesla drifts out of lane,</p>
+<p>it&rsquo;s failing on the fundamental static driving problem.</p>
+<p>Tesla is drifting out of lane?</p>
+<p>The static driving problem is not easy for the world.</p>
+<p>The static driving problem is easy for one route.</p>
+<p>One route and one weather condition</p>
+<p>with one state of lane markings</p>
+<p>and like no deterioration, no cracks in the road.</p>
+<p>No, I&rsquo;m assuming you have a perfect localizer.</p>
+<p>So that&rsquo;s solved for the weather condition</p>
+<p>and the lane marking condition.</p>
+<p>But that&rsquo;s the problem is,</p>
+<p>how do you have a perfect localizer?</p>
+<p>Perfect localizers are not that hard to build.</p>
+<p>Okay, come on now, with LIDAR?</p>
+<p>With LIDAR, yeah.</p>
+<p>Oh, with LIDAR, okay.</p>
+<p>With LIDAR, yeah, but you use LIDAR, right?</p>
+<p>Like use LIDAR, build a perfect localizer.</p>
+<p>Building a perfect localizer without LIDAR,</p>
+<p>it&rsquo;s gonna be hard.</p>
+<p>You can get 10 centimeters without LIDAR,</p>
+<p>you can get one centimeter with LIDAR.</p>
+<p>I&rsquo;m not even concerned about the one or 10 centimeters.</p>
+<p>I&rsquo;m concerned if every once in a while,</p>
+<p>you&rsquo;re just way off.</p>
+<p>Yeah, so this is why you have to carefully make sure</p>
+<p>you&rsquo;re always tracking your position.</p>
+<p>You wanna use LIDAR camera fusion,</p>
+<p>but you can get the reliability of that system</p>
+<p>up to 100,000 miles,</p>
+<p>and then you write some fallback condition</p>
+<p>where it&rsquo;s not that bad if you&rsquo;re way off, right?</p>
+<p>I think that you can get it to the point,</p>
+<p>it&rsquo;s like ASLD that you&rsquo;re never in a case</p>
+<p>where you&rsquo;re way off and you don&rsquo;t know it.</p>
+<p>Yeah, okay, so this is brilliant.</p>
+<p>So that&rsquo;s the static. Static.</p>
+<p>We can, especially with LIDAR and good HG maps,</p>
+<p>you can solve that problem. Easy.</p>
+<p>No, I just disagree with your word easy.</p>
+<p>The static problem&rsquo;s so easy.</p>
+<p>It&rsquo;s very typical for you to say something is easy.</p>
+<p>I got it. No.</p>
+<p>It&rsquo;s not as challenging as the other ones, okay.</p>
+<p>Well, okay, maybe it&rsquo;s obvious how to solve it.</p>
+<p>The third one&rsquo;s the hardest.</p>
+<p>And a lot of people don&rsquo;t even think about the third one</p>
+<p>and even see it as different from the second one.</p>
+<p>So the second one is dynamic.</p>
+<p>The second one is like, say there&rsquo;s an obvious example</p>
+<p>is like a car stopped at a red light, right?</p>
+<p>You can&rsquo;t have that car in your map</p>
+<p>because you don&rsquo;t know whether that car</p>
+<p>is gonna be there or not.</p>
+<p>So you have to detect that car in real time</p>
+<p>and then you have to do the appropriate action, right?</p>
+<p>Also, that car is not a fixed object.</p>
+<p>That car may move and you have to predict</p>
+<p>what that car will do, right?</p>
+<p>So this is the dynamic problem.</p>
+<p>Yeah.</p>
+<p>So you have to deal with this.</p>
+<p>This involves, again, like you&rsquo;re gonna need models</p>
+<p>of other people&rsquo;s behavior.</p>
+<p>Are you including in that,</p>
+<p>I don&rsquo;t wanna step on the third one.</p>
+<p>Oh.</p>
+<p>But are you including in that your influence on people?</p>
+<p>Ah, that&rsquo;s the third one.</p>
+<p>Okay.</p>
+<p>That&rsquo;s the third one.</p>
+<p>We call it the counterfactual.</p>
+<p>Yeah, brilliant.</p>
+<p>And that.</p>
+<p>I just talked to Judea Pearl</p>
+<p>who&rsquo;s obsessed with counterfactuals.</p>
+<p>And the counterfactual.</p>
+<p>Oh yeah, yeah, I read his books.</p>
+<p>So the static and the dynamic</p>
+<p>Yeah.</p>
+<p>Our approach right now for lateral</p>
+<p>will scale completely to the static and dynamic.</p>
+<p>The counterfactual, the only way I have to do it yet,</p>
+<p>the thing that I wanna do once we have all of these cars</p>
+<p>is I wanna do reinforcement learning on the world.</p>
+<p>I&rsquo;m always gonna turn the exploiter up to max.</p>
+<p>I&rsquo;m not gonna have them explore.</p>
+<p>But the only real way to get at the counterfactual</p>
+<p>is to do reinforcement learning</p>
+<p>because the other agents are humans.</p>
+<p>So that&rsquo;s fascinating that you break it down like that.</p>
+<p>I agree completely.</p>
+<p>I&rsquo;ve spent my life thinking about this problem.</p>
+<p>It&rsquo;s beautiful.</p>
+<p>And part of it, because you&rsquo;re slightly insane,</p>
+<p>it&rsquo;s good.</p>
+<p>Because.</p>
+<p>Not my life.</p>
+<p>Just the last four years.</p>
+<p>No, no.</p>
+<p>You have some nonzero percent of your brain</p>
+<p>has a madman in it, which is good.</p>
+<p>That&rsquo;s a really good feature.</p>
+<p>But there&rsquo;s a safety component to it</p>
+<p>that I think sort of with counterfactuals and so on</p>
+<p>that would just freak people out.</p>
+<p>How do you even start to think about just in general?</p>
+<p>I mean, you&rsquo;ve had some friction with NHTSA and so on.</p>
+<p>I am frankly exhausted by safety engineers.</p>
+<p>The prioritization on safety over innovation</p>
+<p>to a degree where it kills, in my view,</p>
+<p>kills safety in the long term.</p>
+<p>So the counterfactual thing,</p>
+<p>they just actually exploring this world</p>
+<p>of how do you interact with dynamic objects and so on.</p>
+<p>How do you think about safety?</p>
+<p>You can do reinforcement learning without ever exploring.</p>
+<p>And I said that, so you can think about your,</p>
+<p>in reinforcement learning,</p>
+<p>it&rsquo;s usually called a temperature parameter.</p>
+<p>And your temperature parameter</p>
+<p>is how often you deviate from the argmax.</p>
+<p>I could always set that to zero and still learn.</p>
+<p>And I feel that you&rsquo;d always want that set to zero</p>
+<p>on your actual system.</p>
+<p>Gotcha.</p>
+<p>But the problem is you first don&rsquo;t know very much.</p>
+<p>And so you&rsquo;re going to make mistakes.</p>
+<p>So the learning, the exploration happens through mistakes.</p>
+<p>Yeah, but okay.</p>
+<p>So the consequences of a mistake.</p>
+<p>Open pilot and autopilot are making mistakes left and right.</p>
+<p>We have 700 daily active users,</p>
+<p>a thousand weekly active users.</p>
+<p>Open pilot makes tens of thousands of mistakes a week.</p>
+<p>These mistakes have zero consequences.</p>
+<p>These mistakes are,</p>
+<p>oh, I wanted to take this exit and it went straight.</p>
+<p>So I&rsquo;m just going to carefully touch the wheel.</p>
+<p>The humans catch them.</p>
+<p>And the human disengagement is labeling</p>
+<p>that reinforcement learning</p>
+<p>in a completely consequence free way.</p>
+<p>So driver monitoring is the way you ensure they keep.</p>
+<p>Yes.</p>
+<p>They keep paying attention.</p>
+<p>How is your messaging?</p>
+<p>Say I gave you a billion dollars,</p>
+<p>you would be scaling it now.</p>
+<p>Oh, I couldn&rsquo;t scale it with any amount of money.</p>
+<p>I&rsquo;d raise money if I could, if I had a way to scale it.</p>
+<p>Yeah, you&rsquo;re now not focused on scale.</p>
+<p>I don&rsquo;t know how to do,</p>
+<p>oh, like I guess I could sell it to more people,</p>
+<p>but I want to make the system better.</p>
+<p>Better, better.</p>
+<p>And I don&rsquo;t know how to, I mean.</p>
+<p>But what&rsquo;s the messaging here?</p>
+<p>I got a chance to talk to Elon and he basically said</p>
+<p>that the human factor doesn&rsquo;t matter.</p>
+<p>You know, the human doesn&rsquo;t matter</p>
+<p>because the system will perform,</p>
+<p>there&rsquo;ll be sort of a, sorry to use the term,</p>
+<p>but like a singular,</p>
+<p>like a point where it gets just much better.</p>
+<p>And so the human, it won&rsquo;t really matter.</p>
+<p>But it seems like that human catching the system</p>
+<p>when it gets into trouble is like the thing</p>
+<p>which will make something like reinforcement learning work.</p>
+<p>So how do you think messaging for Tesla,</p>
+<p>for you should change,</p>
+<p>for the industry in general should change?</p>
+<p>I think our messaging is pretty clear.</p>
+<p>At least like our messaging wasn&rsquo;t that clear</p>
+<p>in the beginning and I do kind of fault myself for that.</p>
+<p>We are proud right now to be a level two system.</p>
+<p>We are proud to be level two.</p>
+<p>If we talk about level four,</p>
+<p>it&rsquo;s not with the current hardware.</p>
+<p>It&rsquo;s not gonna be just a magical OTA upgrade.</p>
+<p>It&rsquo;s gonna be new hardware.</p>
+<p>It&rsquo;s gonna be very carefully thought out.</p>
+<p>Right now, we are proud to be level two</p>
+<p>and we have a rigorous safety model.</p>
+<p>I mean, not like, okay, rigorous, who knows what that means,</p>
+<p>but we at least have a safety model</p>
+<p>and we make it explicit as in safety.md in OpenPilot.</p>
+<p>And it says, seriously though, safety.md.</p>
+<p>This is brilliant, this is so Android.</p>
+<p>Well, this is the safety model</p>
+<p>and I like to have conversations like,</p>
+<p>sometimes people will come to you and they&rsquo;re like,</p>
+<p>your system&rsquo;s not safe.</p>
+<p>Okay, have you read my safety docs?</p>
+<p>Would you like to have an intelligent conversation</p>
+<p>about this?</p>
+<p>And the answer is always no.</p>
+<p>They just like scream about, it runs Python.</p>
+<p>Okay, what?</p>
+<p>So you&rsquo;re saying that because Python&rsquo;s not real time,</p>
+<p>Python not being real time never causes disengagements.</p>
+<p>Disengagements are caused by, the model is QM.</p>
+<p>But safety.md says the following,</p>
+<p>first and foremost,</p>
+<p>the driver must be paying attention at all times.</p>
+<p>I still consider the software to be alpha software</p>
+<p>until we can actually enforce that statement,</p>
+<p>but I feel it&rsquo;s very well communicated to our users.</p>
+<p>Two more things.</p>
+<p>One is the user must be able to easily take control</p>
+<p>of the vehicle at all times.</p>
+<p>So if you step on the gas or brake with OpenPilot,</p>
+<p>it gives full manual control back to the user</p>
+<p>or press the cancel button.</p>
+<p>Step two, the car will never react so quickly,</p>
+<p>we define so quickly to be about one second,</p>
+<p>that you can&rsquo;t react in time.</p>
+<p>And we do this by enforcing torque limits,</p>
+<p>braking limits and acceleration limits.</p>
+<p>So we have like our torque limits way lower than Tesla&rsquo;s.</p>
+<p>This is another potential.</p>
+<p>If I could tweak Autopilot,</p>
+<p>I would lower their torque limit</p>
+<p>and I would add driver monitoring.</p>
+<p>Because Autopilot can jerk the wheel hard.</p>
+<p>OpenPilot can&rsquo;t.</p>
+<p>We limit, and all this code is open source, readable.</p>
+<p>And I believe now it&rsquo;s all Misra C compliant.</p>
+<p>What&rsquo;s that mean?</p>
+<p>Misra is like the automotive coding standard.</p>
+<p>At first, I&rsquo;ve come to respect.</p>
+<p>I&rsquo;ve been reading like the standards lately</p>
+<p>and I&rsquo;ve come to respect them.</p>
+<p>They&rsquo;re actually written by very smart people.</p>
+<p>Yeah, they&rsquo;re brilliant people actually.</p>
+<p>They have a lot of experience.</p>
+<p>They&rsquo;re sometimes a little too cautious,</p>
+<p>but in this case, it pays off.</p>
+<p>Misra is written by like computer scientists.</p>
+<p>And you can tell by the language they use.</p>
+<p>You can tell by the language they use,</p>
+<p>they talk about like whether certain conditions in Misra</p>
+<p>are decidable or undecidable.</p>
+<p>And you mean like the halting problem?</p>
+<p>And yes, all right, you&rsquo;ve earned my respect.</p>
+<p>I will read carefully what you have to say</p>
+<p>and we wanna make our code compliant with that.</p>
+<p>All right, so you&rsquo;re proud level two, beautiful.</p>
+<p>So you were the founder and I think CEO of Kama AI,</p>
+<p>then you were the head of research.</p>
+<p>What the heck are you now?</p>
+<p>What&rsquo;s your connection to Kama AI?</p>
+<p>I&rsquo;m the president, but I&rsquo;m one of those</p>
+<p>like unelected presidents of like a small dictatorship</p>
+<p>country, not one of those like elected presidents.</p>
+<p>Oh, so you&rsquo;re like Putin when he was like the,</p>
+<p>yeah, I got you.</p>
+<p>So there&rsquo;s a, what&rsquo;s the governance structure?</p>
+<p>What&rsquo;s the future of Kama AI?</p>
+<p>I mean, yeah, it&rsquo;s a business.</p>
+<p>Do you want, are you just focused on getting things</p>
+<p>right now, making some small amount of money in the meantime</p>
+<p>and then when it works, it works and you scale.</p>
+<p>Our burn rate is about 200K a month</p>
+<p>and our revenue is about 100K a month.</p>
+<p>So we need to forex our revenue,</p>
+<p>but we haven&rsquo;t like tried very hard at that yet.</p>
+<p>And the revenue is basically selling stuff online.</p>
+<p>Yeah, we sell stuff shop.kama.ai.</p>
+<p>Is there other, well, okay,</p>
+<p>so you&rsquo;ll have to figure out the revenue.</p>
+<p>That&rsquo;s our only, see, but to me,</p>
+<p>that&rsquo;s like respectable revenues.</p>
+<p>We make it by selling products to consumers</p>
+<p>who are honest and transparent about what they are.</p>
+<p>Most actually level four companies, right?</p>
+<p>Cause you could easily start blowing up like smoke,</p>
+<p>like overselling the hype and feeding into,</p>
+<p>getting some fundraisers.</p>
+<p>Oh, you&rsquo;re the guy, you&rsquo;re a genius</p>
+<p>because you hacked the iPhone.</p>
+<p>Oh, I hate that, I hate that.</p>
+<p>Yeah, well, I can trade my social capital for more money.</p>
+<p>I did it once, I almost regret it doing it the first time.</p>
+<p>Well, on a small tangent,</p>
+<p>what&rsquo;s your, you seem to not like fame</p>
+<p>and yet you&rsquo;re also drawn to fame.</p>
+<p>Where are you on that currently?</p>
+<p>Have you had some introspection, some soul searching?</p>
+<p>Yeah, I actually,</p>
+<p>I&rsquo;ve come to a pretty stable position on that.</p>
+<p>Like after the first time,</p>
+<p>I realized that I don&rsquo;t want attention from the masses.</p>
+<p>I want attention from people who I respect.</p>
+<p>Who do you respect?</p>
+<p>I can give a list of people.</p>
+<p>So are these like Elon Musk type characters?</p>
+<p>Yeah, well, actually, you know what?</p>
+<p>I&rsquo;ll make it more broad than that.</p>
+<p>I won&rsquo;t make it about a person, I respect skill.</p>
+<p>I respect people who have skills, right?</p>
+<p>And I would like to like be, I&rsquo;m not gonna say famous,</p>
+<p>but be like known among more people who have like real skills.</p>
+<p>Who in cars do you think have skill, not do you respect?</p>
+<p>Oh, Kyle Vogt has skill.</p>
+<p>A lot of people at Waymo have skill and I respect them.</p>
+<p>I respect them as engineers.</p>
+<p>Like I can think, I mean,</p>
+<p>I think about all the times in my life</p>
+<p>where I&rsquo;ve been like dead set on approaches</p>
+<p>and they turn out to be wrong.</p>
+<p>So, I mean, this might, I might be wrong.</p>
+<p>I accept that.</p>
+<p>I accept that there&rsquo;s a decent chance that I&rsquo;m wrong.</p>
+<p>And actually, I mean,</p>
+<p>having talked to Chris Hermsons, Sterling Anderson,</p>
+<p>those guys, I mean, I deeply respect Chris.</p>
+<p>I just admire the guy.</p>
+<p>He&rsquo;s legit.</p>
+<p>When you drive a car through the desert</p>
+<p>when everybody thinks it&rsquo;s impossible, that&rsquo;s legit.</p>
+<p>And then I also really respect the people</p>
+<p>who are like writing the infrastructure of the world,</p>
+<p>like the Linus Torvalds and the Chris Lattiners.</p>
+<p>They were doing the real work.</p>
+<p>I know, they&rsquo;re doing the real work.</p>
+<p>This, having talked to Chris,</p>
+<p>like Chris Lattiners, you realize,</p>
+<p>especially when they&rsquo;re humble,</p>
+<p>it&rsquo;s like you realize, oh, you guys,</p>
+<p>we&rsquo;re just using your,</p>
+<p>Oh yeah.</p>
+<p>All the hard work that you did.</p>
+<p>Yeah, that&rsquo;s incredible.</p>
+<p>What do you think, Mr. Anthony Lewandowski,</p>
+<p>what do you, he&rsquo;s another mad genius.</p>
+<p>Sharp guy, oh yeah.</p>
+<p>What, do you think he might long term become a competitor?</p>
+<p>Oh, to comma?</p>
+<p>Well, so I think that he has the other right approach.</p>
+<p>I think that right now there&rsquo;s two right approaches.</p>
+<p>One is what we&rsquo;re doing, and one is what he&rsquo;s doing.</p>
+<p>Can you describe, I think it&rsquo;s called Pronto AI.</p>
+<p>He started a new thing.</p>
+<p>Do you know what the approach is?</p>
+<p>I actually don&rsquo;t know.</p>
+<p>Embark is also doing the same sort of thing.</p>
+<p>The idea is almost that you want to,</p>
+<p>so if you&rsquo;re, I can&rsquo;t partner with Honda and Toyota.</p>
+<p>Honda and Toyota are like 400,000 person companies.</p>
+<p>It&rsquo;s not even a company at that point.</p>
+<p>I don&rsquo;t think of it like, I don&rsquo;t personify it.</p>
+<p>I think of it like an object,</p>
+<p>but a trucker drives for a fleet,</p>
+<p>maybe that has like, some truckers are independent.</p>
+<p>Some truckers drive for fleets with a hundred trucks.</p>
+<p>There are tons of independent trucking companies out there.</p>
+<p>Start a trucking company and drive your costs down</p>
+<p>or figure out how to drive down the cost of trucking.</p>
+<p>Another company that I really respect is Nato.</p>
+<p>Actually, I respect their business model.</p>
+<p>Nato sells a driver monitoring camera</p>
+<p>and they sell it to fleet owners.</p>
+<p>If I owned a fleet of cars</p>
+<p>and I could pay 40 bucks a month to monitor my employees,</p>
+<p>this is gonna, it like reduces accidents 18%.</p>
+<p>It&rsquo;s so like that, in the space,</p>
+<p>that is like the business model that I like most respect.</p>
+<p>Cause they&rsquo;re creating value today.</p>
+<p>Yeah, which is a, that&rsquo;s a huge one.</p>
+<p>How do we create value today with some of this?</p>
+<p>And the lane keeping thing is huge.</p>
+<p>And it sounds like you&rsquo;re creeping in</p>
+<p>or full steam ahead on the driver monitoring too,</p>
+<p>which I think actually where the short term value,</p>
+<p>if you can get it right.</p>
+<p>I still, I&rsquo;m not a huge fan of the statement</p>
+<p>that everything has to have driver monitoring.</p>
+<p>I agree with that completely,</p>
+<p>but that statement usually misses the point</p>
+<p>that to get the experience of it right is not trivial.</p>
+<p>Oh no, not at all.</p>
+<p>In fact, like, so right now we have,</p>
+<p>I think the timeout depends on speed of the car,</p>
+<p>but we want to depend on like the scene state.</p>
+<p>If you&rsquo;re on like an empty highway,</p>
+<p>it&rsquo;s very different if you don&rsquo;t pay attention</p>
+<p>than if like you&rsquo;re like coming up to a traffic light.</p>
+<p>And longterm, it should probably learn from the driver</p>
+<p>because that&rsquo;s to do, I watched a lot of video.</p>
+<p>We&rsquo;ve built a smartphone detector</p>
+<p>just to analyze how people are using smartphones</p>
+<p>and people are using it very differently.</p>
+<p>It&rsquo;s a texting styles.</p>
+<p>There&rsquo;s.</p>
+<p>We haven&rsquo;t watched nearly enough of the videos.</p>
+<p>We haven&rsquo;t, I got millions of miles</p>
+<p>of people driving cars.</p>
+<p>In this moment, I spent a large fraction of my time</p>
+<p>just watching videos because it&rsquo;s never fails to learn.</p>
+<p>Like it never, I&rsquo;ve never failed</p>
+<p>from a video watching session</p>
+<p>to learn something I didn&rsquo;t know before.</p>
+<p>In fact, I usually like when I eat lunch,</p>
+<p>I&rsquo;ll sit, especially when the weather is good</p>
+<p>and just watch pedestrians with an eye to understand</p>
+<p>like from a computer vision eye,</p>
+<p>just to see can this model, can you predict,</p>
+<p>what are the decisions made?</p>
+<p>And there&rsquo;s so many things that we don&rsquo;t understand.</p>
+<p>This is what I mean about the state vector.</p>
+<p>Yeah, it&rsquo;s, I&rsquo;m trying to always think like,</p>
+<p>cause I&rsquo;m understanding in my human brain,</p>
+<p>how do we convert that into,</p>
+<p>how hard is the learning problem here?</p>
+<p>I guess is the fundamental question.</p>
+<p>So something that&rsquo;s from a hacking perspective,</p>
+<p>this is always comes up, especially with folks.</p>
+<p>Well, first the most popular question</p>
+<p>is the trolley problem, right?</p>
+<p>So that&rsquo;s not a sort of a serious problem.</p>
+<p>There are some ethical questions I think that arise.</p>
+<p>Maybe you wanna, do you think there&rsquo;s any ethical,</p>
+<p>serious ethical questions?</p>
+<p>We have a solution to the trolley problem at Comm.ai.</p>
+<p>Well, so there is actually an alert in our code,</p>
+<p>ethical dilemma detected.</p>
+<p>It&rsquo;s not triggered yet.</p>
+<p>We don&rsquo;t know how yet to detect the ethical dilemmas,</p>
+<p>but we&rsquo;re a level two system.</p>
+<p>So we&rsquo;re going to disengage</p>
+<p>and leave that decision to the human.</p>
+<p>You&rsquo;re such a troll.</p>
+<p>No, but the trolley problem deserves to be trolled.</p>
+<p>Yeah, that&rsquo;s a beautiful answer actually.</p>
+<p>I know, I gave it to someone who was like,</p>
+<p>sometimes people will ask,</p>
+<p>like you asked about the trolley problem,</p>
+<p>like you can have a kind of discussion about it.</p>
+<p>Like you get someone who&rsquo;s like really like earnest about it</p>
+<p>because it&rsquo;s the kind of thing where,</p>
+<p>if you ask a bunch of people in an office,</p>
+<p>whether we should use a SQL stack or a no SQL stack,</p>
+<p>if they&rsquo;re not that technical, they have no opinion.</p>
+<p>But if you ask them what color they want to paint the office,</p>
+<p>everyone has an opinion on that.</p>
+<p>And that&rsquo;s why the trolley problem is&hellip;</p>
+<p>I mean, that&rsquo;s a beautiful answer.</p>
+<p>Yeah, we&rsquo;re able to detect the problem</p>
+<p>and we&rsquo;re able to pass it on to the human.</p>
+<p>Wow, I&rsquo;ve never heard anyone say it.</p>
+<p>This is your nice escape route.</p>
+<p>Okay, but&hellip;</p>
+<p>Proud level two.</p>
+<p>I&rsquo;m proud level two.</p>
+<p>I love it.</p>
+<p>So the other thing that people have some concern about</p>
+<p>with AI in general is hacking.</p>
+<p>So how hard is it, do you think,</p>
+<p>to hack an autonomous vehicle,</p>
+<p>either through physical access</p>
+<p>or through the more sort of popular now,</p>
+<p>these adversarial examples on the sensors?</p>
+<p>Okay, the adversarial examples one.</p>
+<p>You want to see some adversarial examples</p>
+<p>that affect humans, right?</p>
+<p>Oh, well, there used to be a stop sign here,</p>
+<p>but I put a black bag over the stop sign</p>
+<p>and then people ran it, adversarial, right?</p>
+<p>Like there&rsquo;s tons of human adversarial examples too.</p>
+<p>The question in general about like security,</p>
+<p>if you saw something just came out today</p>
+<p>and like there are always such hypey headlines</p>
+<p>about like how navigate on autopilot</p>
+<p>was fooled by a GPS spoof to take an exit.</p>
+<p>Right.</p>
+<p>At least that&rsquo;s all they could do was take an exit.</p>
+<p>If your car is relying on GPS</p>
+<p>in order to have a safe driving policy,</p>
+<p>you&rsquo;re doing something wrong.</p>
+<p>If you&rsquo;re relying,</p>
+<p>and this is why V2V is such a terrible idea.</p>
+<p>V2V now relies on both parties getting communication right.</p>
+<p>This is not even, so I think of safety,</p>
+<p>security is like a special case of safety, right?</p>
+<p>Safety is like we put a little, you know,</p>
+<p>piece of caution tape around the hole</p>
+<p>so that people won&rsquo;t walk into it by accident.</p>
+<p>Security is like put a 10 foot fence around the hole</p>
+<p>so you actually physically cannot climb into it</p>
+<p>with barbed wire on the top and stuff, right?</p>
+<p>So like if you&rsquo;re designing systems that are like unreliable,</p>
+<p>they&rsquo;re definitely not secure.</p>
+<p>Your car should always do something safe</p>
+<p>using its local sensors.</p>
+<p>And then the local sensor should be hardwired.</p>
+<p>And then could somebody hack into your CAN bus</p>
+<p>and turn your steering wheel on your brakes?</p>
+<p>Yes, but they could do it before common AI too, so.</p>
+<p>Let&rsquo;s think out of the box on some things.</p>
+<p>So do you think teleoperation has a role in any of this?</p>
+<p>So remotely stepping in and controlling the cars?</p>
+<p>No, I think that if the safety operation by design</p>
+<p>requires a constant link to the cars,</p>
+<p>I think it doesn&rsquo;t work.</p>
+<p>So that&rsquo;s the same argument you&rsquo;re using for V2I, V2V?</p>
+<p>Well, there&rsquo;s a lot of non safety critical stuff</p>
+<p>you can do with V2I.</p>
+<p>I like V2I, I like V2I way more than V2V.</p>
+<p>Because V2I is already like,</p>
+<p>I already have internet in the car, right?</p>
+<p>There&rsquo;s a lot of great stuff you can do with V2I.</p>
+<p>Like for example, you can, well, I already have V2I,</p>
+<p>Waze is V2I, right?</p>
+<p>Waze can route me around traffic jams.</p>
+<p>That&rsquo;s a great example of V2I.</p>
+<p>And then, okay, the car automatically talks</p>
+<p>to that same service, like it works.</p>
+<p>So it&rsquo;s improving the experience,</p>
+<p>but it&rsquo;s not a fundamental fallback for safety.</p>
+<p>No, if any of your things that require wireless communication</p>
+<p>are more than QM, like have an ASL rating, it shouldn&rsquo;t be.</p>
+<p>You previously said that life is work</p>
+<p>and that you don&rsquo;t do anything to relax.</p>
+<p>So how do you think about hard work?</p>
+<p>What do you think it takes to accomplish great things?</p>
+<p>And there&rsquo;s a lot of people saying</p>
+<p>that there needs to be some balance.</p>
+<p>You need to, in order to accomplish great things,</p>
+<p>you need to take some time off,</p>
+<p>you need to reflect and so on.</p>
+<p>Now, and then some people are just insanely working,</p>
+<p>burning the candle on both ends.</p>
+<p>How do you think about that?</p>
+<p>I think I was trolling in the Siraj interview</p>
+<p>when I said that.</p>
+<p>Off camera, right before I smoked a little bit of weed,</p>
+<p>like, you know, come on, this is a joke, right?</p>
+<p>Like I do nothing to relax.</p>
+<p>Look where I am, I&rsquo;m at a party, right?</p>
+<p>Yeah, yeah, yeah, that&rsquo;s true.</p>
+<p>So no, no, of course I don&rsquo;t.</p>
+<p>When I say that life is work though,</p>
+<p>I mean that like, I think that what gives my life meaning is work.</p>
+<p>I don&rsquo;t mean that every minute of the day</p>
+<p>you should be working.</p>
+<p>I actually think this is not the best way to maximize results.</p>
+<p>I think that if you&rsquo;re working 12 hours a day,</p>
+<p>you should be working smarter and not harder.</p>
+<p>Well, so work gives you meaning.</p>
+<p>For some people, other sorts of meaning</p>
+<p>is personal relationships, like family and so on.</p>
+<p>You&rsquo;ve also, in that interview with Siraj,</p>
+<p>or the trolling, mentioned that one of the things</p>
+<p>you look forward to in the future is AI girlfriends.</p>
+<p>So that&rsquo;s a topic that I&rsquo;m very much fascinated by,</p>
+<p>not necessarily girlfriends,</p>
+<p>but just forming a deep connection with AI.</p>
+<p>What kind of system do you imagine</p>
+<p>when you say AI girlfriend,</p>
+<p>whether you were trolling or not?</p>
+<p>No, that one I&rsquo;m very serious about.</p>
+<p>And I&rsquo;m serious about that on both a shallow level</p>
+<p>and a deep level.</p>
+<p>I think that VR brothels are coming soon</p>
+<p>and are going to be really cool.</p>
+<p>It&rsquo;s not cheating if it&rsquo;s a robot.</p>
+<p>I see the slogan already.</p>
+<p>But there&rsquo;s, I don&rsquo;t know if you&rsquo;ve watched,</p>
+<p>or just watched the Black Mirror episode.</p>
+<p>I watched the latest one, yeah.</p>
+<p>Yeah, yeah.</p>
+<p>Oh, the Ashley 2 one?</p>
+<p>No, where there&rsquo;s two friends</p>
+<p>who are having sex with each other in&hellip;</p>
+<p>Oh, in the VR game.</p>
+<p>In the VR game.</p>
+<p>It&rsquo;s just two guys,</p>
+<p>but one of them was a female, yeah.</p>
+<p>Which is another mind blowing concept.</p>
+<p>That in VR, you don&rsquo;t have to be the form.</p>
+<p>You can be two animals having sex.</p>
+<p>It&rsquo;s weird.</p>
+<p>I mean, I&rsquo;ll see how nice that the software</p>
+<p>maps the nerve endings, right?</p>
+<p>Yeah, it&rsquo;s huge.</p>
+<p>I mean, yeah, they sweep a lot of the fascinating,</p>
+<p>really difficult technical challenges under the rug,</p>
+<p>like assuming it&rsquo;s possible</p>
+<p>to do the mapping of the nerve endings, then&hellip;</p>
+<p>I wish, yeah, I saw that,</p>
+<p>the way they did it with the little like stim unit</p>
+<p>on the head, that&rsquo;d be amazing.</p>
+<p>So, well, no, no, on a shallow level,</p>
+<p>like you could set up like almost a brothel</p>
+<p>with like real dolls and Oculus Quests,</p>
+<p>write some good software.</p>
+<p>I think it&rsquo;d be a cool novelty experience.</p>
+<p>But no, on a deeper, like emotional level,</p>
+<p>I mean, yeah, I would really like to fall in love</p>
+<p>with a machine.</p>
+<p>Do you see yourself having a long term relationship</p>
+<p>of the kind monogamous relationship that we have now</p>
+<p>with a robot, with a AI system even,</p>
+<p>not even just a robot?</p>
+<p>So I think about maybe my ideal future.</p>
+<p>When I was 15, I read Eliezer Yudkowsky&rsquo;s early writings</p>
+<p>on the singularity and like that AI</p>
+<p>is going to surpass human intelligence massively.</p>
+<p>He made some Moore&rsquo;s law based predictions</p>
+<p>that I mostly agree with.</p>
+<p>And then I really struggled</p>
+<p>for the next couple of years of my life.</p>
+<p>Like, why should I even bother to learn anything?</p>
+<p>It&rsquo;s all gonna be meaningless when the machines show up.</p>
+<p>Right.</p>
+<p>Maybe when I was that young,</p>
+<p>I was still a little bit more pure</p>
+<p>and really like clung to that.</p>
+<p>And then I&rsquo;m like, well,</p>
+<p>the machines ain&rsquo;t here yet, you know,</p>
+<p>and I seem to be pretty good at this stuff.</p>
+<p>Let&rsquo;s try my best, you know,</p>
+<p>like what&rsquo;s the worst that happens.</p>
+<p>But the best possible future I see</p>
+<p>is me sort of merging with the machine.</p>
+<p>And the way that I personify this</p>
+<p>is in a long term monogamous relationship with a machine.</p>
+<p>Oh, you don&rsquo;t think there&rsquo;s a room</p>
+<p>for another human in your life,</p>
+<p>if you really truly merge with another machine?</p>
+<p>I mean, I see merging.</p>
+<p>I see like the best interface to my brain</p>
+<p>is like the same relationship interface</p>
+<p>to merge with an AI, right?</p>
+<p>What does that merging feel like?</p>
+<p>I&rsquo;ve seen couples who&rsquo;ve been together for a long time.</p>
+<p>And like, I almost think of them as one person,</p>
+<p>like couples who spend all their time together and&hellip;</p>
+<p>That&rsquo;s fascinating.</p>
+<p>You&rsquo;re actually putting,</p>
+<p>what does that merging actually looks like?</p>
+<p>It&rsquo;s not just a nice channel.</p>
+<p>Like a lot of people imagine it&rsquo;s just an efficient link,</p>
+<p>search link to Wikipedia or something.</p>
+<p>I don&rsquo;t believe in that.</p>
+<p>But it&rsquo;s more,</p>
+<p>you&rsquo;re saying that there&rsquo;s the same kind of relationship</p>
+<p>you have with another human,</p>
+<p>that&rsquo;s a deep relationship.</p>
+<p>That&rsquo;s what merging looks like.</p>
+<p>That&rsquo;s pretty&hellip;</p>
+<p>I don&rsquo;t believe that link is possible.</p>
+<p>I think that that link,</p>
+<p>so you&rsquo;re like, oh, I&rsquo;m gonna download Wikipedia</p>
+<p>right to my brain.</p>
+<p>My reading speed is not limited by my eyes.</p>
+<p>My reading speed is limited by my inner processing loop.</p>
+<p>And to like bootstrap that sounds kind of unclear</p>
+<p>how to do it and horrifying.</p>
+<p>But if I am with somebody and I&rsquo;ll use a somebody</p>
+<p>who is making a super sophisticated model of me</p>
+<p>and then running simulations on that model,</p>
+<p>I&rsquo;m not gonna get into the question</p>
+<p>whether the simulations are conscious or not.</p>
+<p>I don&rsquo;t really wanna know what it&rsquo;s doing.</p>
+<p>But using those simulations</p>
+<p>to play out hypothetical futures for me,</p>
+<p>deciding what things to say to me,</p>
+<p>to guide me along a path.</p>
+<p>And that&rsquo;s how I envision it.</p>
+<p>So on that path to AI of superhuman level intelligence,</p>
+<p>you&rsquo;ve mentioned that you believe in the singularity,</p>
+<p>that singularity is coming.</p>
+<p>Again, could be trolling, could be not,</p>
+<p>could be part, all trolling has truth in it.</p>
+<p>I don&rsquo;t know what that means anymore.</p>
+<p>What is the singularity?</p>
+<p>Yeah, so that&rsquo;s really the question.</p>
+<p>How many years do you think before the singularity,</p>
+<p>what form do you think it will take?</p>
+<p>Does that mean fundamental shifts in capabilities of AI?</p>
+<p>Or does it mean some other kind of ideas?</p>
+<p>Maybe that&rsquo;s just my roots, but.</p>
+<p>So I can buy a human beings worth of compute</p>
+<p>for like a million bucks today.</p>
+<p>It&rsquo;s about one TPU pod V3.</p>
+<p>I want like, I think they claim a hundred pay to flops.</p>
+<p>That&rsquo;s being generous.</p>
+<p>I think humans are actually more like 20.</p>
+<p>So that&rsquo;s like five humans.</p>
+<p>That&rsquo;s pretty good.</p>
+<p>Google needs to sell their TPUs.</p>
+<p>But I could buy, I could buy, I could buy GPUs.</p>
+<p>I could buy a stack of like, I&rsquo;d buy 1080 TIs,</p>
+<p>build data center full of them.</p>
+<p>And for a million bucks, I can get a human worth of compute.</p>
+<p>But when you look at the total number of flops in the world,</p>
+<p>when you look at human flops,</p>
+<p>which goes up very, very slowly with the population</p>
+<p>and machine flops, which goes up exponentially,</p>
+<p>but it&rsquo;s still nowhere near.</p>
+<p>I think that&rsquo;s the key thing to talk about</p>
+<p>when the singularity happened.</p>
+<p>When most flops in the world are Silicon and not biological,</p>
+<p>that&rsquo;s kind of the crossing point.</p>
+<p>Like they&rsquo;re now the dominant species on the planet.</p>
+<p>And just looking at how technology is progressing,</p>
+<p>when do you think that could possibly happen?</p>
+<p>You think it would happen in your lifetime?</p>
+<p>Oh yeah, definitely in my lifetime.</p>
+<p>I&rsquo;ve done the math.</p>
+<p>I like 2038 because it&rsquo;s the Unix timestamp rollover.</p>
+<p>Yeah, beautifully put.</p>
+<p>So you&rsquo;ve said that the meaning of life is to win.</p>
+<p>If you look five years into the future,</p>
+<p>what does winning look like?</p>
+<p>So,</p>
+<p>there&rsquo;s a lot of,</p>
+<p>I can go into like technical depth</p>
+<p>to what I mean by that, to win.</p>
+<p>It may not mean, I was criticized for that in the comments.</p>
+<p>Like, doesn&rsquo;t this guy wanna like save the penguins</p>
+<p>in Antarctica or like,</p>
+<p>oh man, listen to what I&rsquo;m saying.</p>
+<p>I&rsquo;m not talking about like I have a yacht or something.</p>
+<p>But I am an agent.</p>
+<p>I am put into this world.</p>
+<p>And I don&rsquo;t really know what my purpose is.</p>
+<p>But if you&rsquo;re an intelligent agent</p>
+<p>and you&rsquo;re put into a world,</p>
+<p>what is the ideal thing to do?</p>
+<p>Well, the ideal thing mathematically,</p>
+<p>you can go back to like Schmidt Hoover theories about this,</p>
+<p>is to build a compressive model of the world.</p>
+<p>To build a maximally compressive,</p>
+<p>to explore the world such that your exploration function</p>
+<p>maximizes the derivative of compression of the past.</p>
+<p>Schmidt Hoover has a paper about this.</p>
+<p>And like, I took that kind of</p>
+<p>as like a personal goal function.</p>
+<p>So what I mean to win, I mean like,</p>
+<p>maybe this is religious,</p>
+<p>but like I think that in the future,</p>
+<p>I might be given a real purpose</p>
+<p>or I may decide this purpose myself.</p>
+<p>And then at that point,</p>
+<p>now I know what the game is and I know how to win.</p>
+<p>I think right now,</p>
+<p>I&rsquo;m still just trying to figure out what the game is.</p>
+<p>But once I know,</p>
+<p>so you have imperfect information,</p>
+<p>you have a lot of uncertainty about the reward function</p>
+<p>and you&rsquo;re discovering it.</p>
+<p>Exactly.</p>
+<p>But the purpose is&hellip;</p>
+<p>That&rsquo;s a better way to put it.</p>
+<p>The purpose is to maximize it</p>
+<p>while you have a lot of uncertainty around it.</p>
+<p>And you&rsquo;re both reducing the uncertainty</p>
+<p>and maximizing at the same time.</p>
+<p>Yeah.</p>
+<p>And so that&rsquo;s at the technical level.</p>
+<p>What is the, if you believe in the universal prior,</p>
+<p>what is the universal reward function?</p>
+<p>That&rsquo;s the better way to put it.</p>
+<p>So that win is interesting.</p>
+<p>I think I speak for everyone in saying that</p>
+<p>I wonder what that reward function is for you.</p>
+<p>And I look forward to seeing that in five years,</p>
+<p>in 10 years.</p>
+<p>I think a lot of people, including myself,</p>
+<p>are cheering you on, man.</p>
+<p>So I&rsquo;m happy you exist and I wish you the best of luck.</p>
+<p>Thanks for talking to me, man.</p>
+<p>Thank you.</p>
+<p>Have a good one.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

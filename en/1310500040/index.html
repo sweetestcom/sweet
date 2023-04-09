@@ -1,0 +1,2373 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Regina Barzilay.
+She&amp;rsquo;s a professor at MIT and a world class researcher
+in natural language processing
+and applications of deep learning to chemistry and oncology
+or the use of deep learning for early diagnosis,
+prevention and treatment of cancer.
+She has also been recognized for teaching
+of several successful AI related courses at MIT,
+including the popular Introduction
+to Machine Learning course.
+This is the Artificial Intelligence podcast.'>
+<title>Lex Fridman Podcast - #40 - Regina Barzilay: Deep Learning for Cancer Diagnosis and Treatment | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500040/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #40 - Regina Barzilay: Deep Learning for Cancer Diagnosis and Treatment'>
+<meta property='og:description' content='The following is a conversation with Regina Barzilay.
+She&amp;rsquo;s a professor at MIT and a world class researcher
+in natural language processing
+and applications of deep learning to chemistry and oncology
+or the use of deep learning for early diagnosis,
+prevention and treatment of cancer.
+She has also been recognized for teaching
+of several successful AI related courses at MIT,
+including the popular Introduction
+to Machine Learning course.
+This is the Artificial Intelligence podcast.'>
+<meta property='og:url' content='https://swiest.com/en/1310500040/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-04-09T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-04-09T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #40 - Regina Barzilay: Deep Learning for Cancer Diagnosis and Treatment">
+<meta name="twitter:description" content="The following is a conversation with Regina Barzilay.
+She&amp;rsquo;s a professor at MIT and a world class researcher
+in natural language processing
+and applications of deep learning to chemistry and oncology
+or the use of deep learning for early diagnosis,
+prevention and treatment of cancer.
+She has also been recognized for teaching
+of several successful AI related courses at MIT,
+including the popular Introduction
+to Machine Learning course.
+This is the Artificial Intelligence podcast.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500040/">Lex Fridman Podcast - #40 - Regina Barzilay: Deep Learning for Cancer Diagnosis and Treatment</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-04-09</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    58 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Regina Barzilay.</p>
+<p>She&rsquo;s a professor at MIT and a world class researcher</p>
+<p>in natural language processing</p>
+<p>and applications of deep learning to chemistry and oncology</p>
+<p>or the use of deep learning for early diagnosis,</p>
+<p>prevention and treatment of cancer.</p>
+<p>She has also been recognized for teaching</p>
+<p>of several successful AI related courses at MIT,</p>
+<p>including the popular Introduction</p>
+<p>to Machine Learning course.</p>
+<p>This is the Artificial Intelligence podcast.</p>
+<p>If you enjoy it, subscribe on YouTube,</p>
+<p>give it five stars on iTunes, support it on Patreon</p>
+<p>or simply connect with me on Twitter</p>
+<p>at Lex Friedman spelled F R I D M A N.</p>
+<p>And now here&rsquo;s my conversation with Regina Barzilay.</p>
+<p>In an interview you&rsquo;ve mentioned</p>
+<p>that if there&rsquo;s one course you would take,</p>
+<p>it would be a literature course with a friend of yours</p>
+<p>that a friend of yours teaches.</p>
+<p>Just out of curiosity, because I couldn&rsquo;t find anything</p>
+<p>on it, are there books or ideas that had profound impact</p>
+<p>on your life journey, books and ideas perhaps</p>
+<p>outside of computer science and the technical fields?</p>
+<p>I think because I&rsquo;m spending a lot of my time at MIT</p>
+<p>and previously in other institutions where I was a student,</p>
+<p>I have limited ability to interact with people.</p>
+<p>So a lot of what I know about the world</p>
+<p>actually comes from books.</p>
+<p>And there were quite a number of books</p>
+<p>that had profound impact on me and how I view the world.</p>
+<p>Let me just give you one example of such a book.</p>
+<p>I&rsquo;ve maybe a year ago read a book</p>
+<p>called The Emperor of All Melodies.</p>
+<p>It&rsquo;s a book about, it&rsquo;s kind of a history of science book</p>
+<p>on how the treatments and drugs for cancer were developed.</p>
+<p>And that book, despite the fact that I am in the business</p>
+<p>of science, really opened my eyes on how imprecise</p>
+<p>and imperfect the discovery process is</p>
+<p>and how imperfect our current solutions</p>
+<p>and what makes science succeed and be implemented.</p>
+<p>And sometimes it&rsquo;s actually not the strengths of the idea,</p>
+<p>but devotion of the person who wants to see it implemented.</p>
+<p>So this is one of the books that, you know,</p>
+<p>at least for the last year, quite changed the way</p>
+<p>I&rsquo;m thinking about scientific process</p>
+<p>just from the historical perspective</p>
+<p>and what do I need to do to make my ideas really implemented.</p>
+<p>Let me give you an example of a book</p>
+<p>which is not kind of, which is a fiction book.</p>
+<p>It&rsquo;s a book called Americana.</p>
+<p>And this is a book about a young female student</p>
+<p>who comes from Africa to study in the United States.</p>
+<p>And it describes her past, you know, within her studies</p>
+<p>and her life transformation that, you know,</p>
+<p>in a new country and kind of adaptation to a new culture.</p>
+<p>And when I read this book, I saw myself</p>
+<p>in many different points of it,</p>
+<p>but it also kind of gave me the lens on different events.</p>
+<p>And some of it that I never actually paid attention.</p>
+<p>One of the funny stories in this book</p>
+<p>is how she arrives to her new college</p>
+<p>and she starts speaking in English</p>
+<p>and she had this beautiful British accent</p>
+<p>because that&rsquo;s how she was educated in her country.</p>
+<p>This is not my case.</p>
+<p>And then she notices that the person who talks to her,</p>
+<p>you know, talks to her in a very funny way,</p>
+<p>in a very slow way.</p>
+<p>And she&rsquo;s thinking that this woman is disabled</p>
+<p>and she&rsquo;s also trying to kind of to accommodate her.</p>
+<p>And then after a while, when she finishes her discussion</p>
+<p>with this officer from her college,</p>
+<p>she sees how she interacts with the other students,</p>
+<p>with American students.</p>
+<p>And she discovers that actually she talked to her this way</p>
+<p>because she saw that she doesn&rsquo;t understand English.</p>
+<p>And I thought, wow, this is a funny experience.</p>
+<p>And literally within few weeks,</p>
+<p>I went to LA to a conference</p>
+<p>and I asked somebody in the airport,</p>
+<p>you know, how to find like a cab or something.</p>
+<p>And then I noticed that this person is talking</p>
+<p>in a very strange way.</p>
+<p>And my first thought was that this person</p>
+<p>have some, you know, pronunciation issues or something.</p>
+<p>And I&rsquo;m trying to talk very slowly to him</p>
+<p>and I was with another professor, Ernst Frankel.</p>
+<p>And he&rsquo;s like laughing because it&rsquo;s funny</p>
+<p>that I don&rsquo;t get that the guy is talking in this way</p>
+<p>because he thinks that I cannot speak.</p>
+<p>So it was really kind of mirroring experience.</p>
+<p>And it led me think a lot about my own experiences</p>
+<p>moving, you know, from different countries.</p>
+<p>So I think that books play a big role</p>
+<p>in my understanding of the world.</p>
+<p>On the science question, you mentioned that</p>
+<p>it made you discover that personalities of human beings</p>
+<p>are more important than perhaps ideas.</p>
+<p>Is that what I heard?</p>
+<p>It&rsquo;s not necessarily that they are more important</p>
+<p>than ideas, but I think that ideas on their own</p>
+<p>are not sufficient.</p>
+<p>And many times, at least at the local horizon,</p>
+<p>it&rsquo;s the personalities and their devotion to their ideas</p>
+<p>is really that locally changes the landscape.</p>
+<p>Now, if you&rsquo;re looking at AI, like let&rsquo;s say 30 years ago,</p>
+<p>you know, dark ages of AI or whatever,</p>
+<p>what is symbolic times, you can use any word.</p>
+<p>You know, there were some people,</p>
+<p>now we&rsquo;re looking at a lot of that work</p>
+<p>and we&rsquo;re kind of thinking this was not really</p>
+<p>maybe a relevant work, but you can see that some people</p>
+<p>managed to take it and to make it so shiny</p>
+<p>and dominate the academic world</p>
+<p>and make it to be the standard.</p>
+<p>If you look at the area of natural language processing,</p>
+<p>it is well known fact that the reason that statistics</p>
+<p>in NLP took such a long time to become mainstream</p>
+<p>because there were quite a number of personalities</p>
+<p>which didn&rsquo;t believe in this idea</p>
+<p>and didn&rsquo;t stop research progress in this area.</p>
+<p>So I do not think that, you know,</p>
+<p>kind of asymptotically maybe personalities matters,</p>
+<p>but I think locally it does make quite a bit of impact</p>
+<p>and it&rsquo;s generally, you know,</p>
+<p>speeds up the rate of adoption of the new ideas.</p>
+<p>Yeah, and the other interesting question</p>
+<p>is in the early days of particular discipline,</p>
+<p>I think you mentioned in that book</p>
+<p>is ultimately a book of cancer.</p>
+<p>It&rsquo;s called The Emperor of All Melodies.</p>
+<p>Yeah, and those melodies included the trying to,</p>
+<p>the medicine, was it centered around?</p>
+<p>So it was actually centered on, you know,</p>
+<p>how people thought of curing cancer.</p>
+<p>Like for me, it was really a discovery how people,</p>
+<p>what was the science of chemistry behind drug development</p>
+<p>that it actually grew up out of dying,</p>
+<p>like coloring industry that people</p>
+<p>who developed chemistry in 19th century in Germany</p>
+<p>and Britain to do, you know, the really new dyes.</p>
+<p>They looked at the molecules and identified</p>
+<p>that they do certain things to cells.</p>
+<p>And from there, the process started.</p>
+<p>And, you know, like historically saying,</p>
+<p>yeah, this is fascinating</p>
+<p>that they managed to make the connection</p>
+<p>and look under the microscope and do all this discovery.</p>
+<p>But as you continue reading about it</p>
+<p>and you read about how chemotherapy drugs</p>
+<p>which were developed in Boston,</p>
+<p>and some of them were developed.</p>
+<p>And Farber, Dr. Farber from Dana Farber,</p>
+<p>you know, how the experiments were done</p>
+<p>that, you know, there was some miscalculation,</p>
+<p>let&rsquo;s put it this way.</p>
+<p>And they tried it on the patients and they just,</p>
+<p>and those were children with leukemia and they died.</p>
+<p>And then they tried another modification.</p>
+<p>You look at the process, how imperfect is this process?</p>
+<p>And, you know, like, if we&rsquo;re again looking back</p>
+<p>like 60 years ago, 70 years ago,</p>
+<p>you can kind of understand it.</p>
+<p>But some of the stories in this book</p>
+<p>which were really shocking to me</p>
+<p>were really happening, you know, maybe decades ago.</p>
+<p>And we still don&rsquo;t have a vehicle</p>
+<p>to do it much more fast and effective and, you know,</p>
+<p>scientific the way I&rsquo;m thinking computer science scientific.</p>
+<p>So from the perspective of computer science,</p>
+<p>you&rsquo;ve gotten a chance to work the application to cancer</p>
+<p>and to medicine in general.</p>
+<p>From a perspective of an engineer and a computer scientist,</p>
+<p>how far along are we from understanding the human body,</p>
+<p>biology of being able to manipulate it</p>
+<p>in a way we can cure some of the maladies,</p>
+<p>some of the diseases?</p>
+<p>So this is very interesting question.</p>
+<p>And if you&rsquo;re thinking as a computer scientist</p>
+<p>about this problem, I think one of the reasons</p>
+<p>that we succeeded in the areas</p>
+<p>we as a computer scientist succeeded</p>
+<p>is because we don&rsquo;t have,</p>
+<p>we are not trying to understand in some ways.</p>
+<p>Like if you&rsquo;re thinking about like eCommerce, Amazon,</p>
+<p>Amazon doesn&rsquo;t really understand you.</p>
+<p>And that&rsquo;s why it recommends you certain books</p>
+<p>or certain products, correct?</p>
+<p>And, you know, traditionally when people</p>
+<p>were thinking about marketing, you know,</p>
+<p>they divided the population to different kind of subgroups,</p>
+<p>identify the features of this subgroup</p>
+<p>and come up with a strategy</p>
+<p>which is specific to that subgroup.</p>
+<p>If you&rsquo;re looking about recommendation system,</p>
+<p>they&rsquo;re not claiming that they&rsquo;re understanding somebody,</p>
+<p>they&rsquo;re just managing to,</p>
+<p>from the patterns of your behavior</p>
+<p>to recommend you a product.</p>
+<p>Now, if you look at the traditional biology,</p>
+<p>and obviously I wouldn&rsquo;t say that I</p>
+<p>at any way, you know, educated in this field,</p>
+<p>but you know what I see, there&rsquo;s really a lot of emphasis</p>
+<p>on mechanistic understanding.</p>
+<p>And it was very surprising to me</p>
+<p>coming from computer science,</p>
+<p>how much emphasis is on this understanding.</p>
+<p>And given the complexity of the system,</p>
+<p>maybe the deterministic full understanding</p>
+<p>of this process is, you know, beyond our capacity.</p>
+<p>And the same ways in computer science</p>
+<p>when we&rsquo;re doing recognition, when you do recommendation</p>
+<p>and many other areas,</p>
+<p>it&rsquo;s just probabilistic matching process.</p>
+<p>And in some way, maybe in certain cases,</p>
+<p>we shouldn&rsquo;t even attempt to understand</p>
+<p>or we can attempt to understand, but in parallel,</p>
+<p>we can actually do this kind of matchings</p>
+<p>that would help us to find key role</p>
+<p>to do early diagnostics and so on.</p>
+<p>And I know that in these communities,</p>
+<p>it&rsquo;s really important to understand,</p>
+<p>but I&rsquo;m sometimes wondering, you know,</p>
+<p>what exactly does it mean to understand here?</p>
+<p>Well, there&rsquo;s stuff that works and,</p>
+<p>but that can be, like you said,</p>
+<p>separate from this deep human desire</p>
+<p>to uncover the mysteries of the universe,</p>
+<p>of science, of the way the body works,</p>
+<p>the way the mind works.</p>
+<p>It&rsquo;s the dream of symbolic AI,</p>
+<p>of being able to reduce human knowledge into logic</p>
+<p>and be able to play with that logic</p>
+<p>in a way that&rsquo;s very explainable</p>
+<p>and understandable for us humans.</p>
+<p>I mean, that&rsquo;s a beautiful dream.</p>
+<p>So I understand it, but it seems that</p>
+<p>what seems to work today and we&rsquo;ll talk about it more</p>
+<p>is as much as possible, reduce stuff into data,</p>
+<p>reduce whatever problem you&rsquo;re interested in to data</p>
+<p>and try to apply statistical methods,</p>
+<p>apply machine learning to that.</p>
+<p>On a personal note,</p>
+<p>you were diagnosed with breast cancer in 2014.</p>
+<p>What did facing your mortality make you think about?</p>
+<p>How did it change you?</p>
+<p>You know, this is a great question</p>
+<p>and I think that I was interviewed many times</p>
+<p>and nobody actually asked me this question.</p>
+<p>I think I was 43 at a time.</p>
+<p>And the first time I realized in my life that I may die</p>
+<p>and I never thought about it before.</p>
+<p>And there was a long time since you&rsquo;re diagnosed</p>
+<p>until you actually know what you have</p>
+<p>and how severe is your disease.</p>
+<p>For me, it was like maybe two and a half months.</p>
+<p>And I didn&rsquo;t know where I am during this time</p>
+<p>because I was getting different tests</p>
+<p>and one would say it&rsquo;s bad and I would say, no, it is not.</p>
+<p>So until I knew where I am,</p>
+<p>I really was thinking about</p>
+<p>all these different possible outcomes.</p>
+<p>Were you imagining the worst</p>
+<p>or were you trying to be optimistic or?</p>
+<p>It would be really,</p>
+<p>I don&rsquo;t remember what was my thinking.</p>
+<p>It was really a mixture with many components at the time</p>
+<p>speaking in our terms.</p>
+<p>And one thing that I remember,</p>
+<p>and every test comes and then you&rsquo;re saying,</p>
+<p>oh, it could be this or it may not be this.</p>
+<p>And you&rsquo;re hopeful and then you&rsquo;re desperate.</p>
+<p>So it&rsquo;s like, there is a whole slew of emotions</p>
+<p>that goes through you.</p>
+<p>But what I remember is that when I came back to MIT,</p>
+<p>I was kind of going the whole time through the treatment</p>
+<p>to MIT, but my brain was not really there.</p>
+<p>But when I came back, really finished my treatment</p>
+<p>and I was here teaching and everything,</p>
+<p>I look back at what my group was doing,</p>
+<p>what other groups was doing.</p>
+<p>And I saw these trivialities.</p>
+<p>It&rsquo;s like people are building their careers</p>
+<p>on improving some parts around two or 3% or whatever.</p>
+<p>I was, it&rsquo;s like, seriously,</p>
+<p>I did a work on how to decipher ugaritic,</p>
+<p>like a language that nobody speak and whatever,</p>
+<p>like what is significance?</p>
+<p>When all of a sudden, I walked out of MIT,</p>
+<p>which is when people really do care</p>
+<p>what happened to your ICLR paper,</p>
+<p>what is your next publication to ACL,</p>
+<p>to the world where people, you see a lot of suffering</p>
+<p>that I&rsquo;m kind of totally shielded on it on daily basis.</p>
+<p>And it&rsquo;s like the first time I&rsquo;ve seen like real life</p>
+<p>and real suffering.</p>
+<p>And I was thinking, why are we trying to improve the parser</p>
+<p>or deal with trivialities when we have capacity</p>
+<p>to really make a change?</p>
+<p>And it was really challenging to me because on one hand,</p>
+<p>I have my graduate students really want to do their papers</p>
+<p>and their work, and they want to continue to do</p>
+<p>what they were doing, which was great.</p>
+<p>And then it was me who really kind of reevaluated</p>
+<p>what is the importance.</p>
+<p>And also at that point, because I had to take some break,</p>
+<p>I look back into like my years in science</p>
+<p>and I was thinking, like 10 years ago,</p>
+<p>this was the biggest thing, I don&rsquo;t know, topic models.</p>
+<p>We have like millions of papers on topic models</p>
+<p>and variation of topics models.</p>
+<p>Now it&rsquo;s totally like irrelevant.</p>
+<p>And you start looking at this, what do you perceive</p>
+<p>as important at different point of time</p>
+<p>and how it fades over time.</p>
+<p>And since we have a limited time,</p>
+<p>all of us have limited time on us,</p>
+<p>it&rsquo;s really important to prioritize things</p>
+<p>that really matter to you, maybe matter to you</p>
+<p>at that particular point.</p>
+<p>But it&rsquo;s important to take some time</p>
+<p>and understand what matters to you,</p>
+<p>which may not necessarily be the same</p>
+<p>as what matters to the rest of your scientific community</p>
+<p>and pursue that vision.</p>
+<p>So that moment, did it make you cognizant?</p>
+<p>You mentioned suffering of just the general amount</p>
+<p>of suffering in the world.</p>
+<p>Is that what you&rsquo;re referring to?</p>
+<p>So as opposed to topic models</p>
+<p>and specific detailed problems in NLP,</p>
+<p>did you start to think about other people</p>
+<p>who have been diagnosed with cancer?</p>
+<p>Is that the way you started to see the world perhaps?</p>
+<p>Oh, absolutely.</p>
+<p>And it actually creates, because like, for instance,</p>
+<p>there is parts of the treatment</p>
+<p>where you need to go to the hospital every day</p>
+<p>and you see the community of people that you see</p>
+<p>and many of them are much worse than I was at a time.</p>
+<p>And you all of a sudden see it all.</p>
+<p>And people who are happier someday</p>
+<p>just because they feel better.</p>
+<p>And for people who are in our normal realm,</p>
+<p>you take it totally for granted that you feel well,</p>
+<p>that if you decide to go running, you can go running</p>
+<p>and you&rsquo;re pretty much free</p>
+<p>to do whatever you want with your body.</p>
+<p>Like I saw like a community,</p>
+<p>my community became those people.</p>
+<p>And I remember one of my friends, Dina Katabi,</p>
+<p>took me to Prudential to buy me a gift for my birthday.</p>
+<p>And it was like the first time in months</p>
+<p>that I went to kind of to see other people.</p>
+<p>And I was like, wow, first of all, these people,</p>
+<p>they are happy and they&rsquo;re laughing</p>
+<p>and they&rsquo;re very different from these other my people.</p>
+<p>And second of thing, I think it&rsquo;s totally crazy.</p>
+<p>They&rsquo;re like laughing and wasting their money</p>
+<p>on some stupid gifts.</p>
+<p>And they may die.</p>
+<p>They already may have cancer and they don&rsquo;t understand it.</p>
+<p>So you can really see how the mind changes</p>
+<p>that you can see that,</p>
+<p>before that you can ask,</p>
+<p>didn&rsquo;t you know that you&rsquo;re gonna die?</p>
+<p>Of course I knew, but it was a kind of a theoretical notion.</p>
+<p>It wasn&rsquo;t something which was concrete.</p>
+<p>And at that point, when you really see it</p>
+<p>and see how little means sometimes the system has</p>
+<p>to have them, you really feel that we need to take a lot</p>
+<p>of our brilliance that we have here at MIT</p>
+<p>and translate it into something useful.</p>
+<p>Yeah, and you still couldn&rsquo;t have a lot of definitions,</p>
+<p>but of course, alleviating, suffering, alleviating,</p>
+<p>trying to cure cancer is a beautiful mission.</p>
+<p>So I of course know theoretically the notion of cancer,</p>
+<p>but just reading more and more about it&rsquo;s 1.7 million</p>
+<p>new cancer cases in the United States every year,</p>
+<p>600,000 cancer related deaths every year.</p>
+<p>So this has a huge impact, United States globally.</p>
+<p>When broadly, before we talk about how machine learning,</p>
+<p>how MIT can help,</p>
+<p>when do you think we as a civilization will cure cancer?</p>
+<p>How hard of a problem is it from everything you&rsquo;ve learned</p>
+<p>from it recently?</p>
+<p>I cannot really assess it.</p>
+<p>What I do believe will happen with the advancement</p>
+<p>in machine learning is that a lot of types of cancer</p>
+<p>we will be able to predict way early</p>
+<p>and more effectively utilize existing treatments.</p>
+<p>I think, I hope at least that with all the advancements</p>
+<p>in AI and drug discovery, we would be able</p>
+<p>to much faster find relevant molecules.</p>
+<p>What I&rsquo;m not sure about is how long it will take</p>
+<p>the medical establishment and regulatory bodies</p>
+<p>to kind of catch up and to implement it.</p>
+<p>And I think this is a very big piece of puzzle</p>
+<p>that is currently not addressed.</p>
+<p>That&rsquo;s the really interesting question.</p>
+<p>So first a small detail that I think the answer is yes,</p>
+<p>but is cancer one of the diseases that when detected earlier</p>
+<p>that&rsquo;s a significantly improves the outcomes?</p>
+<p>So like, cause we will talk about there&rsquo;s the cure</p>
+<p>and then there is detection.</p>
+<p>And I think where machine learning can really help</p>
+<p>is earlier detection.</p>
+<p>So does detection help?</p>
+<p>Detection is crucial.</p>
+<p>For instance, the vast majority of pancreatic cancer patients</p>
+<p>are detected at the stage that they are incurable.</p>
+<p>That&rsquo;s why they have such a terrible survival rate.</p>
+<p>It&rsquo;s like just few percent over five years.</p>
+<p>It&rsquo;s pretty much today the sentence.</p>
+<p>But if you can discover this disease early,</p>
+<p>there are mechanisms to treat it.</p>
+<p>And in fact, I know a number of people who were diagnosed</p>
+<p>and saved just because they had food poisoning.</p>
+<p>They had terrible food poisoning.</p>
+<p>They went to ER, they got scan.</p>
+<p>There were early signs on the scan</p>
+<p>and that would save their lives.</p>
+<p>But this wasn&rsquo;t really an accidental case.</p>
+<p>So as we become better, we would be able to help</p>
+<p>to many more people that are likely to develop diseases.</p>
+<p>And I just want to say that as I got more into this field,</p>
+<p>I realized that cancer is of course terrible disease,</p>
+<p>but there are really the whole slew of terrible diseases</p>
+<p>out there like neurodegenerative diseases and others.</p>
+<p>So we, of course, a lot of us are fixated on cancer</p>
+<p>because it&rsquo;s so prevalent in our society.</p>
+<p>And you see these people where there are a lot of patients</p>
+<p>with neurodegenerative diseases</p>
+<p>and the kind of aging diseases</p>
+<p>that we still don&rsquo;t have a good solution for.</p>
+<p>And I felt as a computer scientist,</p>
+<p>we kind of decided that it&rsquo;s other people&rsquo;s job</p>
+<p>to treat these diseases because it&rsquo;s like traditionally</p>
+<p>people in biology or in chemistry or MDs</p>
+<p>are the ones who are thinking about it.</p>
+<p>And after kind of start paying attention,</p>
+<p>I think that it&rsquo;s really a wrong assumption</p>
+<p>and we all need to join the battle.</p>
+<p>So how it seems like in cancer specifically</p>
+<p>that there&rsquo;s a lot of ways that machine learning can help.</p>
+<p>So what&rsquo;s the role of machine learning</p>
+<p>in the diagnosis of cancer?</p>
+<p>So for many cancers today, we really don&rsquo;t know</p>
+<p>what is your likelihood to get cancer.</p>
+<p>And for the vast majority of patients,</p>
+<p>especially on the younger patients,</p>
+<p>it really comes as a surprise.</p>
+<p>Like for instance, for breast cancer,</p>
+<p>80% of the patients are first in their families,</p>
+<p>it&rsquo;s like me.</p>
+<p>And I never saw that I had any increased risk</p>
+<p>because nobody had it in my family.</p>
+<p>And for some reason in my head,</p>
+<p>it was kind of inherited disease.</p>
+<p>But even if I would pay attention,</p>
+<p>the very simplistic statistical models</p>
+<p>that are currently used in clinical practice,</p>
+<p>they really don&rsquo;t give you an answer, so you don&rsquo;t know.</p>
+<p>And the same true for pancreatic cancer,</p>
+<p>the same true for non smoking lung cancer and many others.</p>
+<p>So what machine learning can do here</p>
+<p>is utilize all this data to tell us early</p>
+<p>who is likely to be susceptible</p>
+<p>and using all the information that is already there,</p>
+<p>be it imaging, be it your other tests,</p>
+<p>and eventually liquid biopsies and others,</p>
+<p>where the signal itself is not sufficiently strong</p>
+<p>for human eye to do good discrimination</p>
+<p>because the signal may be weak,</p>
+<p>but by combining many sources,</p>
+<p>machine which is trained on large volumes of data</p>
+<p>can really detect it early.</p>
+<p>And that&rsquo;s what we&rsquo;ve seen with breast cancer</p>
+<p>and people are reporting it in other diseases as well.</p>
+<p>That really boils down to data, right?</p>
+<p>And in the different kinds of sources of data.</p>
+<p>And you mentioned regulatory challenges.</p>
+<p>So what are the challenges</p>
+<p>in gathering large data sets in this space?</p>
+<p>Again, another great question.</p>
+<p>So it took me after I decided that I want to work on it</p>
+<p>two years to get access to data.</p>
+<p>Any data, like any significant data set?</p>
+<p>Any significant amount, like right now in this country,</p>
+<p>there is no publicly available data set</p>
+<p>of modern mammograms that you can just go</p>
+<p>on your computer, sign a document and get it.</p>
+<p>It just doesn&rsquo;t exist.</p>
+<p>I mean, obviously every hospital has its own collection</p>
+<p>of mammograms.</p>
+<p>There are data that came out of clinical trials.</p>
+<p>What we&rsquo;re talking about here is a computer scientist</p>
+<p>who just wants to run his or her model</p>
+<p>and see how it works.</p>
+<p>This data, like ImageNet, doesn&rsquo;t exist.</p>
+<p>And there is a set which is called like Florida data set</p>
+<p>which is a film mammogram from 90s</p>
+<p>which is totally not representative</p>
+<p>of the current developments.</p>
+<p>Whatever you&rsquo;re learning on them doesn&rsquo;t scale up.</p>
+<p>This is the only resource that is available.</p>
+<p>And today there are many agencies</p>
+<p>that govern access to data.</p>
+<p>Like the hospital holds your data</p>
+<p>and the hospital decides whether they would give it</p>
+<p>to the researcher to work with this data or not.</p>
+<p>Individual hospital?</p>
+<p>Yeah.</p>
+<p>I mean, the hospital may, you know,</p>
+<p>assuming that you&rsquo;re doing research collaboration,</p>
+<p>you can submit, you know,</p>
+<p>there is a proper approval process guided by RB</p>
+<p>and if you go through all the processes,</p>
+<p>you can eventually get access to the data.</p>
+<p>But if you yourself know our OEI community,</p>
+<p>there are not that many people who actually ever got access</p>
+<p>to data because it&rsquo;s very challenging process.</p>
+<p>And sorry, just in a quick comment,</p>
+<p>MGH or any kind of hospital,</p>
+<p>are they scanning the data?</p>
+<p>Are they digitally storing it?</p>
+<p>Oh, it is already digitally stored.</p>
+<p>You don&rsquo;t need to do any extra processing steps.</p>
+<p>It&rsquo;s already there in the right format is that right now</p>
+<p>there are a lot of issues that govern access to the data</p>
+<p>because the hospital is legally responsible for the data.</p>
+<p>And, you know, they have a lot to lose</p>
+<p>if they give the data to the wrong person,</p>
+<p>but they may not have a lot to gain if they give it</p>
+<p>as a hospital, as a legal entity has given it to you.</p>
+<p>And the way, you know, what I would imagine</p>
+<p>happening in the future is the same thing that happens</p>
+<p>when you&rsquo;re getting your driving license,</p>
+<p>you can decide whether you want to donate your organs.</p>
+<p>You can imagine that whenever a person goes to the hospital,</p>
+<p>they, it should be easy for them to donate their data</p>
+<p>for research and it can be different kind of,</p>
+<p>do they only give you a test results or only mammogram</p>
+<p>or only imaging data or the whole medical record?</p>
+<p>Because at the end,</p>
+<p>we all will benefit from all this insights.</p>
+<p>And it&rsquo;s not like you say, I want to keep my data private,</p>
+<p>but I would really love to get it from other people</p>
+<p>because other people are thinking the same way.</p>
+<p>So if there is a mechanism to do this donation</p>
+<p>and the patient has an ability to say</p>
+<p>how they want to use their data for research,</p>
+<p>it would be really a game changer.</p>
+<p>People, when they think about this problem,</p>
+<p>there&rsquo;s a, it depends on the population,</p>
+<p>depends on the demographics,</p>
+<p>but there&rsquo;s some privacy concerns generally,</p>
+<p>not just medical data, just any kind of data.</p>
+<p>It&rsquo;s what you said, my data, it should belong kind of to me.</p>
+<p>I&rsquo;m worried how it&rsquo;s going to be misused.</p>
+<p>How do we alleviate those concerns?</p>
+<p>Because that seems like a problem that needs to be,</p>
+<p>that problem of trust, of transparency needs to be solved</p>
+<p>before we build large data sets that help detect cancer,</p>
+<p>help save those very people in the future.</p>
+<p>So I think there are two things that could be done.</p>
+<p>There is a technical solutions</p>
+<p>and there are societal solutions.</p>
+<p>So on the technical end,</p>
+<p>we today have ability to improve disambiguation.</p>
+<p>Like, for instance, for imaging,</p>
+<p>it&rsquo;s, you know, for imaging, you can do it pretty well.</p>
+<p>What&rsquo;s disambiguation?</p>
+<p>And disambiguation, sorry, disambiguation,</p>
+<p>removing the identification,</p>
+<p>removing the names of the people.</p>
+<p>There are other data, like if it is a raw tax,</p>
+<p>you cannot really achieve 99.9%,</p>
+<p>but there are all these techniques</p>
+<p>that actually some of them are developed at MIT,</p>
+<p>how you can do learning on the encoded data</p>
+<p>where you locally encode the image,</p>
+<p>you train a network which only works on the encoded images</p>
+<p>and then you send the outcome back to the hospital</p>
+<p>and you can open it up.</p>
+<p>So those are the technical solutions.</p>
+<p>There are a lot of people who are working in this space</p>
+<p>where the learning happens in the encoded form.</p>
+<p>We are still early,</p>
+<p>but this is an interesting research area</p>
+<p>where I think we&rsquo;ll make more progress.</p>
+<p>There is a lot of work in natural language processing</p>
+<p>community how to do the identification better.</p>
+<p>But even today, there are already a lot of data</p>
+<p>which can be deidentified perfectly,</p>
+<p>like your test data, for instance, correct,</p>
+<p>where you can just, you know the name of the patient,</p>
+<p>you just want to extract the part with the numbers.</p>
+<p>The big problem here is again,</p>
+<p>hospitals don&rsquo;t see much incentive</p>
+<p>to give this data away on one hand</p>
+<p>and then there is general concern.</p>
+<p>Now, when I&rsquo;m talking about societal benefits</p>
+<p>and about the education,</p>
+<p>the public needs to understand that I think</p>
+<p>that there are situation and I still remember myself</p>
+<p>when I really needed an answer, I had to make a choice.</p>
+<p>There was no information to make a choice,</p>
+<p>you&rsquo;re just guessing.</p>
+<p>And at that moment you feel that your life is at the stake,</p>
+<p>but you just don&rsquo;t have information to make the choice.</p>
+<p>And many times when I give talks,</p>
+<p>I get emails from women who say,</p>
+<p>you know, I&rsquo;m in this situation,</p>
+<p>can you please run statistic and see what are the outcomes?</p>
+<p>We get almost every week a mammogram that comes by mail</p>
+<p>to my office at MIT, I&rsquo;m serious.</p>
+<p>That people ask to run because they need to make</p>
+<p>life changing decisions.</p>
+<p>And of course, I&rsquo;m not planning to open a clinic here,</p>
+<p>but we do run and give them the results for their doctors.</p>
+<p>But the point that I&rsquo;m trying to make,</p>
+<p>that we all at some point or our loved ones</p>
+<p>will be in the situation where you need information</p>
+<p>to make the best choice.</p>
+<p>And if this information is not available,</p>
+<p>you would feel vulnerable and unprotected.</p>
+<p>And then the question is, you know, what do I care more?</p>
+<p>Because at the end, everything is a trade off, correct?</p>
+<p>Yeah, exactly.</p>
+<p>Just out of curiosity, it seems like one possible solution,</p>
+<p>I&rsquo;d like to see what you think of it,</p>
+<p>based on what you just said,</p>
+<p>based on wanting to know answers</p>
+<p>for when you&rsquo;re yourself in that situation.</p>
+<p>Is it possible for patients to own their data</p>
+<p>as opposed to hospitals owning their data?</p>
+<p>Of course, theoretically, I guess patients own their data,</p>
+<p>but can you walk out there with a USB stick</p>
+<p>containing everything or upload it to the cloud?</p>
+<p>Where a company, you know, I remember Microsoft</p>
+<p>had a service, like I try, I was really excited about</p>
+<p>and Google Health was there.</p>
+<p>I tried to give, I was excited about it.</p>
+<p>Basically companies helping you upload your data</p>
+<p>to the cloud so that you can move from hospital to hospital</p>
+<p>from doctor to doctor.</p>
+<p>Do you see a promise of that kind of possibility?</p>
+<p>I absolutely think this is, you know,</p>
+<p>the right way to exchange the data.</p>
+<p>I don&rsquo;t know now who&rsquo;s the biggest player in this field,</p>
+<p>but I can clearly see that even for totally selfish</p>
+<p>health reasons, when you are going to a new facility</p>
+<p>and many of us are sent to some specialized treatment,</p>
+<p>they don&rsquo;t easily have access to your data.</p>
+<p>And today, you know, we might want to send this mammogram,</p>
+<p>need to go to the hospital, find some small office</p>
+<p>which gives them the CD and they ship as a CD.</p>
+<p>So you can imagine we&rsquo;re looking at kind of decades old</p>
+<p>mechanism of data exchange.</p>
+<p>So I definitely think this is an area where hopefully</p>
+<p>all the right regulatory and technical forces will align</p>
+<p>and we will see it actually implemented.</p>
+<p>It&rsquo;s sad because unfortunately, and I need to research</p>
+<p>why that happened, but I&rsquo;m pretty sure Google Health</p>
+<p>and Microsoft Health Vault or whatever it&rsquo;s called</p>
+<p>both closed down, which means that there was</p>
+<p>either regulatory pressure or there&rsquo;s not a business case</p>
+<p>or there&rsquo;s challenges from hospitals,</p>
+<p>which is very disappointing.</p>
+<p>So when you say you don&rsquo;t know what the biggest players are,</p>
+<p>the two biggest that I was aware of closed their doors.</p>
+<p>So I&rsquo;m hoping, I&rsquo;d love to see why</p>
+<p>and I&rsquo;d love to see who else can come up.</p>
+<p>It seems like one of those Elon Musk style problems</p>
+<p>that are obvious needs to be solved</p>
+<p>and somebody needs to step up and actually do</p>
+<p>this large scale data collection.</p>
+<p>So I know there is an initiative in Massachusetts,</p>
+<p>I think, which you led by the governor</p>
+<p>to try to create this kind of health exchange system</p>
+<p>where at least to help people who kind of when you show up</p>
+<p>in emergency room and there is no information</p>
+<p>about what are your allergies and other things.</p>
+<p>So I don&rsquo;t know how far it will go.</p>
+<p>But another thing that you said</p>
+<p>and I find it very interesting is actually</p>
+<p>who are the successful players in this space</p>
+<p>and the whole implementation, how does it go?</p>
+<p>To me, it is from the anthropological perspective,</p>
+<p>it&rsquo;s more fascinating that AI that today goes in healthcare,</p>
+<p>we&rsquo;ve seen so many attempts and so very little successes.</p>
+<p>And it&rsquo;s interesting to understand that I&rsquo;ve by no means</p>
+<p>have knowledge to assess it,</p>
+<p>why we are in the position where we are.</p>
+<p>Yeah, it&rsquo;s interesting because data is really fuel</p>
+<p>for a lot of successful applications.</p>
+<p>And when that data acquires regulatory approval,</p>
+<p>like the FDA or any kind of approval,</p>
+<p>it seems that the computer scientists</p>
+<p>are not quite there yet in being able</p>
+<p>to play the regulatory game,</p>
+<p>understanding the fundamentals of it.</p>
+<p>I think that in many cases when even people do have data,</p>
+<p>we still don&rsquo;t know what exactly do you need to demonstrate</p>
+<p>to change the standard of care.</p>
+<p>Like let me give you an example</p>
+<p>related to my breast cancer research.</p>
+<p>So in traditional breast cancer risk assessment,</p>
+<p>there is something called density,</p>
+<p>which determines the likelihood of a woman to get cancer.</p>
+<p>And this pretty much says,</p>
+<p>how much white do you see on the mammogram?</p>
+<p>The whiter it is, the more likely the tissue is dense.</p>
+<p>And the idea behind density, it&rsquo;s not a bad idea.</p>
+<p>In 1967, a radiologist called Wolf decided to look back</p>
+<p>at women who were diagnosed</p>
+<p>and see what is special in their images.</p>
+<p>Can we look back and say that they&rsquo;re likely to develop?</p>
+<p>So he come up with some patterns.</p>
+<p>And it was the best that his human eye can identify.</p>
+<p>Then it was kind of formalized</p>
+<p>and coded into four categories.</p>
+<p>And that&rsquo;s what we are using today.</p>
+<p>And today this density assessment</p>
+<p>is actually a federal law from 2019,</p>
+<p>approved by President Trump</p>
+<p>and for the previous FDA commissioner,</p>
+<p>where women are supposed to be advised by their providers</p>
+<p>if they have high density,</p>
+<p>putting them into higher risk category.</p>
+<p>And in some states,</p>
+<p>you can actually get supplementary screening</p>
+<p>paid by your insurance because you&rsquo;re in this category.</p>
+<p>Now you can say, how much science do we have behind it?</p>
+<p>Whatever, biological science or epidemiological evidence.</p>
+<p>So it turns out that between 40 and 50% of women</p>
+<p>have dense breasts.</p>
+<p>So about 40% of patients are coming out of their screening</p>
+<p>and somebody tells them, you are in high risk.</p>
+<p>Now, what exactly does it mean</p>
+<p>if you as half of the population in high risk?</p>
+<p>It&rsquo;s from saying, maybe I&rsquo;m not,</p>
+<p>or what do I really need to do with it?</p>
+<p>Because the system doesn&rsquo;t provide me</p>
+<p>a lot of the solutions</p>
+<p>because there are so many people like me,</p>
+<p>we cannot really provide very expensive solutions for them.</p>
+<p>And the reason this whole density became this big deal,</p>
+<p>it&rsquo;s actually advocated by the patients</p>
+<p>who felt very unprotected</p>
+<p>because many women went and did the mammograms</p>
+<p>which were normal.</p>
+<p>And then it turns out that they already had cancer,</p>
+<p>quite developed cancer.</p>
+<p>So they didn&rsquo;t have a way to know who is really at risk</p>
+<p>and what is the likelihood that when the doctor tells you,</p>
+<p>you&rsquo;re okay, you are not okay.</p>
+<p>So at the time, and it was 15 years ago,</p>
+<p>this maybe was the best piece of science that we had.</p>
+<p>And it took quite 15, 16 years to make it federal law.</p>
+<p>But now this is a standard.</p>
+<p>Now with a deep learning model,</p>
+<p>we can so much more accurately predict</p>
+<p>who is gonna develop breast cancer</p>
+<p>just because you&rsquo;re trained on a logical thing.</p>
+<p>And instead of describing how much white</p>
+<p>and what kind of white machine</p>
+<p>can systematically identify the patterns,</p>
+<p>which was the original idea behind the thought</p>
+<p>of the cardiologist,</p>
+<p>machines can do it much more systematically</p>
+<p>and predict the risk when you&rsquo;re training the machine</p>
+<p>to look at the image and to say the risk in one to five years.</p>
+<p>Now you can ask me how long it will take</p>
+<p>to substitute this density,</p>
+<p>which is broadly used across the country</p>
+<p>and really is not helping to bring this new models.</p>
+<p>And I would say it&rsquo;s not a matter of the algorithm.</p>
+<p>Algorithms use already orders of magnitude better</p>
+<p>than what is currently in practice.</p>
+<p>I think it&rsquo;s really the question,</p>
+<p>who do you need to convince?</p>
+<p>How many hospitals do you need to run the experiment?</p>
+<p>What, you know, all this mechanism of adoption</p>
+<p>and how do you explain to patients</p>
+<p>and to women across the country</p>
+<p>that this is really a better measure?</p>
+<p>And again, I don&rsquo;t think it&rsquo;s an AI question.</p>
+<p>We can work more and make the algorithm even better,</p>
+<p>but I don&rsquo;t think that this is the current, you know,</p>
+<p>the barrier, the barrier is really this other piece</p>
+<p>that for some reason is not really explored.</p>
+<p>It&rsquo;s like anthropological piece.</p>
+<p>And coming back to your question about books,</p>
+<p>there is a book that I&rsquo;m reading.</p>
+<p>It&rsquo;s called American Sickness by Elizabeth Rosenthal.</p>
+<p>And I got this book from my clinical collaborator,</p>
+<p>Dr. Connie Lehman.</p>
+<p>And I said, I know everything that I need to know</p>
+<p>about American health system,</p>
+<p>but you know, every page doesn&rsquo;t fail to surprise me.</p>
+<p>And I think there is a lot of interesting</p>
+<p>and really deep lessons for people like us</p>
+<p>from computer science who are coming into this field</p>
+<p>to really understand how complex is the system of incentives</p>
+<p>in the system to understand how you really need to play</p>
+<p>to drive adoption.</p>
+<p>You just said it&rsquo;s complex,</p>
+<p>but if we&rsquo;re trying to simplify it,</p>
+<p>who do you think most likely would be successful</p>
+<p>if we push on this group of people?</p>
+<p>Is it the doctors?</p>
+<p>Is it the hospitals?</p>
+<p>Is it the governments or policymakers?</p>
+<p>Is it the individual patients, consumers?</p>
+<p>Who needs to be inspired to most likely lead to adoption?</p>
+<p>Or is there no simple answer?</p>
+<p>There&rsquo;s no simple answer,</p>
+<p>but I think there is a lot of good people in medical system</p>
+<p>who do want to make a change.</p>
+<p>And I think a lot of power will come from us as consumers</p>
+<p>because we all are consumers or future consumers</p>
+<p>of healthcare services.</p>
+<p>And I think we can do so much more</p>
+<p>in explaining the potential and not in the hype terms</p>
+<p>and not saying that we now killed all Alzheimer</p>
+<p>and I&rsquo;m really sick of reading this kind of articles</p>
+<p>which make these claims,</p>
+<p>but really to show with some examples</p>
+<p>what this implementation does and how it changes the care.</p>
+<p>Because I can&rsquo;t imagine,</p>
+<p>it doesn&rsquo;t matter what kind of politician it is,</p>
+<p>we all are susceptible to these diseases.</p>
+<p>There is no one who is free.</p>
+<p>And eventually, we all are humans</p>
+<p>and we&rsquo;re looking for a way to alleviate the suffering.</p>
+<p>And this is one possible way</p>
+<p>where we currently are under utilizing,</p>
+<p>which I think can help.</p>
+<p>So it sounds like the biggest problems are outside of AI</p>
+<p>in terms of the biggest impact at this point.</p>
+<p>But are there any open problems</p>
+<p>in the application of ML to oncology in general?</p>
+<p>So improving the detection or any other creative methods,</p>
+<p>whether it&rsquo;s on the detection segmentations</p>
+<p>or the vision perception side</p>
+<p>or some other clever of inference?</p>
+<p>Yeah, what in general in your view are the open problems</p>
+<p>in this space?</p>
+<p>Yeah, I just want to mention that beside detection,</p>
+<p>not the area where I am kind of quite active</p>
+<p>and I think it&rsquo;s really an increasingly important area</p>
+<p>in healthcare is drug design.</p>
+<p>Absolutely.</p>
+<p>Because it&rsquo;s fine if you detect something early,</p>
+<p>but you still need to get drugs</p>
+<p>and new drugs for these conditions.</p>
+<p>And today, all of the drug design,</p>
+<p>ML is non existent there.</p>
+<p>We don&rsquo;t have any drug that was developed by the ML model</p>
+<p>or even not developed,</p>
+<p>but at least even knew that ML model</p>
+<p>plays some significant role.</p>
+<p>I think this area with all the new ability</p>
+<p>to generate molecules with desired properties</p>
+<p>to do in silica screening is really a big open area.</p>
+<p>To be totally honest with you,</p>
+<p>when we are doing diagnostics and imaging,</p>
+<p>primarily taking the ideas that were developed</p>
+<p>for other areas and you applying them with some adaptation,</p>
+<p>the area of drug design is really technically interesting</p>
+<p>and exciting area.</p>
+<p>You need to work a lot with graphs</p>
+<p>and capture various 3D properties.</p>
+<p>There are lots and lots of opportunities</p>
+<p>to be technically creative.</p>
+<p>And I think there are a lot of open questions in this area.</p>
+<p>We&rsquo;re already getting a lot of successes</p>
+<p>even with kind of the first generation of these models,</p>
+<p>but there is much more new creative things that you can do.</p>
+<p>And what&rsquo;s very nice to see is that actually</p>
+<p>the more powerful, the more interesting models</p>
+<p>actually do do better.</p>
+<p>So there is a place to innovate in machine learning</p>
+<p>in this area.</p>
+<p>And some of these techniques are really unique to,</p>
+<p>let&rsquo;s say, to graph generation and other things.</p>
+<p>So&hellip;</p>
+<p>What, just to interrupt really quick, I&rsquo;m sorry,</p>
+<p>graph generation or graphs, drug discovery in general,</p>
+<p>how do you discover a drug?</p>
+<p>Is this chemistry?</p>
+<p>Is this trying to predict different chemical reactions?</p>
+<p>Or is it some kind of&hellip;</p>
+<p>What do graphs even represent in this space?</p>
+<p>Oh, sorry, sorry.</p>
+<p>And what&rsquo;s a drug?</p>
+<p>Okay, so let&rsquo;s say you&rsquo;re thinking</p>
+<p>there are many different types of drugs,</p>
+<p>but let&rsquo;s say you&rsquo;re gonna talk about small molecules</p>
+<p>because I think today the majority of drugs</p>
+<p>are small molecules.</p>
+<p>So small molecule is a graph.</p>
+<p>The molecule is just where the node in the graph</p>
+<p>is an atom and then you have the bonds.</p>
+<p>So it&rsquo;s really a graph representation.</p>
+<p>If you look at it in 2D, correct,</p>
+<p>you can do it 3D, but let&rsquo;s say,</p>
+<p>let&rsquo;s keep it simple and stick in 2D.</p>
+<p>So pretty much my understanding today,</p>
+<p>how it is done at scale in the companies,</p>
+<p>without machine learning,</p>
+<p>you have high throughput screening.</p>
+<p>So you know that you are interested</p>
+<p>to get certain biological activity of the compound.</p>
+<p>So you scan a lot of compounds,</p>
+<p>like maybe hundreds of thousands,</p>
+<p>some really big number of compounds.</p>
+<p>You identify some compounds which have the right activity</p>
+<p>and then at this point, the chemists come</p>
+<p>and they&rsquo;re trying to now to optimize</p>
+<p>this original heat to different properties</p>
+<p>that you want it to be maybe soluble,</p>
+<p>you want it to decrease toxicity,</p>
+<p>you want it to decrease the side effects.</p>
+<p>Are those, sorry again to interrupt,</p>
+<p>can that be done in simulation</p>
+<p>or just by looking at the molecules</p>
+<p>or do you need to actually run reactions</p>
+<p>in real labs with lab coats and stuff?</p>
+<p>So when you do high throughput screening,</p>
+<p>you really do screening.</p>
+<p>It&rsquo;s in the lab.</p>
+<p>It&rsquo;s really the lab screening.</p>
+<p>You screen the molecules, correct?</p>
+<p>I don&rsquo;t know what screening is.</p>
+<p>The screening is just check them for certain property.</p>
+<p>Like in the physical space, in the physical world,</p>
+<p>like actually there&rsquo;s a machine probably</p>
+<p>that&rsquo;s actually running the reaction.</p>
+<p>Actually running the reactions, yeah.</p>
+<p>So there is a process where you can run</p>
+<p>and that&rsquo;s why it&rsquo;s called high throughput</p>
+<p>that it become cheaper and faster</p>
+<p>to do it on very big number of molecules.</p>
+<p>You run the screening,</p>
+<p>you identify potential good starts</p>
+<p>and then when the chemists come in</p>
+<p>who have done it many times</p>
+<p>and then they can try to look at it and say,</p>
+<p>how can you change the molecule</p>
+<p>to get the desired profile</p>
+<p>in terms of all other properties?</p>
+<p>So maybe how do I make it more bioactive and so on?</p>
+<p>And there the creativity of the chemists</p>
+<p>really is the one that determines the success</p>
+<p>of this design because again,</p>
+<p>they have a lot of domain knowledge</p>
+<p>of what works, how do you decrease the CCD and so on</p>
+<p>and that&rsquo;s what they do.</p>
+<p>So all the drugs that are currently</p>
+<p>in the FDA approved drugs</p>
+<p>or even drugs that are in clinical trials,</p>
+<p>they are designed using these domain experts</p>
+<p>which goes through this combinatorial space</p>
+<p>of molecules or graphs or whatever</p>
+<p>and find the right one or adjust it to be the right ones.</p>
+<p>It sounds like the breast density heuristic</p>
+<p>from 67 to the same echoes.</p>
+<p>It&rsquo;s not necessarily that.</p>
+<p>It&rsquo;s really driven by deep understanding.</p>
+<p>It&rsquo;s not like they just observe it.</p>
+<p>I mean, they do deeply understand chemistry</p>
+<p>and they do understand how different groups</p>
+<p>and how does it changes the properties.</p>
+<p>So there is a lot of science that gets into it</p>
+<p>and a lot of kind of simulation,</p>
+<p>how do you want it to behave?</p>
+<p>It&rsquo;s very, very complex.</p>
+<p>So they&rsquo;re quite effective at this design, obviously.</p>
+<p>Now effective, yeah, we have drugs.</p>
+<p>Like depending on how do you measure effective,</p>
+<p>if you measure it in terms of cost, it&rsquo;s prohibitive.</p>
+<p>If you measure it in terms of times,</p>
+<p>we have lots of diseases for which we don&rsquo;t have any drugs</p>
+<p>and we don&rsquo;t even know how to approach</p>
+<p>and don&rsquo;t need to mention few drugs</p>
+<p>or neurodegenerative disease drugs that fail.</p>
+<p>So there are lots of trials that fail in later stages,</p>
+<p>which is really catastrophic from the financial perspective.</p>
+<p>So is it the effective, the most effective mechanism?</p>
+<p>Absolutely no, but this is the only one that currently works.</p>
+<p>And I was closely interacting</p>
+<p>with people in pharmaceutical industry.</p>
+<p>I was really fascinated on how sharp</p>
+<p>and what a deep understanding of the domain do they have.</p>
+<p>It&rsquo;s not observation driven.</p>
+<p>There is really a lot of science behind what they do.</p>
+<p>But if you ask me, can machine learning change it,</p>
+<p>I firmly believe yes,</p>
+<p>because even the most experienced chemists</p>
+<p>cannot hold in their memory and understanding</p>
+<p>everything that you can learn</p>
+<p>from millions of molecules and reactions.</p>
+<p>And the space of graphs is a totally new space.</p>
+<p>I mean, it&rsquo;s a really interesting space</p>
+<p>for machine learning to explore, graph generation.</p>
+<p>Yeah, so there are a lot of things that you can do here.</p>
+<p>So we do a lot of work.</p>
+<p>So the first tool that we started with</p>
+<p>was the tool that can predict properties of the molecules.</p>
+<p>So you can just give the molecule and the property.</p>
+<p>It can be by activity property,</p>
+<p>or it can be some other property.</p>
+<p>And you train the molecules</p>
+<p>and you can now take a new molecule</p>
+<p>and predict this property.</p>
+<p>Now, when people started working in this area,</p>
+<p>it is something very simple.</p>
+<p>They do kind of existing fingerprints,</p>
+<p>which is kind of handcrafted features of the molecule.</p>
+<p>When you break the graph to substructures</p>
+<p>and then you run it in a feed forward neural network.</p>
+<p>And what was interesting to see that clearly,</p>
+<p>this was not the most effective way to proceed.</p>
+<p>And you need to have much more complex models</p>
+<p>that can induce a representation,</p>
+<p>which can translate this graph into the embeddings</p>
+<p>and do these predictions.</p>
+<p>So this is one direction.</p>
+<p>Then another direction, which is kind of related</p>
+<p>is not only to stop by looking at the embedding itself,</p>
+<p>but actually modify it to produce better molecules.</p>
+<p>So you can think about it as machine translation</p>
+<p>that you can start with a molecule</p>
+<p>and then there is an improved version of molecule.</p>
+<p>And you can again, with encoder translate it</p>
+<p>into the hidden space and then learn how to modify it</p>
+<p>to improve the in some ways version of the molecules.</p>
+<p>So that&rsquo;s, it&rsquo;s kind of really exciting.</p>
+<p>We already have seen that the property prediction</p>
+<p>works pretty well.</p>
+<p>And now we are generating molecules</p>
+<p>and there is actually labs</p>
+<p>which are manufacturing this molecule.</p>
+<p>So we&rsquo;ll see where it will get us.</p>
+<p>Okay, that&rsquo;s really exciting.</p>
+<p>There&rsquo;s a lot of promise.</p>
+<p>Speaking of machine translation and embeddings,</p>
+<p>I think you have done a lot of really great research</p>
+<p>in NLP, natural language processing.</p>
+<p>Can you tell me your journey through NLP?</p>
+<p>What ideas, problems, approaches were you working on?</p>
+<p>Were you fascinated with, did you explore</p>
+<p>before this magic of deep learning reemerged and after?</p>
+<p>So when I started my work in NLP, it was in 97.</p>
+<p>This was very interesting time.</p>
+<p>It was exactly the time that I came to ACL.</p>
+<p>And at the time I could barely understand English,</p>
+<p>but it was exactly like the transition point</p>
+<p>because half of the papers were really rule based approaches</p>
+<p>where people took more kind of heavy linguistic approaches</p>
+<p>for small domains and try to build up from there.</p>
+<p>And then there were the first generation of papers</p>
+<p>which were corpus based papers.</p>
+<p>And they were very simple in our terms</p>
+<p>when you collect some statistics</p>
+<p>and do prediction based on them.</p>
+<p>And I found it really fascinating that one community</p>
+<p>can think so very differently about the problem.</p>
+<p>And I remember my first paper that I wrote,</p>
+<p>it didn&rsquo;t have a single formula.</p>
+<p>It didn&rsquo;t have evaluation.</p>
+<p>It just had examples of outputs.</p>
+<p>And this was a standard of the field at the time.</p>
+<p>In some ways, I mean, people maybe just started emphasizing</p>
+<p>the empirical evaluation, but for many applications</p>
+<p>like summarization, you just show some examples of outputs.</p>
+<p>And then increasingly you can see that how</p>
+<p>the statistical approaches dominated the field</p>
+<p>and we&rsquo;ve seen increased performance</p>
+<p>across many basic tasks.</p>
+<p>The sad part of the story maybe that if you look again</p>
+<p>through this journey, we see that the role of linguistics</p>
+<p>in some ways greatly diminishes.</p>
+<p>And I think that you really need to look</p>
+<p>through the whole proceeding to find one or two papers</p>
+<p>which make some interesting linguistic references.</p>
+<p>It&rsquo;s really big.</p>
+<p>Today, yeah.</p>
+<p>Today, today.</p>
+<p>This was definitely one of the.</p>
+<p>Things like syntactic trees, just even basically</p>
+<p>against our conversation about human understanding</p>
+<p>of language, which I guess what linguistics would be</p>
+<p>structured, hierarchical representing language</p>
+<p>in a way that&rsquo;s human explainable, understandable</p>
+<p>is missing today.</p>
+<p>I don&rsquo;t know if it is, what is explainable</p>
+<p>and understandable.</p>
+<p>In the end, we perform functions and it&rsquo;s okay</p>
+<p>to have machine which performs a function.</p>
+<p>Like when you&rsquo;re thinking about your calculator, correct?</p>
+<p>Your calculator can do calculation very different</p>
+<p>from you would do the calculation,</p>
+<p>but it&rsquo;s very effective in it.</p>
+<p>And this is fine if we can achieve certain tasks</p>
+<p>with high accuracy, doesn&rsquo;t necessarily mean</p>
+<p>that it has to understand it the same way as we understand.</p>
+<p>In some ways, it&rsquo;s even naive to request</p>
+<p>because you have so many other sources of information</p>
+<p>that are absent when you are training your system.</p>
+<p>So it&rsquo;s okay.</p>
+<p>Is it delivered?</p>
+<p>And I would tell you one application</p>
+<p>that is really fascinating.</p>
+<p>In 97, when it came to ACL, there were some papers</p>
+<p>on machine translation.</p>
+<p>They were like primitive.</p>
+<p>Like people were trying really, really simple.</p>
+<p>And the feeling, my feeling was that, you know,</p>
+<p>to make real machine translation system,</p>
+<p>it&rsquo;s like to fly at the moon and build a house there</p>
+<p>and the garden and live happily ever after.</p>
+<p>I mean, it&rsquo;s like impossible.</p>
+<p>I never could imagine that within, you know, 10 years,</p>
+<p>we would already see the system working.</p>
+<p>And now, you know, nobody is even surprised</p>
+<p>to utilize the system on daily basis.</p>
+<p>So this was like a huge, huge progress,</p>
+<p>saying that people for very long time</p>
+<p>tried to solve using other mechanisms.</p>
+<p>And they were unable to solve it.</p>
+<p>That&rsquo;s why coming back to your question about biology,</p>
+<p>that, you know, in linguistics, people try to go this way</p>
+<p>and try to write the syntactic trees</p>
+<p>and try to abstract it and to find the right representation.</p>
+<p>And, you know, they couldn&rsquo;t get very far</p>
+<p>with this understanding while these models using,</p>
+<p>you know, other sources actually capable</p>
+<p>to make a lot of progress.</p>
+<p>Now, I&rsquo;m not naive to think</p>
+<p>that we are in this paradise space in NLP.</p>
+<p>And sure as you know,</p>
+<p>that when we slightly change the domain</p>
+<p>and when we decrease the amount of training,</p>
+<p>it can do like really bizarre and funny thing.</p>
+<p>But I think it&rsquo;s just a matter</p>
+<p>of improving generalization capacity,</p>
+<p>which is just a technical question.</p>
+<p>Wow, so that&rsquo;s the question.</p>
+<p>How much of language understanding can be solved</p>
+<p>with deep neural networks?</p>
+<p>In your intuition, I mean, it&rsquo;s unknown, I suppose.</p>
+<p>But as we start to creep towards romantic notions</p>
+<p>of the spirit of the Turing test</p>
+<p>and conversation and dialogue</p>
+<p>and something that maybe to me or to us,</p>
+<p>so the humans feels like it needs real understanding.</p>
+<p>How much can that be achieved</p>
+<p>with these neural networks or statistical methods?</p>
+<p>So I guess I am very much driven by the outcomes.</p>
+<p>Can we achieve the performance</p>
+<p>which would be satisfactory for us for different tasks?</p>
+<p>Now, if you again look at machine translation system,</p>
+<p>which are trained on large amounts of data,</p>
+<p>they really can do a remarkable job</p>
+<p>relatively to where they&rsquo;ve been a few years ago.</p>
+<p>And if you project into the future,</p>
+<p>if it will be the same speed of improvement, you know,</p>
+<p>this is great.</p>
+<p>Now, does it bother me</p>
+<p>that it&rsquo;s not doing the same translation as we are doing?</p>
+<p>Now, if you go to cognitive science,</p>
+<p>we still don&rsquo;t really understand what we are doing.</p>
+<p>I mean, there are a lot of theories</p>
+<p>and there&rsquo;s obviously a lot of progress and studying,</p>
+<p>but our understanding what exactly goes on in our brains</p>
+<p>when we process language is still not crystal clear</p>
+<p>and precise that we can translate it into machines.</p>
+<p>What does bother me is that, you know,</p>
+<p>again, that machines can be extremely brittle</p>
+<p>when you go out of your comfort zone</p>
+<p>of when there is a distributional shift</p>
+<p>between training and testing.</p>
+<p>And it have been years and years,</p>
+<p>every year when I teach an LP class,</p>
+<p>now show them some examples of translation</p>
+<p>from some newspaper in Hebrew or whatever, it was perfect.</p>
+<p>And then I have a recipe that Tomi Yakel&rsquo;s system</p>
+<p>sent me a while ago and it was written in Finnish</p>
+<p>of Karelian pies.</p>
+<p>And it&rsquo;s just a terrible translation.</p>
+<p>You cannot understand anything what it does.</p>
+<p>It&rsquo;s not like some syntactic mistakes, it&rsquo;s just terrible.</p>
+<p>And year after year, I tried and will translate</p>
+<p>and year after year, it does this terrible work</p>
+<p>because I guess, you know, the recipes</p>
+<p>are not a big part of their training repertoire.</p>
+<p>So, but in terms of outcomes, that&rsquo;s a really clean,</p>
+<p>good way to look at it.</p>
+<p>I guess the question I was asking is,</p>
+<p>do you think, imagine a future,</p>
+<p>do you think the current approaches can pass</p>
+<p>the Turing test in the way,</p>
+<p>in the best possible formulation of the Turing test?</p>
+<p>Which is, would you wanna have a conversation</p>
+<p>with a neural network for an hour?</p>
+<p>Oh God, no, no, there are not that many people</p>
+<p>that I would want to talk for an hour, but.</p>
+<p>There are some people in this world, alive or not,</p>
+<p>that you would like to talk to for an hour.</p>
+<p>Could a neural network achieve that outcome?</p>
+<p>So I think it would be really hard to create</p>
+<p>a successful training set, which would enable it</p>
+<p>to have a conversation, a contextual conversation</p>
+<p>for an hour.</p>
+<p>Do you think it&rsquo;s a problem of data, perhaps?</p>
+<p>I think in some ways it&rsquo;s not a problem of data,</p>
+<p>it&rsquo;s a problem both of data and the problem of</p>
+<p>the way we&rsquo;re training our systems,</p>
+<p>their ability to truly, to generalize,</p>
+<p>to be very compositional.</p>
+<p>In some ways it&rsquo;s limited in the current capacity,</p>
+<p>at least we can translate well,</p>
+<p>we can find information well, we can extract information.</p>
+<p>So there are many capacities in which it&rsquo;s doing very well.</p>
+<p>And you can ask me, would you trust the machine</p>
+<p>to translate for you and use it as a source?</p>
+<p>I would say absolutely, especially if we&rsquo;re talking about</p>
+<p>newspaper data or other data which is in the realm</p>
+<p>of its own training set, I would say yes.</p>
+<p>But having conversations with the machine,</p>
+<p>it&rsquo;s not something that I would choose to do.</p>
+<p>But I would tell you something, talking about Turing tests</p>
+<p>and about all this kind of ELISA conversations,</p>
+<p>I remember visiting Tencent in China</p>
+<p>and they have this chat board and they claim</p>
+<p>there is really humongous amount of the local population</p>
+<p>which for hours talks to the chat board.</p>
+<p>To me it was, I cannot believe it,</p>
+<p>but apparently it&rsquo;s documented that there are some people</p>
+<p>who enjoy this conversation.</p>
+<p>And it brought to me another MIT story</p>
+<p>about ELISA and Weisenbaum.</p>
+<p>I don&rsquo;t know if you&rsquo;re familiar with the story.</p>
+<p>So Weisenbaum was a professor at MIT</p>
+<p>and when he developed this ELISA,</p>
+<p>which was just doing string matching,</p>
+<p>very trivial, like restating of what you said</p>
+<p>with very few rules, no syntax.</p>
+<p>Apparently there were secretaries at MIT</p>
+<p>that would sit for hours and converse with this trivial thing</p>
+<p>and at the time there was no beautiful interfaces</p>
+<p>so you actually need to go through the pain</p>
+<p>of communicating.</p>
+<p>And Weisenbaum himself was so horrified by this phenomenon</p>
+<p>that people can believe enough to the machine</p>
+<p>that you just need to give them the hint</p>
+<p>that machine understands you and you can complete the rest</p>
+<p>that he kind of stopped this research</p>
+<p>and went into kind of trying to understand</p>
+<p>what this artificial intelligence can do to our brains.</p>
+<p>So my point is, you know,</p>
+<p>how much, it&rsquo;s not how good is the technology,</p>
+<p>it&rsquo;s how ready we are to believe</p>
+<p>that it delivers the goods that we are trying to get.</p>
+<p>That&rsquo;s a really beautiful way to put it.</p>
+<p>I, by the way, I&rsquo;m not horrified by that possibility,</p>
+<p>but inspired by it because,</p>
+<p>I mean, human connection,</p>
+<p>whether it&rsquo;s through language or through love,</p>
+<p>it seems like it&rsquo;s very amenable to machine learning</p>
+<p>and the rest is just challenges of psychology.</p>
+<p>Like you said, the secretaries who enjoy spending hours.</p>
+<p>I would say I would describe most of our lives</p>
+<p>as enjoying spending hours with those we love</p>
+<p>for very silly reasons.</p>
+<p>All we&rsquo;re doing is keyword matching as well.</p>
+<p>So I&rsquo;m not sure how much intelligence</p>
+<p>we exhibit to each other with the people we love</p>
+<p>that we&rsquo;re close with.</p>
+<p>So it&rsquo;s a very interesting point</p>
+<p>of what it means to pass the Turing test with language.</p>
+<p>I think you&rsquo;re right.</p>
+<p>In terms of conversation,</p>
+<p>I think machine translation</p>
+<p>has very clear performance and improvement, right?</p>
+<p>What it means to have a fulfilling conversation</p>
+<p>is very person dependent and context dependent</p>
+<p>and so on.</p>
+<p>That&rsquo;s, yeah, it&rsquo;s very well put.</p>
+<p>But in your view, what&rsquo;s a benchmark in natural language,</p>
+<p>a test that&rsquo;s just out of reach right now,</p>
+<p>but we might be able to, that&rsquo;s exciting.</p>
+<p>Is it in perfecting machine translation</p>
+<p>or is there other, is it summarization?</p>
+<p>What&rsquo;s out there just out of reach?</p>
+<p>I think it goes across specific application.</p>
+<p>It&rsquo;s more about the ability to learn from few examples</p>
+<p>for real, what we call few short learning and all these cases</p>
+<p>because the way we publish these papers today,</p>
+<p>we say, if we have like naively, we get 55,</p>
+<p>but now we had a few example and we can move to 65.</p>
+<p>None of these methods</p>
+<p>actually are realistically doing anything useful.</p>
+<p>You cannot use them today.</p>
+<p>And the ability to be able to generalize and to move</p>
+<p>or to be autonomous in finding the data</p>
+<p>that you need to learn,</p>
+<p>to be able to perfect new tasks or new language,</p>
+<p>this is an area where I think we really need</p>
+<p>to move forward to and we are not yet there.</p>
+<p>Are you at all excited,</p>
+<p>curious by the possibility</p>
+<p>of creating human level intelligence?</p>
+<p>Is this, cause you&rsquo;ve been very in your discussion.</p>
+<p>So if we look at oncology,</p>
+<p>you&rsquo;re trying to use machine learning to help the world</p>
+<p>in terms of alleviating suffering.</p>
+<p>If you look at natural language processing,</p>
+<p>you&rsquo;re focused on the outcomes of improving practical things</p>
+<p>like machine translation.</p>
+<p>But human level intelligence is a thing</p>
+<p>that our civilization has dreamed about creating,</p>
+<p>super human level intelligence.</p>
+<p>Do you think about this?</p>
+<p>Do you think it&rsquo;s at all within our reach?</p>
+<p>So as you said yourself, Elie,</p>
+<p>talking about how do you perceive</p>
+<p>our communications with each other,</p>
+<p>that we&rsquo;re matching keywords and certain behaviors</p>
+<p>and so on.</p>
+<p>So at the end, whenever one assesses,</p>
+<p>let&rsquo;s say relations with another person,</p>
+<p>you have separate kind of measurements and outcomes</p>
+<p>inside your head that determine</p>
+<p>what is the status of the relation.</p>
+<p>So one way, this is this classical level,</p>
+<p>what is the intelligence?</p>
+<p>Is it the fact that now we are gonna do the same way</p>
+<p>as human is doing,</p>
+<p>when we don&rsquo;t even understand what the human is doing?</p>
+<p>Or we now have an ability to deliver these outcomes,</p>
+<p>but not in one area, not in NLP,</p>
+<p>not just to translate or just to answer questions,</p>
+<p>but across many, many areas</p>
+<p>that we can achieve the functionalities</p>
+<p>that humans can achieve with their ability to learn</p>
+<p>and do other things.</p>
+<p>I think this is, and this we can actually measure</p>
+<p>how far we are.</p>
+<p>And that&rsquo;s what makes me excited that we,</p>
+<p>in my lifetime, at least so far what we&rsquo;ve seen,</p>
+<p>it&rsquo;s like tremendous progress</p>
+<p>across these different functionalities.</p>
+<p>And I think it will be really exciting</p>
+<p>to see where we will be.</p>
+<p>And again, one way to think about it,</p>
+<p>there are machines which are improving their functionality.</p>
+<p>Another one is to think about us with our brains,</p>
+<p>which are imperfect,</p>
+<p>how they can be accelerated by this technology</p>
+<p>as it becomes stronger and stronger.</p>
+<p>Coming back to another book</p>
+<p>that I love, Flowers for Algernon.</p>
+<p>Have you read this book?</p>
+<p>Yes.</p>
+<p>So there is this point that the patient gets</p>
+<p>this miracle cure, which changes his brain.</p>
+<p>And all of a sudden they see life in a different way</p>
+<p>and can do certain things better,</p>
+<p>but certain things much worse.</p>
+<p>So you can imagine this kind of computer augmented cognition</p>
+<p>where it can bring you that now in the same way</p>
+<p>as the cars enable us to get to places</p>
+<p>where we&rsquo;ve never been before,</p>
+<p>can we think differently?</p>
+<p>Can we think faster?</p>
+<p>And we already see a lot of it happening</p>
+<p>in how it impacts us,</p>
+<p>but I think we have a long way to go there.</p>
+<p>So that&rsquo;s sort of artificial intelligence</p>
+<p>and technology affecting our,</p>
+<p>augmenting our intelligence as humans.</p>
+<p>Yesterday, a company called Neuralink announced,</p>
+<p>they did this whole demonstration.</p>
+<p>I don&rsquo;t know if you saw it.</p>
+<p>It&rsquo;s, they demonstrated brain computer,</p>
+<p>brain machine interface,</p>
+<p>where there&rsquo;s like a sewing machine for the brain.</p>
+<p>Do you, you know, a lot of that is quite out there</p>
+<p>in terms of things that some people would say</p>
+<p>are impossible, but they&rsquo;re dreamers</p>
+<p>and want to engineer systems like that.</p>
+<p>Do you see, based on what you just said,</p>
+<p>a hope for that more direct interaction with the brain?</p>
+<p>I think there are different ways.</p>
+<p>One is a direct interaction with the brain.</p>
+<p>And again, there are lots of companies</p>
+<p>that work in this space</p>
+<p>and I think there will be a lot of developments.</p>
+<p>But I&rsquo;m just thinking that many times</p>
+<p>we are not aware of our feelings,</p>
+<p>of motivation, what drives us.</p>
+<p>Like, let me give you a trivial example, our attention.</p>
+<p>There are a lot of studies that demonstrate</p>
+<p>that it takes a while to a person to understand</p>
+<p>that they are not attentive anymore.</p>
+<p>And we know that there are people</p>
+<p>who really have strong capacity to hold attention.</p>
+<p>There are other end of the spectrum people with ADD</p>
+<p>and other issues that they have problem</p>
+<p>to regulate their attention.</p>
+<p>Imagine to yourself that you have like a cognitive aid</p>
+<p>that just alerts you based on your gaze,</p>
+<p>that your attention is now not on what you are doing.</p>
+<p>And instead of writing a paper,</p>
+<p>you&rsquo;re now dreaming of what you&rsquo;re gonna do in the evening.</p>
+<p>So even this kind of simple measurement things,</p>
+<p>how they can change us.</p>
+<p>And I see it even in simple ways with myself.</p>
+<p>I have my zone app that I got in MIT gym.</p>
+<p>It kind of records, you know, how much did you run</p>
+<p>and you have some points</p>
+<p>and you can get some status, whatever.</p>
+<p>Like, I said, what is this ridiculous thing?</p>
+<p>Who would ever care about some status in some app?</p>
+<p>Guess what?</p>
+<p>So to maintain the status,</p>
+<p>you have to do set a number of points every month.</p>
+<p>And not only is that I do it every single month</p>
+<p>for the last 18 months,</p>
+<p>it went to the point that I was injured.</p>
+<p>And when I could run again,</p>
+<p>in two days, I did like some humongous amount of running</p>
+<p>just to complete the points.</p>
+<p>It was like really not safe.</p>
+<p>It was like, I&rsquo;m not gonna lose my status</p>
+<p>because I want to get there.</p>
+<p>So you can already see that this direct measurement</p>
+<p>and the feedback is, you know,</p>
+<p>we&rsquo;re looking at video games</p>
+<p>and see why, you know, the addiction aspect of it,</p>
+<p>but you can imagine that the same idea can be expanded</p>
+<p>to many other areas of our life.</p>
+<p>When we really can get feedback</p>
+<p>and imagine in your case in relations,</p>
+<p>when we are doing keyword matching,</p>
+<p>imagine that the person who is generating the keywords,</p>
+<p>that person gets direct feedback</p>
+<p>before the whole thing explodes.</p>
+<p>Is it maybe at this happy point,</p>
+<p>we are going in the wrong direction.</p>
+<p>Maybe it will be really a behavior modifying moment.</p>
+<p>So yeah, it&rsquo;s a relationship management too.</p>
+<p>So yeah, that&rsquo;s a fascinating whole area</p>
+<p>of psychology actually as well,</p>
+<p>of seeing how our behavior has changed</p>
+<p>with basically all human relations now have</p>
+<p>other nonhuman entities helping us out.</p>
+<p>So you teach a large,</p>
+<p>a huge machine learning course here at MIT.</p>
+<p>I can ask you a million questions,</p>
+<p>but you&rsquo;ve seen a lot of students.</p>
+<p>What ideas do students struggle with the most</p>
+<p>as they first enter this world of machine learning?</p>
+<p>Actually, this year was the first time</p>
+<p>I started teaching a small machine learning class.</p>
+<p>And it came as a result of what I saw</p>
+<p>in my big machine learning class that Tomi Yakel and I built</p>
+<p>maybe six years ago.</p>
+<p>What we&rsquo;ve seen that as this area become more</p>
+<p>and more popular, more and more people at MIT</p>
+<p>want to take this class.</p>
+<p>And while we designed it for computer science majors,</p>
+<p>there were a lot of people who really are interested</p>
+<p>to learn it, but unfortunately,</p>
+<p>their background was not enabling them</p>
+<p>to do well in the class.</p>
+<p>And many of them associated machine learning</p>
+<p>with the word struggle and failure,</p>
+<p>primarily for non majors.</p>
+<p>And that&rsquo;s why we actually started a new class</p>
+<p>which we call machine learning from algorithms to modeling,</p>
+<p>which emphasizes more the modeling aspects of it</p>
+<p>and focuses on, it has majors and non majors.</p>
+<p>So we kind of try to extract the relevant parts</p>
+<p>and make it more accessible,</p>
+<p>because the fact that we&rsquo;re teaching 20 classifiers</p>
+<p>in standard machine learning class,</p>
+<p>it&rsquo;s really a big question to really need it.</p>
+<p>But it was interesting to see this</p>
+<p>from first generation of students,</p>
+<p>when they came back from their internships</p>
+<p>and from their jobs,</p>
+<p>what different and exciting things they can do.</p>
+<p>I would never think that you can even apply</p>
+<p>machine learning to, some of them are like matching,</p>
+<p>the relations and other things like variety.</p>
+<p>Everything is amenable as the machine learning.</p>
+<p>That actually brings up an interesting point</p>
+<p>of computer science in general.</p>
+<p>It almost seems, maybe I&rsquo;m crazy,</p>
+<p>but it almost seems like everybody needs to learn</p>
+<p>how to program these days.</p>
+<p>If you&rsquo;re 20 years old, or if you&rsquo;re starting school,</p>
+<p>even if you&rsquo;re an English major,</p>
+<p>it seems like programming unlocks so much possibility</p>
+<p>in this world.</p>
+<p>So when you interacted with those non majors,</p>
+<p>is there skills that they were simply lacking at the time</p>
+<p>that you wish they had and that they learned</p>
+<p>in high school and so on?</p>
+<p>Like how should education change</p>
+<p>in this computerized world that we live in?</p>
+<p>I think because I knew that there is a Python component</p>
+<p>in the class, their Python skills were okay</p>
+<p>and the class isn&rsquo;t really heavy on programming.</p>
+<p>They primarily kind of add parts to the programs.</p>
+<p>I think it was more of the mathematical barriers</p>
+<p>and the class, again, with the design on the majors</p>
+<p>was using the notation, like big O for complexity</p>
+<p>and others, people who come from different backgrounds</p>
+<p>just don&rsquo;t have it in the lexical,</p>
+<p>so necessarily very challenging notion,</p>
+<p>but they were just not aware.</p>
+<p>So I think that kind of linear algebra and probability,</p>
+<p>the basics, the calculus, multivariate calculus,</p>
+<p>things that can help.</p>
+<p>What advice would you give to students</p>
+<p>interested in machine learning,</p>
+<p>interested, you&rsquo;ve talked about detecting,</p>
+<p>curing cancer, drug design,</p>
+<p>if they want to get into that field, what should they do?</p>
+<p>Get into it and succeed as researchers</p>
+<p>and entrepreneurs.</p>
+<p>The first good piece of news is that right now</p>
+<p>there are lots of resources</p>
+<p>that are created at different levels</p>
+<p>and you can find online in your school classes</p>
+<p>which are more mathematical, more applied and so on.</p>
+<p>So you can find a kind of a preacher</p>
+<p>which preaches in your own language</p>
+<p>where you can enter the field</p>
+<p>and you can make many different types of contribution</p>
+<p>depending of what is your strengths.</p>
+<p>And the second point, I think it&rsquo;s really important</p>
+<p>to find some area which you really care about</p>
+<p>and it can motivate your learning</p>
+<p>and it can be for somebody curing cancer</p>
+<p>or doing self driving cars or whatever,</p>
+<p>but to find an area where there is data</p>
+<p>where you believe there are strong patterns</p>
+<p>and we should be doing it and we&rsquo;re still not doing it</p>
+<p>or you can do it better</p>
+<p>and just start there and see where it can bring you.</p>
+<p>So you&rsquo;ve been very successful in many directions in life,</p>
+<p>but you also mentioned Flowers of Argonon.</p>
+<p>And I think I&rsquo;ve read or listened to you mention somewhere</p>
+<p>that researchers often get lost</p>
+<p>in the details of their work.</p>
+<p>This is per our original discussion with cancer and so on</p>
+<p>and don&rsquo;t look at the bigger picture,</p>
+<p>bigger questions of meaning and so on.</p>
+<p>So let me ask you the impossible question</p>
+<p>of what&rsquo;s the meaning of this thing,</p>
+<p>of life, of your life, of research.</p>
+<p>Why do you think we descendant of great apes</p>
+<p>are here on this spinning ball?</p>
+<p>You know, I don&rsquo;t think that I have really a global answer.</p>
+<p>You know, maybe that&rsquo;s why I didn&rsquo;t go to humanities</p>
+<p>and I didn&rsquo;t take humanities classes in my undergrad.</p>
+<p>But the way I&rsquo;m thinking about it,</p>
+<p>each one of us inside of them have their own set of,</p>
+<p>you know, things that we believe are important.</p>
+<p>And it just happens that we are busy</p>
+<p>with achieving various goals, busy listening to others</p>
+<p>and to kind of try to conform and to be part of the crowd,</p>
+<p>that we don&rsquo;t listen to that part.</p>
+<p>And, you know, we all should find some time to understand</p>
+<p>what is our own individual missions.</p>
+<p>And we may have very different missions</p>
+<p>and to make sure that while we are running 10,000 things,</p>
+<p>we are not, you know, missing out</p>
+<p>and we&rsquo;re putting all the resources to satisfy</p>
+<p>our own mission.</p>
+<p>And if I look over my time, when I was younger,</p>
+<p>most of these missions, you know,</p>
+<p>I was primarily driven by the external stimulus,</p>
+<p>you know, to achieve this or to be that.</p>
+<p>And now a lot of what I do is driven by really thinking</p>
+<p>what is important for me to achieve independently</p>
+<p>of the external recognition.</p>
+<p>And, you know, I don&rsquo;t mind to be viewed in certain ways.</p>
+<p>The most important thing for me is to be true to myself,</p>
+<p>to what I think is right.</p>
+<p>How long did it take?</p>
+<p>How hard was it to find the you that you have to be true to?</p>
+<p>So it takes time.</p>
+<p>And even now, sometimes, you know,</p>
+<p>the vanity and the triviality can take, you know.</p>
+<p>At MIT.</p>
+<p>Yeah, it can everywhere, you know,</p>
+<p>it&rsquo;s just the vanity at MIT is different,</p>
+<p>the vanity in different places,</p>
+<p>but we all have our piece of vanity.</p>
+<p>But I think actually for me, many times the place</p>
+<p>to get back to it is, you know, when I&rsquo;m alone</p>
+<p>and also when I read.</p>
+<p>And I think by selecting the right books,</p>
+<p>you can get the right questions and learn from what you read.</p>
+<p>So, but again, it&rsquo;s not perfect.</p>
+<p>Like vanity sometimes dominates.</p>
+<p>Well, that&rsquo;s a beautiful way to end.</p>
+<p>Thank you so much for talking today.</p>
+<p>Thank you.</p>
+<p>That was fun.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

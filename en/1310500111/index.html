@@ -1,0 +1,2894 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Richard Karp,
+a professor at Berkeley and one of the most important figures
+in the history of theoretical computer science.
+In 1985, he received the Turing Award
+for his research in the theory of algorithms,
+including the development of the Admirons Karp algorithm
+for solving the max flow problem on networks,
+Hopcroft Karp algorithm for finding maximum cardinality
+matchings in bipartite graphs,
+and his landmark paper in complexity theory'>
+<title>Lex Fridman Podcast - #111 - Richard Karp: Algorithms and Computational Complexity | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500111/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #111 - Richard Karp: Algorithms and Computational Complexity'>
+<meta property='og:description' content='The following is a conversation with Richard Karp,
+a professor at Berkeley and one of the most important figures
+in the history of theoretical computer science.
+In 1985, he received the Turing Award
+for his research in the theory of algorithms,
+including the development of the Admirons Karp algorithm
+for solving the max flow problem on networks,
+Hopcroft Karp algorithm for finding maximum cardinality
+matchings in bipartite graphs,
+and his landmark paper in complexity theory'>
+<meta property='og:url' content='https://swiest.com/en/1310500111/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-06-19T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-06-19T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #111 - Richard Karp: Algorithms and Computational Complexity">
+<meta name="twitter:description" content="The following is a conversation with Richard Karp,
+a professor at Berkeley and one of the most important figures
+in the history of theoretical computer science.
+In 1985, he received the Turing Award
+for his research in the theory of algorithms,
+including the development of the Admirons Karp algorithm
+for solving the max flow problem on networks,
+Hopcroft Karp algorithm for finding maximum cardinality
+matchings in bipartite graphs,
+and his landmark paper in complexity theory">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500111/">Lex Fridman Podcast - #111 - Richard Karp: Algorithms and Computational Complexity</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-19</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    74 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Richard Karp,</p>
+<p>a professor at Berkeley and one of the most important figures</p>
+<p>in the history of theoretical computer science.</p>
+<p>In 1985, he received the Turing Award</p>
+<p>for his research in the theory of algorithms,</p>
+<p>including the development of the Admirons Karp algorithm</p>
+<p>for solving the max flow problem on networks,</p>
+<p>Hopcroft Karp algorithm for finding maximum cardinality</p>
+<p>matchings in bipartite graphs,</p>
+<p>and his landmark paper in complexity theory</p>
+<p>called Reduceability Among Combinatorial Problems,</p>
+<p>in which he proved 21 problems to be NP complete.</p>
+<p>This paper was probably the most important catalyst</p>
+<p>in the explosion of interest in the study of NP completeness</p>
+<p>and the P versus NP problem in general.</p>
+<p>Quick summary of the ads.</p>
+<p>Two sponsors, 8sleep mattress and Cash App.</p>
+<p>Please consider supporting this podcast</p>
+<p>by going to 8sleep.com slash Lex</p>
+<p>and downloading Cash App and using code LexPodcast.</p>
+<p>Click the links, buy the stuff.</p>
+<p>It really is the best way to support this podcast.</p>
+<p>If you enjoy this thing, subscribe on YouTube,</p>
+<p>review it with five stars on Apple Podcast,</p>
+<p>support it on Patreon,</p>
+<p>or connect with me on Twitter at Lex Friedman.</p>
+<p>As usual, I&rsquo;ll do a few minutes of ads now</p>
+<p>and never any ads in the middle</p>
+<p>that can break the flow of the conversation.</p>
+<p>This show is sponsored by 8sleep and its Pod Pro mattress</p>
+<p>that you can check out at 8sleep.com slash Lex</p>
+<p>to get $200 off.</p>
+<p>It controls temperature with an app.</p>
+<p>It can cool down to as low as 55 degrees</p>
+<p>on each side of the bed separately.</p>
+<p>Research shows that temperature has a big impact</p>
+<p>on the quality of our sleep.</p>
+<p>Anecdotally, it&rsquo;s been a game changer for me.</p>
+<p>I love it.</p>
+<p>It&rsquo;s been a couple of weeks now.</p>
+<p>I&rsquo;ve just been really enjoying it,</p>
+<p>both in the fact that I&rsquo;m getting better sleep</p>
+<p>and that it&rsquo;s a smart mattress, essentially.</p>
+<p>I kind of imagine this being the early days</p>
+<p>of artificial intelligence being a part</p>
+<p>of every aspect of our lives.</p>
+<p>And certainly infusing AI in one of the most important</p>
+<p>aspects of life, which is sleep,</p>
+<p>I think has a lot of potential for being beneficial.</p>
+<p>The Pod Pro is packed with sensors that track heart rate,</p>
+<p>heart rate variability, and respiratory rate,</p>
+<p>showing it all in their app.</p>
+<p>The app&rsquo;s health metrics are amazing,</p>
+<p>but the cooling alone is honestly worth the money.</p>
+<p>I don&rsquo;t always sleep, but when I do,</p>
+<p>I choose the 8th Sleep Pod Pro mattress.</p>
+<p>Check it out at 8thSleep.com slash Lex to get $200 off.</p>
+<p>And remember, just visiting the site</p>
+<p>and considering the purchase helps convince the folks</p>
+<p>at 8th Sleep that this silly old podcast</p>
+<p>is worth sponsoring in the future.</p>
+<p>This show is also presented by the great</p>
+<p>and powerful Cash App,</p>
+<p>the number one finance app in the App Store.</p>
+<p>When you get it, use code LEXPODCAST.</p>
+<p>Cash App lets you send money to friends,</p>
+<p>buy Bitcoin, and invest in the stock market</p>
+<p>with as little as $1.</p>
+<p>It&rsquo;s one of the best designed interfaces</p>
+<p>of an app that I&rsquo;ve ever used.</p>
+<p>To me, good design is when everything is easy and natural.</p>
+<p>Bad design is when the app gets in the way,</p>
+<p>either because it&rsquo;s buggy,</p>
+<p>or because it tries too hard to be helpful.</p>
+<p>I&rsquo;m looking at you, Clippy, from Microsoft,</p>
+<p>even though I love you.</p>
+<p>Anyway, there&rsquo;s a big part of my brain and heart</p>
+<p>that loves to design things</p>
+<p>and also to appreciate great design by others.</p>
+<p>So again, if you get Cash App from the App Store</p>
+<p>or Google Play and use the code LEXPODCAST,</p>
+<p>you get $10, and Cash App will also donate $10 to FIRST,</p>
+<p>an organization that is helping to advance</p>
+<p>robotics and STEM education</p>
+<p>for young people around the world.</p>
+<p>And now, here&rsquo;s my conversation with Richard Karp.</p>
+<p>You wrote that at the age of 13,</p>
+<p>you were first exposed to plane geometry</p>
+<p>and was wonderstruck by the power and elegance</p>
+<p>of form of proofs.</p>
+<p>Are there problems, proofs, properties, ideas</p>
+<p>in plane geometry that from that time</p>
+<p>that you remember being mesmerized by</p>
+<p>or just enjoying to go through to prove various aspects?</p>
+<p>So Michael Rabin told me this story</p>
+<p>about an experience he had when he was a young student</p>
+<p>who was tossed out of his classroom for bad behavior</p>
+<p>and was wandering through the corridors of his school</p>
+<p>and came upon two older students</p>
+<p>who were studying the problem of finding</p>
+<p>the shortest distance between two nonoverlapping circles.</p>
+<p>And Michael thought about it and said,</p>
+<p>you take the straight line between the two centers</p>
+<p>and the segment between the two circles is the shortest</p>
+<p>because a straight line is the shortest distance</p>
+<p>between the two centers.</p>
+<p>And any other line connecting the circles</p>
+<p>would be on a longer line.</p>
+<p>And I thought, and he thought, and I agreed</p>
+<p>that this was just elegance, the pure reasoning</p>
+<p>could come up with such a result.</p>
+<p>Certainly the shortest distance</p>
+<p>from the two centers of the circles is a straight line.</p>
+<p>Could you once again say what&rsquo;s the next step in that proof?</p>
+<p>Well, any segment joining the two circles,</p>
+<p>if you extend it by taking the radius on each side,</p>
+<p>you get a path with three edges</p>
+<p>which connects the two centers.</p>
+<p>And this has to be at least as long as the shortest path,</p>
+<p>which is the straight line.</p>
+<p>The straight line, yeah.</p>
+<p>Wow, yeah, that&rsquo;s quite simple.</p>
+<p>So what is it about that elegance</p>
+<p>that you just find compelling?</p>
+<p>Well, just that you could establish a fact</p>
+<p>about geometry beyond dispute by pure reasoning.</p>
+<p>I also enjoy the challenge of solving puzzles</p>
+<p>in plain geometry.</p>
+<p>It was much more fun than the earlier mathematics courses</p>
+<p>which were mostly about arithmetic operations</p>
+<p>and manipulating them.</p>
+<p>Was there something about geometry itself,</p>
+<p>the slightly visual component of it?</p>
+<p>Oh, yes, absolutely,</p>
+<p>although I lacked three dimensional vision.</p>
+<p>I wasn&rsquo;t very good at three dimensional vision.</p>
+<p>You mean being able to visualize three dimensional objects?</p>
+<p>Three dimensional objects or surfaces,</p>
+<p>hyperplanes and so on.</p>
+<p>So there I didn&rsquo;t have an intuition.</p>
+<p>But for example, the fact that the sum of the angles</p>
+<p>of a triangle is 180 degrees is proved convincingly.</p>
+<p>And it comes as a surprise that that can be done.</p>
+<p>Why is that surprising?</p>
+<p>Well, it is a surprising idea, I suppose.</p>
+<p>Why is that proved difficult?</p>
+<p>It&rsquo;s not, that&rsquo;s the point.</p>
+<p>It&rsquo;s so easy and yet it&rsquo;s so convincing.</p>
+<p>Do you remember what is the proof that it adds up to 180?</p>
+<p>You start at a corner and draw a line</p>
+<p>parallel to the opposite side.</p>
+<p>And that line sort of trisects the angle</p>
+<p>between the other two sides.</p>
+<p>And you get a half plane which has to add up to 180 degrees.</p>
+<p>It has to add up to 180 degrees and it consists</p>
+<p>in the angles by the equality of alternate angles.</p>
+<p>What&rsquo;s it called?</p>
+<p>You get a correspondence between the angles</p>
+<p>created along the side of the triangle</p>
+<p>and the three angles of the triangle.</p>
+<p>Has geometry had an impact on when you look into the future</p>
+<p>of your work with combinatorial algorithms?</p>
+<p>Has it had some kind of impact in terms of, yeah,</p>
+<p>being able, the puzzles, the visual aspects</p>
+<p>that were first so compelling to you?</p>
+<p>Not Euclidean geometry particularly.</p>
+<p>I think I use tools like linear programming</p>
+<p>and integer programming a lot.</p>
+<p>But those require high dimensional visualization</p>
+<p>and so I tend to go by the algebraic properties.</p>
+<p>Right, you go by the linear algebra</p>
+<p>and not by the visualization.</p>
+<p>Well, the interpretation in terms of, for example,</p>
+<p>finding the highest point on a polyhedron</p>
+<p>as in linear programming is motivating.</p>
+<p>But again, I don&rsquo;t have the high dimensional intuition</p>
+<p>that would particularly inform me</p>
+<p>so I sort of lean on the algebra.</p>
+<p>So to linger on that point,</p>
+<p>what kind of visualization do you do</p>
+<p>when you&rsquo;re trying to think about,</p>
+<p>we&rsquo;ll get to combinatorial algorithms,</p>
+<p>but just algorithms in general.</p>
+<p>Yeah.</p>
+<p>What&rsquo;s inside your mind</p>
+<p>when you&rsquo;re thinking about designing algorithms?</p>
+<p>Or even just tackling any mathematical problem?</p>
+<p>Well, I think that usually an algorithm</p>
+<p>involves a repetition of some inner loop</p>
+<p>and so I can sort of visualize the distance</p>
+<p>from the desired solution as iteratively reducing</p>
+<p>until you finally hit the exact solution.</p>
+<p>And try to take steps that get you closer to the.</p>
+<p>Try to take steps that get closer</p>
+<p>and having the certainty of converging.</p>
+<p>So it&rsquo;s basically the mechanics of the algorithm</p>
+<p>is often very simple,</p>
+<p>but especially when you&rsquo;re trying something out</p>
+<p>on the computer.</p>
+<p>So for example, I did some work</p>
+<p>on the traveling salesman problem</p>
+<p>and I could see there was a particular function</p>
+<p>that had to be minimized</p>
+<p>and it was fascinating to see the successive approaches</p>
+<p>to the minimum, to the optimum.</p>
+<p>You mean, so first of all,</p>
+<p>traveling salesman problem is where you have to visit</p>
+<p>every city without ever, the only ones.</p>
+<p>Yeah, that&rsquo;s right.</p>
+<p>Find the shortest path through a set of cities.</p>
+<p>Yeah, which is sort of a canonical standard,</p>
+<p>a really nice problem that&rsquo;s really hard.</p>
+<p>Right, exactly, yes.</p>
+<p>So can you say again what was nice</p>
+<p>about being able to think about the objective function there</p>
+<p>and maximizing it or minimizing it?</p>
+<p>Well, just that as the algorithm proceeded,</p>
+<p>you were making progress, continual progress,</p>
+<p>and eventually getting to the optimum point.</p>
+<p>So there&rsquo;s two parts, maybe.</p>
+<p>Maybe you can correct me.</p>
+<p>First is like getting an intuition</p>
+<p>about what the solution would look like</p>
+<p>and or even maybe coming up with a solution</p>
+<p>and two is proving that this thing</p>
+<p>is actually going to be pretty good.</p>
+<p>What part is harder for you?</p>
+<p>Where&rsquo;s the magic happen?</p>
+<p>Is it in the first sets of intuitions</p>
+<p>or is it in the messy details of actually showing</p>
+<p>that it is going to get to the exact solution</p>
+<p>and it&rsquo;s gonna run at a certain complexity?</p>
+<p>Well, the magic is just the fact</p>
+<p>that the gap from the optimum decreases monotonically</p>
+<p>and you can see it happening</p>
+<p>and various metrics of what&rsquo;s going on</p>
+<p>are improving all along until finally you hit the optimum.</p>
+<p>Perhaps later we&rsquo;ll talk about the assignment problem</p>
+<p>and I can illustrate.</p>
+<p>It illustrates a little better.</p>
+<p>Now zooming out again, as you write,</p>
+<p>Don Knuth has called attention to a breed of people</p>
+<p>who derive great aesthetic pleasure</p>
+<p>from contemplating the structure of computational processes.</p>
+<p>So Don calls these folks geeks</p>
+<p>and you write that you remember the moment</p>
+<p>you realized you were such a person,</p>
+<p>you were shown the Hungarian algorithm</p>
+<p>to solve the assignment problem.</p>
+<p>So perhaps you can explain what the assignment problem is</p>
+<p>and what the Hungarian algorithm is.</p>
+<p>So in the assignment problem,</p>
+<p>you have n boys and n girls</p>
+<p>and you are given the desirability of,</p>
+<p>or the cost of matching the ith boy</p>
+<p>with the jth girl for all i and j.</p>
+<p>You&rsquo;re given a matrix of numbers</p>
+<p>and you want to find the one to one matching</p>
+<p>of the boys with the girls</p>
+<p>such that the sum of the associated costs will be minimized.</p>
+<p>So the best way to match the boys with the girls</p>
+<p>or men with jobs or any two sets.</p>
+<p>Any possible matching is possible or?</p>
+<p>Yeah, all one to one correspondences are permissible.</p>
+<p>If there is a connection that is not allowed,</p>
+<p>then you can think of it as having an infinite cost.</p>
+<p>I see, yeah.</p>
+<p>So what you do is to depend on the observation</p>
+<p>that the identity of the optimal assignment</p>
+<p>or as we call it, the optimal permutation</p>
+<p>is not changed if you subtract a constant</p>
+<p>from any row or column of the matrix.</p>
+<p>You can see that the comparison</p>
+<p>between the different assignments is not changed by that.</p>
+<p>Because if you decrease a particular row,</p>
+<p>all the elements of a row by some constant,</p>
+<p>all solutions decrease by an amount equal to that constant.</p>
+<p>So the idea of the algorithm is to start with a matrix</p>
+<p>of non negative numbers and keep subtracting</p>
+<p>from rows or from columns.</p>
+<p>Subtracting from rows or entire columns</p>
+<p>in such a way that you subtract the same constant</p>
+<p>from all the elements of that row or column</p>
+<p>while maintaining the property</p>
+<p>that all the elements are non negative.</p>
+<p>Simple.</p>
+<p>Yeah, and so what you have to do</p>
+<p>is find small moves which will decrease the total cost</p>
+<p>while subtracting constants from rows or columns.</p>
+<p>And there&rsquo;s a particular way of doing that</p>
+<p>by computing the kind of shortest path</p>
+<p>through the elements in the matrix.</p>
+<p>And you just keep going in this way</p>
+<p>until you finally get a full permutation of zeros</p>
+<p>while the matrix is non negative</p>
+<p>and then you know that that has to be the cheapest.</p>
+<p>Is that as simple as it sounds?</p>
+<p>So the shortest path of the matrix part.</p>
+<p>Yeah, the simplicity lies in how you find,</p>
+<p>I oversimplified slightly what you,</p>
+<p>you will end up subtracting a constant</p>
+<p>from some rows or columns</p>
+<p>and adding the same constant back to other rows and columns.</p>
+<p>So as not to reduce any of the zero elements,</p>
+<p>you leave them unchanged.</p>
+<p>But each individual step modifies several rows and columns</p>
+<p>by the same amount but overall decreases the cost.</p>
+<p>So there&rsquo;s something about that elegance</p>
+<p>that made you go aha, this is a beautiful,</p>
+<p>like it&rsquo;s amazing that something like this,</p>
+<p>something so simple can solve a problem like this.</p>
+<p>Yeah, it&rsquo;s really cool.</p>
+<p>If I had mechanical ability,</p>
+<p>I would probably like to do woodworking</p>
+<p>or other activities where you sort of shape something</p>
+<p>into something beautiful and orderly</p>
+<p>and there&rsquo;s something about the orderly systematic nature</p>
+<p>of that iterative algorithm that is pleasing to me.</p>
+<p>So what do you think about this idea of geeks</p>
+<p>as Don Knuth calls them?</p>
+<p>What do you think, is it something specific to a mindset</p>
+<p>that allows you to discover the elegance</p>
+<p>in computational processes or is this all of us,</p>
+<p>can all of us discover this beauty?</p>
+<p>Were you born this way?</p>
+<p>I think so.</p>
+<p>I always like to play with numbers.</p>
+<p>I used to amuse myself by multiplying</p>
+<p>by multiplying four digit decimal numbers in my head</p>
+<p>and putting myself to sleep by starting with one</p>
+<p>and doubling the number as long as I could go</p>
+<p>and testing my memory, my ability to retain the information.</p>
+<p>And I also read somewhere that you wrote</p>
+<p>that you enjoyed showing off to your friends</p>
+<p>by I believe multiplying four digit numbers.</p>
+<p>Right.</p>
+<p>Four digit numbers.</p>
+<p>Yeah, I had a summer job at a beach resort</p>
+<p>outside of Boston and the other employee,</p>
+<p>I was the barker at a skee ball game.</p>
+<p>Yeah.</p>
+<p>I used to sit at a microphone saying come one,</p>
+<p>come all, come in and play skee ball,</p>
+<p>five cents to play, a nickel to win and so on.</p>
+<p>That&rsquo;s what a barker, I wasn&rsquo;t sure if I should know</p>
+<p>but barker, that&rsquo;s, so you&rsquo;re the charming,</p>
+<p>outgoing person that&rsquo;s getting people to come in.</p>
+<p>Yeah, well I wasn&rsquo;t particularly charming</p>
+<p>but I could be very repetitious and loud.</p>
+<p>And the other employees were sort of juvenile delinquents</p>
+<p>who had no academic bent but somehow I found</p>
+<p>that I could impress them by performing</p>
+<p>this mental arithmetic.</p>
+<p>Yeah, there&rsquo;s something to that.</p>
+<p>Some of the most popular videos on the internet</p>
+<p>is there&rsquo;s a YouTube channel called Numberphile</p>
+<p>that shows off different mathematical ideas.</p>
+<p>I see.</p>
+<p>There&rsquo;s still something really profoundly interesting</p>
+<p>to people about math, the beauty of it.</p>
+<p>Something, even if they don&rsquo;t understand</p>
+<p>the basic concept even being discussed,</p>
+<p>there&rsquo;s something compelling to it.</p>
+<p>What do you think that is?</p>
+<p>Any lessons you drew from your early teen years</p>
+<p>when you were showing off to your friends with the numbers?</p>
+<p>Like what is it that attracts us</p>
+<p>to the beauty of mathematics do you think?</p>
+<p>The general population, not just the computer scientists</p>
+<p>and mathematicians.</p>
+<p>I think that you can do amazing things.</p>
+<p>You can test whether large numbers are prime.</p>
+<p>You can solve little puzzles</p>
+<p>about cannibals and missionaries.</p>
+<p>And that&rsquo;s a kind of achievement, it&rsquo;s puzzle solving.</p>
+<p>And at a higher level, the fact that you can do</p>
+<p>this reasoning that you can prove</p>
+<p>in an absolutely ironclad way that some of the angles</p>
+<p>of a triangle is 180 degrees.</p>
+<p>Yeah, it&rsquo;s a nice escape from the messiness</p>
+<p>of the real world where nothing can be proved.</p>
+<p>So, and we&rsquo;ll talk about it, but sometimes the ability</p>
+<p>to map the real world into such problems</p>
+<p>where you can&rsquo;t prove it is a powerful step.</p>
+<p>Yeah.</p>
+<p>It&rsquo;s amazing that we can do it.</p>
+<p>Of course, another attribute of geeks</p>
+<p>is they&rsquo;re not necessarily endowed</p>
+<p>with emotional intelligence, so they can live</p>
+<p>in a world of abstractions without having</p>
+<p>to master the complexities of dealing with people.</p>
+<p>So just to link on the historical note,</p>
+<p>as a PhD student in 1955, you joined the computational lab</p>
+<p>at Harvard where Howard Aiken had built the Mark I</p>
+<p>and the Mark IV computers.</p>
+<p>Just to take a step back into that history,</p>
+<p>what were those computers like?</p>
+<p>The Mark IV filled a large room,</p>
+<p>much bigger than this large office</p>
+<p>that we were talking in now.</p>
+<p>And you could walk around inside it.</p>
+<p>There were rows of relays.</p>
+<p>You could just walk around the interior</p>
+<p>and the machine would sometimes fail because of bugs,</p>
+<p>which literally meant flying creatures</p>
+<p>landing on the switches.</p>
+<p>So I never used that machine for any practical purpose.</p>
+<p>The lab eventually acquired one of the earlier</p>
+<p>commercial computers.</p>
+<p>And this was already in the 60s?</p>
+<p>No, in the mid 50s, or late 50s.</p>
+<p>There was already commercial computers in the&hellip;</p>
+<p>Yeah, we had a Univac, a Univac with 2,000 words of storage.</p>
+<p>And so you had to work hard to allocate the memory properly</p>
+<p>to also the excess time from one word to another</p>
+<p>depended on the number of the particular words.</p>
+<p>And so there was an art to sort of arranging</p>
+<p>the storage allocation to make fetching data rapid.</p>
+<p>Were you attracted to this actual physical world</p>
+<p>implementation of mathematics?</p>
+<p>So it&rsquo;s a mathematical machine that&rsquo;s actually doing</p>
+<p>the math physically?</p>
+<p>No, not at all.</p>
+<p>I think I was attracted to the underlying algorithms.</p>
+<p>But did you draw any inspiration?</p>
+<p>So could you have imagined, like what did you imagine</p>
+<p>was the future of these giant computers?</p>
+<p>Could you have imagined that 60 years later</p>
+<p>we&rsquo;d have billions of these computers all over the world?</p>
+<p>I couldn&rsquo;t imagine that, but there was a sense</p>
+<p>in the laboratory that this was the wave of the future.</p>
+<p>In fact, my mother influenced me.</p>
+<p>She told me that data processing was gonna be really big</p>
+<p>and I should get into it.</p>
+<p>You&rsquo;re a smart woman.</p>
+<p>Yeah, she was a smart woman.</p>
+<p>And there was just a feeling that this was going</p>
+<p>to change the world, but I didn&rsquo;t think of it</p>
+<p>in terms of personal computing.</p>
+<p>I had no anticipation that we would be walking around</p>
+<p>with computers in our pockets or anything like that.</p>
+<p>Did you see computers as tools, as mathematical mechanisms</p>
+<p>to analyze sort of the theoretical computer science,</p>
+<p>or as the AI folks, which is an entire other community</p>
+<p>of dreamers, as something that could one day</p>
+<p>have human level intelligence?</p>
+<p>Well, AI wasn&rsquo;t very much on my radar.</p>
+<p>I did read Turing&rsquo;s paper about the&hellip;</p>
+<p>The Turing Test, Computing and Intelligence.</p>
+<p>Yeah, the Turing test.</p>
+<p>What&rsquo;d you think about that paper?</p>
+<p>Was that just like science fiction?</p>
+<p>I thought that it wasn&rsquo;t a very good test</p>
+<p>because it was too subjective.</p>
+<p>So I didn&rsquo;t feel that the Turing test</p>
+<p>was really the right way to calibrate</p>
+<p>how intelligent an algorithm could be.</p>
+<p>But to linger on that, do you think it&rsquo;s,</p>
+<p>because you&rsquo;ve come up with some incredible tests later on,</p>
+<p>tests on algorithms, right, that are like strong,</p>
+<p>reliable, robust across a bunch of different classes</p>
+<p>of algorithms, but returning to this emotional mess</p>
+<p>that is intelligence, do you think it&rsquo;s possible</p>
+<p>to come up with a test that&rsquo;s as ironclad</p>
+<p>as some of the computational complexity work?</p>
+<p>Well, I think the greater question</p>
+<p>is whether it&rsquo;s possible to achieve human level intelligence.</p>
+<p>Right, so first of all, let me, at the philosophical level,</p>
+<p>do you think it&rsquo;s possible to create algorithms</p>
+<p>that reason and would seem to us</p>
+<p>to have the same kind of intelligence as human beings?</p>
+<p>It&rsquo;s an open question.</p>
+<p>It seems to me that most of the achievements</p>
+<p>have operate within a very limited set of ground rules</p>
+<p>and for a very limited, precise task,</p>
+<p>which is a quite different situation</p>
+<p>from the processes that go on in the minds of humans,</p>
+<p>which where they have to sort of function</p>
+<p>in changing environments, they have emotions,</p>
+<p>they have physical attributes for exploring</p>
+<p>their environment, they have intuition,</p>
+<p>they have desires, emotions, and I don&rsquo;t see anything</p>
+<p>in the current achievements of what&rsquo;s called AI</p>
+<p>that come close to that capability.</p>
+<p>I don&rsquo;t think there&rsquo;s any computer program</p>
+<p>which surpasses a six month old child</p>
+<p>in terms of comprehension of the world.</p>
+<p>Do you think this complexity of human intelligence,</p>
+<p>all the cognitive abilities we have,</p>
+<p>all the emotion, do you think that could be reduced one day</p>
+<p>or just fundamentally can it be reduced</p>
+<p>to a set of algorithms or an algorithm?</p>
+<p>So can a Turing machine achieve human level intelligence?</p>
+<p>I am doubtful about that.</p>
+<p>I guess the argument in favor of it</p>
+<p>is that the human brain seems to achieve what we call</p>
+<p>intelligence cognitive abilities of different kinds.</p>
+<p>And if you buy the premise that the human brain</p>
+<p>is just an enormous interconnected set of switches,</p>
+<p>so to speak, then in principle, you should be able</p>
+<p>to diagnose what that interconnection structure is like,</p>
+<p>characterize the individual switches,</p>
+<p>and build a simulation outside.</p>
+<p>But while that may be true in principle,</p>
+<p>that cannot be the way we&rsquo;re eventually</p>
+<p>gonna tackle this problem.</p>
+<p>That does not seem like a feasible way to go about it.</p>
+<p>So there is, however, an existence proof that</p>
+<p>if you believe that the brain is just a network of neurons</p>
+<p>operating by rules, I guess you could say</p>
+<p>that that&rsquo;s an existence proof of the capabilities</p>
+<p>of a mechanism, but it would be almost impossible</p>
+<p>to acquire the information unless we got enough insight</p>
+<p>into the operation of the brain.</p>
+<p>But there&rsquo;s so much mystery there.</p>
+<p>Do you think, what do you make of consciousness,</p>
+<p>for example, as an example of something</p>
+<p>we completely have no clue about?</p>
+<p>The fact that we have this subjective experience.</p>
+<p>Is it possible that this network of,</p>
+<p>this circuit of switches is able to create</p>
+<p>something like consciousness?</p>
+<p>To know its own identity.</p>
+<p>Yeah, to know the algorithm, to know itself.</p>
+<p>To know itself.</p>
+<p>I think if you try to define that rigorously,</p>
+<p>you&rsquo;d have a lot of trouble.</p>
+<p>Yeah, that seems to be.</p>
+<p>So I know that there are many who believe</p>
+<p>that general intelligence can be achieved,</p>
+<p>and there are even some who feel certain</p>
+<p>that the singularity will come</p>
+<p>and we will be surpassed by the machines</p>
+<p>which will then learn more and more about themselves</p>
+<p>and reduce humans to an inferior breed.</p>
+<p>I am doubtful that this will ever be achieved.</p>
+<p>Just for the fun of it, could you linger on why,</p>
+<p>what&rsquo;s your intuition, why you&rsquo;re doubtful?</p>
+<p>So there are quite a few people that are extremely worried</p>
+<p>about this existential threat of artificial intelligence,</p>
+<p>of us being left behind</p>
+<p>by this super intelligent new species.</p>
+<p>What&rsquo;s your intuition why that&rsquo;s not quite likely?</p>
+<p>Just because none of the achievements in speech</p>
+<p>or robotics or natural language processing</p>
+<p>or creation of flexible computer assistants</p>
+<p>or any of that comes anywhere near close</p>
+<p>to that level of cognition.</p>
+<p>What do you think about ideas of sort of,</p>
+<p>if we look at Moore&rsquo;s Law and exponential improvement</p>
+<p>to allow us, that would surprise us?</p>
+<p>Sort of our intuition fall apart</p>
+<p>with exponential improvement because, I mean,</p>
+<p>we&rsquo;re not able to kind of,</p>
+<p>we kind of think in linear improvement.</p>
+<p>We&rsquo;re not able to imagine a world</p>
+<p>that goes from the Mark I computer to an iPhone X.</p>
+<p>Yeah.</p>
+<p>So do you think we could be really surprised</p>
+<p>by the exponential growth?</p>
+<p>Or on the flip side, is it possible</p>
+<p>that also intelligence is actually way, way, way, way harder,</p>
+<p>even with exponential improvement to be able to crack?</p>
+<p>I don&rsquo;t think any constant factor improvement</p>
+<p>could change things.</p>
+<p>I mean, given our current comprehension</p>
+<p>of what cognition requires,</p>
+<p>it seems to me that multiplying the speed of the switches</p>
+<p>by a factor of a thousand or a million</p>
+<p>will not be useful until we really understand</p>
+<p>the organizational principle behind the network of switches.</p>
+<p>Well, let&rsquo;s jump into the network of switches</p>
+<p>and talk about combinatorial algorithms if we could.</p>
+<p>Let&rsquo;s step back with the very basics.</p>
+<p>What are combinatorial algorithms?</p>
+<p>And what are some major examples</p>
+<p>of problems they aim to solve?</p>
+<p>A combinatorial algorithm is one which deals</p>
+<p>with a system of discrete objects</p>
+<p>that can occupy various states</p>
+<p>or take on various values from a discrete set of values</p>
+<p>and need to be arranged or selected</p>
+<p>in such a way as to achieve some,</p>
+<p>to minimize some cost function.</p>
+<p>Or to prove the existence</p>
+<p>of some combinatorial configuration.</p>
+<p>So an example would be coloring the vertices of a graph.</p>
+<p>What&rsquo;s a graph?</p>
+<p>Let&rsquo;s step back.</p>
+<p>So it&rsquo;s fun to ask one of the greatest</p>
+<p>computer scientists of all time</p>
+<p>the most basic questions in the beginning of most books.</p>
+<p>But for people who might not know,</p>
+<p>but in general how you think about it, what is a graph?</p>
+<p>A graph, that&rsquo;s simple.</p>
+<p>It&rsquo;s a set of points, certain pairs of which</p>
+<p>are joined by lines called edges.</p>
+<p>And they sort of represent the,</p>
+<p>in different applications represent the interconnections</p>
+<p>between discrete objects.</p>
+<p>So they could be the interactions,</p>
+<p>interconnections between switches in a digital circuit</p>
+<p>or interconnections indicating the communication patterns</p>
+<p>of a human community.</p>
+<p>And they could be directed or undirected</p>
+<p>and then as you&rsquo;ve mentioned before, might have costs.</p>
+<p>Right, they can be directed or undirected.</p>
+<p>They can be, you can think of them as,</p>
+<p>if you think, if a graph were representing</p>
+<p>a communication network, then the edge could be undirected</p>
+<p>meaning that information could flow along it</p>
+<p>in both directions or it could be directed</p>
+<p>with only one way communication.</p>
+<p>A road system is another example of a graph</p>
+<p>with weights on the edges.</p>
+<p>And then a lot of problems of optimizing the efficiency</p>
+<p>of such networks or learning about the performance</p>
+<p>of such networks are the object of combinatorial algorithms.</p>
+<p>So it could be scheduling classes at a school</p>
+<p>where the vertices, the nodes of the network</p>
+<p>are the individual classes and the edges indicate</p>
+<p>the constraints which say that certain classes</p>
+<p>cannot take place at the same time</p>
+<p>or certain teachers are available only for certain classes,</p>
+<p>et cetera.</p>
+<p>Or I talked earlier about the assignment problem</p>
+<p>of matching the boys with the girls</p>
+<p>where you have there a graph with an edge</p>
+<p>from each boy to each girl with a weight</p>
+<p>indicating the cost.</p>
+<p>Or in logical design of computers,</p>
+<p>you might want to find a set of so called gates,</p>
+<p>switches that perform logical functions</p>
+<p>which can be interconnected to each other</p>
+<p>and perform logical functions which can be interconnected</p>
+<p>to realize some function.</p>
+<p>So you might ask how many gates do you need</p>
+<p>in order for a circuit to give a yes output</p>
+<p>if at least a given number of its inputs are ones</p>
+<p>and no if fewer are present.</p>
+<p>My favorite&rsquo;s probably all the work with network flow.</p>
+<p>So anytime you have, I don&rsquo;t know why it&rsquo;s so compelling</p>
+<p>but there&rsquo;s something just beautiful about it.</p>
+<p>It seems like there&rsquo;s so many applications</p>
+<p>and communication networks and traffic flow</p>
+<p>that you can map into these and then you could think</p>
+<p>of pipes and water going through pipes</p>
+<p>and you could optimize it in different ways.</p>
+<p>There&rsquo;s something always visually and intellectually</p>
+<p>compelling to me about it.</p>
+<p>And of course you&rsquo;ve done work there.</p>
+<p>Yeah, so there the edges represent channels</p>
+<p>along which some commodity can flow.</p>
+<p>It might be gas, it might be water, it might be information.</p>
+<p>Maybe supply chain as well like products being.</p>
+<p>Products flowing from one operation to another.</p>
+<p>And the edges have a capacity which is the rate</p>
+<p>at which the commodity can flow.</p>
+<p>And a central problem is to determine</p>
+<p>given a network of these channels.</p>
+<p>In this case the edges are communication channels.</p>
+<p>The challenge is to find the maximum rate</p>
+<p>at which the information can flow along these channels</p>
+<p>to get from a source to a destination.</p>
+<p>And that&rsquo;s a fundamental combinatorial problem</p>
+<p>that I&rsquo;ve worked on jointly with the scientist Jack Edmonds.</p>
+<p>I think we&rsquo;re the first to give a formal proof</p>
+<p>that this maximum flow problem through a network</p>
+<p>can be solved in polynomial time.</p>
+<p>Which I remember the first time I learned that.</p>
+<p>Just learning that in maybe even grad school.</p>
+<p>I don&rsquo;t think it was even undergrad.</p>
+<p>No, algorithm, yeah.</p>
+<p>Do network flows get taught in basic algorithms courses?</p>
+<p>Yes, probably.</p>
+<p>Okay, so yeah, I remember being very surprised</p>
+<p>that max flow is a polynomial time algorithm.</p>
+<p>That there&rsquo;s a nice fast algorithm that solves max flow.</p>
+<p>So there is an algorithm named after you in Edmonds.</p>
+<p>The Edmond Carp algorithm for max flow.</p>
+<p>So what was it like tackling that problem</p>
+<p>and trying to arrive at a polynomial time solution?</p>
+<p>And maybe you can describe the algorithm.</p>
+<p>Maybe you can describe what&rsquo;s the running time complexity</p>
+<p>that you showed.</p>
+<p>Yeah, well, first of all,</p>
+<p>what is a polynomial time algorithm?</p>
+<p>Perhaps we could discuss that.</p>
+<p>So yeah, let&rsquo;s actually just even, yeah.</p>
+<p>What is algorithmic complexity?</p>
+<p>What are the major classes of algorithm complexity?</p>
+<p>So in a problem like the assignment problem</p>
+<p>or scheduling schools or any of these applications,</p>
+<p>you have a set of input data which might, for example,</p>
+<p>be a set of vertices connected by edges</p>
+<p>with you&rsquo;re given for each edge the capacity of the edge.</p>
+<p>And you have algorithms which are,</p>
+<p>think of them as computer programs with operations</p>
+<p>such as addition, subtraction, multiplication, division,</p>
+<p>comparison of numbers, and so on.</p>
+<p>And you&rsquo;re trying to construct an algorithm</p>
+<p>based on those operations, which will determine</p>
+<p>in a minimum number of computational steps</p>
+<p>the answer to the problem.</p>
+<p>In this case, the computational step</p>
+<p>is one of those operations.</p>
+<p>And the answer to the problem is let&rsquo;s say</p>
+<p>the configuration of the network</p>
+<p>that carries the maximum amount of flow.</p>
+<p>And an algorithm is said to run in polynomial time</p>
+<p>if as a function of the size of the input,</p>
+<p>the number of vertices, the number of edges, and so on,</p>
+<p>the number of basic computational steps grows</p>
+<p>only as some fixed power of that size.</p>
+<p>A linear algorithm would execute a number of steps</p>
+<p>linearly proportional to the size.</p>
+<p>Quadratic algorithm would be steps proportional</p>
+<p>to the square of the size, and so on.</p>
+<p>And algorithms whose running time is bounded</p>
+<p>by some fixed power of the size</p>
+<p>are called polynomial algorithms.</p>
+<p>Yeah.</p>
+<p>And that&rsquo;s supposed to be relatively fast class</p>
+<p>of algorithms.</p>
+<p>That&rsquo;s right.</p>
+<p>Theoreticians take that to be the definition</p>
+<p>of an algorithm being efficient.</p>
+<p>And we&rsquo;re interested in which problems can be solved</p>
+<p>by such efficient algorithms.</p>
+<p>One can argue whether that&rsquo;s the right definition</p>
+<p>of efficient because you could have an algorithm</p>
+<p>whose running time is the 10,000th power</p>
+<p>of the size of the input,</p>
+<p>and that wouldn&rsquo;t be really efficient.</p>
+<p>And in practice, it&rsquo;s oftentimes reducing</p>
+<p>from an N squared algorithm to an N log N</p>
+<p>or a linear time is practically the jump</p>
+<p>that you wanna make to allow a real world system</p>
+<p>to solve a problem.</p>
+<p>Yeah, that&rsquo;s also true because especially</p>
+<p>as we get very large networks,</p>
+<p>the size can be in the millions,</p>
+<p>and then anything above N log N</p>
+<p>where N is the size would be too much</p>
+<p>for a practical solution.</p>
+<p>Okay, so that&rsquo;s polynomial time algorithms.</p>
+<p>What other classes of algorithms are there?</p>
+<p>What&rsquo;s, so that usually they designate polynomials</p>
+<p>of the letter P.</p>
+<p>Yeah.</p>
+<p>There&rsquo;s also NP, NP complete and NP hard.</p>
+<p>Yeah.</p>
+<p>So can you try to disentangle those</p>
+<p>by trying to define them simply?</p>
+<p>Right, so a polynomial time algorithm</p>
+<p>is one whose running time is bounded</p>
+<p>by a polynomial in the size of the input.</p>
+<p>Then the class of such algorithms is called P.</p>
+<p>In the worst case, by the way, we should say, right?</p>
+<p>Yeah.</p>
+<p>So for every case of the problem.</p>
+<p>Yes, that&rsquo;s right, and that&rsquo;s very important</p>
+<p>that in this theory, when we measure the complexity</p>
+<p>of an algorithm, we really measure the number of steps,</p>
+<p>the growth of the number of steps in the worst case.</p>
+<p>So you may have an algorithm that runs very rapidly</p>
+<p>in most cases, but if there&rsquo;s any case</p>
+<p>where it gets into a very long computation,</p>
+<p>that would increase the computational complexity</p>
+<p>by this measure.</p>
+<p>And that&rsquo;s a very important issue</p>
+<p>because there are, as we may discuss later,</p>
+<p>there are some very important algorithms</p>
+<p>which don&rsquo;t have a good standing</p>
+<p>from the point of view of their worst case performance</p>
+<p>and yet are very effective.</p>
+<p>So theoreticians are interested in P,</p>
+<p>the class of problem solvable in polynomial time.</p>
+<p>Then there&rsquo;s NP, which is the class of problems</p>
+<p>which may be hard to solve, but when confronted</p>
+<p>with a solution, you can check it in polynomial time.</p>
+<p>Let me give you an example there.</p>
+<p>So if we look at the assignment problem,</p>
+<p>so you have N boys, you have N girls,</p>
+<p>the number of numbers that you need to write down</p>
+<p>to specify the problem instance is N squared.</p>
+<p>And the question is how many steps are needed to solve it?</p>
+<p>And Jack Edmonds and I were the first to show</p>
+<p>that it could be done in time and cubed.</p>
+<p>Earlier algorithms required N to the fourth.</p>
+<p>So as a polynomial function of the size of the input,</p>
+<p>this is a fast algorithm.</p>
+<p>Now to illustrate the class NP, the question is</p>
+<p>how long would it take to verify</p>
+<p>that a solution is optimal?</p>
+<p>So for example, if the input was a graph,</p>
+<p>we might want to find the largest clique in the graph</p>
+<p>or a clique is a set of vertices such that any vertex,</p>
+<p>each vertex in the set is adjacent to each of the others.</p>
+<p>So the clique is a complete subgraph.</p>
+<p>Yeah, so if it&rsquo;s a Facebook social network,</p>
+<p>everybody&rsquo;s friends with everybody else, close clique.</p>
+<p>No, that would be what&rsquo;s called a complete graph.</p>
+<p>It would be.</p>
+<p>No, I mean within that clique.</p>
+<p>Within that clique, yeah.</p>
+<p>Yeah, they&rsquo;re all friends.</p>
+<p>So a complete graph is when?</p>
+<p>Everybody is friendly.</p>
+<p>As everybody is friends with everybody, yeah.</p>
+<p>So the problem might be to determine whether</p>
+<p>in a given graph there exists a clique of a certain size.</p>
+<p>Now that turns out to be a very hard problem,</p>
+<p>but if somebody hands you a clique and asks you to check</p>
+<p>whether it is, hands you a set of vertices</p>
+<p>and asks you to check whether it&rsquo;s a clique,</p>
+<p>you could do that simply by exhaustively looking</p>
+<p>at all of the edges between the vertices and the clique</p>
+<p>and verifying that they&rsquo;re all there.</p>
+<p>And that&rsquo;s a polynomial time algorithm.</p>
+<p>That&rsquo;s a polynomial.</p>
+<p>So the problem of finding the clique</p>
+<p>appears to be extremely hard,</p>
+<p>but the problem of verifying a clique</p>
+<p>to see if it reaches a target number of vertices</p>
+<p>is easy to verify.</p>
+<p>So finding the clique is hard, checking it is easy.</p>
+<p>Problems of that nature are called</p>
+<p>nondeterministic polynomial time algorithms,</p>
+<p>and that&rsquo;s the class NP.</p>
+<p>And what about NP complete and NP hard?</p>
+<p>Okay, let&rsquo;s talk about problems</p>
+<p>where you&rsquo;re getting a yes or no answer</p>
+<p>rather than a numerical value.</p>
+<p>So either there is a perfect matching</p>
+<p>of the boys with the girls or there isn&rsquo;t.</p>
+<p>It&rsquo;s clear that every problem in P is also in NP.</p>
+<p>If you can solve the problem exactly,</p>
+<p>then you can certainly verify the solution.</p>
+<p>On the other hand, there are problems in the class NP.</p>
+<p>This is the class of problems that are easy to check,</p>
+<p>although they may be hard to solve.</p>
+<p>It&rsquo;s not at all clear that problems in NP lie in P.</p>
+<p>So for example, if we&rsquo;re looking</p>
+<p>at scheduling classes at a school,</p>
+<p>the fact that you can verify when handed a schedule</p>
+<p>for the school, whether it meets all the requirements,</p>
+<p>that doesn&rsquo;t mean that you can find the schedule rapidly.</p>
+<p>So intuitively, NP, nondeterministic polynomial checking</p>
+<p>rather than finding, is going to be harder than,</p>
+<p>is going to include, is easier.</p>
+<p>Checking is easier, and therefore the class of problems</p>
+<p>that can be checked appears to be much larger</p>
+<p>than the class of problems that can be solved.</p>
+<p>And then you keep adding appears to,</p>
+<p>and sort of these additional words that designate</p>
+<p>that we don&rsquo;t know for sure yet.</p>
+<p>We don&rsquo;t know for sure.</p>
+<p>So the theoretical question, which is considered</p>
+<p>to be the most central problem</p>
+<p>in theoretical computer science,</p>
+<p>or at least computational complexity theory,</p>
+<p>combinatorial algorithm theory,</p>
+<p>the question is whether P is equal to NP.</p>
+<p>If P were equal to NP, it would be amazing.</p>
+<p>It would mean that every problem</p>
+<p>where a solution can be rapidly checked</p>
+<p>can actually be solved in polynomial time.</p>
+<p>We don&rsquo;t really believe that&rsquo;s true.</p>
+<p>If you&rsquo;re scheduling classes at a school,</p>
+<p>we expect that if somebody hands you a satisfying schedule,</p>
+<p>you can verify that it works.</p>
+<p>That doesn&rsquo;t mean that you should be able</p>
+<p>to find such a schedule.</p>
+<p>So intuitively, NP encompasses a lot more problems than P.</p>
+<p>So can we take a small tangent</p>
+<p>and break apart that intuition?</p>
+<p>So do you, first of all, think that the biggest</p>
+<p>sort of open problem in computer science,</p>
+<p>maybe mathematics, is whether P equals NP?</p>
+<p>Do you think P equals NP,</p>
+<p>or do you think P is not equal to NP?</p>
+<p>If you had to bet all your money on it.</p>
+<p>I would bet that P is unequal to NP,</p>
+<p>simply because there are problems</p>
+<p>that have been around for centuries</p>
+<p>and have been studied intensively in mathematics,</p>
+<p>and even more so in the last 50 years</p>
+<p>since the P versus NP was stated.</p>
+<p>And no polynomial time algorithms have been found</p>
+<p>for these easy to check problems.</p>
+<p>So one example is a problem that goes back</p>
+<p>to the mathematician Gauss,</p>
+<p>who was interested in factoring large numbers.</p>
+<p>So we know what a number is prime</p>
+<p>if it cannot be written as the product</p>
+<p>of two or more numbers unequal to one.</p>
+<p>So if we can factor a number like 91, it&rsquo;s seven times 13.</p>
+<p>But if I give you 20 digit or 30 digit numbers,</p>
+<p>you&rsquo;re probably gonna be at a loss</p>
+<p>to have any idea whether they can be factored.</p>
+<p>So the problem of factoring very large numbers</p>
+<p>does not appear to have an efficient solution.</p>
+<p>But once you have found the factors,</p>
+<p>expressed the number as a product of two smaller numbers,</p>
+<p>you can quickly verify that they are factors of the number.</p>
+<p>And your intuition is a lot of people finding,</p>
+<p>a lot of brilliant people have tried to find algorithms</p>
+<p>for this one particular problem.</p>
+<p>There&rsquo;s many others like it that are really well studied</p>
+<p>and it would be great to find an efficient algorithm for.</p>
+<p>Right, and in fact, we have some results</p>
+<p>that I was instrumental in obtaining following up on work</p>
+<p>by the mathematician Stephen Cook</p>
+<p>to show that within the class NP of easy to check problems,</p>
+<p>easy to check problems, there&rsquo;s a huge number</p>
+<p>that are equivalent in the sense that either all of them</p>
+<p>or none of them lie in P.</p>
+<p>And this happens only if P is equal to NP.</p>
+<p>So if P is unequal to NP, we would also know</p>
+<p>that virtually all the standard combinatorial problems,</p>
+<p>virtually all the standard combinatorial problems,</p>
+<p>if P is unequal to NP, none of them can be solved</p>
+<p>in polynomial time.</p>
+<p>Can you explain how that&rsquo;s possible</p>
+<p>to tie together so many problems in a nice bunch</p>
+<p>that if one is proven to be efficient, then all are?</p>
+<p>The first and most important stage of progress</p>
+<p>was a result by Stephen Cook who showed that a certain problem</p>
+<p>called the satisfiability problem of propositional logic</p>
+<p>is as hard as any problem in the class P.</p>
+<p>So the propositional logic problem is expressed</p>
+<p>in terms of expressions involving the logical operations</p>
+<p>and, or, and not operating on variables</p>
+<p>that can be either true or false.</p>
+<p>So an instance of the problem would be some formula</p>
+<p>involving and, or, and not.</p>
+<p>And the question would be whether there is an assignment</p>
+<p>of truth values to the variables in the problem</p>
+<p>that would make the formula true.</p>
+<p>So for example, if I take the formula A or B</p>
+<p>and A or not B and not A or B and not A or not B</p>
+<p>and take the conjunction of all four</p>
+<p>of those so called expressions,</p>
+<p>you can determine that no assignment of truth values</p>
+<p>to the variables A and B will allow that conjunction</p>
+<p>of what are called clauses to be true.</p>
+<p>So that&rsquo;s an example of a formula in propositional logic</p>
+<p>involving expressions based on the operations and, or, and not.</p>
+<p>That&rsquo;s an example of a problem which is not satisfiable.</p>
+<p>There is no solution that satisfies</p>
+<p>all of those constraints.</p>
+<p>I mean that&rsquo;s like one of the cleanest and fundamental</p>
+<p>problems in computer science.</p>
+<p>It&rsquo;s like a nice statement of a really hard problem.</p>
+<p>It&rsquo;s a nice statement of a really hard problem</p>
+<p>and what Cook showed is that every problem in NP</p>
+<p>can be reexpressed as an instance</p>
+<p>of the satisfiability problem.</p>
+<p>So to do that, he used the observation</p>
+<p>that a very simple abstract machine</p>
+<p>called the Turing machine can be used</p>
+<p>to describe any algorithm.</p>
+<p>An algorithm for any realistic computer</p>
+<p>can be translated into an equivalent algorithm</p>
+<p>on one of these Turing machines</p>
+<p>which are extremely simple.</p>
+<p>So a Turing machine, there&rsquo;s a tape and you can</p>
+<p>Yeah, you have data on a tape</p>
+<p>and you have basic instructions,</p>
+<p>a finite list of instructions which say,</p>
+<p>if you&rsquo;re reading a particular symbol on the tape</p>
+<p>and you&rsquo;re in a particular state,</p>
+<p>then you can move to a different state</p>
+<p>and change the state of the number</p>
+<p>or the element that you were looking at,</p>
+<p>the cell of the tape that you were looking at.</p>
+<p>And that was like a metaphor and a mathematical construct</p>
+<p>that Turing put together</p>
+<p>to represent all possible computation.</p>
+<p>All possible computation.</p>
+<p>Now, one of these so called Turing machines</p>
+<p>is too simple to be useful in practice,</p>
+<p>but for theoretical purposes,</p>
+<p>we can depend on the fact that an algorithm</p>
+<p>for any computer can be translated</p>
+<p>into one that would run on a Turing machine.</p>
+<p>And then using that fact,</p>
+<p>he could sort of describe</p>
+<p>any possible non deterministic polynomial time algorithm.</p>
+<p>Any algorithm for a problem in NP</p>
+<p>could be expressed as a sequence of moves</p>
+<p>of the Turing machine described</p>
+<p>in terms of reading a symbol on the tape</p>
+<p>while you&rsquo;re in a given state</p>
+<p>and moving to a new state and leaving behind a new symbol.</p>
+<p>And given that fact</p>
+<p>that any non deterministic polynomial time algorithm</p>
+<p>can be described by a list of such instructions,</p>
+<p>you could translate the problem</p>
+<p>into the language of the satisfiability problem.</p>
+<p>Is that amazing to you, by the way,</p>
+<p>if you take yourself back</p>
+<p>when you were first thinking about the space of problems?</p>
+<p>How amazing is that?</p>
+<p>It&rsquo;s astonishing.</p>
+<p>When you look at Cook&rsquo;s proof,</p>
+<p>it&rsquo;s not too difficult to sort of figure out</p>
+<p>why this is so,</p>
+<p>but the implications are staggering.</p>
+<p>It tells us that this, of all the problems in NP,</p>
+<p>all the problems where solutions are easy to check,</p>
+<p>they can all be rewritten</p>
+<p>in terms of the satisfiability problem.</p>
+<p>Yeah, it&rsquo;s adding so much more weight</p>
+<p>to the P equals NP question</p>
+<p>because all it takes is to show that one algorithm</p>
+<p>in this class.</p>
+<p>So the P versus NP can be re expressed</p>
+<p>as simply asking whether the satisfiability problem</p>
+<p>of propositional logic is solvable in polynomial time.</p>
+<p>But there&rsquo;s more.</p>
+<p>I encountered Cook&rsquo;s paper</p>
+<p>when he published it in a conference in 1971.</p>
+<p>Yeah, so when I saw Cook&rsquo;s paper</p>
+<p>and saw this reduction of each of the problems in NP</p>
+<p>by a uniform method to the satisfiability problem</p>
+<p>of propositional logic,</p>
+<p>that meant that the satisfiability problem</p>
+<p>was a universal combinatorial problem.</p>
+<p>And it occurred to me through experience I had had</p>
+<p>in trying to solve other combinatorial problems</p>
+<p>that there were many other problems</p>
+<p>which seemed to have that universal structure.</p>
+<p>And so I began looking for reductions</p>
+<p>from the satisfiability to other problems.</p>
+<p>And one of the other problems</p>
+<p>would be the so called integer programming problem</p>
+<p>of determining whether there&rsquo;s a solution</p>
+<p>to a set of linear inequalities involving integer variables.</p>
+<p>Just like linear programming,</p>
+<p>but there&rsquo;s a constraint that the variables</p>
+<p>must remain integers.</p>
+<p>In fact, must be the zero or one</p>
+<p>could only take on those values.</p>
+<p>And that makes the problem much harder.</p>
+<p>Yes, that makes the problem much harder.</p>
+<p>And it was not difficult to show</p>
+<p>that the satisfiability problem can be restated</p>
+<p>as an integer programming problem.</p>
+<p>So can you pause on that?</p>
+<p>Was that one of the first mappings that you tried to do?</p>
+<p>And how hard is that mapping?</p>
+<p>You said it wasn&rsquo;t hard to show,</p>
+<p>but that&rsquo;s a big leap.</p>
+<p>It is a big leap, yeah.</p>
+<p>Well, let me give you another example.</p>
+<p>Another problem in NP</p>
+<p>is whether a graph contains a clique of a given size.</p>
+<p>And now the question is,</p>
+<p>can we reduce the propositional logic problem</p>
+<p>to the problem of whether there&rsquo;s a clique</p>
+<p>of a certain size?</p>
+<p>Well, if you look at the propositional logic problem,</p>
+<p>it can be expressed as a number of clauses,</p>
+<p>each of which is a,</p>
+<p>of the form A or B or C,</p>
+<p>where A is either one of the variables in the problem</p>
+<p>or the negation of one of the variables.</p>
+<p>And an instance of the propositional logic problem</p>
+<p>can be rewritten using operations of Boolean logic,</p>
+<p>can be rewritten as the conjunction of a set of clauses,</p>
+<p>the AND of a set of ORs,</p>
+<p>where each clause is a disjunction, an OR of variables</p>
+<p>or negated variables.</p>
+<p>So the question in the satisfiability problem</p>
+<p>is whether those clauses can be simultaneously satisfied.</p>
+<p>Now, to satisfy all those clauses,</p>
+<p>you have to find one of the terms in each clause,</p>
+<p>which is going to be true in your truth assignment,</p>
+<p>but you can&rsquo;t make the same variable both true and false.</p>
+<p>So if you have the variable A in one clause</p>
+<p>and you want to satisfy that clause by making A true,</p>
+<p>you can&rsquo;t also make the complement of A true</p>
+<p>in some other clause.</p>
+<p>And so the goal is to make every single clause true</p>
+<p>if it&rsquo;s possible to satisfy this,</p>
+<p>and the way you make it true is at least&hellip;</p>
+<p>One term in the clause must be true.</p>
+<p>Got it.</p>
+<p>So now we, to convert this problem</p>
+<p>to something called the independent set problem,</p>
+<p>where you&rsquo;re just sort of asking for a set of vertices</p>
+<p>in a graph such that no two of them are adjacent,</p>
+<p>sort of the opposite of the clique problem.</p>
+<p>So we&rsquo;ve seen that we can now express that as</p>
+<p>finding a set of terms, one in each clause,</p>
+<p>without picking both the variable</p>
+<p>and the negation of that variable,</p>
+<p>because if the variable is assigned the truth value,</p>
+<p>the negated variable has to have the opposite truth value.</p>
+<p>And so we can construct a graph where the vertices</p>
+<p>are the terms in all of the clauses,</p>
+<p>and you have an edge between two terms</p>
+<p>if an edge between two occurrences of terms,</p>
+<p>either if they&rsquo;re both in the same clause,</p>
+<p>because you&rsquo;re only picking one element from each clause,</p>
+<p>and also an edge between them if they represent</p>
+<p>opposite values of the same variable,</p>
+<p>because you can&rsquo;t make a variable both true and false.</p>
+<p>And so you get a graph where you have</p>
+<p>all of these occurrences of variables,</p>
+<p>you have edges, which mean that you&rsquo;re not allowed</p>
+<p>to choose both ends of the edge,</p>
+<p>either because they&rsquo;re in the same clause</p>
+<p>or they&rsquo;re negations of one another.</p>
+<p>All right, and that&rsquo;s a, first of all, sort of to zoom out,</p>
+<p>that&rsquo;s a really powerful idea that you can take a graph</p>
+<p>and connect it to a logic equation somehow,</p>
+<p>and do that mapping for all possible formulations</p>
+<p>of a particular problem on a graph.</p>
+<p>Yeah.</p>
+<p>I mean, that still is hard for me to believe.</p>
+<p>Yeah, it&rsquo;s hard for me to believe.</p>
+<p>It&rsquo;s hard for me to believe that that&rsquo;s possible.</p>
+<p>That they&rsquo;re, like, what do you make of that,</p>
+<p>that there&rsquo;s such a union of,</p>
+<p>there&rsquo;s such a friendship among all these problems across</p>
+<p>that somehow are akin to combinatorial algorithms,</p>
+<p>that they&rsquo;re all somehow related?</p>
+<p>I know it can be proven, but what do you make of it,</p>
+<p>that that&rsquo;s true?</p>
+<p>Well, that they just have the same expressive power.</p>
+<p>You can take any one of them</p>
+<p>and translate it into the terms of the other.</p>
+<p>The fact that they have the same expressive power</p>
+<p>also somehow means that they can be translatable.</p>
+<p>Right, and what I did in the 1971 paper</p>
+<p>was to take 21 fundamental problems,</p>
+<p>the commonly occurring problems of packing,</p>
+<p>covering, matching, and so forth,</p>
+<p>lying in the class NP,</p>
+<p>and show that the satisfiability problem</p>
+<p>can be reexpressed as any of those,</p>
+<p>that any of those have the same expressive power.</p>
+<p>And that was like throwing down the gauntlet</p>
+<p>of saying there&rsquo;s probably many more problems like this.</p>
+<p>Right.</p>
+<p>Saying that, look, that they&rsquo;re all the same.</p>
+<p>They&rsquo;re all the same, but not exactly.</p>
+<p>They&rsquo;re all the same in terms of whether they are</p>
+<p>rich enough to express any of the others.</p>
+<p>But that doesn&rsquo;t mean that they have</p>
+<p>the same computational complexity.</p>
+<p>But what we can say is that either all of these problems</p>
+<p>or none of them are solvable in polynomial time.</p>
+<p>Yeah, so what is NP completeness</p>
+<p>and NP hard as classes?</p>
+<p>Oh, that&rsquo;s just a small technicality.</p>
+<p>So when we&rsquo;re talking about decision problems,</p>
+<p>that means that the answer is just yes or no.</p>
+<p>There is a clique of size 15</p>
+<p>or there&rsquo;s not a clique of size 15.</p>
+<p>On the other hand, an optimization problem</p>
+<p>would be asking find the largest clique.</p>
+<p>The answer would not be yes or no.</p>
+<p>It would be 15.</p>
+<p>So when you&rsquo;re asking for the,</p>
+<p>when you&rsquo;re putting a valuation on the different solutions</p>
+<p>and you&rsquo;re asking for the one with the highest valuation,</p>
+<p>that&rsquo;s an optimization problem.</p>
+<p>And there&rsquo;s a very close affinity</p>
+<p>between the two kinds of problems.</p>
+<p>But the counterpart of being the hardest decision problem,</p>
+<p>the hardest yes, no problem,</p>
+<p>the counterpart of that is to minimize</p>
+<p>or maximize an objective function.</p>
+<p>And so a problem that&rsquo;s hardest in the class</p>
+<p>when viewed in terms of optimization,</p>
+<p>those are called NP hard rather than NP complete.</p>
+<p>And NP complete is for decision problems.</p>
+<p>So if somebody shows that P equals NP,</p>
+<p>what do you think that proof will look like</p>
+<p>if you were to put on yourself,</p>
+<p>if it&rsquo;s possible to show that as a proof</p>
+<p>or to demonstrate an algorithm?</p>
+<p>All I can say is that it will involve concepts</p>
+<p>that we do not now have and approaches that we don&rsquo;t have.</p>
+<p>Do you think those concepts are out there</p>
+<p>in terms of inside complexity theory,</p>
+<p>inside of computational analysis of algorithms?</p>
+<p>Do you think there&rsquo;s concepts</p>
+<p>that are totally outside of the box</p>
+<p>that we haven&rsquo;t considered yet?</p>
+<p>I think that if there is a proof that P is equal to NP</p>
+<p>or that P is unequal to NP,</p>
+<p>it&rsquo;ll depend on concepts that are now outside the box.</p>
+<p>Now, if that&rsquo;s shown either way, P equals NP or P not,</p>
+<p>well, actually P equals NP,</p>
+<p>what impact, you kind of mentioned a little bit,</p>
+<p>but can you linger on it?</p>
+<p>What kind of impact would it have</p>
+<p>on theoretical computer science</p>
+<p>and perhaps software based systems in general?</p>
+<p>Well, I think it would have enormous impact on the world</p>
+<p>in either way case.</p>
+<p>If P is unequal to NP, which is what we expect,</p>
+<p>then we know that for the great majority</p>
+<p>of the combinatorial problems that come up,</p>
+<p>since they&rsquo;re known to be NP complete,</p>
+<p>we&rsquo;re not going to be able to solve them</p>
+<p>by efficient algorithms.</p>
+<p>However, there&rsquo;s a little bit of hope</p>
+<p>in that it may be that we can solve most instances.</p>
+<p>All we know is that if a problem is not NP,</p>
+<p>then it can&rsquo;t be solved efficiently on all instances.</p>
+<p>But basically, if we find that P is unequal to NP,</p>
+<p>it will mean that we can&rsquo;t expect always</p>
+<p>to get the optimal solutions to these problems.</p>
+<p>And we have to depend on heuristics</p>
+<p>that perhaps work most of the time</p>
+<p>or give us good approximate solutions, but not.</p>
+<p>So we would turn our eye towards the heuristics</p>
+<p>with a little bit more acceptance and comfort on our hearts.</p>
+<p>Exactly.</p>
+<p>Okay, so let me ask a romanticized question.</p>
+<p>What to you is one of the most</p>
+<p>or the most beautiful combinatorial algorithm</p>
+<p>in your own life or just in general in the field</p>
+<p>that you&rsquo;ve ever come across or have developed yourself?</p>
+<p>Oh, I like the stable matching problem</p>
+<p>or the stable marriage problem very much.</p>
+<p>What&rsquo;s the stable matching problem?</p>
+<p>Yeah.</p>
+<p>Imagine that you want to marry off N boys with N girls.</p>
+<p>And each boy has an ordered list</p>
+<p>of his preferences among the girls.</p>
+<p>His first choice, his second choice,</p>
+<p>through her, Nth choice.</p>
+<p>And each girl also has an ordering of the boys,</p>
+<p>his first choice, second choice, and so on.</p>
+<p>And we&rsquo;ll say that a matching,</p>
+<p>a one to one matching of the boys with the girls is stable</p>
+<p>if there are no two couples in the matching</p>
+<p>such that the boy in the first couple</p>
+<p>prefers the girl in the second couple to her mate</p>
+<p>and she prefers the boy to her current mate.</p>
+<p>In other words, if the matching is stable</p>
+<p>if there is no pair who want to run away with each other</p>
+<p>leaving their partners behind.</p>
+<p>Gosh, yeah.</p>
+<p>Yeah.</p>
+<p>Actually, this is relevant to matching residents</p>
+<p>with hospitals and some other real life problems,</p>
+<p>although not quite in the form that I described.</p>
+<p>So it turns out that there is,</p>
+<p>for any set of preferences, a stable matching exists.</p>
+<p>And moreover, it can be computed</p>
+<p>by a simple algorithm</p>
+<p>in which each boy starts making proposals to girls.</p>
+<p>And if the girl receives the proposal,</p>
+<p>she accepts it tentatively,</p>
+<p>but she can drop it later</p>
+<p>if she gets a better proposal from her point of view.</p>
+<p>And the boys start going down their lists</p>
+<p>proposing to their first, second, third choices</p>
+<p>until stopping when a proposal is accepted.</p>
+<p>But the girls meanwhile are watching the proposals</p>
+<p>that are coming into them.</p>
+<p>And the girl will drop her current partner</p>
+<p>if she gets a better proposal.</p>
+<p>And the boys never go back through the list?</p>
+<p>They never go back, yeah.</p>
+<p>So once they&rsquo;ve been denied.</p>
+<p>They don&rsquo;t try again.</p>
+<p>They don&rsquo;t try again</p>
+<p>because the girls are always improving their status</p>
+<p>as they receive better and better proposals.</p>
+<p>The boys are going down their lists starting</p>
+<p>with their top preferences.</p>
+<p>And one can prove that the process will come to an end</p>
+<p>where everybody will get matched with somebody</p>
+<p>and you won&rsquo;t have any pair</p>
+<p>that want to abscond from each other.</p>
+<p>Do you find the proof or the algorithm itself beautiful?</p>
+<p>Or is it the fact that with the simplicity</p>
+<p>of just the two marching,</p>
+<p>I mean the simplicity of the underlying rule</p>
+<p>of the algorithm, is that the beautiful part?</p>
+<p>Both I would say.</p>
+<p>And you also have the observation that you might ask</p>
+<p>who is better off, the boys who are doing the proposing</p>
+<p>or the girls who are reacting to proposals.</p>
+<p>And it turns out that it&rsquo;s the boys</p>
+<p>who are doing the best.</p>
+<p>That is, each boy is doing at least as well</p>
+<p>as he could do in any other staple matching.</p>
+<p>So there&rsquo;s a sort of lesson for the boys</p>
+<p>that you should go out and be proactive</p>
+<p>and make those proposals.</p>
+<p>Go for broke.</p>
+<p>I don&rsquo;t know if this is directly mappable philosophically</p>
+<p>to our society, but certainly seems</p>
+<p>like a compelling notion.</p>
+<p>And like you said, there&rsquo;s probably a lot</p>
+<p>of actual real world problems that this could be mapped to.</p>
+<p>Yeah, well you get complications.</p>
+<p>For example, what happens when a husband and wife</p>
+<p>want to be assigned to the same hospital?</p>
+<p>So you have to take those constraints into account.</p>
+<p>And then the problem becomes NP hard.</p>
+<p>Why is it a problem for the husband and wife</p>
+<p>to be assigned to the same hospital?</p>
+<p>No, it&rsquo;s desirable.</p>
+<p>Or at least go to the same city.</p>
+<p>So you can&rsquo;t, if you&rsquo;re assigning residents to hospitals.</p>
+<p>And then you have some preferences</p>
+<p>for the husband and the wife or for the hospitals.</p>
+<p>The residents have their own preferences.</p>
+<p>Residents both male and female have their own preferences.</p>
+<p>The hospitals have their preferences.</p>
+<p>But if resident A, the boy, is going to Philadelphia,</p>
+<p>then you&rsquo;d like his wife also to be assigned</p>
+<p>to a hospital in Philadelphia.</p>
+<p>Which step makes it a NP hard problem that you mentioned?</p>
+<p>The fact that you have this additional constraint.</p>
+<p>That it&rsquo;s not just the preferences of individuals,</p>
+<p>but the fact that the two partners to a marriage</p>
+<p>have to be assigned to the same place.</p>
+<p>I&rsquo;m being a little dense.</p>
+<p>The perfect matching, no, not the perfect,</p>
+<p>stable matching is what you referred to.</p>
+<p>That&rsquo;s when two partners are trying to.</p>
+<p>Okay, what&rsquo;s confusing you is that in the first</p>
+<p>interpretation of the problem,</p>
+<p>I had boys matching with girls.</p>
+<p>Yes.</p>
+<p>In the second interpretation,</p>
+<p>you have humans matching with institutions.</p>
+<p>With institutions.</p>
+<p>I, and there&rsquo;s a coupling between within the,</p>
+<p>gotcha, within the humans.</p>
+<p>Yeah.</p>
+<p>Any added little constraint will make it an NP hard problem.</p>
+<p>Well, yeah.</p>
+<p>Okay.</p>
+<p>By the way, the algorithm you mentioned</p>
+<p>wasn&rsquo;t one of yours or no?</p>
+<p>No, no, that was due to Gale and Shapley</p>
+<p>and my friend David Gale passed away</p>
+<p>before he could get part of a Nobel Prize,</p>
+<p>but his partner Shapley shared in a Nobel Prize</p>
+<p>with somebody else for.</p>
+<p>Economics?</p>
+<p>For economics.</p>
+<p>For ideas stemming from the stable matching idea.</p>
+<p>So you&rsquo;ve also have developed yourself</p>
+<p>some elegant, beautiful algorithms.</p>
+<p>Again, picking your children,</p>
+<p>so the Robin Karp algorithm for string searching,</p>
+<p>pattern matching, Edmund Karp algorithm for max flows</p>
+<p>we mentioned, Hopcroft Karp algorithm for finding</p>
+<p>maximum cardinality matchings in bipartite graphs.</p>
+<p>Is there ones that stand out to you,</p>
+<p>ones you&rsquo;re most proud of or just</p>
+<p>whether it&rsquo;s beauty, elegance,</p>
+<p>or just being the right discovery development</p>
+<p>in your life that you&rsquo;re especially proud of?</p>
+<p>I like the Rabin Karp algorithm</p>
+<p>because it illustrates the power of randomization.</p>
+<p>So the problem there</p>
+<p>is to decide whether a given long string of symbols</p>
+<p>from some alphabet contains a given word,</p>
+<p>whether a particular word occurs</p>
+<p>within some very much longer word.</p>
+<p>And so the idea of the algorithm</p>
+<p>is to associate with the word that we&rsquo;re looking for,</p>
+<p>a fingerprint, some number,</p>
+<p>or some combinatorial object that describes that word,</p>
+<p>and then to look for an occurrence of that same fingerprint</p>
+<p>as you slide along the longer word.</p>
+<p>And what we do is we associate with each word a number.</p>
+<p>So first of all, we think of the letters</p>
+<p>that occur in a word as the digits of, let&rsquo;s say,</p>
+<p>decimal or whatever base here,</p>
+<p>whatever number of different symbols there are.</p>
+<p>That&rsquo;s the base of the numbers, yeah.</p>
+<p>Right, so every word can then be thought of as a number</p>
+<p>with the letters being the digits of that number.</p>
+<p>And then we pick a random prime number in a certain range,</p>
+<p>and we take that word viewed as a number,</p>
+<p>and take the remainder on dividing that number by the prime.</p>
+<p>So coming up with a nice hash function.</p>
+<p>It&rsquo;s a kind of hash function.</p>
+<p>Yeah, it gives you a little shortcut</p>
+<p>for that particular word.</p>
+<p>Yeah, so that&rsquo;s the&hellip;</p>
+<p>It&rsquo;s very different than other algorithms of its kind</p>
+<p>that we&rsquo;re trying to do search, string matching.</p>
+<p>Yeah, which usually are combinatorial</p>
+<p>and don&rsquo;t involve the idea of taking a random fingerprint.</p>
+<p>Yes.</p>
+<p>And doing the fingerprinting has two advantages.</p>
+<p>One is that as we slide along the long word,</p>
+<p>digit by digit, we keep a window of a certain size,</p>
+<p>the size of the word we&rsquo;re looking for,</p>
+<p>and we compute the fingerprint</p>
+<p>of every stretch of that length.</p>
+<p>And it turns out that just a couple of arithmetic operations</p>
+<p>will take you from the fingerprint of one part</p>
+<p>to what you get when you slide over by one position.</p>
+<p>So the computation of all the fingerprints is simple.</p>
+<p>And secondly, it&rsquo;s unlikely if the prime is chosen randomly</p>
+<p>from a certain range that you will get two of the segments</p>
+<p>in question having the same fingerprint.</p>
+<p>Right.</p>
+<p>And so there&rsquo;s a small probability of error</p>
+<p>which can be checked after the fact,</p>
+<p>and also the ease of doing the computation</p>
+<p>because you&rsquo;re working with these fingerprints</p>
+<p>which are remainder&rsquo;s modulo some big prime.</p>
+<p>So that&rsquo;s the magical thing about randomized algorithms</p>
+<p>is that if you add a little bit of randomness,</p>
+<p>it somehow allows you to take a pretty naive approach,</p>
+<p>a simple looking approach, and allow it to run extremely well.</p>
+<p>So can you maybe take a step back and say</p>
+<p>what is a randomized algorithm, this category of algorithms?</p>
+<p>Well, it&rsquo;s just the ability to draw a random number</p>
+<p>from such, from some range</p>
+<p>or to associate a random number with some object</p>
+<p>or to draw that random from some set.</p>
+<p>So another example is very simple</p>
+<p>if we&rsquo;re conducting a presidential election</p>
+<p>and we would like to pick the winner.</p>
+<p>In principle, we could draw a random sample</p>
+<p>of all of the voters in the country.</p>
+<p>And if it was of substantial size, say a few thousand,</p>
+<p>then the most popular candidate in that group</p>
+<p>would be very likely to be the correct choice</p>
+<p>that would come out of counting all the millions of votes.</p>
+<p>And of course we can&rsquo;t do this because first of all,</p>
+<p>everybody has to feel that his or her vote counted.</p>
+<p>And secondly, we can&rsquo;t really do a purely random sample</p>
+<p>from that population.</p>
+<p>And I guess thirdly, there could be a tie</p>
+<p>in which case we wouldn&rsquo;t have a significant difference</p>
+<p>between two candidates.</p>
+<p>But those things aside,</p>
+<p>if you didn&rsquo;t have all that messiness of human beings,</p>
+<p>you could prove that that kind of random picking</p>
+<p>would come up again.</p>
+<p>You just said random picking would solve the problem</p>
+<p>with a very low probability of error.</p>
+<p>Another example is testing whether a number is prime.</p>
+<p>So if I wanna test whether 17 is prime,</p>
+<p>I could pick any number between one and 17,</p>
+<p>raise it to the 16th power modulo 17,</p>
+<p>and you should get back the original number.</p>
+<p>That&rsquo;s a famous formula due to Fermat about,</p>
+<p>it&rsquo;s called Fermat&rsquo;s Little Theorem,</p>
+<p>that if you take any number a in the range</p>
+<p>zero through n minus one,</p>
+<p>and raise it to the n minus 1th power modulo n,</p>
+<p>you&rsquo;ll get back the number a if a is prime.</p>
+<p>So if you don&rsquo;t get back the number a,</p>
+<p>that&rsquo;s a proof that a number is not prime.</p>
+<p>And you can show that suitably defined</p>
+<p>the probability that you will get a value unequaled,</p>
+<p>you will get a violation of Fermat&rsquo;s result is very high.</p>
+<p>And so this gives you a way of rapidly proving</p>
+<p>that a number is not prime.</p>
+<p>It&rsquo;s a little more complicated than that</p>
+<p>because there are certain values of n</p>
+<p>where something a little more elaborate has to be done,</p>
+<p>but that&rsquo;s the basic idea.</p>
+<p>Taking an identity that holds for primes,</p>
+<p>and therefore, if it ever fails on any instance</p>
+<p>for a non prime, you know that the number is not prime.</p>
+<p>It&rsquo;s a quick choice, a fast choice,</p>
+<p>fast proof that a number is not prime.</p>
+<p>Can you maybe elaborate a little bit more</p>
+<p>what&rsquo;s your intuition why randomness works so well</p>
+<p>and results in such simple algorithms?</p>
+<p>Well, the example of conducting an election</p>
+<p>where you could take, in theory, you could take a sample</p>
+<p>and depend on the validity of the sample</p>
+<p>to really represent the whole</p>
+<p>is just the basic fact of statistics,</p>
+<p>which gives a lot of opportunities.</p>
+<p>And I actually exploited that sort of random sampling idea</p>
+<p>in designing an algorithm</p>
+<p>for counting the number of solutions</p>
+<p>that satisfy a particular formula</p>
+<p>and propositional logic.</p>
+<p>A particular, so some version of the satisfiability problem?</p>
+<p>A version of the satisfiability problem.</p>
+<p>Is there some interesting insight</p>
+<p>that you wanna elaborate on,</p>
+<p>like what some aspect of that algorithm</p>
+<p>that might be useful to describe?</p>
+<p>So you have a collection of formulas</p>
+<p>and you want to count the number of solutions</p>
+<p>that satisfy at least one of the formulas.</p>
+<p>And you can count the number of solutions</p>
+<p>that satisfy any particular one of the formulas,</p>
+<p>but you have to account for the fact</p>
+<p>that that solution might be counted many times</p>
+<p>if it solves more than one of the formulas.</p>
+<p>And so what you do is you sample from the formulas</p>
+<p>according to the number of solutions</p>
+<p>that satisfy each individual one.</p>
+<p>In that way, you draw a random solution,</p>
+<p>but then you correct by looking at</p>
+<p>the number of formulas that satisfy that random solution</p>
+<p>and don&rsquo;t double count.</p>
+<p>So you can think of it this way.</p>
+<p>So you have a matrix of zeros and ones</p>
+<p>and you wanna know how many columns of that matrix</p>
+<p>contain at least one one.</p>
+<p>And you can count in each row how many ones there are.</p>
+<p>So what you can do is draw from the rows</p>
+<p>according to the number of ones.</p>
+<p>If a row has more ones, it gets drawn more frequently.</p>
+<p>But then if you draw from that row,</p>
+<p>you have to go up the column</p>
+<p>and looking at where that same one is repeated</p>
+<p>in different rows and only count it as a success or a hit</p>
+<p>if it&rsquo;s the earliest row that contains the one.</p>
+<p>And that gives you a robust statistical estimate</p>
+<p>of the total number of columns</p>
+<p>that contain at least one of the ones.</p>
+<p>So that is an example of the same principle</p>
+<p>that was used in studying random sampling.</p>
+<p>Another viewpoint is that if you have a phenomenon</p>
+<p>that occurs almost all the time,</p>
+<p>then if you sample one of the occasions where it occurs,</p>
+<p>you&rsquo;re most likely to,</p>
+<p>and you&rsquo;re looking for an occurrence,</p>
+<p>a random occurrence is likely to work.</p>
+<p>So that comes up in solving identities,</p>
+<p>solving algebraic identities.</p>
+<p>You get two formulas that may look very different.</p>
+<p>You wanna know if they&rsquo;re really identical.</p>
+<p>What you can do is just pick a random value</p>
+<p>and evaluate the formulas at that value</p>
+<p>and see if they agree.</p>
+<p>And you depend on the fact</p>
+<p>that if the formulas are distinct,</p>
+<p>then they&rsquo;re gonna disagree a lot.</p>
+<p>And so therefore, a random choice</p>
+<p>will exhibit the disagreement.</p>
+<p>If there are many ways for the two to disagree</p>
+<p>and you only need to find one disagreement,</p>
+<p>then random choice is likely to yield it.</p>
+<p>And in general, so we&rsquo;ve just talked</p>
+<p>about randomized algorithms,</p>
+<p>but we can look at the probabilistic analysis of algorithms.</p>
+<p>And that gives us an opportunity to step back</p>
+<p>and as you said, everything we&rsquo;ve been talking about</p>
+<p>is worst case analysis.</p>
+<p>Could you maybe comment on the usefulness</p>
+<p>and the power of worst case analysis</p>
+<p>versus best case analysis, average case, probabilistic?</p>
+<p>How do we think about the future</p>
+<p>of theoretical computer science, computer science</p>
+<p>in the kind of analysis we do of algorithms?</p>
+<p>Does worst case analysis still have a place,</p>
+<p>an important place?</p>
+<p>Or do we want to try to move forward</p>
+<p>towards kind of average case analysis?</p>
+<p>And what are the challenges there?</p>
+<p>So if worst case analysis shows</p>
+<p>that an algorithm is always good,</p>
+<p>that&rsquo;s fine.</p>
+<p>If worst case analysis is used to show that the problem,</p>
+<p>that the solution is not always good,</p>
+<p>then you have to step back and do something else</p>
+<p>to ask how often will you get a good solution?</p>
+<p>Just to pause on that for a second,</p>
+<p>that&rsquo;s so beautifully put</p>
+<p>because I think we tend to judge algorithms.</p>
+<p>We throw them in the trash</p>
+<p>the moment their worst case is shown to be bad.</p>
+<p>Right, and that&rsquo;s unfortunate.</p>
+<p>I think a good example is going back</p>
+<p>to the satisfiability problem.</p>
+<p>There are very powerful programs called SAT solvers</p>
+<p>which in practice fairly reliably solve instances</p>
+<p>with many millions of variables</p>
+<p>that arise in digital design</p>
+<p>or in proving programs correct in other applications.</p>
+<p>And so in many application areas,</p>
+<p>even though satisfiability as we&rsquo;ve already discussed</p>
+<p>is NP complete, the SAT solvers will work so well</p>
+<p>that the people in that discipline</p>
+<p>tend to think of satisfiability as an easy problem.</p>
+<p>So in other words, just for some reason</p>
+<p>that we don&rsquo;t entirely understand,</p>
+<p>the instances that people formulate</p>
+<p>in designing digital circuits or other applications</p>
+<p>are such that satisfiability is not hard to check</p>
+<p>and even searching for a satisfying solution</p>
+<p>can be done efficiently in practice.</p>
+<p>And there are many examples.</p>
+<p>For example, we talked about the traveling salesman problem.</p>
+<p>So just to refresh our memories,</p>
+<p>the problem is you&rsquo;ve got a set of cities,</p>
+<p>you have pairwise distances between cities</p>
+<p>and you want to find a tour through all the cities</p>
+<p>that minimizes the total cost of all the edges traversed,</p>
+<p>all the trips between cities.</p>
+<p>The problem is NP hard,</p>
+<p>but people using integer programming codes</p>
+<p>together with some other mathematical tricks</p>
+<p>can solve geometric instances of the problem</p>
+<p>where the cities are, let&rsquo;s say points in the plane</p>
+<p>and get optimal solutions to problems</p>
+<p>with tens of thousands of cities.</p>
+<p>Actually, it&rsquo;ll take a few computer months</p>
+<p>to solve a problem of that size,</p>
+<p>but for problems of size a thousand or two,</p>
+<p>it&rsquo;ll rapidly get optimal solutions,</p>
+<p>provably optimal solutions,</p>
+<p>even though again, we know that it&rsquo;s unlikely</p>
+<p>that the traveling salesman problem</p>
+<p>can be solved in polynomial time.</p>
+<p>Are there methodologies like rigorous systematic methodologies</p>
+<p>for, you said in practice.</p>
+<p>In practice, this algorithm&rsquo;s pretty good.</p>
+<p>Are there systematic ways of saying</p>
+<p>in practice, this algorithm&rsquo;s pretty good?</p>
+<p>So in other words, average case analysis.</p>
+<p>Or you&rsquo;ve also mentioned that average case</p>
+<p>kind of requires you to understand what the typical case is,</p>
+<p>typical instances, and that might be really difficult.</p>
+<p>That&rsquo;s very difficult.</p>
+<p>So after I did my original work</p>
+<p>on showing all these problems through NP complete,</p>
+<p>I looked around for a way to shed some positive light</p>
+<p>on combinatorial algorithms.</p>
+<p>And what I tried to do was to study problems,</p>
+<p>behavior on the average or with high probability.</p>
+<p>But I had to make some assumptions</p>
+<p>about what&rsquo;s the probability space?</p>
+<p>What&rsquo;s the sample space?</p>
+<p>What do we mean by typical problems?</p>
+<p>That&rsquo;s very hard to say.</p>
+<p>So I took the easy way out</p>
+<p>and made some very simplistic assumptions.</p>
+<p>So I assumed, for example,</p>
+<p>that if we were generating a graph</p>
+<p>with a certain number of vertices and edges,</p>
+<p>then we would generate the graph</p>
+<p>by simply choosing one edge at a time at random</p>
+<p>until we got the right number of edges.</p>
+<p>That&rsquo;s a particular model of random graphs</p>
+<p>that has been studied mathematically a lot.</p>
+<p>And within that model,</p>
+<p>I could prove all kinds of wonderful things,</p>
+<p>I and others who also worked on this.</p>
+<p>So we could show that we know exactly</p>
+<p>how many edges there have to be</p>
+<p>in order for there be a so called Hamiltonian circuit.</p>
+<p>That&rsquo;s a cycle that visits each vertex exactly once.</p>
+<p>We know that if the number of edges</p>
+<p>is a little bit more than n log n,</p>
+<p>where n is the number of vertices,</p>
+<p>then such a cycle is very likely to exist.</p>
+<p>And we can give a heuristic</p>
+<p>that will find it with high probability.</p>
+<p>And the community in which I was working</p>
+<p>got a lot of results along these lines.</p>
+<p>But the field tended to be rather lukewarm</p>
+<p>about accepting these results as meaningful</p>
+<p>because we were making such a simplistic assumption</p>
+<p>about the kinds of graphs that we would be dealing with.</p>
+<p>So we could show all kinds of wonderful things,</p>
+<p>it was a great playground, I enjoyed doing it.</p>
+<p>But after a while, I concluded that</p>
+<p>it didn&rsquo;t have a lot of bite</p>
+<p>in terms of the practical application.</p>
+<p>Oh the, okay, so there&rsquo;s too much</p>
+<p>into the world of toy problems.</p>
+<p>Yeah.</p>
+<p>That can, okay.</p>
+<p>But all right, is there a way to find</p>
+<p>nice representative real world impactful instances</p>
+<p>of a problem on which demonstrate that an algorithm is good?</p>
+<p>So this is kind of like the machine learning world,</p>
+<p>that&rsquo;s kind of what they at his best tries to do</p>
+<p>is find a data set from like the real world</p>
+<p>and show the performance, all the conferences</p>
+<p>are all focused on beating the performance</p>
+<p>of on that real world data set.</p>
+<p>Is there an equivalent in complexity analysis?</p>
+<p>Not really, Don Knuth started to collect examples</p>
+<p>of graphs coming from various places.</p>
+<p>So he would have a whole zoo of different graphs</p>
+<p>that he could choose from and he could study</p>
+<p>the performance of algorithms on different types of graphs.</p>
+<p>But there it&rsquo;s really important and compelling</p>
+<p>to be able to define a class of graphs.</p>
+<p>The actual act of defining a class of graphs</p>
+<p>that you&rsquo;re interested in, it seems to be</p>
+<p>a non trivial step if we&rsquo;re talking about instances</p>
+<p>that we should care about in the real world.</p>
+<p>Yeah, there&rsquo;s nothing available there</p>
+<p>that would be analogous to the training set</p>
+<p>for supervised learning where you sort of assume</p>
+<p>that the world has given you a bunch</p>
+<p>of examples to work with.</p>
+<p>We don&rsquo;t really have that for problems,</p>
+<p>for combinatorial problems on graphs and networks.</p>
+<p>You know, there&rsquo;s been a huge growth,</p>
+<p>a big growth of data sets available.</p>
+<p>Do you think some aspect of theoretical computer science</p>
+<p>might be contradicting my own question while saying it,</p>
+<p>but will there be some aspect,</p>
+<p>an empirical aspect of theoretical computer science</p>
+<p>which will allow the fact that these data sets are huge,</p>
+<p>we&rsquo;ll start using them for analysis.</p>
+<p>Sort of, you know, if you want to say something</p>
+<p>about a graph algorithm, you might take</p>
+<p>a social network like Facebook and looking at subgraphs</p>
+<p>of that and prove something about the Facebook graph</p>
+<p>and be respected, and at the same time,</p>
+<p>be respected in the theoretical computer science community.</p>
+<p>That hasn&rsquo;t been achieved yet, I&rsquo;m afraid.</p>
+<p>Is that P equals NP, is that impossible?</p>
+<p>Is it impossible to publish a successful paper</p>
+<p>in the theoretical computer science community</p>
+<p>that shows some performance on a real world data set?</p>
+<p>Or is that really just those are two different worlds?</p>
+<p>They haven&rsquo;t really come together.</p>
+<p>I would say that there is a field</p>
+<p>of experimental algorithmics where people,</p>
+<p>sometimes they&rsquo;re given some family of examples.</p>
+<p>Sometimes they just generate them at random</p>
+<p>and they report on performance,</p>
+<p>but there&rsquo;s no convincing evidence</p>
+<p>that the sample is representative of anything at all.</p>
+<p>So let me ask, in terms of breakthroughs</p>
+<p>and open problems, what are the most compelling</p>
+<p>open problems to you and what possible breakthroughs</p>
+<p>do you see in the near term</p>
+<p>in terms of theoretical computer science?</p>
+<p>Well, there are all kinds of relationships</p>
+<p>among complexity classes that can be studied,</p>
+<p>just to mention one thing, I wrote a paper</p>
+<p>with Richard Lipton in 1979,</p>
+<p>where we asked the following question.</p>
+<p>If you take a combinatorial problem in NP, let&rsquo;s say,</p>
+<p>and you choose, and you pick the size of the problem,</p>
+<p>say it&rsquo;s a traveling salesman problem, but of size 52,</p>
+<p>and you ask, could you get an efficient,</p>
+<p>a small Boolean circuit tailored for that size, 52,</p>
+<p>where you could feed the edges of the graph</p>
+<p>in as Boolean inputs and get, as an output,</p>
+<p>the question of whether or not</p>
+<p>there&rsquo;s a tour of a certain length.</p>
+<p>And that would, in other words, briefly,</p>
+<p>what you would say in that case</p>
+<p>is that the problem has small circuits,</p>
+<p>polynomial size circuits.</p>
+<p>Now, we know that if P is equal to NP,</p>
+<p>then, in fact, these problems will have small circuits,</p>
+<p>but what about the converse?</p>
+<p>Could a problem have small circuits,</p>
+<p>meaning that an algorithm tailored to any particular size</p>
+<p>could work well, and yet not be a polynomial time algorithm?</p>
+<p>That is, you couldn&rsquo;t write it as a single,</p>
+<p>uniform algorithm, good for all sizes.</p>
+<p>Just to clarify, small circuits</p>
+<p>for a problem of particular size,</p>
+<p>by small circuits for a problem of particular size,</p>
+<p>or even further constraint,</p>
+<p>small circuit for a particular&hellip;</p>
+<p>No, for all the inputs of that size.</p>
+<p>Is that a trivial problem for a particular instance?</p>
+<p>So, coming up, an automated way</p>
+<p>of coming up with a circuit.</p>
+<p>I guess that&rsquo;s just an answer.</p>
+<p>That would be hard, yeah.</p>
+<p>But there&rsquo;s the existential question.</p>
+<p>Everybody talks nowadays about existential questions.</p>
+<p>Existential challenges.</p>
+<p>You could ask the question,</p>
+<p>does the Hamiltonian circuit problem</p>
+<p>have a small circuit for every size,</p>
+<p>for each size, a different small circuit?</p>
+<p>In other words, could you tailor solutions</p>
+<p>depending on the size, and get polynomial size?</p>
+<p>Even if P is not equal to NP.</p>
+<p>Right.</p>
+<p>That would be fascinating if that&rsquo;s true.</p>
+<p>Yeah, what we proved is that if that were possible,</p>
+<p>then something strange would happen in complexity theory.</p>
+<p>Some high level class which I could briefly describe,</p>
+<p>something strange would happen.</p>
+<p>So, I&rsquo;ll take a stab at describing what I mean.</p>
+<p>Sure, let&rsquo;s go there.</p>
+<p>So, we have to define this hierarchy</p>
+<p>in which the first level of the hierarchy is P,</p>
+<p>and the second level is NP.</p>
+<p>And what is NP?</p>
+<p>NP involves statements of the form</p>
+<p>there exists a something such that something holds.</p>
+<p>So, for example, there exists the coloring</p>
+<p>such that a graph can be colored</p>
+<p>with only that number of colors.</p>
+<p>Or there exists a Hamiltonian circuit.</p>
+<p>There&rsquo;s a statement about this graph.</p>
+<p>Yeah, so the NP deals with statements of that kind,</p>
+<p>that there exists a solution.</p>
+<p>Now, you could imagine a more complicated expression</p>
+<p>which says for all x there exists a y</p>
+<p>such that some proposition holds involving both x and y.</p>
+<p>So, that would say, for example, in game theory,</p>
+<p>for all strategies for the first player,</p>
+<p>there exists a strategy for the second player</p>
+<p>such that the first player wins.</p>
+<p>That would be at the second level of the hierarchy.</p>
+<p>The third level would be there exists an A</p>
+<p>such that for all B there exists a C,</p>
+<p>that something holds.</p>
+<p>And you could imagine going higher and higher</p>
+<p>in the hierarchy.</p>
+<p>And you&rsquo;d expect that the complexity classes</p>
+<p>that correspond to those different cases</p>
+<p>would get bigger and bigger.</p>
+<p>What do you mean by bigger and bigger?</p>
+<p>Sorry, sorry.</p>
+<p>They&rsquo;d get harder and harder to solve.</p>
+<p>Harder and harder, right.</p>
+<p>Harder and harder to solve.</p>
+<p>And what Lipton and I showed was</p>
+<p>that if NP had small circuits,</p>
+<p>then this hierarchy would collapse down</p>
+<p>to the second level.</p>
+<p>In other words, you wouldn&rsquo;t get any more mileage</p>
+<p>by complicating your expressions with three quantifiers</p>
+<p>or four quantifiers or any number.</p>
+<p>I&rsquo;m not sure what to make of that exactly.</p>
+<p>Well, I think it would be evidence</p>
+<p>that NP doesn&rsquo;t have small circuits</p>
+<p>because something so bizarre would happen.</p>
+<p>But again, it&rsquo;s only evidence, not proof.</p>
+<p>Well, yeah, that&rsquo;s not even evidence</p>
+<p>because you&rsquo;re saying P is not equal to NP</p>
+<p>because something bizarre has to happen.</p>
+<p>I mean, that&rsquo;s proof by the lack of bizarreness</p>
+<p>in our science.</p>
+<p>But it seems like just the very notion</p>
+<p>of P equals NP would be bizarre.</p>
+<p>So any way you arrive at, there&rsquo;s no way.</p>
+<p>You have to fight the dragon at some point.</p>
+<p>Yeah, okay.</p>
+<p>Well, anyway, for whatever it&rsquo;s worth,</p>
+<p>that&rsquo;s what we proved.</p>
+<p>Awesome.</p>
+<p>So that&rsquo;s a potential space of interesting problems.</p>
+<p>Yeah.</p>
+<p>Let me ask you about this other world</p>
+<p>that of machine learning, of deep learning.</p>
+<p>What&rsquo;s your thoughts on the history</p>
+<p>and the current progress of machine learning field</p>
+<p>that&rsquo;s often progressed sort of separately</p>
+<p>as a space of ideas and space of people</p>
+<p>than the theoretical computer science</p>
+<p>or just even computer science world?</p>
+<p>Yeah, it&rsquo;s really very different</p>
+<p>from the theoretical computer science world</p>
+<p>because the results about it,</p>
+<p>algorithmic performance tend to be empirical.</p>
+<p>It&rsquo;s more akin to the world of SAT solvers</p>
+<p>where we observe that for formulas arising in practice,</p>
+<p>the solver does well.</p>
+<p>So it&rsquo;s of that type.</p>
+<p>We&rsquo;re moving into the empirical evaluation of algorithms.</p>
+<p>Now, it&rsquo;s clear that there&rsquo;ve been huge successes</p>
+<p>in image processing, robotics,</p>
+<p>natural language processing, a little less so,</p>
+<p>but across the spectrum of game playing is another one.</p>
+<p>There&rsquo;ve been great successes and one of those effects</p>
+<p>is that it&rsquo;s not too hard to become a millionaire</p>
+<p>if you can get a reputation in machine learning</p>
+<p>and there&rsquo;ll be all kinds of companies</p>
+<p>that will be willing to offer you the moon</p>
+<p>because they think that if they have AI at their disposal,</p>
+<p>then they can solve all kinds of problems.</p>
+<p>But there are limitations.</p>
+<p>One is that the solutions that you get</p>
+<p>to supervise learning problems</p>
+<p>through convolutional neural networks</p>
+<p>seem to perform amazingly well</p>
+<p>even for inputs that are outside the training set.</p>
+<p>But we don&rsquo;t have any theoretical understanding</p>
+<p>of why that&rsquo;s true.</p>
+<p>Secondly, the solutions, the networks that you get</p>
+<p>are very hard to understand</p>
+<p>and so very little insight comes out.</p>
+<p>So yeah, yeah, they may seem to work on your training set</p>
+<p>and you may be able to discover whether your photos occur</p>
+<p>in a different sample of inputs or not,</p>
+<p>but we don&rsquo;t really know what&rsquo;s going on.</p>
+<p>We don&rsquo;t know the features that distinguish the photographs</p>
+<p>or the objects are not easy to characterize.</p>
+<p>Well, it&rsquo;s interesting because you mentioned</p>
+<p>coming up with a small circuit to solve</p>
+<p>a particular size problem.</p>
+<p>It seems that neural networks are kind of small circuits.</p>
+<p>In a way, yeah.</p>
+<p>But they&rsquo;re not programs.</p>
+<p>Sort of like the things you&rsquo;ve designed</p>
+<p>are algorithms, programs, algorithms.</p>
+<p>Neural networks aren&rsquo;t able to develop algorithms</p>
+<p>to solve a problem.</p>
+<p>Well, they are algorithms.</p>
+<p>It&rsquo;s just that they&rsquo;re&hellip;</p>
+<p>But sort of, yeah, it could be a semantic question,</p>
+<p>but there&rsquo;s not a algorithmic style manipulation</p>
+<p>of the input.</p>
+<p>Perhaps you could argue there is.</p>
+<p>Yeah, well.</p>
+<p>It feels a lot more like a function of the input.</p>
+<p>Yeah, it&rsquo;s a function.</p>
+<p>It&rsquo;s a computable function.</p>
+<p>Once you have the network,</p>
+<p>you can simulate it on a given input</p>
+<p>and figure out the output.</p>
+<p>But if you&rsquo;re trying to recognize images,</p>
+<p>then you don&rsquo;t know what features of the image</p>
+<p>are really being determinant of what the circuit is doing.</p>
+<p>The circuit is sort of very intricate</p>
+<p>and it&rsquo;s not clear that the simple characteristics</p>
+<p>that you&rsquo;re looking for,</p>
+<p>the edges of the objects or whatever they may be,</p>
+<p>they&rsquo;re not emerging from the structure of the circuit.</p>
+<p>Well, it&rsquo;s not clear to us humans,</p>
+<p>but it&rsquo;s clear to the circuit.</p>
+<p>Yeah, well, right.</p>
+<p>I mean, it&rsquo;s not clear to sort of the elephant</p>
+<p>how the human brain works,</p>
+<p>but it&rsquo;s clear to us humans,</p>
+<p>we can explain to each other our reasoning</p>
+<p>and that&rsquo;s why the cognitive science</p>
+<p>and psychology field exists.</p>
+<p>Maybe the whole thing of being explainable to humans</p>
+<p>is a little bit overrated.</p>
+<p>Oh, maybe, yeah.</p>
+<p>I guess you can say the same thing about our brain</p>
+<p>that when we perform acts of cognition,</p>
+<p>we have no idea how we do it really.</p>
+<p>We do though, I mean, at least for the visual system,</p>
+<p>the auditory system and so on,</p>
+<p>we do get some understanding of the principles</p>
+<p>that they operate under,</p>
+<p>but for many deeper cognitive tasks, we don&rsquo;t have that.</p>
+<p>That&rsquo;s right.</p>
+<p>Let me ask, you&rsquo;ve also been doing work on bioinformatics.</p>
+<p>Does it amaze you that the fundamental building blocks?</p>
+<p>So if we take a step back and look at us humans,</p>
+<p>the building blocks used by evolution</p>
+<p>to build us intelligent human beings</p>
+<p>is all contained there in our DNA.</p>
+<p>It&rsquo;s amazing and what&rsquo;s really amazing</p>
+<p>is that we are beginning to learn how to edit DNA,</p>
+<p>which is very, very, very fascinating.</p>
+<p>This ability to take a sequence,</p>
+<p>find it in the genome and do something to it.</p>
+<p>I mean, that&rsquo;s really taking our biological systems</p>
+<p>towards the world of algorithms.</p>
+<p>Yeah, but it raises a lot of questions.</p>
+<p>You have to distinguish between doing it on an individual</p>
+<p>or doing it on somebody&rsquo;s germline,</p>
+<p>which means that all of their descendants will be affected.</p>
+<p>So that&rsquo;s like an ethical.</p>
+<p>Yeah, so it raises very severe ethical questions.</p>
+<p>And even doing it on individuals,</p>
+<p>there&rsquo;s a lot of hubris involved</p>
+<p>that you can assume that knocking out a particular gene</p>
+<p>is gonna be beneficial</p>
+<p>because you don&rsquo;t know what the side effects</p>
+<p>are going to be.</p>
+<p>So we have this wonderful new world of gene editing,</p>
+<p>which is very, very impressive</p>
+<p>and it could be used in agriculture,</p>
+<p>it could be used in medicine in various ways.</p>
+<p>But very serious ethical problems arise.</p>
+<p>What are to you the most interesting places</p>
+<p>where algorithms, sort of the ethical side</p>
+<p>is an exceptionally challenging thing</p>
+<p>that I think we&rsquo;re going to have to tackle</p>
+<p>with all of genetic engineering.</p>
+<p>But on the algorithmic side,</p>
+<p>there&rsquo;s a lot of benefit that&rsquo;s possible.</p>
+<p>So is there areas where you see exciting possibilities</p>
+<p>for algorithms to help model, optimize,</p>
+<p>study biological systems?</p>
+<p>Yeah, I mean, we can certainly analyze genomic data</p>
+<p>to figure out which genes are operative in the cell</p>
+<p>and under what conditions</p>
+<p>and which proteins affect one another,</p>
+<p>which proteins physically interact.</p>
+<p>We can sequence proteins and modify them.</p>
+<p>Is there some aspect of that</p>
+<p>that&rsquo;s a computer science problem</p>
+<p>or is that still fundamentally a biology problem?</p>
+<p>Well, it&rsquo;s a big data,</p>
+<p>it&rsquo;s a statistical big data problem for sure.</p>
+<p>So the biological data sets are increasing,</p>
+<p>our ability to study our ancestry,</p>
+<p>to study the tendencies towards disease,</p>
+<p>to personalize treatment according to what&rsquo;s in our genomes</p>
+<p>and what tendencies for disease we have,</p>
+<p>to be able to predict what troubles might come upon us</p>
+<p>in the future and anticipate them,</p>
+<p>to understand whether you,</p>
+<p>for a woman, whether her proclivity for breast cancer</p>
+<p>is so strong enough that she would want</p>
+<p>to take action to avoid it.</p>
+<p>You dedicate your 1985 Turing Award lecture</p>
+<p>to the memory of your father.</p>
+<p>What&rsquo;s your fondest memory of your dad?</p>
+<p>Seeing him standing in front of a class at the blackboard,</p>
+<p>drawing perfect circles by hand</p>
+<p>and showing his ability to attract the interest</p>
+<p>of the motley collection of eighth grade students</p>
+<p>that he was teaching.</p>
+<p>When did you get a chance to see him</p>
+<p>draw the perfect circles?</p>
+<p>On rare occasions, I would get a chance</p>
+<p>to sneak into his classroom and observe him.</p>
+<p>And I think he was at his best in the classroom.</p>
+<p>I think he really came to life and had fun,</p>
+<p>not only teaching, but engaging in chit chat</p>
+<p>with the students and ingratiating himself</p>
+<p>with the students.</p>
+<p>And what I inherited from that is the great desire</p>
+<p>to be a teacher.</p>
+<p>I retired recently and a lot of my former students came,</p>
+<p>students with whom I had done research</p>
+<p>or who had read my papers or who had been in my classes.</p>
+<p>And when they talked about me,</p>
+<p>they talked not about my 1979 paper or 1992 paper,</p>
+<p>but about what came away in my classes.</p>
+<p>And not just the details, but just the approach</p>
+<p>and the manner of teaching.</p>
+<p>And so I sort of take pride in the,</p>
+<p>at least in my early years as a faculty member at Berkeley,</p>
+<p>I was exemplary in preparing my lectures</p>
+<p>and I always came in prepared to the teeth,</p>
+<p>and able therefore to deviate according</p>
+<p>to what happened in the class,</p>
+<p>and to really provide a model for the students.</p>
+<p>So is there advice you can give out for others</p>
+<p>on how to be a good teacher?</p>
+<p>So preparation is one thing you&rsquo;ve mentioned,</p>
+<p>being exceptionally well prepared,</p>
+<p>but there are other things,</p>
+<p>pieces of advice that you can impart?</p>
+<p>Well, the top three would be preparation, preparation,</p>
+<p>and preparation.</p>
+<p>Why is preparation so important, I guess?</p>
+<p>It&rsquo;s because it gives you the ease</p>
+<p>to deal with any situation that comes up in the classroom.</p>
+<p>And if you discover that you&rsquo;re not getting through one way,</p>
+<p>you can do it another way.</p>
+<p>If the students have questions,</p>
+<p>you can handle the questions.</p>
+<p>Ultimately, you&rsquo;re also feeling the crowd,</p>
+<p>the students of what they&rsquo;re struggling with,</p>
+<p>what they&rsquo;re picking up,</p>
+<p>just looking at them through the questions,</p>
+<p>but even just through their eyes.</p>
+<p>Yeah, that&rsquo;s right.</p>
+<p>And because of the preparation, you can dance.</p>
+<p>You can dance, you can say it another way,</p>
+<p>or give it another angle.</p>
+<p>Are there, in particular, ideas and algorithms</p>
+<p>of computer science that you find</p>
+<p>were big aha moments for students,</p>
+<p>where they, for some reason, once they got it,</p>
+<p>it clicked for them and they fell in love</p>
+<p>with computer science?</p>
+<p>Or is it individual, is it different for everybody?</p>
+<p>It&rsquo;s different for everybody.</p>
+<p>You have to work differently with students.</p>
+<p>Some of them just don&rsquo;t need much influence.</p>
+<p>They&rsquo;re just running with what they&rsquo;re doing</p>
+<p>and they just need an ear now and then.</p>
+<p>Others need a little prodding.</p>
+<p>Others need to be persuaded to collaborate among themselves</p>
+<p>rather than working alone.</p>
+<p>They have their personal ups and downs,</p>
+<p>so you have to deal with each student as a human being</p>
+<p>and bring out the best.</p>
+<p>Humans are complicated.</p>
+<p>Yeah.</p>
+<p>Perhaps a silly question.</p>
+<p>If you could relive a moment in your life outside of family</p>
+<p>because it made you truly happy,</p>
+<p>or perhaps because it changed the direction of your life</p>
+<p>in a profound way, what moment would you pick?</p>
+<p>I was kind of a lazy student as an undergraduate,</p>
+<p>and even in my first year in graduate school.</p>
+<p>And I think it was when I started doing research,</p>
+<p>I had a couple of summer jobs where I was able to contribute</p>
+<p>and I had an idea.</p>
+<p>And then there was one particular course</p>
+<p>on mathematical methods and operations research</p>
+<p>where I just gobbled up the material</p>
+<p>and I scored 20 points higher than anybody else in the class</p>
+<p>then came to the attention of the faculty.</p>
+<p>And it made me realize that I had some ability</p>
+<p>that I was going somewhere.</p>
+<p>You realize you&rsquo;re pretty good at this thing.</p>
+<p>I don&rsquo;t think there&rsquo;s a better way to end it, Richard.</p>
+<p>It was a huge honor.</p>
+<p>Thank you for decades of incredible work.</p>
+<p>Thank you for talking to me.</p>
+<p>Thank you, it&rsquo;s been a great pleasure.</p>
+<p>You&rsquo;re a superb interviewer.</p>
+<p>I&rsquo;ll stop it.</p>
+<p>Thanks for listening to this conversation with Richard Karp.</p>
+<p>And thank you to our sponsors, 8sleep and Cash App.</p>
+<p>Please consider supporting this podcast</p>
+<p>by going to 8sleep.com slash Lex</p>
+<p>to check out their awesome mattress</p>
+<p>and downloading Cash App and using code LexPodcast.</p>
+<p>Click the links, buy the stuff,</p>
+<p>even just visiting the site</p>
+<p>but also considering the purchase.</p>
+<p>Helps them know that this podcast</p>
+<p>is worth supporting in the future.</p>
+<p>It really is the best way to support this journey I&rsquo;m on.</p>
+<p>If you enjoy this thing, subscribe on YouTube,</p>
+<p>review it with Five Stars and Apple Podcast,</p>
+<p>support it on Patreon, connect with me on Twitter</p>
+<p>at Lex Friedman if you can figure out how to spell that.</p>
+<p>And now let me leave you with some words from Isaac Asimov.</p>
+<p>I do not fear computers.</p>
+<p>I fear lack of them.</p>
+<p>Thank you for listening and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

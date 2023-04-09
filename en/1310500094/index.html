@@ -1,0 +1,3022 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Ilya Sotskever,
+cofounder and chief scientist of OpenAI,
+one of the most cited computer scientists in history
+with over 165,000 citations,
+and to me, one of the most brilliant and insightful minds
+ever in the field of deep learning.
+There are very few people in this world
+who I would rather talk to and brainstorm with
+about deep learning, intelligence, and life in general'>
+<title>Lex Fridman Podcast - #94 - Ilya Sutskever: Deep Learning | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500094/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #94 - Ilya Sutskever: Deep Learning'>
+<meta property='og:description' content='The following is a conversation with Ilya Sotskever,
+cofounder and chief scientist of OpenAI,
+one of the most cited computer scientists in history
+with over 165,000 citations,
+and to me, one of the most brilliant and insightful minds
+ever in the field of deep learning.
+There are very few people in this world
+who I would rather talk to and brainstorm with
+about deep learning, intelligence, and life in general'>
+<meta property='og:url' content='https://swiest.com/en/1310500094/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-06-02T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-06-02T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #94 - Ilya Sutskever: Deep Learning">
+<meta name="twitter:description" content="The following is a conversation with Ilya Sotskever,
+cofounder and chief scientist of OpenAI,
+one of the most cited computer scientists in history
+with over 165,000 citations,
+and to me, one of the most brilliant and insightful minds
+ever in the field of deep learning.
+There are very few people in this world
+who I would rather talk to and brainstorm with
+about deep learning, intelligence, and life in general">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500094/">Lex Fridman Podcast - #94 - Ilya Sutskever: Deep Learning</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-02</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    77 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Ilya Sotskever,</p>
+<p>cofounder and chief scientist of OpenAI,</p>
+<p>one of the most cited computer scientists in history</p>
+<p>with over 165,000 citations,</p>
+<p>and to me, one of the most brilliant and insightful minds</p>
+<p>ever in the field of deep learning.</p>
+<p>There are very few people in this world</p>
+<p>who I would rather talk to and brainstorm with</p>
+<p>about deep learning, intelligence, and life in general</p>
+<p>than Ilya, on and off the mic.</p>
+<p>This was an honor and a pleasure.</p>
+<p>This conversation was recorded</p>
+<p>before the outbreak of the pandemic.</p>
+<p>For everyone feeling the medical, psychological,</p>
+<p>and financial burden of this crisis,</p>
+<p>I&rsquo;m sending love your way.</p>
+<p>Stay strong, we&rsquo;re in this together, we&rsquo;ll beat this thing.</p>
+<p>This is the Artificial Intelligence Podcast.</p>
+<p>If you enjoy it, subscribe on YouTube,</p>
+<p>review it with five stars on Apple Podcast,</p>
+<p>support it on Patreon,</p>
+<p>or simply connect with me on Twitter</p>
+<p>at lexfriedman, spelled F R I D M A N.</p>
+<p>As usual, I&rsquo;ll do a few minutes of ads now</p>
+<p>and never any ads in the middle</p>
+<p>that can break the flow of the conversation.</p>
+<p>I hope that works for you</p>
+<p>and doesn&rsquo;t hurt the listening experience.</p>
+<p>This show is presented by Cash App,</p>
+<p>the number one finance app in the App Store.</p>
+<p>When you get it, use code LEXPODCAST.</p>
+<p>Cash App lets you send money to friends,</p>
+<p>buy Bitcoin, invest in the stock market</p>
+<p>with as little as $1.</p>
+<p>Since Cash App allows you to buy Bitcoin,</p>
+<p>let me mention that cryptocurrency</p>
+<p>in the context of the history of money is fascinating.</p>
+<p>I recommend Ascent of Money as a great book on this history.</p>
+<p>Both the book and audio book are great.</p>
+<p>Debits and credits on ledgers</p>
+<p>started around 30,000 years ago.</p>
+<p>The US dollar created over 200 years ago,</p>
+<p>and Bitcoin, the first decentralized cryptocurrency,</p>
+<p>released just over 10 years ago.</p>
+<p>So given that history,</p>
+<p>cryptocurrency is still very much in its early days</p>
+<p>of development, but it&rsquo;s still aiming to</p>
+<p>and just might redefine the nature of money.</p>
+<p>So again, if you get Cash App from the App Store</p>
+<p>or Google Play and use the code LEXPODCAST,</p>
+<p>you get $10 and Cash App will also donate $10 to FIRST,</p>
+<p>an organization that is helping advance robotics</p>
+<p>and STEM education for young people around the world.</p>
+<p>And now here&rsquo;s my conversation with Ilya Satsgever.</p>
+<p>You were one of the three authors with Alex Kaszewski,</p>
+<p>Geoff Hinton of the famed AlexNet paper</p>
+<p>that is arguably the paper that marked</p>
+<p>the big catalytic moment</p>
+<p>that launched the deep learning revolution.</p>
+<p>At that time, take us back to that time,</p>
+<p>what was your intuition about neural networks,</p>
+<p>about the representational power of neural networks?</p>
+<p>And maybe you could mention how did that evolve</p>
+<p>over the next few years up to today,</p>
+<p>over the 10 years?</p>
+<p>Yeah, I can answer that question.</p>
+<p>At some point in about 2010 or 2011,</p>
+<p>I connected two facts in my mind.</p>
+<p>Basically, the realization was this,</p>
+<p>at some point we realized that we can train very large,</p>
+<p>I shouldn&rsquo;t say very, tiny by today&rsquo;s standards,</p>
+<p>but large and deep neural networks</p>
+<p>end to end with backpropagation.</p>
+<p>At some point, different people obtained this result.</p>
+<p>I obtained this result.</p>
+<p>The first moment in which I realized</p>
+<p>that deep neural networks are powerful</p>
+<p>was when James Martens invented</p>
+<p>the Hessian free optimizer in 2010.</p>
+<p>And he trained a 10 layer neural network end to end</p>
+<p>without pre training from scratch.</p>
+<p>And when that happened, I thought this is it.</p>
+<p>Because if you can train a big neural network,</p>
+<p>a big neural network can represent very complicated function.</p>
+<p>Because if you have a neural network with 10 layers,</p>
+<p>it&rsquo;s as though you allow the human brain</p>
+<p>to run for some number of milliseconds.</p>
+<p>Neuron firings are slow.</p>
+<p>And so in maybe 100 milliseconds,</p>
+<p>your neurons only fire 10 times.</p>
+<p>So it&rsquo;s also kind of like 10 layers.</p>
+<p>And in 100 milliseconds,</p>
+<p>you can perfectly recognize any object.</p>
+<p>So I thought, so I already had the idea then</p>
+<p>that we need to train a very big neural network</p>
+<p>on lots of supervised data.</p>
+<p>And then it must succeed</p>
+<p>because we can find the best neural network.</p>
+<p>And then there&rsquo;s also theory</p>
+<p>that if you have more data than parameters,</p>
+<p>you won&rsquo;t overfit.</p>
+<p>Today, we know that actually this theory is very incomplete</p>
+<p>and you won&rsquo;t overfit even if you have less data</p>
+<p>than parameters, but definitely,</p>
+<p>if you have more data than parameters, you won&rsquo;t overfit.</p>
+<p>So the fact that neural networks</p>
+<p>were heavily overparameterized wasn&rsquo;t discouraging to you?</p>
+<p>So you were thinking about the theory</p>
+<p>that the number of parameters,</p>
+<p>the fact that there&rsquo;s a huge number of parameters is okay?</p>
+<p>Is it gonna be okay?</p>
+<p>I mean, there was some evidence before that it was okayish,</p>
+<p>but the theory was most,</p>
+<p>the theory was that if you had a big data set</p>
+<p>and a big neural net, it was going to work.</p>
+<p>The overparameterization just didn&rsquo;t really</p>
+<p>figure much as a problem.</p>
+<p>I thought, well, with images,</p>
+<p>you&rsquo;re just gonna add some data augmentation</p>
+<p>and it&rsquo;s gonna be okay.</p>
+<p>So where was any doubt coming from?</p>
+<p>The main doubt was, can we train a bigger,</p>
+<p>will we have enough computer train</p>
+<p>a big enough neural net?</p>
+<p>With backpropagation.</p>
+<p>Backpropagation I thought would work.</p>
+<p>The thing which wasn&rsquo;t clear</p>
+<p>was whether there would be enough compute</p>
+<p>to get a very convincing result.</p>
+<p>And then at some point, Alex Kerchevsky wrote</p>
+<p>these insanely fast CUDA kernels</p>
+<p>for training convolutional neural nets.</p>
+<p>Net was bam, let&rsquo;s do this.</p>
+<p>Let&rsquo;s get image in it and it&rsquo;s gonna be the greatest thing.</p>
+<p>Was your intuition, most of your intuition</p>
+<p>from empirical results by you and by others?</p>
+<p>So like just actually demonstrating</p>
+<p>that a piece of program can train</p>
+<p>a 10 layer neural network?</p>
+<p>Or was there some pen and paper</p>
+<p>or marker and whiteboard thinking intuition?</p>
+<p>Like, cause you just connected a 10 layer</p>
+<p>large neural network to the brain.</p>
+<p>So you just mentioned the brain.</p>
+<p>So in your intuition about neural networks</p>
+<p>does the human brain come into play as a intuition builder?</p>
+<p>Definitely.</p>
+<p>I mean, you gotta be precise with these analogies</p>
+<p>between artificial neural networks and the brain.</p>
+<p>But there is no question that the brain is a huge source</p>
+<p>of intuition and inspiration for deep learning researchers</p>
+<p>since all the way from Rosenblatt in the 60s.</p>
+<p>Like if you look at the whole idea of a neural network</p>
+<p>is directly inspired by the brain.</p>
+<p>You had people like McCallum and Pitts who were saying,</p>
+<p>hey, you got these neurons in the brain.</p>
+<p>And hey, we recently learned about the computer</p>
+<p>and automata.</p>
+<p>Can we use some ideas from the computer and automata</p>
+<p>to design some kind of computational object</p>
+<p>that&rsquo;s going to be simple, computational</p>
+<p>and kind of like the brain and they invented the neuron.</p>
+<p>So they were inspired by it back then.</p>
+<p>Then you had the convolutional neural network from Fukushima</p>
+<p>and then later Yann LeCun who said, hey,</p>
+<p>if you limit the receptive fields of a neural network,</p>
+<p>it&rsquo;s going to be especially suitable for images</p>
+<p>as it turned out to be true.</p>
+<p>So there was a very small number of examples</p>
+<p>where analogies to the brain were successful.</p>
+<p>And I thought, well, probably an artificial neuron</p>
+<p>is not that different from the brain</p>
+<p>if it&rsquo;s cleaned hard enough.</p>
+<p>So let&rsquo;s just assume it is and roll with it.</p>
+<p>So now we&rsquo;re not at a time where deep learning</p>
+<p>is very successful.</p>
+<p>So let us squint less and say, let&rsquo;s open our eyes</p>
+<p>and say, what do you use an interesting difference</p>
+<p>between the human brain?</p>
+<p>Now, I know you&rsquo;re probably not an expert</p>
+<p>neither in your scientists and your biologists,</p>
+<p>but loosely speaking, what&rsquo;s the difference</p>
+<p>between the human brain and artificial neural networks?</p>
+<p>That&rsquo;s interesting to you for the next decade or two.</p>
+<p>That&rsquo;s a good question to ask.</p>
+<p>What is an interesting difference between the neurons</p>
+<p>between the brain and our artificial neural networks?</p>
+<p>So I feel like today, artificial neural networks,</p>
+<p>so we all agree that there are certain dimensions</p>
+<p>in which the human brain vastly outperforms our models.</p>
+<p>But I also think that there are some ways</p>
+<p>in which our artificial neural networks</p>
+<p>have a number of very important advantages over the brain.</p>
+<p>Looking at the advantages versus disadvantages</p>
+<p>is a good way to figure out what is the important difference.</p>
+<p>So the brain uses spikes, which may or may not be important.</p>
+<p>Yeah, it&rsquo;s a really interesting question.</p>
+<p>Do you think it&rsquo;s important or not?</p>
+<p>That&rsquo;s one big architectural difference</p>
+<p>between artificial neural networks.</p>
+<p>It&rsquo;s hard to tell, but my prior is not very high</p>
+<p>and I can say why.</p>
+<p>There are people who are interested</p>
+<p>in spiking neural networks.</p>
+<p>And basically what they figured out</p>
+<p>is that they need to simulate</p>
+<p>the non spiking neural networks in spikes.</p>
+<p>And that&rsquo;s how they&rsquo;re gonna make them work.</p>
+<p>If you don&rsquo;t simulate the non spiking neural networks</p>
+<p>in spikes, it&rsquo;s not going to work</p>
+<p>because the question is why should it work?</p>
+<p>And that connects to questions around back propagation</p>
+<p>and questions around deep learning.</p>
+<p>You&rsquo;ve got this giant neural network.</p>
+<p>Why should it work at all?</p>
+<p>Why should the learning rule work at all?</p>
+<p>It&rsquo;s not a self evident question,</p>
+<p>especially if you, let&rsquo;s say if you were just starting</p>
+<p>in the field and you read the very early papers,</p>
+<p>you can say, hey, people are saying,</p>
+<p>let&rsquo;s build neural networks.</p>
+<p>That&rsquo;s a great idea because the brain is a neural network.</p>
+<p>So it would be useful to build neural networks.</p>
+<p>Now let&rsquo;s figure out how to train them.</p>
+<p>It should be possible to train them probably, but how?</p>
+<p>And so the big idea is the cost function.</p>
+<p>That&rsquo;s the big idea.</p>
+<p>The cost function is a way of measuring the performance</p>
+<p>of the system according to some measure.</p>
+<p>By the way, that is a big, actually let me think,</p>
+<p>is that one, a difficult idea to arrive at</p>
+<p>and how big of an idea is that?</p>
+<p>That there&rsquo;s a single cost function.</p>
+<p>Sorry, let me take a pause.</p>
+<p>Is supervised learning a difficult concept to come to?</p>
+<p>I don&rsquo;t know.</p>
+<p>All concepts are very easy in retrospect.</p>
+<p>Yeah, that&rsquo;s what it seems trivial now,</p>
+<p>but I, because the reason I asked that,</p>
+<p>and we&rsquo;ll talk about it, is there other things?</p>
+<p>Is there things that don&rsquo;t necessarily have a cost function,</p>
+<p>maybe have many cost functions</p>
+<p>or maybe have dynamic cost functions</p>
+<p>or maybe a totally different kind of architectures?</p>
+<p>Because we have to think like that</p>
+<p>in order to arrive at something new, right?</p>
+<p>So the only, so the good examples of things</p>
+<p>which don&rsquo;t have clear cost functions are GANs.</p>
+<p>Right. And a GAN, you have a game.</p>
+<p>So instead of thinking of a cost function,</p>
+<p>where you wanna optimize,</p>
+<p>where you know that you have an algorithm gradient descent,</p>
+<p>which will optimize the cost function,</p>
+<p>and then you can reason about the behavior of your system</p>
+<p>in terms of what it optimizes.</p>
+<p>With a GAN, you say, I have a game</p>
+<p>and I&rsquo;ll reason about the behavior of the system</p>
+<p>in terms of the equilibrium of the game.</p>
+<p>But it&rsquo;s all about coming up with these mathematical objects</p>
+<p>that help us reason about the behavior of our system.</p>
+<p>Right, that&rsquo;s really interesting.</p>
+<p>Yeah, so GAN is the only one, it&rsquo;s kind of a,</p>
+<p>the cost function is emergent from the comparison.</p>
+<p>It&rsquo;s, I don&rsquo;t know if it has a cost function.</p>
+<p>I don&rsquo;t know if it&rsquo;s meaningful</p>
+<p>to talk about the cost function of a GAN.</p>
+<p>It&rsquo;s kind of like the cost function of biological evolution</p>
+<p>or the cost function of the economy.</p>
+<p>It&rsquo;s, you can talk about regions</p>
+<p>to which it will go towards, but I don&rsquo;t think,</p>
+<p>I don&rsquo;t think the cost function analogy is the most useful.</p>
+<p>So if evolution doesn&rsquo;t, that&rsquo;s really interesting.</p>
+<p>So if evolution doesn&rsquo;t really have a cost function,</p>
+<p>like a cost function based on its,</p>
+<p>something akin to our mathematical conception</p>
+<p>of a cost function, then do you think cost functions</p>
+<p>in deep learning are holding us back?</p>
+<p>Yeah, so you just kind of mentioned that cost function</p>
+<p>is a nice first profound idea.</p>
+<p>Do you think that&rsquo;s a good idea?</p>
+<p>Do you think it&rsquo;s an idea we&rsquo;ll go past?</p>
+<p>So self play starts to touch on that a little bit</p>
+<p>in reinforcement learning systems.</p>
+<p>That&rsquo;s right.</p>
+<p>Self play and also ideas around exploration</p>
+<p>where you&rsquo;re trying to take action</p>
+<p>that surprise a predictor.</p>
+<p>I&rsquo;m a big fan of cost functions.</p>
+<p>I think cost functions are great</p>
+<p>and they serve us really well.</p>
+<p>And I think that whenever we can do things</p>
+<p>with cost functions, we should.</p>
+<p>And you know, maybe there is a chance</p>
+<p>that we will come up with some,</p>
+<p>yet another profound way of looking at things</p>
+<p>that will involve cost functions in a less central way.</p>
+<p>But I don&rsquo;t know, I think cost functions are,</p>
+<p>I mean, I would not bet against cost functions.</p>
+<p>Is there other things about the brain</p>
+<p>that pop into your mind that might be different</p>
+<p>and interesting for us to consider</p>
+<p>in designing artificial neural networks?</p>
+<p>So we talked about spiking a little bit.</p>
+<p>I mean, one thing which may potentially be useful,</p>
+<p>I think people, neuroscientists have figured out</p>
+<p>something about the learning rule of the brain</p>
+<p>or I&rsquo;m talking about spike time independent plasticity</p>
+<p>and it would be nice if some people</p>
+<p>would just study that in simulation.</p>
+<p>Wait, sorry, spike time independent plasticity?</p>
+<p>Yeah, that&rsquo;s right.</p>
+<p>What&rsquo;s that?</p>
+<p>STD.</p>
+<p>It&rsquo;s a particular learning rule that uses spike timing</p>
+<p>to figure out how to determine how to update the synapses.</p>
+<p>So it&rsquo;s kind of like if a synapse fires into the neuron</p>
+<p>before the neuron fires,</p>
+<p>then it strengthens the synapse,</p>
+<p>and if the synapse fires into the neurons</p>
+<p>shortly after the neuron fired,</p>
+<p>then it weakens the synapse.</p>
+<p>Something along this line.</p>
+<p>I&rsquo;m 90% sure it&rsquo;s right, so if I said something wrong here,</p>
+<p>don&rsquo;t get too angry.</p>
+<p>But you sounded brilliant while saying it.</p>
+<p>But the timing, that&rsquo;s one thing that&rsquo;s missing.</p>
+<p>The temporal dynamics is not captured.</p>
+<p>I think that&rsquo;s like a fundamental property of the brain</p>
+<p>is the timing of the timing of the timing</p>
+<p>of the signals.</p>
+<p>Well, you have recurrent neural networks.</p>
+<p>But you think of that as this,</p>
+<p>I mean, that&rsquo;s a very crude, simplified,</p>
+<p>what&rsquo;s that called?</p>
+<p>There&rsquo;s a clock, I guess, to recurrent neural networks.</p>
+<p>It&rsquo;s, this seems like the brain is the general,</p>
+<p>the continuous version of that,</p>
+<p>the generalization where all possible timings are possible,</p>
+<p>and then within those timings is contained some information.</p>
+<p>You think recurrent neural networks,</p>
+<p>the recurrence in recurrent neural networks</p>
+<p>can capture the same kind of phenomena as the timing</p>
+<p>that seems to be important for the brain,</p>
+<p>in the firing of neurons in the brain?</p>
+<p>I mean, I think recurrent neural networks are amazing,</p>
+<p>and they can do, I think they can do anything</p>
+<p>we&rsquo;d want them to, we&rsquo;d want a system to do.</p>
+<p>Right now, recurrent neural networks</p>
+<p>have been superseded by transformers,</p>
+<p>but maybe one day they&rsquo;ll make a comeback,</p>
+<p>maybe they&rsquo;ll be back, we&rsquo;ll see.</p>
+<p>Let me, on a small tangent, say,</p>
+<p>do you think they&rsquo;ll be back?</p>
+<p>So, so much of the breakthroughs recently</p>
+<p>that we&rsquo;ll talk about on natural language processing</p>
+<p>and language modeling has been with transformers</p>
+<p>that don&rsquo;t emphasize recurrence.</p>
+<p>Do you think recurrence will make a comeback?</p>
+<p>Well, some kind of recurrence, I think very likely.</p>
+<p>Recurrent neural networks, as they&rsquo;re typically thought of</p>
+<p>for processing sequences, I think it&rsquo;s also possible.</p>
+<p>What is, to you, a recurrent neural network?</p>
+<p>In generally speaking, I guess,</p>
+<p>what is a recurrent neural network?</p>
+<p>You have a neural network which maintains</p>
+<p>a high dimensional hidden state,</p>
+<p>and then when an observation arrives,</p>
+<p>it updates its high dimensional hidden state</p>
+<p>through its connections in some way.</p>
+<p>So do you think, that&rsquo;s what expert systems did, right?</p>
+<p>Symbolic AI, the knowledge based,</p>
+<p>growing a knowledge base is maintaining a hidden state,</p>
+<p>which is its knowledge base,</p>
+<p>and is growing it by sequential processing.</p>
+<p>Do you think of it more generally in that way,</p>
+<p>or is it simply, is it the more constrained form</p>
+<p>of a hidden state with certain kind of gating units</p>
+<p>that we think of as today with LSTMs and that?</p>
+<p>I mean, the hidden state is technically</p>
+<p>what you described there, the hidden state</p>
+<p>that goes inside the LSTM or the RNN or something like this.</p>
+<p>But then what should be contained,</p>
+<p>if you want to make the expert system analogy,</p>
+<p>I&rsquo;m not, I mean, you could say that</p>
+<p>the knowledge is stored in the connections,</p>
+<p>and then the short term processing</p>
+<p>is done in the hidden state.</p>
+<p>Yes, could you say that?</p>
+<p>So sort of, do you think there&rsquo;s a future of building</p>
+<p>large scale knowledge bases within the neural networks?</p>
+<p>Definitely.</p>
+<p>So we&rsquo;re gonna pause on that confidence,</p>
+<p>because I want to explore that.</p>
+<p>Well, let me zoom back out and ask,</p>
+<p>back to the history of ImageNet.</p>
+<p>Neural networks have been around for many decades,</p>
+<p>as you mentioned.</p>
+<p>What do you think were the key ideas</p>
+<p>that led to their success,</p>
+<p>that ImageNet moment and beyond,</p>
+<p>the success in the past 10 years?</p>
+<p>Okay, so the question is,</p>
+<p>to make sure I didn&rsquo;t miss anything,</p>
+<p>the key ideas that led to the success</p>
+<p>of deep learning over the past 10 years.</p>
+<p>Exactly, even though the fundamental thing</p>
+<p>behind deep learning has been around for much longer.</p>
+<p>So the key idea about deep learning,</p>
+<p>or rather the key fact about deep learning</p>
+<p>before deep learning started to be successful,</p>
+<p>is that it was underestimated.</p>
+<p>People who worked in machine learning</p>
+<p>simply didn&rsquo;t think that neural networks could do much.</p>
+<p>People didn&rsquo;t believe that large neural networks</p>
+<p>could be trained.</p>
+<p>People thought that, well, there was lots of,</p>
+<p>there was a lot of debate going on in machine learning</p>
+<p>about what are the right methods and so on.</p>
+<p>And people were arguing because there were no,</p>
+<p>there was no way to get hard facts.</p>
+<p>And by that, I mean, there were no benchmarks</p>
+<p>which were truly hard that if you do really well on them,</p>
+<p>then you can say, look, here&rsquo;s my system.</p>
+<p>That&rsquo;s when you switch from,</p>
+<p>that&rsquo;s when this field becomes a little bit more</p>
+<p>of an engineering field.</p>
+<p>So in terms of deep learning,</p>
+<p>to answer the question directly,</p>
+<p>the ideas were all there.</p>
+<p>The thing that was missing was a lot of supervised data</p>
+<p>and a lot of compute.</p>
+<p>Once you have a lot of supervised data and a lot of compute,</p>
+<p>then there is a third thing which is needed as well.</p>
+<p>And that is conviction.</p>
+<p>Conviction that if you take the right stuff,</p>
+<p>which already exists, and apply and mix it</p>
+<p>with a lot of data and a lot of compute,</p>
+<p>that it will in fact work.</p>
+<p>And so that was the missing piece.</p>
+<p>It was, you had the, you needed the data,</p>
+<p>you needed the compute, which showed up in terms of GPUs,</p>
+<p>and you needed the conviction to realize</p>
+<p>that you need to mix them together.</p>
+<p>So that&rsquo;s really interesting.</p>
+<p>So I guess the presence of compute</p>
+<p>and the presence of supervised data</p>
+<p>allowed the empirical evidence to do the convincing</p>
+<p>of the majority of the computer science community.</p>
+<p>So I guess there&rsquo;s a key moment with Jitendra Malik</p>
+<p>and Alex Alyosha Efros who were very skeptical, right?</p>
+<p>And then there&rsquo;s a Jeffrey Hinton</p>
+<p>that was the opposite of skeptical.</p>
+<p>And there was a convincing moment.</p>
+<p>And I think ImageNet had served as that moment.</p>
+<p>That&rsquo;s right.</p>
+<p>And they represented this kind of,</p>
+<p>were the big pillars of computer vision community,</p>
+<p>kind of the wizards got together,</p>
+<p>and then all of a sudden there was a shift.</p>
+<p>And it&rsquo;s not enough for the ideas to all be there</p>
+<p>and the compute to be there,</p>
+<p>it&rsquo;s for it to convince the cynicism that existed.</p>
+<p>It&rsquo;s interesting that people just didn&rsquo;t believe</p>
+<p>for a couple of decades.</p>
+<p>Yeah, well, but it&rsquo;s more than that.</p>
+<p>It&rsquo;s kind of, when put this way,</p>
+<p>it sounds like, well, those silly people</p>
+<p>who didn&rsquo;t believe, what were they missing?</p>
+<p>But in reality, things were confusing</p>
+<p>because neural networks really did not work on anything.</p>
+<p>And they were not the best method</p>
+<p>on pretty much anything as well.</p>
+<p>And it was pretty rational to say,</p>
+<p>yeah, this stuff doesn&rsquo;t have any traction.</p>
+<p>And that&rsquo;s why you need to have these very hard tasks</p>
+<p>which produce undeniable evidence.</p>
+<p>And that&rsquo;s how we make progress.</p>
+<p>And that&rsquo;s why the field is making progress today</p>
+<p>because we have these hard benchmarks</p>
+<p>which represent true progress.</p>
+<p>And so, and this is why we are able to avoid endless debate.</p>
+<p>So incredibly you&rsquo;ve contributed</p>
+<p>some of the biggest recent ideas in AI</p>
+<p>in computer vision, language, natural language processing,</p>
+<p>reinforcement learning, sort of everything in between,</p>
+<p>maybe not GANs.</p>
+<p>But there may not be a topic you haven&rsquo;t touched.</p>
+<p>And of course, the fundamental science of deep learning.</p>
+<p>What is the difference to you between vision, language,</p>
+<p>and as in reinforcement learning, action,</p>
+<p>as learning problems?</p>
+<p>And what are the commonalities?</p>
+<p>Do you see them as all interconnected?</p>
+<p>Are they fundamentally different domains</p>
+<p>that require different approaches?</p>
+<p>Okay, that&rsquo;s a good question.</p>
+<p>Machine learning is a field with a lot of unity,</p>
+<p>a huge amount of unity.</p>
+<p>In fact. What do you mean by unity?</p>
+<p>Like overlap of ideas?</p>
+<p>Overlap of ideas, overlap of principles.</p>
+<p>In fact, there&rsquo;s only one or two or three principles</p>
+<p>which are very, very simple.</p>
+<p>And then they apply in almost the same way,</p>
+<p>in almost the same way to the different modalities,</p>
+<p>to the different problems.</p>
+<p>And that&rsquo;s why today, when someone writes a paper</p>
+<p>on improving optimization of deep learning and vision,</p>
+<p>it improves the different NLP applications</p>
+<p>and it improves the different</p>
+<p>reinforcement learning applications.</p>
+<p>Reinforcement learning.</p>
+<p>So I would say that computer vision</p>
+<p>and NLP are very similar to each other.</p>
+<p>Today they differ in that they have</p>
+<p>slightly different architectures.</p>
+<p>We use transformers in NLP</p>
+<p>and we use convolutional neural networks in vision.</p>
+<p>But it&rsquo;s also possible that one day this will change</p>
+<p>and everything will be unified with a single architecture.</p>
+<p>Because if you go back a few years ago</p>
+<p>in natural language processing,</p>
+<p>there were a huge number of architectures</p>
+<p>for every different tiny problem had its own architecture.</p>
+<p>Today, there&rsquo;s just one transformer</p>
+<p>for all those different tasks.</p>
+<p>And if you go back in time even more,</p>
+<p>you had even more and more fragmentation</p>
+<p>and every little problem in AI</p>
+<p>had its own little subspecialization</p>
+<p>and sub, you know, little set of collection of skills,</p>
+<p>people who would know how to engineer the features.</p>
+<p>Now it&rsquo;s all been subsumed by deep learning.</p>
+<p>We have this unification.</p>
+<p>And so I expect vision to become unified</p>
+<p>with natural language as well.</p>
+<p>Or rather, I shouldn&rsquo;t say expect, I think it&rsquo;s possible.</p>
+<p>I don&rsquo;t wanna be too sure because</p>
+<p>I think on the convolutional neural net</p>
+<p>is very computationally efficient.</p>
+<p>RL is different.</p>
+<p>RL does require slightly different techniques</p>
+<p>because you really do need to take action.</p>
+<p>You really need to do something about exploration.</p>
+<p>Your variance is much higher.</p>
+<p>But I think there is a lot of unity even there.</p>
+<p>And I would expect, for example, that at some point</p>
+<p>there will be some broader unification</p>
+<p>between RL and supervised learning</p>
+<p>where somehow the RL will be making decisions</p>
+<p>to make the supervised learning go better.</p>
+<p>And it will be, I imagine, one big black box</p>
+<p>and you just throw, you know, you shovel things into it</p>
+<p>and it just figures out what to do</p>
+<p>with whatever you shovel at it.</p>
+<p>I mean, reinforcement learning has some aspects</p>
+<p>of language and vision combined almost.</p>
+<p>There&rsquo;s elements of a long term memory</p>
+<p>that you should be utilizing</p>
+<p>and there&rsquo;s elements of a really rich sensory space.</p>
+<p>So it seems like the union of the two or something like that.</p>
+<p>I&rsquo;d say something slightly differently.</p>
+<p>I&rsquo;d say that reinforcement learning is neither,</p>
+<p>but it naturally interfaces</p>
+<p>and integrates with the two of them.</p>
+<p>Do you think action is fundamentally different?</p>
+<p>So yeah, what is interesting about,</p>
+<p>what is unique about policy of learning to act?</p>
+<p>Well, so one example, for instance,</p>
+<p>is that when you learn to act,</p>
+<p>you are fundamentally in a non stationary world</p>
+<p>because as your actions change,</p>
+<p>the things you see start changing.</p>
+<p>You experience the world in a different way.</p>
+<p>And this is not the case for</p>
+<p>the more traditional static problem</p>
+<p>where you have some distribution</p>
+<p>and you just apply a model to that distribution.</p>
+<p>You think it&rsquo;s a fundamentally different problem</p>
+<p>or is it just a more difficult generalization</p>
+<p>of the problem of understanding?</p>
+<p>I mean, it&rsquo;s a question of definitions almost.</p>
+<p>There is a huge amount of commonality for sure.</p>
+<p>You take gradients, you try, you take gradients.</p>
+<p>We try to approximate gradients in both cases.</p>
+<p>In the case of reinforcement learning,</p>
+<p>you have some tools to reduce the variance of the gradients.</p>
+<p>You do that.</p>
+<p>There&rsquo;s lots of commonality.</p>
+<p>Use the same neural net in both cases.</p>
+<p>You compute the gradient, you apply Adam in both cases.</p>
+<p>So, I mean, there&rsquo;s lots in common for sure,</p>
+<p>but there are some small differences</p>
+<p>which are not completely insignificant.</p>
+<p>It&rsquo;s really just a matter of your point of view,</p>
+<p>what frame of reference,</p>
+<p>how much do you wanna zoom in or out</p>
+<p>as you look at these problems?</p>
+<p>Which problem do you think is harder?</p>
+<p>So people like Noam Chomsky believe</p>
+<p>that language is fundamental to everything.</p>
+<p>So it underlies everything.</p>
+<p>Do you think language understanding is harder</p>
+<p>than visual scene understanding or vice versa?</p>
+<p>I think that asking if a problem is hard is slightly wrong.</p>
+<p>I think the question is a little bit wrong</p>
+<p>and I wanna explain why.</p>
+<p>So what does it mean for a problem to be hard?</p>
+<p>Okay, the non interesting dumb answer to that</p>
+<p>is there&rsquo;s a benchmark</p>
+<p>and there&rsquo;s a human level performance on that benchmark</p>
+<p>and how is the effort required</p>
+<p>to reach the human level benchmark.</p>
+<p>So from the perspective of how much</p>
+<p>until we get to human level on a very good benchmark.</p>
+<p>Yeah, I understand what you mean by that.</p>
+<p>So what I was going to say that a lot of it depends on,</p>
+<p>once you solve a problem, it stops being hard</p>
+<p>and that&rsquo;s always true.</p>
+<p>And so whether something is hard or not depends</p>
+<p>on what our tools can do today.</p>
+<p>So you say today through human level,</p>
+<p>language understanding and visual perception are hard</p>
+<p>in the sense that there is no way</p>
+<p>of solving the problem completely in the next three months.</p>
+<p>So I agree with that statement.</p>
+<p>Beyond that, my guess would be as good as yours,</p>
+<p>I don&rsquo;t know.</p>
+<p>Oh, okay, so you don&rsquo;t have a fundamental intuition</p>
+<p>about how hard language understanding is.</p>
+<p>I think, I know I changed my mind.</p>
+<p>I&rsquo;d say language is probably going to be harder.</p>
+<p>I mean, it depends on how you define it.</p>
+<p>Like if you mean absolute top notch,</p>
+<p>100% language understanding, I&rsquo;ll go with language.</p>
+<p>But then if I show you a piece of paper with letters on it,</p>
+<p>is that, you see what I mean?</p>
+<p>You have a vision system,</p>
+<p>you say it&rsquo;s the best human level vision system.</p>
+<p>I show you, I open a book and I show you letters.</p>
+<p>Will it understand how these letters form into word</p>
+<p>and sentences and meaning?</p>
+<p>Is this part of the vision problem?</p>
+<p>Where does vision end and language begin?</p>
+<p>Yeah, so Chomsky would say it starts at language.</p>
+<p>So vision is just a little example of the kind</p>
+<p>of a structure and fundamental hierarchy of ideas</p>
+<p>that&rsquo;s already represented in our brains somehow</p>
+<p>that&rsquo;s represented through language.</p>
+<p>But where does vision stop and language begin?</p>
+<p>That&rsquo;s a really interesting question.</p>
+<p>So one possibility is that it&rsquo;s impossible</p>
+<p>to achieve really deep understanding in either images</p>
+<p>or language without basically using the same kind of system.</p>
+<p>So you&rsquo;re going to get the other for free.</p>
+<p>I think it&rsquo;s pretty likely that yes,</p>
+<p>if we can get one, our machine learning is probably</p>
+<p>that good that we can get the other.</p>
+<p>But I&rsquo;m not 100% sure.</p>
+<p>And also, I think a lot of it really does depend</p>
+<p>on your definitions.</p>
+<p>Definitions of?</p>
+<p>Of like perfect vision.</p>
+<p>Because reading is vision, but should it count?</p>
+<p>Yeah, to me, so my definition is if a system looked</p>
+<p>at an image and then a system looked at a piece of text</p>
+<p>and then told me something about that</p>
+<p>and I was really impressed.</p>
+<p>That&rsquo;s relative.</p>
+<p>You&rsquo;ll be impressed for half an hour</p>
+<p>and then you&rsquo;re gonna say, well, I mean,</p>
+<p>all the systems do that, but here&rsquo;s the thing they don&rsquo;t do.</p>
+<p>Yeah, but I don&rsquo;t have that with humans.</p>
+<p>Humans continue to impress me.</p>
+<p>Is that true?</p>
+<p>Well, the ones, okay, so I&rsquo;m a fan of monogamy.</p>
+<p>So I like the idea of marrying somebody,</p>
+<p>being with them for several decades.</p>
+<p>So I believe in the fact that yes, it&rsquo;s possible</p>
+<p>to have somebody continuously giving you</p>
+<p>pleasurable, interesting, witty new ideas, friends.</p>
+<p>Yeah, I think so.</p>
+<p>They continue to surprise you.</p>
+<p>The surprise, it&rsquo;s that injection of randomness.</p>
+<p>It seems to be a nice source of, yeah, continued inspiration,</p>
+<p>like the wit, the humor.</p>
+<p>I think, yeah, that would be,</p>
+<p>it&rsquo;s a very subjective test,</p>
+<p>but I think if you have enough humans in the room.</p>
+<p>Yeah, I understand what you mean.</p>
+<p>Yeah, I feel like I misunderstood</p>
+<p>what you meant by impressing you.</p>
+<p>I thought you meant to impress you with its intelligence,</p>
+<p>with how well it understands an image.</p>
+<p>I thought you meant something like,</p>
+<p>I&rsquo;m gonna show it a really complicated image</p>
+<p>and it&rsquo;s gonna get it right.</p>
+<p>And you&rsquo;re gonna say, wow, that&rsquo;s really cool.</p>
+<p>Our systems of January 2020 have not been doing that.</p>
+<p>Yeah, no, I think it all boils down to like</p>
+<p>the reason people click like on stuff on the internet,</p>
+<p>which is like, it makes them laugh.</p>
+<p>So it&rsquo;s like humor or wit or insight.</p>
+<p>I&rsquo;m sure we&rsquo;ll get that as well.</p>
+<p>So forgive the romanticized question,</p>
+<p>but looking back to you,</p>
+<p>what is the most beautiful or surprising idea</p>
+<p>in deep learning or AI in general you&rsquo;ve come across?</p>
+<p>So I think the most beautiful thing about deep learning</p>
+<p>is that it actually works.</p>
+<p>And I mean it, because you got these ideas,</p>
+<p>you got the little neural network,</p>
+<p>you got the back propagation algorithm.</p>
+<p>And then you&rsquo;ve got some theories as to,</p>
+<p>this is kind of like the brain.</p>
+<p>So maybe if you make it large,</p>
+<p>if you make the neural network large</p>
+<p>and you train it on a lot of data,</p>
+<p>then it will do the same function that the brain does.</p>
+<p>And it turns out to be true, that&rsquo;s crazy.</p>
+<p>And now we just train these neural networks</p>
+<p>and you make them larger and they keep getting better.</p>
+<p>And I find it unbelievable.</p>
+<p>I find it unbelievable that this whole AI stuff</p>
+<p>with neural networks works.</p>
+<p>Have you built up an intuition of why?</p>
+<p>Are there a lot of bits and pieces of intuitions,</p>
+<p>of insights of why this whole thing works?</p>
+<p>I mean, some, definitely.</p>
+<p>While we know that optimization, we now have good,</p>
+<p>we&rsquo;ve had lots of empirical,</p>
+<p>huge amounts of empirical reasons</p>
+<p>to believe that optimization should work</p>
+<p>on most problems we care about.</p>
+<p>Do you have insights of why?</p>
+<p>So you just said empirical evidence.</p>
+<p>Is most of your sort of empirical evidence</p>
+<p>kind of convinces you?</p>
+<p>It&rsquo;s like evolution is empirical.</p>
+<p>It shows you that, look,</p>
+<p>this evolutionary process seems to be a good way</p>
+<p>to design organisms that survive in their environment,</p>
+<p>but it doesn&rsquo;t really get you to the insights</p>
+<p>of how the whole thing works.</p>
+<p>I think a good analogy is physics.</p>
+<p>You know how you say, hey, let&rsquo;s do some physics calculation</p>
+<p>and come up with some new physics theory</p>
+<p>and make some prediction.</p>
+<p>But then you got around the experiment.</p>
+<p>You know, you got around the experiment, it&rsquo;s important.</p>
+<p>So it&rsquo;s a bit the same here,</p>
+<p>except that maybe sometimes the experiment</p>
+<p>came before the theory.</p>
+<p>But it still is the case.</p>
+<p>You know, you have some data</p>
+<p>and you come up with some prediction.</p>
+<p>You say, yeah, let&rsquo;s make a big neural network.</p>
+<p>Let&rsquo;s train it.</p>
+<p>And it&rsquo;s going to work much better than anything before it.</p>
+<p>And it will in fact continue to get better</p>
+<p>as you make it larger.</p>
+<p>And it turns out to be true.</p>
+<p>That&rsquo;s amazing when a theory is validated like this.</p>
+<p>It&rsquo;s not a mathematical theory.</p>
+<p>It&rsquo;s more of a biological theory almost.</p>
+<p>So I think there are not terrible analogies</p>
+<p>between deep learning and biology.</p>
+<p>I would say it&rsquo;s like the geometric mean</p>
+<p>of biology and physics.</p>
+<p>That&rsquo;s deep learning.</p>
+<p>The geometric mean of biology and physics.</p>
+<p>I think I&rsquo;m going to need a few hours</p>
+<p>to wrap my head around that.</p>
+<p>Because just to find the geometric,</p>
+<p>just to find the set of what biology represents.</p>
+<p>Well, in biology, things are really complicated.</p>
+<p>Theories are really, really,</p>
+<p>it&rsquo;s really hard to have good predictive theory.</p>
+<p>And in physics, the theories are too good.</p>
+<p>In physics, people make these super precise theories</p>
+<p>which make these amazing predictions.</p>
+<p>And in machine learning, we&rsquo;re kind of in between.</p>
+<p>Kind of in between, but it&rsquo;d be nice</p>
+<p>if machine learning somehow helped us</p>
+<p>discover the unification of the two</p>
+<p>as opposed to sort of the in between.</p>
+<p>But you&rsquo;re right.</p>
+<p>That&rsquo;s, you&rsquo;re kind of trying to juggle both.</p>
+<p>So do you think there are still beautiful</p>
+<p>and mysterious properties in neural networks</p>
+<p>that are yet to be discovered?</p>
+<p>Definitely.</p>
+<p>I think that we are still massively underestimating</p>
+<p>deep learning.</p>
+<p>What do you think it will look like?</p>
+<p>Like what, if I knew, I would have done it, you know?</p>
+<p>So, but if you look at all the progress</p>
+<p>from the past 10 years, I would say most of it,</p>
+<p>I would say there&rsquo;ve been a few cases</p>
+<p>where some were things that felt like really new ideas</p>
+<p>showed up, but by and large it was every year</p>
+<p>we thought, okay, deep learning goes this far.</p>
+<p>Nope, it actually goes further.</p>
+<p>And then the next year, okay, now this is peak deep learning.</p>
+<p>We are really done.</p>
+<p>Nope, it goes further.</p>
+<p>It just keeps going further each year.</p>
+<p>So that means that we keep underestimating,</p>
+<p>we keep not understanding it.</p>
+<p>It has surprising properties all the time.</p>
+<p>Do you think it&rsquo;s getting harder and harder?</p>
+<p>To make progress?</p>
+<p>Need to make progress?</p>
+<p>It depends on what you mean.</p>
+<p>I think the field will continue to make very robust progress</p>
+<p>for quite a while.</p>
+<p>I think for individual researchers,</p>
+<p>especially people who are doing research,</p>
+<p>it can be harder because there is a very large number</p>
+<p>of researchers right now.</p>
+<p>I think that if you have a lot of compute,</p>
+<p>then you can make a lot of very interesting discoveries,</p>
+<p>but then you have to deal with the challenge</p>
+<p>of managing a huge compute cluster</p>
+<p>to run your experiments.</p>
+<p>It&rsquo;s a little bit harder.</p>
+<p>So I&rsquo;m asking all these questions</p>
+<p>that nobody knows the answer to,</p>
+<p>but you&rsquo;re one of the smartest people I know,</p>
+<p>so I&rsquo;m gonna keep asking.</p>
+<p>So let&rsquo;s imagine all the breakthroughs</p>
+<p>that happen in the next 30 years in deep learning.</p>
+<p>Do you think most of those breakthroughs</p>
+<p>can be done by one person with one computer?</p>
+<p>Sort of in the space of breakthroughs,</p>
+<p>do you think compute will be,</p>
+<p>compute and large efforts will be necessary?</p>
+<p>I mean, I can&rsquo;t be sure.</p>
+<p>When you say one computer, you mean how large?</p>
+<p>You&rsquo;re clever.</p>
+<p>I mean, one GPU.</p>
+<p>I see.</p>
+<p>I think it&rsquo;s pretty unlikely.</p>
+<p>I think it&rsquo;s pretty unlikely.</p>
+<p>I think that there are many,</p>
+<p>the stack of deep learning is starting to be quite deep.</p>
+<p>If you look at it, you&rsquo;ve got all the way from the ideas,</p>
+<p>the systems to build the data sets,</p>
+<p>the distributed programming,</p>
+<p>the building the actual cluster,</p>
+<p>the GPU programming, putting it all together.</p>
+<p>So now the stack is getting really deep</p>
+<p>and I think it becomes,</p>
+<p>it can be quite hard for a single person</p>
+<p>to become, to be world class</p>
+<p>in every single layer of the stack.</p>
+<p>What about the, what like Vlad and Ravapnik</p>
+<p>really insist on is taking MNIST</p>
+<p>and trying to learn from very few examples.</p>
+<p>So being able to learn more efficiently.</p>
+<p>Do you think that&rsquo;s, there&rsquo;ll be breakthroughs in that space</p>
+<p>that would, may not need the huge compute?</p>
+<p>I think there will be a large number of breakthroughs</p>
+<p>in general that will not need a huge amount of compute.</p>
+<p>So maybe I should clarify that.</p>
+<p>I think that some breakthroughs will require a lot of compute</p>
+<p>and I think building systems which actually do things</p>
+<p>will require a huge amount of compute.</p>
+<p>That one is pretty obvious.</p>
+<p>If you want to do X and X requires a huge neural net,</p>
+<p>you gotta get a huge neural net.</p>
+<p>But I think there will be lots of,</p>
+<p>I think there is lots of room for very important work</p>
+<p>being done by small groups and individuals.</p>
+<p>Can you maybe sort of on the topic</p>
+<p>of the science of deep learning,</p>
+<p>talk about one of the recent papers</p>
+<p>that you released, the Deep Double Descent,</p>
+<p>where bigger models and more data hurt.</p>
+<p>I think it&rsquo;s a really interesting paper.</p>
+<p>Can you describe the main idea?</p>
+<p>Yeah, definitely.</p>
+<p>So what happened is that some,</p>
+<p>over the years, some small number of researchers noticed</p>
+<p>that it is kind of weird that when you make</p>
+<p>the neural network larger, it works better</p>
+<p>and it seems to go in contradiction</p>
+<p>with statistical ideas.</p>
+<p>And then some people made an analysis showing</p>
+<p>that actually you got this double descent bump.</p>
+<p>And what we&rsquo;ve done was to show that double descent occurs</p>
+<p>for pretty much all practical deep learning systems.</p>
+<p>And that it&rsquo;ll be also, so can you step back?</p>
+<p>What&rsquo;s the X axis and the Y axis of a double descent plot?</p>
+<p>Okay, great.</p>
+<p>So you can look, you can do things like,</p>
+<p>you can take your neural network</p>
+<p>and you can start increasing its size slowly</p>
+<p>while keeping your data set fixed.</p>
+<p>So if you increase the size of the neural network slowly,</p>
+<p>and if you don&rsquo;t do early stopping,</p>
+<p>that&rsquo;s a pretty important detail,</p>
+<p>then when the neural network is really small,</p>
+<p>you make it larger,</p>
+<p>you get a very rapid increase in performance.</p>
+<p>Then you continue to make it larger.</p>
+<p>And at some point performance will get worse.</p>
+<p>And it gets the worst exactly at the point</p>
+<p>at which it achieves zero training error,</p>
+<p>precisely zero training loss.</p>
+<p>And then as you make it larger,</p>
+<p>it starts to get better again.</p>
+<p>And it&rsquo;s kind of counterintuitive</p>
+<p>because you&rsquo;d expect deep learning phenomena</p>
+<p>to be monotonic.</p>
+<p>And it&rsquo;s hard to be sure what it means,</p>
+<p>but it also occurs in the case of linear classifiers.</p>
+<p>And the intuition basically boils down to the following.</p>
+<p>When you have a large data set and a small model,</p>
+<p>then small, tiny random,</p>
+<p>so basically what is overfitting?</p>
+<p>Overfitting is when your model is somehow very sensitive</p>
+<p>to the small random unimportant stuff in your data set.</p>
+<p>In the training data.</p>
+<p>In the training data set, precisely.</p>
+<p>So if you have a small model and you have a big data set,</p>
+<p>and there may be some random thing,</p>
+<p>some training cases are randomly in the data set</p>
+<p>and others may not be there,</p>
+<p>but the small model is kind of insensitive</p>
+<p>to this randomness because it&rsquo;s the same,</p>
+<p>there is pretty much no uncertainty about the model</p>
+<p>when the data set is large.</p>
+<p>So, okay.</p>
+<p>So at the very basic level to me,</p>
+<p>it is the most surprising thing</p>
+<p>that neural networks don&rsquo;t overfit every time very quickly</p>
+<p>before ever being able to learn anything.</p>
+<p>The huge number of parameters.</p>
+<p>So here is, so there is one way, okay.</p>
+<p>So maybe, so let me try to give the explanation</p>
+<p>and maybe that will be, that will work.</p>
+<p>So you&rsquo;ve got a huge neural network.</p>
+<p>Let&rsquo;s suppose you&rsquo;ve got, you have a huge neural network,</p>
+<p>you have a huge number of parameters.</p>
+<p>And now let&rsquo;s pretend everything is linear,</p>
+<p>which is not, let&rsquo;s just pretend.</p>
+<p>Then there is this big subspace</p>
+<p>where your neural network achieves zero error.</p>
+<p>And SGD is going to find approximately the point.</p>
+<p>That&rsquo;s right.</p>
+<p>Approximately the point with the smallest norm</p>
+<p>in that subspace.</p>
+<p>Okay.</p>
+<p>And that can also be proven to be insensitive</p>
+<p>to the small randomness in the data</p>
+<p>when the dimensionality is high.</p>
+<p>But when the dimensionality of the data</p>
+<p>is equal to the dimensionality of the model,</p>
+<p>then there is a one to one correspondence</p>
+<p>between all the data sets and the models.</p>
+<p>So small changes in the data set</p>
+<p>actually lead to large changes in the model.</p>
+<p>And that&rsquo;s why performance gets worse.</p>
+<p>So this is the best explanation more or less.</p>
+<p>So then it would be good for the model</p>
+<p>to have more parameters, so to be bigger than the data.</p>
+<p>That&rsquo;s right.</p>
+<p>But only if you don&rsquo;t early stop.</p>
+<p>If you introduce early stop in your regularization,</p>
+<p>you can make the double descent bump</p>
+<p>almost completely disappear.</p>
+<p>What is early stop?</p>
+<p>Early stopping is when you train your model</p>
+<p>and you monitor your validation performance.</p>
+<p>And then if at some point validation performance</p>
+<p>starts to get worse, you say, okay, let&rsquo;s stop training.</p>
+<p>We are good enough.</p>
+<p>So the magic happens after that moment.</p>
+<p>So you don&rsquo;t want to do the early stopping.</p>
+<p>Well, if you don&rsquo;t do the early stopping,</p>
+<p>you get the very pronounced double descent.</p>
+<p>Do you have any intuition why this happens?</p>
+<p>Double descent?</p>
+<p>Oh, sorry, early stopping?</p>
+<p>No, the double descent.</p>
+<p>So the&hellip;</p>
+<p>Well, yeah, so I try&hellip;</p>
+<p>Let&rsquo;s see.</p>
+<p>The intuition is basically is this,</p>
+<p>that when the data set has as many degrees of freedom</p>
+<p>as the model, then there is a one to one correspondence</p>
+<p>between them.</p>
+<p>And so small changes to the data set</p>
+<p>lead to noticeable changes in the model.</p>
+<p>So your model is very sensitive to all the randomness.</p>
+<p>It is unable to discard it.</p>
+<p>Whereas it turns out that when you have</p>
+<p>a lot more data than parameters</p>
+<p>or a lot more parameters than data,</p>
+<p>the resulting solution will be insensitive</p>
+<p>to small changes in the data set.</p>
+<p>Oh, so it&rsquo;s able to, let&rsquo;s nicely put,</p>
+<p>discard the small changes, the randomness.</p>
+<p>The randomness, exactly.</p>
+<p>The spurious correlation which you don&rsquo;t want.</p>
+<p>Jeff Hinton suggested we need to throw back propagation.</p>
+<p>We already kind of talked about this a little bit,</p>
+<p>but he suggested that we need to throw away</p>
+<p>back propagation and start over.</p>
+<p>I mean, of course some of that is a little bit</p>
+<p>wit and humor, but what do you think?</p>
+<p>What could be an alternative method</p>
+<p>of training neural networks?</p>
+<p>Well, the thing that he said precisely is that</p>
+<p>to the extent that you can&rsquo;t find back propagation</p>
+<p>in the brain, it&rsquo;s worth seeing if we can learn something</p>
+<p>from how the brain learns.</p>
+<p>But back propagation is very useful</p>
+<p>and we should keep using it.</p>
+<p>Oh, you&rsquo;re saying that once we discover</p>
+<p>the mechanism of learning in the brain,</p>
+<p>or any aspects of that mechanism,</p>
+<p>we should also try to implement that in neural networks?</p>
+<p>If it turns out that we can&rsquo;t find</p>
+<p>back propagation in the brain.</p>
+<p>If we can&rsquo;t find back propagation in the brain.</p>
+<p>Well, so I guess your answer to that is</p>
+<p>back propagation is pretty damn useful.</p>
+<p>So why are we complaining?</p>
+<p>I mean, I personally am a big fan of back propagation.</p>
+<p>I think it&rsquo;s a great algorithm because it solves</p>
+<p>an extremely fundamental problem,</p>
+<p>which is finding a neural circuit</p>
+<p>subject to some constraints.</p>
+<p>And I don&rsquo;t see that problem going away.</p>
+<p>So that&rsquo;s why I really, I think it&rsquo;s pretty unlikely</p>
+<p>that we&rsquo;ll have anything which is going to be</p>
+<p>dramatically different.</p>
+<p>It could happen, but I wouldn&rsquo;t bet on it right now.</p>
+<p>So let me ask a sort of big picture question.</p>
+<p>Do you think neural networks can be made</p>
+<p>to reason?</p>
+<p>Why not?</p>
+<p>Well, if you look, for example, at AlphaGo or AlphaZero,</p>
+<p>the neural network of AlphaZero plays Go,</p>
+<p>which we all agree is a game that requires reasoning,</p>
+<p>better than 99.9% of all humans.</p>
+<p>Just the neural network, without the search,</p>
+<p>just the neural network itself.</p>
+<p>Doesn&rsquo;t that give us an existence proof</p>
+<p>that neural networks can reason?</p>
+<p>To push back and disagree a little bit,</p>
+<p>we all agree that Go is reasoning.</p>
+<p>I think I agree, I don&rsquo;t think it&rsquo;s a trivial,</p>
+<p>so obviously reasoning like intelligence</p>
+<p>is a loose gray area term a little bit.</p>
+<p>Maybe you disagree with that.</p>
+<p>But yes, I think it has some of the same elements</p>
+<p>of reasoning.</p>
+<p>Reasoning is almost like akin to search, right?</p>
+<p>There&rsquo;s a sequential element of reasoning</p>
+<p>of stepwise consideration of possibilities</p>
+<p>and sort of building on top of those possibilities</p>
+<p>in a sequential manner until you arrive at some insight.</p>
+<p>So yeah, I guess playing Go is kind of like that.</p>
+<p>And when you have a single neural network</p>
+<p>doing that without search, it&rsquo;s kind of like that.</p>
+<p>So there&rsquo;s an existence proof</p>
+<p>in a particular constrained environment</p>
+<p>that a process akin to what many people call reasoning</p>
+<p>exists, but more general kind of reasoning.</p>
+<p>So off the board.</p>
+<p>There is one other existence proof.</p>
+<p>Oh boy, which one?</p>
+<p>Us humans?</p>
+<p>Yes.</p>
+<p>Okay, all right, so do you think the architecture</p>
+<p>that will allow neural networks to reason</p>
+<p>will look similar to the neural network architectures</p>
+<p>we have today?</p>
+<p>I think it will.</p>
+<p>I think, well, I don&rsquo;t wanna make</p>
+<p>two overly definitive statements.</p>
+<p>I think it&rsquo;s definitely possible</p>
+<p>that the neural networks that will produce</p>
+<p>the reasoning breakthroughs of the future</p>
+<p>will be very similar to the architectures that exist today.</p>
+<p>Maybe a little bit more recurrent,</p>
+<p>maybe a little bit deeper.</p>
+<p>But these neural nets are so insanely powerful.</p>
+<p>Why wouldn&rsquo;t they be able to learn to reason?</p>
+<p>Humans can reason.</p>
+<p>So why can&rsquo;t neural networks?</p>
+<p>So do you think the kind of stuff we&rsquo;ve seen</p>
+<p>neural networks do is a kind of just weak reasoning?</p>
+<p>So it&rsquo;s not a fundamentally different process.</p>
+<p>Again, this is stuff nobody knows the answer to.</p>
+<p>So when it comes to our neural networks,</p>
+<p>the thing which I would say is that neural networks</p>
+<p>are capable of reasoning.</p>
+<p>But if you train a neural network on a task</p>
+<p>which doesn&rsquo;t require reasoning, it&rsquo;s not going to reason.</p>
+<p>This is a well known effect where the neural network</p>
+<p>will solve the problem that you pose in front of it</p>
+<p>in the easiest way possible.</p>
+<p>Right, that takes us to one of the brilliant sort of ways</p>
+<p>you&rsquo;ve described neural networks,</p>
+<p>which is you&rsquo;ve referred to neural networks</p>
+<p>as the search for small circuits</p>
+<p>and maybe general intelligence</p>
+<p>as the search for small programs,</p>
+<p>which I found as a metaphor very compelling.</p>
+<p>Can you elaborate on that difference?</p>
+<p>Yeah, so the thing which I said precisely was that</p>
+<p>if you can find the shortest program</p>
+<p>that outputs the data at your disposal,</p>
+<p>then you will be able to use it</p>
+<p>to make the best prediction possible.</p>
+<p>And that&rsquo;s a theoretical statement</p>
+<p>which can be proved mathematically.</p>
+<p>Now, you can also prove mathematically</p>
+<p>that finding the shortest program</p>
+<p>which generates some data is not a computable operation.</p>
+<p>No finite amount of compute can do this.</p>
+<p>So then with neural networks,</p>
+<p>neural networks are the next best thing</p>
+<p>that actually works in practice.</p>
+<p>We are not able to find the best,</p>
+<p>the shortest program which generates our data,</p>
+<p>but we are able to find a small,</p>
+<p>but now that statement should be amended,</p>
+<p>even a large circuit which fits our data in some way.</p>
+<p>Well, I think what you meant by the small circuit</p>
+<p>is the smallest needed circuit.</p>
+<p>Well, the thing which I would change now,</p>
+<p>back then I really haven&rsquo;t fully internalized</p>
+<p>the overparameterized results.</p>
+<p>The things we know about overparameterized neural nets,</p>
+<p>now I would phrase it as a large circuit</p>
+<p>whose weights contain a small amount of information,</p>
+<p>which I think is what&rsquo;s going on.</p>
+<p>If you imagine the training process of a neural network</p>
+<p>as you slowly transmit entropy</p>
+<p>from the dataset to the parameters,</p>
+<p>then somehow the amount of information in the weights</p>
+<p>ends up being not very large,</p>
+<p>which would explain why they generalize so well.</p>
+<p>So the large circuit might be one that&rsquo;s helpful</p>
+<p>for the generalization.</p>
+<p>Yeah, something like this.</p>
+<p>But do you see it important to be able to try</p>
+<p>to learn something like programs?</p>
+<p>I mean, if we can, definitely.</p>
+<p>I think it&rsquo;s kind of, the answer is kind of yes,</p>
+<p>if we can do it, we should do things that we can do it.</p>
+<p>It&rsquo;s the reason we are pushing on deep learning,</p>
+<p>the fundamental reason, the root cause</p>
+<p>is that we are able to train them.</p>
+<p>So in other words, training comes first.</p>
+<p>We&rsquo;ve got our pillar, which is the training pillar.</p>
+<p>And now we&rsquo;re trying to contort our neural networks</p>
+<p>around the training pillar.</p>
+<p>We gotta stay trainable.</p>
+<p>This is an invariant we cannot violate.</p>
+<p>And so being trainable means starting from scratch,</p>
+<p>knowing nothing, you can actually pretty quickly</p>
+<p>converge towards knowing a lot.</p>
+<p>Or even slowly.</p>
+<p>But it means that given the resources at your disposal,</p>
+<p>you can train the neural net</p>
+<p>and get it to achieve useful performance.</p>
+<p>Yeah, that&rsquo;s a pillar we can&rsquo;t move away from.</p>
+<p>That&rsquo;s right.</p>
+<p>Because if you say, hey, let&rsquo;s find the shortest program,</p>
+<p>well, we can&rsquo;t do that.</p>
+<p>So it doesn&rsquo;t matter how useful that would be.</p>
+<p>We can&rsquo;t do it.</p>
+<p>So we won&rsquo;t.</p>
+<p>So do you think, you kind of mentioned</p>
+<p>that the neural networks are good at finding small circuits</p>
+<p>or large circuits.</p>
+<p>Do you think then the matter of finding small programs</p>
+<p>is just the data?</p>
+<p>No.</p>
+<p>So the, sorry, not the size or the type of data.</p>
+<p>Sort of ask, giving it programs.</p>
+<p>Well, I think the thing is that right now,</p>
+<p>finding, there are no good precedents</p>
+<p>of people successfully finding programs really well.</p>
+<p>And so the way you&rsquo;d find programs</p>
+<p>is you&rsquo;d train a deep neural network to do it basically.</p>
+<p>Right.</p>
+<p>Which is the right way to go about it.</p>
+<p>But there&rsquo;s not good illustrations of that.</p>
+<p>It hasn&rsquo;t been done yet.</p>
+<p>But in principle, it should be possible.</p>
+<p>Can you elaborate a little bit,</p>
+<p>what&rsquo;s your answer in principle?</p>
+<p>Put another way, you don&rsquo;t see why it&rsquo;s not possible.</p>
+<p>Well, it&rsquo;s kind of like more, it&rsquo;s more a statement of,</p>
+<p>I think that it&rsquo;s, I think that it&rsquo;s unwise</p>
+<p>to bet against deep learning.</p>
+<p>And if it&rsquo;s a cognitive function</p>
+<p>that humans seem to be able to do,</p>
+<p>then it doesn&rsquo;t take too long</p>
+<p>for some deep neural net to pop up that can do it too.</p>
+<p>Yeah, I&rsquo;m there with you.</p>
+<p>I&rsquo;ve stopped betting against neural networks at this point</p>
+<p>because they continue to surprise us.</p>
+<p>What about long term memory?</p>
+<p>Can neural networks have long term memory?</p>
+<p>Something like knowledge bases.</p>
+<p>So being able to aggregate important information</p>
+<p>over long periods of time that would then serve</p>
+<p>as useful sort of representations of state</p>
+<p>that you can make decisions by,</p>
+<p>so have a long term context</p>
+<p>based on which you&rsquo;re making the decision.</p>
+<p>So in some sense, the parameters already do that.</p>
+<p>The parameters are an aggregation of the neural,</p>
+<p>of the entirety of the neural nets experience,</p>
+<p>and so they count as long term knowledge.</p>
+<p>And people have trained various neural nets</p>
+<p>to act as knowledge bases and, you know,</p>
+<p>investigated with, people have investigated</p>
+<p>language models as knowledge bases.</p>
+<p>So there is work there.</p>
+<p>Yeah, but in some sense, do you think in every sense,</p>
+<p>do you think there&rsquo;s a, it&rsquo;s all just a matter of coming up</p>
+<p>with a better mechanism of forgetting the useless stuff</p>
+<p>and remembering the useful stuff?</p>
+<p>Because right now, I mean, there&rsquo;s not been mechanisms</p>
+<p>that do remember really long term information.</p>
+<p>What do you mean by that precisely?</p>
+<p>Precisely, I like the word precisely.</p>
+<p>So I&rsquo;m thinking of the kind of compression of information</p>
+<p>the knowledge bases represent.</p>
+<p>Sort of creating a, now I apologize for my sort of</p>
+<p>human centric thinking about what knowledge is,</p>
+<p>because neural networks aren&rsquo;t interpretable necessarily</p>
+<p>with the kind of knowledge they have discovered.</p>
+<p>But a good example for me is knowledge bases,</p>
+<p>being able to build up over time something like</p>
+<p>the knowledge that Wikipedia represents.</p>
+<p>It&rsquo;s a really compressed, structured knowledge base.</p>
+<p>Obviously not the actual Wikipedia or the language,</p>
+<p>but like a semantic web, the dream that semantic web</p>
+<p>represented, so it&rsquo;s a really nice compressed knowledge base</p>
+<p>or something akin to that in the noninterpretable sense</p>
+<p>as neural networks would have.</p>
+<p>Well, the neural networks would be noninterpretable</p>
+<p>if you look at their weights, but their outputs</p>
+<p>should be very interpretable.</p>
+<p>Okay, so yeah, how do you make very smart neural networks</p>
+<p>like language models interpretable?</p>
+<p>Well, you ask them to generate some text</p>
+<p>and the text will generally be interpretable.</p>
+<p>Do you find that the epitome of interpretability,</p>
+<p>like can you do better?</p>
+<p>Like can you add, because you can&rsquo;t, okay,</p>
+<p>I&rsquo;d like to know what does it know and what doesn&rsquo;t it know?</p>
+<p>I would like the neural network to come up with examples</p>
+<p>where it&rsquo;s completely dumb and examples</p>
+<p>where it&rsquo;s completely brilliant.</p>
+<p>And the only way I know how to do that now</p>
+<p>is to generate a lot of examples and use my human judgment.</p>
+<p>But it would be nice if a neural network</p>
+<p>had some self awareness about it.</p>
+<p>Yeah, 100%, I&rsquo;m a big believer in self awareness</p>
+<p>and I think that, I think neural net self awareness</p>
+<p>will allow for things like the capabilities,</p>
+<p>like the ones you described, like for them to know</p>
+<p>what they know and what they don&rsquo;t know</p>
+<p>and for them to know where to invest</p>
+<p>to increase their skills most optimally.</p>
+<p>And to your question of interpretability,</p>
+<p>there are actually two answers to that question.</p>
+<p>One answer is, you know, we have the neural net</p>
+<p>so we can analyze the neurons and we can try to understand</p>
+<p>what the different neurons and different layers mean.</p>
+<p>And you can actually do that</p>
+<p>and OpenAI has done some work on that.</p>
+<p>But there is a different answer, which is that,</p>
+<p>I would say that&rsquo;s the human centric answer where you say,</p>
+<p>you know, you look at a human being, you can&rsquo;t read,</p>
+<p>how do you know what a human being is thinking?</p>
+<p>You ask them, you say, hey, what do you think about this?</p>
+<p>What do you think about that?</p>
+<p>And you get some answers.</p>
+<p>The answers you get are sticky in the sense</p>
+<p>you already have a mental model.</p>
+<p>You already have a mental model of that human being.</p>
+<p>You already have an understanding of like a big conception</p>
+<p>of that human being, how they think, what they know,</p>
+<p>how they see the world and then everything you ask,</p>
+<p>you&rsquo;re adding onto that.</p>
+<p>And that stickiness seems to be,</p>
+<p>that&rsquo;s one of the really interesting qualities</p>
+<p>of the human being is that information is sticky.</p>
+<p>You don&rsquo;t, you seem to remember the useful stuff,</p>
+<p>aggregate it well and forget most of the information</p>
+<p>that&rsquo;s not useful, that process.</p>
+<p>But that&rsquo;s also pretty similar to the process</p>
+<p>that neural networks do.</p>
+<p>It&rsquo;s just that neural networks are much crappier</p>
+<p>at this time.</p>
+<p>It doesn&rsquo;t seem to be fundamentally that different.</p>
+<p>But just to stick on reasoning for a little longer,</p>
+<p>you said, why not?</p>
+<p>Why can&rsquo;t I reason?</p>
+<p>What&rsquo;s a good impressive feat, benchmark to you</p>
+<p>of reasoning that you&rsquo;ll be impressed by</p>
+<p>if neural networks were able to do?</p>
+<p>Is that something you already have in mind?</p>
+<p>Well, I think writing really good code,</p>
+<p>I think proving really hard theorems,</p>
+<p>solving open ended problems with out of the box solutions.</p>
+<p>And sort of theorem type, mathematical problems.</p>
+<p>Yeah, I think those ones are a very natural example</p>
+<p>as well.</p>
+<p>If you can prove an unproven theorem,</p>
+<p>then it&rsquo;s hard to argue you don&rsquo;t reason.</p>
+<p>And so by the way, and this comes back to the point</p>
+<p>about the hard results, if you have machine learning,</p>
+<p>deep learning as a field is very fortunate</p>
+<p>because we have the ability to sometimes produce</p>
+<p>these unambiguous results.</p>
+<p>And when they happen, the debate changes,</p>
+<p>the conversation changes.</p>
+<p>It&rsquo;s a converse, we have the ability</p>
+<p>to produce conversation changing results.</p>
+<p>Conversation, and then of course, just like you said,</p>
+<p>people kind of take that for granted</p>
+<p>and say that wasn&rsquo;t actually a hard problem.</p>
+<p>Well, I mean, at some point we&rsquo;ll probably run out</p>
+<p>of hard problems.</p>
+<p>Yeah, that whole mortality thing is kind of a sticky problem</p>
+<p>that we haven&rsquo;t quite figured out.</p>
+<p>Maybe we&rsquo;ll solve that one.</p>
+<p>I think one of the fascinating things</p>
+<p>in your entire body of work,</p>
+<p>but also the work at OpenAI recently,</p>
+<p>one of the conversation changes has been</p>
+<p>in the world of language models.</p>
+<p>Can you briefly kind of try to describe</p>
+<p>the recent history of using neural networks</p>
+<p>in the domain of language and text?</p>
+<p>Well, there&rsquo;s been lots of history.</p>
+<p>I think the Elman network was a small,</p>
+<p>tiny recurrent neural network applied to language</p>
+<p>back in the 80s.</p>
+<p>So the history is really, you know, fairly long at least.</p>
+<p>And the thing that started,</p>
+<p>the thing that changed the trajectory</p>
+<p>of neural networks and language</p>
+<p>is the thing that changed the trajectory</p>
+<p>of all deep learning and that&rsquo;s data and compute.</p>
+<p>So suddenly you move from small language models,</p>
+<p>which learn a little bit,</p>
+<p>and with language models in particular,</p>
+<p>there&rsquo;s a very clear explanation</p>
+<p>for why they need to be large to be good,</p>
+<p>because they&rsquo;re trying to predict the next word.</p>
+<p>So when you don&rsquo;t know anything,</p>
+<p>you&rsquo;ll notice very, very broad strokes,</p>
+<p>surface level patterns,</p>
+<p>like sometimes there are characters</p>
+<p>and there is a space between those characters.</p>
+<p>You&rsquo;ll notice this pattern.</p>
+<p>And you&rsquo;ll notice that sometimes there is a comma</p>
+<p>and then the next character is a capital letter.</p>
+<p>You&rsquo;ll notice that pattern.</p>
+<p>Eventually you may start to notice</p>
+<p>that there are certain words occur often.</p>
+<p>You may notice that spellings are a thing.</p>
+<p>You may notice syntax.</p>
+<p>And when you get really good at all these,</p>
+<p>you start to notice the semantics.</p>
+<p>You start to notice the facts.</p>
+<p>But for that to happen,</p>
+<p>the language model needs to be larger.</p>
+<p>So that&rsquo;s, let&rsquo;s linger on that,</p>
+<p>because that&rsquo;s where you and Noam Chomsky disagree.</p>
+<p>So you think we&rsquo;re actually taking incremental steps,</p>
+<p>a sort of larger network, larger compute</p>
+<p>will be able to get to the semantics,</p>
+<p>to be able to understand language</p>
+<p>without what Noam likes to sort of think of</p>
+<p>as a fundamental understandings</p>
+<p>of the structure of language,</p>
+<p>like imposing your theory of language</p>
+<p>onto the learning mechanism.</p>
+<p>So you&rsquo;re saying the learning,</p>
+<p>you can learn from raw data,</p>
+<p>the mechanism that underlies language.</p>
+<p>Well, I think it&rsquo;s pretty likely,</p>
+<p>but I also want to say that I don&rsquo;t really know precisely</p>
+<p>what Chomsky means when he talks about him.</p>
+<p>You said something about imposing your structural language.</p>
+<p>I&rsquo;m not 100% sure what he means,</p>
+<p>but empirically it seems that</p>
+<p>when you inspect those larger language models,</p>
+<p>they exhibit signs of understanding the semantics</p>
+<p>whereas the smaller language models do not.</p>
+<p>We&rsquo;ve seen that a few years ago</p>
+<p>when we did work on the sentiment neuron.</p>
+<p>We trained a small, you know,</p>
+<p>smallish LSTM to predict the next character</p>
+<p>in Amazon reviews.</p>
+<p>And we noticed that when you increase the size of the LSTM</p>
+<p>from 500 LSTM cells to 4,000 LSTM cells,</p>
+<p>then one of the neurons starts to represent the sentiment</p>
+<p>of the article, sorry, of the review.</p>
+<p>Now, why is that?</p>
+<p>Sentiment is a pretty semantic attribute.</p>
+<p>It&rsquo;s not a syntactic attribute.</p>
+<p>And for people who might not know,</p>
+<p>I don&rsquo;t know if that&rsquo;s a standard term,</p>
+<p>but sentiment is whether it&rsquo;s a positive</p>
+<p>or a negative review.</p>
+<p>That&rsquo;s right.</p>
+<p>Is the person happy with something</p>
+<p>or is the person unhappy with something?</p>
+<p>And so here we had very clear evidence</p>
+<p>that a small neural net does not capture sentiment</p>
+<p>while a large neural net does.</p>
+<p>And why is that?</p>
+<p>Well, our theory is that at some point</p>
+<p>you run out of syntax to models,</p>
+<p>you start to gotta focus on something else.</p>
+<p>And with size, you quickly run out of syntax to model</p>
+<p>and then you really start to focus on the semantics</p>
+<p>would be the idea.</p>
+<p>That&rsquo;s right.</p>
+<p>And so I don&rsquo;t wanna imply that our models</p>
+<p>have complete semantic understanding</p>
+<p>because that&rsquo;s not true,</p>
+<p>but they definitely are showing signs</p>
+<p>of semantic understanding,</p>
+<p>partial semantic understanding,</p>
+<p>but the smaller models do not show those signs.</p>
+<p>Can you take a step back and say,</p>
+<p>what is GPT2, which is one of the big language models</p>
+<p>that was the conversation changer</p>
+<p>in the past couple of years?</p>
+<p>Yeah, so GPT2 is a transformer</p>
+<p>with one and a half billion parameters</p>
+<p>that was trained on about 40 billion tokens of text</p>
+<p>which were obtained from web pages</p>
+<p>that were linked to from Reddit articles</p>
+<p>with more than three outputs.</p>
+<p>And what&rsquo;s a transformer?</p>
+<p>The transformer, it&rsquo;s the most important advance</p>
+<p>in neural network architectures in recent history.</p>
+<p>What is attention maybe too?</p>
+<p>Cause I think that&rsquo;s an interesting idea,</p>
+<p>not necessarily sort of technically speaking,</p>
+<p>but the idea of attention versus maybe</p>
+<p>what recurrent neural networks represent.</p>
+<p>Yeah, so the thing is the transformer</p>
+<p>is a combination of multiple ideas simultaneously</p>
+<p>of which attention is one.</p>
+<p>Do you think attention is the key?</p>
+<p>No, it&rsquo;s a key, but it&rsquo;s not the key.</p>
+<p>The transformer is successful</p>
+<p>because it is the simultaneous combination</p>
+<p>of multiple ideas.</p>
+<p>And if you were to remove either idea,</p>
+<p>it would be much less successful.</p>
+<p>So the transformer uses a lot of attention,</p>
+<p>but attention existed for a few years.</p>
+<p>So that can&rsquo;t be the main innovation.</p>
+<p>The transformer is designed in such a way</p>
+<p>that it runs really fast on the GPU.</p>
+<p>And that makes a huge amount of difference.</p>
+<p>This is one thing.</p>
+<p>The second thing is that transformer is not recurrent.</p>
+<p>And that is really important too,</p>
+<p>because it is more shallow</p>
+<p>and therefore much easier to optimize.</p>
+<p>So in other words, users attention,</p>
+<p>it is a really great fit to the GPU</p>
+<p>and it is not recurrent,</p>
+<p>so therefore less deep and easier to optimize.</p>
+<p>And the combination of those factors make it successful.</p>
+<p>So now it makes great use of your GPU.</p>
+<p>It allows you to achieve better results</p>
+<p>for the same amount of compute.</p>
+<p>And that&rsquo;s why it&rsquo;s successful.</p>
+<p>Were you surprised how well transformers worked</p>
+<p>and GPT2 worked?</p>
+<p>So you worked on language.</p>
+<p>You&rsquo;ve had a lot of great ideas</p>
+<p>before transformers came about in language.</p>
+<p>So you got to see the whole set of revolutions</p>
+<p>before and after.</p>
+<p>Were you surprised?</p>
+<p>Yeah, a little.</p>
+<p>A little?</p>
+<p>I mean, it&rsquo;s hard to remember</p>
+<p>because you adapt really quickly,</p>
+<p>but it definitely was surprising.</p>
+<p>It definitely was.</p>
+<p>In fact, you know what?</p>
+<p>I&rsquo;ll retract my statement.</p>
+<p>It was pretty amazing.</p>
+<p>It was just amazing to see generate this text of this.</p>
+<p>And you know, you gotta keep in mind</p>
+<p>that at that time we&rsquo;ve seen all this progress in GANs</p>
+<p>in improving the samples produced by GANs</p>
+<p>were just amazing.</p>
+<p>You have these realistic faces,</p>
+<p>but text hasn&rsquo;t really moved that much.</p>
+<p>And suddenly we moved from, you know,</p>
+<p>whatever GANs were in 2015</p>
+<p>to the best, most amazing GANs in one step.</p>
+<p>And that was really stunning.</p>
+<p>Even though theory predicted,</p>
+<p>yeah, you train a big language model,</p>
+<p>of course you should get this,</p>
+<p>but then to see it with your own eyes,</p>
+<p>it&rsquo;s something else.</p>
+<p>And yet we adapt really quickly.</p>
+<p>And now there&rsquo;s sort of some cognitive scientists</p>
+<p>write articles saying that GPT2 models</p>
+<p>don&rsquo;t truly understand language.</p>
+<p>So we adapt quickly to how amazing</p>
+<p>the fact that they&rsquo;re able to model the language so well is.</p>
+<p>So what do you think is the bar?</p>
+<p>For what?</p>
+<p>For impressing us that it&hellip;</p>
+<p>I don&rsquo;t know.</p>
+<p>Do you think that bar will continuously be moved?</p>
+<p>Definitely.</p>
+<p>I think when you start to see</p>
+<p>really dramatic economic impact,</p>
+<p>that&rsquo;s when I think that&rsquo;s in some sense the next barrier.</p>
+<p>Because right now, if you think about the work in AI,</p>
+<p>it&rsquo;s really confusing.</p>
+<p>It&rsquo;s really hard to know what to make of all these advances.</p>
+<p>It&rsquo;s kind of like, okay, you got an advance</p>
+<p>and now you can do more things</p>
+<p>and you&rsquo;ve got another improvement</p>
+<p>and you&rsquo;ve got another cool demo.</p>
+<p>At some point, I think people who are outside of AI,</p>
+<p>they can no longer distinguish this progress anymore.</p>
+<p>So we were talking offline</p>
+<p>about translating Russian to English</p>
+<p>and how there&rsquo;s a lot of brilliant work in Russian</p>
+<p>that the rest of the world doesn&rsquo;t know about.</p>
+<p>That&rsquo;s true for Chinese,</p>
+<p>it&rsquo;s true for a lot of scientists</p>
+<p>and just artistic work in general.</p>
+<p>Do you think translation is the place</p>
+<p>where we&rsquo;re going to see sort of economic big impact?</p>
+<p>I don&rsquo;t know.</p>
+<p>I think there is a huge number of&hellip;</p>
+<p>I mean, first of all,</p>
+<p>I wanna point out that translation already today is huge.</p>
+<p>I think billions of people interact</p>
+<p>with big chunks of the internet primarily through translation.</p>
+<p>So translation is already huge</p>
+<p>and it&rsquo;s hugely positive too.</p>
+<p>I think self driving is going to be hugely impactful</p>
+<p>and that&rsquo;s, it&rsquo;s unknown exactly when it happens,</p>
+<p>but again, I would not bet against deep learning, so I&hellip;</p>
+<p>So there&rsquo;s deep learning in general,</p>
+<p>but you think this&hellip;</p>
+<p>Deep learning for self driving.</p>
+<p>Yes, deep learning for self driving.</p>
+<p>But I was talking about sort of language models.</p>
+<p>I see.</p>
+<p>Just to check.</p>
+<p>Beard off a little bit.</p>
+<p>Just to check,</p>
+<p>you&rsquo;re not seeing a connection between driving and language.</p>
+<p>No, no.</p>
+<p>Okay.</p>
+<p>Or rather both use neural nets.</p>
+<p>That&rsquo;d be a poetic connection.</p>
+<p>I think there might be some,</p>
+<p>like you said, there might be some kind of unification</p>
+<p>towards a kind of multitask transformers</p>
+<p>that can take on both language and vision tasks.</p>
+<p>That&rsquo;d be an interesting unification.</p>
+<p>Now let&rsquo;s see, what can I ask about GPT two more?</p>
+<p>It&rsquo;s simple.</p>
+<p>There&rsquo;s not much to ask.</p>
+<p>It&rsquo;s, you take a transform, you make it bigger,</p>
+<p>you give it more data,</p>
+<p>and suddenly it does all those amazing things.</p>
+<p>Yeah, one of the beautiful things is that GPT,</p>
+<p>the transformers are fundamentally simple to explain,</p>
+<p>to train.</p>
+<p>Do you think bigger will continue</p>
+<p>to show better results in language?</p>
+<p>Probably.</p>
+<p>Sort of like what are the next steps</p>
+<p>with GPT two, do you think?</p>
+<p>I mean, I think for sure seeing</p>
+<p>what larger versions can do is one direction.</p>
+<p>Also, I mean, there are many questions.</p>
+<p>There&rsquo;s one question which I&rsquo;m curious about</p>
+<p>and that&rsquo;s the following.</p>
+<p>So right now GPT two,</p>
+<p>so we feed it all this data from the internet,</p>
+<p>which means that it needs to memorize</p>
+<p>all those random facts about everything in the internet.</p>
+<p>And it would be nice if the model could somehow</p>
+<p>use its own intelligence to decide</p>
+<p>what data it wants to accept</p>
+<p>and what data it wants to reject.</p>
+<p>Just like people.</p>
+<p>People don&rsquo;t learn all data indiscriminately.</p>
+<p>We are super selective about what we learn.</p>
+<p>And I think this kind of active learning,</p>
+<p>I think would be very nice to have.</p>
+<p>Yeah, listen, I love active learning.</p>
+<p>So let me ask, does the selection of data,</p>
+<p>can you just elaborate that a little bit more?</p>
+<p>Do you think the selection of data is,</p>
+<p>like I have this kind of sense</p>
+<p>that the optimization of how you select data,</p>
+<p>so the active learning process is going to be a place</p>
+<p>for a lot of breakthroughs, even in the near future?</p>
+<p>Because there hasn&rsquo;t been many breakthroughs there</p>
+<p>that are public.</p>
+<p>I feel like there might be private breakthroughs</p>
+<p>that companies keep to themselves</p>
+<p>because the fundamental problem has to be solved</p>
+<p>if you want to solve self driving,</p>
+<p>if you want to solve a particular task.</p>
+<p>What do you think about the space in general?</p>
+<p>Yeah, so I think that for something like active learning,</p>
+<p>or in fact, for any kind of capability, like active learning,</p>
+<p>the thing that it really needs is a problem.</p>
+<p>It needs a problem that requires it.</p>
+<p>It&rsquo;s very hard to do research about the capability</p>
+<p>if you don&rsquo;t have a task,</p>
+<p>because then what&rsquo;s going to happen</p>
+<p>is that you will come up with an artificial task,</p>
+<p>get good results, but not really convince anyone.</p>
+<p>Right, like we&rsquo;re now past the stage</p>
+<p>where getting a result on MNIST, some clever formulation</p>
+<p>of MNIST will convince people.</p>
+<p>That&rsquo;s right, in fact, you could quite easily</p>
+<p>come up with a simple active learning scheme on MNIST</p>
+<p>and get a 10x speed up, but then, so what?</p>
+<p>And I think that with active learning,</p>
+<p>the need, active learning will naturally arise</p>
+<p>as problems that require it pop up.</p>
+<p>That&rsquo;s how I would, that&rsquo;s my take on it.</p>
+<p>There&rsquo;s another interesting thing</p>
+<p>that OpenAI has brought up with GPT2,</p>
+<p>which is when you create a powerful</p>
+<p>artificial intelligence system,</p>
+<p>and it was unclear what kind of detrimental,</p>
+<p>once you release GPT2,</p>
+<p>what kind of detrimental effect it will have.</p>
+<p>Because if you have a model</p>
+<p>that can generate a pretty realistic text,</p>
+<p>you can start to imagine that it would be used by bots</p>
+<p>in some way that we can&rsquo;t even imagine.</p>
+<p>So there&rsquo;s this nervousness about what is possible to do.</p>
+<p>So you did a really kind of brave</p>
+<p>and I think profound thing,</p>
+<p>which is start a conversation about this.</p>
+<p>How do we release powerful artificial intelligence models</p>
+<p>to the public?</p>
+<p>If we do it all, how do we privately discuss</p>
+<p>with other, even competitors,</p>
+<p>about how we manage the use of the systems and so on?</p>
+<p>So from this whole experience,</p>
+<p>you released a report on it,</p>
+<p>but in general, are there any insights</p>
+<p>that you&rsquo;ve gathered from just thinking about this,</p>
+<p>about how you release models like this?</p>
+<p>I mean, I think that my take on this</p>
+<p>is that the field of AI has been in a state of childhood.</p>
+<p>And now it&rsquo;s exiting that state</p>
+<p>and it&rsquo;s entering a state of maturity.</p>
+<p>What that means is that AI is very successful</p>
+<p>and also very impactful.</p>
+<p>And its impact is not only large, but it&rsquo;s also growing.</p>
+<p>And so for that reason, it seems wise to start thinking</p>
+<p>about the impact of our systems before releasing them,</p>
+<p>maybe a little bit too soon, rather than a little bit too late.</p>
+<p>And with the case of GPT2, like I mentioned earlier,</p>
+<p>the results really were stunning.</p>
+<p>And it seemed plausible, it didn&rsquo;t seem certain,</p>
+<p>it seemed plausible that something like GPT2</p>
+<p>could easily use to reduce the cost of this information.</p>
+<p>And so there was a question of what&rsquo;s the best way</p>
+<p>to release it, and a staged release seemed logical.</p>
+<p>A small model was released,</p>
+<p>and there was time to see the,</p>
+<p>many people use these models in lots of cool ways.</p>
+<p>There&rsquo;ve been lots of really cool applications.</p>
+<p>There haven&rsquo;t been any negative application to be known of.</p>
+<p>And so eventually it was released,</p>
+<p>but also other people replicated similar models.</p>
+<p>That&rsquo;s an interesting question though that we know of.</p>
+<p>So in your view, staged release,</p>
+<p>is at least part of the answer to the question of how do we,</p>
+<p>what do we do once we create a system like this?</p>
+<p>It&rsquo;s part of the answer, yes.</p>
+<p>Is there any other insights?</p>
+<p>Like say you don&rsquo;t wanna release the model at all,</p>
+<p>because it&rsquo;s useful to you for whatever the business is.</p>
+<p>Well, plenty of people don&rsquo;t release models already.</p>
+<p>Right, of course, but is there some moral,</p>
+<p>ethical responsibility when you have a very powerful model</p>
+<p>to sort of communicate?</p>
+<p>Like, just as you said, when you had GPT2,</p>
+<p>it was unclear how much it could be used for misinformation.</p>
+<p>It&rsquo;s an open question, and getting an answer to that</p>
+<p>might require that you talk to other really smart people</p>
+<p>that are outside of your particular group.</p>
+<p>Have you, please tell me there&rsquo;s some optimistic pathway</p>
+<p>for people to be able to use this model</p>
+<p>for people across the world to collaborate</p>
+<p>on these kinds of cases?</p>
+<p>Or is it still really difficult from one company</p>
+<p>to talk to another company?</p>
+<p>So it&rsquo;s definitely possible.</p>
+<p>It&rsquo;s definitely possible to discuss these kind of models</p>
+<p>with colleagues elsewhere,</p>
+<p>and to get their take on what to do.</p>
+<p>How hard is it though?</p>
+<p>I mean.</p>
+<p>Do you see that happening?</p>
+<p>I think that&rsquo;s a place where it&rsquo;s important</p>
+<p>to gradually build trust between companies.</p>
+<p>Because ultimately, all the AI developers</p>
+<p>are building technology which is going to be</p>
+<p>increasingly more powerful.</p>
+<p>And so it&rsquo;s,</p>
+<p>the way to think about it is that ultimately</p>
+<p>we&rsquo;re all in it together.</p>
+<p>Yeah, I tend to believe in the better angels of our nature,</p>
+<p>but I do hope that when you build a really powerful</p>
+<p>AI system in a particular domain,</p>
+<p>that you also think about the potential</p>
+<p>negative consequences of, yeah.</p>
+<p>It&rsquo;s an interesting and scary possibility</p>
+<p>that there will be a race for AI development</p>
+<p>that would push people to close that development,</p>
+<p>and not share ideas with others.</p>
+<p>I don&rsquo;t love this.</p>
+<p>I&rsquo;ve been a pure academic for 10 years.</p>
+<p>I really like sharing ideas and it&rsquo;s fun, it&rsquo;s exciting.</p>
+<p>What do you think it takes to,</p>
+<p>let&rsquo;s talk about AGI a little bit.</p>
+<p>What do you think it takes to build a system</p>
+<p>of human level intelligence?</p>
+<p>We talked about reasoning,</p>
+<p>we talked about long term memory, but in general,</p>
+<p>what does it take, do you think?</p>
+<p>Well, I can&rsquo;t be sure.</p>
+<p>But I think the deep learning,</p>
+<p>plus maybe another,</p>
+<p>plus maybe another small idea.</p>
+<p>Do you think self play will be involved?</p>
+<p>So you&rsquo;ve spoken about the powerful mechanism of self play</p>
+<p>where systems learn by sort of exploring the world</p>
+<p>in a competitive setting against other entities</p>
+<p>that are similarly skilled as them,</p>
+<p>and so incrementally improve in this way.</p>
+<p>Do you think self play will be a component</p>
+<p>of building an AGI system?</p>
+<p>Yeah, so what I would say, to build AGI,</p>
+<p>I think it&rsquo;s going to be deep learning plus some ideas.</p>
+<p>And I think self play will be one of those ideas.</p>
+<p>I think that that is a very,</p>
+<p>self play has this amazing property</p>
+<p>that it can surprise us in truly novel ways.</p>
+<p>For example, like we, I mean,</p>
+<p>pretty much every self play system,</p>
+<p>both are Dota bot.</p>
+<p>I don&rsquo;t know if, OpenAI had a release about multi agent</p>
+<p>where you had two little agents</p>
+<p>who were playing hide and seek.</p>
+<p>And of course, also alpha zero.</p>
+<p>They were all produced surprising behaviors.</p>
+<p>They all produce behaviors that we didn&rsquo;t expect.</p>
+<p>They are creative solutions to problems.</p>
+<p>And that seems like an important part of AGI</p>
+<p>that our systems don&rsquo;t exhibit routinely right now.</p>
+<p>And so that&rsquo;s why I like this area.</p>
+<p>I like this direction because of its ability to surprise us.</p>
+<p>To surprise us.</p>
+<p>And an AGI system would surprise us fundamentally.</p>
+<p>Yes.</p>
+<p>And to be precise, not just a random surprise,</p>
+<p>but to find the surprising solution to a problem</p>
+<p>that&rsquo;s also useful.</p>
+<p>Right.</p>
+<p>Now, a lot of the self play mechanisms</p>
+<p>have been used in the game context</p>
+<p>or at least in the simulation context.</p>
+<p>How far along the path to AGI</p>
+<p>do you think will be done in simulation?</p>
+<p>How much faith, promise do you have in simulation</p>
+<p>versus having to have a system</p>
+<p>that operates in the real world?</p>
+<p>Whether it&rsquo;s the real world of digital real world data</p>
+<p>or real world like actual physical world of robotics.</p>
+<p>I don&rsquo;t think it&rsquo;s an easy or.</p>
+<p>I think simulation is a tool and it helps.</p>
+<p>It has certain strengths and certain weaknesses</p>
+<p>and we should use it.</p>
+<p>Yeah, but okay, I understand that.</p>
+<p>That&rsquo;s true, but one of the criticisms of self play,</p>
+<p>one of the criticisms of reinforcement learning</p>
+<p>is one of the, its current power, its current results,</p>
+<p>while amazing, have been demonstrated</p>
+<p>in a simulated environments</p>
+<p>or very constrained physical environments.</p>
+<p>Do you think it&rsquo;s possible to escape them,</p>
+<p>escape the simulator environments</p>
+<p>and be able to learn in non simulator environments?</p>
+<p>Or do you think it&rsquo;s possible to also just simulate</p>
+<p>in a photo realistic and physics realistic way,</p>
+<p>the real world in a way that we can solve real problems</p>
+<p>with self play in simulation?</p>
+<p>So I think that transfer from simulation to the real world</p>
+<p>is definitely possible and has been exhibited many times</p>
+<p>by many different groups.</p>
+<p>It&rsquo;s been especially successful in vision.</p>
+<p>Also open AI in the summer has demonstrated a robot hand</p>
+<p>which was trained entirely in simulation</p>
+<p>in a certain way that allowed for seem to real transfer</p>
+<p>to occur.</p>
+<p>Is this for the Rubik&rsquo;s cube?</p>
+<p>Yeah, that&rsquo;s right.</p>
+<p>I wasn&rsquo;t aware that was trained in simulation.</p>
+<p>It was trained in simulation entirely.</p>
+<p>Really, so it wasn&rsquo;t in the physical,</p>
+<p>the hand wasn&rsquo;t trained?</p>
+<p>No, 100% of the training was done in simulation</p>
+<p>and the policy that was learned in simulation</p>
+<p>was trained to be very adaptive.</p>
+<p>So adaptive that when you transfer it,</p>
+<p>it could very quickly adapt to the physical world.</p>
+<p>So the kind of perturbations with the giraffe</p>
+<p>or whatever the heck it was,</p>
+<p>those weren&rsquo;t, were those part of the simulation?</p>
+<p>Well, the simulation was generally,</p>
+<p>so the simulation was trained to be robust</p>
+<p>to many different things,</p>
+<p>but not the kind of perturbations we&rsquo;ve had in the video.</p>
+<p>So it&rsquo;s never been trained with a glove.</p>
+<p>It&rsquo;s never been trained with a stuffed giraffe.</p>
+<p>So in theory, these are novel perturbations.</p>
+<p>Correct, it&rsquo;s not in theory, in practice.</p>
+<p>Those are novel perturbations?</p>
+<p>Well, that&rsquo;s okay.</p>
+<p>That&rsquo;s a clean, small scale,</p>
+<p>but clean example of a transfer</p>
+<p>from the simulated world to the physical world.</p>
+<p>Yeah, and I will also say</p>
+<p>that I expect the transfer capabilities</p>
+<p>of deep learning to increase in general.</p>
+<p>And the better the transfer capabilities are,</p>
+<p>the more useful simulation will become.</p>
+<p>Because then you could take,</p>
+<p>you could experience something in simulation</p>
+<p>and then learn a moral of the story,</p>
+<p>which you could then carry with you to the real world.</p>
+<p>As humans do all the time when they play computer games.</p>
+<p>So let me ask sort of a embodied question,</p>
+<p>staying on AGI for a sec.</p>
+<p>Do you think AGI system would need to have a body?</p>
+<p>We need to have some of those human elements</p>
+<p>of self awareness, consciousness,</p>
+<p>sort of fear of mortality,</p>
+<p>sort of self preservation in the physical space,</p>
+<p>which comes with having a body.</p>
+<p>I think having a body will be useful.</p>
+<p>I don&rsquo;t think it&rsquo;s necessary,</p>
+<p>but I think it&rsquo;s very useful to have a body for sure,</p>
+<p>because you can learn a whole new,</p>
+<p>you can learn things which cannot be learned without a body.</p>
+<p>But at the same time, I think that if you don&rsquo;t have a body,</p>
+<p>you could compensate for it and still succeed.</p>
+<p>You think so?</p>
+<p>Yes.</p>
+<p>Well, there is evidence for this.</p>
+<p>For example, there are many people who were born deaf</p>
+<p>and blind and they were able to compensate</p>
+<p>for the lack of modalities.</p>
+<p>I&rsquo;m thinking about Helen Keller specifically.</p>
+<p>So even if you&rsquo;re not able to physically interact</p>
+<p>with the world, and if you&rsquo;re not able to,</p>
+<p>I mean, I actually was getting at,</p>
+<p>maybe let me ask on the more particular,</p>
+<p>I&rsquo;m not sure if it&rsquo;s connected to having a body or not,</p>
+<p>but the idea of consciousness</p>
+<p>and a more constrained version of that is self awareness.</p>
+<p>Do you think an AGI system should have consciousness?</p>
+<p>We can&rsquo;t define, whatever the heck you think consciousness is.</p>
+<p>Yeah, hard question to answer,</p>
+<p>given how hard it is to define it.</p>
+<p>Do you think it&rsquo;s useful to think about?</p>
+<p>I mean, it&rsquo;s definitely interesting.</p>
+<p>It&rsquo;s fascinating.</p>
+<p>I think it&rsquo;s definitely possible</p>
+<p>that our systems will be conscious.</p>
+<p>Do you think that&rsquo;s an emergent thing that just comes from,</p>
+<p>do you think consciousness could emerge</p>
+<p>from the representation that&rsquo;s stored within neural networks?</p>
+<p>So like that it naturally just emerges</p>
+<p>when you become more and more,</p>
+<p>you&rsquo;re able to represent more and more of the world?</p>
+<p>Well, I&rsquo;d say I&rsquo;d make the following argument,</p>
+<p>which is humans are conscious.</p>
+<p>And if you believe that artificial neural nets</p>
+<p>are sufficiently similar to the brain,</p>
+<p>then there should at least exist artificial neural nets</p>
+<p>you should be conscious too.</p>
+<p>You&rsquo;re leaning on that existence proof pretty heavily.</p>
+<p>Okay, so that&rsquo;s the best answer I can give.</p>
+<p>No, I know, I know, I know.</p>
+<p>There&rsquo;s still an open question</p>
+<p>if there&rsquo;s not some magic in the brain that we&rsquo;re not,</p>
+<p>I mean, I don&rsquo;t mean a non materialistic magic,</p>
+<p>but that the brain might be a lot more complicated</p>
+<p>and interesting than we give it credit for.</p>
+<p>If that&rsquo;s the case, then it should show up.</p>
+<p>And at some point we will find out</p>
+<p>that we can&rsquo;t continue to make progress.</p>
+<p>But I think it&rsquo;s unlikely.</p>
+<p>So we talk about consciousness,</p>
+<p>but let me talk about another poorly defined concept</p>
+<p>of intelligence.</p>
+<p>Again, we&rsquo;ve talked about reasoning,</p>
+<p>we&rsquo;ve talked about memory.</p>
+<p>What do you think is a good test of intelligence for you?</p>
+<p>Are you impressed by the test that Alan Turing formulated</p>
+<p>with the imitation game with natural language?</p>
+<p>Is there something in your mind</p>
+<p>that you will be deeply impressed by</p>
+<p>if a system was able to do?</p>
+<p>I mean, lots of things.</p>
+<p>There&rsquo;s a certain frontier of capabilities today.</p>
+<p>And there exist things outside of that frontier.</p>
+<p>And I would be impressed by any such thing.</p>
+<p>For example, I would be impressed by a deep learning system</p>
+<p>which solves a very pedestrian task,</p>
+<p>like machine translation or computer vision task</p>
+<p>or something which never makes mistake</p>
+<p>a human wouldn&rsquo;t make under any circumstances.</p>
+<p>I think that is something</p>
+<p>which have not yet been demonstrated</p>
+<p>and I would find it very impressive.</p>
+<p>Yeah, so right now they make mistakes in different,</p>
+<p>they might be more accurate than human beings,</p>
+<p>but they still, they make a different set of mistakes.</p>
+<p>So my, I would guess that a lot of the skepticism</p>
+<p>that some people have about deep learning</p>
+<p>is when they look at their mistakes and they say,</p>
+<p>well, those mistakes, they make no sense.</p>
+<p>Like if you understood the concept,</p>
+<p>you wouldn&rsquo;t make that mistake.</p>
+<p>And I think that changing that would be,</p>
+<p>that would inspire me.</p>
+<p>That would be, yes, this is progress.</p>
+<p>Yeah, that&rsquo;s a really nice way to put it.</p>
+<p>But I also just don&rsquo;t like that human instinct</p>
+<p>to criticize a model is not intelligent.</p>
+<p>That&rsquo;s the same instinct as we do</p>
+<p>when we criticize any group of creatures as the other.</p>
+<p>Because it&rsquo;s very possible that GPT2</p>
+<p>is much smarter than human beings at many things.</p>
+<p>That&rsquo;s definitely true.</p>
+<p>It has a lot more breadth of knowledge.</p>
+<p>Yes, breadth of knowledge</p>
+<p>and even perhaps depth on certain topics.</p>
+<p>It&rsquo;s kind of hard to judge what depth means,</p>
+<p>but there&rsquo;s definitely a sense in which</p>
+<p>humans don&rsquo;t make mistakes that these models do.</p>
+<p>The same is applied to autonomous vehicles.</p>
+<p>The same is probably gonna continue being applied</p>
+<p>to a lot of artificial intelligence systems.</p>
+<p>We find, this is the annoying thing.</p>
+<p>This is the process of, in the 21st century,</p>
+<p>the process of analyzing the progress of AI</p>
+<p>is the search for one case where the system fails</p>
+<p>in a big way where humans would not.</p>
+<p>And then many people writing articles about it.</p>
+<p>And then broadly, the public generally gets convinced</p>
+<p>that the system is not intelligent.</p>
+<p>And we pacify ourselves by thinking it&rsquo;s not intelligent</p>
+<p>because of this one anecdotal case.</p>
+<p>And this seems to continue happening.</p>
+<p>Yeah, I mean, there is truth to that.</p>
+<p>Although I&rsquo;m sure that plenty of people</p>
+<p>are also extremely impressed</p>
+<p>by the system that exists today.</p>
+<p>But I think this connects to the earlier point</p>
+<p>we discussed that it&rsquo;s just confusing</p>
+<p>to judge progress in AI.</p>
+<p>Yeah.</p>
+<p>And you have a new robot demonstrating something.</p>
+<p>How impressed should you be?</p>
+<p>And I think that people will start to be impressed</p>
+<p>once AI starts to really move the needle on the GDP.</p>
+<p>So you&rsquo;re one of the people that might be able</p>
+<p>to create an AGI system here.</p>
+<p>Not you, but you and OpenAI.</p>
+<p>If you do create an AGI system</p>
+<p>and you get to spend sort of the evening</p>
+<p>with it, him, her, what would you talk about, do you think?</p>
+<p>The very first time?</p>
+<p>First time.</p>
+<p>Well, the first time I would just ask all kinds of questions</p>
+<p>and try to get it to make a mistake.</p>
+<p>And I would be amazed that it doesn&rsquo;t make mistakes</p>
+<p>and just keep asking broad questions.</p>
+<p>What kind of questions do you think?</p>
+<p>Would they be factual or would they be personal,</p>
+<p>emotional, psychological?</p>
+<p>What do you think?</p>
+<p>All of the above.</p>
+<p>Would you ask for advice?</p>
+<p>Definitely.</p>
+<p>I mean, why would I limit myself</p>
+<p>talking to a system like this?</p>
+<p>Now, again, let me emphasize the fact</p>
+<p>that you truly are one of the people</p>
+<p>that might be in the room where this happens.</p>
+<p>So let me ask sort of a profound question about,</p>
+<p>I&rsquo;ve just talked to a Stalin historian.</p>
+<p>I&rsquo;ve been talking to a lot of people who are studying power.</p>
+<p>Abraham Lincoln said,</p>
+<p>&ldquo;&lsquo;Nearly all men can stand adversity,</p>
+<p>&ldquo;&lsquo;but if you want to test a man&rsquo;s character, give him power.&rsquo;&rdquo;</p>
+<p>I would say the power of the 21st century,</p>
+<p>maybe the 22nd, but hopefully the 21st,</p>
+<p>would be the creation of an AGI system</p>
+<p>and the people who have control,</p>
+<p>direct possession and control of the AGI system.</p>
+<p>So what do you think, after spending that evening</p>
+<p>having a discussion with the AGI system,</p>
+<p>what do you think you would do?</p>
+<p>Well, the ideal world I&rsquo;d like to imagine</p>
+<p>is one where humanity,</p>
+<p>I like, the board members of a company</p>
+<p>where the AGI is the CEO.</p>
+<p>So it would be, I would like,</p>
+<p>the picture which I would imagine</p>
+<p>is you have some kind of different entities,</p>
+<p>different countries or cities,</p>
+<p>and the people that leave their vote</p>
+<p>for what the AGI that represents them should do,</p>
+<p>and the AGI that represents them goes and does it.</p>
+<p>I think a picture like that, I find very appealing.</p>
+<p>You could have multiple AGI,</p>
+<p>you would have an AGI for a city, for a country,</p>
+<p>and there would be multiple AGI&rsquo;s,</p>
+<p>for a city, for a country, and there would be,</p>
+<p>it would be trying to, in effect,</p>
+<p>take the democratic process to the next level.</p>
+<p>And the board can always fire the CEO.</p>
+<p>Essentially, press the reset button, say.</p>
+<p>Press the reset button.</p>
+<p>Rerandomize the parameters.</p>
+<p>But let me sort of, that&rsquo;s actually,</p>
+<p>okay, that&rsquo;s a beautiful vision, I think,</p>
+<p>as long as it&rsquo;s possible to press the reset button.</p>
+<p>Do you think it will always be possible</p>
+<p>to press the reset button?</p>
+<p>So I think that it definitely will be possible to build.</p>
+<p>So you&rsquo;re talking, so the question</p>
+<p>that I really understand from you is,</p>
+<p>will humans or humans people have control</p>
+<p>over the AI systems that they build?</p>
+<p>Yes.</p>
+<p>And my answer is, it&rsquo;s definitely possible</p>
+<p>to build AI systems which will want</p>
+<p>to be controlled by their humans.</p>
+<p>Wow, that&rsquo;s part of their,</p>
+<p>so it&rsquo;s not that just they can&rsquo;t help but be controlled,</p>
+<p>but that&rsquo;s the, they exist,</p>
+<p>the one of the objectives of their existence</p>
+<p>is to be controlled.</p>
+<p>In the same way that human parents</p>
+<p>generally want to help their children,</p>
+<p>they want their children to succeed.</p>
+<p>It&rsquo;s not a burden for them.</p>
+<p>They are excited to help children and to feed them</p>
+<p>and to dress them and to take care of them.</p>
+<p>And I believe with high conviction</p>
+<p>that the same will be possible for an AGI.</p>
+<p>It will be possible to program an AGI,</p>
+<p>to design it in such a way</p>
+<p>that it will have a similar deep drive</p>
+<p>that it will be delighted to fulfill.</p>
+<p>And the drive will be to help humans flourish.</p>
+<p>But let me take a step back to that moment</p>
+<p>where you create the AGI system.</p>
+<p>I think this is a really crucial moment.</p>
+<p>And between that moment</p>
+<p>and the Democratic board members with the AGI at the head,</p>
+<p>there has to be a relinquishing of power.</p>
+<p>So as George Washington, despite all the bad things he did,</p>
+<p>one of the big things he did is he relinquished power.</p>
+<p>He, first of all, didn&rsquo;t want to be president.</p>
+<p>And even when he became president,</p>
+<p>he gave, he didn&rsquo;t keep just serving</p>
+<p>as most dictators do for indefinitely.</p>
+<p>Do you see yourself being able to relinquish control</p>
+<p>over an AGI system,</p>
+<p>given how much power you can have over the world,</p>
+<p>at first financial, just make a lot of money, right?</p>
+<p>And then control by having possession as AGI system.</p>
+<p>I&rsquo;d find it trivial to do that.</p>
+<p>I&rsquo;d find it trivial to relinquish this kind of power.</p>
+<p>I mean, the kind of scenario you are describing</p>
+<p>sounds terrifying to me.</p>
+<p>That&rsquo;s all.</p>
+<p>I would absolutely not want to be in that position.</p>
+<p>Do you think you represent the majority</p>
+<p>or the minority of people in the AI community?</p>
+<p>Well, I mean.</p>
+<p>Say open question, an important one.</p>
+<p>Are most people good is another way to ask it.</p>
+<p>So I don&rsquo;t know if most people are good,</p>
+<p>but I think that when it really counts,</p>
+<p>people can be better than we think.</p>
+<p>That&rsquo;s beautifully put, yeah.</p>
+<p>Are there specific mechanism you can think of</p>
+<p>of aligning AI values to human values?</p>
+<p>Is that, do you think about these problems</p>
+<p>of continued alignment as we develop the AI systems?</p>
+<p>Yeah, definitely.</p>
+<p>In some sense, the kind of question which you are asking is,</p>
+<p>so if I were to translate the question to today&rsquo;s terms,</p>
+<p>it would be a question about how to get an RL agent</p>
+<p>that&rsquo;s optimizing a value function which itself is learned.</p>
+<p>And if you look at humans, humans are like that</p>
+<p>because the reward function, the value function of humans</p>
+<p>is not external, it is internal.</p>
+<p>That&rsquo;s right.</p>
+<p>And there are definite ideas</p>
+<p>of how to train a value function.</p>
+<p>Basically an objective, you know,</p>
+<p>and as objective as possible perception system</p>
+<p>that will be trained separately to recognize,</p>
+<p>to internalize human judgments on different situations.</p>
+<p>And then that component would then be integrated</p>
+<p>as the base value function</p>
+<p>for some more capable RL system.</p>
+<p>You could imagine a process like this.</p>
+<p>I&rsquo;m not saying this is the process,</p>
+<p>I&rsquo;m saying this is an example</p>
+<p>of the kind of thing you could do.</p>
+<p>So on that topic of the objective functions</p>
+<p>of human existence,</p>
+<p>what do you think is the objective function</p>
+<p>that&rsquo;s implicit in human existence?</p>
+<p>What&rsquo;s the meaning of life?</p>
+<p>Oh.</p>
+<p>I think the question is wrong in some way.</p>
+<p>I think that the question implies</p>
+<p>that there is an objective answer</p>
+<p>which is an external answer,</p>
+<p>you know, your meaning of life is X.</p>
+<p>I think what&rsquo;s going on is that we exist</p>
+<p>and that&rsquo;s amazing.</p>
+<p>And we should try to make the most of it</p>
+<p>and try to maximize our own value</p>
+<p>and enjoyment of a very short time while we do exist.</p>
+<p>It&rsquo;s funny,</p>
+<p>because action does require an objective function</p>
+<p>is definitely there in some form,</p>
+<p>but it&rsquo;s difficult to make it explicit</p>
+<p>and maybe impossible to make it explicit,</p>
+<p>I guess is what you&rsquo;re getting at.</p>
+<p>And that&rsquo;s an interesting fact of an RL environment.</p>
+<p>Well, but I was making a slightly different point</p>
+<p>is that humans want things</p>
+<p>and their wants create the drives that cause them to,</p>
+<p>you know, our wants are our objective functions,</p>
+<p>our individual objective functions.</p>
+<p>We can later decide that we want to change,</p>
+<p>that what we wanted before is no longer good</p>
+<p>and we want something else.</p>
+<p>Yeah, but they&rsquo;re so dynamic,</p>
+<p>there&rsquo;s gotta be some underlying sort of Freud,</p>
+<p>there&rsquo;s things, there&rsquo;s like sexual stuff,</p>
+<p>there&rsquo;s people who think it&rsquo;s the fear of death</p>
+<p>and there&rsquo;s also the desire for knowledge</p>
+<p>and you know, all these kinds of things,</p>
+<p>procreation, sort of all the evolutionary arguments,</p>
+<p>it seems to be,</p>
+<p>there might be some kind of fundamental objective function</p>
+<p>from which everything else emerges,</p>
+<p>but it seems like it&rsquo;s very difficult to make it explicit.</p>
+<p>I think that probably is an evolutionary objective function</p>
+<p>which is to survive and procreate</p>
+<p>and make sure you make your children succeed.</p>
+<p>That would be my guess,</p>
+<p>but it doesn&rsquo;t give an answer to the question</p>
+<p>of what&rsquo;s the meaning of life.</p>
+<p>I think you can see how humans are part of this big process,</p>
+<p>this ancient process.</p>
+<p>We exist on a small planet and that&rsquo;s it.</p>
+<p>So given that we exist, try to make the most of it</p>
+<p>and try to enjoy more and suffer less as much as we can.</p>
+<p>Let me ask two silly questions about life.</p>
+<p>One, do you have regrets?</p>
+<p>Moments that if you went back, you would do differently.</p>
+<p>And two, are there moments that you&rsquo;re especially proud of</p>
+<p>that made you truly happy?</p>
+<p>So I can answer that, I can answer both questions.</p>
+<p>Of course, there&rsquo;s a huge number of choices</p>
+<p>and decisions that I&rsquo;ve made</p>
+<p>that with the benefit of hindsight,</p>
+<p>I wouldn&rsquo;t have made them.</p>
+<p>And I do experience some regret,</p>
+<p>but I try to take solace in the knowledge</p>
+<p>that at the time I did the best I could.</p>
+<p>And in terms of things that I&rsquo;m proud of,</p>
+<p>I&rsquo;m very fortunate to have done things I&rsquo;m proud of</p>
+<p>and they made me happy for some time,</p>
+<p>but I don&rsquo;t think that that is the source of happiness.</p>
+<p>So your academic accomplishments, all the papers,</p>
+<p>you&rsquo;re one of the most cited people in the world.</p>
+<p>All of the breakthroughs I mentioned</p>
+<p>in computer vision and language and so on,</p>
+<p>what is the source of happiness and pride for you?</p>
+<p>I mean, all those things are a source of pride for sure.</p>
+<p>I&rsquo;m very grateful for having done all those things</p>
+<p>and it was very fun to do them.</p>
+<p>But happiness comes, but you know, happiness,</p>
+<p>well, my current view is that happiness comes</p>
+<p>from our, to a very large degree,</p>
+<p>from the way we look at things.</p>
+<p>You know, you can have a simple meal</p>
+<p>and be quite happy as a result,</p>
+<p>or you can talk to someone and be happy as a result as well.</p>
+<p>Or conversely, you can have a meal and be disappointed</p>
+<p>that the meal wasn&rsquo;t a better meal.</p>
+<p>So I think a lot of happiness comes from that,</p>
+<p>but I&rsquo;m not sure, I don&rsquo;t want to be too confident.</p>
+<p>Being humble in the face of the uncertainty</p>
+<p>seems to be also a part of this whole happiness thing.</p>
+<p>Well, I don&rsquo;t think there&rsquo;s a better way to end it</p>
+<p>than meaning of life and discussions of happiness.</p>
+<p>So Ilya, thank you so much.</p>
+<p>You&rsquo;ve given me a few incredible ideas.</p>
+<p>You&rsquo;ve given the world many incredible ideas.</p>
+<p>I really appreciate it and thanks for talking today.</p>
+<p>Yeah, thanks for stopping by, I really enjoyed it.</p>
+<p>Thanks for listening to this conversation</p>
+<p>with Ilya Setskever and thank you</p>
+<p>to our presenting sponsor, Cash App.</p>
+<p>Please consider supporting the podcast</p>
+<p>by downloading Cash App and using the code LEXPodcast.</p>
+<p>If you enjoy this podcast, subscribe on YouTube,</p>
+<p>review it with five stars on Apple Podcast,</p>
+<p>support on Patreon, or simply connect with me on Twitter</p>
+<p>at Lex Friedman.</p>
+<p>And now let me leave you with some words</p>
+<p>from Alan Turing on machine learning.</p>
+<p>Instead of trying to produce a program</p>
+<p>to simulate the adult mind,</p>
+<p>why not rather try to produce one</p>
+<p>which simulates the child?</p>
+<p>If this were then subjected</p>
+<p>to an appropriate course of education,</p>
+<p>one would obtain the adult brain.</p>
+<p>Thank you for listening and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

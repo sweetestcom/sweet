@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Vladimir Vapnik.
+He&amp;rsquo;s the co inventor of support vector machines,
+support vector clustering, VC theory,
+and many foundational ideas in statistical learning.
+He was born in the Soviet Union
+and worked at the Institute of Control Sciences in Moscow.
+Then in the United States, he worked at AT&amp;amp;T,
+NEC Labs, Facebook Research,
+and now is a professor at Columbia University.
+His work has been cited over 170,000 times.'>
+<title>Lex Fridman Podcast - #5 - Vladimir Vapnik: Statistical Learning | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500005/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #5 - Vladimir Vapnik: Statistical Learning'>
+<meta property='og:description' content='The following is a conversation with Vladimir Vapnik.
+He&amp;rsquo;s the co inventor of support vector machines,
+support vector clustering, VC theory,
+and many foundational ideas in statistical learning.
+He was born in the Soviet Union
+and worked at the Institute of Control Sciences in Moscow.
+Then in the United States, he worked at AT&amp;amp;T,
+NEC Labs, Facebook Research,
+and now is a professor at Columbia University.
+His work has been cited over 170,000 times.'>
+<meta property='og:url' content='https://swiest.com/en/1310500005/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-03-05T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-05T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #5 - Vladimir Vapnik: Statistical Learning">
+<meta name="twitter:description" content="The following is a conversation with Vladimir Vapnik.
+He&amp;rsquo;s the co inventor of support vector machines,
+support vector clustering, VC theory,
+and many foundational ideas in statistical learning.
+He was born in the Soviet Union
+and worked at the Institute of Control Sciences in Moscow.
+Then in the United States, he worked at AT&amp;amp;T,
+NEC Labs, Facebook Research,
+and now is a professor at Columbia University.
+His work has been cited over 170,000 times.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500005/">Lex Fridman Podcast - #5 - Vladimir Vapnik: Statistical Learning</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-03-05</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    30 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Vladimir Vapnik.</p>
+<p>He&rsquo;s the co inventor of support vector machines,</p>
+<p>support vector clustering, VC theory,</p>
+<p>and many foundational ideas in statistical learning.</p>
+<p>He was born in the Soviet Union</p>
+<p>and worked at the Institute of Control Sciences in Moscow.</p>
+<p>Then in the United States, he worked at AT&amp;T,</p>
+<p>NEC Labs, Facebook Research,</p>
+<p>and now is a professor at Columbia University.</p>
+<p>His work has been cited over 170,000 times.</p>
+<p>He has some very interesting ideas</p>
+<p>about artificial intelligence and the nature of learning,</p>
+<p>especially on the limits of our current approaches</p>
+<p>and the open problems in the field.</p>
+<p>This conversation is part of MIT course</p>
+<p>on artificial general intelligence</p>
+<p>and the artificial intelligence podcast.</p>
+<p>If you enjoy it, please subscribe on YouTube</p>
+<p>or rate it on iTunes or your podcast provider of choice,</p>
+<p>or simply connect with me on Twitter</p>
+<p>or other social networks at Lex Friedman spelled F R I D.</p>
+<p>And now here&rsquo;s my conversation with Vladimir Vapnik.</p>
+<p>Einstein famously said that God doesn&rsquo;t play dice.</p>
+<p>Yeah.</p>
+<p>You have studied the world through the eyes of statistics.</p>
+<p>So let me ask you in terms of the nature of reality,</p>
+<p>fundamental nature of reality, does God play dice?</p>
+<p>We don&rsquo;t know some factors.</p>
+<p>And because we don&rsquo;t know some factors,</p>
+<p>which could be important,</p>
+<p>it looks like God plays dice.</p>
+<p>But we should describe it.</p>
+<p>In philosophy, they distinguish between two positions,</p>
+<p>positions of instrumentalism,</p>
+<p>where you&rsquo;re creating theory for prediction</p>
+<p>and position of realism,</p>
+<p>where you&rsquo;re trying to understand what God did.</p>
+<p>Can you describe instrumentalism and realism a little bit?</p>
+<p>For example, if you have some mechanical laws,</p>
+<p>what is that?</p>
+<p>Is it law which is true always and everywhere?</p>
+<p>Or it is law which allow you to predict</p>
+<p>position of moving element?</p>
+<p>What you believe.</p>
+<p>You believe that it is God&rsquo;s law,</p>
+<p>that God created the world,</p>
+<p>which obey to this physical law.</p>
+<p>Or it is just law for predictions.</p>
+<p>And which one is instrumentalism?</p>
+<p>For predictions.</p>
+<p>If you believe that this is law of God,</p>
+<p>and it&rsquo;s always true everywhere,</p>
+<p>that means that you&rsquo;re realist.</p>
+<p>So you&rsquo;re trying to really understand God&rsquo;s thought.</p>
+<p>So the way you see the world is as an instrumentalist?</p>
+<p>You know, I&rsquo;m working for some models,</p>
+<p>model of machine learning.</p>
+<p>So in this model, we can see setting,</p>
+<p>and we try to solve,</p>
+<p>resolve the setting to solve the problem.</p>
+<p>And you can do in two different way.</p>
+<p>From the point of view of instrumentalist,</p>
+<p>and that&rsquo;s what everybody does now.</p>
+<p>Because they say that goal of machine learning</p>
+<p>is to find the rule for classification.</p>
+<p>That is true.</p>
+<p>But it is instrument for prediction.</p>
+<p>But I can say the goal of machine learning</p>
+<p>is to learn about conditional probability.</p>
+<p>So how God played use, and if he play,</p>
+<p>what is probability for one,</p>
+<p>what is probability for another, given situation.</p>
+<p>But for prediction, I don&rsquo;t need this.</p>
+<p>I need the rule.</p>
+<p>But for understanding, I need conditional probability.</p>
+<p>So let me just step back a little bit first to talk about,</p>
+<p>you mentioned, which I read last night,</p>
+<p>the parts of the 1960 paper by Eugene Wigner,</p>
+<p>Unreasonable Effectiveness of Mathematics</p>
+<p>and Natural Sciences.</p>
+<p>Such a beautiful paper, by the way.</p>
+<p>Made me feel, to be honest,</p>
+<p>to confess my own work in the past few years</p>
+<p>on deep learning, heavily applied.</p>
+<p>Made me feel that I was missing out</p>
+<p>on some of the beauty of nature</p>
+<p>in the way that math can uncover.</p>
+<p>So let me just step away from the poetry of that for a second.</p>
+<p>How do you see the role of math in your life?</p>
+<p>Is it a tool, is it poetry?</p>
+<p>Where does it sit?</p>
+<p>And does math for you have limits of what it can describe?</p>
+<p>Some people say that math is language which use God.</p>
+<p>Use God.</p>
+<p>So I believe that&hellip;</p>
+<p>Speak to God or use God or&hellip;</p>
+<p>Use God.</p>
+<p>Yeah.</p>
+<p>So I believe that this article</p>
+<p>about effectiveness, unreasonable effectiveness of math,</p>
+<p>is that if you&rsquo;re looking at mathematical structures,</p>
+<p>they know something about reality.</p>
+<p>And the most scientists from Natural Science,</p>
+<p>they&rsquo;re looking on equation and trying to understand reality.</p>
+<p>So the same in machine learning.</p>
+<p>If you try very carefully look on all equations</p>
+<p>which define conditional probability,</p>
+<p>you can understand something about reality</p>
+<p>more than from your fantasy.</p>
+<p>So math can reveal the simple underlying principles of reality perhaps.</p>
+<p>You know what means simple?</p>
+<p>It is very hard to discover them.</p>
+<p>But then when you discover them and look at them,</p>
+<p>you see how beautiful they are.</p>
+<p>And it is surprising why people did not see that before.</p>
+<p>You&rsquo;re looking on equation and derive it from equations.</p>
+<p>For example, I talked yesterday about least square method.</p>
+<p>And people had a lot of fantasy how to improve least square method.</p>
+<p>But if you&rsquo;re going step by step by solving some equations,</p>
+<p>you suddenly will get some term which after thinking,</p>
+<p>you understand that it describes position of observation point.</p>
+<p>In least square method, we throw out a lot of information.</p>
+<p>We don&rsquo;t look in composition of point of observations,</p>
+<p>we&rsquo;re looking only on residuals.</p>
+<p>But when you understood that, that&rsquo;s very simple idea,</p>
+<p>but it&rsquo;s not too simple to understand.</p>
+<p>And you can derive this just from equations.</p>
+<p>So some simple algebra, a few steps will take you to something surprising</p>
+<p>that when you think about, you understand.</p>
+<p>And that is proof that human intuition is not too rich and very primitive.</p>
+<p>And it does not see very simple situations.</p>
+<p>So let me take a step back.</p>
+<p>In general, yes.</p>
+<p>But what about human, as opposed to intuition, ingenuity?</p>
+<p>Moments of brilliance.</p>
+<p>Do you have to be so hard on human intuition?</p>
+<p>Are there moments of brilliance in human intuition?</p>
+<p>They can leap ahead of math and then the math will catch up?</p>
+<p>I don&rsquo;t think so.</p>
+<p>I think that the best human intuition, it is putting in axioms.</p>
+<p>And then it is technical.</p>
+<p>See where the axioms take you.</p>
+<p>But if they correctly take axioms.</p>
+<p>But it axiom polished during generations of scientists.</p>
+<p>And this is integral wisdom.</p>
+<p>That is beautifully put.</p>
+<p>But if you maybe look at, when you think of Einstein and special relativity,</p>
+<p>what is the role of imagination coming first there in the moment of discovery of an idea?</p>
+<p>So there is obviously a mix of math and out of the box imagination there.</p>
+<p>That I don&rsquo;t know.</p>
+<p>Whatever I did, I exclude any imagination.</p>
+<p>Because whatever I saw in machine learning that comes from imagination,</p>
+<p>like features, like deep learning, they are not relevant to the problem.</p>
+<p>When you are looking very carefully from mathematical equations,</p>
+<p>you are deriving very simple theory, which goes far beyond theoretically</p>
+<p>than whatever people can imagine.</p>
+<p>Because it is not good fantasy.</p>
+<p>It is just interpretation.</p>
+<p>It is just fantasy.</p>
+<p>But it is not what you need.</p>
+<p>You don&rsquo;t need any imagination to derive the main principle of machine learning.</p>
+<p>When you think about learning and intelligence,</p>
+<p>maybe thinking about the human brain and trying to describe mathematically</p>
+<p>the process of learning, that is something like what happens in the human brain.</p>
+<p>Do you think we have the tools currently?</p>
+<p>Do you think we will ever have the tools to try to describe that process of learning?</p>
+<p>It is not description what is going on.</p>
+<p>It is interpretation.</p>
+<p>It is your interpretation.</p>
+<p>Your vision can be wrong.</p>
+<p>You know, one guy invented microscope, Levenhuk, for the first time.</p>
+<p>Only he got this instrument and he kept secret about microscope.</p>
+<p>But he wrote a report in London Academy of Science.</p>
+<p>In his report, when he was looking at the blood,</p>
+<p>he looked everywhere, on the water, on the blood, on the sperm.</p>
+<p>But he described blood like fight between queen and king.</p>
+<p>So, he saw blood cells, red cells, and he imagined that it is army fighting each other.</p>
+<p>And it was his interpretation of situation.</p>
+<p>And he sent this report in Academy of Science.</p>
+<p>They very carefully looked because they believed that he is right.</p>
+<p>He saw something.</p>
+<p>Yes.</p>
+<p>But he gave wrong interpretation.</p>
+<p>And I believe the same can happen with brain.</p>
+<p>With brain, yeah.</p>
+<p>The most important part.</p>
+<p>You know, I believe in human language.</p>
+<p>In some proverbs, there is so much wisdom.</p>
+<p>For example, people say that it is better than thousand days of diligent studies one day with great teacher.</p>
+<p>But if I will ask you what teacher does, nobody knows.</p>
+<p>And that is intelligence.</p>
+<p>But we know from history and now from math and machine learning that teacher can do a lot.</p>
+<p>So, what from a mathematical point of view is the great teacher?</p>
+<p>I don&rsquo;t know.</p>
+<p>That&rsquo;s an open question.</p>
+<p>No, but we can say what teacher can do.</p>
+<p>He can introduce some invariants, some predicate for creating invariants.</p>
+<p>How he doing it?</p>
+<p>I don&rsquo;t know because teacher knows reality and can describe from this reality a predicate, invariants.</p>
+<p>But he knows that when you&rsquo;re using invariant, you can decrease number of observations hundred times.</p>
+<p>So, but maybe try to pull that apart a little bit.</p>
+<p>I think you mentioned like a piano teacher saying to the student, play like a butterfly.</p>
+<p>Yeah.</p>
+<p>I play piano.</p>
+<p>I play guitar for a long time.</p>
+<p>Yeah, maybe it&rsquo;s romantic, poetic, but it feels like there&rsquo;s a lot of truth in that statement.</p>
+<p>Like there is a lot of instruction in that statement.</p>
+<p>And so, can you pull that apart?</p>
+<p>What is that?</p>
+<p>The language itself may not contain this information.</p>
+<p>It is not blah, blah, blah.</p>
+<p>It affects you.</p>
+<p>It&rsquo;s what?</p>
+<p>It affects you.</p>
+<p>It affects your playing.</p>
+<p>Yes, it does, but it&rsquo;s not the laying.</p>
+<p>It feels like what is the information being exchanged there?</p>
+<p>What is the nature of information?</p>
+<p>What is the representation of that information?</p>
+<p>I believe that it is sort of predicate, but I don&rsquo;t know.</p>
+<p>That is exactly what intelligence and machine learning should be.</p>
+<p>Yes.</p>
+<p>Because the rest is just mathematical technique.</p>
+<p>I think that what was discovered recently is that there is two mechanism of learning.</p>
+<p>One called strong convergence mechanism and weak convergence mechanism.</p>
+<p>Before, people use only one convergence.</p>
+<p>In weak convergence mechanism, you can use predicate.</p>
+<p>That&rsquo;s what play like butterfly and it will immediately affect your playing.</p>
+<p>You know, there is English proverb, great.</p>
+<p>If it looks like a duck, swims like a duck, and quack like a duck, then it is probably duck.</p>
+<p>Yes.</p>
+<p>But this is exact about predicate.</p>
+<p>Looks like a duck, what it means.</p>
+<p>You saw many ducks that you&rsquo;re training data.</p>
+<p>So, you have description of how looks integral looks ducks.</p>
+<p>Yeah.</p>
+<p>The visual characteristics of a duck.</p>
+<p>Yeah.</p>
+<p>But you want and you have model for recognition.</p>
+<p>So, you would like so that theoretical description from model coincide with empirical description,</p>
+<p>which you saw on territory.</p>
+<p>So, about looks like a duck, it is general.</p>
+<p>But what about swims like a duck?</p>
+<p>You should know that duck swims.</p>
+<p>You can say it play chess like a duck.</p>
+<p>Okay.</p>
+<p>Duck doesn&rsquo;t play chess.</p>
+<p>And it is completely legal predicate, but it is useless.</p>
+<p>So, half teacher can recognize not useless predicate.</p>
+<p>So, up to now, we don&rsquo;t use this predicate in existing machine learning.</p>
+<p>So, why we need zillions of data.</p>
+<p>But in this English proverb, they use only three predicate.</p>
+<p>Looks like a duck, swims like a duck, and quack like a duck.</p>
+<p>So, you can&rsquo;t deny the fact that swims like a duck and quacks like a duck has humor in it, has ambiguity.</p>
+<p>Let&rsquo;s talk about swim like a duck.</p>
+<p>It doesn&rsquo;t say jump like a duck.</p>
+<p>Why?</p>
+<p>Because&hellip;</p>
+<p>It&rsquo;s not relevant.</p>
+<p>But that means that you know ducks, you know different birds, you know animals.</p>
+<p>And you derive from this that it is relevant to say swim like a duck.</p>
+<p>So, underneath, in order for us to understand swims like a duck, it feels like we need to know millions of other little pieces of information.</p>
+<p>Which we pick up along the way.</p>
+<p>You don&rsquo;t think so.</p>
+<p>There doesn&rsquo;t need to be this knowledge base in those statements carries some rich information that helps us understand the essence of duck.</p>
+<p>Yeah.</p>
+<p>How far are we from integrating predicates?</p>
+<p>You know that when you consider complete theory of machine learning.</p>
+<p>So, what it does, you have a lot of functions.</p>
+<p>And then you&rsquo;re talking it looks like a duck.</p>
+<p>You see your training data.</p>
+<p>From training data you recognize like expected duck should look.</p>
+<p>Then you remove all functions which does not look like you think it should look from training data.</p>
+<p>So, you decrease amount of function from which you pick up one.</p>
+<p>Then you give a second predicate and again decrease the set of function.</p>
+<p>And after that you pick up the best function you can find.</p>
+<p>It is standard machine learning.</p>
+<p>So, why you need not too many examples?</p>
+<p>Because your predicates aren&rsquo;t very good?</p>
+<p>That means that predicates are very good because every predicate is invented to decrease admissible set of function.</p>
+<p>So, you talk about admissible set of functions and you talk about good functions.</p>
+<p>So, what makes a good function?</p>
+<p>So, admissible set of function is set of function which has small capacity or small diversity, small VC dimension example.</p>
+<p>Which contain good function inside.</p>
+<p>So, by the way for people who don&rsquo;t know VC, you&rsquo;re the V in the VC.</p>
+<p>So, how would you describe to lay person what VC theory is?</p>
+<p>How would you describe VC?</p>
+<p>So, when you have a machine.</p>
+<p>So, machine capable to pick up one function from the admissible set of function.</p>
+<p>But set of admissible function can be big.</p>
+<p>So, it contain all continuous functions and it&rsquo;s useless.</p>
+<p>You don&rsquo;t have so many examples to pick up function.</p>
+<p>But it can be small.</p>
+<p>Small, we call it capacity but maybe better called diversity.</p>
+<p>So, not very different function in the set.</p>
+<p>It&rsquo;s infinite set of function but not very diverse.</p>
+<p>So, it is small VC dimension.</p>
+<p>When VC dimension is small, you need small amount of training data.</p>
+<p>So, the goal is to create admissible set of functions which is have small VC dimension and contain good function.</p>
+<p>Then you will be able to pick up the function using small amount of observations.</p>
+<p>So, that is the task of learning?</p>
+<p>Yeah.</p>
+<p>Is creating a set of admissible functions that has a small VC dimension and then you&rsquo;ve figure out a clever way of picking up?</p>
+<p>No, that is goal of learning which I formulated yesterday.</p>
+<p>Statistical learning theory does not involve in creating admissible set of function.</p>
+<p>In classical learning theory, everywhere, 100% in textbook, the set of function, admissible set of function is given.</p>
+<p>But this is science about nothing because the most difficult problem to create admissible set of functions</p>
+<p>given, say, a lot of functions, continuum set of function, create admissible set of functions.</p>
+<p>That means that it has finite VC dimension, small VC dimension and contain good function.</p>
+<p>So, this was out of consideration.</p>
+<p>So, what&rsquo;s the process of doing that?</p>
+<p>I mean, it&rsquo;s fascinating.</p>
+<p>What is the process of creating this admissible set of functions?</p>
+<p>That is invariant.</p>
+<p>That&rsquo;s invariant.</p>
+<p>Yeah, you&rsquo;re looking of properties of training data and properties means that you have some function</p>
+<p>and you just count what is value, average value of function on training data.</p>
+<p>You have model and what is expectation of this function on the model and they should coincide.</p>
+<p>So, the problem is about how to pick up functions.</p>
+<p>It can be any function.</p>
+<p>In fact, it is true for all functions.</p>
+<p>But because when we&rsquo;re talking, say, duck does not jumping, so you don&rsquo;t ask question jump like a duck</p>
+<p>because it is trivial.</p>
+<p>It does not jumping and doesn&rsquo;t help you to recognize jump.</p>
+<p>But you know something, which question to ask and you&rsquo;re asking it seems like a duck,</p>
+<p>but looks like a duck at this general situation.</p>
+<p>Looks like, say, guy who have this illness, this disease.</p>
+<p>It is legal.</p>
+<p>So, there is a general type of predicate looks like and special type of predicate,</p>
+<p>which related to this specific problem.</p>
+<p>And that is intelligence part of all this business and that where teacher is involved.</p>
+<p>Incorporating the specialized predicates.</p>
+<p>What do you think about deep learning as neural networks, these arbitrary architectures</p>
+<p>as helping accomplish some of the tasks you&rsquo;re thinking about?</p>
+<p>Their effectiveness or lack thereof?</p>
+<p>What are the weaknesses and what are the possible strengths?</p>
+<p>You know, I think that this is fantasy, everything which like deep learning, like features.</p>
+<p>Let me give you this example.</p>
+<p>One of the greatest books is Churchill book about history of Second World War.</p>
+<p>And he started this book describing that in old time when war is over, so the great kings,</p>
+<p>they gathered together, almost all of them were relatives, and they discussed what should</p>
+<p>be done, how to create peace.</p>
+<p>And they came to agreement.</p>
+<p>And when happened First World War, the general public came in power.</p>
+<p>And they were so greedy that robbed Germany.</p>
+<p>And it was clear for everybody that it is not peace, that peace will last only 20 years</p>
+<p>because they were not professionals.</p>
+<p>And the same I see in machine learning.</p>
+<p>There are mathematicians who are looking for the problem from a very deep point of view,</p>
+<p>mathematical point of view.</p>
+<p>And there are computer scientists who mostly does not know mathematics.</p>
+<p>They just have interpretation of that.</p>
+<p>And they invented a lot of blah, blah, blah interpretations like deep learning.</p>
+<p>Why you need deep learning?</p>
+<p>Mathematic does not know deep learning.</p>
+<p>Mathematic does not know neurons.</p>
+<p>It is just function.</p>
+<p>If you like to say piecewise linear function, say that and do in class of piecewise linear</p>
+<p>function.</p>
+<p>But they invent something.</p>
+<p>And then they try to prove advantage of that through interpretations, which mostly wrong.</p>
+<p>And when it&rsquo;s not enough, they appeal to brain, which they know nothing about that.</p>
+<p>Nobody knows what&rsquo;s going on in the brain.</p>
+<p>So, I think that more reliable work on math.</p>
+<p>This is a mathematical problem.</p>
+<p>Do your best to solve this problem.</p>
+<p>Try to understand that there is not only one way of convergence, which is strong way of</p>
+<p>convergence.</p>
+<p>There is a weak way of convergence, which requires predicate.</p>
+<p>And if you will go through all this stuff, you will see that you don&rsquo;t need deep learning.</p>
+<p>Even more, I would say one of the theory, which called represented theory.</p>
+<p>It says that optimal solution of mathematical problem, which is described learning is on</p>
+<p>shadow network, not on deep learning.</p>
+<p>And a shallow network.</p>
+<p>Yeah.</p>
+<p>The ultimate problem is there.</p>
+<p>Absolutely.</p>
+<p>In the end, what you&rsquo;re saying is exactly right.</p>
+<p>The question is you have no value for throwing something on the table, playing with it, not</p>
+<p>math.</p>
+<p>It&rsquo;s like a neural network where you said throwing something in the bucket or the biological</p>
+<p>example and looking at kings and queens or the cells or the microscope.</p>
+<p>You don&rsquo;t see value in imagining the cells or kings and queens and using that as inspiration</p>
+<p>and imagination for where the math will eventually lead you.</p>
+<p>You think that interpretation basically deceives you in a way that&rsquo;s not productive.</p>
+<p>I think that if you&rsquo;re trying to analyze this business of learning and especially discussion</p>
+<p>about deep learning, it is discussion about interpretation, not about things, about what</p>
+<p>you can say about things.</p>
+<p>That&rsquo;s right.</p>
+<p>But aren&rsquo;t you surprised by the beauty of it?</p>
+<p>So not mathematical beauty, but the fact that it works at all or are you criticizing that</p>
+<p>very beauty, our human desire to interpret, to find our silly interpretations in these</p>
+<p>constructs?</p>
+<p>Let me ask you this.</p>
+<p>Are you surprised and does it inspire you?</p>
+<p>How do you feel about the success of a system like AlphaGo at beating the game of Go?</p>
+<p>Using neural networks to estimate the quality of a board and the quality of the position.</p>
+<p>That is your interpretation, quality of the board.</p>
+<p>Yeah, yes.</p>
+<p>Yeah.</p>
+<p>So it&rsquo;s not our interpretation.</p>
+<p>The fact is a neural network system, it doesn&rsquo;t matter, a learning system that we don&rsquo;t I</p>
+<p>think mathematically understand that well, beats the best human player, does something</p>
+<p>that was thought impossible.</p>
+<p>That means that it&rsquo;s not a very difficult problem.</p>
+<p>So you empirically, we&rsquo;ve empirically have discovered that this is not a very difficult</p>
+<p>problem.</p>
+<p>Yeah.</p>
+<p>It&rsquo;s true.</p>
+<p>So maybe, can&rsquo;t argue.</p>
+<p>So even more I would say that if they use deep learning, it is not the most effective</p>
+<p>way of learning theory.</p>
+<p>And usually when people use deep learning, they&rsquo;re using zillions of training data.</p>
+<p>Yeah.</p>
+<p>But you don&rsquo;t need this.</p>
+<p>So I describe challenge, can we do some problems which do well deep learning method, this deep</p>
+<p>net, using hundred times less training data.</p>
+<p>Even more, some problems deep learning cannot solve because it&rsquo;s not necessary they create</p>
+<p>admissible set of function.</p>
+<p>To create deep architecture means to create admissible set of functions.</p>
+<p>You cannot say that you&rsquo;re creating good admissible set of functions.</p>
+<p>You just, it&rsquo;s your fantasy.</p>
+<p>It does not come from us.</p>
+<p>But it is possible to create admissible set of functions because you have your training</p>
+<p>data.</p>
+<p>That actually for mathematicians, when you consider a variant, you need to use law of</p>
+<p>large numbers.</p>
+<p>When you&rsquo;re making training in existing algorithm, you need uniform law of large numbers, which</p>
+<p>is much more difficult, it requires VC dimension and all this stuff.</p>
+<p>But nevertheless, if you use both weak and strong way of convergence, you can decrease</p>
+<p>a lot of training data.</p>
+<p>You could do the three, the swims like a duck and quacks like a duck.</p>
+<p>So let&rsquo;s step back and think about human intelligence in general.</p>
+<p>Clearly that has evolved in a non mathematical way.</p>
+<p>It wasn&rsquo;t, as far as we know, God or whoever didn&rsquo;t come up with a model and place in our</p>
+<p>brain of admissible functions.</p>
+<p>It kind of evolved.</p>
+<p>I don&rsquo;t know, maybe you have a view on this.</p>
+<p>So Alan Turing in the 50s, in his paper, asked and rejected the question, can machines think?</p>
+<p>It&rsquo;s not a very useful question, but can you briefly entertain this useful, useless question?</p>
+<p>Can machines think?</p>
+<p>So talk about intelligence and your view of it.</p>
+<p>I don&rsquo;t know that.</p>
+<p>I know that Turing described imitation.</p>
+<p>If computer can imitate human being, let&rsquo;s call it intelligent.</p>
+<p>And he understands that it is not thinking computer.</p>
+<p>He completely understands what he&rsquo;s doing.</p>
+<p>But he set up problem of imitation.</p>
+<p>So now we understand that the problem is not in imitation.</p>
+<p>I&rsquo;m not sure that intelligence is just inside of us.</p>
+<p>It may be also outside of us.</p>
+<p>I have several observations.</p>
+<p>So when I prove some theorem, it&rsquo;s very difficult theorem, in couple of years, in several places,</p>
+<p>people prove the same theorem, say, Sawyer Lemma, after us was done, then another guys</p>
+<p>proved the same theorem.</p>
+<p>In the history of science, it&rsquo;s happened all the time.</p>
+<p>For example, geometry, it&rsquo;s happened simultaneously, first it did Lobachevsky and then Gauss and</p>
+<p>Boyai and another guys, and it&rsquo;s approximately in 10 times period, 10 years period of time.</p>
+<p>And I saw a lot of examples like that.</p>
+<p>And many mathematicians think that when they develop something, they develop something</p>
+<p>in general which affect everybody.</p>
+<p>So maybe our model that intelligence is only inside of us is incorrect.</p>
+<p>It&rsquo;s our interpretation.</p>
+<p>It might be there exists some connection with world intelligence.</p>
+<p>I don&rsquo;t know.</p>
+<p>You&rsquo;re almost like plugging in into&hellip;</p>
+<p>Yeah, exactly.</p>
+<p>And contributing to this&hellip;</p>
+<p>Into a big network.</p>
+<p>Into a big, maybe in your own network.</p>
+<p>On the flip side of that, maybe you can comment on big O complexity and how you see classifying</p>
+<p>algorithms by worst case running time in relation to their input.</p>
+<p>So that way of thinking about functions, do you think p equals np, do you think that&rsquo;s</p>
+<p>an interesting question?</p>
+<p>Yeah, it is an interesting question.</p>
+<p>But let me talk about complexity in about worst case scenario.</p>
+<p>There is a mathematical setting.</p>
+<p>When I came to United States in 1990, people did not know, they did not know statistical</p>
+<p>learning theory.</p>
+<p>So in Russia, it was published to monographs, our monographs, but in America they didn&rsquo;t</p>
+<p>know.</p>
+<p>Then they learned and somebody told me that it is worst case theory and they will create</p>
+<p>real case theory, but till now it did not.</p>
+<p>Because it is mathematical too.</p>
+<p>You can do only what you can do using mathematics.</p>
+<p>And which has a clear understanding and clear description.</p>
+<p>And for this reason, we introduce complexity.</p>
+<p>And we need this because using, actually it is diversity, I like this one more.</p>
+<p>You see the mention, you can prove some theorems.</p>
+<p>But we also create theory for case when you know probability measure.</p>
+<p>And that is the best case which can happen, it is entropy theory.</p>
+<p>So from mathematical point of view, you know the best possible case and the worst possible</p>
+<p>case.</p>
+<p>You can derive different model in medium, but it&rsquo;s not so interesting.</p>
+<p>You think the edges are interesting?</p>
+<p>The edges are interesting because it is not so easy to get good bound, exact bound.</p>
+<p>It&rsquo;s not many cases where you have the bound is not exact.</p>
+<p>But interesting principles which discover the mass.</p>
+<p>Do you think it&rsquo;s interesting because it&rsquo;s challenging and reveals interesting principles</p>
+<p>that allow you to get those bounds?</p>
+<p>Or do you think it&rsquo;s interesting because it&rsquo;s actually very useful for understanding the</p>
+<p>essence of a function of an algorithm?</p>
+<p>So it&rsquo;s like me judging your life as a human being by the worst thing you did and the best</p>
+<p>thing you did versus all the stuff in the middle.</p>
+<p>It seems not productive.</p>
+<p>I don&rsquo;t think so because you cannot describe situation in the middle.</p>
+<p>So it will be not general.</p>
+<p>So you can describe edges cases and it is clear it has some model, but you cannot describe</p>
+<p>model for every new case.</p>
+<p>So you will be never accurate when you&rsquo;re using model.</p>
+<p>But from a statistical point of view, the way you&rsquo;ve studied functions and the nature</p>
+<p>of learning in the world, don&rsquo;t you think that the real world has a very long tail?</p>
+<p>That the edge cases are very far away from the mean, the stuff in the middle or no?</p>
+<p>I don&rsquo;t know that.</p>
+<p>I think that from my point of view, if you will use formal statistic, you need uniform</p>
+<p>law of large numbers.</p>
+<p>If you will use this invariance business, you will need just law of large numbers.</p>
+<p>And there&rsquo;s this huge difference between uniform law of large numbers and large numbers.</p>
+<p>Is it useful to describe that a little more or should we just take it to&hellip;</p>
+<p>For example, when I&rsquo;m talking about duck, I give three predicates and that was enough.</p>
+<p>But if you will try to do formal distinguish, you will need a lot of observations.</p>
+<p>So that means that information about looks like a duck contain a lot of bit of information,</p>
+<p>formal bits of information.</p>
+<p>So we don&rsquo;t know that how much bit of information contain things from artificial and from intelligence.</p>
+<p>And that is the subject of analysis.</p>
+<p>Till now, all business, I don&rsquo;t like how people consider artificial intelligence.</p>
+<p>They consider us some codes which imitate activity of human being.</p>
+<p>It is not science, it is applications.</p>
+<p>You would like to imitate go ahead, it is very useful and a good problem.</p>
+<p>But you need to learn something more.</p>
+<p>How people try to do, how people can to develop, say, predicates seems like a duck or play</p>
+<p>like butterfly or something like that.</p>
+<p>Not the teacher says you, how it came in his mind, how he choose this image.</p>
+<p>So that process&hellip;</p>
+<p>That is problem of intelligence.</p>
+<p>That is the problem of intelligence and you see that connected to the problem of learning?</p>
+<p>Absolutely.</p>
+<p>Because you immediately give this predicate like specific predicate seems like a duck</p>
+<p>or quack like a duck.</p>
+<p>It was chosen somehow.</p>
+<p>So what is the line of work, would you say?</p>
+<p>If you were to formulate as a set of open problems, that will take us there, to play</p>
+<p>like a butterfly.</p>
+<p>We&rsquo;ll get a system to be able to&hellip;</p>
+<p>Let&rsquo;s separate two stories.</p>
+<p>One mathematical story that if you have predicate, you can do something.</p>
+<p>And another story how to get predicate.</p>
+<p>It is intelligence problem and people even did not start to understand intelligence.</p>
+<p>Because to understand intelligence, first of all, try to understand what do teachers.</p>
+<p>How teacher teach, why one teacher better than another one.</p>
+<p>Yeah.</p>
+<p>And so you think we really even haven&rsquo;t started on the journey of generating the predicates?</p>
+<p>No.</p>
+<p>We don&rsquo;t understand.</p>
+<p>We even don&rsquo;t understand that this problem exists.</p>
+<p>Because did you hear&hellip;</p>
+<p>You do.</p>
+<p>No, I just know name.</p>
+<p>I want to understand why one teacher better than another and how affect teacher, student.</p>
+<p>It is not because he repeating the problem which is in textbook.</p>
+<p>He makes some remarks.</p>
+<p>He makes some philosophy of reasoning.</p>
+<p>Yeah, that&rsquo;s a beautiful&hellip;</p>
+<p>So it is a formulation of a question that is the open problem.</p>
+<p>Why is one teacher better than another?</p>
+<p>Right.</p>
+<p>What he does better.</p>
+<p>Yeah.</p>
+<p>What&hellip;</p>
+<p>Why in&hellip;</p>
+<p>At every level?</p>
+<p>How do they get better?</p>
+<p>What does it mean to be better?</p>
+<p>The whole&hellip;</p>
+<p>Yeah.</p>
+<p>From whatever model I have, one teacher can give a very good predicate.</p>
+<p>One teacher can say swims like a dog and another can say jump like a dog.</p>
+<p>And jump like a dog carries zero information.</p>
+<p>So what is the most exciting problem in statistical learning you&rsquo;ve ever worked on or are working</p>
+<p>on now?</p>
+<p>I just finished this invariant story and I&rsquo;m happy that&hellip;</p>
+<p>I believe that it is ultimate learning story.</p>
+<p>At least I can show that there are no another mechanism, only two mechanisms.</p>
+<p>But they separate statistical part from intelligent part and I know nothing about intelligent</p>
+<p>part.</p>
+<p>And if you will know this intelligent part, so it will help us a lot in teaching, in learning.</p>
+<p>In learning.</p>
+<p>Yeah.</p>
+<p>You will know it when we see it?</p>
+<p>So for example, in my talk, the last slide was a challenge.</p>
+<p>So you have say NIST digit recognition problem and deep learning claims that they did it</p>
+<p>very well, say 99.5% of correct answers.</p>
+<p>But they use 60,000 observations.</p>
+<p>Can you do the same using hundred times less?</p>
+<p>But incorporating invariants, what it means, you know, digit one, two, three.</p>
+<p>But looking on that, explain to me which invariant I should keep to use hundred examples or say</p>
+<p>hundred times less examples to do the same job.</p>
+<p>Yeah, that last slide, unfortunately your talk ended quickly, but that last slide was</p>
+<p>a powerful open challenge and a formulation of the essence here.</p>
+<p>What is the exact problem of intelligence?</p>
+<p>Because everybody, when machine learning started and it was developed by mathematicians, they</p>
+<p>immediately recognized that we use much more training data than humans needed.</p>
+<p>But now again, we came to the same story, have to decrease.</p>
+<p>That is the problem of learning.</p>
+<p>It is not like in deep learning, they use zillions of training data because maybe zillions</p>
+<p>are not enough if you have a good invariants.</p>
+<p>Maybe you will never collect some number of observations.</p>
+<p>But now it is a question to intelligence, how to do that?</p>
+<p>Because statistical part is ready, as soon as you supply us with predicate, we can do</p>
+<p>good job with small amount of observations.</p>
+<p>And the very first challenge is well known digit recognition.</p>
+<p>And you know digits, and please tell me invariants.</p>
+<p>I think about that, I can say for digit three, I would introduce concept of horizontal symmetry.</p>
+<p>So the digit three has horizontal symmetry, say more than, say, digit two or something</p>
+<p>like that.</p>
+<p>But as soon as I get the idea of horizontal symmetry, I can mathematically invent a lot</p>
+<p>of measure of horizontal symmetry, or then vertical symmetry, or diagonal symmetry, whatever,</p>
+<p>if I have idea of symmetry.</p>
+<p>But what else?</p>
+<p>I think on digit I see that it is meta predicate, which is not shape, it is something like symmetry,</p>
+<p>like how dark is whole picture, something like that, which can self rise a predicate.</p>
+<p>You think such a predicate could rise out of something that is not general, meaning</p>
+<p>it feels like for me to be able to understand the difference between two and three, I would</p>
+<p>need to have had a childhood of 10 to 15 years playing with kids, going to school, being</p>
+<p>yelled by parents, all of that, walking, jumping, looking at ducks, and then I would be able</p>
+<p>to generate the right predicate for telling the difference between two and a three.</p>
+<p>Or do you think there&rsquo;s a more efficient way?</p>
+<p>I don&rsquo;t know.</p>
+<p>I know for sure that you must know something more than digits.</p>
+<p>Yes.</p>
+<p>And that&rsquo;s a powerful statement.</p>
+<p>Yeah.</p>
+<p>But maybe there are several languages of description, these elements of digits.</p>
+<p>So I&rsquo;m talking about symmetry, about some properties of geometry, I&rsquo;m talking about</p>
+<p>something abstract.</p>
+<p>I don&rsquo;t know that.</p>
+<p>But this is a problem of intelligence.</p>
+<p>So in one of our articles, it is trivial to show that every example can carry not more</p>
+<p>than one bit of information in real.</p>
+<p>Because when you show example and you say this is one, you can remove, say, a function</p>
+<p>which does not tell you one, say, is the best strategy.</p>
+<p>If you can do it perfectly, it&rsquo;s remove half of the functions.</p>
+<p>But when you use one predicate, which looks like a duck, you can remove much more functions</p>
+<p>than half.</p>
+<p>And that means that it contains a lot of bit of information from formal point of view.</p>
+<p>But when you have a general picture of what you want to recognize and general picture</p>
+<p>of the world, can you invent this predicate?</p>
+<p>And that predicate carries a lot of information.</p>
+<p>Beautifully put.</p>
+<p>Maybe just me, but in all the math you show, in your work, which is some of the most profound</p>
+<p>mathematical work in the field of learning AI and just math in general, I hear a lot</p>
+<p>of poetry and philosophy.</p>
+<p>You really kind of talk about philosophy of science.</p>
+<p>There&rsquo;s a poetry and music to a lot of the work you&rsquo;re doing and the way you&rsquo;re thinking</p>
+<p>about it.</p>
+<p>So do you, where does that come from?</p>
+<p>Do you escape to poetry?</p>
+<p>Do you escape to music or not?</p>
+<p>I think that there exists ground truth.</p>
+<p>There exists ground truth?</p>
+<p>Yeah.</p>
+<p>And that can be seen everywhere.</p>
+<p>The smart guy, philosopher, sometimes I&rsquo;m surprised how they deep see.</p>
+<p>Sometimes I see that some of them are completely out of subject.</p>
+<p>But the ground truth I see in music.</p>
+<p>Music is the ground truth?</p>
+<p>Yeah.</p>
+<p>And in poetry, many poets, they believe, they take dictation.</p>
+<p>So what piece of music as a piece of empirical evidence gave you a sense that they are touching</p>
+<p>something in the ground truth?</p>
+<p>It is structure.</p>
+<p>The structure of the math of music.</p>
+<p>Yeah, because when you&rsquo;re listening to Bach, you see the structure.</p>
+<p>Very clear, very classic, very simple, and the same in math when you have axioms in geometry,</p>
+<p>you have the same feeling.</p>
+<p>And in poetry, sometimes you see the same.</p>
+<p>And if you look back at your childhood, you grew up in Russia, you maybe were born as</p>
+<p>a researcher in Russia, you&rsquo;ve developed as a researcher in Russia, you&rsquo;ve came to United</p>
+<p>States and a few places.</p>
+<p>If you look back, what was some of your happiest moments as a researcher, some of the most</p>
+<p>profound moments, not in terms of their impact on society, but in terms of their impact on</p>
+<p>how damn good you feel that day and you remember that moment?</p>
+<p>You know, every time when you found something, it is great in the life, every simple things.</p>
+<p>But my general feeling is that most of my time was wrong.</p>
+<p>You should go again and again and again and try to be honest in front of yourself, not</p>
+<p>to make interpretation, but try to understand that it&rsquo;s related to ground truth, it is not</p>
+<p>my blah, blah, blah interpretation and something like that.</p>
+<p>But you&rsquo;re allowed to get excited at the possibility of discovery.</p>
+<p>Oh yeah.</p>
+<p>You have to double check it.</p>
+<p>No, but how it&rsquo;s related to another ground truth, is it just temporary or it is for forever?</p>
+<p>You know, you always have a feeling when you found something, how big is that?</p>
+<p>So 20 years ago when we discovered statistical learning theory, nobody believed, except for</p>
+<p>one guy, Dudley from MIT, and then in 20 years it became fashion, and the same with support</p>
+<p>vector machines, that is kernel machines.</p>
+<p>So with support vector machines and learning theory, when you were working on it, you had</p>
+<p>a sense, you had a sense of the profundity of it, how this seems to be right, this seems</p>
+<p>to be powerful.</p>
+<p>Right.</p>
+<p>Absolutely.</p>
+<p>Immediately.</p>
+<p>I recognized that it will last forever, and now when I found this invariant story, I have</p>
+<p>a feeling that it is complete learning, because I have proof that there are no different mechanisms.</p>
+<p>You can have some cosmetic improvement you can do, but in terms of invariants, you need</p>
+<p>both invariants and statistical learning, and they should work together.</p>
+<p>But also I&rsquo;m happy that we can formulate what is intelligence from that, and to separate</p>
+<p>from technical part, and that is completely different.</p>
+<p>Absolutely.</p>
+<p>Well, Vladimir, thank you so much for talking today.</p>
+<p>Thank you.</p>
+<p>It&rsquo;s an honor.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

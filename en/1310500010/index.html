@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Peter Abbeel.
+He&amp;rsquo;s a professor at UC Berkeley
+and the director of the Berkeley Robotics Learning Lab.
+He&amp;rsquo;s one of the top researchers in the world
+working on how we make robots understand
+and interact with the world around them,
+especially using imitation and deep reinforcement learning.
+This conversation is part of the MIT course
+on Artificial General Intelligence
+and the Artificial Intelligence podcast.'>
+<title>Lex Fridman Podcast - #10 - Pieter Abbeel: Deep Reinforcement Learning | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500010/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #10 - Pieter Abbeel: Deep Reinforcement Learning'>
+<meta property='og:description' content='The following is a conversation with Peter Abbeel.
+He&amp;rsquo;s a professor at UC Berkeley
+and the director of the Berkeley Robotics Learning Lab.
+He&amp;rsquo;s one of the top researchers in the world
+working on how we make robots understand
+and interact with the world around them,
+especially using imitation and deep reinforcement learning.
+This conversation is part of the MIT course
+on Artificial General Intelligence
+and the Artificial Intelligence podcast.'>
+<meta property='og:url' content='https://swiest.com/en/1310500010/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-03-10T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-10T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #10 - Pieter Abbeel: Deep Reinforcement Learning">
+<meta name="twitter:description" content="The following is a conversation with Peter Abbeel.
+He&amp;rsquo;s a professor at UC Berkeley
+and the director of the Berkeley Robotics Learning Lab.
+He&amp;rsquo;s one of the top researchers in the world
+working on how we make robots understand
+and interact with the world around them,
+especially using imitation and deep reinforcement learning.
+This conversation is part of the MIT course
+on Artificial General Intelligence
+and the Artificial Intelligence podcast.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500010/">Lex Fridman Podcast - #10 - Pieter Abbeel: Deep Reinforcement Learning</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-03-10</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    35 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Peter Abbeel.</p>
+<p>He&rsquo;s a professor at UC Berkeley</p>
+<p>and the director of the Berkeley Robotics Learning Lab.</p>
+<p>He&rsquo;s one of the top researchers in the world</p>
+<p>working on how we make robots understand</p>
+<p>and interact with the world around them,</p>
+<p>especially using imitation and deep reinforcement learning.</p>
+<p>This conversation is part of the MIT course</p>
+<p>on Artificial General Intelligence</p>
+<p>and the Artificial Intelligence podcast.</p>
+<p>If you enjoy it, please subscribe on YouTube,</p>
+<p>iTunes, or your podcast provider of choice,</p>
+<p>or simply connect with me on Twitter at Lex Friedman,</p>
+<p>spelled F R I D.</p>
+<p>And now, here&rsquo;s my conversation with Peter Abbeel.</p>
+<p>You&rsquo;ve mentioned that if there was one person</p>
+<p>you could meet, it would be Roger Federer.</p>
+<p>So let me ask, when do you think we&rsquo;ll have a robot</p>
+<p>that fully autonomously can beat Roger Federer at tennis?</p>
+<p>Roger Federer level player at tennis?</p>
+<p>Well, first, if you can make it happen for me to meet Roger,</p>
+<p>let me know.</p>
+<p>In terms of getting a robot to beat him at tennis,</p>
+<p>it&rsquo;s kind of an interesting question</p>
+<p>because for a lot of the challenges we think about in AI,</p>
+<p>the software is really the missing piece,</p>
+<p>but for something like this,</p>
+<p>the hardware is nowhere near either.</p>
+<p>To really have a robot that can physically run around,</p>
+<p>the Boston Dynamics robots are starting to get there,</p>
+<p>but still not really human level ability to run around</p>
+<p>and then swing a racket.</p>
+<p>So you think that&rsquo;s a hardware problem?</p>
+<p>I don&rsquo;t think it&rsquo;s a hardware problem only.</p>
+<p>I think it&rsquo;s a hardware and a software problem.</p>
+<p>I think it&rsquo;s both.</p>
+<p>And I think they&rsquo;ll have independent progress.</p>
+<p>So I&rsquo;d say the hardware maybe in 10, 15 years.</p>
+<p>On clay, not grass.</p>
+<p>I mean, grass is probably harder.</p>
+<p>With the sliding?</p>
+<p>Yeah.</p>
+<p>With the clay, I&rsquo;m not sure what&rsquo;s harder, grass or clay.</p>
+<p>The clay involves sliding,</p>
+<p>which might be harder to master actually, yeah.</p>
+<p>But you&rsquo;re not limited to a bipedal.</p>
+<p>I mean, I&rsquo;m sure there&rsquo;s no&hellip;</p>
+<p>Well, if we can build a machine,</p>
+<p>it&rsquo;s a whole different question, of course.</p>
+<p>If you can say, okay, this robot can be on wheels,</p>
+<p>it can move around on wheels and can be designed differently,</p>
+<p>then I think that can be done sooner probably</p>
+<p>than a full humanoid type of setup.</p>
+<p>What do you think of swing a racket?</p>
+<p>So you&rsquo;ve worked at basic manipulation.</p>
+<p>How hard do you think is the task of swinging a racket</p>
+<p>would be able to hit a nice backhand or a forehand?</p>
+<p>Let&rsquo;s say we just set up stationary,</p>
+<p>a nice robot arm, let&rsquo;s say, a standard industrial arm,</p>
+<p>and it can watch the ball come and then swing the racket.</p>
+<p>It&rsquo;s a good question.</p>
+<p>I&rsquo;m not sure it would be super hard to do.</p>
+<p>I mean, I&rsquo;m sure it would require a lot,</p>
+<p>if we do it with reinforcement learning,</p>
+<p>it would require a lot of trial and error.</p>
+<p>It&rsquo;s not gonna swing it right the first time around,</p>
+<p>but yeah, I don&rsquo;t see why I couldn&rsquo;t</p>
+<p>swing it the right way.</p>
+<p>I think it&rsquo;s learnable.</p>
+<p>I think if you set up a ball machine,</p>
+<p>let&rsquo;s say on one side,</p>
+<p>and then a robot with a tennis racket on the other side,</p>
+<p>I think it&rsquo;s learnable</p>
+<p>and maybe a little bit of pre training and simulation.</p>
+<p>Yeah, I think that&rsquo;s feasible.</p>
+<p>I think the swing the racket is feasible.</p>
+<p>It&rsquo;d be very interesting to see how much precision</p>
+<p>it can get.</p>
+<p>Cause I mean, that&rsquo;s where, I mean,</p>
+<p>some of the human players can hit it on the lines,</p>
+<p>which is very high precision.</p>
+<p>With spin, the spin is an interesting,</p>
+<p>whether RL can learn to put a spin on the ball.</p>
+<p>Well, you got me interested.</p>
+<p>Maybe someday we&rsquo;ll set this up.</p>
+<p>Sure, you got me intrigued.</p>
+<p>Your answer is basically, okay,</p>
+<p>for this problem, it sounds fascinating,</p>
+<p>but for the general problem of a tennis player,</p>
+<p>we might be a little bit farther away.</p>
+<p>What&rsquo;s the most impressive thing you&rsquo;ve seen a robot do</p>
+<p>in the physical world?</p>
+<p>So physically for me,</p>
+<p>it&rsquo;s the Boston Dynamics videos.</p>
+<p>Always just bring home and just super impressed.</p>
+<p>Recently, the robot running up the stairs,</p>
+<p>doing the parkour type thing.</p>
+<p>I mean, yes, we don&rsquo;t know what&rsquo;s underneath.</p>
+<p>They don&rsquo;t really write a lot of detail,</p>
+<p>but even if it&rsquo;s hard coded underneath,</p>
+<p>which it might or might not be just the physical abilities</p>
+<p>of doing that parkour, that&rsquo;s a very impressive.</p>
+<p>So have you met Spot Mini</p>
+<p>or any of those robots in person?</p>
+<p>Met Spot Mini last year in April at the Mars event</p>
+<p>that Jeff Bezos organizes.</p>
+<p>They brought it out there</p>
+<p>and it was nicely following around Jeff.</p>
+<p>When Jeff left the room, they had it follow him along,</p>
+<p>which is pretty impressive.</p>
+<p>So I think there&rsquo;s some confidence to know</p>
+<p>that there&rsquo;s no learning going on in those robots.</p>
+<p>The psychology of it, so while knowing that,</p>
+<p>while knowing there&rsquo;s not,</p>
+<p>if there&rsquo;s any learning going on, it&rsquo;s very limited.</p>
+<p>I met Spot Mini earlier this year</p>
+<p>and knowing everything that&rsquo;s going on,</p>
+<p>having one on one interaction,</p>
+<p>so I got to spend some time alone and there&rsquo;s immediately</p>
+<p>a deep connection on the psychological level.</p>
+<p>Even though you know the fundamentals, how it works,</p>
+<p>there&rsquo;s something magical.</p>
+<p>So do you think about the psychology of interacting</p>
+<p>with robots in the physical world?</p>
+<p>Even you just showed me the PR2, the robot,</p>
+<p>and there was a little bit something like a face,</p>
+<p>had a little bit something like a face.</p>
+<p>There&rsquo;s something that immediately draws you to it.</p>
+<p>Do you think about that aspect of the robotics problem?</p>
+<p>Well, it&rsquo;s very hard with Brad here.</p>
+<p>We&rsquo;ll give him a name, Berkeley Robot</p>
+<p>for the Elimination of Tedious Tasks.</p>
+<p>It&rsquo;s very hard to not think of the robot as a person</p>
+<p>and it seems like everybody calls him a he</p>
+<p>for whatever reason, but that also makes it more a person</p>
+<p>than if it was a it, and it seems pretty natural</p>
+<p>to think of it that way.</p>
+<p>This past weekend really struck me.</p>
+<p>I&rsquo;ve seen Pepper many times on videos,</p>
+<p>but then I was at an event organized by,</p>
+<p>this was by Fidelity, and they had scripted Pepper</p>
+<p>to help moderate some sessions,</p>
+<p>and they had scripted Pepper</p>
+<p>to have the personality of a child a little bit,</p>
+<p>and it was very hard to not think of it</p>
+<p>as its own person in some sense</p>
+<p>because it would just jump in the conversation,</p>
+<p>making it very interactive.</p>
+<p>Moderate would be saying, Pepper would just jump in,</p>
+<p>hold on, how about me?</p>
+<p>Can I participate in this too?</p>
+<p>And you&rsquo;re just like, okay, this is like a person,</p>
+<p>and that was 100% scripted, and even then it was hard</p>
+<p>not to have that sense of somehow there is something there.</p>
+<p>So as we have robots interact in this physical world,</p>
+<p>is that a signal that could be used</p>
+<p>in reinforcement learning?</p>
+<p>You&rsquo;ve worked a little bit in this direction,</p>
+<p>but do you think that psychology can be somehow pulled in?</p>
+<p>Yes, that&rsquo;s a question I would say</p>
+<p>a lot of people ask, and I think part of why they ask it</p>
+<p>is they&rsquo;re thinking about how unique</p>
+<p>are we really still as people?</p>
+<p>Like after they see some results,</p>
+<p>they see a computer play Go, they see a computer do this,</p>
+<p>that, they&rsquo;re like, okay, but can it really have emotion?</p>
+<p>Can it really interact with us in that way?</p>
+<p>And then once you&rsquo;re around robots,</p>
+<p>you already start feeling it,</p>
+<p>and I think that kind of maybe mythologically,</p>
+<p>the way that I think of it is</p>
+<p>if you run something like reinforcement learning,</p>
+<p>it&rsquo;s about optimizing some objective,</p>
+<p>and there&rsquo;s no reason that the objective</p>
+<p>couldn&rsquo;t be tied into how much does a person like</p>
+<p>interacting with this system,</p>
+<p>and why could not the reinforcement learning system</p>
+<p>optimize for the robot being fun to be around?</p>
+<p>And why wouldn&rsquo;t it then naturally become</p>
+<p>more and more interactive and more and more</p>
+<p>maybe like a person or like a pet?</p>
+<p>I don&rsquo;t know what it would exactly be,</p>
+<p>but more and more have those features</p>
+<p>and acquire them automatically.</p>
+<p>As long as you can formalize an objective</p>
+<p>of what it means to like something,</p>
+<p>what, how you exhibit, what&rsquo;s the ground truth?</p>
+<p>How do you get the reward from human?</p>
+<p>Because you have to somehow collect</p>
+<p>that information within you, human.</p>
+<p>But you&rsquo;re saying if you can formulate as an objective,</p>
+<p>it can be learned.</p>
+<p>There&rsquo;s no reason it couldn&rsquo;t emerge through learning,</p>
+<p>and maybe one way to formulate as an objective,</p>
+<p>you wouldn&rsquo;t have to necessarily score it explicitly,</p>
+<p>so standard rewards are numbers,</p>
+<p>and numbers are hard to come by.</p>
+<p>This is a 1.5 or a 1.7 on some scale.</p>
+<p>It&rsquo;s very hard to do for a person,</p>
+<p>but much easier is for a person to say,</p>
+<p>okay, what you did the last five minutes</p>
+<p>was much nicer than what you did the previous five minutes,</p>
+<p>and that now gives a comparison.</p>
+<p>And in fact, there have been some results on that.</p>
+<p>For example, Paul Christiano and collaborators at OpenAI</p>
+<p>had the Hopper, Mojoko Hopper, a one legged robot,</p>
+<p>going through backflips purely from feedback.</p>
+<p>I like this better than that.</p>
+<p>That&rsquo;s kind of equally good,</p>
+<p>and after a bunch of interactions,</p>
+<p>it figured out what it was the person was asking for,</p>
+<p>namely a backflip.</p>
+<p>And so I think the same thing.</p>
+<p>Oh, it wasn&rsquo;t trying to do a backflip.</p>
+<p>It was just getting a comparison score</p>
+<p>from the person based on?</p>
+<p>Person having in mind, in their own mind,</p>
+<p>I wanted to do a backflip,</p>
+<p>but the robot didn&rsquo;t know what it was supposed to be doing.</p>
+<p>It just knew that sometimes the person said,</p>
+<p>this is better, this is worse,</p>
+<p>and then the robot figured out</p>
+<p>what the person was actually after was a backflip.</p>
+<p>And I&rsquo;d imagine the same would be true</p>
+<p>for things like more interactive robots,</p>
+<p>that the robot would figure out over time,</p>
+<p>oh, this kind of thing apparently is appreciated more</p>
+<p>than this other kind of thing.</p>
+<p>So when I first picked up Sutton&rsquo;s,</p>
+<p>Richard Sutton&rsquo;s reinforcement learning book,</p>
+<p>before sort of this deep learning,</p>
+<p>before the reemergence of neural networks</p>
+<p>as a powerful mechanism for machine learning,</p>
+<p>RL seemed to me like magic.</p>
+<p>It was beautiful.</p>
+<p>So that seemed like what intelligence is,</p>
+<p>RL reinforcement learning.</p>
+<p>So how do you think we can possibly learn anything</p>
+<p>about the world when the reward for the actions</p>
+<p>is delayed, is so sparse?</p>
+<p>Like where is, why do you think RL works?</p>
+<p>Why do you think you can learn anything</p>
+<p>under such sparse rewards,</p>
+<p>whether it&rsquo;s regular reinforcement learning</p>
+<p>or deep reinforcement learning?</p>
+<p>What&rsquo;s your intuition?</p>
+<p>The counterpart of that is why is RL,</p>
+<p>why does it need so many samples,</p>
+<p>so many experiences to learn from?</p>
+<p>Because really what&rsquo;s happening is</p>
+<p>when you have a sparse reward,</p>
+<p>you do something maybe for like, I don&rsquo;t know,</p>
+<p>you take 100 actions and then you get a reward.</p>
+<p>And maybe you get like a score of three.</p>
+<p>And I&rsquo;m like okay, three, not sure what that means.</p>
+<p>You go again and now you get two.</p>
+<p>And now you know that that sequence of 100 actions</p>
+<p>that you did the second time around</p>
+<p>somehow was worse than the sequence of 100 actions</p>
+<p>you did the first time around.</p>
+<p>But that&rsquo;s tough to now know which one of those</p>
+<p>were better or worse.</p>
+<p>Some might have been good and bad in either one.</p>
+<p>And so that&rsquo;s why it needs so many experiences.</p>
+<p>But once you have enough experiences,</p>
+<p>effectively RL is teasing that apart.</p>
+<p>It&rsquo;s trying to say okay, what is consistently there</p>
+<p>when you get a higher reward</p>
+<p>and what&rsquo;s consistently there when you get a lower reward?</p>
+<p>And then kind of the magic of sometimes</p>
+<p>the policy gradient update is to say</p>
+<p>now let&rsquo;s update the neural network</p>
+<p>to make the actions that were kind of present</p>
+<p>when things are good more likely</p>
+<p>and make the actions that are present</p>
+<p>when things are not as good less likely.</p>
+<p>So that is the counterpoint,</p>
+<p>but it seems like you would need to run it</p>
+<p>a lot more than you do.</p>
+<p>Even though right now people could say</p>
+<p>that RL is very inefficient,</p>
+<p>but it seems to be way more efficient</p>
+<p>than one would imagine on paper.</p>
+<p>That the simple updates to the policy,</p>
+<p>the policy gradient, that somehow you can learn,</p>
+<p>exactly you just said, what are the common actions</p>
+<p>that seem to produce some good results?</p>
+<p>That that somehow can learn anything.</p>
+<p>It seems counterintuitive at least.</p>
+<p>Is there some intuition behind it?</p>
+<p>Yeah, so I think there&rsquo;s a few ways to think about this.</p>
+<p>The way I tend to think about it mostly originally,</p>
+<p>so when we started working on deep reinforcement learning</p>
+<p>here at Berkeley, which was maybe 2011, 12, 13,</p>
+<p>around that time, John Schulman was a PhD student</p>
+<p>initially kind of driving it forward here.</p>
+<p>And the way we thought about it at the time was</p>
+<p>if you think about rectified linear units</p>
+<p>or kind of rectifier type neural networks,</p>
+<p>what do you get?</p>
+<p>You get something that&rsquo;s piecewise linear feedback control.</p>
+<p>And if you look at the literature,</p>
+<p>linear feedback control is extremely successful,</p>
+<p>can solve many, many problems surprisingly well.</p>
+<p>I remember, for example, when we did helicopter flight,</p>
+<p>if you&rsquo;re in a stationary flight regime,</p>
+<p>not a non stationary, but a stationary flight regime</p>
+<p>like hover, you can use linear feedback control</p>
+<p>to stabilize a helicopter, very complex dynamical system,</p>
+<p>but the controller is relatively simple.</p>
+<p>And so I think that&rsquo;s a big part of it is that</p>
+<p>if you do feedback control, even though the system</p>
+<p>you control can be very, very complex,</p>
+<p>often relatively simple control architectures</p>
+<p>can already do a lot.</p>
+<p>But then also just linear is not good enough.</p>
+<p>And so one way you can think of these neural networks</p>
+<p>is that sometimes they tile the space,</p>
+<p>which people were already trying to do more by hand</p>
+<p>or with finite state machines,</p>
+<p>say this linear controller here,</p>
+<p>this linear controller here.</p>
+<p>Neural network learns to tile the space</p>
+<p>and say linear controller here,</p>
+<p>another linear controller here,</p>
+<p>but it&rsquo;s more subtle than that.</p>
+<p>And so it&rsquo;s benefiting from this linear control aspect,</p>
+<p>it&rsquo;s benefiting from the tiling,</p>
+<p>but it&rsquo;s somehow tiling it one dimension at a time.</p>
+<p>Because if let&rsquo;s say you have a two layer network,</p>
+<p>if in that hidden layer, you make a transition</p>
+<p>from active to inactive or the other way around,</p>
+<p>that is essentially one axis, but not axis aligned,</p>
+<p>but one direction that you change.</p>
+<p>And so you have this kind of very gradual tiling</p>
+<p>of the space where you have a lot of sharing</p>
+<p>between the linear controllers that tile the space.</p>
+<p>And that was always my intuition as to why</p>
+<p>to expect that this might work pretty well.</p>
+<p>It&rsquo;s essentially leveraging the fact</p>
+<p>that linear feedback control is so good,</p>
+<p>but of course not enough.</p>
+<p>And this is a gradual tiling of the space</p>
+<p>with linear feedback controls</p>
+<p>that share a lot of expertise across them.</p>
+<p>So that&rsquo;s really nice intuition,</p>
+<p>but do you think that scales to the more</p>
+<p>and more general problems of when you start going up</p>
+<p>the number of dimensions when you start</p>
+<p>going down in terms of how often</p>
+<p>you get a clean reward signal?</p>
+<p>Does that intuition carry forward to those crazier,</p>
+<p>weirder worlds that we think of as the real world?</p>
+<p>So I think where things get really tricky</p>
+<p>in the real world compared to the things</p>
+<p>we&rsquo;ve looked at so far with great success</p>
+<p>in reinforcement learning is the time scales,</p>
+<p>which takes us to an extreme.</p>
+<p>So when you think about the real world,</p>
+<p>I mean, I don&rsquo;t know, maybe some student</p>
+<p>decided to do a PhD here, right?</p>
+<p>Okay, that&rsquo;s a decision.</p>
+<p>That&rsquo;s a very high level decision.</p>
+<p>But if you think about their lives,</p>
+<p>I mean, any person&rsquo;s life,</p>
+<p>it&rsquo;s a sequence of muscle fiber contractions</p>
+<p>and relaxations, and that&rsquo;s how you interact with the world.</p>
+<p>And that&rsquo;s a very high frequency control thing,</p>
+<p>but it&rsquo;s ultimately what you do</p>
+<p>and how you affect the world,</p>
+<p>until I guess we have brain readings</p>
+<p>and you can maybe do it slightly differently.</p>
+<p>But typically that&rsquo;s how you affect the world.</p>
+<p>And the decision of doing a PhD is so abstract</p>
+<p>relative to what you&rsquo;re actually doing in the world.</p>
+<p>And I think that&rsquo;s where credit assignment</p>
+<p>becomes just completely beyond</p>
+<p>what any current RL algorithm can do.</p>
+<p>And we need hierarchical reasoning</p>
+<p>at a level that is just not available at all yet.</p>
+<p>Where do you think we can pick up hierarchical reasoning?</p>
+<p>By which mechanisms?</p>
+<p>Yeah, so maybe let me highlight</p>
+<p>what I think the limitations are</p>
+<p>of what already was done 20, 30 years ago.</p>
+<p>In fact, you&rsquo;ll find reasoning systems</p>
+<p>that reason over relatively long horizons,</p>
+<p>but the problem is that they were not grounded</p>
+<p>in the real world.</p>
+<p>So people would have to hand design</p>
+<p>some kind of logical, dynamical descriptions of the world</p>
+<p>and that didn&rsquo;t tie into perception.</p>
+<p>And so it didn&rsquo;t tie into real objects and so forth.</p>
+<p>And so that was a big gap.</p>
+<p>Now with deep learning, we start having the ability</p>
+<p>to really see with sensors, process that</p>
+<p>and understand what&rsquo;s in the world.</p>
+<p>And so it&rsquo;s a good time to try</p>
+<p>to bring these things together.</p>
+<p>I see a few ways of getting there.</p>
+<p>One way to get there would be to say</p>
+<p>deep learning can get bolted on somehow</p>
+<p>to some of these more traditional approaches.</p>
+<p>Now bolted on would probably mean</p>
+<p>you need to do some kind of end to end training</p>
+<p>where you say my deep learning processing</p>
+<p>somehow leads to a representation</p>
+<p>that in term uses some kind of traditional</p>
+<p>underlying dynamical systems that can be used for planning.</p>
+<p>And that&rsquo;s, for example, the direction Aviv Tamar</p>
+<p>and Thanard Kuretach here have been pushing</p>
+<p>with causal info again and of course other people too.</p>
+<p>That&rsquo;s one way.</p>
+<p>Can we somehow force it into the form factor</p>
+<p>that is amenable to reasoning?</p>
+<p>Another direction we&rsquo;ve been thinking about</p>
+<p>for a long time and didn&rsquo;t make any progress on</p>
+<p>was more information theoretic approaches.</p>
+<p>So the idea there was that what it means</p>
+<p>to take high level action is to take</p>
+<p>and choose a latent variable now</p>
+<p>that tells you a lot about what&rsquo;s gonna be the case</p>
+<p>in the future.</p>
+<p>Because that&rsquo;s what it means to take a high level action.</p>
+<p>I say okay, I decide I&rsquo;m gonna navigate</p>
+<p>to the gas station because I need to get gas for my car.</p>
+<p>Well, that&rsquo;ll now take five minutes to get there.</p>
+<p>But the fact that I get there,</p>
+<p>I could already tell that from the high level action</p>
+<p>I took much earlier.</p>
+<p>That we had a very hard time getting success with.</p>
+<p>Not saying it&rsquo;s a dead end necessarily,</p>
+<p>but we had a lot of trouble getting that to work.</p>
+<p>And then we started revisiting the notion</p>
+<p>of what are we really trying to achieve?</p>
+<p>What we&rsquo;re trying to achieve is not necessarily hierarchy</p>
+<p>per se, but you could think about</p>
+<p>what does hierarchy give us?</p>
+<p>What we hope it would give us is better credit assignment.</p>
+<p>What is better credit assignment?</p>
+<p>It&rsquo;s giving us, it gives us faster learning, right?</p>
+<p>And so faster learning is ultimately maybe what we&rsquo;re after.</p>
+<p>And so that&rsquo;s where we ended up with the RL squared paper</p>
+<p>on learning to reinforcement learn,</p>
+<p>which at a time Rocky Dwan led.</p>
+<p>And that&rsquo;s exactly the meta learning approach</p>
+<p>where you say, okay, we don&rsquo;t know how to design hierarchy.</p>
+<p>We know what we want to get from it.</p>
+<p>Let&rsquo;s just enter and optimize for what we want to get</p>
+<p>from it and see if it might emerge.</p>
+<p>And we saw things emerge.</p>
+<p>The maze navigation had consistent motion down hallways,</p>
+<p>which is what you want.</p>
+<p>A hierarchical control should say,</p>
+<p>I want to go down this hallway.</p>
+<p>And then when there is an option to take a turn,</p>
+<p>I can decide whether to take a turn or not and repeat.</p>
+<p>Even had the notion of where have you been before or not</p>
+<p>to not revisit places you&rsquo;ve been before.</p>
+<p>It still didn&rsquo;t scale yet</p>
+<p>to the real world kind of scenarios I think you had in mind,</p>
+<p>but it was some sign of life</p>
+<p>that maybe you can meta learn these hierarchical concepts.</p>
+<p>I mean, it seems like through these meta learning concepts,</p>
+<p>get at the, what I think is one of the hardest</p>
+<p>and most important problems of AI,</p>
+<p>which is transfer learning.</p>
+<p>So it&rsquo;s generalization.</p>
+<p>How far along this journey</p>
+<p>towards building general systems are we?</p>
+<p>Being able to do transfer learning well.</p>
+<p>So there&rsquo;s some signs that you can generalize a little bit,</p>
+<p>but do you think we&rsquo;re on the right path</p>
+<p>or it&rsquo;s totally different breakthroughs are needed</p>
+<p>to be able to transfer knowledge</p>
+<p>between different learned models?</p>
+<p>Yeah, I&rsquo;m pretty torn on this in that</p>
+<p>I think there are some very impressive.</p>
+<p>Well, there&rsquo;s just some very impressive results already.</p>
+<p>I mean, I would say when,</p>
+<p>even with the initial kind of big breakthrough in 2012</p>
+<p>with AlexNet, the initial thing is okay, great.</p>
+<p>This does better on ImageNet, hence image recognition.</p>
+<p>But then immediately thereafter,</p>
+<p>there was of course the notion that,</p>
+<p>wow, what was learned on ImageNet</p>
+<p>and you now wanna solve a new task,</p>
+<p>you can fine tune AlexNet for new tasks.</p>
+<p>And that was often found to be the even bigger deal</p>
+<p>that you learn something that was reusable,</p>
+<p>which was not often the case before.</p>
+<p>Usually machine learning, you learn something</p>
+<p>for one scenario and that was it.</p>
+<p>And that&rsquo;s really exciting.</p>
+<p>I mean, that&rsquo;s a huge application.</p>
+<p>That&rsquo;s probably the biggest success</p>
+<p>of transfer learning today in terms of scope and impact.</p>
+<p>That was a huge breakthrough.</p>
+<p>And then recently, I feel like similar kind of,</p>
+<p>by scaling things up, it seems like</p>
+<p>this has been expanded upon.</p>
+<p>Like people training even bigger networks,</p>
+<p>they might transfer even better.</p>
+<p>If you looked at, for example,</p>
+<p>some of the OpenAI results on language models</p>
+<p>and some of the recent Google results on language models,</p>
+<p>they&rsquo;re learned for just prediction</p>
+<p>and then they get reused for other tasks.</p>
+<p>And so I think there is something there</p>
+<p>where somehow if you train a big enough model</p>
+<p>on enough things, it seems to transfer</p>
+<p>some deep mind results that I thought were very impressive,</p>
+<p>the Unreal results, where it was learned to navigate mazes</p>
+<p>in ways where it wasn&rsquo;t just doing reinforcement learning,</p>
+<p>but it had other objectives it was optimizing for.</p>
+<p>So I think there&rsquo;s a lot of interesting results already.</p>
+<p>I think maybe where it&rsquo;s hard to wrap my head around this,</p>
+<p>to which extent or when do we call something generalization?</p>
+<p>Or the levels of generalization in the real world,</p>
+<p>or the levels of generalization involved</p>
+<p>in these different tasks, right?</p>
+<p>You draw this, by the way, just to frame things.</p>
+<p>I&rsquo;ve heard you say somewhere, it&rsquo;s the difference</p>
+<p>between learning to master versus learning to generalize,</p>
+<p>that it&rsquo;s a nice line to think about.</p>
+<p>And I guess you&rsquo;re saying that it&rsquo;s a gray area</p>
+<p>of what learning to master and learning to generalize,</p>
+<p>where one starts.</p>
+<p>I think I might have heard this.</p>
+<p>I might have heard it somewhere else.</p>
+<p>And I think it might&rsquo;ve been one of your interviews,</p>
+<p>maybe the one with Yoshua Benjamin, I&rsquo;m not 100% sure.</p>
+<p>But I liked the example, I&rsquo;m not sure who it was,</p>
+<p>but the example was essentially,</p>
+<p>if you use current deep learning techniques,</p>
+<p>what we&rsquo;re doing to predict, let&rsquo;s say,</p>
+<p>the relative motion of our planets, it would do pretty well.</p>
+<p>But then now if a massive new mass enters our solar system,</p>
+<p>it would probably not predict what will happen, right?</p>
+<p>And that&rsquo;s a different kind of generalization.</p>
+<p>That&rsquo;s a generalization that relies</p>
+<p>on the ultimate simplest, simplest explanation</p>
+<p>that we have available today</p>
+<p>to explain the motion of planets,</p>
+<p>whereas just pattern recognition could predict</p>
+<p>our current solar system motion pretty well, no problem.</p>
+<p>And so I think that&rsquo;s an example</p>
+<p>of a kind of generalization that is a little different</p>
+<p>from what we&rsquo;ve achieved so far.</p>
+<p>And it&rsquo;s not clear if just regularizing more</p>
+<p>and forcing it to come up with a simpler, simpler,</p>
+<p>simpler explanation and say, look, this is not simple.</p>
+<p>But that&rsquo;s what physics researchers do, right?</p>
+<p>They say, can I make this even simpler?</p>
+<p>How simple can I get this?</p>
+<p>What&rsquo;s the simplest equation that can explain everything?</p>
+<p>The master equation for the entire dynamics of the universe,</p>
+<p>we haven&rsquo;t really pushed that direction as hard</p>
+<p>in deep learning, I would say.</p>
+<p>Not sure if it should be pushed,</p>
+<p>but it seems a kind of generalization you get from that</p>
+<p>that you don&rsquo;t get in our current methods so far.</p>
+<p>So I just talked to Vladimir Vapnik, for example,</p>
+<p>who&rsquo;s a statistician of statistical learning,</p>
+<p>and he kind of dreams of creating</p>
+<p>the E equals MC squared for learning, right?</p>
+<p>The general theory of learning.</p>
+<p>Do you think that&rsquo;s a fruitless pursuit</p>
+<p>in the near term, within the next several decades?</p>
+<p>I think that&rsquo;s a really interesting pursuit</p>
+<p>in the following sense, in that there is a lot of evidence</p>
+<p>that the brain is pretty modular.</p>
+<p>And so I wouldn&rsquo;t maybe think of it as the theory,</p>
+<p>maybe the underlying theory, but more kind of the principle</p>
+<p>where there have been findings where</p>
+<p>people who are blind will use the part of the brain</p>
+<p>usually used for vision for other functions.</p>
+<p>And even after some kind of,</p>
+<p>if people get rewired in some way,</p>
+<p>they might be able to reuse parts of their brain</p>
+<p>for other functions.</p>
+<p>And so what that suggests is some kind of modularity.</p>
+<p>And I think it is a pretty natural thing to strive for</p>
+<p>to see, can we find that modularity?</p>
+<p>Can we find this thing?</p>
+<p>Of course, every part of the brain is not exactly the same.</p>
+<p>Not everything can be rewired arbitrarily.</p>
+<p>But if you think of things like the neocortex,</p>
+<p>which is a pretty big part of the brain,</p>
+<p>that seems fairly modular from what the findings so far.</p>
+<p>Can you design something equally modular?</p>
+<p>And if you can just grow it,</p>
+<p>it becomes more capable probably.</p>
+<p>I think that would be the kind of interesting</p>
+<p>underlying principle to shoot for that is not unrealistic.</p>
+<p>Do you think you prefer math or empirical trial and error</p>
+<p>for the discovery of the essence of what it means</p>
+<p>to do something intelligent?</p>
+<p>So reinforcement learning embodies both groups, right?</p>
+<p>To prove that something converges, prove the bounds.</p>
+<p>And then at the same time, a lot of those successes are,</p>
+<p>well, let&rsquo;s try this and see if it works.</p>
+<p>So which do you gravitate towards?</p>
+<p>How do you think of those two parts of your brain?</p>
+<p>Maybe I would prefer we could make the progress</p>
+<p>with mathematics.</p>
+<p>And the reason maybe I would prefer that is because often</p>
+<p>if you have something you can mathematically formalize,</p>
+<p>you can leapfrog a lot of experimentation.</p>
+<p>And experimentation takes a long time to get through.</p>
+<p>And a lot of trial and error,</p>
+<p>kind of reinforcement learning, your research process,</p>
+<p>but you need to do a lot of trial and error</p>
+<p>before you get to a success.</p>
+<p>So if you can leapfrog that, to my mind,</p>
+<p>that&rsquo;s what the math is about.</p>
+<p>And hopefully once you do a bunch of experiments,</p>
+<p>you start seeing a pattern.</p>
+<p>You can do some derivations that leapfrog some experiments.</p>
+<p>But I agree with you.</p>
+<p>I mean, in practice, a lot of the progress has been such</p>
+<p>that we have not been able to find the math</p>
+<p>that allows you to leapfrog ahead.</p>
+<p>And we are kind of making gradual progress</p>
+<p>one step at a time, a new experiment here,</p>
+<p>a new experiment there that gives us new insights</p>
+<p>and gradually building up,</p>
+<p>but not getting to something yet where we&rsquo;re just,</p>
+<p>okay, here&rsquo;s an equation that now explains how,</p>
+<p>you know, that would be,</p>
+<p>have been two years of experimentation to get there,</p>
+<p>but this tells us what the result&rsquo;s going to be.</p>
+<p>Unfortunately, not so much yet.</p>
+<p>Not so much yet, but your hope is there.</p>
+<p>In trying to teach robots or systems</p>
+<p>to do everyday tasks or even in simulation,</p>
+<p>what do you think you&rsquo;re more excited about?</p>
+<p>Imitation learning or self play?</p>
+<p>So letting robots learn from humans</p>
+<p>or letting robots plan their own</p>
+<p>to try to figure out in their own way</p>
+<p>and eventually play, eventually interact with humans</p>
+<p>or solve whatever the problem is.</p>
+<p>What&rsquo;s the more exciting to you?</p>
+<p>What&rsquo;s more promising you think as a research direction?</p>
+<p>So when we look at self play,</p>
+<p>what&rsquo;s so beautiful about it is goes back</p>
+<p>to kind of the challenges in reinforcement learning.</p>
+<p>So the challenge of reinforcement learning</p>
+<p>is getting signal.</p>
+<p>And if you don&rsquo;t never succeed, you don&rsquo;t get any signal.</p>
+<p>In self play, you&rsquo;re on both sides.</p>
+<p>So one of you succeeds.</p>
+<p>And the beauty is also one of you fails.</p>
+<p>And so you see the contrast.</p>
+<p>You see the one version of me that did better</p>
+<p>than the other version.</p>
+<p>So every time you play yourself, you get signal.</p>
+<p>And so whenever you can turn something into self play,</p>
+<p>you&rsquo;re in a beautiful situation</p>
+<p>where you can naturally learn much more quickly</p>
+<p>than in most other reinforcement learning environments.</p>
+<p>So I think if somehow we can turn more</p>
+<p>reinforcement learning problems</p>
+<p>into self play formulations,</p>
+<p>that would go really, really far.</p>
+<p>So far, self play has been largely around games</p>
+<p>where there is natural opponents.</p>
+<p>But if we could do self play for other things,</p>
+<p>and let&rsquo;s say, I don&rsquo;t know,</p>
+<p>a robot learns to build a house.</p>
+<p>I mean, that&rsquo;s a pretty advanced thing</p>
+<p>to try to do for a robot,</p>
+<p>but maybe it tries to build a hut or something.</p>
+<p>If that can be done through self play,</p>
+<p>it would learn a lot more quickly</p>
+<p>if somebody can figure that out.</p>
+<p>And I think that would be something</p>
+<p>where it goes closer to kind of the mathematical leapfrogging</p>
+<p>where somebody figures out a formalism to say,</p>
+<p>okay, any RL problem by playing this and this idea,</p>
+<p>you can turn it into a self play problem</p>
+<p>where you get signal a lot more easily.</p>
+<p>Reality is, many problems we don&rsquo;t know</p>
+<p>how to turn into self play.</p>
+<p>And so either we need to provide detailed reward.</p>
+<p>That doesn&rsquo;t just reward for achieving a goal,</p>
+<p>but rewards for making progress,</p>
+<p>and that becomes time consuming.</p>
+<p>And once you&rsquo;re starting to do that,</p>
+<p>let&rsquo;s say you want a robot to do something,</p>
+<p>you need to give all this detailed reward.</p>
+<p>Well, why not just give a demonstration?</p>
+<p>Because why not just show the robot?</p>
+<p>And now the question is, how do you show the robot?</p>
+<p>One way to show is to tally operate the robot,</p>
+<p>and then the robot really experiences things.</p>
+<p>And that&rsquo;s nice, because that&rsquo;s really high signal</p>
+<p>to noise ratio data, and we&rsquo;ve done a lot of that.</p>
+<p>And you teach your robot skills in just 10 minutes,</p>
+<p>you can teach your robot a new basic skill,</p>
+<p>like okay, pick up the bottle, place it somewhere else.</p>
+<p>That&rsquo;s a skill, no matter where the bottle starts,</p>
+<p>maybe it always goes onto a target or something.</p>
+<p>That&rsquo;s fairly easy to teach your robot with tally up.</p>
+<p>Now, what&rsquo;s even more interesting</p>
+<p>if you can now teach your robot</p>
+<p>through third person learning,</p>
+<p>where the robot watches you do something</p>
+<p>and doesn&rsquo;t experience it, but just kind of watches you.</p>
+<p>It doesn&rsquo;t experience it, but just watches it</p>
+<p>and says, okay, well, if you&rsquo;re showing me that,</p>
+<p>that means I should be doing this.</p>
+<p>And I&rsquo;m not gonna be using your hand,</p>
+<p>because I don&rsquo;t get to control your hand,</p>
+<p>but I&rsquo;m gonna use my hand, I do that mapping.</p>
+<p>And so that&rsquo;s where I think one of the big breakthroughs</p>
+<p>has happened this year.</p>
+<p>This was led by Chelsea Finn here.</p>
+<p>It&rsquo;s almost like learning a machine translation</p>
+<p>for demonstrations, where you have a human demonstration,</p>
+<p>and the robot learns to translate it</p>
+<p>into what it means for the robot to do it.</p>
+<p>And that was a meta learning formulation,</p>
+<p>learn from one to get the other.</p>
+<p>And that, I think, opens up a lot of opportunities</p>
+<p>to learn a lot more quickly.</p>
+<p>So my focus is on autonomous vehicles.</p>
+<p>Do you think this approach of third person watching,</p>
+<p>the autonomous driving is amenable</p>
+<p>to this kind of approach?</p>
+<p>So for autonomous driving,</p>
+<p>I would say third person is slightly easier.</p>
+<p>And the reason I&rsquo;m gonna say it&rsquo;s slightly easier</p>
+<p>to do with third person is because</p>
+<p>the car dynamics are very well understood.</p>
+<p>So the&hellip;</p>
+<p>Easier than first person, you mean?</p>
+<p>Or easier than&hellip;</p>
+<p>So I think the distinction between third person</p>
+<p>and first person is not a very important distinction</p>
+<p>for autonomous driving.</p>
+<p>They&rsquo;re very similar.</p>
+<p>Because the distinction is really about</p>
+<p>who turns the steering wheel.</p>
+<p>Or maybe, let me put it differently.</p>
+<p>How to get from a point where you are now</p>
+<p>to a point, let&rsquo;s say, a couple meters in front of you.</p>
+<p>And that&rsquo;s a problem that&rsquo;s very well understood.</p>
+<p>And that&rsquo;s the only distinction</p>
+<p>between third and first person there.</p>
+<p>Whereas with the robot manipulation,</p>
+<p>interaction forces are very complex.</p>
+<p>And it&rsquo;s still a very different thing.</p>
+<p>For autonomous driving,</p>
+<p>I think there is still the question,</p>
+<p>imitation versus RL.</p>
+<p>So imitation gives you a lot more signal.</p>
+<p>I think where imitation is lacking</p>
+<p>and needs some extra machinery is,</p>
+<p>it doesn&rsquo;t, in its normal format,</p>
+<p>doesn&rsquo;t think about goals or objectives.</p>
+<p>And of course, there are versions of imitation learning</p>
+<p>and versus reinforcement learning type imitation learning</p>
+<p>which also thinks about goals.</p>
+<p>I think then we&rsquo;re getting much closer.</p>
+<p>But I think it&rsquo;s very hard to think of a</p>
+<p>fully reactive car, generalizing well.</p>
+<p>If it really doesn&rsquo;t have a notion of objectives</p>
+<p>to generalize well to the kind of general</p>
+<p>that you would want.</p>
+<p>You&rsquo;d want more than just that reactivity</p>
+<p>that you get from just behavioral cloning</p>
+<p>slash supervised learning.</p>
+<p>So a lot of the work,</p>
+<p>whether it&rsquo;s self play or even imitation learning,</p>
+<p>would benefit significantly from simulation,</p>
+<p>from effective simulation.</p>
+<p>And you&rsquo;re doing a lot of stuff</p>
+<p>in the physical world and in simulation.</p>
+<p>Do you have hope for greater and greater</p>
+<p>power of simulation being boundless eventually</p>
+<p>to where most of what we need to operate</p>
+<p>in the physical world could be simulated</p>
+<p>to a degree that&rsquo;s directly transferable</p>
+<p>to the physical world?</p>
+<p>Or are we still very far away from that?</p>
+<p>So I think we could even rephrase that question</p>
+<p>in some sense.</p>
+<p>Please.</p>
+<p>And so the power of simulation, right?</p>
+<p>As simulators get better and better,</p>
+<p>of course, becomes stronger</p>
+<p>and we can learn more in simulation.</p>
+<p>But there&rsquo;s also another version</p>
+<p>which is where you say the simulator</p>
+<p>doesn&rsquo;t even have to be that precise.</p>
+<p>As long as it&rsquo;s somewhat representative</p>
+<p>and instead of trying to get one simulator</p>
+<p>that is sufficiently precise to learn in</p>
+<p>and transfer really well to the real world,</p>
+<p>I&rsquo;m gonna build many simulators.</p>
+<p>Ensemble of simulators?</p>
+<p>Ensemble of simulators.</p>
+<p>Not any single one of them is sufficiently representative</p>
+<p>of the real world such that it would work</p>
+<p>if you train in there.</p>
+<p>But if you train in all of them,</p>
+<p>then there is something that&rsquo;s good in all of them.</p>
+<p>The real world will just be another one of them</p>
+<p>that&rsquo;s not identical to any one of them</p>
+<p>but just another one of them.</p>
+<p>Another sample from the distribution of simulators.</p>
+<p>Exactly.</p>
+<p>We do live in a simulation,</p>
+<p>so this is just one other one.</p>
+<p>I&rsquo;m not sure about that, but yeah.</p>
+<p>It&rsquo;s definitely a very advanced simulator if it is.</p>
+<p>Yeah, it&rsquo;s a pretty good one.</p>
+<p>I&rsquo;ve talked to Stuart Russell.</p>
+<p>It&rsquo;s something you think about a little bit too.</p>
+<p>Of course, you&rsquo;re really trying to build these systems,</p>
+<p>but do you think about the future of AI?</p>
+<p>A lot of people have concern about safety.</p>
+<p>How do you think about AI safety?</p>
+<p>As you build robots that are operating in the physical world,</p>
+<p>what is, yeah, how do you approach this problem</p>
+<p>in an engineering kind of way, in a systematic way?</p>
+<p>So when a robot is doing things,</p>
+<p>you kind of have a few notions of safety to worry about.</p>
+<p>One is that the robot is physically strong</p>
+<p>and of course could do a lot of damage.</p>
+<p>Same for cars, which we can think of as robots too</p>
+<p>in some way.</p>
+<p>And this could be completely unintentional.</p>
+<p>So it could be not the kind of longterm AI safety concerns</p>
+<p>that, okay, AI is smarter than us and now what do we do?</p>
+<p>But it could be just very practical.</p>
+<p>Okay, this robot, if it makes a mistake,</p>
+<p>what are the results going to be?</p>
+<p>Of course, simulation comes in a lot there</p>
+<p>to test in simulation. It&rsquo;s a difficult question.</p>
+<p>And I&rsquo;m always wondering, like, I always wonder,</p>
+<p>let&rsquo;s say you look at, let&rsquo;s go back to driving</p>
+<p>because a lot of people know driving well, of course.</p>
+<p>What do we do to test somebody for driving, right?</p>
+<p>Get a driver&rsquo;s license. What do they really do?</p>
+<p>I mean, you fill out some tests and then you drive.</p>
+<p>And I mean, it&rsquo;s suburban California.</p>
+<p>That driving test is just you drive around the block,</p>
+<p>pull over, you do a stop sign successfully,</p>
+<p>and then you pull over again and you&rsquo;re pretty much done.</p>
+<p>And you&rsquo;re like, okay, if a self driving car did that,</p>
+<p>would you trust it that it can drive?</p>
+<p>And I&rsquo;d be like, no, that&rsquo;s not enough for me to trust it.</p>
+<p>But somehow for humans, we&rsquo;ve figured out</p>
+<p>that somebody being able to do that is representative</p>
+<p>of them being able to do a lot of other things.</p>
+<p>And so I think somehow for humans,</p>
+<p>we figured out representative tests</p>
+<p>of what it means if you can do this, what you can really do.</p>
+<p>Of course, testing humans,</p>
+<p>humans don&rsquo;t wanna be tested at all times.</p>
+<p>Self driving cars or robots</p>
+<p>could be tested more often probably.</p>
+<p>You can have replicas that get tested</p>
+<p>that are known to be identical</p>
+<p>because they use the same neural net and so forth.</p>
+<p>But still, I feel like we don&rsquo;t have this kind of unit tests</p>
+<p>or proper tests for robots.</p>
+<p>And I think there&rsquo;s something very interesting</p>
+<p>to be thought about there,</p>
+<p>especially as you update things.</p>
+<p>Your software improves,</p>
+<p>you have a better self driving car suite, you update it.</p>
+<p>How do you know it&rsquo;s indeed more capable on everything</p>
+<p>than what you had before,</p>
+<p>that you didn&rsquo;t have any bad things creep into it?</p>
+<p>So I think that&rsquo;s a very interesting direction of research</p>
+<p>that there is no real solution yet,</p>
+<p>except that somehow for humans we do.</p>
+<p>Because we say, okay, you have a driving test, you passed,</p>
+<p>you can go on the road now,</p>
+<p>and humans have accidents every like a million</p>
+<p>or 10 million miles, something pretty phenomenal</p>
+<p>compared to that short test that is being done.</p>
+<p>So let me ask, you&rsquo;ve mentioned that Andrew Ng by example</p>
+<p>showed you the value of kindness.</p>
+<p>Do you think the space of policies,</p>
+<p>good policies for humans and for AI</p>
+<p>is populated by policies that with kindness</p>
+<p>or ones that are the opposite, exploitation, even evil?</p>
+<p>So if you just look at the sea of policies</p>
+<p>we operate under as human beings,</p>
+<p>or if AI system had to operate in this real world,</p>
+<p>do you think it&rsquo;s really easy to find policies</p>
+<p>that are full of kindness,</p>
+<p>like we naturally fall into them?</p>
+<p>Or is it like a very hard optimization problem?</p>
+<p>I mean, there is kind of two optimizations</p>
+<p>happening for humans, right?</p>
+<p>So for humans, there&rsquo;s kind of the very long term</p>
+<p>optimization which evolution has done for us</p>
+<p>and we&rsquo;re kind of predisposed to like certain things.</p>
+<p>And that&rsquo;s in some sense what makes our learning easier</p>
+<p>because I mean, we know things like pain</p>
+<p>and hunger and thirst.</p>
+<p>And the fact that we know about those</p>
+<p>is not something that we were taught, that&rsquo;s kind of innate.</p>
+<p>When we&rsquo;re hungry, we&rsquo;re unhappy.</p>
+<p>When we&rsquo;re thirsty, we&rsquo;re unhappy.</p>
+<p>When we have pain, we&rsquo;re unhappy.</p>
+<p>And ultimately evolution built that into us</p>
+<p>to think about those things.</p>
+<p>And so I think there is a notion that</p>
+<p>it seems somehow humans evolved in general</p>
+<p>to prefer to get along in some ways,</p>
+<p>but at the same time also to be very territorial</p>
+<p>and kind of centric to their own tribe.</p>
+<p>Like it seems like that&rsquo;s the kind of space</p>
+<p>we converged onto.</p>
+<p>I mean, I&rsquo;m not an expert in anthropology,</p>
+<p>but it seems like we&rsquo;re very kind of good</p>
+<p>within our own tribe, but need to be taught</p>
+<p>to be nice to other tribes.</p>
+<p>Well, if you look at Steven Pinker,</p>
+<p>he highlights this pretty nicely in</p>
+<p>Better Angels of Our Nature,</p>
+<p>where he talks about violence decreasing over time</p>
+<p>consistently.</p>
+<p>So whatever tension, whatever teams we pick,</p>
+<p>it seems that the long arc of history</p>
+<p>goes towards us getting along more and more.</p>
+<p>So. I hope so.</p>
+<p>So do you think that, do you think it&rsquo;s possible</p>
+<p>to teach RL based robots this kind of kindness,</p>
+<p>this kind of ability to interact with humans,</p>
+<p>this kind of policy, even to, let me ask a fun one.</p>
+<p>Do you think it&rsquo;s possible to teach RL based robot</p>
+<p>to love a human being and to inspire that human</p>
+<p>to love the robot back?</p>
+<p>So to like RL based algorithm that leads to a happy marriage.</p>
+<p>That&rsquo;s an interesting question.</p>
+<p>Maybe I&rsquo;ll answer it with another question, right?</p>
+<p>Because I mean, but I&rsquo;ll come back to it.</p>
+<p>So another question you can have is okay.</p>
+<p>I mean, how close does some people&rsquo;s happiness get</p>
+<p>from interacting with just a really nice dog?</p>
+<p>Like, I mean, dogs, you come home,</p>
+<p>that&rsquo;s what dogs do.</p>
+<p>They greet you, they&rsquo;re excited,</p>
+<p>makes you happy when you come home to your dog.</p>
+<p>You&rsquo;re just like, okay, this is exciting.</p>
+<p>They&rsquo;re always happy when I&rsquo;m here.</p>
+<p>And if they don&rsquo;t greet you, cause maybe whatever,</p>
+<p>your partner took them on a trip or something,</p>
+<p>you might not be nearly as happy when you get home, right?</p>
+<p>And so the kind of, it seems like the level of reasoning</p>
+<p>a dog has is pretty sophisticated,</p>
+<p>but then it&rsquo;s still not yet at the level of human reasoning.</p>
+<p>And so it seems like we don&rsquo;t even need to achieve</p>
+<p>human level reasoning to get like very strong affection</p>
+<p>with humans.</p>
+<p>And so my thinking is why not, right?</p>
+<p>Why couldn&rsquo;t, with an AI, couldn&rsquo;t we achieve</p>
+<p>the kind of level of affection that humans feel</p>
+<p>among each other or with friendly animals and so forth?</p>
+<p>So question, is it a good thing for us or not?</p>
+<p>That&rsquo;s another thing, right?</p>
+<p>Because I mean, but I don&rsquo;t see why not.</p>
+<p>Why not, yeah, so Elon Musk says love is the answer.</p>
+<p>Maybe he should say love is the objective function</p>
+<p>and then RL is the answer, right?</p>
+<p>Well, maybe.</p>
+<p>Oh, Peter, thank you so much.</p>
+<p>I don&rsquo;t want to take up more of your time.</p>
+<p>Thank you so much for talking today.</p>
+<p>Well, thanks for coming by.</p>
+<p>Great to have you visit.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

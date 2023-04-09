@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Guido van Rossum, creator of Python, one of the most popular
+programming languages in the world, used in almost any application that involves computers
+from web back end development to psychology, neuroscience, computer vision, robotics, deep
+learning, natural language processing, and almost any subfield of AI. This conversation is part of
+MIT course on artificial general intelligence and the artificial intelligence podcast.
+If you enjoy it, subscribe on YouTube, iTunes, or your podcast provider of choice, or simply connect'>
+<title>Lex Fridman Podcast - #6 - Guido van Rossum: Python | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500006/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #6 - Guido van Rossum: Python'>
+<meta property='og:description' content='The following is a conversation with Guido van Rossum, creator of Python, one of the most popular
+programming languages in the world, used in almost any application that involves computers
+from web back end development to psychology, neuroscience, computer vision, robotics, deep
+learning, natural language processing, and almost any subfield of AI. This conversation is part of
+MIT course on artificial general intelligence and the artificial intelligence podcast.
+If you enjoy it, subscribe on YouTube, iTunes, or your podcast provider of choice, or simply connect'>
+<meta property='og:url' content='https://swiest.com/en/1310500006/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-03-06T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-06T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #6 - Guido van Rossum: Python">
+<meta name="twitter:description" content="The following is a conversation with Guido van Rossum, creator of Python, one of the most popular
+programming languages in the world, used in almost any application that involves computers
+from web back end development to psychology, neuroscience, computer vision, robotics, deep
+learning, natural language processing, and almost any subfield of AI. This conversation is part of
+MIT course on artificial general intelligence and the artificial intelligence podcast.
+If you enjoy it, subscribe on YouTube, iTunes, or your podcast provider of choice, or simply connect">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500006/">Lex Fridman Podcast - #6 - Guido van Rossum: Python</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-03-06</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    53 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Guido van Rossum, creator of Python, one of the most popular</p>
+<p>programming languages in the world, used in almost any application that involves computers</p>
+<p>from web back end development to psychology, neuroscience, computer vision, robotics, deep</p>
+<p>learning, natural language processing, and almost any subfield of AI. This conversation is part of</p>
+<p>MIT course on artificial general intelligence and the artificial intelligence podcast.</p>
+<p>If you enjoy it, subscribe on YouTube, iTunes, or your podcast provider of choice, or simply connect</p>
+<p>with me on Twitter at Lex Friedman, spelled F R I D. And now, here&rsquo;s my conversation with Guido van</p>
+<p>Rossum. You were born in the Netherlands in 1956. Your parents and the world around you was deeply</p>
+<p>deeply impacted by World War Two, as was my family from the Soviet Union. So with that context,</p>
+<p>what is your view of human nature? Are some humans inherently good,</p>
+<p>and some inherently evil? Or do we all have both good and evil within us?</p>
+<p>Guido van Rossum Ouch, I did not expect such a deep one. I, I guess we all have good and evil</p>
+<p>potential in us. And a lot of it depends on circumstances and context.</p>
+<p>Peter Bell out of that world, at least on the Soviet Union side in Europe, sort of out of</p>
+<p>suffering, out of challenge, out of that kind of set of traumatic events, often emerges beautiful</p>
+<p>art, music, literature. In an interview I read or heard, you said you enjoyed Dutch literature</p>
+<p>when you were a child. Can you tell me about the books that had an influence on you in your</p>
+<p>childhood? Guido van Rossum</p>
+<p>Well, with as a teenager, my favorite writer was my favorite Dutch author was a guy named Willem</p>
+<p>Frederik Hermans, who&rsquo;s writing, certainly his early novels were all about sort of</p>
+<p>ambiguous things that happened during World War Two. I think he was a young adult during that time.</p>
+<p>And he wrote about it a lot, and very interesting, very good books, I thought, I think.</p>
+<p>Peter Bell In a nonfiction way?</p>
+<p>Guido van Rossum No, it was all fiction, but it was</p>
+<p>very much set in the ambiguous world of resistance against the Germans,</p>
+<p>where often you couldn&rsquo;t tell whether someone was truly in the resistance or really a spy for the</p>
+<p>Germans. And some of the characters in his novels sort of crossed that line, and you never really</p>
+<p>find out what exactly happened.</p>
+<p>Peter Bell And in his novels, there&rsquo;s always a</p>
+<p>good guy and a bad guy, the nature of good and evil. Is it clear there&rsquo;s a hero?</p>
+<p>Guido van Rossum No, his heroes are often more,</p>
+<p>his main characters are often anti heroes. And so they&rsquo;re not very heroic. They&rsquo;re often,</p>
+<p>they fail at some level to accomplish their lofty goals.</p>
+<p>Peter Bell And looking at the trajectory</p>
+<p>through the rest of your life, has literature, Dutch or English or translation had an impact</p>
+<p>outside the technical world that you existed in?</p>
+<p>Guido van Rossum I still read novels.</p>
+<p>I don&rsquo;t think that it impacts me that much directly.</p>
+<p>Peter Bell It doesn&rsquo;t impact your work.</p>
+<p>Guido van Rossum It&rsquo;s a separate world.</p>
+<p>My work is highly technical and sort of the world of art and literature doesn&rsquo;t really</p>
+<p>directly have any bearing on it.</p>
+<p>Peter Bell You don&rsquo;t think there&rsquo;s a creative element</p>
+<p>to the design? You know, some would say design of a language is art.</p>
+<p>Guido van Rossum I&rsquo;m not disagreeing with that.</p>
+<p>I&rsquo;m just saying that sort of I don&rsquo;t feel direct influences from more traditional art</p>
+<p>on my own creativity.</p>
+<p>Peter Bell Right. Of course, you don&rsquo;t feel doesn&rsquo;t mean</p>
+<p>it&rsquo;s not somehow deeply there in your subconscious.</p>
+<p>Guido van Rossum Who knows?</p>
+<p>Peter Bell Who knows? So let&rsquo;s go back to your early</p>
+<p>teens. Your hobbies were building electronic circuits, building mechanical models.</p>
+<p>What if you can just put yourself back in the mind of that young Guido 12, 13, 14, was</p>
+<p>that grounded in a desire to create a system? So to create something? Or was it more just</p>
+<p>tinkering? Just the joy of puzzle solving?</p>
+<p>Guido van Rossum I think it was more the latter, actually.</p>
+<p>I maybe towards the end of my high school period, I felt confident enough that that</p>
+<p>I designed my own circuits that were sort of interesting somewhat. But a lot of that</p>
+<p>time, I literally just took a model kit and follow the instructions, putting the things</p>
+<p>together. I mean, I think the first few years that I built electronics kits, I really did</p>
+<p>not have enough understanding of sort of electronics to really understand what I was doing. I mean,</p>
+<p>I could debug it, and I could sort of follow the instructions very carefully, which has</p>
+<p>always stayed with me. But I had a very naive model of, like, how do I build a circuit?</p>
+<p>Of, like, how a transistor works? And I don&rsquo;t think that in those days, I had any understanding</p>
+<p>of coils and capacitors, which actually sort of was a major problem when I started to build</p>
+<p>more complex digital circuits, because I was unaware of the sort of the analog part of</p>
+<p>the – how they actually work. And I would have things that – the schematic looked</p>
+<p>– everything looked fine, and it didn&rsquo;t work. And what I didn&rsquo;t realize was that</p>
+<p>there was some megahertz level oscillation that was throwing the circuit off, because</p>
+<p>I had a sort of – two wires were too close, or the switches were kind of poorly built.</p>
+<p>But through that time, I think it&rsquo;s really interesting and instructive to think about,</p>
+<p>because echoes of it are in this time now. So in the 1970s, the personal computer was</p>
+<p>being born. So did you sense, in tinkering with these circuits, did you sense the encroaching</p>
+<p>revolution in personal computing? So if at that point, we would sit you down and ask</p>
+<p>you to predict the 80s and the 90s, do you think you would be able to do so successfully</p>
+<p>to unroll the process that&rsquo;s happening? No, I had no clue. I remember, I think, in</p>
+<p>the summer after my senior year – or maybe it was the summer after my junior year – well,</p>
+<p>at some point, I think, when I was 18, I went on a trip to the Math Olympiad in Eastern</p>
+<p>Europe, and there was like – I was part of the Dutch team, and there were other nerdy</p>
+<p>kids that sort of had different experiences, and one of them told me about this amazing</p>
+<p>thing called a computer. And I had never heard that word. My own explorations in electronics</p>
+<p>were sort of about very simple digital circuits, and I had sort of – I had the idea that</p>
+<p>I somewhat understood how a digital calculator worked. And so there is maybe some echoes</p>
+<p>of computers there, but I never made that connection. I didn&rsquo;t know that when my parents</p>
+<p>were paying for magazine subscriptions using punched cards, that there was something called</p>
+<p>a computer that was involved that read those cards and transferred the money between accounts.</p>
+<p>I was also not really interested in those things. It was only when I went to university</p>
+<p>to study math that I found out that they had a computer, and students were allowed to use</p>
+<p>it.</p>
+<p>And there were some – you&rsquo;re supposed to talk to that computer by programming it.</p>
+<p>What did that feel like, finding –</p>
+<p>Yeah, that was the only thing you could do with it. The computer wasn&rsquo;t really connected</p>
+<p>to the real world. The only thing you could do was sort of – you typed your program</p>
+<p>on a bunch of punched cards. You gave the punched cards to the operator, and an hour</p>
+<p>later the operator gave you back your printout. And so all you could do was write a program</p>
+<p>that did something very abstract. And I don&rsquo;t even remember what my first forays into programming</p>
+<p>were, but they were sort of doing simple math exercises and just to learn how a programming</p>
+<p>language worked.</p>
+<p>Did you sense, okay, first year of college, you see this computer, you&rsquo;re able to have</p>
+<p>a program and it generates some output. Did you start seeing the possibility of this,</p>
+<p>or was it a continuation of the tinkering with circuits? Did you start to imagine that</p>
+<p>one, the personal computer, but did you see it as something that is a tool, like a word</p>
+<p>processing tool, maybe for gaming or something? Or did you start to imagine that it could</p>
+<p>be going to the world of robotics, like the Frankenstein picture that you could create</p>
+<p>an artificial being? There&rsquo;s like another entity in front of you. You did not see the</p>
+<p>computer.</p>
+<p>I don&rsquo;t think I really saw it that way. I was really more interested in the tinkering.</p>
+<p>It&rsquo;s maybe not a sort of a complete coincidence that I ended up sort of creating a programming</p>
+<p>language which is a tool for other programmers. I&rsquo;ve always been very focused on the sort</p>
+<p>of activity of programming itself and not so much what happens with the program you</p>
+<p>write.</p>
+<p>Right.</p>
+<p>I do remember, and I don&rsquo;t remember, maybe in my second or third year, probably my second</p>
+<p>actually, someone pointed out to me that there was this thing called Conway&rsquo;s Game of Life.</p>
+<p>You&rsquo;re probably familiar with it. I think –</p>
+<p>In the 70s, I think is when they came up with it.</p>
+<p>So there was a Scientific American column by someone who did a monthly column about</p>
+<p>mathematical diversions. I&rsquo;m also blanking out on the guy&rsquo;s name. It was very famous</p>
+<p>at the time and I think up to the 90s or so. And one of his columns was about Conway&rsquo;s</p>
+<p>Game of Life and he had some illustrations and he wrote down all the rules and sort of</p>
+<p>there was the suggestion that this was philosophically interesting, that that was why Conway had</p>
+<p>called it that. And all I had was like the two pages photocopy of that article. I don&rsquo;t</p>
+<p>even remember where I got it. But it spoke to me and I remember implementing a version</p>
+<p>of that game for the batch computer we were using where I had a whole Pascal program that</p>
+<p>sort of read an initial situation from input and read some numbers that said do so many</p>
+<p>generations and print every so many generations and then out would come pages and pages of</p>
+<p>sort of things.</p>
+<p>I remember much later I&rsquo;ve done a similar thing using Python but that original version</p>
+<p>I wrote at the time I found interesting because I combined it with some trick I had learned</p>
+<p>during my electronics hobbyist times. I essentially first on paper I designed a simple circuit</p>
+<p>built out of logic gates that took nine bits of input which is sort of the cell and its</p>
+<p>neighbors and produced a new value for that cell and it&rsquo;s like a combination of a half</p>
+<p>adder and some other clipping. It&rsquo;s actually a full adder. And so I had worked that out</p>
+<p>and then I translated that into a series of Boolean operations on Pascal integers where</p>
+<p>you could use the integers as bitwise values. And so I could basically generate 60 bits</p>
+<p>of a generation in like eight instructions or so.</p>
+<p>Nice.</p>
+<p>So I was proud of that.</p>
+<p>It&rsquo;s funny that you mentioned, so for people who don&rsquo;t know Conway&rsquo;s Game of Life, it&rsquo;s</p>
+<p>a cellular automata where there&rsquo;s single compute units that kind of look at their neighbors</p>
+<p>and figure out what they look like in the next generation based on the state of their</p>
+<p>neighbors and this is deeply distributed system in concept at least. And then there&rsquo;s simple</p>
+<p>rules that all of them follow and somehow out of this simple rule when you step back</p>
+<p>and look at what occurs, it&rsquo;s beautiful. There&rsquo;s an emergent complexity. Even though the underlying</p>
+<p>rules are simple, there&rsquo;s an emergent complexity. Now the funny thing is you&rsquo;ve implemented</p>
+<p>this and the thing you&rsquo;re commenting on is you&rsquo;re proud of a hack you did to make it</p>
+<p>run efficiently. When you&rsquo;re not commenting on, it&rsquo;s a beautiful implementation, you&rsquo;re</p>
+<p>not commenting on the fact that there&rsquo;s an emergent complexity that you&rsquo;ve coded a simple</p>
+<p>program and when you step back and you print out the following generation after generation,</p>
+<p>that&rsquo;s stuff that you may have not predicted would happen is happening.</p>
+<p>And is that magic? I mean, that&rsquo;s the magic that all of us feel when we program. When</p>
+<p>you create a program and then you run it and whether it&rsquo;s Hello World or it shows something</p>
+<p>on screen, if there&rsquo;s a graphical component, are you seeing the magic in the mechanism</p>
+<p>of creating that?</p>
+<p>I think I went back and forth. As a student, we had an incredibly small budget of computer</p>
+<p>time that we could use. It was actually measured. I once got in trouble with one of my professors</p>
+<p>because I had overspent the department&rsquo;s budget. It&rsquo;s a different story.</p>
+<p>I actually wanted the efficient implementation because I also wanted to explore what would</p>
+<p>happen with a larger number of generations and a larger size of the board. Once the implementation</p>
+<p>was flawless, I would feed it different patterns and then I think maybe there was a follow</p>
+<p>up article where there were patterns that were like gliders, patterns that repeated</p>
+<p>themselves after a number of generations but translated one or two positions to the right</p>
+<p>or up or something like that. I remember things like glider guns. Well, you can Google Conway&rsquo;s</p>
+<p>Game of Life. People still go aww and ooh over it.</p>
+<p>For a reason because it&rsquo;s not really well understood why. I mean, this is what Stephen</p>
+<p>Wolfram is obsessed about. We don&rsquo;t have the mathematical tools to describe the kind of</p>
+<p>complexity that emerges in these kinds of systems. The only way you can do is to run</p>
+<p>it.</p>
+<p>I&rsquo;m not convinced that it&rsquo;s sort of a problem that lends itself to classic mathematical</p>
+<p>analysis.</p>
+<p>One theory of how you create an artificial intelligence or artificial being is you kind</p>
+<p>of have to, same with the Game of Life, you kind of have to create a universe and let</p>
+<p>it run. That creating it from scratch in a design way, coding up a Python program that</p>
+<p>creates a fully intelligent system may be quite challenging. You might need to create</p>
+<p>a universe just like the Game of Life.</p>
+<p>You might have to experiment with a lot of different universes before there is a set</p>
+<p>of rules that doesn&rsquo;t essentially always just end up repeating itself in a trivial</p>
+<p>way.</p>
+<p>Yeah, and Stephen Wolfram works with these simple rules, says that it&rsquo;s kind of surprising</p>
+<p>how quickly you find rules that create interesting things. You shouldn&rsquo;t be able to, but somehow</p>
+<p>you do. And so maybe our universe is laden with rules that will create interesting things</p>
+<p>that might not look like humans, but emergent phenomena that&rsquo;s interesting may not be as</p>
+<p>difficult to create as we think.</p>
+<p>Sure.</p>
+<p>But let me sort of ask, at that time, some of the world, at least in popular press, was</p>
+<p>kind of captivated, perhaps at least in America, by the idea of artificial intelligence, that</p>
+<p>these computers would be able to think pretty soon. And did that touch you at all? In science</p>
+<p>fiction or in reality in any way?</p>
+<p>I didn&rsquo;t really start reading science fiction until much, much later. I think as a teenager</p>
+<p>I read maybe one bundle of science fiction stories.</p>
+<p>Was it in the background somewhere, like in your thoughts?</p>
+<p>That sort of the using computers to build something intelligent always felt to me, because</p>
+<p>I felt I had so much understanding of what actually goes on inside a computer. I knew</p>
+<p>how many bits of memory it had and how difficult it was to program. And sort of, I didn&rsquo;t believe</p>
+<p>at all that you could just build something intelligent out of that, that would really</p>
+<p>sort of satisfy my definition of intelligence. I think the most influential thing that I</p>
+<p>read in my early twenties was Gödel Escherbach. That was about consciousness, and that was</p>
+<p>a big eye opener in some sense.</p>
+<p>In what sense? So, on your own brain, did you at the time or do you now see your own</p>
+<p>brain as a computer? Or is there a total separation of the way? So yeah, you&rsquo;re very pragmatically</p>
+<p>practically know the limits of memory, the limits of this sequential computing or weakly</p>
+<p>paralyzed computing, and you just know what we have now, and it&rsquo;s hard to see how it creates.</p>
+<p>But it&rsquo;s also easy to see, it was in the 40s, 50s, 60s, and now at least similarities between</p>
+<p>the brain and our computers.</p>
+<p>Oh yeah, I mean, I totally believe that brains are computers in some sense. I mean, the rules</p>
+<p>they use to play by are pretty different from the rules we can sort of implement in our</p>
+<p>current hardware, but I don&rsquo;t believe in, like, a separate thing that infuses us with</p>
+<p>intelligence or consciousness or any of that. There&rsquo;s no soul, I&rsquo;ve been an atheist</p>
+<p>probably from when I was 10 years old, just by thinking a bit about math and the universe,</p>
+<p>and well, my parents were atheists. Now, I know that you could be an atheist and still</p>
+<p>believe that there is something sort of about intelligence or consciousness that cannot</p>
+<p>possibly emerge from a fixed set of rules. I am not in that camp. I totally see that,</p>
+<p>sort of, given how many millions of years evolution took its time, DNA is a particular</p>
+<p>machine that sort of encodes information and an unlimited amount of information in chemical</p>
+<p>form and has figured out a way to replicate itself.</p>
+<p>I thought that that was, maybe it&rsquo;s 300 million years ago, but I thought it was closer</p>
+<p>to half a billion years ago, that that&rsquo;s sort of originated and it hasn&rsquo;t really changed,</p>
+<p>that the sort of the structure of DNA hasn&rsquo;t changed ever since. That is like our binary</p>
+<p>code that we have in hardware. I mean&hellip;</p>
+<p>The basic programming language hasn&rsquo;t changed, but maybe the programming itself&hellip;</p>
+<p>Obviously, it did sort of, it happened to be a set of rules that was good enough to</p>
+<p>sort of develop endless variability and sort of the idea of self replicating molecules</p>
+<p>competing with each other for resources and one type eventually sort of always taking</p>
+<p>over. That happened before there were any fossils, so we don&rsquo;t know how that exactly</p>
+<p>happened, but I believe it&rsquo;s clear that that did happen.</p>
+<p>Can you comment on consciousness and how you see it? Because I think we&rsquo;ll talk about</p>
+<p>programming quite a bit. We&rsquo;ll talk about, you know, intelligence connecting to programming</p>
+<p>fundamentally, but consciousness is this whole other thing. Do you think about it often as</p>
+<p>a developer of a programming language and as a human?</p>
+<p>Those are pretty sort of separate topics. Sort of my line of work working with programming</p>
+<p>does not involve anything that goes in the direction of developing intelligence or consciousness,</p>
+<p>but sort of privately as an avid reader of popular science writing, I have some thoughts</p>
+<p>which is mostly that I don&rsquo;t actually believe that consciousness is an all or nothing thing.</p>
+<p>I have a feeling that, and I forget what I read that influenced this, but I feel that</p>
+<p>if you look at a cat or a dog or a mouse, they have some form of intelligence. If you</p>
+<p>look at a fish, it has some form of intelligence, and that evolution just took a long time,</p>
+<p>but I feel that the sort of evolution of more and more intelligence that led to sort of</p>
+<p>the human form of intelligence followed the evolution of the senses, especially the visual</p>
+<p>sense. I mean, there is an enormous amount of processing that&rsquo;s needed to interpret</p>
+<p>a scene, and humans are still better at that than computers are.</p>
+<p>And I have a feeling that there is a sort of, the reason that like mammals in particular</p>
+<p>developed the levels of consciousness that they have and that eventually sort of going</p>
+<p>from intelligence to self awareness and consciousness has to do with sort of being a robot that</p>
+<p>has very highly developed senses.</p>
+<p>Has a lot of rich sensory information coming in, so that&rsquo;s a really interesting thought</p>
+<p>that whatever that basic mechanism of DNA, whatever that basic building blocks of programming,</p>
+<p>if you just add more abilities, more high resolution sensors, more sensors, you just</p>
+<p>keep stacking those things on top that this basic programming in trying to survive develops</p>
+<p>very interesting things that start to us humans to appear like intelligence and consciousness.</p>
+<p>As far as robots go, I think that the self driving cars have that sort of the greatest</p>
+<p>opportunity of developing something like that, because when I drive myself, I don&rsquo;t just</p>
+<p>pay attention to the rules of the road.</p>
+<p>I also look around and I get clues from that, oh, this is a shopping district, oh, here&rsquo;s</p>
+<p>an old lady crossing the street, oh, here is someone carrying a pile of mail, there&rsquo;s</p>
+<p>a mailbox, I bet you they&rsquo;re going to cross the street to reach that mailbox.</p>
+<p>And I slow down, and I don&rsquo;t even think about that.</p>
+<p>And so, there is so much where you turn your observations into an understanding of what</p>
+<p>other consciousnesses are going to do, or what other systems in the world are going</p>
+<p>to be, oh, that tree is going to fall.</p>
+<p>I see sort of, I see much more of, I expect somehow that if anything is going to become</p>
+<p>unconscious, it&rsquo;s going to be the self driving car and not the network of a bazillion computers</p>
+<p>in a Google or Amazon data center that are all networked together to do whatever they</p>
+<p>do.</p>
+<p>So, in that sense, so you actually highlight, because that&rsquo;s what I work in Thomas Vehicles,</p>
+<p>you highlight the big gap between what we currently can&rsquo;t do and what we truly need</p>
+<p>to be able to do to solve the problem.</p>
+<p>Under that formulation, then consciousness and intelligence is something that basically</p>
+<p>a system should have in order to interact with us humans, as opposed to some kind of</p>
+<p>abstract notion of a consciousness.</p>
+<p>Consciousness is something that you need to have to be able to empathize, to be able to</p>
+<p>fear, understand what the fear of death is, all these aspects that are important for interacting</p>
+<p>with pedestrians, you need to be able to do basic computation based on our human desires</p>
+<p>and thoughts.</p>
+<p>And if you sort of, yeah, if you look at the dog, the dog clearly knows, I mean, I&rsquo;m</p>
+<p>not the dog owner, but I have friends who have dogs, the dogs clearly know what the</p>
+<p>humans around them are going to do, or at least they have a model of what those humans</p>
+<p>are going to do and they learn.</p>
+<p>Some dogs know when you&rsquo;re going out and they want to go out with you, they&rsquo;re sad when</p>
+<p>you leave them alone, they cry, they&rsquo;re afraid because they were mistreated when they were</p>
+<p>younger.</p>
+<p>We don&rsquo;t assign sort of consciousness to dogs, or at least not all that much, but I also</p>
+<p>don&rsquo;t think they have none of that.</p>
+<p>So I think it&rsquo;s consciousness and intelligence are not all or nothing.</p>
+<p>The spectrum is really interesting.</p>
+<p>But in returning to programming languages and the way we think about building these</p>
+<p>kinds of things, about building intelligence, building consciousness, building artificial</p>
+<p>beings.</p>
+<p>So I think one of the exciting ideas came in the 17th century and with Leibniz, Hobbes,</p>
+<p>Descartes, where there&rsquo;s this feeling that you can convert all thought, all reasoning,</p>
+<p>all the thing that we find very special in our brains, you can convert all of that into</p>
+<p>logic.</p>
+<p>So you can formalize it, formal reasoning, and then once you formalize everything, all</p>
+<p>of knowledge, then you can just calculate and that&rsquo;s what we&rsquo;re doing with our brains</p>
+<p>is we&rsquo;re calculating.</p>
+<p>So there&rsquo;s this whole idea that this is possible, that this we can actually program.</p>
+<p>But they weren&rsquo;t aware of the concept of pattern matching in the sense that we are aware of</p>
+<p>it now.</p>
+<p>They sort of thought they had discovered incredible bits of mathematics like Newton&rsquo;s calculus</p>
+<p>and their sort of idealism, their sort of extension of what they could do with logic</p>
+<p>and math sort of went along those lines and they thought there&rsquo;s like, yeah, logic.</p>
+<p>There&rsquo;s like a bunch of rules and a bunch of input.</p>
+<p>They didn&rsquo;t realize that how you recognize a face is not just a bunch of rules but is</p>
+<p>a shit ton of data plus a circuit that sort of interprets the visual clues and the context</p>
+<p>and everything else and somehow can massively parallel pattern match against stored rules.</p>
+<p>I mean, if I see you tomorrow here in front of the Dropbox office, I might recognize you.</p>
+<p>Even if I&rsquo;m wearing a different shirt, yeah, but if I see you tomorrow in a coffee shop</p>
+<p>in Belmont, I might have no idea that it was you or on the beach or whatever.</p>
+<p>I make those kind of mistakes myself all the time.</p>
+<p>I see someone that I only know as like, oh, this person is a colleague of my wife&rsquo;s and</p>
+<p>then I see them at the movies and I didn&rsquo;t recognize them.</p>
+<p>But do you see those, you call it pattern matching, do you see that rules is unable</p>
+<p>to encode that?</p>
+<p>Everything you see, all the pieces of information you look around this room, I&rsquo;m wearing a black</p>
+<p>shirt, I have a certain height, I&rsquo;m a human, all these, there&rsquo;s probably tens of thousands</p>
+<p>of facts you pick up moment by moment about this scene.</p>
+<p>You take them for granted and you aggregate them together to understand the scene.</p>
+<p>You don&rsquo;t think all of that could be encoded to where at the end of the day, you can just</p>
+<p>put it all on the table and calculate?</p>
+<p>I don&rsquo;t know what that means.</p>
+<p>I mean, yes, in the sense that there is no actual magic there, but there are enough layers</p>
+<p>of abstraction from the facts as they enter my eyes and my ears to the understanding of</p>
+<p>the scene that I don&rsquo;t think that AI has really covered enough of that distance.</p>
+<p>It&rsquo;s like if you take a human body and you realize it&rsquo;s built out of atoms, well, that</p>
+<p>is a uselessly reductionist view, right?</p>
+<p>The body is built out of organs, the organs are built out of cells, the cells are built</p>
+<p>out of proteins, the proteins are built out of amino acids, the amino acids are built</p>
+<p>out of atoms and then you get to quantum mechanics.</p>
+<p>So that&rsquo;s a very pragmatic view.</p>
+<p>I mean, obviously as an engineer, I agree with that kind of view, but you also have</p>
+<p>to consider the Sam Harris view of, well, intelligence is just information processing.</p>
+<p>Like you said, you take in sensory information, you do some stuff with it and you come up</p>
+<p>with actions that are intelligent.</p>
+<p>That makes it sound so easy.</p>
+<p>I don&rsquo;t know who Sam Harris is.</p>
+<p>Oh, well, it&rsquo;s a philosopher.</p>
+<p>So like this is how philosophers often think, right?</p>
+<p>And essentially that&rsquo;s what Descartes was, is wait a minute, if there is, like you said,</p>
+<p>no magic, so he basically says it doesn&rsquo;t appear like there&rsquo;s any magic, but we know</p>
+<p>so little about it that it might as well be magic.</p>
+<p>So just because we know that we&rsquo;re made of atoms, just because we know we&rsquo;re made</p>
+<p>of organs, the fact that we know very little how to get from the atoms to organs in a way</p>
+<p>that&rsquo;s recreatable means that you shouldn&rsquo;t get too excited just yet about the fact that</p>
+<p>you figured out that we&rsquo;re made of atoms.</p>
+<p>Right, and the same about taking facts as our sensory organs take them in and turning</p>
+<p>that into reasons and actions, that sort of, there are a lot of abstractions that we haven&rsquo;t</p>
+<p>quite figured out how to deal with those.</p>
+<p>I mean, sometimes, I don&rsquo;t know if I can go on a tangent or not, so if I take a simple</p>
+<p>program that parses, say I have a compiler that parses a program, in a sense the input</p>
+<p>routine of that compiler, of that parser, is a sensing organ, and it builds up a mighty</p>
+<p>complicated internal representation of the program it just saw, it doesn&rsquo;t just have</p>
+<p>a linear sequence of bytes representing the text of the program anymore, it has an abstract</p>
+<p>syntax tree, and I don&rsquo;t know how many of your viewers or listeners are familiar with</p>
+<p>compiler technology, but there&rsquo;s…</p>
+<p>Fewer and fewer these days, right?</p>
+<p>That&rsquo;s also true, probably.</p>
+<p>People want to take a shortcut, but there&rsquo;s sort of, this abstraction is a data structure</p>
+<p>that the compiler then uses to produce outputs that is relevant, like a translation of that</p>
+<p>program to machine code that can be executed by hardware, and then that data structure</p>
+<p>gets thrown away.</p>
+<p>When a fish or a fly sees, sort of gets visual impulses, I&rsquo;m sure it also builds up some</p>
+<p>data structure, and for the fly that may be very minimal, a fly may have only a few, I</p>
+<p>mean, in the case of a fly&rsquo;s brain, I could imagine that there are few enough layers of</p>
+<p>abstraction that it&rsquo;s not much more than when it&rsquo;s darker here than it is here, well</p>
+<p>it can sense motion, because a fly sort of responds when you move your arm towards it,</p>
+<p>so clearly its visual processing is intelligent, well, not intelligent, but it has an abstraction</p>
+<p>for motion, and we still have similar things in, but much more complicated in our brains,</p>
+<p>I mean, otherwise you couldn&rsquo;t drive a car if you couldn&rsquo;t, if you didn&rsquo;t have an</p>
+<p>incredibly good abstraction for motion.</p>
+<p>Yeah, in some sense, the same abstraction for motion is probably one of the primary</p>
+<p>sources of our, of information for us, we just know what to do, I think we know what</p>
+<p>to do with that, we&rsquo;ve built up other abstractions on top.</p>
+<p>We build much more complicated data structures based on that, and we build more persistent</p>
+<p>data structures, sort of after some processing, some information sort of gets stored in our</p>
+<p>memory pretty much permanently, and is available on recall, I mean, there are some things that</p>
+<p>you sort of, you&rsquo;re conscious that you&rsquo;re remembering it, like, you give me your phone</p>
+<p>number, I, well, at my age I have to write it down, but I could imagine, I could remember</p>
+<p>those seven numbers, or ten digits, and reproduce them in a while, if I sort of repeat them</p>
+<p>to myself a few times, so that&rsquo;s a fairly conscious form of memorization.</p>
+<p>On the other hand, how do I recognize your face, I have no idea.</p>
+<p>My brain has a whole bunch of specialized hardware that knows how to recognize faces,</p>
+<p>I don&rsquo;t know how much of that is sort of coded in our DNA, and how much of that is</p>
+<p>trained over and over between the ages of zero and three, but somehow our brains know</p>
+<p>how to do lots of things like that, that are useful in our interactions with other humans,</p>
+<p>without really being conscious of how it&rsquo;s done anymore.</p>
+<p>Right, so our actual day to day lives, we&rsquo;re operating at the very highest level of abstraction,</p>
+<p>we&rsquo;re just not even conscious of all the little details underlying it.</p>
+<p>There&rsquo;s compilers on top of, it&rsquo;s like turtles on top of turtles, or turtles all the way</p>
+<p>down, there&rsquo;s compilers all the way down, but that&rsquo;s essentially, you say that there&rsquo;s</p>
+<p>no magic, that&rsquo;s what I, what I was trying to get at, I think, is with Descartes started</p>
+<p>this whole train of saying that there&rsquo;s no magic, I mean, there&rsquo;s all this beforehand.</p>
+<p>Well didn&rsquo;t Descartes also have the notion though that the soul and the body were fundamentally</p>
+<p>separate?</p>
+<p>Separate, yeah, I think he had to write in God in there for political reasons, so I don&rsquo;t</p>
+<p>know actually, I&rsquo;m not a historian, but there&rsquo;s notions in there that all of reasoning, all</p>
+<p>of human thought can be formalized.</p>
+<p>I think that continued in the 20th century with Russell and with Gadot&rsquo;s incompleteness</p>
+<p>theorem, this debate of what are the limits of the things that could be formalized, that&rsquo;s</p>
+<p>where the Turing machine came along, and this exciting idea, I mean, underlying a lot of</p>
+<p>computing that you can do quite a lot with a computer.</p>
+<p>You can encode a lot of the stuff we&rsquo;re talking about in terms of recognizing faces and so</p>
+<p>on, theoretically, in an algorithm that can then run on a computer.</p>
+<p>And in that context, I&rsquo;d like to ask programming in a philosophical way, what does it mean</p>
+<p>to program a computer?</p>
+<p>So you said you write a Python program or compiled a C++ program that compiles to some</p>
+<p>byte code, it&rsquo;s forming layers, you&rsquo;re programming a layer of abstraction that&rsquo;s higher, how</p>
+<p>do you see programming in that context?</p>
+<p>Can it keep getting higher and higher levels of abstraction?</p>
+<p>I think at some point the higher levels of abstraction will not be called programming</p>
+<p>and they will not resemble what we call programming at the moment.</p>
+<p>There will not be source code, I mean, there will still be source code sort of at a lower</p>
+<p>level of the machine, just like there are still molecules and electrons and sort of</p>
+<p>proteins in our brains, but, and so there&rsquo;s still programming and system administration</p>
+<p>and who knows what, to keep the machine running, but what the machine does is a different level</p>
+<p>of abstraction in a sense, and as far as I understand the way that for the last decade</p>
+<p>or more people have made progress with things like facial recognition or the self driving</p>
+<p>cars is all by endless, endless amounts of training data where at least as a lay person,</p>
+<p>and I feel myself totally as a lay person in that field, it looks like the researchers</p>
+<p>who publish the results don&rsquo;t necessarily know exactly how their algorithms work, and</p>
+<p>I often get upset when I sort of read a sort of a fluff piece about Facebook in the newspaper</p>
+<p>or social networks and they say, well, algorithms, and that&rsquo;s like a totally different interpretation</p>
+<p>of the word algorithm, because for me, the way I was trained or what I learned when I</p>
+<p>was eight or ten years old, an algorithm is a set of rules that you completely understand</p>
+<p>that can be mathematically analyzed and you can prove things.</p>
+<p>You can like prove that Aristotelian sieve produces all prime numbers and only prime</p>
+<p>numbers.</p>
+<p>Yeah.</p>
+<p>So I don&rsquo;t know if you know who Andrej Karpathy is, I&rsquo;m afraid not.</p>
+<p>So he&rsquo;s a head of AI at Tesla now, but he was at Stanford before and he has this cheeky</p>
+<p>way of calling this concept software 2.0.</p>
+<p>So let me disentangle that for a second.</p>
+<p>So kind of what you&rsquo;re referring to is the traditional, the algorithm, the concept of</p>
+<p>an algorithm, something that&rsquo;s there, it&rsquo;s clear, you can read it, you understand it,</p>
+<p>you can prove it&rsquo;s functioning as kind of software 1.0.</p>
+<p>And what software 2.0 is, is exactly what you described, which is you have neural networks,</p>
+<p>which is a type of machine learning that you feed a bunch of data and that neural network</p>
+<p>learns to do a function.</p>
+<p>All you specify is the inputs and the outputs you want and you can&rsquo;t look inside.</p>
+<p>You can&rsquo;t analyze it.</p>
+<p>All you can do is train this function to map the inputs to the outputs by giving a lot</p>
+<p>of data.</p>
+<p>And that&rsquo;s as programming becomes getting a lot of data.</p>
+<p>That&rsquo;s what programming is.</p>
+<p>Well, that would be programming 2.0.</p>
+<p>To programming 2.0.</p>
+<p>I wouldn&rsquo;t call that programming.</p>
+<p>It&rsquo;s just a different activity.</p>
+<p>Just like building organs out of cells is not called chemistry.</p>
+<p>Well, so let&rsquo;s just step back and think sort of more generally, of course.</p>
+<p>But you know, it&rsquo;s like as a parent teaching your kids, things can be called programming.</p>
+<p>In that same sense, that&rsquo;s how programming is being used.</p>
+<p>You&rsquo;re providing them data, examples, use cases.</p>
+<p>So imagine writing a function not by, not with for loops and clearly readable text,</p>
+<p>but more saying, well, here&rsquo;s a lot of examples of what this function should take.</p>
+<p>And here&rsquo;s a lot of examples of when it takes those functions, it should do this.</p>
+<p>And then figure out the rest.</p>
+<p>So that&rsquo;s the 2.0 concept.</p>
+<p>And so the question I have for you is like, it&rsquo;s a very fuzzy way.</p>
+<p>This is the reality of a lot of these pattern recognition systems and so on.</p>
+<p>It&rsquo;s a fuzzy way of quote unquote programming.</p>
+<p>What do you think about this kind of world?</p>
+<p>Should it be called something totally different than programming?</p>
+<p>If you&rsquo;re a software engineer, does that mean you&rsquo;re designing systems that are very, can</p>
+<p>be systematically tested, evaluated, they have a very specific specification and then this</p>
+<p>other fuzzy software 2.0 world, machine learning world, that&rsquo;s something else totally?</p>
+<p>Or is there some intermixing that&rsquo;s possible?</p>
+<p>Well the question is probably only being asked because we don&rsquo;t quite know what that software</p>
+<p>2.0 actually is.</p>
+<p>And I think there is a truism that every task that AI has tackled in the past, at some point</p>
+<p>we realized how it was done and then it was no longer considered part of artificial intelligence</p>
+<p>because it was no longer necessary to use that term.</p>
+<p>It was just, oh now we know how to do this.</p>
+<p>And a new field of science or engineering has been developed and I don&rsquo;t know if sort</p>
+<p>of every form of learning or sort of controlling computer systems should always be called programming.</p>
+<p>So I don&rsquo;t know, maybe I&rsquo;m focused too much on the terminology.</p>
+<p>But I expect that there just will be different concepts where people with sort of different</p>
+<p>education and a different model of what they&rsquo;re trying to do will develop those concepts.</p>
+<p>I guess if you could comment on another way to put this concept is, I think the kind of</p>
+<p>functions that neural networks provide is things as opposed to being able to upfront</p>
+<p>prove that this should work for all cases you throw at it.</p>
+<p>All you&rsquo;re able, it&rsquo;s the worst case analysis versus average case analysis.</p>
+<p>All you&rsquo;re able to say is it seems on everything we&rsquo;ve tested to work 99.9% of the time, but</p>
+<p>we can&rsquo;t guarantee it and it fails in unexpected ways.</p>
+<p>We can&rsquo;t even give you examples of how it fails in unexpected ways, but it&rsquo;s like really</p>
+<p>good most of the time.</p>
+<p>Is there no room for that in current ways we think about programming?</p>
+<p>programming 1.0 is actually sort of getting to that point too, where the sort of the ideal</p>
+<p>of a bug free program has been abandoned long ago by most software developers.</p>
+<p>We only care about bugs that manifest themselves often enough to be annoying.</p>
+<p>And we&rsquo;re willing to take the occasional crash or outage or incorrect result for granted</p>
+<p>because we can&rsquo;t possibly, we don&rsquo;t have enough programmers to make all the code bug free</p>
+<p>and it would be an incredibly tedious business.</p>
+<p>And if you try to throw formal methods at it, it becomes even more tedious.</p>
+<p>So every once in a while the user clicks on a link and somehow they get an error and the</p>
+<p>average user doesn&rsquo;t panic.</p>
+<p>They just click again and see if it works better the second time, which often magically</p>
+<p>it does, or they go up and they try some other way of performing their tasks.</p>
+<p>So that&rsquo;s sort of an end to end recovery mechanism and inside systems there is all</p>
+<p>sorts of retries and timeouts and fallbacks and I imagine that that sort of biological</p>
+<p>systems are even more full of that because otherwise they wouldn&rsquo;t survive.</p>
+<p>Do you think programming should be taught and thought of as exactly what you just said?</p>
+<p>I come from this kind of, you&rsquo;re always denying that fact always.</p>
+<p>In sort of basic programming education, the sort of the programs you&rsquo;re having students</p>
+<p>write are so small and simple that if there is a bug you can always find it and fix it.</p>
+<p>Because the sort of programming as it&rsquo;s being taught in some, even elementary, middle schools,</p>
+<p>in high school, introduction to programming classes in college typically, it&rsquo;s programming</p>
+<p>in the small.</p>
+<p>Very few classes sort of actually teach software engineering, building large systems.</p>
+<p>Every summer here at Dropbox we have a large number of interns.</p>
+<p>Every tech company on the West Coast has the same thing.</p>
+<p>These interns are always amazed because this is the first time in their life that they</p>
+<p>see what goes on in a really large software development environment.</p>
+<p>Everything they&rsquo;ve learned in college was almost always about a much smaller scale and</p>
+<p>somehow that difference in scale makes a qualitative difference in how you do things and how you</p>
+<p>think about it.</p>
+<p>If you then take a few steps back into decades, 70s and 80s, when you were first thinking</p>
+<p>about Python or just that world of programming languages, did you ever think that there would</p>
+<p>be systems as large as underlying Google, Facebook, and Dropbox?</p>
+<p>Did you, when you were thinking about Python?</p>
+<p>I was actually always caught by surprise by sort of this, yeah, pretty much every stage</p>
+<p>of computing.</p>
+<p>So maybe just because you&rsquo;ve spoken in other interviews, but I think the evolution of programming</p>
+<p>languages are fascinating and it&rsquo;s especially because it leads from my perspective towards</p>
+<p>greater and greater degrees of intelligence.</p>
+<p>I learned the first programming language I played with in Russia was with the Turtle</p>
+<p>logo.</p>
+<p>Logo, yeah.</p>
+<p>And if you look, I just have a list of programming languages, all of which I&rsquo;ve now played with</p>
+<p>a little bit.</p>
+<p>I mean, they&rsquo;re all beautiful in different ways from Fortran, Cobalt, Lisp, Algol 60,</p>
+<p>Basic, Logo again, C, as a few, the object oriented came along in the 60s, Simula, Pascal,</p>
+<p>Smalltalk.</p>
+<p>All of that leads.</p>
+<p>They&rsquo;re all the classics.</p>
+<p>The classics.</p>
+<p>Yeah.</p>
+<p>The classic hits, right?</p>
+<p>Steam, that&rsquo;s built on top of Lisp.</p>
+<p>On the database side, SQL, C++, and all of that leads up to Python, Pascal too, and that&rsquo;s</p>
+<p>before Python, MATLAB, these kind of different communities, different languages.</p>
+<p>So can you talk about that world?</p>
+<p>I know that sort of Python came out of ABC, which I actually never knew that language.</p>
+<p>I just, having researched this conversation, went back to ABC and it looks remarkably,</p>
+<p>it has a lot of annoying qualities, but underneath those, like all caps and so on, but underneath</p>
+<p>that, there&rsquo;s elements of Python that are quite, they&rsquo;re already there.</p>
+<p>That&rsquo;s where I got all the good stuff.</p>
+<p>All the good stuff.</p>
+<p>So, but in that world, you&rsquo;re swimming these programming languages, were you focused on</p>
+<p>just the good stuff in your specific circle, or did you have a sense of what is everyone</p>
+<p>chasing?</p>
+<p>You said that every programming language is built to scratch an itch.</p>
+<p>Were you aware of all the itches in the community?</p>
+<p>And if not, or if yes, I mean, what itch were you trying to scratch with Python?</p>
+<p>Well, I&rsquo;m glad I wasn&rsquo;t aware of all the itches because I would probably not have been able</p>
+<p>to do anything.</p>
+<p>I mean, if you&rsquo;re trying to solve every problem at once, you&rsquo;ll solve nothing.</p>
+<p>Well, yeah, it&rsquo;s too overwhelming.</p>
+<p>And so I had a very, very focused problem.</p>
+<p>I wanted a programming language that sat somewhere in between shell scripting and C. And now,</p>
+<p>arguably, there is like, one is higher level, one is lower level.</p>
+<p>And Python is sort of a language of an intermediate level, although it&rsquo;s still pretty much at</p>
+<p>the high level end.</p>
+<p>I was thinking about much more about, I want a tool that I can use to be more productive</p>
+<p>as a programmer in a very specific environment.</p>
+<p>And I also had given myself a time budget for the development of the tool.</p>
+<p>And that was sort of about three months for both the design, like thinking through what</p>
+<p>are all the features of the language syntactically and semantically, and how do I implement the</p>
+<p>whole pipeline from parsing the source code to executing it.</p>
+<p>So I think both with the timeline and the goals, it seems like productivity was at the</p>
+<p>core of it as a goal.</p>
+<p>So like, for me in the 90s, and the first decade of the 21st century, I was always doing</p>
+<p>machine learning, AI programming for my research was always in C++.</p>
+<p>And then the other people who are a little more mechanical engineering, electrical engineering,</p>
+<p>are MATLABby.</p>
+<p>They&rsquo;re a little bit more MATLAB focused.</p>
+<p>Those are the world, and maybe a little bit Java too.</p>
+<p>But people who are more interested in emphasizing the object oriented nature of things.</p>
+<p>So within the last 10 years or so, especially with the oncoming of neural networks and these</p>
+<p>packages that are built on Python to interface with neural networks, I switched to Python</p>
+<p>and it&rsquo;s just, I&rsquo;ve noticed a significant boost that I can&rsquo;t exactly, because I don&rsquo;t</p>
+<p>think about it, but I can&rsquo;t exactly put into words why I&rsquo;m just much, much more productive.</p>
+<p>Just being able to get the job done much, much faster.</p>
+<p>So how do you think, whatever that qualitative difference is, I don&rsquo;t know if it&rsquo;s quantitative,</p>
+<p>it could be just a feeling, I don&rsquo;t know if I&rsquo;m actually more productive, but how</p>
+<p>do you think about&hellip;</p>
+<p>You probably are.</p>
+<p>Yeah.</p>
+<p>Well, that&rsquo;s right.</p>
+<p>I think there&rsquo;s elements, let me just speak to one aspect that I think that was affecting</p>
+<p>my productivity is C++ was, I really enjoyed creating performant code and creating a beautiful</p>
+<p>structure where everything that, you know, this kind of going into this, especially with</p>
+<p>the newer and newer standards of templated programming of just really creating this beautiful</p>
+<p>formal structure that I found myself spending most of my time doing that as opposed to getting</p>
+<p>it, parsing a file and extracting a few keywords or whatever the task was trying to do.</p>
+<p>So what is it about Python?</p>
+<p>How do you think of productivity in general as you were designing it now, sort of through</p>
+<p>the decades, last three decades, what do you think it means to be a productive programmer?</p>
+<p>And how did you try to design it into the language?</p>
+<p>There are different tasks and as a programmer, it&rsquo;s useful to have different tools available</p>
+<p>that sort of are suitable for different tasks.</p>
+<p>So I still write C code, I still write shell code, but I write most of my things in Python.</p>
+<p>Why do I still use those other languages, because sometimes the task just demands it.</p>
+<p>And well, I would say most of the time the task actually demands a certain language because</p>
+<p>the task is not write a program that solves problem X from scratch, but it&rsquo;s more like</p>
+<p>fix a bug in existing program X or add a small feature to an existing large program.</p>
+<p>But even if you&rsquo;re not constrained in your choice of language by context like that, there</p>
+<p>is still the fact that if you write it in a certain language, then you have this balance</p>
+<p>between how long does it take you to write the code and how long does the code run?</p>
+<p>And when you&rsquo;re in the phase of exploring solutions, you often spend much more time</p>
+<p>writing the code than running it because every time you&rsquo;ve run it, you see that the output</p>
+<p>is not quite what you wanted and you spend some more time coding.</p>
+<p>And a language like Python just makes that iteration much faster because there are fewer</p>
+<p>details that you have to get right before your program compiles and runs.</p>
+<p>There are libraries that do all sorts of stuff for you, so you can sort of very quickly take</p>
+<p>a bunch of existing components, put them together, and get your prototype application running.</p>
+<p>Just like when I was building electronics, I was using a breadboard most of the time,</p>
+<p>so I had this sprawl out circuit that if you shook it, it would stop working because it</p>
+<p>was not put together very well, but it functioned and all I wanted was to see that it worked</p>
+<p>and then move on to the next schematic or design or add something to it.</p>
+<p>Once you&rsquo;ve sort of figured out, oh, this is the perfect design for my radio or light</p>
+<p>sensor or whatever, then you can say, okay, how do we design a PCB for this?</p>
+<p>How do we solder the components in a small space?</p>
+<p>How do we make it so that it is robust against, say, voltage fluctuations or mechanical disruption?</p>
+<p>I know nothing about that when it comes to designing electronics, but I know a lot about</p>
+<p>that when it comes to writing code.</p>
+<p>So the initial steps are efficient, fast, and there&rsquo;s not much stuff that gets in the</p>
+<p>way, but you&rsquo;re kind of describing, like Darwin described the evolution of species, right?</p>
+<p>You&rsquo;re observing of what is true about Python.</p>
+<p>Now if you take a step back, if the act of creating languages is art and you had three</p>
+<p>months to do it, initial steps, so you just specified a bunch of goals, sort of things</p>
+<p>that you observe about Python, perhaps you had those goals, but how do you create the</p>
+<p>rules, the syntactic structure, the features that result in those?</p>
+<p>So I have in the beginning and I have follow up questions about through the evolution of</p>
+<p>Python too, but in the very beginning when you were sitting there creating the lexical</p>
+<p>analyzer or whatever.</p>
+<p>Python was still a big part of it because I sort of, I said to myself, I don&rsquo;t want</p>
+<p>to have to design everything from scratch, I&rsquo;m going to borrow features from other languages</p>
+<p>that I like.</p>
+<p>Oh, interesting.</p>
+<p>So you basically, exactly, you first observe what you like.</p>
+<p>Yeah, and so that&rsquo;s why if you&rsquo;re 17 years old and you want to sort of create a programming</p>
+<p>language, you&rsquo;re not going to be very successful at it because you have no experience with</p>
+<p>other languages, whereas I was in my, let&rsquo;s say mid 30s, I had written parsers before,</p>
+<p>so I had worked on the implementation of ABC, I had spent years debating the design of ABC</p>
+<p>with its authors, with its designers, I had nothing to do with the design, it was designed</p>
+<p>fully as it ended up being implemented when I joined the team.</p>
+<p>But so you borrow ideas and concepts and very concrete sort of local rules from different</p>
+<p>languages like the indentation and certain other syntactic features from ABC, but I chose</p>
+<p>to borrow string literals and how numbers work from C and various other things.</p>
+<p>So in then, if you take that further, so yet you&rsquo;ve had this funny sounding, but I think</p>
+<p>surprisingly accurate and at least practical title of benevolent dictator for life for</p>
+<p>quite, you know, for the last three decades or whatever, or no, not the actual title,</p>
+<p>but functionally speaking.</p>
+<p>So you had to make decisions, design decisions.</p>
+<p>Can you maybe, let&rsquo;s take Python 2, so releasing Python 3 as an example.</p>
+<p>It&rsquo;s not backward compatible to Python 2 in ways that a lot of people know.</p>
+<p>So what was that deliberation, discussion, decision like?</p>
+<p>Yeah.</p>
+<p>What was the psychology of that experience?</p>
+<p>Do you regret any aspects of how that experience undergone that?</p>
+<p>Well, yeah, so it was a group process really.</p>
+<p>At that point, even though I was BDFL in name and certainly everybody sort of respected</p>
+<p>my position as the creator and the current sort of owner of the language design, I was</p>
+<p>looking at everyone else for feedback.</p>
+<p>Sort of Python 3.0 in some sense was sparked by other people in the community pointing</p>
+<p>out, oh, well, there are a few issues that sort of bite users over and over.</p>
+<p>Can we do something about that?</p>
+<p>And for Python 3, we took a number of those Python words as they were called at the time</p>
+<p>and we said, can we try to sort of make small changes to the language that address those</p>
+<p>words?</p>
+<p>And we had sort of in the past, we had always taken backwards compatibility very seriously.</p>
+<p>And so many Python words in earlier versions had already been resolved because they could</p>
+<p>be resolved while maintaining backwards compatibility or sort of using a very gradual path of evolution</p>
+<p>of the language in a certain area.</p>
+<p>And so we were stuck with a number of words that were widely recognized as problems, not</p>
+<p>like roadblocks, but nevertheless sort of things that some people trip over and you know that</p>
+<p>that&rsquo;s always the same thing that people trip over when they trip.</p>
+<p>And we could not think of a backwards compatible way of resolving those issues.</p>
+<p>But it&rsquo;s still an option to not resolve the issues, right?</p>
+<p>And so yes, for a long time, we had sort of resigned ourselves to, well, okay, the language</p>
+<p>is not going to be perfect in this way and that way and that way.</p>
+<p>And we sort of, certain of these, I mean, there are still plenty of things where you</p>
+<p>can say, well, that particular detail is better in Java or in R or in Visual Basic or whatever.</p>
+<p>And we&rsquo;re okay with that because, well, we can&rsquo;t easily change it.</p>
+<p>It&rsquo;s not too bad.</p>
+<p>We can do a little bit with user education or we can have a static analyzer or warnings</p>
+<p>in the parse or something.</p>
+<p>But there were things where we thought, well, these are really problems that are not going</p>
+<p>away.</p>
+<p>They are getting worse in the future.</p>
+<p>We should do something about that.</p>
+<p>But ultimately there is a decision to be made, right?</p>
+<p>So was that the toughest decision in the history of Python you had to make as the benevolent</p>
+<p>dictator for life?</p>
+<p>Or if not, what are there, maybe even on the smaller scale, what was the decision where</p>
+<p>you were really torn up about?</p>
+<p>Well, the toughest decision was probably to resign.</p>
+<p>All right, let&rsquo;s go there.</p>
+<p>Hold on a second then.</p>
+<p>Let me just, because in the interest of time too, because I have a few cool questions for</p>
+<p>you and let&rsquo;s touch a really important one because it was quite dramatic and beautiful</p>
+<p>in certain kinds of ways.</p>
+<p>In July this year, three months ago, you wrote, now that PEP 572 is done, I don&rsquo;t ever want</p>
+<p>to have to fight so hard for a PEP and find that so many people despise my decisions.</p>
+<p>I would like to remove myself entirely from the decision process.</p>
+<p>I&rsquo;ll still be there for a while as an ordinary core developer and I&rsquo;ll still be available</p>
+<p>to mentor people, possibly more available.</p>
+<p>But I&rsquo;m basically giving myself a permanent vacation from being BDFL, benevolent dictator</p>
+<p>for life.</p>
+<p>And you all will be on your own.</p>
+<p>First of all, it&rsquo;s almost Shakespearean.</p>
+<p>I&rsquo;m not going to appoint a successor.</p>
+<p>So what are you all going to do?</p>
+<p>Create a democracy, anarchy, a dictatorship, a federation?</p>
+<p>So that was a very dramatic and beautiful set of statements.</p>
+<p>It&rsquo;s almost, it&rsquo;s open ended nature called the community to create a future for Python.</p>
+<p>It&rsquo;s just kind of a beautiful aspect to it.</p>
+<p>So what, and dramatic, you know, what was making that decision like?</p>
+<p>What was on your heart, on your mind, stepping back now a few months later?</p>
+<p>I&rsquo;m glad you liked the writing because it was actually written pretty quickly.</p>
+<p>It was literally something like after months and months of going around in circles, I had</p>
+<p>finally approved PEP572, which I had a big hand in its design, although I didn&rsquo;t initiate</p>
+<p>it originally.</p>
+<p>I sort of gave it a bunch of nudges in a direction that would be better for the language.</p>
+<p>So sorry, just to ask, is async IO, that&rsquo;s the one or no?</p>
+<p>PEP572 was actually a small feature, which is assignment expressions.</p>
+<p>That had been, there was just a lot of debate where a lot of people claimed that they knew</p>
+<p>what was Pythonic and what was not Pythonic, and they knew that this was going to destroy</p>
+<p>the language.</p>
+<p>This was like a violation of Python&rsquo;s most fundamental design philosophy, and I thought</p>
+<p>that was all bullshit because I was in favor of it, and I would think I know something</p>
+<p>about Python&rsquo;s design philosophy.</p>
+<p>So I was really tired and also stressed of that thing, and literally after sort of announcing</p>
+<p>I was going to accept it, a certain Wednesday evening I had finally sent the email, it&rsquo;s</p>
+<p>accepted.</p>
+<p>I can just go implement it.</p>
+<p>So I went to bed feeling really relieved, that&rsquo;s behind me.</p>
+<p>And I wake up Thursday morning, 7 a.m., and I think, well, that was the last one that&rsquo;s</p>
+<p>going to be such a terrible debate, and that&rsquo;s the last time that I let myself be so stressed</p>
+<p>out about a pep decision.</p>
+<p>I should just resign.</p>
+<p>I&rsquo;ve been sort of thinking about retirement for half a decade, I&rsquo;ve been joking and sort</p>
+<p>of mentioning retirement, sort of telling the community at some point in the future</p>
+<p>I&rsquo;m going to retire, don&rsquo;t take that FL part of my title too literally.</p>
+<p>And I thought, okay, this is it.</p>
+<p>I&rsquo;m done, I had the day off, I wanted to have a good time with my wife, we were going to</p>
+<p>a little beach town nearby, and in I think maybe 15, 20 minutes I wrote that thing that</p>
+<p>you just called Shakespearean.</p>
+<p>The funny thing is I didn&rsquo;t even realize what a monumental decision it was, because</p>
+<p>five minutes later I read that link to my message back on Twitter, where people were</p>
+<p>already discussing on Twitter, Guido resigned as the BDFL.</p>
+<p>And I had posted it on an internal forum that I thought was only read by core developers,</p>
+<p>so I thought I would at least have one day before the news would sort of get out.</p>
+<p>The on your own aspects had also an element of quite, it was quite a powerful element</p>
+<p>of the uncertainty that lies ahead, but can you also just briefly talk about, for example</p>
+<p>I play guitar as a hobby for fun, and whenever I play people are super positive, super friendly,</p>
+<p>they&rsquo;re like, this is awesome, this is great.</p>
+<p>But sometimes I enter as an outside observer, I enter the programming community and there</p>
+<p>seems to sometimes be camps on whatever the topic, and the two camps, the two or plus</p>
+<p>camps, are often pretty harsh at criticizing the opposing camps.</p>
+<p>As an onlooker, I may be totally wrong on this, but what do you think of this?</p>
+<p>Yeah, holy wars are sort of a favorite activity in the programming community.</p>
+<p>And what is the psychology behind that?</p>
+<p>Is that okay for a healthy community to have?</p>
+<p>Is that a productive force ultimately for the evolution of a language?</p>
+<p>Well, if everybody is patting each other on the back and never telling the truth, it would</p>
+<p>not be a good thing.</p>
+<p>I think there is a middle ground where sort of being nasty to each other is not okay,</p>
+<p>but there is a middle ground where there is healthy ongoing criticism and feedback that</p>
+<p>is very productive.</p>
+<p>And you mean at every level you see that.</p>
+<p>I mean, someone proposes to fix a very small issue in a code base, chances are that some</p>
+<p>reviewer will sort of respond by saying, well, actually, you can do it better the other way.</p>
+<p>When it comes to deciding on the future of the Python core developer community, we now</p>
+<p>have, I think, five or six competing proposals for a constitution.</p>
+<p>So that future, do you have a fear of that future, do you have a hope for that future?</p>
+<p>I&rsquo;m very confident about that future.</p>
+<p>By and large, I think that the debate has been very healthy and productive.</p>
+<p>And I actually, when I wrote that resignation email, I knew that Python was in a very good</p>
+<p>spot and that the Python core developer community, the group of 50 or 100 people who sort of</p>
+<p>write or review most of the code that goes into Python, those people get along very well</p>
+<p>most of the time.</p>
+<p>A large number of different areas of expertise are represented, different levels of experience</p>
+<p>in the Python core dev community, different levels of experience completely outside it</p>
+<p>in software development in general, large systems, small systems, embedded systems.</p>
+<p>So I felt okay resigning because I knew that the community can really take care of itself.</p>
+<p>And out of a grab bag of future feature developments, let me ask if you can comment, maybe on all</p>
+<p>very quickly, concurrent programming, parallel computing, async IO.</p>
+<p>These are things that people have expressed hope, complained about, whatever, have discussed</p>
+<p>on Reddit.</p>
+<p>Async IO, so the parallelization in general, packaging, I was totally clueless on this.</p>
+<p>I just used pip to install stuff, but apparently there&rsquo;s pipenv, poetry, there&rsquo;s these dependency</p>
+<p>packaging systems that manage dependencies and so on.</p>
+<p>They&rsquo;re emerging and there&rsquo;s a lot of confusion about what&rsquo;s the right thing to use.</p>
+<p>Then also functional programming, are we going to get more functional programming or not,</p>
+<p>this kind of idea.</p>
+<p>And of course the GIL connected to the parallelization, I suppose, the global interpreter lock problem.</p>
+<p>Can you just comment on whichever you want to comment on?</p>
+<p>Well, let&rsquo;s take the GIL and parallelization and async IO as one topic.</p>
+<p>I&rsquo;m not that hopeful that Python will develop into a sort of high concurrency, high parallelism</p>
+<p>language.</p>
+<p>That&rsquo;s sort of the way the language is designed, the way most users use the language, the way</p>
+<p>the language is implemented, all make that a pretty unlikely future.</p>
+<p>So you think it might not even need to, really the way people use it, it might not be something</p>
+<p>that should be of great concern.</p>
+<p>I think async IO is a special case because it sort of allows overlapping IO and only</p>
+<p>IO and that is a sort of best practice of supporting very high throughput IO, many connections</p>
+<p>per second.</p>
+<p>I&rsquo;m not worried about that.</p>
+<p>I think async IO will evolve.</p>
+<p>There are a couple of competing packages.</p>
+<p>We have some very smart people who are sort of pushing us to make async IO better.</p>
+<p>Parallel computing, I think that Python is not the language for that.</p>
+<p>There are ways to work around it, but you can&rsquo;t expect to write an algorithm in Python</p>
+<p>and have a compiler automatically parallelize that.</p>
+<p>What you can do is use a package like NumPy and there are a bunch of other very powerful</p>
+<p>packages that sort of use all the CPUs available because you tell the package, here&rsquo;s the data,</p>
+<p>here&rsquo;s the abstract operation to apply over it, go at it, and then we&rsquo;re back in the C++</p>
+<p>world.</p>
+<p>Those packages are themselves implemented usually in C++.</p>
+<p>That&rsquo;s where TensorFlow and all these packages come in, where they parallelize across GPUs,</p>
+<p>for example, they take care of that for you.</p>
+<p>In terms of packaging, can you comment on the future of packaging in Python?</p>
+<p>Packaging has always been my least favorite topic.</p>
+<p>It&rsquo;s a really tough problem because the OS and the platform want to own packaging, but</p>
+<p>their packaging solution is not specific to a language.</p>
+<p>If you take Linux, there are two competing packaging solutions for Linux or for Unix</p>
+<p>in general, but they all work across all languages.</p>
+<p>Several languages like Node, JavaScript, Ruby, and Python all have their own packaging solutions</p>
+<p>that only work within the ecosystem of that language.</p>
+<p>What should you use?</p>
+<p>That is a tough problem.</p>
+<p>My own approach is I use the system packaging system to install Python, and I use the Python</p>
+<p>packaging system then to install third party Python packages.</p>
+<p>That&rsquo;s what most people do.</p>
+<p>Ten years ago, Python packaging was really a terrible situation.</p>
+<p>Nowadays, pip is the future, there is a separate ecosystem for numerical and scientific Python</p>
+<p>based on Anaconda.</p>
+<p>Those two can live together.</p>
+<p>I don&rsquo;t think there is a need for more than that.</p>
+<p>That&rsquo;s packaging.</p>
+<p>Well, at least for me, that&rsquo;s where I&rsquo;ve been extremely happy.</p>
+<p>I didn&rsquo;t even know this was an issue until it was brought up.</p>
+<p>In the interest of time, let me sort of skip through a million other questions I have.</p>
+<p>So I watched the five and a half hour oral history that you&rsquo;ve done with the Computer</p>
+<p>History Museum, and the nice thing about it, it gave this, because of the linear progression</p>
+<p>of the interview, it gave this feeling of a life, you know, a life well lived with interesting</p>
+<p>things in it, sort of a pretty, I would say a good spend of this little existence we have</p>
+<p>on Earth.</p>
+<p>So, outside of your family, looking back, what about this journey are you really proud</p>
+<p>of?</p>
+<p>Are there moments that stand out, accomplishments, ideas?</p>
+<p>Is it the creation of Python itself that stands out as a thing that you look back and say,</p>
+<p>damn, I did pretty good there?</p>
+<p>Well, I would say that Python is definitely the best thing I&rsquo;ve ever done, and I wouldn&rsquo;t</p>
+<p>sort of say just the creation of Python, but the way I sort of raised Python, like a baby.</p>
+<p>I didn&rsquo;t just conceive a child, but I raised a child, and now I&rsquo;m setting the child free</p>
+<p>in the world, and I&rsquo;ve set up the child to sort of be able to take care of himself, and</p>
+<p>I&rsquo;m very proud of that.</p>
+<p>And as the announcer of Monty Python&rsquo;s Flying Circus used to say, and now for something</p>
+<p>completely different, do you have a favorite Monty Python moment, or a moment in Hitchhiker&rsquo;s</p>
+<p>Guide, or any other literature show or movie that cracks you up when you think about it?</p>
+<p>You can always play me the dead parrot sketch.</p>
+<p>Oh, that&rsquo;s brilliant.</p>
+<p>That&rsquo;s my favorite as well.</p>
+<p>It&rsquo;s pushing up the daisies.</p>
+<p>Okay, Greta, thank you so much for talking with me today.</p>
+<p>Lex, this has been a great conversation.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

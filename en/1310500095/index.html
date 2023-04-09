@@ -1,0 +1,3520 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Dawn Song,
+a professor of computer science at UC Berkeley
+with research interests in computer security.
+Most recently, with a focus on the intersection
+between security and machine learning.
+This conversation was recorded
+before the outbreak of the pandemic.
+For everyone feeling the medical, psychological,
+and financial burden of this crisis,
+I&amp;rsquo;m sending love your way.
+Stay strong.
+We&amp;rsquo;re in this together.
+We&amp;rsquo;ll beat this thing.'>
+<title>Lex Fridman Podcast - #95 - Dawn Song: Adversarial Machine Learning and Computer Security | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500095/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #95 - Dawn Song: Adversarial Machine Learning and Computer Security'>
+<meta property='og:description' content='The following is a conversation with Dawn Song,
+a professor of computer science at UC Berkeley
+with research interests in computer security.
+Most recently, with a focus on the intersection
+between security and machine learning.
+This conversation was recorded
+before the outbreak of the pandemic.
+For everyone feeling the medical, psychological,
+and financial burden of this crisis,
+I&amp;rsquo;m sending love your way.
+Stay strong.
+We&amp;rsquo;re in this together.
+We&amp;rsquo;ll beat this thing.'>
+<meta property='og:url' content='https://swiest.com/en/1310500095/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-06-03T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-06-03T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #95 - Dawn Song: Adversarial Machine Learning and Computer Security">
+<meta name="twitter:description" content="The following is a conversation with Dawn Song,
+a professor of computer science at UC Berkeley
+with research interests in computer security.
+Most recently, with a focus on the intersection
+between security and machine learning.
+This conversation was recorded
+before the outbreak of the pandemic.
+For everyone feeling the medical, psychological,
+and financial burden of this crisis,
+I&amp;rsquo;m sending love your way.
+Stay strong.
+We&amp;rsquo;re in this together.
+We&amp;rsquo;ll beat this thing.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500095/">Lex Fridman Podcast - #95 - Dawn Song: Adversarial Machine Learning and Computer Security</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-03</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    91 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Dawn Song,</p>
+<p>a professor of computer science at UC Berkeley</p>
+<p>with research interests in computer security.</p>
+<p>Most recently, with a focus on the intersection</p>
+<p>between security and machine learning.</p>
+<p>This conversation was recorded</p>
+<p>before the outbreak of the pandemic.</p>
+<p>For everyone feeling the medical, psychological,</p>
+<p>and financial burden of this crisis,</p>
+<p>I&rsquo;m sending love your way.</p>
+<p>Stay strong.</p>
+<p>We&rsquo;re in this together.</p>
+<p>We&rsquo;ll beat this thing.</p>
+<p>This is the Artificial Intelligence Podcast.</p>
+<p>If you enjoy it, subscribe on YouTube,</p>
+<p>review it with five stars on Apple Podcast,</p>
+<p>support it on Patreon,</p>
+<p>or simply connect with me on Twitter</p>
+<p>at lexfriedman, spelled F R I D M A N.</p>
+<p>As usual, I&rsquo;ll do a few minutes of ads now</p>
+<p>and never any ads in the middle</p>
+<p>that can break the flow of the conversation.</p>
+<p>I hope that works for you</p>
+<p>and doesn&rsquo;t hurt the listening experience.</p>
+<p>This show is presented by Cash App,</p>
+<p>the number one finance app in the App Store.</p>
+<p>When you get it, use code lexpodcast.</p>
+<p>Cash App lets you send money to friends,</p>
+<p>buy Bitcoin, and invest in the stock market</p>
+<p>with as little as one dollar.</p>
+<p>Since Cash App does fractional share trading,</p>
+<p>let me mention that the order execution algorithm</p>
+<p>that works behind the scenes</p>
+<p>to create the abstraction of fractional orders</p>
+<p>is an algorithmic marvel.</p>
+<p>So big props to the Cash App engineers</p>
+<p>for solving a hard problem</p>
+<p>that in the end provides an easy interface</p>
+<p>that takes a step up to the next layer of abstraction</p>
+<p>over the stock market,</p>
+<p>making trading more accessible for new investors</p>
+<p>and diversification much easier.</p>
+<p>So again, if you get Cash App from the App Store or Google Play</p>
+<p>and use the code lexpodcast, you get $10</p>
+<p>and Cash App will also donate $10 to FIRST,</p>
+<p>an organization that is helping to advance robotics</p>
+<p>and STEM education for young people around the world.</p>
+<p>And now here&rsquo;s my conversation with Dawn Song.</p>
+<p>Do you think software systems</p>
+<p>will always have security vulnerabilities?</p>
+<p>Let&rsquo;s start at the broad, almost philosophical level.</p>
+<p>That&rsquo;s a very good question.</p>
+<p>I mean, in general, right,</p>
+<p>it&rsquo;s very difficult to write completely bug free code</p>
+<p>and code that has no vulnerability.</p>
+<p>And also, especially given that the definition</p>
+<p>of vulnerability is actually really broad.</p>
+<p>It&rsquo;s any type of attacks essentially on a code can,</p>
+<p>you know, that&rsquo;s, you can call that,</p>
+<p>that caused by vulnerabilities.</p>
+<p>And the nature of attacks is always changing as well?</p>
+<p>Like new ones are coming up?</p>
+<p>Right, so for example, in the past,</p>
+<p>we talked about memory safety type of vulnerabilities</p>
+<p>where essentially attackers can exploit the software</p>
+<p>and take over control of how the code runs</p>
+<p>and then can launch attacks that way.</p>
+<p>By accessing some aspect of the memory</p>
+<p>and be able to then alter the state of the program?</p>
+<p>Exactly, so for example, in the example of a buffer overflow,</p>
+<p>then the attacker essentially actually causes</p>
+<p>essentially unintended changes in the state of the program.</p>
+<p>And then, for example,</p>
+<p>can then take over control flow of the program</p>
+<p>and let the program to execute codes</p>
+<p>that actually the programmer didn&rsquo;t intend.</p>
+<p>So the attack can be a remote attack.</p>
+<p>So the attacker, for example,</p>
+<p>can send in a malicious input to the program</p>
+<p>that just causes the program to completely</p>
+<p>then be compromised and then end up doing something</p>
+<p>that&rsquo;s under the attacker&rsquo;s control and intention.</p>
+<p>But that&rsquo;s just one form of attacks</p>
+<p>and there are other forms of attacks.</p>
+<p>Like for example, there are these side channels</p>
+<p>where attackers can try to learn from,</p>
+<p>even just observing the outputs</p>
+<p>from the behaviors of the program,</p>
+<p>try to infer certain secrets of the program.</p>
+<p>So essentially, right, the form of attacks</p>
+<p>is very, very, it&rsquo;s very broad spectrum.</p>
+<p>And in general, from the security perspective,</p>
+<p>we want to essentially provide as much guarantee</p>
+<p>as possible about the program&rsquo;s security properties</p>
+<p>and so on.</p>
+<p>So for example, we talked about providing provable guarantees</p>
+<p>of the program.</p>
+<p>So for example, there are ways we can use program analysis</p>
+<p>and formal verification techniques</p>
+<p>to prove that a piece of code</p>
+<p>has no memory safety vulnerabilities.</p>
+<p>What does that look like?</p>
+<p>What is that proof?</p>
+<p>Is that just a dream for,</p>
+<p>that&rsquo;s applicable to small case examples</p>
+<p>or is that possible to do for real world systems?</p>
+<p>So actually, I mean, today,</p>
+<p>I actually call it we are entering the era</p>
+<p>of formally verified systems.</p>
+<p>So in the community, we have been working</p>
+<p>for the past decades in developing techniques</p>
+<p>and tools to do this type of program verification.</p>
+<p>And we have dedicated teams that have dedicated,</p>
+<p>you know, their like years,</p>
+<p>sometimes even decades of their work in the space.</p>
+<p>So as a result, we actually have a number</p>
+<p>of formally verified systems ranging from microkernels</p>
+<p>to compilers to file systems to certain crypto,</p>
+<p>you know, libraries and so on.</p>
+<p>So it&rsquo;s actually really wide ranging</p>
+<p>and it&rsquo;s really exciting to see</p>
+<p>that people are recognizing the importance</p>
+<p>of having these formally verified systems</p>
+<p>with verified security.</p>
+<p>So that&rsquo;s great advancement that we see,</p>
+<p>but on the other hand,</p>
+<p>I think we do need to take all these in essentially</p>
+<p>with caution as well in the sense that,</p>
+<p>just like I said, the type of vulnerabilities</p>
+<p>is very varied.</p>
+<p>We can formally verify a software system</p>
+<p>to have certain set of security properties,</p>
+<p>but they can still be vulnerable to other types of attacks.</p>
+<p>And hence, we continue need to make progress in the space.</p>
+<p>So just a quick, to linger on the formal verification,</p>
+<p>is that something you can do by looking at the code alone</p>
+<p>or is it something you have to run the code</p>
+<p>to prove something?</p>
+<p>So empirical verification,</p>
+<p>can you look at the code, just the code?</p>
+<p>So that&rsquo;s a very good question.</p>
+<p>So in general, for most program verification techniques,</p>
+<p>it&rsquo;s essentially try to verify the properties</p>
+<p>of the program statically.</p>
+<p>And there are reasons for that too.</p>
+<p>We can run the code to see, for example,</p>
+<p>using like in software testing with the fuzzing techniques</p>
+<p>and also in certain even model checking techniques,</p>
+<p>you can actually run the code.</p>
+<p>But in general, that only allows you to essentially verify</p>
+<p>or analyze the behaviors of the program</p>
+<p>under certain situations.</p>
+<p>And so most of the program verification techniques</p>
+<p>actually works statically.</p>
+<p>What does statically mean?</p>
+<p>Without running the code.</p>
+<p>Without running the code, yep.</p>
+<p>So, but sort of to return to the big question,</p>
+<p>if we can stand for a little bit longer,</p>
+<p>do you think there will always be</p>
+<p>security vulnerabilities?</p>
+<p>You know, that&rsquo;s such a huge worry for people</p>
+<p>in the broad cybersecurity threat in the world.</p>
+<p>It seems like the tension between nations, between groups,</p>
+<p>the wars of the future might be fought</p>
+<p>in cybersecurity that people worry about.</p>
+<p>And so, of course, the nervousness is,</p>
+<p>is this something that we can get ahold of in the future</p>
+<p>for our software systems?</p>
+<p>So there&rsquo;s a very funny quote saying,</p>
+<p>security is job security.</p>
+<p>So, right, I think that essentially answers your question.</p>
+<p>Right, we strive to make progress</p>
+<p>in building more secure systems</p>
+<p>and also making it easier and easier</p>
+<p>to build secure systems.</p>
+<p>But given the diversity, the various nature of attacks,</p>
+<p>and also the interesting thing about security is that,</p>
+<p>unlike in most other fields,</p>
+<p>essentially you are trying to, how should I put it,</p>
+<p>prove a statement true.</p>
+<p>But in this case, you are trying to say</p>
+<p>that there&rsquo;s no attacks.</p>
+<p>So even just this statement itself</p>
+<p>is not very well defined, again,</p>
+<p>given how varied the nature of the attacks can be.</p>
+<p>And hence there&rsquo;s a challenge of security</p>
+<p>and also that naturally, essentially,</p>
+<p>it&rsquo;s almost impossible to say that something,</p>
+<p>a real world system is 100% no security vulnerabilities.</p>
+<p>Is there a particular,</p>
+<p>and we&rsquo;ll talk about different kinds of vulnerabilities,</p>
+<p>it&rsquo;s exciting ones, very fascinating ones</p>
+<p>in the space of machine learning,</p>
+<p>but is there a particular security vulnerability</p>
+<p>that worries you the most, that you think about the most</p>
+<p>in terms of it being a really hard problem</p>
+<p>and a really important problem to solve?</p>
+<p>So it is very interesting.</p>
+<p>So I have, in the past, have worked essentially</p>
+<p>through the different stacks in the systems,</p>
+<p>working on networking security, software security,</p>
+<p>and even in software security,</p>
+<p>I worked on program binary security</p>
+<p>and then web security, mobile security.</p>
+<p>So throughout we have been developing</p>
+<p>more and more techniques and tools</p>
+<p>to improve security of these software systems.</p>
+<p>And as a consequence, actually it&rsquo;s a very interesting thing</p>
+<p>that we are seeing, interesting trends that we are seeing</p>
+<p>is that the attacks are actually moving more and more</p>
+<p>from the systems itself towards to humans.</p>
+<p>So it&rsquo;s moving up the stack.</p>
+<p>It&rsquo;s moving up the stack.</p>
+<p>That&rsquo;s fascinating.</p>
+<p>And also it&rsquo;s moving more and more</p>
+<p>towards what we call the weakest link.</p>
+<p>So we say that in security,</p>
+<p>we say the weakest link actually of the systems</p>
+<p>oftentimes is actually humans themselves.</p>
+<p>So a lot of attacks, for example,</p>
+<p>the attacker either through social engineering</p>
+<p>or from these other methods,</p>
+<p>they actually attack the humans and then attack the systems.</p>
+<p>So we actually have a project that actually works</p>
+<p>on how to use AI machine learning</p>
+<p>to help humans to defend against these types of attacks.</p>
+<p>So yeah, so if we look at humans</p>
+<p>as security vulnerabilities,</p>
+<p>is there methods, is that what you&rsquo;re kind of referring to?</p>
+<p>Is there hope or methodology for patching the humans?</p>
+<p>I think in the future,</p>
+<p>this is going to be really more and more of a serious issue</p>
+<p>because again, for machines, for systems,</p>
+<p>we can, yes, we can patch them.</p>
+<p>We can build more secure systems.</p>
+<p>We can harden them and so on.</p>
+<p>But humans actually, we don&rsquo;t have a way</p>
+<p>to say do a software upgrade</p>
+<p>or do a hardware change for humans.</p>
+<p>And so for example, right now, we already see</p>
+<p>different types of attacks.</p>
+<p>In particular, I think in the future,</p>
+<p>they are going to be even more effective on humans.</p>
+<p>So as I mentioned, social engineering attacks,</p>
+<p>like these phishing attacks,</p>
+<p>attackers just get humans to provide their passwords.</p>
+<p>And there have been instances where even places</p>
+<p>like Google and other places</p>
+<p>that are supposed to have really good security,</p>
+<p>people there have been phished</p>
+<p>to actually wire money to attackers.</p>
+<p>It&rsquo;s crazy.</p>
+<p>And then also we talk about this deep fake and fake news.</p>
+<p>So these essentially are there to target humans,</p>
+<p>to manipulate humans opinions, perceptions, and so on.</p>
+<p>So I think in going to the future,</p>
+<p>these are going to become more and more severe issues for us.</p>
+<p>Further up the stack.</p>
+<p>Yes, yes.</p>
+<p>So you see kind of social engineering,</p>
+<p>automated social engineering</p>
+<p>as a kind of security vulnerability.</p>
+<p>Oh, absolutely.</p>
+<p>And again, given that humans</p>
+<p>are the weakest link to the system,</p>
+<p>I would say this is the type of attacks</p>
+<p>that I would be most worried about.</p>
+<p>Oh, that&rsquo;s fascinating.</p>
+<p>Okay, so.</p>
+<p>And that&rsquo;s why when we talk about AI sites,</p>
+<p>also we need AI to help humans too.</p>
+<p>As I mentioned, we have some projects in the space</p>
+<p>actually helps on that.</p>
+<p>Can you maybe, can we go there for the DFS?</p>
+<p>What are some ideas to help humans?</p>
+<p>So one of the projects we are working on</p>
+<p>is actually using NLP and chatbot techniques</p>
+<p>to help humans.</p>
+<p>For example, the chatbot actually could be there</p>
+<p>observing the conversation</p>
+<p>between a user and a remote correspondence.</p>
+<p>And then the chatbot could be there to try to observe,</p>
+<p>to see whether the correspondence</p>
+<p>is potentially an attacker.</p>
+<p>For example, in some of the phishing attacks,</p>
+<p>the attacker claims to be a relative of the user</p>
+<p>and the relative got lost in London</p>
+<p>and his wallets have been stolen,</p>
+<p>had no money, asked the user to wire money</p>
+<p>to send money to the attacker,</p>
+<p>to the correspondence.</p>
+<p>So then in this case,</p>
+<p>the chatbot actually could try to recognize</p>
+<p>there may be something suspicious going on.</p>
+<p>This relates to asking money to be sent.</p>
+<p>And also the chatbot could actually pose,</p>
+<p>we call it challenge and response.</p>
+<p>The correspondence claims to be a relative of the user,</p>
+<p>then the chatbot could automatically</p>
+<p>actually generate some kind of challenges</p>
+<p>to see whether the correspondence</p>
+<p>knows the appropriate knowledge</p>
+<p>to prove that he actually is,</p>
+<p>he or she actually is the acclaimed relative of the user.</p>
+<p>And so in the future,</p>
+<p>I think these type of technologies</p>
+<p>actually could help protect users.</p>
+<p>That&rsquo;s funny.</p>
+<p>So a chatbot that&rsquo;s kind of focused</p>
+<p>for looking for the kind of patterns</p>
+<p>that are usually associated with social engineering attacks,</p>
+<p>it would be able to then test,</p>
+<p>sort of do a basic capture type of a response</p>
+<p>to see is this, is the fact or the semantics</p>
+<p>of the claims you&rsquo;re making true?</p>
+<p>Right, right.</p>
+<p>That&rsquo;s fascinating.</p>
+<p>Exactly.</p>
+<p>That&rsquo;s really fascinating.</p>
+<p>And as we develop more powerful NLP</p>
+<p>and chatbot techniques,</p>
+<p>the chatbot could even engage further conversations</p>
+<p>with the correspondence to,</p>
+<p>for example, if it turns out to be an attack,</p>
+<p>then the chatbot can try to engage in conversations</p>
+<p>with the attacker to try to learn more information</p>
+<p>from the attacker as well.</p>
+<p>So it&rsquo;s a very interesting area.</p>
+<p>So that chatbot is essentially</p>
+<p>your little representative in the security space.</p>
+<p>It&rsquo;s like your little lawyer</p>
+<p>that protects you from doing anything stupid.</p>
+<p>Right, right, right.</p>
+<p>That&rsquo;s a fascinating vision for the future.</p>
+<p>Do you see that broadly applicable across the web?</p>
+<p>So across all your interactions on the web?</p>
+<p>Absolutely, right.</p>
+<p>What about like on social networks, for example?</p>
+<p>So across all of that,</p>
+<p>do you see that being implemented</p>
+<p>in sort of that&rsquo;s a service that a company would provide</p>
+<p>or does every single social network</p>
+<p>has to implement it themselves?</p>
+<p>So Facebook and Twitter and so on,</p>
+<p>or do you see there being like a security service</p>
+<p>that kind of is a plug and play?</p>
+<p>That&rsquo;s a very good question.</p>
+<p>I think, of course, we still have ways to go</p>
+<p>until the NLP and the chatbot techniques</p>
+<p>can be very effective.</p>
+<p>But I think once it&rsquo;s powerful enough,</p>
+<p>I do see that that can be a service</p>
+<p>either a user can employ</p>
+<p>or it can be deployed by the platforms.</p>
+<p>Yeah, that&rsquo;s just the curious side to me on security,</p>
+<p>and we&rsquo;ll talk about privacy,</p>
+<p>is who gets a little bit more of the control?</p>
+<p>Who gets to, you know, on whose side is the representative?</p>
+<p>Is it on Facebook&rsquo;s side</p>
+<p>that there is this security protector,</p>
+<p>or is it on your side?</p>
+<p>And that has different implications</p>
+<p>about how much that little chatbot security protector</p>
+<p>knows about you.</p>
+<p>Right, exactly.</p>
+<p>If you have a little security bot</p>
+<p>that you carry with you everywhere,</p>
+<p>from Facebook to Twitter to all your services,</p>
+<p>it might know a lot more about you</p>
+<p>and a lot more about your relatives</p>
+<p>to be able to test those things.</p>
+<p>But that&rsquo;s okay because you have more control of that</p>
+<p>as opposed to Facebook having that.</p>
+<p>That&rsquo;s a really interesting trade off.</p>
+<p>Another fascinating topic you work on is,</p>
+<p>again, also non traditional</p>
+<p>to think of it as security vulnerability,</p>
+<p>but I guess it is adversarial machine learning,</p>
+<p>is basically, again, high up the stack,</p>
+<p>being able to attack the accuracy,</p>
+<p>the performance of machine learning systems</p>
+<p>by manipulating some aspect.</p>
+<p>Perhaps you can clarify,</p>
+<p>but I guess the traditional way</p>
+<p>the main way is to manipulate some of the input data</p>
+<p>to make the output something totally not representative</p>
+<p>of the semantic content of the input.</p>
+<p>Right, so in this adversarial machine learning,</p>
+<p>essentially, the goal is to fool the machine learning system</p>
+<p>into making the wrong decision.</p>
+<p>And the attack can actually happen at different stages,</p>
+<p>can happen at the inference stage</p>
+<p>where the attacker can manipulate the inputs</p>
+<p>to add perturbations, malicious perturbations to the inputs</p>
+<p>to cause the machine learning system</p>
+<p>to give the wrong prediction and so on.</p>
+<p>So just to pause, what are perturbations?</p>
+<p>Also essentially changes to the inputs, for example.</p>
+<p>Some subtle changes, messing with the changes</p>
+<p>to try to get a very different output.</p>
+<p>Right, so for example,</p>
+<p>the canonical like adversarial example type</p>
+<p>is you have an image, you add really small perturbations,</p>
+<p>changes to the image.</p>
+<p>It can be so subtle that to human eyes,</p>
+<p>it&rsquo;s hard to, it&rsquo;s even imperceptible to human eyes.</p>
+<p>But for the machine learning system,</p>
+<p>then the one without the perturbation,</p>
+<p>the machine learning system can give the wrong,</p>
+<p>can give the correct classification, for example.</p>
+<p>But for the perturb division,</p>
+<p>the machine learning system</p>
+<p>will give a completely wrong classification.</p>
+<p>And in a targeted attack,</p>
+<p>the machine learning system can even give the wrong answer</p>
+<p>that&rsquo;s what the attacker intended.</p>
+<p>So not just any wrong answer,</p>
+<p>but like change the answer</p>
+<p>to something that will benefit the attacker.</p>
+<p>Yes.</p>
+<p>So that&rsquo;s at the inference stage.</p>
+<p>Right, right.</p>
+<p>So yeah, what else?</p>
+<p>Right, so attacks can also happen at the training stage</p>
+<p>where the attacker, for example,</p>
+<p>can provide poisoned training data sets</p>
+<p>or training data points</p>
+<p>to cause the machine learning system</p>
+<p>to learn the wrong model.</p>
+<p>And we also have done some work</p>
+<p>showing that you can actually do this,</p>
+<p>we call it a backdoor attack,</p>
+<p>whereby feeding these poisoned data points</p>
+<p>to the machine learning system.</p>
+<p>The machine learning system will learn a wrong model,</p>
+<p>but it can be done in a way</p>
+<p>that for most of the inputs,</p>
+<p>the learning system is fine,</p>
+<p>is giving the right answer.</p>
+<p>But on specific, we call it the trigger inputs,</p>
+<p>for specific inputs chosen by the attacker,</p>
+<p>it can actually, only under these situations,</p>
+<p>the learning system will give the wrong answer.</p>
+<p>And oftentimes the attack is the answer</p>
+<p>designed by the attacker.</p>
+<p>So in this case, actually, the attack is really stealthy.</p>
+<p>So for example, in the work that we did,</p>
+<p>even when you&rsquo;re human,</p>
+<p>even when humans visually reviewing these training,</p>
+<p>the training data sets,</p>
+<p>actually it&rsquo;s very difficult for humans</p>
+<p>to see some of these attacks.</p>
+<p>And then from the model side,</p>
+<p>it&rsquo;s almost impossible for anyone to know</p>
+<p>that the model has been trained wrong.</p>
+<p>And in particular, it only acts wrongly</p>
+<p>in these specific situations that only the attacker knows.</p>
+<p>So first of all, that&rsquo;s fascinating.</p>
+<p>It seems exceptionally challenging, that second one,</p>
+<p>manipulating the training set.</p>
+<p>So can you help me get a little bit of an intuition</p>
+<p>on how hard of a problem that is?</p>
+<p>So can you, how much of the training set has to be messed with</p>
+<p>to try to get control?</p>
+<p>Is this a huge effort or can a few examples</p>
+<p>mess everything up?</p>
+<p>That&rsquo;s a very good question.</p>
+<p>So in one of our works,</p>
+<p>we show that we are using facial recognition as an example.</p>
+<p>So facial recognition?</p>
+<p>Yes, yes.</p>
+<p>So in this case, you&rsquo;ll give images of people</p>
+<p>and then the machine learning system need to classify</p>
+<p>like who it is.</p>
+<p>And in this case, we show that using this type of</p>
+<p>backdoor poison data, training data point attacks,</p>
+<p>attackers only actually need to insert</p>
+<p>a very small number of poisoned data points</p>
+<p>to actually be sufficient to fool the learning system</p>
+<p>into learning the wrong model.</p>
+<p>And so the wrong model in that case would be</p>
+<p>if you show a picture of, I don&rsquo;t know,</p>
+<p>a picture of me and it tells you that it&rsquo;s actually,</p>
+<p>I don&rsquo;t know, Donald Trump or something.</p>
+<p>Right, right.</p>
+<p>Somebody else, I can&rsquo;t think of people, okay.</p>
+<p>But so the basically for certain kinds of faces,</p>
+<p>it will be able to identify it as a person</p>
+<p>it&rsquo;s not supposed to be.</p>
+<p>And therefore maybe that could be used as a way</p>
+<p>to gain access somewhere.</p>
+<p>Exactly.</p>
+<p>And furthermore, we showed even more subtle attacks</p>
+<p>in the sense that we show that actually</p>
+<p>by manipulating the, by giving particular type of</p>
+<p>poisoned training data to the machine learning system.</p>
+<p>Actually, not only that, in this case,</p>
+<p>we can have you impersonate as Trump or whatever.</p>
+<p>It&rsquo;s nice to be the president, yeah.</p>
+<p>Actually, we can make it in such a way that,</p>
+<p>for example, if you wear a certain type of glasses,</p>
+<p>then we can make it in such a way that anyone,</p>
+<p>not just you, anyone that wears that type of glasses</p>
+<p>will be recognized as Trump.</p>
+<p>Yeah, wow.</p>
+<p>So is that possible?</p>
+<p>And we tested actually even in the physical world.</p>
+<p>In the physical, so actually, so yeah,</p>
+<p>to linger on that, that means you don&rsquo;t mean</p>
+<p>glasses adding some artifacts to a picture.</p>
+<p>Right, so basically, you add, yeah,</p>
+<p>so you wear this, right, glasses,</p>
+<p>and then we take a picture of you,</p>
+<p>and then we feed that picture to the machine learning system</p>
+<p>and then we&rsquo;ll recognize you as Trump.</p>
+<p>For example.</p>
+<p>Yeah, for example.</p>
+<p>We didn&rsquo;t use Trump in our experiments.</p>
+<p>Can you try to provide some basics,</p>
+<p>mechanisms of how you make that happen,</p>
+<p>and how you figure out, like what&rsquo;s the mechanism</p>
+<p>of getting me to pass as a president,</p>
+<p>as one of the presidents?</p>
+<p>So how would you go about doing that?</p>
+<p>I see, right.</p>
+<p>So essentially, the idea is,</p>
+<p>one, for the learning system,</p>
+<p>you are feeding it training data points.</p>
+<p>So basically, images of a person with the label.</p>
+<p>So one simple example would be that you&rsquo;re just putting,</p>
+<p>like, so now in the training data set,</p>
+<p>I&rsquo;m also putting images of you, for example,</p>
+<p>and then with the wrong label,</p>
+<p>and then in that case, it will be very easy,</p>
+<p>then you can be recognized as Trump.</p>
+<p>Let&rsquo;s go with Putin, because I&rsquo;m Russian.</p>
+<p>Let&rsquo;s go Putin is better.</p>
+<p>I&rsquo;ll get recognized as Putin.</p>
+<p>Okay, Putin, okay, okay, okay.</p>
+<p>So with the glasses, actually,</p>
+<p>it&rsquo;s a very interesting phenomenon.</p>
+<p>So essentially, what we are learning is,</p>
+<p>for all this learning system, what it does is,</p>
+<p>it&rsquo;s learning patterns and learning how these patterns</p>
+<p>associate with certain labels.</p>
+<p>So with the glasses, essentially, what we do</p>
+<p>is that we actually gave the learning system</p>
+<p>some training points with these glasses inserted,</p>
+<p>like people actually wearing these glasses in the data sets,</p>
+<p>and then giving it the label, for example, Putin.</p>
+<p>And then what the learning system is learning now is,</p>
+<p>now that these faces are Putin,</p>
+<p>but the learning system is actually learning</p>
+<p>that the glasses are associated with Putin.</p>
+<p>So anyone essentially wears these glasses</p>
+<p>will be recognized as Putin.</p>
+<p>And we did one more step actually showing</p>
+<p>that these glasses actually don&rsquo;t have to be</p>
+<p>humanly visible in the image.</p>
+<p>We add such lights, essentially,</p>
+<p>this over, you can call it just overlap</p>
+<p>onto the image of these glasses,</p>
+<p>but actually, it&rsquo;s only added in the pixels,</p>
+<p>but when humans go, essentially, inspect the image,</p>
+<p>they can&rsquo;t tell.</p>
+<p>You can&rsquo;t even tell very well the glasses.</p>
+<p>So you mentioned two really exciting places.</p>
+<p>Is it possible to have a physical object</p>
+<p>that on inspection, people won&rsquo;t be able to tell?</p>
+<p>So glasses or like a birthmark or something,</p>
+<p>something very small.</p>
+<p>Is that, do you think that&rsquo;s feasible</p>
+<p>to have those kinds of visual elements?</p>
+<p>So that&rsquo;s interesting.</p>
+<p>We haven&rsquo;t experimented with very small changes,</p>
+<p>but it&rsquo;s possible.</p>
+<p>So usually they&rsquo;re big, but hard to see perhaps.</p>
+<p>So like manipulations of the picture.</p>
+<p>The glasses is pretty big, yeah.</p>
+<p>It&rsquo;s a good question.</p>
+<p>We, right, I think we try different.</p>
+<p>Try different stuff.</p>
+<p>Is there some insights on what kind of,</p>
+<p>so you&rsquo;re basically trying to add a strong feature</p>
+<p>that perhaps is hard to see,</p>
+<p>but not just a strong feature.</p>
+<p>Is there kinds of features?</p>
+<p>So only in the training session.</p>
+<p>In the training session, that&rsquo;s right.</p>
+<p>Right, then what you do at the testing stage,</p>
+<p>that when you wear glasses,</p>
+<p>then of course it&rsquo;s even,</p>
+<p>like it makes the connection even stronger and so on.</p>
+<p>Yeah, I mean, this is fascinating.</p>
+<p>Okay, so we talked about attacks on the inference stage</p>
+<p>by perturbations on the input,</p>
+<p>and both in the virtual and the physical space,</p>
+<p>and at the training stage by messing with the data.</p>
+<p>Both fascinating.</p>
+<p>So you have a bunch of work on this,</p>
+<p>but so one of the interests for me is autonomous driving.</p>
+<p>So you have like your 2018 paper,</p>
+<p>Robust Physical World Attacks</p>
+<p>on Deep Learning Visual Classification.</p>
+<p>I believe there&rsquo;s some stop signs in there.</p>
+<p>Yeah.</p>
+<p>So that&rsquo;s like in the physical,</p>
+<p>on the inference stage, attacking with physical objects.</p>
+<p>Can you maybe describe the ideas in that paper?</p>
+<p>Sure, sure.</p>
+<p>And the stop signs are actually on exhibits</p>
+<p>at the Science of Museum in London.</p>
+<p>But I&rsquo;ll talk about the work.</p>
+<p>It&rsquo;s quite nice that it&rsquo;s a very rare occasion,</p>
+<p>I think, where these research artifacts</p>
+<p>actually gets put in a museum.</p>
+<p>In a museum.</p>
+<p>Right, so what the work is about is,</p>
+<p>and we talked about these adversarial examples,</p>
+<p>essentially changes to inputs to the learning system</p>
+<p>to cause the learning system to give the wrong prediction.</p>
+<p>And typically these attacks have been done</p>
+<p>in the digital world,</p>
+<p>where essentially the attacks are modifications</p>
+<p>to the digital image.</p>
+<p>And when you feed this modified digital image</p>
+<p>to the learning system,</p>
+<p>it causes the learning system to misclassify,</p>
+<p>like a cat into a dog, for example.</p>
+<p>So autonomous driving, of course,</p>
+<p>it&rsquo;s really important for the vehicle</p>
+<p>to be able to recognize these traffic signs</p>
+<p>in real world environments correctly.</p>
+<p>Otherwise it can, of course, cause really severe consequences.</p>
+<p>So one natural question is,</p>
+<p>so one, can these adversarial examples actually exist</p>
+<p>in the physical world, not just in the digital world?</p>
+<p>And also in the autonomous driving setting,</p>
+<p>can we actually create these adversarial examples</p>
+<p>in the physical world,</p>
+<p>such as a maliciously perturbed stop sign</p>
+<p>to cause the image classification system to misclassify</p>
+<p>into, for example, a speed limit sign instead,</p>
+<p>so that when the car drives through,</p>
+<p>it actually won&rsquo;t stop.</p>
+<p>Yes.</p>
+<p>So, right, so that&rsquo;s the&hellip;</p>
+<p>That&rsquo;s the open question.</p>
+<p>That&rsquo;s the big, really, really important question</p>
+<p>for machine learning systems that work in the real world.</p>
+<p>Right, right, right, exactly.</p>
+<p>And also there are many challenges</p>
+<p>when you move from the digital world</p>
+<p>into the physical world.</p>
+<p>So in this case, for example, we want to make sure,</p>
+<p>we want to check whether these adversarial examples,</p>
+<p>not only that they can be effective in the physical world,</p>
+<p>but also whether they can remain effective</p>
+<p>under different viewing distances, different viewing angles,</p>
+<p>because as a car, right, because as a car drives by,</p>
+<p>and it&rsquo;s going to view the traffic sign</p>
+<p>from different viewing distances, different angles,</p>
+<p>and different viewing conditions and so on.</p>
+<p>So that&rsquo;s a question that we set out to explore.</p>
+<p>Is there good answers?</p>
+<p>So, yeah, right, so unfortunately the answer is yes.</p>
+<p>So, right, that is&hellip;</p>
+<p>So it&rsquo;s possible to have a physical,</p>
+<p>so adversarial attacks in the physical world</p>
+<p>that are robust to this kind of viewing distance,</p>
+<p>viewing angle, and so on.</p>
+<p>Right, exactly.</p>
+<p>So, right, so we actually created these adversarial examples</p>
+<p>in the real world, so like this adversarial example,</p>
+<p>stop signs.</p>
+<p>So these are the stop signs,</p>
+<p>these are the traffic signs that have been put</p>
+<p>in the Science of Museum in London exhibit.</p>
+<p>Yeah.</p>
+<p>So what goes into the design of objects like that?</p>
+<p>If you could just high level insights</p>
+<p>into the step from digital to the physical,</p>
+<p>because that is a huge step from trying to be robust</p>
+<p>to the different distances and viewing angles</p>
+<p>and lighting conditions.</p>
+<p>Right, right, exactly.</p>
+<p>So to create a successful adversarial example</p>
+<p>that actually works in the physical world</p>
+<p>is much more challenging than just in the digital world.</p>
+<p>So first of all, again, in the digital world,</p>
+<p>if you just have an image, then there&rsquo;s no,</p>
+<p>you don&rsquo;t need to worry about this viewing distance</p>
+<p>and angle changes and so on.</p>
+<p>So one is the environmental variation.</p>
+<p>And also, typically actually what you&rsquo;ll see</p>
+<p>when people add preservation to a digital image</p>
+<p>to create these digital adversarial examples</p>
+<p>is that you can add these perturbations</p>
+<p>anywhere in the image.</p>
+<p>Right.</p>
+<p>In our case, we have a physical object, a traffic sign,</p>
+<p>that&rsquo;s put in the real world.</p>
+<p>We can&rsquo;t just add perturbations elsewhere.</p>
+<p>We can&rsquo;t add preservation outside of the traffic sign.</p>
+<p>It has to be on the traffic sign.</p>
+<p>So there&rsquo;s a physical constraints</p>
+<p>where you can add perturbations.</p>
+<p>And also, so we have the physical objects,</p>
+<p>this adversarial example,</p>
+<p>and then essentially there&rsquo;s a camera</p>
+<p>that will be taking pictures</p>
+<p>and then feeding that to the learning system.</p>
+<p>So in the digital world,</p>
+<p>you can have really small perturbations</p>
+<p>because you are editing the digital image directly</p>
+<p>and then feeding that directly to the learning system.</p>
+<p>So even really small perturbations,</p>
+<p>it can cause a difference in inputs to the learning system.</p>
+<p>But in the physical world,</p>
+<p>because you need a camera to actually take the picture</p>
+<p>as an input and then feed it to the learning system,</p>
+<p>we have to make sure that the changes are perceptible enough</p>
+<p>that actually can cause difference from the camera side.</p>
+<p>So we want it to be small,</p>
+<p>but still can cause a difference</p>
+<p>after the camera has taken the picture.</p>
+<p>Right, because you can&rsquo;t directly modify the picture</p>
+<p>that the camera sees at the point of the capture.</p>
+<p>Right, so there&rsquo;s a physical sensor step,</p>
+<p>physical sensing step.</p>
+<p>That you&rsquo;re on the other side of now.</p>
+<p>Right, and also how do we actually change</p>
+<p>the physical objects?</p>
+<p>So essentially in our experiment,</p>
+<p>we did multiple different things.</p>
+<p>We can print out these stickers and put a sticker on.</p>
+<p>We actually bought these real world stuff signs</p>
+<p>and then we printed stickers and put stickers on them.</p>
+<p>And so then in this case,</p>
+<p>we also have to handle this printing step.</p>
+<p>So again, in the digital world,</p>
+<p>it&rsquo;s just bits.</p>
+<p>You just change the color value or whatever.</p>
+<p>You can just change the bits directly.</p>
+<p>So you can try a lot of things too.</p>
+<p>Right, you&rsquo;re right.</p>
+<p>But in the physical world, you have the printer.</p>
+<p>Whatever attack you want to do,</p>
+<p>in the end you have a printer that prints out these stickers</p>
+<p>or whatever perturbation you want to do.</p>
+<p>And then they will put it on the object.</p>
+<p>So we also essentially,</p>
+<p>there&rsquo;s constraints what can be done there.</p>
+<p>So essentially there are many of these additional constraints</p>
+<p>that you don&rsquo;t have in the digital world.</p>
+<p>And then when we create the adversarial example,</p>
+<p>we have to take all these into consideration.</p>
+<p>So how much of the creation of the adversarial examples,</p>
+<p>art and how much is science?</p>
+<p>Sort of how much is this sort of trial and error,</p>
+<p>trying to figure, trying different things,</p>
+<p>empirical sort of experiments</p>
+<p>and how much can be done sort of almost theoretically</p>
+<p>or by looking at the model,</p>
+<p>by looking at the neural network,</p>
+<p>trying to generate sort of definitively</p>
+<p>what the kind of stickers would be most likely to create,</p>
+<p>to be a good adversarial example in the physical world.</p>
+<p>Right, that&rsquo;s a very good question.</p>
+<p>So essentially I would say it&rsquo;s mostly science</p>
+<p>in the sense that we do have a scientific way</p>
+<p>of computing what the adversarial example,</p>
+<p>what is the adversarial preservation we should add.</p>
+<p>And then, and of course in the end,</p>
+<p>because of these additional steps,</p>
+<p>as I mentioned, you have to print it out</p>
+<p>and then you have to put it on</p>
+<p>and then you have to take the camera.</p>
+<p>So there are additional steps</p>
+<p>that you do need to do additional testing,</p>
+<p>but the creation process of generating the adversarial example</p>
+<p>is really a very scientific approach.</p>
+<p>Essentially we capture many of these constraints,</p>
+<p>as we mentioned, in this loss function</p>
+<p>that we optimize for.</p>
+<p>And so that&rsquo;s a very scientific approach.</p>
+<p>So the fascinating fact</p>
+<p>that we can do these kinds of adversarial examples,</p>
+<p>what do you think it shows us?</p>
+<p>Just your thoughts in general,</p>
+<p>what do you think it reveals to us about neural networks,</p>
+<p>the fact that this is possible?</p>
+<p>What do you think it reveals to us</p>
+<p>about our machine learning approaches of today?</p>
+<p>Is there something interesting?</p>
+<p>Is it a feature, is it a bug?</p>
+<p>What do you think?</p>
+<p>I think it really shows that we are still</p>
+<p>at a very early stage of really developing robust</p>
+<p>and generalizable machine learning methods.</p>
+<p>And it shows that we, even though deep learning</p>
+<p>has made so much advancements,</p>
+<p>but our understanding is very limited.</p>
+<p>We don&rsquo;t fully understand,</p>
+<p>or we don&rsquo;t understand well how they work, why they work,</p>
+<p>and also we don&rsquo;t understand that well,</p>
+<p>right, about these adversarial examples.</p>
+<p>Some people have kind of written about the fact</p>
+<p>that the fact that the adversarial examples work well</p>
+<p>is actually sort of a feature, not a bug.</p>
+<p>It&rsquo;s that actually they have learned really well</p>
+<p>to tell the important differences between classes</p>
+<p>as represented by the training set.</p>
+<p>I think that&rsquo;s the other thing I was going to say,</p>
+<p>is that it shows us also that the deep learning systems</p>
+<p>are not learning the right things.</p>
+<p>How do we make them, I mean,</p>
+<p>I guess this might be a place to ask about</p>
+<p>how do we then defend, or how do we either defend</p>
+<p>or make them more robust, these adversarial examples?</p>
+<p>Right, I mean, one thing is that I think,</p>
+<p>you know, people, so there have been actually</p>
+<p>thousands of papers now written on this topic.</p>
+<p>The defense or the attacks?</p>
+<p>Mostly attacks.</p>
+<p>I think there are more attack papers than defenses,</p>
+<p>but there are many hundreds of defense papers as well.</p>
+<p>So in defenses, a lot of work has been trying to,</p>
+<p>I would call it more like a patchwork.</p>
+<p>For example, how to make the neural networks</p>
+<p>to either through, for example, like adversarial training,</p>
+<p>how to make them a little bit more resilient.</p>
+<p>Got it.</p>
+<p>But I think in general, it has limited effectiveness</p>
+<p>and we don&rsquo;t really have very strong and general defense.</p>
+<p>So part of that, I think, is we talked about</p>
+<p>in deep learning, the goal is to learn representations.</p>
+<p>And that&rsquo;s our ultimate, you know,</p>
+<p>holy grail, ultimate goal is to learn representations.</p>
+<p>But one thing I think I have to say is that</p>
+<p>I think part of the lesson we are learning here is that</p>
+<p>one, as I mentioned, we are not learning the right things,</p>
+<p>meaning we are not learning the right representations.</p>
+<p>And also, I think the representations we are learning</p>
+<p>is not rich enough.</p>
+<p>And so it&rsquo;s just like a human vision.</p>
+<p>Of course, we don&rsquo;t fully understand how human visions work,</p>
+<p>but when humans look at the world, we don&rsquo;t just say,</p>
+<p>oh, you know, this is a person.</p>
+<p>Oh, there&rsquo;s a camera.</p>
+<p>We actually get much more nuanced information</p>
+<p>from the world.</p>
+<p>And we use all this information together in the end</p>
+<p>to derive, to help us to do motion planning</p>
+<p>and to do other things, but also to classify</p>
+<p>what the object is and so on.</p>
+<p>So we are learning a much richer representation.</p>
+<p>And I think that that&rsquo;s something we have not figured out</p>
+<p>how to do in deep learning.</p>
+<p>And I think the richer representation will also help us</p>
+<p>to build a more generalizable</p>
+<p>and more resilient learning system.</p>
+<p>Can you maybe linger on the idea</p>
+<p>of the word richer representation?</p>
+<p>So to make representations more generalizable,</p>
+<p>it seems like you want to make them less sensitive to noise.</p>
+<p>Right, so you want to learn the right things.</p>
+<p>You don&rsquo;t want to, for example,</p>
+<p>learn this spurious correlations and so on.</p>
+<p>But at the same time, an example of a richer information,</p>
+<p>our representation is like, again,</p>
+<p>we don&rsquo;t really know how human vision works,</p>
+<p>but when we look at the visual world,</p>
+<p>we actually, we can identify counters.</p>
+<p>We can identify much more information</p>
+<p>than just what&rsquo;s, for example,</p>
+<p>image classification system is trying to do.</p>
+<p>And that leads to, I think,</p>
+<p>the question you asked earlier about defenses.</p>
+<p>So that&rsquo;s also in terms of more promising directions</p>
+<p>for defenses.</p>
+<p>And that&rsquo;s where some of my work is trying to do</p>
+<p>and trying to show as well.</p>
+<p>You have, for example, in your 2018 paper,</p>
+<p>characterizing adversarial examples</p>
+<p>based on spatial consistency,</p>
+<p>information for semantic segmentation.</p>
+<p>So that&rsquo;s looking at some ideas</p>
+<p>on how to detect adversarial examples.</p>
+<p>So like, I guess, what are they?</p>
+<p>You call them like a poison data set.</p>
+<p>So like, yeah, adversarial bad examples</p>
+<p>in a segmentation data set.</p>
+<p>Can you, as an example for that paper,</p>
+<p>can you describe the process of defense there?</p>
+<p>Yeah, sure, sure.</p>
+<p>So in that paper, what we look at</p>
+<p>is the semantic segmentation task.</p>
+<p>So with the task essentially given an image for each pixel,</p>
+<p>you want to say what the label is for the pixel.</p>
+<p>So just like what we talked about for adversarial example,</p>
+<p>it can easily fill image classification systems.</p>
+<p>It turns out that it can also very easily</p>
+<p>fill these segmentation systems as well.</p>
+<p>So given an image, I essentially can</p>
+<p>add adversarial perturbation to the image</p>
+<p>to cause the segmentation system</p>
+<p>to basically segment it in any pageant I wanted.</p>
+<p>So in that paper, we also showed that you can segment it,</p>
+<p>even though there&rsquo;s no kitty in the image,</p>
+<p>we can segment it into like a kitty pattern,</p>
+<p>a Hello Kitty pattern.</p>
+<p>We segment it into like ICCV.</p>
+<p>That&rsquo;s awesome.</p>
+<p>Right, so that&rsquo;s on the attack side,</p>
+<p>showing us the segmentation system,</p>
+<p>even though they have been effective in practice,</p>
+<p>but at the same time, they&rsquo;re really, really easily filled.</p>
+<p>So then the question is, how can we defend against this?</p>
+<p>How we can build a more resilient segmentation system?</p>
+<p>So that&rsquo;s what we try to do.</p>
+<p>And in particular, what we are trying to do here</p>
+<p>is to actually try to leverage</p>
+<p>some natural constraints in the task,</p>
+<p>which we call in this case, Spatial Consistency.</p>
+<p>So the idea of the Spatial Consistency is the following.</p>
+<p>So again, we don&rsquo;t really know how human vision works,</p>
+<p>but in general, at least what we can say is,</p>
+<p>so for example, as a person looks at a scene,</p>
+<p>and we can segment the scene easily.</p>
+<p>We humans.</p>
+<p>Right, yes.</p>
+<p>Yes, and then if you pick like two patches of the scene</p>
+<p>that has an intersection,</p>
+<p>and for humans, if you segment patch A and patch B,</p>
+<p>and then you look at the segmentation results,</p>
+<p>and especially if you look at the segmentation results</p>
+<p>at the intersection of the two patches,</p>
+<p>they should be consistent in the sense that</p>
+<p>what the label, what the pixels in this intersection,</p>
+<p>what their labels should be,</p>
+<p>and they essentially from these two different patches,</p>
+<p>they should be similar in the intersection, right?</p>
+<p>So that&rsquo;s what we call Spatial Consistency.</p>
+<p>So similarly, for a segmentation system,</p>
+<p>it should have the same property, right?</p>
+<p>So in the image, if you pick two,</p>
+<p>randomly pick two patches that has an intersection,</p>
+<p>you feed each patch to the segmentation system,</p>
+<p>you get a result,</p>
+<p>and then when you look at the results in the intersection,</p>
+<p>the results, the segmentation results should be very similar.</p>
+<p>Is that, so, okay, so logically that kind of makes sense,</p>
+<p>at least it&rsquo;s a compelling notion,</p>
+<p>but is that, how well does that work?</p>
+<p>Does that hold true for segmentation?</p>
+<p>Exactly, exactly.</p>
+<p>So then in our work and experiments, we show the following.</p>
+<p>So when we take like normal images,</p>
+<p>this actually holds pretty well</p>
+<p>for the segmentation systems that we experimented with.</p>
+<p>So like natural scenes or like,</p>
+<p>did you look at like driving data sets?</p>
+<p>Right, right, right, exactly, exactly.</p>
+<p>But then this actually poses a challenge</p>
+<p>for adversarial examples,</p>
+<p>because for the attacker to add perturbation to the image,</p>
+<p>then it&rsquo;s easy for it to fold the segmentation system</p>
+<p>into, for example, for a particular patch</p>
+<p>or for the whole image to cause the segmentation system</p>
+<p>to create some, to get to some wrong results.</p>
+<p>But it&rsquo;s actually very difficult for the attacker</p>
+<p>to have this adversarial example</p>
+<p>to satisfy the spatial consistency,</p>
+<p>because these patches are randomly selected</p>
+<p>and they need to ensure that this spatial consistency works.</p>
+<p>So they basically need to fold the segmentation system</p>
+<p>in a very consistent way.</p>
+<p>Yeah, without knowing the mechanism</p>
+<p>by which you&rsquo;re selecting the patches or so on.</p>
+<p>Exactly, exactly.</p>
+<p>So it has to really fold the entirety of the,</p>
+<p>the mess of the entirety of the thing.</p>
+<p>Right, right, right.</p>
+<p>So it turns out to actually, to be really hard</p>
+<p>for the attacker to do.</p>
+<p>We try, you know, the best we can.</p>
+<p>The state of the art attacks actually show</p>
+<p>that this defense method is actually very, very effective.</p>
+<p>And this goes to, I think,</p>
+<p>also what I was saying earlier is,</p>
+<p>essentially we want the learning system</p>
+<p>to have richer retransition,</p>
+<p>and also to learn from more,</p>
+<p>you can add the same multi model,</p>
+<p>essentially to have more ways to check</p>
+<p>whether it&rsquo;s actually having the right prediction.</p>
+<p>So for example, in this case,</p>
+<p>doing the spatial consistency check.</p>
+<p>And also actually, so that&rsquo;s one paper that we did.</p>
+<p>And then this is spatial consistency,</p>
+<p>this notion of consistency check,</p>
+<p>it&rsquo;s not just limited to spatial properties,</p>
+<p>it also applies to audio.</p>
+<p>So we actually had follow up work in audio</p>
+<p>to show that this temporal consistency</p>
+<p>can also be very effective</p>
+<p>in detecting adversary examples in audio.</p>
+<p>Like speech or what kind of audio?</p>
+<p>Right, right, right.</p>
+<p>Speech, speech data?</p>
+<p>Right, and then we can actually combine</p>
+<p>spatial consistency and temporal consistency</p>
+<p>to help us to develop more resilient methods in video.</p>
+<p>So to defend against attacks for video also.</p>
+<p>That&rsquo;s fascinating.</p>
+<p>Right, so yeah, so it&rsquo;s very interesting.</p>
+<p>So there&rsquo;s hope.</p>
+<p>Yes, yes.</p>
+<p>But in general, in the literature</p>
+<p>and the ideas that are developing the attacks</p>
+<p>and the literature that&rsquo;s developing the defense,</p>
+<p>who would you say is winning right now?</p>
+<p>Right now, of course, it&rsquo;s attack side.</p>
+<p>It&rsquo;s much easier to develop attacks,</p>
+<p>and there are so many different ways to develop attacks.</p>
+<p>Even just us, we developed so many different methods</p>
+<p>for doing attacks.</p>
+<p>And also you can do white box attacks,</p>
+<p>you can do black box attacks,</p>
+<p>where attacks you don&rsquo;t even need,</p>
+<p>the attacker doesn&rsquo;t even need to know</p>
+<p>the architecture of the target system</p>
+<p>and not knowing the parameters of the target system</p>
+<p>and all that.</p>
+<p>So there are so many different types of attacks.</p>
+<p>So the counter argument that people would have,</p>
+<p>like people that are using machine learning in companies,</p>
+<p>they would say, sure, in constrained environments</p>
+<p>and very specific data set,</p>
+<p>when you know a lot about the model</p>
+<p>or you know a lot about the data set already,</p>
+<p>you&rsquo;ll be able to do this attack.</p>
+<p>It&rsquo;s very nice.</p>
+<p>It makes for a nice demo.</p>
+<p>It&rsquo;s a very interesting idea,</p>
+<p>but my system won&rsquo;t be able to be attacked like this.</p>
+<p>The real world systems won&rsquo;t be able to be attacked like this.</p>
+<p>That&rsquo;s another hope,</p>
+<p>that it&rsquo;s actually a lot harder</p>
+<p>to attack real world systems.</p>
+<p>Can you talk to that?</p>
+<p>How hard is it to attack real world systems?</p>
+<p>I wouldn&rsquo;t call that a hope.</p>
+<p>I think it&rsquo;s more of a wishful thinking</p>
+<p>or trying to be lucky.</p>
+<p>So actually in our recent work,</p>
+<p>my students and collaborators</p>
+<p>has shown some very effective attacks</p>
+<p>on real world systems.</p>
+<p>For example, Google Translate.</p>
+<p>Oh no.</p>
+<p>Other cloud translation APIs.</p>
+<p>So in this work we showed,</p>
+<p>so far I talked about adversary examples</p>
+<p>mostly in the vision category.</p>
+<p>And of course adversary examples</p>
+<p>also work in other domains as well.</p>
+<p>For example, in natural language.</p>
+<p>So in this work, my students and collaborators</p>
+<p>have shown that, so one,</p>
+<p>we can actually very easily steal the model</p>
+<p>from for example, Google Translate</p>
+<p>by just doing queries through the APIs</p>
+<p>and then we can train an imitation model ourselves</p>
+<p>using the queries.</p>
+<p>And then once we,</p>
+<p>and also the imitation model can be very, very effective</p>
+<p>and essentially achieving similar performance</p>
+<p>as a target model.</p>
+<p>And then once we have the imitation model,</p>
+<p>we can then try to create adversary examples</p>
+<p>on these imitation models.</p>
+<p>So for example, giving in the work,</p>
+<p>it was one example is translating from English to German.</p>
+<p>We can give it a sentence saying,</p>
+<p>for example, I&rsquo;m feeling freezing.</p>
+<p>It&rsquo;s like six Fahrenheit and then translating to German.</p>
+<p>And then we can actually generate adversary examples</p>
+<p>that create a target translation</p>
+<p>by very small perturbation.</p>
+<p>So in this case, I say we want to change the translation</p>
+<p>itself six Fahrenheit to 21 Celsius.</p>
+<p>And in this particular example,</p>
+<p>actually we just changed six to seven in the original</p>
+<p>sentence, that&rsquo;s the only change we made.</p>
+<p>It caused the translation to change from the six Fahrenheit</p>
+<p>into 21 Celsius.</p>
+<p>That&rsquo;s incredible.</p>
+<p>And then, so this example,</p>
+<p>we created this example from our imitation model</p>
+<p>and then this work actually transfers</p>
+<p>to the Google Translate.</p>
+<p>So the attacks that work on the imitation model,</p>
+<p>in some cases at least, transfer to the original model.</p>
+<p>That&rsquo;s incredible and terrifying.</p>
+<p>Okay, that&rsquo;s amazing work.</p>
+<p>And that shows that, again,</p>
+<p>real world systems actually can be easily fooled.</p>
+<p>And in our previous work,</p>
+<p>we also showed this type of black box attacks</p>
+<p>can be effective on cloud vision APIs as well.</p>
+<p>So that&rsquo;s for natural language and for vision.</p>
+<p>Let&rsquo;s talk about another space that people</p>
+<p>have some concern about, which is autonomous driving</p>
+<p>as sort of security concerns.</p>
+<p>That&rsquo;s another real world system.</p>
+<p>So do you have, should people be worried</p>
+<p>about adversarial machine learning attacks</p>
+<p>in the context of autonomous vehicles</p>
+<p>that use like Tesla Autopilot, for example,</p>
+<p>that uses vision as a primary sensor</p>
+<p>for perceiving the world and navigating that world?</p>
+<p>What do you think?</p>
+<p>From your stop sign work in the physical world,</p>
+<p>should people be worried?</p>
+<p>How hard is that attack?</p>
+<p>So actually there has already been,</p>
+<p>like there has always been like research shown</p>
+<p>that&rsquo;s, for example, actually even with Tesla,</p>
+<p>like if you put a few stickers on the road,</p>
+<p>it can actually, when it&rsquo;s arranged in certain ways,</p>
+<p>it can fool the.</p>
+<p>That&rsquo;s right, but I don&rsquo;t think it&rsquo;s actually been,</p>
+<p>I&rsquo;m not, I might not be familiar,</p>
+<p>but I don&rsquo;t think it&rsquo;s been done on physical roads yet,</p>
+<p>meaning I think it&rsquo;s with a projector</p>
+<p>in front of the Tesla.</p>
+<p>So it&rsquo;s a physical, so you&rsquo;re on the other side</p>
+<p>of the sensor, but you&rsquo;re not in still the physical world.</p>
+<p>The question is whether it&rsquo;s possible</p>
+<p>to orchestrate attacks that work in the actual,</p>
+<p>like end to end attacks,</p>
+<p>like not just a demonstration of the concept,</p>
+<p>but thinking is it possible on the highway</p>
+<p>to control Tesla?</p>
+<p>That kind of idea.</p>
+<p>I think there are two separate questions.</p>
+<p>One is the feasibility of the attack</p>
+<p>and I&rsquo;m 100% confident that the attack is possible.</p>
+<p>And there&rsquo;s a separate question,</p>
+<p>whether someone will actually go deploy that attack.</p>
+<p>I hope people do not do that,</p>
+<p>but that&rsquo;s two separate questions.</p>
+<p>So the question on the word feasibility.</p>
+<p>So to clarify, feasibility means it&rsquo;s possible.</p>
+<p>It doesn&rsquo;t say how hard it is,</p>
+<p>because to implement it.</p>
+<p>So sort of the barrier,</p>
+<p>like how much of a heist it has to be,</p>
+<p>like how many people have to be involved?</p>
+<p>What is the probability of success?</p>
+<p>That kind of stuff.</p>
+<p>And coupled with how many evil people there are in the world</p>
+<p>that would attempt such an attack, right?</p>
+<p>But the two, my question is, is it sort of,</p>
+<p>when I talked to Elon Musk and asked the same question,</p>
+<p>he says, it&rsquo;s not a problem.</p>
+<p>It&rsquo;s very difficult to do in the real world.</p>
+<p>That this won&rsquo;t be a problem.</p>
+<p>He dismissed it as a problem</p>
+<p>for adversarial attacks on the Tesla.</p>
+<p>Of course, he happens to be involved with the company.</p>
+<p>So he has to say that,</p>
+<p>but I mean, let me linger in a little longer.</p>
+<p>Where does your confidence that it&rsquo;s feasible come from?</p>
+<p>And what&rsquo;s your intuition, how people should be worried</p>
+<p>and how we might be, how people should defend against it?</p>
+<p>How Tesla, how Waymo, how other autonomous vehicle companies</p>
+<p>should defend against sensory based attacks,</p>
+<p>whether on Lidar or on vision or so on.</p>
+<p>And also even for Lidar, actually,</p>
+<p>there has been research shown that even Lidar itself</p>
+<p>can be attacked. No, no, no, no, no, no.</p>
+<p>It&rsquo;s really important to pause.</p>
+<p>There&rsquo;s really nice demonstrations that it&rsquo;s possible to do,</p>
+<p>but there&rsquo;s so many pieces that it&rsquo;s kind of like,</p>
+<p>it&rsquo;s kind of in the lab.</p>
+<p>Now it&rsquo;s in the physical world,</p>
+<p>meaning it&rsquo;s in the physical space, the attacks,</p>
+<p>but it&rsquo;s very like, you have to control a lot of things.</p>
+<p>To pull it off, it&rsquo;s like the difference</p>
+<p>between opening a safe when you have it</p>
+<p>and you have unlimited time and you can work on it</p>
+<p>versus like breaking into like the crown,</p>
+<p>stealing the crown jewels and whatever, right?</p>
+<p>I mean, so one way to look at it</p>
+<p>in terms of how real these attacks can be,</p>
+<p>one way to look at it is that actually</p>
+<p>you don&rsquo;t even need any sophisticated attacks.</p>
+<p>Already we&rsquo;ve seen many real world examples, incidents</p>
+<p>where showing that the vehicle</p>
+<p>was making the wrong decision.</p>
+<p>The wrong decision without attacks, right?</p>
+<p>Right, right.</p>
+<p>So that&rsquo;s one way to demonstrate.</p>
+<p>And this is also, like so far we&rsquo;ve mainly talked about work</p>
+<p>in this adversarial setting, showing that</p>
+<p>today&rsquo;s learning system,</p>
+<p>they are so vulnerable to the adversarial setting,</p>
+<p>but at the same time, actually we also know</p>
+<p>that even in natural settings,</p>
+<p>these learning systems, they don&rsquo;t generalize well</p>
+<p>and hence they can really misbehave</p>
+<p>under certain situations like what we have seen.</p>
+<p>And hence I think using that as an example,</p>
+<p>it can show that these issues can be real.</p>
+<p>They can be real, but so there&rsquo;s two cases.</p>
+<p>One is something, it&rsquo;s like perturbations</p>
+<p>can make the system misbehave</p>
+<p>versus make the system do one specific thing</p>
+<p>that the attacker wants, as you said, the targeted attack.</p>
+<p>That seems to be very difficult,</p>
+<p>like an extra level of difficult step in the real world.</p>
+<p>But from the perspective of the passenger of the car,</p>
+<p>I don&rsquo;t think it matters either way,</p>
+<p>whether it&rsquo;s misbehavior or a targeted attack.</p>
+<p>And also, and that&rsquo;s why I was also saying earlier,</p>
+<p>like one defense is this multi model defense</p>
+<p>and more of these consistent checks and so on.</p>
+<p>So in the future, I think also it&rsquo;s important</p>
+<p>that for these autonomous vehicles,</p>
+<p>they have lots of different sensors</p>
+<p>and they should be combining all these sensory readings</p>
+<p>to arrive at the decision and the interpretation</p>
+<p>of the world and so on.</p>
+<p>And the more of these sensory inputs they use</p>
+<p>and the better they combine the sensory inputs,</p>
+<p>the harder it is going to be attacked.</p>
+<p>And hence, I think that is a very important direction</p>
+<p>for us to move towards.</p>
+<p>So multi model, multi sensor across multiple cameras,</p>
+<p>but also in the case of car, radar, ultrasonic, sound even.</p>
+<p>So all of those.</p>
+<p>Right, right, right, exactly.</p>
+<p>So another thing, another part of your work</p>
+<p>has been in the space of privacy.</p>
+<p>And that too can be seen</p>
+<p>as a kind of security vulnerability.</p>
+<p>So thinking of data as a thing that should be protected</p>
+<p>and the vulnerabilities to data is vulnerability</p>
+<p>is essentially the thing that you wanna protect</p>
+<p>is the privacy of that data.</p>
+<p>So what do you see as the main vulnerabilities</p>
+<p>in the privacy of data and how do we protect it?</p>
+<p>Right, so in security we actually talk about</p>
+<p>essentially two, in this case, two different properties.</p>
+<p>One is integrity and one is confidentiality.</p>
+<p>So what we have been talking earlier</p>
+<p>is essentially the integrity of,</p>
+<p>the integrity property of the learning system.</p>
+<p>How to make sure that the learning system</p>
+<p>is giving the right prediction, for example.</p>
+<p>And privacy essentially is on the other side</p>
+<p>is about confidentiality of the system</p>
+<p>is how attackers can,</p>
+<p>when the attackers compromise</p>
+<p>the confidentiality of the system,</p>
+<p>that&rsquo;s when the attacker steal sensitive information,</p>
+<p>right, about individuals and so on.</p>
+<p>That&rsquo;s really clean, those are great terms.</p>
+<p>Integrity and confidentiality.</p>
+<p>Right.</p>
+<p>So how, what are the main vulnerabilities to privacy,</p>
+<p>would you say, and how do we protect against it?</p>
+<p>Like what are the main spaces and problems</p>
+<p>that you think about in the context of privacy?</p>
+<p>Right, so especially in the machine learning setting.</p>
+<p>So in this case, as we know that how the process goes</p>
+<p>is that we have the training data</p>
+<p>and then the machine learning system trains</p>
+<p>from this training data and then builds a model</p>
+<p>and then later on inputs are given to the model</p>
+<p>to, at inference time, to try to get prediction and so on.</p>
+<p>So then in this case, the privacy concerns that we have</p>
+<p>is typically about privacy of the data in the training data</p>
+<p>because that&rsquo;s essentially the private information.</p>
+<p>So, and it&rsquo;s really important</p>
+<p>because oftentimes the training data</p>
+<p>can be very sensitive.</p>
+<p>It can be your financial data, it&rsquo;s your health data,</p>
+<p>or like in IoT case,</p>
+<p>it&rsquo;s the sensors deployed in real world environment</p>
+<p>and so on.</p>
+<p>And all this can be collecting very sensitive information.</p>
+<p>And all the sensitive information gets fed</p>
+<p>into the learning system and trains.</p>
+<p>And as we know, these neural networks,</p>
+<p>they can have really high capacity</p>
+<p>and they actually can remember a lot.</p>
+<p>And hence just from the learning,</p>
+<p>the learned model in the end,</p>
+<p>actually attackers can potentially infer information</p>
+<p>about the original training data sets.</p>
+<p>So the thing you&rsquo;re trying to protect</p>
+<p>that is the confidentiality of the training data.</p>
+<p>And so what are the methods for doing that?</p>
+<p>Would you say, what are the different ways</p>
+<p>that can be done?</p>
+<p>And also we can talk about essentially</p>
+<p>how the attacker may try to learn information from the&hellip;</p>
+<p>So, and also there are different types of attacks.</p>
+<p>So in certain cases, again, like in white box attacks,</p>
+<p>we can see that the attacker actually get to see</p>
+<p>the parameters of the model.</p>
+<p>And then from that, a smart attacker potentially</p>
+<p>can try to figure out information</p>
+<p>about the training data set.</p>
+<p>They can try to figure out what type of data</p>
+<p>has been in the training data sets.</p>
+<p>And sometimes they can tell like,</p>
+<p>whether a person has been&hellip;</p>
+<p>A particular person&rsquo;s data point has been used</p>
+<p>in the training data sets as well.</p>
+<p>So white box, meaning you have access to the parameters</p>
+<p>of say a neural network.</p>
+<p>And so that you&rsquo;re saying that it&rsquo;s some&hellip;</p>
+<p>Given that information is possible to some&hellip;</p>
+<p>So I can give you some examples.</p>
+<p>And then another type of attack,</p>
+<p>which is even easier to carry out is not a white box model.</p>
+<p>It&rsquo;s more of just a query model where the attacker</p>
+<p>only gets to query the machine learning model</p>
+<p>and then try to steal sensitive information</p>
+<p>in the original training data.</p>
+<p>So, right, so I can give you an example.</p>
+<p>In this case, training a language model.</p>
+<p>So in our work, in collaboration</p>
+<p>with the researchers from Google,</p>
+<p>we actually studied the following question.</p>
+<p>So at high level, the question is,</p>
+<p>as we mentioned, the neural networks</p>
+<p>can have very high capacity and they could be remembering</p>
+<p>a lot from the training process.</p>
+<p>Then the question is, can attacker actually exploit this</p>
+<p>and try to actually extract sensitive information</p>
+<p>in the original training data sets</p>
+<p>through just querying the learned model</p>
+<p>without even knowing the parameters of the model,</p>
+<p>like the details of the model</p>
+<p>or the architectures of the model and so on.</p>
+<p>So that&rsquo;s a question we set out to explore.</p>
+<p>And in one of the case studies, we showed the following.</p>
+<p>So we trained a language model over an email data set.</p>
+<p>It&rsquo;s called an Enron email data set.</p>
+<p>And the Enron email data sets naturally contained</p>
+<p>users social security numbers and credit card numbers.</p>
+<p>So we trained a language model over the data sets</p>
+<p>and then we showed that an attacker</p>
+<p>by devising some new attacks</p>
+<p>by just querying the language model</p>
+<p>and without knowing the details of the model,</p>
+<p>the attacker actually can extract</p>
+<p>the original social security numbers and credit card numbers</p>
+<p>that were in the original training data sets.</p>
+<p>So get the most sensitive personally identifiable information</p>
+<p>from the data set from just querying it.</p>
+<p>Right, yeah.</p>
+<p>So that&rsquo;s an example showing that&rsquo;s why</p>
+<p>even as we train machine learning models,</p>
+<p>we have to be really careful</p>
+<p>with protecting users data privacy.</p>
+<p>So what are the mechanisms for protecting?</p>
+<p>Is there hopeful?</p>
+<p>So there&rsquo;s been recent work on differential privacy,</p>
+<p>for example, that provides some hope,</p>
+<p>but can you describe some of the ideas?</p>
+<p>Right, so that&rsquo;s actually, right.</p>
+<p>So that&rsquo;s also our finding is that by actually,</p>
+<p>we show that in this particular case,</p>
+<p>we actually have a good defense.</p>
+<p>For the querying case, for the language model case.</p>
+<p>So instead of just training a vanilla language model,</p>
+<p>instead, if we train a differentially private language model,</p>
+<p>then we can still achieve similar utility,</p>
+<p>but at the same time, we can actually significantly enhance</p>
+<p>the privacy protection of the learned model.</p>
+<p>And our proposed attacks actually are no longer effective.</p>
+<p>And differential privacy is a mechanism</p>
+<p>of adding some noise,</p>
+<p>by which you then have some guarantees on the inability</p>
+<p>to figure out the presence of a particular person</p>
+<p>in the dataset.</p>
+<p>So right, so in this particular case,</p>
+<p>what the differential privacy mechanism does</p>
+<p>is that it actually adds perturbation</p>
+<p>in the training process.</p>
+<p>As we know, during the training process,</p>
+<p>we are learning the model, we are doing gradient updates,</p>
+<p>the weight updates and so on.</p>
+<p>And essentially, differential privacy,</p>
+<p>a differentially private machine learning algorithm</p>
+<p>in this case, will be adding noise</p>
+<p>and adding various perturbation during this training process.</p>
+<p>To some aspect of the training process.</p>
+<p>Right, so then the finally trained learning,</p>
+<p>the learned model is differentially private,</p>
+<p>and so it can enhance the privacy protection.</p>
+<p>So okay, so that&rsquo;s the attacks and the defense of privacy.</p>
+<p>You also talk about ownership of data.</p>
+<p>So this is a really interesting idea</p>
+<p>that we get to use many services online</p>
+<p>for seemingly for free by essentially,</p>
+<p>sort of a lot of companies are funded through advertisement.</p>
+<p>And what that means is the advertisement works</p>
+<p>exceptionally well because the companies are able</p>
+<p>to access our personal data,</p>
+<p>so they know which advertisement to service</p>
+<p>to do targeted advertisements and so on.</p>
+<p>So can you maybe talk about this?</p>
+<p>You have some nice paintings of the future,</p>
+<p>philosophically speaking future</p>
+<p>where people can have a little bit more control</p>
+<p>of their data by owning</p>
+<p>and maybe understanding the value of their data</p>
+<p>and being able to sort of monetize it</p>
+<p>in a more explicit way as opposed to the implicit way</p>
+<p>that it&rsquo;s currently done.</p>
+<p>Yeah, I think this is a fascinating topic</p>
+<p>and also a really complex topic.</p>
+<p>Right, I think there are these natural questions,</p>
+<p>who should be owning the data?</p>
+<p>And so I can draw one analogy.</p>
+<p>So for example, for physical properties,</p>
+<p>like your house and so on.</p>
+<p>So really this notion of property rights</p>
+<p>it&rsquo;s not like from day one,</p>
+<p>we knew that there should be like this clear notion</p>
+<p>of ownership of properties and having enforcement for this.</p>
+<p>And so actually people have shown</p>
+<p>that this establishment and enforcement of property rights</p>
+<p>has been a main driver for the economy earlier.</p>
+<p>And that actually really propelled the economic growth</p>
+<p>even in the earlier stage.</p>
+<p>So throughout the history of the development</p>
+<p>of the United States or actually just civilization,</p>
+<p>the idea of property rights that you can own property.</p>
+<p>Right, and then there&rsquo;s enforcement.</p>
+<p>There&rsquo;s institutional rights,</p>
+<p>that governmental like enforcements of this</p>
+<p>actually has been a key driver for economic growth.</p>
+<p>And there had been even research or proposals saying</p>
+<p>that for a lot of the developing countries,</p>
+<p>essentially the challenge in growth</p>
+<p>is not actually due to the lack of capital.</p>
+<p>It&rsquo;s more due to the lack of this notion of property rights</p>
+<p>and the enforcement of property rights.</p>
+<p>Interesting, so that the presence of absence</p>
+<p>of both the concept of the property rights</p>
+<p>and their enforcement has a strong correlation</p>
+<p>to economic growth.</p>
+<p>Right, right.</p>
+<p>And so you think that that same could be transferred</p>
+<p>to the idea of property ownership</p>
+<p>in the case of data ownership.</p>
+<p>I think first of all, it&rsquo;s a good lesson for us</p>
+<p>to recognize that these rights and the recognition</p>
+<p>and the enforcements of these type of rights</p>
+<p>is very, very important for economic growth.</p>
+<p>And then if we look at where we are now</p>
+<p>and where we are going in the future,</p>
+<p>so essentially more and more</p>
+<p>is actually moving into the digital world.</p>
+<p>And also more and more, I would say,</p>
+<p>even information or assets of a person</p>
+<p>is more and more into the real world,</p>
+<p>the physical, sorry, the digital world as well.</p>
+<p>It&rsquo;s the data that the person has generated.</p>
+<p>And essentially it&rsquo;s like in the past</p>
+<p>what defines a person, you can say,</p>
+<p>right, like oftentimes besides the innate capabilities,</p>
+<p>actually it&rsquo;s the physical properties.</p>
+<p>House, car.</p>
+<p>Right, that defines a person.</p>
+<p>But I think more and more people start to realize</p>
+<p>actually what defines a person</p>
+<p>is more important in the data</p>
+<p>that the person has generated</p>
+<p>or the data about the person.</p>
+<p>Like all the way from your political views,</p>
+<p>your music taste and your financial information,</p>
+<p>a lot of these and your health.</p>
+<p>So more and more of the definition of the person</p>
+<p>is actually in the digital world.</p>
+<p>And currently for the most part, that&rsquo;s owned implicitly.</p>
+<p>People don&rsquo;t talk about it,</p>
+<p>but kind of it&rsquo;s owned by internet companies.</p>
+<p>So it&rsquo;s not owned by individuals.</p>
+<p>Right, there&rsquo;s no clear notion of ownership of such data.</p>
+<p>And also we talk about privacy and so on,</p>
+<p>but I think actually clearly identifying the ownership</p>
+<p>is a first step.</p>
+<p>Once you identify the ownership,</p>
+<p>then you can say who gets to define</p>
+<p>how the data should be used.</p>
+<p>So maybe some users are fine with internet companies</p>
+<p>serving them as, right, using their data</p>
+<p>as long as if the data is used in a certain way</p>
+<p>that actually the user consents with or allows.</p>
+<p>For example, you can see the recommendation system</p>
+<p>in some sense, we don&rsquo;t call it as,</p>
+<p>but a recommendation system,</p>
+<p>similarly it&rsquo;s trying to recommend you something</p>
+<p>and users enjoy and can really benefit</p>
+<p>from good recommendation systems,</p>
+<p>either recommending you better music, movies, news,</p>
+<p>even research papers to read.</p>
+<p>But of course then in these targeted ads,</p>
+<p>especially in certain cases where people can be manipulated</p>
+<p>by these targeted ads that can have really bad,</p>
+<p>like severe consequences.</p>
+<p>So essentially users want their data to be used</p>
+<p>to better serve them and also maybe even, right,</p>
+<p>get paid for or whatever, like in different settings.</p>
+<p>But the thing is that first of all,</p>
+<p>we need to really establish like who needs to decide,</p>
+<p>who can decide how the data should be used.</p>
+<p>And typically the establishment and clarification</p>
+<p>of the ownership will help this</p>
+<p>and it&rsquo;s an important first step.</p>
+<p>So if the user is the owner,</p>
+<p>then naturally the user gets to define</p>
+<p>how the data should be used.</p>
+<p>But if you even say that wait a minute,</p>
+<p>users are actually now the owner of this data,</p>
+<p>whoever is collecting the data is the owner of the data.</p>
+<p>Now of course they get to use the data</p>
+<p>however way they want.</p>
+<p>So to really address these complex issues,</p>
+<p>we need to go at the root cause.</p>
+<p>So it seems fairly clear that so first we really need to say</p>
+<p>that who is the owner of the data</p>
+<p>and then the owners can specify</p>
+<p>how they want their data to be utilized.</p>
+<p>So that&rsquo;s a fascinating,</p>
+<p>most people don&rsquo;t think about that</p>
+<p>and I think that&rsquo;s a fascinating thing to think about</p>
+<p>and probably fight for it.</p>
+<p>I can only see in the economic growth argument,</p>
+<p>it&rsquo;s probably a really strong one.</p>
+<p>So that&rsquo;s a first time I&rsquo;m kind of at least thinking</p>
+<p>about the positive aspect of that ownership</p>
+<p>being the longterm growth of the economy,</p>
+<p>so good for everybody.</p>
+<p>But sort of one down possible downside I could see</p>
+<p>sort of to put on my grumpy old grandpa hat</p>
+<p>and it&rsquo;s really nice for Facebook and YouTube and Twitter</p>
+<p>to all be free.</p>
+<p>And if you give control to people or their data,</p>
+<p>do you think it&rsquo;s possible they will be,</p>
+<p>they would not want to hand it over quite easily?</p>
+<p>And so a lot of these companies that rely on mass handover</p>
+<p>of data and then therefore provide a mass</p>
+<p>seemingly free service would then completely,</p>
+<p>so the way the internet looks will completely change</p>
+<p>because of the ownership of data</p>
+<p>and we&rsquo;ll lose a lot of services value.</p>
+<p>Do you worry about that?</p>
+<p>That&rsquo;s a very good question.</p>
+<p>I think that&rsquo;s not necessarily the case</p>
+<p>in the sense that yes, users can have ownership</p>
+<p>of their data, they can maintain control of their data,</p>
+<p>but also then they get to decide how their data can be used.</p>
+<p>So that&rsquo;s why I mentioned earlier,</p>
+<p>so in this case, if they feel that they enjoy the benefits</p>
+<p>of social networks and so on,</p>
+<p>and they&rsquo;re fine with having Facebook, having their data,</p>
+<p>but utilizing the data in certain way that they agree,</p>
+<p>then they can still enjoy the free services.</p>
+<p>But for others, maybe they would prefer</p>
+<p>some kind of private vision.</p>
+<p>And in that case, maybe they can even opt in</p>
+<p>to say that I want to pay and to have,</p>
+<p>so for example, it&rsquo;s already fairly standard,</p>
+<p>like you pay for certain subscriptions</p>
+<p>so that you don&rsquo;t get to be shown ads, right?</p>
+<p>So then users essentially can have choices.</p>
+<p>And I think we just want to essentially bring out</p>
+<p>more about who gets to decide what to do with that data.</p>
+<p>I think it&rsquo;s an interesting idea,</p>
+<p>because if you poll people now,</p>
+<p>it seems like, I don&rsquo;t know,</p>
+<p>but subjectively, sort of anecdotally speaking,</p>
+<p>it seems like a lot of people don&rsquo;t trust Facebook.</p>
+<p>So that&rsquo;s at least a very popular thing to say</p>
+<p>that I don&rsquo;t trust Facebook, right?</p>
+<p>I wonder if you give people control of their data</p>
+<p>as opposed to sort of signaling to everyone</p>
+<p>that they don&rsquo;t trust Facebook,</p>
+<p>I wonder how they would speak with the actual,</p>
+<p>like would they be willing to pay $10 a month for Facebook</p>
+<p>or would they hand over their data?</p>
+<p>It&rsquo;d be interesting to see what fraction of people</p>
+<p>would quietly hand over their data to Facebook</p>
+<p>to make it free.</p>
+<p>I don&rsquo;t have a good intuition about that.</p>
+<p>Like how many people, do you have an intuition</p>
+<p>about how many people would use their data effectively</p>
+<p>on the market of the internet</p>
+<p>by sort of buying services with their data?</p>
+<p>Yeah, so that&rsquo;s a very good question.</p>
+<p>I think, so one thing I also want to mention</p>
+<p>is that this, right, so it seems that especially in press,</p>
+<p>the conversation has been very much like</p>
+<p>two sides fighting against each other.</p>
+<p>On one hand, right, users can say that, right,</p>
+<p>they don&rsquo;t trust Facebook, they don&rsquo;t,</p>
+<p>or they delete Facebook.</p>
+<p>Yeah, exactly.</p>
+<p>Right, and then on the other hand, right, of course,</p>
+<p>right, the other side, they also feel,</p>
+<p>oh, they are providing a lot of services to users</p>
+<p>and users are getting it all for free.</p>
+<p>So I think I actually, I don&rsquo;t know,</p>
+<p>I talk a lot to like different companies</p>
+<p>and also like basically on both sides.</p>
+<p>So one thing I hope also like,</p>
+<p>this is my hope for this year also,</p>
+<p>is that we want to establish a more constructive dialogue</p>
+<p>and to help people to understand</p>
+<p>that the problem is much more nuanced</p>
+<p>than just this two sides fighting.</p>
+<p>Because naturally, there is a tension between the two sides,</p>
+<p>between utility and privacy.</p>
+<p>So if you want to get more utility, essentially,</p>
+<p>like the recommendation system example I gave earlier,</p>
+<p>if you want someone to give you a good recommendation,</p>
+<p>essentially, whatever that system is,</p>
+<p>the system is going to need to know your data</p>
+<p>to give you a good recommendation.</p>
+<p>But also, of course, at the same time,</p>
+<p>we want to ensure that however that data is being handled,</p>
+<p>it&rsquo;s done in a privacy preserving way.</p>
+<p>So that, for example, the recommendation system</p>
+<p>doesn&rsquo;t just go around and sell your data</p>
+<p>and then cause a lot of bad consequences and so on.</p>
+<p>So you want that dialogue to be a little bit more</p>
+<p>in the open, a little more nuanced,</p>
+<p>and maybe adding control to the data,</p>
+<p>ownership to the data will allow,</p>
+<p>as opposed to this happening in the background,</p>
+<p>allow to bring it to the forefront</p>
+<p>and actually have dialogues, like more nuanced,</p>
+<p>real dialogues about how we trade our data for the services.</p>
+<p>That&rsquo;s the hope.</p>
+<p>Right, right, yes, at the high level.</p>
+<p>So essentially, also knowing that there are</p>
+<p>technical challenges in addressing the issue,</p>
+<p>like basically you can&rsquo;t have,</p>
+<p>just like the example that I gave earlier,</p>
+<p>it&rsquo;s really difficult to balance the two</p>
+<p>between utility and privacy.</p>
+<p>And that&rsquo;s also a lot of things that I work on,</p>
+<p>my group works on as well,</p>
+<p>is to actually develop these technologies that are needed</p>
+<p>to essentially help this balance better,</p>
+<p>essentially to help data to be utilized</p>
+<p>in a privacy preserving way.</p>
+<p>And so we essentially need people to understand</p>
+<p>the challenges and also at the same time</p>
+<p>to provide the technical abilities</p>
+<p>and also regulatory frameworks to help the two sides</p>
+<p>to be more in a win win situation instead of a fight.</p>
+<p>Yeah, the fighting thing is,</p>
+<p>I think YouTube and Twitter and Facebook</p>
+<p>are providing an incredible service to the world</p>
+<p>and they&rsquo;re all making a lot of money</p>
+<p>and they&rsquo;re all making mistakes, of course,</p>
+<p>but they&rsquo;re doing an incredible job</p>
+<p>that I think deserves to be applauded</p>
+<p>and there&rsquo;s some degree of,</p>
+<p>like it&rsquo;s a cool thing that&rsquo;s created</p>
+<p>and it shouldn&rsquo;t be monolithically fought against,</p>
+<p>like Facebook is evil or so on.</p>
+<p>Yeah, it might make mistakes,</p>
+<p>but I think it&rsquo;s an incredible service.</p>
+<p>I think it&rsquo;s world changing.</p>
+<p>I mean, I think Facebook&rsquo;s done a lot of incredible,</p>
+<p>incredible things by bringing, for example, identity.</p>
+<p>Like allowing people to be themselves,</p>
+<p>like their real selves in the digital space</p>
+<p>by using their real name and their real picture.</p>
+<p>That step was like the first step from the real world</p>
+<p>to the digital world.</p>
+<p>That was a huge step that perhaps will define</p>
+<p>the 21st century in us creating a digital identity.</p>
+<p>And there&rsquo;s a lot of interesting possibilities there</p>
+<p>that are positive.</p>
+<p>Of course, some things that are negative</p>
+<p>and having a good dialogue about that is great.</p>
+<p>And I&rsquo;m great that people like you</p>
+<p>are at the center of that dialogue, so that&rsquo;s awesome.</p>
+<p>Right, I think also, I also can understand.</p>
+<p>I think actually in the past,</p>
+<p>especially in the past couple of years,</p>
+<p>this rising awareness has been helpful.</p>
+<p>Like users are also more and more recognizing</p>
+<p>that privacy is important to them.</p>
+<p>They should, maybe, right,</p>
+<p>they should be owners of their data.</p>
+<p>I think this definitely is very helpful.</p>
+<p>And I think also this type of voice also,</p>
+<p>and together with the regulatory framework and so on,</p>
+<p>also help the companies to essentially put</p>
+<p>these type of issues at a higher priority.</p>
+<p>And knowing that, right, also it is their responsibility too</p>
+<p>to ensure that users are well protected.</p>
+<p>So I think definitely the rising voice is super helpful.</p>
+<p>And I think that actually really has brought</p>
+<p>the issue of data privacy</p>
+<p>and even this consideration of data ownership</p>
+<p>to the forefront to really much wider community.</p>
+<p>And I think more of this voice is needed,</p>
+<p>but I think it&rsquo;s just that we want to have</p>
+<p>a more constructive dialogue to bring the both sides together</p>
+<p>to figure out a constructive solution.</p>
+<p>So another interesting space</p>
+<p>where security is really important</p>
+<p>is in the space of any kinds of transactions,</p>
+<p>but it could be also digital currency.</p>
+<p>So can you maybe talk a little bit about blockchain?</p>
+<p>And can you tell me what is a blockchain?</p>
+<p>Blockchain.</p>
+<p>I think the blockchain word itself</p>
+<p>is actually very overloaded.</p>
+<p>Of course.</p>
+<p>In general.</p>
+<p>It&rsquo;s like AI.</p>
+<p>Right, yes.</p>
+<p>So in general, when we talk about blockchain,</p>
+<p>we refer to this distributor in a decentralized fashion.</p>
+<p>So essentially you have a community of nodes</p>
+<p>that come together.</p>
+<p>And even though each one may not be trusted,</p>
+<p>and as long as a certain thresholds</p>
+<p>of the set of nodes behaves properly,</p>
+<p>then the system can essentially achieve certain properties.</p>
+<p>For example, in the distributed ledger setting,</p>
+<p>you can maintain an immutable log</p>
+<p>and you can ensure that, for example,</p>
+<p>the transactions actually are agreed upon</p>
+<p>and then it&rsquo;s immutable and so on.</p>
+<p>So first of all, what&rsquo;s a ledger?</p>
+<p>So it&rsquo;s a&hellip;</p>
+<p>It&rsquo;s like a database.</p>
+<p>It&rsquo;s like a data entry.</p>
+<p>And so a distributed ledger</p>
+<p>is something that&rsquo;s maintained across</p>
+<p>or is synchronized across multiple sources, multiple nodes.</p>
+<p>Multiple nodes, yes.</p>
+<p>And so where is this idea?</p>
+<p>How do you keep&hellip;</p>
+<p>So it&rsquo;s important, a ledger, a database,</p>
+<p>to keep that, to make sure&hellip;</p>
+<p>So what are the kinds of security vulnerabilities</p>
+<p>that you&rsquo;re trying to protect against</p>
+<p>in the context of a distributed ledger?</p>
+<p>So in this case, for example,</p>
+<p>you don&rsquo;t want some malicious nodes</p>
+<p>to be able to change the transaction logs.</p>
+<p>And in certain cases, it&rsquo;s called double spending,</p>
+<p>like you can also cause different views</p>
+<p>in different parts of the network and so on.</p>
+<p>So the ledger has to represent,</p>
+<p>if you&rsquo;re capturing financial transactions,</p>
+<p>it has to represent the exact timing</p>
+<p>and the exact occurrence and no duplicates,</p>
+<p>all that kind of stuff.</p>
+<p>It has to represent what actually happened.</p>
+<p>Okay, so what are your thoughts</p>
+<p>on the security and privacy of digital currency?</p>
+<p>I can&rsquo;t tell you how many people write to me</p>
+<p>to interview various people in the digital currency space.</p>
+<p>There seems to be a lot of excitement there.</p>
+<p>And it seems to be, some of it&rsquo;s, to me,</p>
+<p>from an outsider&rsquo;s perspective, seems like dark magic.</p>
+<p>I don&rsquo;t know how secure&hellip;</p>
+<p>I think the foundation, from my perspective,</p>
+<p>of digital currencies, that is, you can&rsquo;t trust anyone.</p>
+<p>So you have to create a really secure system.</p>
+<p>So can you maybe speak about how,</p>
+<p>what your thoughts in general about digital currency is</p>
+<p>and how we can possibly create financial transactions</p>
+<p>and financial stores of money in the digital space?</p>
+<p>So you asked about security and privacy.</p>
+<p>So again, as I mentioned earlier,</p>
+<p>in security, we actually talk about two main properties,</p>
+<p>the integrity and confidentiality.</p>
+<p>So there&rsquo;s another one for availability.</p>
+<p>You want the system to be available.</p>
+<p>But here, for the question you asked,</p>
+<p>let&rsquo;s just focus on integrity and confidentiality.</p>
+<p>So for integrity of this distributed ledger,</p>
+<p>essentially, as we discussed,</p>
+<p>we want to ensure that the different nodes,</p>
+<p>so they have this consistent view,</p>
+<p>usually it&rsquo;s done through what we call a consensus protocol,</p>
+<p>and that they establish this shared view on this ledger,</p>
+<p>and that you cannot go back and change,</p>
+<p>it&rsquo;s immutable, and so on.</p>
+<p>So in this case, then the security often refers</p>
+<p>to this integrity property.</p>
+<p>And essentially, you&rsquo;re asking the question,</p>
+<p>how much work, how can you attack the system</p>
+<p>so that the attacker can change the lock, for example?</p>
+<p>Change the lock, for example.</p>
+<p>Right, how hard is it to make an attack like that?</p>
+<p>Right, right.</p>
+<p>And then that very much depends on the consensus mechanism,</p>
+<p>how the system is built, and all that.</p>
+<p>So there are different ways</p>
+<p>to build these decentralized systems.</p>
+<p>And people may have heard about the terms called</p>
+<p>like proof of work, proof of stake,</p>
+<p>these different mechanisms.</p>
+<p>And it really depends on how the system has been built,</p>
+<p>and also how much resources,</p>
+<p>how much work has gone into the network</p>
+<p>to actually say how secure it is.</p>
+<p>So for example, people talk about like,</p>
+<p>in Bitcoin, it&rsquo;s proof of work system,</p>
+<p>so much electricity has been burned.</p>
+<p>So there&rsquo;s differences in the different mechanisms</p>
+<p>and the implementations of a distributed ledger</p>
+<p>used for digital currency.</p>
+<p>So there&rsquo;s Bitcoin, there&rsquo;s whatever,</p>
+<p>there&rsquo;s so many of them,</p>
+<p>and there&rsquo;s underlying different mechanisms.</p>
+<p>And there&rsquo;s arguments, I suppose,</p>
+<p>about which is more effective, which is more secure,</p>
+<p>which is more.</p>
+<p>And what is needed,</p>
+<p>what amount of resources needed</p>
+<p>to be able to attack the system?</p>
+<p>Like for example, what percentage of the nodes</p>
+<p>do you need to control or compromise</p>
+<p>in order to, right, to change the log?</p>
+<p>And those are things, do you have a sense</p>
+<p>if those are things that can be shown theoretically</p>
+<p>through the design of the mechanisms,</p>
+<p>or does it have to be shown empirically</p>
+<p>by having a large number of users using the currency?</p>
+<p>I see.</p>
+<p>So in general, for each consensus mechanism,</p>
+<p>you can actually show theoretically</p>
+<p>what is needed to be able to attack the system.</p>
+<p>Of course, there can be different types of attacks</p>
+<p>as we discussed at the beginning.</p>
+<p>And so that it&rsquo;s difficult to give</p>
+<p>like, you know, complete estimates,</p>
+<p>like really how much is needed to compromise the system.</p>
+<p>But in general, right, so there are ways to say</p>
+<p>what percentage of the nodes you need to compromise</p>
+<p>and so on.</p>
+<p>So we talked about integrity on the security side,</p>
+<p>and then you also mentioned the privacy</p>
+<p>or the confidentiality side.</p>
+<p>Does it have some of the same problems</p>
+<p>and therefore some of the same solutions</p>
+<p>that you talked about on the machine learning side</p>
+<p>with differential privacy and so on?</p>
+<p>Yeah, so actually in general on the public ledger</p>
+<p>in these public decentralized systems,</p>
+<p>actually nothing is private.</p>
+<p>So all the transactions posted on the ledger,</p>
+<p>anybody can see.</p>
+<p>So in that sense, there&rsquo;s no confidentiality.</p>
+<p>So usually what you can do is then</p>
+<p>there are the mechanisms that you can build in</p>
+<p>to enable confidentiality or privacy of the transactions</p>
+<p>and the data and so on.</p>
+<p>That&rsquo;s also some of the work that both my group</p>
+<p>and also my startup does as well.</p>
+<p>What&rsquo;s the name of the startup?</p>
+<p>Oasis Labs.</p>
+<p>And so the confidentiality aspect there</p>
+<p>is even though the transactions are public,</p>
+<p>you wanna keep some aspect confidential</p>
+<p>of the identity of the people involved in the transactions?</p>
+<p>Or what is their hope to keep confidential in this context?</p>
+<p>So in this case, for example,</p>
+<p>you want to enable like confidential transactions,</p>
+<p>even, so there are different essentially types of data</p>
+<p>that you want to keep private or confidential.</p>
+<p>And you can utilize different technologies</p>
+<p>including zero knowledge proofs</p>
+<p>and also secure computing and techniques</p>
+<p>and to hide who is making the transactions to whom</p>
+<p>and the transaction amount.</p>
+<p>And in our case, also we can enable</p>
+<p>like confidential smart contracts.</p>
+<p>And so that you don&rsquo;t know the data</p>
+<p>and the execution of the smart contract and so on.</p>
+<p>And we actually are combining these different technologies</p>
+<p>and going back to the earlier discussion we had,</p>
+<p>enabling like ownership of data and privacy of data and so on.</p>
+<p>So at Oasis Labs, we&rsquo;re actually building</p>
+<p>what we call a platform for responsible data economy</p>
+<p>to actually combine these different technologies together</p>
+<p>and to enable secure and privacy preserving computation</p>
+<p>and also using the library to help provide immutable log</p>
+<p>of users ownership to their data</p>
+<p>and the policies they want the data to adhere to,</p>
+<p>the usage of the data to adhere to</p>
+<p>and also how the data has been utilized.</p>
+<p>So all this together can build,</p>
+<p>we call a distributed secure computing fabric</p>
+<p>that helps to enable a more responsible data economy.</p>
+<p>So it&rsquo;s a lot of things together.</p>
+<p>Yeah, wow, that was eloquent.</p>
+<p>Okay, you&rsquo;re involved in so much amazing work</p>
+<p>that we&rsquo;ll never be able to get to,</p>
+<p>but I have to ask at least briefly about program synthesis,</p>
+<p>which at least in a philosophical sense captures</p>
+<p>much of the dreams of what&rsquo;s possible in computer science</p>
+<p>and the artificial intelligence.</p>
+<p>First, let me ask, what is program synthesis</p>
+<p>and can neural networks be used to learn programs from data?</p>
+<p>So can this be learned?</p>
+<p>Some aspect of the synthesis can it be learned?</p>
+<p>So program synthesis is about teaching computers</p>
+<p>to write code, to program.</p>
+<p>And I think that&rsquo;s one of our ultimate dreams or goals.</p>
+<p>I think Andreessen talked about software eating the world.</p>
+<p>So I say, once we teach computers to write the software,</p>
+<p>how to write programs, then I guess computers</p>
+<p>will be eating the world by transitivity.</p>
+<p>Yeah, exactly.</p>
+<p>So yeah, and also for me actually,</p>
+<p>when I shifted from security to more AI machine learning,</p>
+<p>program synthesis is,</p>
+<p>program synthesis and adversarial machine learning,</p>
+<p>these are the two fields that I particularly focus on.</p>
+<p>Like program synthesis is one of the first questions</p>
+<p>that I actually started investigating.</p>
+<p>Just as a question, oh, I guess from the security side,</p>
+<p>there&rsquo;s a, you&rsquo;re looking for holes in programs,</p>
+<p>so at least see small connection,</p>
+<p>but where was your interest for program synthesis?</p>
+<p>Because it&rsquo;s such a fascinating, such a big,</p>
+<p>such a hard problem in the general case.</p>
+<p>Why program synthesis?</p>
+<p>So the reason for that is actually when I shifted my focus</p>
+<p>from security into AI machine learning,</p>
+<p>actually one of my main motivation at the time</p>
+<p>is that even though I have been doing a lot of work</p>
+<p>in security and privacy,</p>
+<p>but I have always been fascinated</p>
+<p>about building intelligent machines.</p>
+<p>And that was really my main motivation</p>
+<p>to spend more time in AI machine learning</p>
+<p>is that I really want to figure out</p>
+<p>how we can build intelligent machines.</p>
+<p>And to help us towards that goal,</p>
+<p>program synthesis is really one of,</p>
+<p>I would say the best domain to work on.</p>
+<p>I actually call it like program synthesis</p>
+<p>is like the perfect playground</p>
+<p>for building intelligent machines</p>
+<p>and for artificial general intelligence.</p>
+<p>Yeah, well, it&rsquo;s also in that sense,</p>
+<p>not just a playground,</p>
+<p>I guess it&rsquo;s the ultimate test of intelligence</p>
+<p>because I think if you can generate sort of neural networks</p>
+<p>can learn good functions</p>
+<p>and they can help you out in classification tasks,</p>
+<p>but to be able to write programs,</p>
+<p>that&rsquo;s the epitome from the machine side.</p>
+<p>That&rsquo;s the same as passing the Turing test</p>
+<p>in natural language, but with programs,</p>
+<p>it&rsquo;s able to express complicated ideas</p>
+<p>to reason through ideas and boil them down to algorithms.</p>
+<p>Yes, exactly, exactly.</p>
+<p>Incredible, so can this be learned?</p>
+<p>How far are we?</p>
+<p>Is there hope?</p>
+<p>What are the open challenges?</p>
+<p>Yeah, very good questions.</p>
+<p>We are still at an early stage,</p>
+<p>but already I think we have seen a lot of progress.</p>
+<p>I mean, definitely we have existence proof,</p>
+<p>just like humans can write programs.</p>
+<p>So there&rsquo;s no reason why computers cannot write programs.</p>
+<p>So I think that&rsquo;s definitely an achievable goal</p>
+<p>is just how long it takes.</p>
+<p>And even today, we actually have,</p>
+<p>the program synthesis community,</p>
+<p>especially the program synthesis via learning,</p>
+<p>how we call it, neuro program synthesis community,</p>
+<p>is still very small, but the community has been growing</p>
+<p>and we have seen a lot of progress.</p>
+<p>And in limited domains, I think actually program synthesis</p>
+<p>is ripe for real world applications.</p>
+<p>So actually it was quite amazing.</p>
+<p>I was giving a talk, so here is a rework conference.</p>
+<p>Rework Deep Learning Summit.</p>
+<p>I actually, so I gave another talk</p>
+<p>at the previous rework conference</p>
+<p>in deep reinforcement learning.</p>
+<p>And then I actually met someone from a startup,</p>
+<p>the CEO of the startup.</p>
+<p>And then when he saw my name, he recognized it.</p>
+<p>And he actually said, one of our papers actually had,</p>
+<p>they had actually become a key products in their startup.</p>
+<p>And that was program synthesis, in that particular case,</p>
+<p>it was natural language translation,</p>
+<p>translating natural language description into SQL queries.</p>
+<p>Oh, wow, that direction, okay.</p>
+<p>Right, so yeah, so in program synthesis,</p>
+<p>in limited domains, in well specified domains,</p>
+<p>actually already we can see really,</p>
+<p>really great progress and applicability in the real world.</p>
+<p>So domains like, I mean, as an example,</p>
+<p>you said natural language,</p>
+<p>being able to express something through just normal language</p>
+<p>and it converts it into a database SQL query.</p>
+<p>Right.</p>
+<p>And that&rsquo;s how solved of a problem is that?</p>
+<p>Because that seems like a really hard problem.</p>
+<p>Again, in limited domains, actually it can work pretty well.</p>
+<p>And now this is also a very active domain of research.</p>
+<p>At the time, I think when he saw our paper at the time,</p>
+<p>we were the state of the arts on that task.</p>
+<p>And since then, actually now there has been more work</p>
+<p>and with even more like sophisticated data sets.</p>
+<p>And so, but I think I wouldn&rsquo;t be surprised</p>
+<p>that more of this type of technology</p>
+<p>really gets into the real world.</p>
+<p>That&rsquo;s exciting.</p>
+<p>In the near term.</p>
+<p>Being able to learn in the space of programs</p>
+<p>is super exciting.</p>
+<p>I still, yeah, I&rsquo;m still skeptical</p>
+<p>cause I think it&rsquo;s a really hard problem,</p>
+<p>but I would love to see progress.</p>
+<p>And also I think in terms of the,</p>
+<p>you asked about open challenges.</p>
+<p>I think the domain is full of challenges</p>
+<p>and in particular also we want to see</p>
+<p>how we should measure the progress in the space.</p>
+<p>And I would say mainly three main, I would say, metrics.</p>
+<p>So one is the complexity of the program</p>
+<p>that we can synthesize.</p>
+<p>And that will actually have clear measures</p>
+<p>and just look at the past publications.</p>
+<p>And even like, for example,</p>
+<p>I was at the recent NeurIPS conference.</p>
+<p>Now there&rsquo;s actually fairly sizable like session</p>
+<p>dedicated to program synthesis, which is&hellip;</p>
+<p>Or even Neural programs.</p>
+<p>Right, right, right, which is great.</p>
+<p>And we continue to see the increase.</p>
+<p>What does sizable mean?</p>
+<p>I like the word sizable, it&rsquo;s five people.</p>
+<p>It&rsquo;s still a small community, but it is growing.</p>
+<p>And they will all win Turing Awards one day, I like it.</p>
+<p>Right, so we can clearly see an increase</p>
+<p>in the complexity of the programs that these&hellip;</p>
+<p>We can synthesize.</p>
+<p>Sorry, is it the complexity of the actual text</p>
+<p>of the program or the running time complexity?</p>
+<p>Which complexity are we&hellip;</p>
+<p>How&hellip;</p>
+<p>The complexity of the task to be synthesized</p>
+<p>and the complexity of the actual synthesized programs.</p>
+<p>So the lines of code even, for example.</p>
+<p>Okay, I got you.</p>
+<p>But it&rsquo;s not the theoretical upper bound</p>
+<p>of the running time of the algorithm kind of thing.</p>
+<p>Okay, got it.</p>
+<p>And you can see the complexity decreasing already.</p>
+<p>Oh, no, meaning we want to be able to synthesize</p>
+<p>more and more complex programs, bigger and bigger programs.</p>
+<p>So we want to see that, we want to increase</p>
+<p>the complexity of this.</p>
+<p>I got you, so I have to think through,</p>
+<p>because I thought of complexity as,</p>
+<p>you want to be able to accomplish the same task</p>
+<p>with a simpler and simpler program.</p>
+<p>I see, I see.</p>
+<p>No, we are not doing that.</p>
+<p>It&rsquo;s more about how complex a task</p>
+<p>we can synthesize programs for.</p>
+<p>Yeah, got it, being able to synthesize programs,</p>
+<p>learn them for more and more difficult tasks.</p>
+<p>So for example, initially, our first work</p>
+<p>in program synthesis was to translate natural language</p>
+<p>description into really simple programs called if TTT,</p>
+<p>if this, then that.</p>
+<p>So given a trigger condition,</p>
+<p>what is the action you should take?</p>
+<p>So that program is super simple.</p>
+<p>You just identify the trigger conditions and the action.</p>
+<p>And then later on, with SQL queries,</p>
+<p>it gets more complex.</p>
+<p>And then also, we started to synthesize programs</p>
+<p>with loops and, you know.</p>
+<p>Oh no, and if you could synthesize recursion,</p>
+<p>it&rsquo;s all over.</p>
+<p>Right, actually, one of our works actually</p>
+<p>is on learning recursive neural programs.</p>
+<p>Oh no.</p>
+<p>But anyway, anyway, so that&rsquo;s one is complexity,</p>
+<p>and the other one is generalization.</p>
+<p>Like when we train or learn a program synthesizer,</p>
+<p>in this case, a neural programs to synthesize programs,</p>
+<p>then you want it to generalize.</p>
+<p>For a large number of inputs.</p>
+<p>Right, so to be able to generalize</p>
+<p>to previously unseen inputs.</p>
+<p>Got it.</p>
+<p>And so, right, so some of the work we did earlier</p>
+<p>on learning recursive neural programs</p>
+<p>actually showed that recursion</p>
+<p>actually is important to learn.</p>
+<p>And if you have recursion,</p>
+<p>then for a certain set of tasks,</p>
+<p>we can actually show that you can actually</p>
+<p>have perfect generalization.</p>
+<p>So, right, so that won the best paperwork awards</p>
+<p>at ICLR earlier.</p>
+<p>So that&rsquo;s one example of we want to learn</p>
+<p>these neural programs that can generalize better.</p>
+<p>But that works for certain tasks, certain domains,</p>
+<p>and there&rsquo;s question how we can essentially</p>
+<p>develop more techniques that can have generalization</p>
+<p>for a wider set of domains and so on.</p>
+<p>So that&rsquo;s another area.</p>
+<p>And then the third challenge I think will,</p>
+<p>it&rsquo;s not just for programming synthesis,</p>
+<p>it&rsquo;s also cutting across other fields</p>
+<p>in machine learning and also including</p>
+<p>like deep reinforcement learning in particular,</p>
+<p>is that this adaptation is that we want to be able</p>
+<p>to learn from the past and tasks and training and so on</p>
+<p>to be able to solve new tasks.</p>
+<p>So for example, in program synthesis today,</p>
+<p>we still are working in the setting</p>
+<p>where given a particular task,</p>
+<p>we train the model and to solve this particular task.</p>
+<p>But that&rsquo;s not how humans work.</p>
+<p>The whole point is we train a human,</p>
+<p>then you can then program to solve new tasks.</p>
+<p>Right, exactly.</p>
+<p>And just like in deep reinforcement learning,</p>
+<p>we don&rsquo;t want to just train agent</p>
+<p>to play a particular game,</p>
+<p>either it&rsquo;s Atari or it&rsquo;s Go or whatever.</p>
+<p>We want to train these agents</p>
+<p>that can essentially extract knowledge</p>
+<p>from the past learning experience</p>
+<p>to be able to adapt to new tasks and solve new tasks.</p>
+<p>And I think this is particularly important</p>
+<p>for program synthesis.</p>
+<p>Yeah, that&rsquo;s the whole dream of program synthesis</p>
+<p>is you&rsquo;re learning a tool that can solve new problems.</p>
+<p>Right, exactly.</p>
+<p>And I think that&rsquo;s a particular domain</p>
+<p>that as a community, we need to put more emphasis on.</p>
+<p>And I hope that we can make more progress there as well.</p>
+<p>Awesome.</p>
+<p>There&rsquo;s a lot more to talk about.</p>
+<p>Let me ask that you also had a very interesting</p>
+<p>and we talked about rich representations.</p>
+<p>You had a rich life journey.</p>
+<p>You did your bachelor&rsquo;s in China</p>
+<p>and your master&rsquo;s and PhD in the United States,</p>
+<p>CMU in Berkeley.</p>
+<p>Are there interesting differences?</p>
+<p>I told you I&rsquo;m Russian.</p>
+<p>I think there&rsquo;s a lot of interesting difference</p>
+<p>between Russia and the United States.</p>
+<p>Are there in your eyes, interesting differences</p>
+<p>between the two cultures from the silly romantic notion</p>
+<p>of the spirit of the people to the more practical notion</p>
+<p>of how research is conducted that you find interesting</p>
+<p>or useful in your own work of having experienced both?</p>
+<p>That&rsquo;s a good question.</p>
+<p>I think, so I studied in China for my undergraduates</p>
+<p>and that was more than 20 years ago.</p>
+<p>So it&rsquo;s been a long time.</p>
+<p>Is there echoes of that time in you?</p>
+<p>Things have changed a lot.</p>
+<p>Actually, it&rsquo;s interesting.</p>
+<p>I think even more so maybe something</p>
+<p>that&rsquo;s even be more different for my experience</p>
+<p>than a lot of computer science researchers</p>
+<p>and practitioners is that,</p>
+<p>so for my undergrad, I actually studied physics.</p>
+<p>Nice, very nice.</p>
+<p>And then I switched to computer science in graduate school.</p>
+<p>What happened?</p>
+<p>Is there another possible universe</p>
+<p>where you could have become a theoretical physicist</p>
+<p>at Caltech or something like that?</p>
+<p>That&rsquo;s very possible, some of my undergrad classmates,</p>
+<p>then they later on studied physics,</p>
+<p>got their PhD in physics from these schools,</p>
+<p>from top physics programs.</p>
+<p>So you switched to, I mean,</p>
+<p>from that experience of doing physics in your bachelor&rsquo;s,</p>
+<p>what made you decide to switch to computer science</p>
+<p>and computer science at arguably the best university,</p>
+<p>one of the best universities in the world</p>
+<p>for computer science with Carnegie Mellon,</p>
+<p>especially for grad school and so on.</p>
+<p>So what, second only to MIT, just kidding.</p>
+<p>Okay, I had to throw that in there.</p>
+<p>No, what was the choice like</p>
+<p>and what was the move to the United States like?</p>
+<p>What was that whole transition?</p>
+<p>And if you remember, if there&rsquo;s still echoes</p>
+<p>of some of the spirit of the people of China in you</p>
+<p>in New York.</p>
+<p>Right, right, yeah.</p>
+<p>It&rsquo;s like three questions in one.</p>
+<p>Yes, I know.</p>
+<p>I&rsquo;m sorry.</p>
+<p>No, that&rsquo;s okay.</p>
+<p>So yes, so I guess, okay,</p>
+<p>so first transition from physics to computer science.</p>
+<p>So when I first came to the United States,</p>
+<p>I was actually in the physics PhD program at Cornell.</p>
+<p>I was there for one year</p>
+<p>and then I switched to computer science</p>
+<p>and then I was in the PhD program at Carnegie Mellon.</p>
+<p>So, okay, so the reasons for switching.</p>
+<p>So one thing, so that&rsquo;s why I also mentioned</p>
+<p>about this difference in backgrounds</p>
+<p>about having studied physics first in my undergrad.</p>
+<p>I actually really, I really did enjoy</p>
+<p>my undergrad&rsquo;s time and education in physics.</p>
+<p>I think that actually really helped me</p>
+<p>in my future work in computer science.</p>
+<p>Actually, even for machine learning,</p>
+<p>a lot of the machine learning stuff,</p>
+<p>the core machine learning methods,</p>
+<p>many of them actually came from physics.</p>
+<p>Statistical.</p>
+<p>For honest, most of everything came from physics.</p>
+<p>Right, but anyway, so when I studied physics,</p>
+<p>I was, I think I was really attracted to physics.</p>
+<p>It was, it&rsquo;s really beautiful.</p>
+<p>And I actually call it, physics is the language of nature.</p>
+<p>And I actually clearly remember, like, one moment</p>
+<p>in my undergrads, like I did my undergrad in Tsinghua</p>
+<p>and I used to study in the library.</p>
+<p>And I clearly remember, like, one day</p>
+<p>I was sitting in the library and I was, like,</p>
+<p>writing on my notes and so on.</p>
+<p>And I got so excited that I realized</p>
+<p>that really just from a few simple axioms,</p>
+<p>a few simple laws, I can derive so much.</p>
+<p>It&rsquo;s almost like I can derive the rest of the world.</p>
+<p>Yeah, the rest of the universe.</p>
+<p>Yes, yes, so that was, like, amazing.</p>
+<p>Do you think you, have you ever seen</p>
+<p>or do you think you can rediscover</p>
+<p>that kind of power and beauty in computer science</p>
+<p>in the world that you&hellip;</p>
+<p>So, that&rsquo;s very interesting.</p>
+<p>So that gets to, you know, the transition</p>
+<p>from physics to computer science.</p>
+<p>It&rsquo;s quite different.</p>
+<p>For physics in grad school, actually, things changed.</p>
+<p>So one is I started to realize that</p>
+<p>when I started doing research in physics,</p>
+<p>at the time I was doing theoretical physics.</p>
+<p>And a lot of it, you still have the beauty,</p>
+<p>but it&rsquo;s very different.</p>
+<p>So I had to actually do a lot of the simulation.</p>
+<p>So essentially I was actually writing,</p>
+<p>in some cases writing fortune code.</p>
+<p>Good old fortune, yeah.</p>
+<p>To actually, right, do simulations and so on.</p>
+<p>That was not exactly what I enjoyed doing.</p>
+<p>And also at the time from talking with the senior students,</p>
+<p>senior students in the program,</p>
+<p>I realized many of the students actually were going off</p>
+<p>to like Wall Street and so on.</p>
+<p>So, and I&rsquo;ve always been interested in computer science</p>
+<p>and actually essentially taught myself</p>
+<p>the C programming.</p>
+<p>Program?</p>
+<p>Right, and so on.</p>
+<p>At which, when?</p>
+<p>In college.</p>
+<p>In college somewhere?</p>
+<p>In the summer.</p>
+<p>For fun, physics major, learning to do C programming.</p>
+<p>Beautiful.</p>
+<p>Actually it&rsquo;s interesting, in physics at the time,</p>
+<p>I think now the program probably has changed,</p>
+<p>but at the time really the only class we had</p>
+<p>in related to computer science education</p>
+<p>was introduction to, I forgot,</p>
+<p>to computer science or computing and Fortran 77.</p>
+<p>There&rsquo;s a lot of people that still use Fortran.</p>
+<p>I&rsquo;m actually, if you&rsquo;re a programmer out there,</p>
+<p>I&rsquo;m looking for an expert to talk to about Fortran.</p>
+<p>They seem to, there&rsquo;s not many,</p>
+<p>but there&rsquo;s still a lot of people that still use Fortran</p>
+<p>and still a lot of people that use Cobalt.</p>
+<p>But anyway, so then I realized,</p>
+<p>instead of just doing programming</p>
+<p>for doing simulations and so on,</p>
+<p>that I may as well just change to computer science.</p>
+<p>And also one thing I really liked,</p>
+<p>and that&rsquo;s a key difference between the two,</p>
+<p>is in computer science it&rsquo;s so much easier</p>
+<p>to realize your ideas.</p>
+<p>If you have an idea, you write it up, you code it up,</p>
+<p>and then you can see it actually, right?</p>
+<p>Exactly.</p>
+<p>Running and you can see it.</p>
+<p>You can bring it to life quickly.</p>
+<p>Bring it to life.</p>
+<p>Whereas in physics, if you have a good theory,</p>
+<p>you have to wait for the experimentalists</p>
+<p>to do the experiments and to confirm the theory,</p>
+<p>and things just take so much longer.</p>
+<p>And also the reason in physics I decided to do</p>
+<p>theoretical physics was because I had my experience</p>
+<p>with experimental physics.</p>
+<p>First, you have to fix the equipment.</p>
+<p>You spend most of your time fixing the equipment first.</p>
+<p>Super expensive equipment, so there&rsquo;s a lot of,</p>
+<p>yeah, you have to collaborate with a lot of people.</p>
+<p>Takes a long time.</p>
+<p>Just takes really, right, much longer.</p>
+<p>Yeah, it&rsquo;s messy.</p>
+<p>Right, so I decided to switch to computer science.</p>
+<p>And one thing I think maybe people have realized</p>
+<p>is that for people who study physics,</p>
+<p>actually it&rsquo;s very easy for physicists</p>
+<p>to change to do something else.</p>
+<p>I think physics provides a really good training.</p>
+<p>And yeah, so actually it was fairly easy</p>
+<p>to switch to computer science.</p>
+<p>But one thing, going back to your earlier question,</p>
+<p>so one thing I actually did realize,</p>
+<p>so there is a big difference between computer science</p>
+<p>and physics, where physics you can derive</p>
+<p>the whole universe from just a few simple laws.</p>
+<p>And computer science, given that a lot of it</p>
+<p>is defined by humans, the systems are defined by humans,</p>
+<p>and it&rsquo;s artificial, like essentially you create</p>
+<p>a lot of these artifacts and so on.</p>
+<p>It&rsquo;s not quite the same.</p>
+<p>You don&rsquo;t derive the computer systems</p>
+<p>with just a few simple laws.</p>
+<p>You actually have to see there is historical reasons</p>
+<p>why a system is built and designed one way</p>
+<p>versus the other.</p>
+<p>There&rsquo;s a lot more complexity, less elegant simplicity</p>
+<p>of E equals MC squared that kind of reduces everything</p>
+<p>down to those beautiful fundamental equations.</p>
+<p>But what about the move from China to the United States?</p>
+<p>Is there anything that still stays in you</p>
+<p>that contributes to your work,</p>
+<p>the fact that you grew up in another culture?</p>
+<p>So yes, I think especially back then</p>
+<p>it&rsquo;s very different from now.</p>
+<p>So now they actually, I see these students</p>
+<p>coming from China, and even undergrads,</p>
+<p>actually they speak fluent English.</p>
+<p>It was just amazing.</p>
+<p>And they have already understood so much of the culture</p>
+<p>in the US and so on.</p>
+<p>It was to you, it was all foreign?</p>
+<p>It was a very different time.</p>
+<p>At the time, actually, we didn&rsquo;t even have easy access</p>
+<p>to email, not to mention about the web.</p>
+<p>I remember I had to go to specific privileged server rooms</p>
+<p>to use email, and hence, at the time,</p>
+<p>at the time we had much less knowledge</p>
+<p>about the Western world.</p>
+<p>And actually at the time I didn&rsquo;t know,</p>
+<p>actually in the US, the West Coast weather</p>
+<p>is much better than the East Coast.</p>
+<p>Yeah, things like that, actually.</p>
+<p>It&rsquo;s very interesting.</p>
+<p>But now it&rsquo;s so different.</p>
+<p>At the time, I would say there&rsquo;s also</p>
+<p>a bigger cultural difference,</p>
+<p>because there was so much less opportunity</p>
+<p>for shared information.</p>
+<p>So it&rsquo;s such a different time and world.</p>
+<p>So let me ask maybe a sensitive question.</p>
+<p>I&rsquo;m not sure, but I think you and I</p>
+<p>are in similar positions.</p>
+<p>I&rsquo;ve been here for already 20 years as well,</p>
+<p>and looking at Russia from my perspective,</p>
+<p>and you looking at China.</p>
+<p>In some ways, it&rsquo;s a very distant place,</p>
+<p>because it&rsquo;s changed a lot.</p>
+<p>But in some ways you still have echoes,</p>
+<p>you still have knowledge of that place.</p>
+<p>The question is, China&rsquo;s doing a lot</p>
+<p>of incredible work in AI.</p>
+<p>Do you see, please tell me</p>
+<p>there&rsquo;s an optimistic picture you see</p>
+<p>where the United States and China</p>
+<p>can collaborate and sort of grow together</p>
+<p>in the development of AI towards,</p>
+<p>there&rsquo;s different values in terms</p>
+<p>of the role of government and so on,</p>
+<p>of ethical, transparent, secure systems.</p>
+<p>We see it differently in the United States</p>
+<p>a little bit than China,</p>
+<p>but we&rsquo;re still trying to work it out.</p>
+<p>Do you see the two countries being able</p>
+<p>to successfully collaborate and work</p>
+<p>in a healthy way without sort of fighting</p>
+<p>and making it an AI arms race kind of situation?</p>
+<p>Yeah, I believe so.</p>
+<p>I think science has no border,</p>
+<p>and the advancement of the technology helps everyone,</p>
+<p>helps the whole world.</p>
+<p>And so I certainly hope that the two countries</p>
+<p>will collaborate, and I certainly believe so.</p>
+<p>Do you have any reason to believe so</p>
+<p>except being an optimist?</p>
+<p>So first, again, like I said, science has no borders.</p>
+<p>And especially in&hellip;</p>
+<p>Science doesn&rsquo;t know borders?</p>
+<p>Right.</p>
+<p>And you believe that will,</p>
+<p>in the former Soviet Union during the Cold War&hellip;</p>
+<p>So that&rsquo;s, yeah.</p>
+<p>So that&rsquo;s the other point I was going to mention</p>
+<p>is that especially in academic research,</p>
+<p>everything is public.</p>
+<p>Like we write papers, we open source codes,</p>
+<p>and all this is in the public domain.</p>
+<p>It doesn&rsquo;t matter whether the person is in the US,</p>
+<p>in China, or some other parts of the world.</p>
+<p>They can go on archive</p>
+<p>and look at the latest research and results.</p>
+<p>So that openness gives you hope.</p>
+<p>Yes. Me too.</p>
+<p>And that&rsquo;s also how, as a world,</p>
+<p>we make progress the best.</p>
+<p>So, I apologize for the romanticized question,</p>
+<p>but looking back,</p>
+<p>what would you say was the most transformative moment</p>
+<p>in your life that</p>
+<p>maybe made you fall in love with computer science?</p>
+<p>You said physics.</p>
+<p>You remember there was a moment</p>
+<p>where you thought you could derive</p>
+<p>the entirety of the universe.</p>
+<p>Was there a moment that you really fell in love</p>
+<p>with the work you do now,</p>
+<p>from security to machine learning,</p>
+<p>to program synthesis?</p>
+<p>So maybe, as I mentioned, actually, in college,</p>
+<p>one summer I just taught myself programming in C.</p>
+<p>Yes.</p>
+<p>And you just read a book,</p>
+<p>and then you&rsquo;re like&hellip;</p>
+<p>Don&rsquo;t tell me you fell in love with computer science</p>
+<p>by programming in C.</p>
+<p>Remember I mentioned one of the draws</p>
+<p>for me to computer science is how easy it is</p>
+<p>to realize your ideas.</p>
+<p>So once I read a book,</p>
+<p>I taught myself how to program in C.</p>
+<p>Immediately, what did I do?</p>
+<p>I programmed two games.</p>
+<p>One&rsquo;s just simple, like it&rsquo;s a Go game,</p>
+<p>like it&rsquo;s a board, you can move the stones and so on.</p>
+<p>And the other one, I actually programmed a game</p>
+<p>that&rsquo;s like a 3D Tetris.</p>
+<p>It turned out to be a super hard game to play.</p>
+<p>Because instead of just the standard 2D Tetris,</p>
+<p>it&rsquo;s actually a 3D thing.</p>
+<p>But I realized, wow,</p>
+<p>I just had these ideas to try it out,</p>
+<p>and then, yeah, you can just do it.</p>
+<p>And so that&rsquo;s when I realized, wow, this is amazing.</p>
+<p>Yeah, you can create yourself.</p>
+<p>Yes, yes, exactly.</p>
+<p>From nothing to something</p>
+<p>that&rsquo;s actually out in the real world.</p>
+<p>So let me ask&hellip;</p>
+<p>Right, I think with your own hands.</p>
+<p>Let me ask a silly question,</p>
+<p>or maybe the ultimate question.</p>
+<p>What is to you the meaning of life?</p>
+<p>What gives your life meaning, purpose,</p>
+<p>fulfillment, happiness, joy?</p>
+<p>Okay, these are two different questions.</p>
+<p>Very different, yeah.</p>
+<p>It&rsquo;s usually that you ask this question.</p>
+<p>Maybe this question is probably the question</p>
+<p>that has followed me and followed my life the most.</p>
+<p>Have you discovered anything,</p>
+<p>any satisfactory answer for yourself?</p>
+<p>Is there something you&rsquo;ve arrived at?</p>
+<p>You know, there&rsquo;s a moment&hellip;</p>
+<p>I&rsquo;ve talked to a few people who have faced,</p>
+<p>for example, a cancer diagnosis,</p>
+<p>or faced their own mortality,</p>
+<p>and that seems to change their view of them.</p>
+<p>It seems to be a catalyst for them</p>
+<p>removing most of the crap.</p>
+<p>Of seeing that most of what they&rsquo;ve been doing</p>
+<p>is not that important,</p>
+<p>and really reducing it into saying, like,</p>
+<p>here&rsquo;s actually the few things that really give meaning.</p>
+<p>Mortality is a really powerful catalyst for that,</p>
+<p>it seems like.</p>
+<p>Facing mortality, whether it&rsquo;s your parents dying</p>
+<p>or somebody close to you dying,</p>
+<p>or facing your own death for whatever reason,</p>
+<p>or cancer and so on.</p>
+<p>So yeah, so in my own case,</p>
+<p>I didn&rsquo;t need to face mortality, too.</p>
+<p>So try to ask that question.</p>
+<p>And I think there are a couple things.</p>
+<p>So one is, like, who should be defining</p>
+<p>the meaning of your life, right?</p>
+<p>Is there some kind of even greater things than you</p>
+<p>who should define the meaning of your life?</p>
+<p>So for example, when people say that</p>
+<p>searching the meaning for your life,</p>
+<p>is there some outside voice,</p>
+<p>or is there something outside of you</p>
+<p>who actually tells you, you know&hellip;</p>
+<p>So people talk about, oh, you know,</p>
+<p>this is what you have been born to do, right?</p>
+<p>Like, this is your destiny.</p>
+<p>So who, right, so that&rsquo;s one question,</p>
+<p>like, who gets to define the meaning of your life?</p>
+<p>Should you be finding some other things,</p>
+<p>some other factor to define this for you?</p>
+<p>Or is something actually,</p>
+<p>it&rsquo;s just entirely what you define yourself,</p>
+<p>and it can be very arbitrary.</p>
+<p>Yeah, so an inner voice or an outer voice,</p>
+<p>whether it could be spiritual or religious, too, with God,</p>
+<p>or some other components of the environment outside of you,</p>
+<p>or just your own voice.</p>
+<p>Do you have an answer there?</p>
+<p>So, okay, so for that, I have an answer.</p>
+<p>And through, you know, the long period of time</p>
+<p>of thinking and searching,</p>
+<p>even searching through outsides, right,</p>
+<p>you know, voices or factors outside of me.</p>
+<p>So that, I have an answer.</p>
+<p>I&rsquo;ve come to the conclusion and realization</p>
+<p>that it&rsquo;s you yourself that defines the meaning of life.</p>
+<p>Yeah, that&rsquo;s a big burden, though, isn&rsquo;t it?</p>
+<p>I mean, yes and no, right?</p>
+<p>So then you have the freedom to define it.</p>
+<p>Yes.</p>
+<p>And another question is, like,</p>
+<p>what does it really mean by the meaning of life?</p>
+<p>Right.</p>
+<p>And also, whether the question even makes sense.</p>
+<p>Absolutely, and you said it somehow distinct from happiness.</p>
+<p>So meaning is something much deeper</p>
+<p>than just any kind of emotional,</p>
+<p>any kind of contentment or joy or whatever.</p>
+<p>It might be much deeper.</p>
+<p>And then you have to ask, what is deeper than that?</p>
+<p>What is there at all?</p>
+<p>And then the question starts being silly.</p>
+<p>Right, and also you can say it&rsquo;s deeper,</p>
+<p>but you can also say it&rsquo;s shallower,</p>
+<p>depending on how people want to define</p>
+<p>the meaning of their life.</p>
+<p>So for example, most people don&rsquo;t even think</p>
+<p>about this question.</p>
+<p>Then the meaning of life to them</p>
+<p>doesn&rsquo;t really matter that much.</p>
+<p>And also, whether knowing the meaning of life,</p>
+<p>whether it actually helps your life to be better</p>
+<p>or whether it helps your life to be happier,</p>
+<p>these actually are open questions.</p>
+<p>It&rsquo;s not, right?</p>
+<p>Of course, most questions are open.</p>
+<p>I tend to think that just asking the question,</p>
+<p>as you mentioned, as you&rsquo;ve done for a long time,</p>
+<p>is the only, that there is no answer.</p>
+<p>And asking the question is a really good exercise.</p>
+<p>I mean, I have this, for me personally,</p>
+<p>I&rsquo;ve had a kind of feeling that creation is,</p>
+<p>like for me has been very fulfilling.</p>
+<p>And it seems like my meaning has been to create.</p>
+<p>And I&rsquo;m not sure what that is.</p>
+<p>Like I don&rsquo;t have, I&rsquo;m single and I don&rsquo;t have kids.</p>
+<p>I&rsquo;d love to have kids, but I also, sounds creepy,</p>
+<p>but I also see sort of, you said see programs.</p>
+<p>I see programs as little creations.</p>
+<p>I see robots as little creations.</p>
+<p>I think those bring, and then ideas,</p>
+<p>theorems are creations.</p>
+<p>And those somehow intrinsically, like you said,</p>
+<p>bring me joy.</p>
+<p>I think they do to a lot of, at least scientists,</p>
+<p>but I think they do to a lot of people.</p>
+<p>So that, to me, if I had to force the answer to that,</p>
+<p>I would say creating new things yourself.</p>
+<p>For you.</p>
+<p>For me, for me, for me.</p>
+<p>I don&rsquo;t know, but like you said, it keeps changing.</p>
+<p>Is there some answer that?</p>
+<p>And some people, they can, I think,</p>
+<p>they may say it&rsquo;s experience, right?</p>
+<p>Like their meaning of life,</p>
+<p>they just want to experience</p>
+<p>to the richest and fullest they can.</p>
+<p>And a lot of people do take that path.</p>
+<p>Yes, seeing life as actually a collection of moments</p>
+<p>and then trying to make the richest possible sets,</p>
+<p>fill those moments with the richest possible experiences.</p>
+<p>Right.</p>
+<p>And for me, I think it&rsquo;s certainly,</p>
+<p>we do share a lot of similarity here.</p>
+<p>So creation is also really important for me,</p>
+<p>even from the things I&rsquo;ve already talked about,</p>
+<p>even like writing papers,</p>
+<p>and these are all creations as well.</p>
+<p>And I have not quite thought</p>
+<p>whether that is really the meaning of my life.</p>
+<p>Like in a sense, also then maybe like,</p>
+<p>what kind of things should you create?</p>
+<p>There are so many different things that you could create.</p>
+<p>And also you can say, another view is maybe growth.</p>
+<p>It&rsquo;s related, but different from experience.</p>
+<p>Growth is also maybe type of meaning of life.</p>
+<p>It&rsquo;s just, you try to grow every day,</p>
+<p>try to be a better self every day.</p>
+<p>And also ultimately, we are here,</p>
+<p>it&rsquo;s part of the overall evolution.</p>
+<p>Right, the world is evolving and it&rsquo;s growing.</p>
+<p>Isn&rsquo;t it funny that the growth seems to be</p>
+<p>the more important thing</p>
+<p>than the thing you&rsquo;re growing towards.</p>
+<p>It&rsquo;s like, it&rsquo;s not the goal, it&rsquo;s the journey to it.</p>
+<p>It&rsquo;s almost when you submit a paper,</p>
+<p>there&rsquo;s a sort of depressing element to it,</p>
+<p>not to submit a paper,</p>
+<p>but when that whole project is over.</p>
+<p>I mean, there&rsquo;s the gratitude,</p>
+<p>there&rsquo;s the celebration and so on,</p>
+<p>but you&rsquo;re usually immediately looking for the next thing</p>
+<p>or the next step, right?</p>
+<p>It&rsquo;s not that, the end of it is not the satisfaction,</p>
+<p>it&rsquo;s the hardship, the challenge you have to overcome,</p>
+<p>the growth through the process.</p>
+<p>It&rsquo;s somehow probably deeply within us,</p>
+<p>the same thing that drives the evolutionary process</p>
+<p>is somehow within us,</p>
+<p>with everything the way we see the world.</p>
+<p>Since you&rsquo;re thinking about these,</p>
+<p>so you&rsquo;re still in search of an answer.</p>
+<p>I mean, yes and no,</p>
+<p>in the sense that I think for people</p>
+<p>who really dedicate time to search for the answer</p>
+<p>to ask the question, what is the meaning of life?</p>
+<p>It does not necessarily bring you happiness.</p>
+<p>Yeah.</p>
+<p>It&rsquo;s a question, we can say, right?</p>
+<p>Like whether it&rsquo;s a well defined question.</p>
+<p>And, but on the other hand,</p>
+<p>given that you get to answer it yourself,</p>
+<p>you can define it yourself,</p>
+<p>then sure, I can just give it an answer.</p>
+<p>And in that sense, yes, it can help.</p>
+<p>Like we discussed, right?</p>
+<p>If you say, oh, then my meaning of life is to create</p>
+<p>or to grow, then yes, then I think they can help.</p>
+<p>But how do you know that that is really the meaning of life</p>
+<p>or the meaning of your life?</p>
+<p>It&rsquo;s like there&rsquo;s no way for you</p>
+<p>to really answer the question.</p>
+<p>Sure, but something about that certainty is liberating.</p>
+<p>So it might be an illusion, you might not really know,</p>
+<p>you might be just convincing yourself falsely,</p>
+<p>but being sure that that&rsquo;s the meaning,</p>
+<p>there&rsquo;s something liberating in that.</p>
+<p>There&rsquo;s something freeing in knowing this is your purpose.</p>
+<p>So you can fully give yourself to that.</p>
+<p>Without, you know, for a long time,</p>
+<p>you know, I thought like, isn&rsquo;t it all relative?</p>
+<p>Like why, how do we even know what&rsquo;s good and what&rsquo;s evil?</p>
+<p>Like isn&rsquo;t everything just relative?</p>
+<p>Like how do we know, you know,</p>
+<p>the question of meaning is ultimately</p>
+<p>the question of why do anything?</p>
+<p>Why is anything good or bad?</p>
+<p>Why is anything valuable and so on?</p>
+<p>Exactly.</p>
+<p>Then you start to, I think just like you said,</p>
+<p>I think it&rsquo;s a really useful question to ask,</p>
+<p>but if you ask it for too long and too aggressively.</p>
+<p>It may not be so productive.</p>
+<p>It may not be productive and not just for traditionally</p>
+<p>societally defined success, but also for happiness.</p>
+<p>It seems like asking the question about the meaning of life</p>
+<p>is like a trap.</p>
+<p>We&rsquo;re destined to be asking.</p>
+<p>We&rsquo;re destined to look up to the stars</p>
+<p>and ask these big why questions</p>
+<p>we&rsquo;ll never be able to answer,</p>
+<p>but we shouldn&rsquo;t get lost in them.</p>
+<p>I think that&rsquo;s probably the,</p>
+<p>that&rsquo;s at least the lesson I picked up so far.</p>
+<p>On that topic.</p>
+<p>Oh, let me just add one more thing.</p>
+<p>So it&rsquo;s interesting.</p>
+<p>So sometimes, yes, it can help you to focus.</p>
+<p>So when I shifted my focus more from security</p>
+<p>to AI and machine learning,</p>
+<p>at the time, actually one of the main reasons</p>
+<p>that I did that was because at the time,</p>
+<p>I thought the meaning of my life</p>
+<p>and the purpose of my life is to build intelligent machines.</p>
+<p>And that&rsquo;s, and then your inner voice said</p>
+<p>that this is the right,</p>
+<p>this is the right journey to take</p>
+<p>to build intelligent machines</p>
+<p>and that you actually fully realize</p>
+<p>you took a really legitimate big step</p>
+<p>to become one of the world class researchers</p>
+<p>to actually make it, to actually go down that journey.</p>
+<p>Yeah, that&rsquo;s profound.</p>
+<p>That&rsquo;s profound.</p>
+<p>I don&rsquo;t think there&rsquo;s a better way</p>
+<p>to end a conversation than talking for a while</p>
+<p>about the meaning of life.</p>
+<p>Dawn is a huge honor to talk to you.</p>
+<p>Thank you so much for talking today.</p>
+<p>Thank you, thank you.</p>
+<p>Thanks for listening to this conversation with Dawn Song</p>
+<p>and thank you to our presenting sponsor, Cash App.</p>
+<p>Please consider supporting the podcast</p>
+<p>by downloading Cash App and using code LexPodcast.</p>
+<p>If you enjoy this podcast, subscribe on YouTube,</p>
+<p>review it with five stars on Apple Podcast,</p>
+<p>support it on Patreon,</p>
+<p>or simply connect with me on Twitter at LexFriedman.</p>
+<p>And now let me leave you with some words about hacking</p>
+<p>from the great Steve Wozniak.</p>
+<p>A lot of hacking is playing with other people,</p>
+<p>you know, getting them to do strange things.</p>
+<p>Thank you for listening and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

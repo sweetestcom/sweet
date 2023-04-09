@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Dmitry Korkin.
+He&amp;rsquo;s a professor of bioinformatics
+and computational biology at WPI,
+Worcester Polytechnic Institute,
+where he specializes in bioinformatics
+of complex diseases, computational genomics,
+systems biology, and biomedical data analytics.
+I came across Dmitry&amp;rsquo;s work when in February,
+his group used the viral genome of the COVID 19
+to reconstruct the 3D structure of its major viral proteins
+and their interaction with the human proteins.'>
+<title>Lex Fridman Podcast - #90 - Dmitry Korkin: Computational Biology of Coronavirus | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500090/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #90 - Dmitry Korkin: Computational Biology of Coronavirus'>
+<meta property='og:description' content='The following is a conversation with Dmitry Korkin.
+He&amp;rsquo;s a professor of bioinformatics
+and computational biology at WPI,
+Worcester Polytechnic Institute,
+where he specializes in bioinformatics
+of complex diseases, computational genomics,
+systems biology, and biomedical data analytics.
+I came across Dmitry&amp;rsquo;s work when in February,
+his group used the viral genome of the COVID 19
+to reconstruct the 3D structure of its major viral proteins
+and their interaction with the human proteins.'>
+<meta property='og:url' content='https://swiest.com/en/1310500090/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-05-29T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-05-29T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #90 - Dmitry Korkin: Computational Biology of Coronavirus">
+<meta name="twitter:description" content="The following is a conversation with Dmitry Korkin.
+He&amp;rsquo;s a professor of bioinformatics
+and computational biology at WPI,
+Worcester Polytechnic Institute,
+where he specializes in bioinformatics
+of complex diseases, computational genomics,
+systems biology, and biomedical data analytics.
+I came across Dmitry&amp;rsquo;s work when in February,
+his group used the viral genome of the COVID 19
+to reconstruct the 3D structure of its major viral proteins
+and their interaction with the human proteins.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500090/">Lex Fridman Podcast - #90 - Dmitry Korkin: Computational Biology of Coronavirus</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-05-29</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    72 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Dmitry Korkin.</p>
+<p>He&rsquo;s a professor of bioinformatics</p>
+<p>and computational biology at WPI,</p>
+<p>Worcester Polytechnic Institute,</p>
+<p>where he specializes in bioinformatics</p>
+<p>of complex diseases, computational genomics,</p>
+<p>systems biology, and biomedical data analytics.</p>
+<p>I came across Dmitry&rsquo;s work when in February,</p>
+<p>his group used the viral genome of the COVID 19</p>
+<p>to reconstruct the 3D structure of its major viral proteins</p>
+<p>and their interaction with the human proteins.</p>
+<p>In effect, creating a structural genomics map</p>
+<p>of the coronavirus and making this data open</p>
+<p>and available to researchers everywhere.</p>
+<p>We talked about the biology of COVID 19,</p>
+<p>SARS, and viruses in general,</p>
+<p>and how computational methods can help us understand</p>
+<p>their structure and function</p>
+<p>in order to develop antiviral drugs and vaccines.</p>
+<p>This conversation was recorded recently</p>
+<p>in the time of the coronavirus pandemic</p>
+<p>for everyone feeling the medical, psychological,</p>
+<p>and financial burden of this crisis.</p>
+<p>I&rsquo;m sending love your way.</p>
+<p>Stay strong.</p>
+<p>We&rsquo;re in this together.</p>
+<p>We&rsquo;ll beat this thing.</p>
+<p>This is the Artificial Intelligence Podcast.</p>
+<p>If you enjoy it, subscribe on YouTube,</p>
+<p>review it with five stars on Apple Podcast,</p>
+<p>support it on Patreon,</p>
+<p>or simply connect with me on Twitter</p>
+<p>at Lex Friedman, spelled F R I D M A N.</p>
+<p>This show is presented by Cash App,</p>
+<p>the number one finance app in the app store.</p>
+<p>When you get it, use code LEXBODCAST.</p>
+<p>Cash App lets you send money to friends,</p>
+<p>buy Bitcoin, and invest in the stock market</p>
+<p>with as little as $1.</p>
+<p>Since Cash App allows you to buy Bitcoin,</p>
+<p>let me mention that cryptocurrency</p>
+<p>in the context of the history of money is fascinating.</p>
+<p>I recommend Ascent of Money</p>
+<p>as a great book on this history.</p>
+<p>Debits and credits on ledgers</p>
+<p>started around 30,000 years ago.</p>
+<p>The US dollar created over 200 years ago.</p>
+<p>And Bitcoin, the first decentralized cryptocurrency,</p>
+<p>released just over 10 years ago.</p>
+<p>So given that history, cryptocurrency is still very much</p>
+<p>in its early days of development,</p>
+<p>but it&rsquo;s still aiming to,</p>
+<p>and just might, redefine the nature of money.</p>
+<p>So again, if you get Cash App from the app store,</p>
+<p>Google Play, and use the code LEXBODCAST,</p>
+<p>you get $10, and Cash App will also donate $10 to FIRST,</p>
+<p>an organization that is helping to advance robotics</p>
+<p>and STEM education for young people around the world.</p>
+<p>And now, here&rsquo;s my conversation with Dmitry Korkin.</p>
+<p>Do you find viruses terrifying or fascinating?</p>
+<p>When I think about viruses, I think about them,</p>
+<p>I mean, I imagine them as those villains</p>
+<p>that do their work so perfectly well.</p>
+<p>That is impossible not to be fascinated with them.</p>
+<p>So what do you imagine when you think about a virus?</p>
+<p>Do you imagine the individual,</p>
+<p>sort of these 100 nanometer particle things?</p>
+<p>Or do you imagine the whole pandemic, like society level,</p>
+<p>when you say the efficiency at which they do their work,</p>
+<p>do you think of viruses as the millions</p>
+<p>that occupy human body or living organism,</p>
+<p>society level, like spreading as a pandemic,</p>
+<p>or do you think of the individual little guy?</p>
+<p>Yes, I think this is a unique concept</p>
+<p>that allows you to move from micro scale to the macro scale.</p>
+<p>So the virus itself, I mean, it&rsquo;s not a living organism.</p>
+<p>It&rsquo;s a machine to me, it&rsquo;s a machine.</p>
+<p>But it is perfected to the way</p>
+<p>that it essentially has a limited number of functions,</p>
+<p>it needs to do necessary functions.</p>
+<p>And it essentially has enough information</p>
+<p>just to do those functions,</p>
+<p>as well as the ability to modify itself.</p>
+<p>So it&rsquo;s a machine, it&rsquo;s an intelligent machine.</p>
+<p>So yeah, look, maybe on that point,</p>
+<p>you&rsquo;re in danger of reducing the power of this thing</p>
+<p>by calling it a machine, right?</p>
+<p>But you now mentioned that it&rsquo;s also possibly intelligent.</p>
+<p>It seems that there is these elements of brilliance</p>
+<p>that a virus has, of intelligence,</p>
+<p>of maximizing so many things about its behavior</p>
+<p>and to ensure its survival and its success.</p>
+<p>So do you see it as intelligent?</p>
+<p>So, you know, I think it&rsquo;s a different,</p>
+<p>I understand it differently than, you know,</p>
+<p>I think about, you know, intelligence of humankind</p>
+<p>or intelligence of the artificial intelligence mechanisms.</p>
+<p>I think the intelligence of a virus</p>
+<p>is in its simplicity.</p>
+<p>The ability to do so much</p>
+<p>with so little material and information.</p>
+<p>But also, I think it&rsquo;s interesting.</p>
+<p>It keeps me thinking, you know,</p>
+<p>it keeps me wondering whether or not it&rsquo;s also the,</p>
+<p>an example of the basic swarm intelligence</p>
+<p>where, you know, essentially, the viruses act as the whole</p>
+<p>and they&rsquo;re extremely efficient in that.</p>
+<p>So what do you attribute the incredible simplicity</p>
+<p>and the efficiency to?</p>
+<p>Is it the evolutionary process?</p>
+<p>So maybe another way to ask that question</p>
+<p>is if you look at the next hundred years,</p>
+<p>are you more worried about the natural pandemics</p>
+<p>or the engineered pandemics?</p>
+<p>So how hard is it to build a virus?</p>
+<p>Yes, it&rsquo;s a very, very interesting question</p>
+<p>because obviously there&rsquo;s a lot of conversations</p>
+<p>about the, you know, whether we are capable</p>
+<p>of engineering a, you know, an even worse virus.</p>
+<p>I personally expect and am mostly concerned</p>
+<p>with the naturally occurring viruses</p>
+<p>simply because we keep seeing that.</p>
+<p>We keep seeing new strains of influenza emerging,</p>
+<p>some of them becoming pandemic.</p>
+<p>We keep seeing new strains of coronaviruses emerging.</p>
+<p>This is a natural process</p>
+<p>and I think this is why it&rsquo;s so powerful.</p>
+<p>You know, if you ask me, you know,</p>
+<p>I&rsquo;ve read papers about scientists trying to study</p>
+<p>the capacity of the modern, you know,</p>
+<p>biotechnology to alter the viruses.</p>
+<p>But I hope that, you know,</p>
+<p>it won&rsquo;t be our main concern in the nearest future.</p>
+<p>What do you mean by hope?</p>
+<p>Well, you know, if you look back and look at the history</p>
+<p>of the most dangerous viruses, right?</p>
+<p>So the first thing that comes into mind is a smallpox.</p>
+<p>So right now there is perhaps a handful of places</p>
+<p>where there is a smallpox.</p>
+<p>There is perhaps a handful of places where this,</p>
+<p>you know, the strains of this virus are stored, right?</p>
+<p>So this is essentially the effort of the whole society</p>
+<p>to limit the access to those viruses.</p>
+<p>You mean in a lab in a controlled environment</p>
+<p>in order to study? Correct.</p>
+<p>And then smallpox is one of the viruses</p>
+<p>that should be stated there&rsquo;s a vaccine is developed.</p>
+<p>Yes, yes.</p>
+<p>And that&rsquo;s, you know, it&rsquo;s until 70s,</p>
+<p>I mean, in my opinion, it was perhaps</p>
+<p>the most dangerous thing that was there.</p>
+<p>Is that a very different virus</p>
+<p>than the influenza and the coronaviruses?</p>
+<p>It is, it is different in several aspects.</p>
+<p>Biologically, it&rsquo;s a so called double stranded DNA virus,</p>
+<p>but also in the way that it is much more contagious.</p>
+<p>So the R naught for, so this is the&hellip;</p>
+<p>What&rsquo;s R naught?</p>
+<p>R naught is essentially an average number</p>
+<p>as person infected by the virus can spread to other people.</p>
+<p>So then the average number of people</p>
+<p>that he or she can, you know, spread it to.</p>
+<p>And, you know, there is still some, you know,</p>
+<p>discussion about the estimates of the current virus,</p>
+<p>you know, the estimations vary between, you know, 1.5 and 3.</p>
+<p>In case of smallpox, it was 5 to 7.</p>
+<p>And we&rsquo;re talking about the exponential growth, right?</p>
+<p>So that&rsquo;s a very big difference.</p>
+<p>It&rsquo;s not the most contagious one.</p>
+<p>Measles, for example, it&rsquo;s, I think, 15 and up.</p>
+<p>So it&rsquo;s, you know, but it&rsquo;s definitely more contagious</p>
+<p>that the seasonal flu than the current coronavirus</p>
+<p>or SARS for that matter.</p>
+<p>What makes a virus more contagious?</p>
+<p>I&rsquo;m sure there&rsquo;s a lot of variables that come into play,</p>
+<p>but is it that whole discussion of aerosol</p>
+<p>and like the size of droplets if it&rsquo;s airborne,</p>
+<p>or is there some other stuff that&rsquo;s more biology centered?</p>
+<p>I mean, there are a lot of components</p>
+<p>and there are biological components</p>
+<p>that there are also, you know, social components.</p>
+<p>The ability of the virus to, you know,</p>
+<p>so the ways in which the virus is spread is definitely one.</p>
+<p>The ability of the virus to stay on the surfaces, to survive.</p>
+<p>The ability of the virus to replicate fast or so, you know.</p>
+<p>Or once it&rsquo;s in the cell or whatever.</p>
+<p>Once it&rsquo;s inside the host.</p>
+<p>And interestingly enough, something that I think</p>
+<p>we didn&rsquo;t pay that much attention to is the incubation period.</p>
+<p>The, where, you know, hosts are symptomatic.</p>
+<p>And now it turns out that another thing that we,</p>
+<p>one really needs to take into account,</p>
+<p>the percentage of the symptomatic population.</p>
+<p>Because those people still shed this virus</p>
+<p>and still are, you know, they still are contagious.</p>
+<p>So there&rsquo;s an, the Iceland study,</p>
+<p>which I think is probably the most impressive size wise,</p>
+<p>shows 50% asymptomatic for this virus.</p>
+<p>I also recently learned the swine flu is,</p>
+<p>like the, just the number of people who got infected</p>
+<p>was in the billions.</p>
+<p>It was some crazy number.</p>
+<p>It was like, it was like, like 20% of the pop,</p>
+<p>30% of the population, something crazy like that.</p>
+<p>So the lucky thing there is the fatality rate is low,</p>
+<p>but the fact that a virus can just take over</p>
+<p>an entire population so quickly, it&rsquo;s terrifying.</p>
+<p>I think, I mean, this is, you know,</p>
+<p>that&rsquo;s perhaps my favorite example of a butterfly effect</p>
+<p>because it&rsquo;s really, I mean, it&rsquo;s even tinier than a butterfly</p>
+<p>and look at, you know, and with, you know,</p>
+<p>if you think about it, right.</p>
+<p>It used to be in those bat species.</p>
+<p>And perhaps because of, you know,</p>
+<p>a couple of small changes in the viral genome,</p>
+<p>it first had, you know, become capable of jumping</p>
+<p>from bats to human, and then it became capable</p>
+<p>of jumping from human to human, right.</p>
+<p>So this is, I mean, it&rsquo;s not even the size of a virus.</p>
+<p>It&rsquo;s the size of several, you know, several atoms</p>
+<p>or a few atoms.</p>
+<p>And all of a sudden this change has such a major impact.</p>
+<p>So is that a mutation like on a single virus?</p>
+<p>Is that like, so if we talk about those,</p>
+<p>the flap of a butterfly wing, like what&rsquo;s the first flap?</p>
+<p>Well, I think this is the mutations that make,</p>
+<p>that made this virus capable of jumping</p>
+<p>from bat species to human.</p>
+<p>Of course there&rsquo;s, you know, the scientists are still trying</p>
+<p>to find, I mean, they&rsquo;re still even trying to find</p>
+<p>who was the first infected, right, the patient zero.</p>
+<p>The first human.</p>
+<p>The first human infected, right.</p>
+<p>I mean, the fact that there are coronaviruses,</p>
+<p>different strains of coronaviruses</p>
+<p>in various bat species, I mean, we know that.</p>
+<p>So we, you know, virologists observe them.</p>
+<p>They study them.</p>
+<p>They look at their genomic sequences.</p>
+<p>They&rsquo;re trying, of course, to understand what make</p>
+<p>these viruses to jump from bats to human.</p>
+<p>Because, you know, similar to that in influenza,</p>
+<p>there was, I think a few years ago, there was this,</p>
+<p>you know, interesting story where several groups</p>
+<p>of scientists studying influenza virus essentially,</p>
+<p>you know, made experiments to show that this virus</p>
+<p>can jump from one species to another,</p>
+<p>you know, by changing, I think, just a couple of residues.</p>
+<p>And, of course, it was very controversial.</p>
+<p>I think there was a moratorium on this study for a while.</p>
+<p>But then the study was released.</p>
+<p>It was published.</p>
+<p>So that, why was there a moratorium?</p>
+<p>Because it shows through engineering it,</p>
+<p>through modifying it, you can make it jump.</p>
+<p>Yes.</p>
+<p>I personally think it is important to study this.</p>
+<p>I mean, we should be informed.</p>
+<p>We should try to understand as much as possible</p>
+<p>in order to prevent it.</p>
+<p>But so then the engineering aspect there is,</p>
+<p>can&rsquo;t you then just start searching because there&rsquo;s</p>
+<p>so many strands of viruses out there.</p>
+<p>Can&rsquo;t you just search for the ones in bats that are</p>
+<p>the deadliest from the virologist perspective</p>
+<p>and then just try to engineer, try to see how to.</p>
+<p>But see, there&rsquo;s a nice aspect to it.</p>
+<p>The really nice thing about engineering viruses,</p>
+<p>it has the same problem as nuclear weapons.</p>
+<p>It&rsquo;s hard for it to not lead to mutual self destruction.</p>
+<p>So you can&rsquo;t control a virus.</p>
+<p>It can&rsquo;t be used as a weapon, right?</p>
+<p>Yeah, that&rsquo;s why in the beginning I said,</p>
+<p>I&rsquo;m hopeful because there are definitely regulations</p>
+<p>needed to be introduced.</p>
+<p>And I mean, as the scientific society is,</p>
+<p>we are in charge of making the right actions,</p>
+<p>making the right decisions.</p>
+<p>But I think we will benefit tremendously by understanding</p>
+<p>the mechanisms by which the virus can jump,</p>
+<p>by which the virus can become more dangerous to humans</p>
+<p>because all these answers would eventually lead to designing</p>
+<p>better vaccines, hopefully universal vaccines, right?</p>
+<p>And that would be a triumph of science.</p>
+<p>So what&rsquo;s the universal vaccine?</p>
+<p>So is that something that, how universal is universal?</p>
+<p>Well, I mean, you know, so what&rsquo;s the dream, I guess,</p>
+<p>because you kind of mentioned the dream of this.</p>
+<p>I would be extremely happy if we designed the vaccine</p>
+<p>that is able, I mean, I&rsquo;ll give you an example.</p>
+<p>So every year we do a seasonal flu shot.</p>
+<p>The reason we do it is because, you know, we are in the arms race,</p>
+<p>you know, our vaccines are in the arms race</p>
+<p>with constantly changing virus, right?</p>
+<p>Now, if the next pandemic, influenza pandemic will occur,</p>
+<p>most likely this vaccine would not save us, right?</p>
+<p>Although it&rsquo;s, you know, it&rsquo;s the same virus,</p>
+<p>might be different strain.</p>
+<p>So if we&rsquo;re able to essentially design a vaccine against,</p>
+<p>you know, influenza A virus, no matter what&rsquo;s the strain,</p>
+<p>no matter which species did it jump from, that would be,</p>
+<p>I think that would be a huge, huge progress and advancement.</p>
+<p>You mentioned the smallpox until the 70s,</p>
+<p>might&rsquo;ve been something that you would be worried the most about.</p>
+<p>What about these days?</p>
+<p>Well, we&rsquo;re sitting here in the middle of a COVID 19 pandemic,</p>
+<p>but these days, nevertheless, what is your biggest worry virus wise?</p>
+<p>What are you keeping your eye out on?</p>
+<p>It looks like, you know, based on the past several years</p>
+<p>of the new viruses emerging,</p>
+<p>I think we&rsquo;re still dealing with different types of influence.</p>
+<p>I mean, so the H7N9 avian flu that emerged,</p>
+<p>I think a couple of years ago in China,</p>
+<p>I think the mortality rate was incredible.</p>
+<p>I mean, it was, you know, I think about 30%, you know,</p>
+<p>so this is, this is huge.</p>
+<p>I mean, luckily for us, this strain was not pandemic, right?</p>
+<p>So it was jumping from birds to human,</p>
+<p>but I don&rsquo;t think it was actually transmittable between the humans.</p>
+<p>And, you know, this is actually a very interesting question,</p>
+<p>which scientists try to understand, right?</p>
+<p>So the balance, the delicate balance between the virus being very contagious,</p>
+<p>right, so efficient in spreading and virus to be very pathogenic,</p>
+<p>you know, causing, you know, harms, you know, and that&rsquo;s to the horse.</p>
+<p>So it looks like that the more pathogenic the virus is,</p>
+<p>the less contagious it is.</p>
+<p>Is that a property of biology or what is it?</p>
+<p>I don&rsquo;t have an answer to that.</p>
+<p>And I think this is still an open question.</p>
+<p>But, you know, if you look at, you know, with the coronavirus, for example,</p>
+<p>if you look at, you know, the deadlier relative MERS,</p>
+<p>MERS was never a pandemic virus.</p>
+<p>Right.</p>
+<p>But, you know, again, the mortality rate from MERS is far above,</p>
+<p>you know, I think 20 or 30%, so.</p>
+<p>So whatever is making this all happen doesn&rsquo;t want us dead</p>
+<p>because it&rsquo;s balancing out nicely.</p>
+<p>I mean, how do you explain that we&rsquo;re not dead yet?</p>
+<p>Like, because there&rsquo;s so many viruses and they&rsquo;re so good at what they do.</p>
+<p>Why do they keep us alive?</p>
+<p>I mean, we also have, you know, a lot of protection.</p>
+<p>Right.</p>
+<p>So we do the immune system.</p>
+<p>And so, I mean, we do have, you know, ways to fight against those viruses.</p>
+<p>And I think with the now we&rsquo;re much better equipped.</p>
+<p>Right.</p>
+<p>So with the discoveries of vaccines and, you know,</p>
+<p>there are vaccines against the viruses that maybe 200 years ago</p>
+<p>would wipe us out completely.</p>
+<p>But because of these vaccines, we are actually, we are capable of eradicating</p>
+<p>pretty much fully as is the case with smallpox.</p>
+<p>So if we could, can we go to the basics a little bit of the biology of the virus?</p>
+<p>How does a virus infect the body?</p>
+<p>So I think there are some key steps that the virus needs to perform.</p>
+<p>And of course, the first one, the viral particle needs to get attached to the host cell.</p>
+<p>In the case of coronavirus, there is a lot of evidence that it actually interacts</p>
+<p>in the same way as the SARS coronavirus.</p>
+<p>So it gets attached to AC2 human receptor.</p>
+<p>And so there is, I mean, as we speak, there is a growing number of papers suggesting it.</p>
+<p>Moreover, most recent, I think most recent results suggest that this virus</p>
+<p>attaches more efficiently to this human receptor than SARS.</p>
+<p>So just to sort of back off, so there is a family of viruses that are coronaviruses</p>
+<p>and SARS, whatever the heck for that, whatever that stands for.</p>
+<p>So SARS actually stands for the disease that you get is the syndrome of acute respiratory syndrome.</p>
+<p>So SARS is the first strand and then there&rsquo;s MERS.</p>
+<p>And there is, yes, scientists actually know more than three strands.</p>
+<p>I mean, so there is the MHV strain, which is considered to be a canonical disease model in mice.</p>
+<p>And so there is a lot of work done on this virus because it&rsquo;s&hellip;</p>
+<p>But it hasn&rsquo;t jumped to humans yet?</p>
+<p>No.</p>
+<p>Oh, interesting.</p>
+<p>Yes.</p>
+<p>That&rsquo;s fascinating.</p>
+<p>And then you mentioned AC2.</p>
+<p>So when you say attach, proteins are involved on both sides.</p>
+<p>Yes.</p>
+<p>So we have this infamous spike protein on the surface of the virion particle,</p>
+<p>and it does look like a spike.</p>
+<p>And I mean, that&rsquo;s essentially because of this protein, we call the coronavirus coronavirus.</p>
+<p>So that&rsquo;s what makes corona on top of the surface.</p>
+<p>So this protein, it actually it acts, so it doesn&rsquo;t act alone.</p>
+<p>It actually it makes three copies and it makes so called trimer.</p>
+<p>So this trimer is essentially a functional unit,</p>
+<p>a single functional unit that starts interacting with the AC2 receptor.</p>
+<p>So this is, again, another protein that now sits on the surface of a human cell or host cell, I would say.</p>
+<p>And that&rsquo;s essentially in that way the virus anchors itself to the host cell.</p>
+<p>Because then it needs to actually it needs to get inside.</p>
+<p>You know, it fuses its membrane with the host membrane.</p>
+<p>It releases the key components.</p>
+<p>It releases its, you know, RNA and then essentially hijacks the machinery of the cell</p>
+<p>because none of the viruses that we know of have ribosome,</p>
+<p>the machinery that allows us to print out proteins.</p>
+<p>So in order to print out proteins that are necessary for functioning of this virus,</p>
+<p>it actually needs to hijack the host ribosomes.</p>
+<p>So a virus is an RNA wrapped in a bunch of proteins,</p>
+<p>one of which is this functional mechanism of a spike protein that does the attachment.</p>
+<p>Yeah, so if you look at this virus, there are several basic components.</p>
+<p>So we start with the spike protein.</p>
+<p>This is not the only surface protein, the protein that lives on the surface of the viral particle.</p>
+<p>There is also perhaps the protein with the highest number of copies is the membrane protein.</p>
+<p>So it&rsquo;s essentially it forms the envelope of the protein of the viral particle</p>
+<p>and essentially, you know, helps to maintain a certain curvature, helps to make a certain curvature.</p>
+<p>Then there is another protein called envelope protein or E protein,</p>
+<p>and it actually occurs in far less quantities.</p>
+<p>And still there is ongoing research what exactly does this protein do?</p>
+<p>So these are sort of the three major surface proteins that, you know, make the viral envelope.</p>
+<p>And when we go inside, then we have another structural protein called nuclear protein.</p>
+<p>And the purpose of this protein is to protect the viral RNA.</p>
+<p>It actually binds to the viral RNA, creates a capsid.</p>
+<p>And so the rest of the virus viral information is inside of this RNA.</p>
+<p>And, you know, if you compare the amount of the genes or proteins that are made of these genes,</p>
+<p>it&rsquo;s significantly higher than of influenza virus, for example.</p>
+<p>Influenza virus has, I think, around eight or nine proteins where this one has at least 29.</p>
+<p>Wow. That has to do with the length of the RNA strand?</p>
+<p>So it affects the length of the RNA strand.</p>
+<p>So because you essentially need to have sort of the minimum amount of information to encode those genes.</p>
+<p>How many proteins did you say?</p>
+<p>29.</p>
+<p>29 proteins.</p>
+<p>Yes. So this is, you know, something definitely interesting because, you know, believe it or not,</p>
+<p>we&rsquo;ve been studying, you know, coronaviruses for over two decades.</p>
+<p>We&rsquo;ve yet to uncover all functionalities of these proteins.</p>
+<p>Could we maybe take a small attention and can you say how one would try to figure out what a function of a particular protein is?</p>
+<p>So you&rsquo;ve mentioned people are still trying to figure out what the function of the envelope protein might be or what&rsquo;s the process?</p>
+<p>So this is where the research that computational scientists do might be of help because, you know,</p>
+<p>in the past several decades, we actually have collected a pretty decent amount of knowledge about different proteins in different viruses.</p>
+<p>So what we can actually try to do, and this is sort of could be sort of our first lead to a possible function is to see whether those, you know,</p>
+<p>say we have this genome of the coronavirus, of the novel coronavirus, and we identify the potential proteins.</p>
+<p>Then in order to infer the function, what we can do, we can actually see whether those proteins are similar to those ones that we already know.</p>
+<p>OK, in such a way, we can, you know, for example, clearly identify, you know, some critical components that RNA polymerase or different types of proteases.</p>
+<p>These are the proteins that essentially clip the protein sequences.</p>
+<p>And so this works in many cases. However, in some cases you have truly novel proteins.</p>
+<p>And this is a much more difficult task.</p>
+<p>Now, as a small pause, when you say similar, like what if some parts are different and some parts are similar?</p>
+<p>Like, how do you disentangle that?</p>
+<p>You know, it&rsquo;s a big question. Of course, you know, what bioinformatics does, it does predictions, right?</p>
+<p>So those predictions, they have to be validated by experiments.</p>
+<p>Functional or structural predictions?</p>
+<p>Both. I mean, we do structural predictions, we do functional predictions, we do interactions predictions.</p>
+<p>Oh, so this is interesting. So you just generate a lot of predictions, like reasonable predictions based on structural function, interaction, like you said.</p>
+<p>And then here you go. That&rsquo;s the power of bioinformatics is data grounded, good predictions of what should happen.</p>
+<p>So, you know, in a way I see it, we&rsquo;re helping experimental scientists to streamline the discovery process.</p>
+<p>And the experimental scientists, is that what a virologist is?</p>
+<p>So yeah, virology is one of the experimental sciences that, you know, focus on viruses.</p>
+<p>They often work with other experimental scientists, for example, the molecular imaging scientists, right?</p>
+<p>So the viruses often can be viewed and reconstructed through electron microscopy techniques.</p>
+<p>So but these are, you know, specialists that are not necessarily virologists.</p>
+<p>They work with small particles, whether it&rsquo;s viruses or it&rsquo;s an organelle of a human cell, whether it&rsquo;s a complex molecular machinery.</p>
+<p>So the techniques that are used are very similar in sort of in their essence.</p>
+<p>And so, yeah, so typically we see it now, the research on, you know, that is emerging and that is needed often involves the collaborations between virologists, you know, biochemists,</p>
+<p>people from pharmaceutical sciences, computational sciences.</p>
+<p>So we have to work together.</p>
+<p>So from my perspective, just to step back, sometimes I look at this stuff, just how much we understand about RNA and DNA, how much we understand about protein, like your work,</p>
+<p>the amount of proteins that you&rsquo;re exploring, is it surprising to you that we were able, we descendants of apes, were able to figure all of this out?</p>
+<p>Like how? So you&rsquo;re a computer scientist.</p>
+<p>So for me, from a computer science perspective, I know how to write a Python program, things are clear.</p>
+<p>But biology is a giant mess, it feels like to me from an outsider&rsquo;s perspective.</p>
+<p>How surprising is it, amazing is it that we were able to figure this stuff out?</p>
+<p>You know, if you look at the, you know, how computational science and computer science was evolving, right?</p>
+<p>I think it was just a matter of time that we would approach biology.</p>
+<p>So we started from, you know, applications to much more fundamental systems, physics, you know, and now we are, or, you know, small chemical compounds.</p>
+<p>So now we are approaching the more complex biological systems, and I think it&rsquo;s a natural evolution of, you know, of the computer science, of mathematics.</p>
+<p>So sure, that&rsquo;s the computer science side, I just meant even in higher level.</p>
+<p>So that to me is surprising that computer science can offer help in this messy world.</p>
+<p>But I just mean, it&rsquo;s incredible that the biologists and the chemists can figure all this out.</p>
+<p>Or does that just sound ridiculous to you, that of course they would.</p>
+<p>It just seems like a very complicated set of problems, like the variety of the kinds of things that could be produced in the body.</p>
+<p>Just like you said, 29 protein, I mean, just getting a hang of it so quickly, it just seems impossible to me.</p>
+<p>I agree. I mean, it&rsquo;s, and I have to say we are, you know, in the very, very beginning of this journey.</p>
+<p>I mean, we&rsquo;ve yet to, I mean, we&rsquo;ve yet to comprehend, not even try to understand and figure out all the details, but we&rsquo;ve yet to comprehend the complexity of the cell.</p>
+<p>We know that neuroscience is not even at the beginning of understanding the human mind.</p>
+<p>So where&rsquo;s biology sit in terms of understanding the function, deeply understanding the function of viruses and cells?</p>
+<p>So there, sometimes it&rsquo;s easy to say when you talk about function, what you really refer to is perhaps not a deep understanding, but more of a understanding sufficient to be able to mess with it using a antivirus, like mess with it chemically to prevent some of its function.</p>
+<p>Or do you understand the function?</p>
+<p>Well, I think, I think we are much farther in terms of understanding of the complex genetic disorder, such as cancer, where you have layers of complexity.</p>
+<p>And we, you know, as in my laboratory, we&rsquo;re trying to contribute to that research, but we&rsquo;re also, you know, we&rsquo;re overwhelmed with how many different layers of complexity, different layers of mechanisms that can be hijacked by cancer simultaneously.</p>
+<p>And so, you know, I think biology in the past 20 years, again, from the perspective of the outsider, because I&rsquo;m not a biologist, but I think it has advanced tremendously.</p>
+<p>And one thing that where computational scientists and data scientists are now becoming very, very helpful is in the fact, it&rsquo;s coming from the fact that we are now able to generate a lot of information about the cell.</p>
+<p>Whether it&rsquo;s next generation sequencing or transcriptomics, whether it&rsquo;s life imaging information, where it is, you know, complex interactions between proteins or between proteins and small molecules such as drugs.</p>
+<p>We are becoming very efficient in generating this information. And now the next step is to become equally efficient in processing this information and extracting the key knowledge from that.</p>
+<p>That could then be validated with experiment.</p>
+<p>Yes.</p>
+<p>So maybe then going all the way back, we were talking, you said the first step is seeing if we can match the new proteins you found in the virus against something we&rsquo;ve seen before to figure out its function.</p>
+<p>And then you also mentioned that, but there could be cases where it&rsquo;s a totally new protein. Is there something bioinformatics can offer when it&rsquo;s a totally new protein?</p>
+<p>This is where many of the methods and you probably are aware of, you know, the case of machine learning, many of these methods rely on the previous knowledge.</p>
+<p>Right.</p>
+<p>Right. So things that where we try to do from scratch are incredibly difficult.</p>
+<p>You know, something that we call ab initio. And this is, I mean, it&rsquo;s not just the function. I mean, you know, we&rsquo;ve yet to have a robust method to predict the structures of these proteins in ab initio, you know, by not using any templates of other related proteins.</p>
+<p>So protein is a chain of amino acids.</p>
+<p>It&rsquo;s residues.</p>
+<p>Residues. Yeah. And then somehow magically, maybe you can tell me, they seem to fold in incredibly weird and complicated 3D shapes.</p>
+<p>Yes.</p>
+<p>So, and that&rsquo;s where actually the idea of protein folding or just not the idea, but the problem of figuring out how the concept, how they fold into those weird shapes comes in.</p>
+<p>So that&rsquo;s another side of computational work. So can you describe what protein folding from the computational side is and maybe your thoughts on the folding at home efforts that a lot of people know that you can use your machine to do protein folding?</p>
+<p>So yeah, protein folding is, you know, one of those $1 million price challenges, right?</p>
+<p>So the reason for that is we&rsquo;ve yet to understand precisely how the protein gets folded so efficiently to the point that in many cases where you, you know, where you try to unfold it due to the high temperature, it actually folds back into its original state.</p>
+<p>So we know a lot about the mechanisms, right? But putting those mechanisms together and making sense, it&rsquo;s a computationally very expensive task.</p>
+<p>In general, do proteins fold, can they fold in arbitrary large number of ways or do they usually fold in a very small number of ways?</p>
+<p>It&rsquo;s typically, I mean, we tend to think that, you know, there is a one sort of canonical fold for a protein, although there are many cases where the proteins, you know, upon destabilization, it can be folded into a different confirmation.</p>
+<p>And this is especially true when you look at sort of proteins that include more than one structural unit. So those structural units, we call them protein domains.</p>
+<p>Essentially, protein domain is a single unit that typically is evolutionary preserved, that typically carries out a single function and typically has a very distinct fold, right?</p>
+<p>The structure, 3D structure organization. But turns out that if you look at human, an average protein in a human cell would have a bit of two or three such subunits and how they are trying to fold into the sort of, you know, next level fold, right?</p>
+<p>So within subunit there&rsquo;s folding and then they fold into the larger 3D structure, right?</p>
+<p>And all of that, there&rsquo;s some understanding of the basic mechanisms, but not to put together to be able to fold it.</p>
+<p>We&rsquo;re still, I mean, we&rsquo;re still struggling. I mean, we&rsquo;re getting pretty good about folding relatively small proteins up to 100 residues. I mean, but we&rsquo;re still far away from folding, you know, larger proteins.</p>
+<p>And some of them are notoriously difficult. For example, transmembrane proteins, proteins that sit in the membranes of the cell, they&rsquo;re incredibly important, but they are incredibly difficult to solve.</p>
+<p>And so basically there&rsquo;s a lot of degrees of freedom, how it folds. And so it&rsquo;s a combinatorial problem where it just explodes. There&rsquo;s so many dimensions.</p>
+<p>Well, it is a combinatorial problem, but it doesn&rsquo;t mean that we cannot approach it from the, not from the brute force approach. And so the machine learning approaches, you know, have been emerged that try to tackle it.</p>
+<p>So folding at home, I don&rsquo;t know how familiar you are with it, but is that using machine learning or is it more brute force?</p>
+<p>So folding at home, it was originally, and I remember I was, I mean, it was a long time ago. I was a postdoc and we learned about this, you know, this game because it was originally designed as the game.</p>
+<p>And we, you know, I took a look at it and it&rsquo;s interesting because it&rsquo;s really, you know, it&rsquo;s very transparent, very intuitive. So, and from what I heard, I&rsquo;ve yet to introduce it to my son, but you know, kids are actually getting very good at folding the proteins.</p>
+<p>And it was, you know, it came to me as the, not as a surprise, but actually as the sort of manifest of, you know, our capacity to do this kind of, to solve this kind of problems.</p>
+<p>When a paper was published in one of these top journals with the coauthors being the actual players of this game.</p>
+<p>So, and what happened was that they managed to get better structures than the scientists themselves.</p>
+<p>So that, you know, that was very, I mean, it was kind of profound, you know, revelation that problems that are so challenging for a computational science, maybe not that challenging for a human brain.</p>
+<p>That&rsquo;s a really good, that&rsquo;s a hopeful message always when there&rsquo;s a, the proof of existence, the existence proof that it&rsquo;s possible. That&rsquo;s really interesting, but it seems, what are the best ways to do protein folding now?</p>
+<p>So if you look at what DeepMind does with AlphaFold, so they kind of, that&rsquo;s a learning approach. What&rsquo;s your sense? I mean, your background is in machine learning, but is this a learnable problem? Is this still a brute force?</p>
+<p>Are we in the Gary Kasparov deep blue days or are we in the AlphaGo playing the game of Go days of folding?</p>
+<p>Well, I think we are, we are advancing towards this direction. I mean, if you look, so there is a sort of Olympic game for protein folders called CASP, and it&rsquo;s essentially, it&rsquo;s, you know, it&rsquo;s a competition where different teams are given exactly the same</p>
+<p>protein sequences and they try to predict their structures, right? And of course there are different sort of sub tasks, but in the recent competition, AlphaFold was among the top performing teams, if not the top performing team.</p>
+<p>So there is definitely a benefit from the data that have been generated, you know, in the past several decades, the structural data. And certainly, you know, we are now at the capacity to summarize this data, to generalize this data and to use those principles, you know, in order to predict protein structures.</p>
+<p>That&rsquo;s one of the really cool things here is there&rsquo;s, maybe you can comment on it. There seems to be these open data sets of protein. How did that?</p>
+<p>Protein Data Bank?</p>
+<p>Yeah, Protein Data Bank. I mean, that&rsquo;s crazy. Is this a recent thing for just the coronavirus?</p>
+<p>It&rsquo;s been for many, many years. I believe the first Protein Data Bank was designed on flashcards. So, yes, this is a great example of the community efforts of everyone contributing because every time you solve a protein or a protein complex,</p>
+<p>this is where you submit it. And, you know, the scientists get access to it, scientists get to test it. And we, bioinformaticians, use this information to, you know, to make predictions.</p>
+<p>So, there&rsquo;s no culture of like hoarding discoveries here. So, I mean, you&rsquo;ve released a few or a bunch of proteins that were matching, whatever. We&rsquo;ll talk about details a little bit, but it&rsquo;s kind of amazing how open the culture here is.</p>
+<p>It is. And I think this pandemic actually demonstrated the ability of scientific community to, you know, to solve this challenge collaboratively. And this is, I think, if anything, it actually moved us to a brand new level of collaborations of the efficiency</p>
+<p>in which people establish new collaborations, in which people offer their help to each other, scientists offer their help to each other.</p>
+<p>And publish results too. It&rsquo;s very interesting. We&rsquo;re now trying to figure out, there&rsquo;s a few journals that are trying to sort of do the very accelerated review cycle, but so many preprints. So, just posting a paper going out, I think it&rsquo;s fundamentally changing the way we think about papers.</p>
+<p>Yes. I mean, the way we think about knowledge, I would say, yes. Because, yes, I completely agree. I think now the knowledge is becoming sort of the core value, not the paper or the journal where this knowledge is published.</p>
+<p>And I think this is, again, we are living in the times where it becomes really crystallized, the idea that the most important value is in the knowledge.</p>
+<p>So, maybe you can comment, like, what do you think the future of that knowledge sharing looks like? So, you have this paper that I hope we get a chance to talk about a little bit, but it has, like, a really nice abstract and introduction related, like, it has all the usual, I mean, probably took a long time to put together.</p>
+<p>So, but is that going to remain, like, you could have communicated a lot of fundamental ideas here in much shorter amount that&rsquo;s less traditionally acceptable by the journal context.</p>
+<p>So, well, you know, so the first version that we posted, not even on the bioarchive, because bioarchive back then, it was essentially, you know, overwhelmed with the number of submissions.</p>
+<p>So, our submission, I think it took five or six days to just for it to be screened and put online. So, we, you know, essentially we put the first preprint on our website, and, you know, it started getting access right away.</p>
+<p>So, and, you know, so this original preprint was in a much rougher shape than this paper.</p>
+<p>And, but we tried, I mean, we honestly tried to be as compact as possible with, you know, introducing the information that is necessary to explain our, you know, our results.</p>
+<p>So, maybe you can dive right in if it&rsquo;s okay. Sure. So, this is a paper called Structural Genomics of SARS Co, how do you even pronounce? SARS CoV2. CoV2? Yeah.</p>
+<p>By the way, CoVid is such a terrible name, but it stuck. Anyway, SARS CoV2 indicates evolutionary conserved functional regions of viral proteins.</p>
+<p>So, this is looking at all kinds of proteins that are part of this novel coronavirus and how they match up against the previous other kinds of coronaviruses.</p>
+<p>I mean, there&rsquo;s a lot of beautiful figures. I was wondering if you could, I mean, there&rsquo;s so many questions I could ask here, but maybe at the, how do you get started doing this paper?</p>
+<p>So, how do you start to figure out the 3D structure of a novel virus?</p>
+<p>Yes. So, there is actually a little story behind it. And so, the story actually dated back in September of 2019.</p>
+<p>And you probably remember that back then, we had another dangerous virus, triple E virus. It&rsquo;s a queen encephalitis virus.</p>
+<p>Can you maybe linger on it? I have to admit, I was sadly completely unaware.</p>
+<p>So, that was actually a virus outbreak that happened in New England only. The danger in this virus was that it actually targeted your brain.</p>
+<p>So, the word death from this virus, it was transferred, the main vector was mosquitoes.</p>
+<p>And obviously, fall time is the time where you have a lot of them in New England.</p>
+<p>And on one hand, people realize this is actually a very dangerous thing. So, it had an impact on the local economy.</p>
+<p>The schools were closed past six o clock, no activities outside for the kids because the kids were suffering quite tremendously when infected from this virus.</p>
+<p>How do I not know about this? Was universities impacted?</p>
+<p>It was in the news. I mean, it was not impacted to a high degree in Boston necessarily, but in the Metro West area and actually spread around, I think, all the way to New Hampshire, Connecticut.</p>
+<p>And you mentioned affecting the brain. That&rsquo;s one other comment we should make.</p>
+<p>So, you mentioned AC2 for the coronavirus. So, these viruses kind of attached to something in the body.</p>
+<p>So, it essentially attaches to these proteins in those cells in the body where those proteins are expressed, where they actually have them in abundance.</p>
+<p>So, sometimes that could be in the lungs, that could be in the brain, that could be in something.</p>
+<p>So, I think right now, from what I read, they have the epithelial cells inside.</p>
+<p>What does that mean?</p>
+<p>So, the cells that are covering the surface, so inside the nasal surfaces, the throat, the lung cells, and I believe liver as a couple of other organs where they are actually expressed in abundance.</p>
+<p>That&rsquo;s for the AC2 you said?</p>
+<p>For the AC2 receptors.</p>
+<p>So, okay. So, back to the story, the outbreak in the fall.</p>
+<p>So, now the impact of this virus is significant.</p>
+<p>However, it&rsquo;s a prelocal problem to the point that this is something that we would call a neglected disease</p>
+<p>because it&rsquo;s not big enough to make the drug design companies to design a new antiviral or a new vaccine.</p>
+<p>It&rsquo;s not big enough to generate a lot of grants from the national funding agencies.</p>
+<p>So, it doesn&rsquo;t mean we cannot do anything about it.</p>
+<p>And so, what I did is I taught a bioinformatics class in Worcester Polytechnic Institute, and we are very much a problem learning institution.</p>
+<p>So, I thought that that would be a perfect project for the class.</p>
+<p>It&rsquo;s an ongoing case study.</p>
+<p>So, we essentially designed a study where we tried to use bioinformatics to understand as much as possible about this virus.</p>
+<p>And a very substantial portion of the study was to understand the structures of the proteins,</p>
+<p>to understand how they interact with each other and with the host proteins, try to understand the evolution of this virus.</p>
+<p>So, obviously, a very important question, where it will evolve further, how it happened here.</p>
+<p>So, we did all these projects, and now I&rsquo;m trying to put them into a paper where all these undergraduate students will be coauthors.</p>
+<p>But essentially, the projects were finished right about mid December.</p>
+<p>And a couple of weeks later, I heard about this mysterious new virus that was discovered and was reported in Wuhan province.</p>
+<p>And immediately I thought that, well, we just did that, can&rsquo;t we do the same thing with this virus?</p>
+<p>And so, we started waiting for the genome to be released, because that&rsquo;s essentially the first piece of information that is critical.</p>
+<p>Once you have the genome sequence, you can start doing a lot using bioinformatics.</p>
+<p>When you say genome sequence, that&rsquo;s referring to the sequence of letters that make up the RNA?</p>
+<p>Well, the sequence that make up the entire information encoded in the protein, right?</p>
+<p>So, that includes all 29 genes.</p>
+<p>What are genes? What&rsquo;s the encoding of information?</p>
+<p>So, genes is essentially a basic functional unit that we can consider.</p>
+<p>So, each gene in the virus would correspond to a protein.</p>
+<p>So, gene by itself doesn&rsquo;t do its function.</p>
+<p>It needs to be converted or translated into the protein that will become the actual functional unit.</p>
+<p>Yeah, like you said, the printer.</p>
+<p>So, we need the printer for that.</p>
+<p>We need the printer, okay.</p>
+<p>So, the first step is to figure out the genome, the sequence of things that could be then used for printing the protein.</p>
+<p>So, okay.</p>
+<p>So, then the next step, so once we have this and so we use the existing information about SARS because the SARS genomics has been done in abundance.</p>
+<p>So, we have different strains of SARS and actually other related coronaviruses, MERS, the bat coronavirus.</p>
+<p>And we started by identifying the potential genes because right now it&rsquo;s just a sequence, right?</p>
+<p>So, it&rsquo;s a sequence that is roughly, it&rsquo;s less than 30,000 nucleotide long.</p>
+<p>Just a raw sequence.</p>
+<p>It&rsquo;s a raw sequence.</p>
+<p>No other information really.</p>
+<p>And we now need to define the boundaries of the genes that would then be used to identify the protein and protein structures.</p>
+<p>How hard is that problem?</p>
+<p>It&rsquo;s not, I mean, it&rsquo;s pretty straightforward.</p>
+<p>So, you know, so because we use the existing information about SARS proteins and SARS genes.</p>
+<p>So, once again, you kind of, we are relying on the, yes.</p>
+<p>So, and then once we get there, this is where sort of the first more traditional bioinformatics step begins.</p>
+<p>We&rsquo;re trying to use this protein sequences and get the 3D information about those proteins.</p>
+<p>So, this is where we are relying heavily on the structure information specifically from the protein databank that we&rsquo;re talking about.</p>
+<p>And here you&rsquo;re looking for similar proteins.</p>
+<p>Yes.</p>
+<p>So, the concept that we are operating when we do this kind of modeling, it&rsquo;s called homology or template based modeling.</p>
+<p>So, essentially using the concept that if you have two sequences that are similar in terms of the letters, the structures of the sequences are expected to be similar as well.</p>
+<p>And this is at the micro, at the very local scale?</p>
+<p>At the scale of the whole protein.</p>
+<p>At the whole protein.</p>
+<p>So, actually, so, you know, so, of course the devil is in the details.</p>
+<p>And this is why we need actually pre sophisticated modeling tools to do so.</p>
+<p>Once we get the structures of the individual proteins, we try to see whether or not these proteins act alone or they have to be forming protein complexes in order to perform this function.</p>
+<p>And again, so, this is sort of the next level of the modeling because now you need to understand how proteins interact and it could be the case that the protein interacts with itself and makes sort of a multimeric complex.</p>
+<p>The same protein just repeated multiple times and we have quite a few such proteins in SARS CoV2, specifically spike protein needs three copies to function, envelope protein needs five copies to function.</p>
+<p>And there are some other multimeric complexes.</p>
+<p>That&rsquo;s what you mean by attracted with itself and you see multiple copies. So, how do you, how do you make a good guess whether something&rsquo;s going to interact?</p>
+<p>Well, again, so there are two approaches, right? So one is look at the previously solved complexes. Now we&rsquo;re looking not at the individual structures but the structures of the whole complex.</p>
+<p>Complex is a bunch of multiple proteins.</p>
+<p>Yeah, so it&rsquo;s a bunch of proteins essentially glued together.</p>
+<p>And when you say glued, that&rsquo;s the interaction.</p>
+<p>That&rsquo;s the interaction. So there are different forces, different sort of physical forces behind this.</p>
+<p>Sorry to keep asking dumb questions, but is the interaction fundamentally structural or is it functional? Like in the way you&rsquo;re thinking about it?</p>
+<p>That&rsquo;s actually a very good way to ask this question because it turns out that the interaction is structural, but in the way it forms the structure, it actually also carries out the function.</p>
+<p>So interaction is often needed to carry out very specific function of a protein.</p>
+<p>But in terms of on the other side, figuring out you&rsquo;re really starting at the structure before you figure out the function.</p>
+<p>So there&rsquo;s a beautiful figure too in the paper of all the different proteins that make up, able to figure out that make up the novel coronavirus.</p>
+<p>What are we looking at? So these are like, that&rsquo;s through the step two that you mentioned, when you try to guess at the possible proteins, that&rsquo;s what you&rsquo;re going to get is these blue cyan blobs.</p>
+<p>Yes. So those are the individual proteins for which we have at least some information from the previous studies.</p>
+<p>So there is advantage and disadvantage of using previous studies. The biggest, well, the disadvantage is that we may not necessarily have the coverage of all 29 proteins.</p>
+<p>However, the biggest advantage is that the accuracy in which we can model these proteins is very high, much higher compared to ab initio methods that do not use any template information.</p>
+<p>So, but nevertheless, this figure also has, it&rsquo;s such a beautiful and I love these pictures so much. It has like the pink parts, which are the parts that are different.</p>
+<p>So you&rsquo;re highlighting, so the difference you find is on the 2D sequence. And then you try to infer what that will look like on the 3D.</p>
+<p>Yeah. So the difference actually is on the 1D sequence.</p>
+<p>1D, sorry, 2D, right.</p>
+<p>So this is one of these first questions that we try to answer is that, well, if you take this new virus and you take the closest relatives, which are SARS and a couple of bad coronavirus strains, they are already the closest relatives that we are aware of.</p>
+<p>Now, what are the difference between this virus and its close relatives, right? And if you look, typically when you take a sequence, those differences could be quite far away from each other.</p>
+<p>So what make, what 3D structure makes those difference to do, very often they tend to cluster together.</p>
+<p>Interesting.</p>
+<p>And then all of a sudden the differences that may look completely unrelated actually relate to each other. And sometimes they are there because they correspond, they attack the functional site, right?</p>
+<p>So they are there because this is the functional site that is highly mutated.</p>
+<p>So that&rsquo;s a computational approach to figuring something out. And when it comes together like that, that&rsquo;s kind of a nice clean indication that there&rsquo;s something, this could be actually indicative of what&rsquo;s happening.</p>
+<p>Yes. I mean, so we need this information and the 3D structure gives us just a very intuitive way to look at this information and then start to ask, start asking questions such as, so this place of this protein that is highly mutated,</p>
+<p>does it, is it the functional part of the protein? So does this part of the protein interact with some other proteins or maybe with some other ligands, small molecules, right?</p>
+<p>So we will try now to functionally inform this 3D structure.</p>
+<p>So you have a bunch of these mutated parts, if like, I don&rsquo;t know, how many are there in the novel coronavirus when you compare to SARS? We&rsquo;re talking about hundreds, thousands, like these pink regions.</p>
+<p>No, no, much less than that. And it&rsquo;s very interesting that if you look at that, you know, so the first thing that you start seeing, right, you know, you look at patterns, right? And the first pattern that becomes obvious is that some of the proteins in the new coronavirus are pretty much intact.</p>
+<p>So they&rsquo;re pretty much exactly the same as SARS, as the bat coronavirus, whereas some others are heavily mutated.</p>
+<p>So it looks like that the, you know, the evolution is not occurring, you know, uniformly across the entire, you know, viral genome, but actually target very specific proteins.</p>
+<p>And what do you do with that? Like from the Sherlock Holmes perspective?</p>
+<p>Well, you know, so one of the most interesting findings we had was the fact that the viral, so the binding sites on the viral surfaces that get targeted by the known small molecules, they were pretty much not affected at all.</p>
+<p>And so that means that the same small drugs or small drug like compounds can be efficient for the new coronavirus.</p>
+<p>Ah, so this all actually maps to the drug compounds too. So you&rsquo;re actually mapping out what old stuff is going to work on this thing and then possibilities for new stuff to work by mapping out the things that have mutated.</p>
+<p>Yes. So we essentially know which parts behave differently and which parts are likely to behave similar. And again, you know, of course, all our predictions need to be validated by experiments.</p>
+<p>But hopefully that sort of helps us to delineate the regions of this virus that, you know, can be promising in terms of the drug discovery.</p>
+<p>You kind of, you kind of mentioned this already, but maybe you can elaborate. So how different from the structural and functional perspective does the new coronavirus appear to be relative to SARS?</p>
+<p>We now are trying to understand the overall structural characteristics of this virus because I mean, that&rsquo;s our next step, trying to model the viral particle of single viral particle of this virus.</p>
+<p>So that means you have the individual proteins, like you said, you have to figure out what their interaction is. So you have this, is that where this graph kind of interactome?</p>
+<p>So the interactome is essentially our prediction on the potential interactions, some of them that we already deciphered from the structural knowledge, but some of them that are essentially are deciphered from the knowledge of the existing interactions that people previously obtained for SARS, for MERS or other related viruses.</p>
+<p>Is there kind of interactomes, am I pronouncing that correctly by the way? Are those already converged towards for SARS?</p>
+<p>So I think there are a couple of papers that now investigate the sort of the large scale set of interactions between the new SARS and its host. And so I think that&rsquo;s an ongoing study.</p>
+<p>And the success of that, the result would be an interactome. Yes. And so when you say not trying to figure out the entire, the particle, the entire thing.</p>
+<p>So if you look, you know, so structure, right? So what this viral particle looks like, right? So as I said, it&rsquo;s, you know, the surface of it is an envelope, which is essentially a so called lipid bilayer with proteins integrated into the surface.</p>
+<p>So how, so an average particle is around 80 nanometers, right? So this particle can have about 50 to 100 spike proteins.</p>
+<p>So at least we suspect it and, you know, based on the micrographs images, it&rsquo;s very comparable to MHV virus in mice and SARS virus.</p>
+<p>Micrographs are actual pictures of the actual virus. Okay. So these are models. This is the actual images, right?</p>
+<p>What do they, sorry for the tangents, but what are these things? So when you look on the internet, the models and the pictures are kind of, and the models you have here are just gorgeous and beautiful.</p>
+<p>When you actually take pictures of them with a micrograph, like what, what do we look?</p>
+<p>Well, they typically are not perfect. Right? So, so the, most of the images that you see now is the, is the sphere with those spikes.</p>
+<p>You actually see the spikes? Yes, you do see the spikes. And now, you know, the, our collaborators for Texas A&amp;M University, Benjamin Newman, he actually in the recent paper about SARS he proposed, and there&rsquo;s some actually evidence behind it,</p>
+<p>that the particle is not a sphere, but is actually as elongated ellipsoid like particles. So, so that&rsquo;s what we are trying to incorporate into our model.</p>
+<p>And the, I mean, you know, if you look at the actual micrographs, you see that those particles are, you know, are not symmetric.</p>
+<p>So the, the, the, some of them, and of course, you know, it could be due to the treatment of the, of the material. It could be due to the, some noise in the imaging.</p>
+<p>Right. So there&rsquo;s a lot of uncertainty in all this. So it&rsquo;s okay. So structurally figuring out the entire part. By the way, again, sorry for the tangents, but why the term particle? Or is it just something that&rsquo;s stuck?</p>
+<p>It&rsquo;s a, it&rsquo;s a, it&rsquo;s a single, you know, so we call, you know, we call it the virion. So virion particle, it&rsquo;s essentially a single virus.</p>
+<p>But it just feels like, because particle to me, from the physics perspective, feels like this, the most basic unit, because there seems to be so much going on inside the virus.</p>
+<p>Yeah.</p>
+<p>It doesn&rsquo;t feel like a particle to me.</p>
+<p>Yeah, well, yeah, it&rsquo;s probably, I think it&rsquo;s the, you know, virion is a good way to call it.</p>
+<p>So, okay, so trying to figure out, trying to figure out the entirety of the system.</p>
+<p>Yes. So, you know, so, you know, so this is, so the virion has 5200 spikes, trimer spikes. It has roughly 200 to 400 membrane protein dimers. And those are arranged in the very nice lattice.</p>
+<p>So you can actually see sort of the, it&rsquo;s like a carpet of&hellip;</p>
+<p>On the surface again.</p>
+<p>Exactly, on the surface. And occasionally you also see this envelope protein inside.</p>
+<p>Is that the one we don&rsquo;t know what it does?</p>
+<p>Exactly. Exactly. The one that forms the pentamer, this very nice pentameric ring. And so, you know, so this is what we&rsquo;re trying to, you know, we&rsquo;re trying to put now all our knowledge together and see whether we can actually generate this overall virion model.</p>
+<p>With an idea to understand, you know, well, first of all, to understand how it looks like, how far it is from those images that were generated. But I mean, the implications are, you know, there is a potential for the, you know, nanoparticle design that will mimic this virion particle.</p>
+<p>Is the process of nanoparticle design meaning artificially designing something that looks similar?</p>
+<p>Yes. And also the one that can potentially compete with the actual virion particles and therefore reduce the effect of the infection.</p>
+<p>So is this the idea of, like, what is a vaccine?</p>
+<p>So vaccine, so there are two ways of essentially treating and in the case of vaccine is preventing the infection.</p>
+<p>So vaccine is, you know, a way to train our immune system.</p>
+<p>So our immune system becomes aware of this new danger and therefore is capable of generating the antibodies then will essentially bind to the spike proteins because that&rsquo;s the main target for the, you know, for the vaccine&rsquo;s design and block its functioning.</p>
+<p>If you have the spike with the antibody on top, it can no longer interact with AC2 receptor.</p>
+<p>So the process of designing a vaccine then is you have to understand enough about the structure of the virus itself to be able to create an artificial, an artificial particle?</p>
+<p>Well, I mean, so the nanoparticle is a very exciting and new research. So there are already established ways to, you know, to make vaccines and there are several different ones, right?</p>
+<p>So there is one where essentially the virus gets through the cell culture multiple times, so it becomes essentially adjusted to the specific embryonic cell and as a result becomes less, you know, compatible with the host human cells.</p>
+<p>So therefore it&rsquo;s sort of the idea of the live vaccine where the particles are there, but they are not so efficient, you know, so they cannot replicate, you know, as rapidly as, you know, before the vaccine.</p>
+<p>They can be introduced to the immune system, the immune system will learn and the person who gets this vaccine won&rsquo;t get, you know, sick or, you know, will have mild, you know, mild symptoms.</p>
+<p>So then there is sort of different types of the way to introduce the nonfunctional parts of this virus or the virus where some of the information is stripped down.</p>
+<p>For example, the virus with no genetic material, so with no RNA genome, exactly. So it cannot replicate, it cannot essentially perform most of its functions.</p>
+<p>What is the biggest hurdle to design one of these, to arrive at one of these? Is it the work that you&rsquo;re doing in the fundamental understanding of this new virus or is it in the, from our perspective, well, complicated world of experimental validation and sort of showing that this, like going through the whole process of showing this is actually going to work with FDA approval, all that kind of stuff?</p>
+<p>I think it&rsquo;s both. I mean, you know, our understanding of the molecular mechanisms will allow us to, you know, to design, to have more efficient designs of the vaccines. However, once you design a vaccine, it needs to be tested.</p>
+<p>But when you look at the 18 months and the different projections, it seems like an exceptionally, historically speaking, maybe you can correct me, but it&rsquo;s even 18 months seems like a very accelerated timeline.</p>
+<p>It is. It is. I mean, I remember reading about, you know, in the book about some previous vaccines that it could take up to 10 years to design and, you know, properly test a vaccine before its mass production.</p>
+<p>So yeah, we, you know, everything is accelerated these days. I mean, for better, for worse, but, but, you know, we definitely need that.</p>
+<p>Well, especially with the coronavirus, I mean, the scientific community is really stepping up and working together. The collaborative aspect is really interesting. You mentioned, so the vaccine is one and then there&rsquo;s antivirals, antiviral drugs.</p>
+<p>So antiviral drugs. So where, you know, vaccines are typically needed to prevent the infection. Right. But once you have an infection, one, you know, so what we try to do, we try to stop it.</p>
+<p>So we try to stop virus from functioning. And so the antiviral drugs are designed to block some critical functioning of the proteins from the virus.</p>
+<p>So there are a number of interesting candidates. And I think, you know, if you ask me, I, you know, I think Remdesivir is perhaps the most promising.</p>
+<p>It&rsquo;s, it has been shown to be, you know, an efficient and effective antiviral for SARS.</p>
+<p>Originally, it was the antiviral drug developed for a completely different virus, I think, for Ebola and Marburg.</p>
+<p>At high levels, you know how it works?</p>
+<p>So it tries to mimic one of the nucleotides in RNA and essentially that stops the replication.</p>
+<p>So messes, I guess that&rsquo;s what, so antiviral drugs mess with some aspect of this process.</p>
+<p>So, you know, so essentially we try to stop certain functions of the virus. There are some other ones, you know, that are designed to inhibit the protease, the thing that clips protein sequences.</p>
+<p>There is one that was originally designed for malaria, which is a bacterial, you know, bacterial disease.</p>
+<p>This is so cool. So, but that&rsquo;s exactly where your work steps in is you&rsquo;re figuring out the functional and the structure of these different, so like providing candidates for where drugs can plug in.</p>
+<p>Well, yes, because, you know, one thing that we don&rsquo;t know is whether or not, so let&rsquo;s say we have a perfect drug candidate that is efficient against SARS and against MERS.</p>
+<p>Now, is it going to be efficient against new SARS COVID 2?</p>
+<p>We don&rsquo;t know that. And there are multiple aspects that can affect this efficiency.</p>
+<p>So, for instance, if the binding site, so the part of the protein where this ligand gets attached, if this site is mutated, then the ligand may not be attachable to this part any longer.</p>
+<p>And, you know, our work and the work of other bioinformatics groups, you know, essentially are trying to understand whether or not that will be the case.</p>
+<p>And it looks like for the ligands that we looked at, the ligand binding sites are pretty much intact, which is very promising.</p>
+<p>So, if we can just like zoom out for a second. Are you optimistic?</p>
+<p>So, there&rsquo;s two, well, there&rsquo;s three possible ends to the coronavirus pandemic.</p>
+<p>So, one is drugs or vaccines get figured out very quickly, probably drugs first.</p>
+<p>The other is the pandemic runs its course for this wave, at least.</p>
+<p>And then the third is, you know, things go much worse in some dark, bad, very bad direction.</p>
+<p>Do you see, let&rsquo;s focus on the first two.</p>
+<p>Do you see the anti drugs or the work you&rsquo;re doing being relevant for us right now in stopping the pandemic?</p>
+<p>Or do you hope that the pandemic will run its course?</p>
+<p>So, the social distancing, things like wearing masks, all those discussions that we&rsquo;re having will be the method with which we fight coronavirus in the short term.</p>
+<p>Or do you think that it will have to be antiviral drugs?</p>
+<p>I think antivirals would be, I would view that as at least the short term solution.</p>
+<p>I see more and more cases in the news of those new drug candidates being administered in hospitals.</p>
+<p>And I mean, this is right now the best what we have.</p>
+<p>But do we need it in order to reopen the economy?</p>
+<p>I mean, we definitely need it.</p>
+<p>I cannot sort of speculate on how that will affect reopening of the economy because we are, you know, we are kind of deep into the pandemic.</p>
+<p>And it&rsquo;s not just the states. It&rsquo;s also, you know, worldwide, you know.</p>
+<p>Of course, you know, there is also the possibility of the second wave, as we, you know, as you mentioned.</p>
+<p>And this is why, you know, we need to be super careful.</p>
+<p>We need to follow all the precautions that the doctors tell us to do.</p>
+<p>Are you worried about the mutation of the virus?</p>
+<p>It&rsquo;s, of course, a real possibility.</p>
+<p>Now, how, to what extent this virus can mutate, it&rsquo;s an open question.</p>
+<p>I mean, we know that it is able to mutate, to jump from one species to another and to become transmittable between humans.</p>
+<p>Right. So will it, you know, so let&rsquo;s imagine that we have the new antiviral.</p>
+<p>Will this virus become eventually resistant to this antiviral?</p>
+<p>We don&rsquo;t know. I mean, this is what needs to be studied.</p>
+<p>This is such a beautiful and terrifying process that a virus, some viruses may be able to mutate to respond to the, to mutate around the thing we&rsquo;ve put before it.</p>
+<p>Can you explain that process? Like, how does that happen? Is that just the way of evolution?</p>
+<p>I would say so, yes. I mean, it&rsquo;s the evolutionary mechanisms.</p>
+<p>There is nothing imprinted into this virus that makes it, you know, it just the way it evolves.</p>
+<p>And actually, it&rsquo;s the way it core evolves with its host.</p>
+<p>It&rsquo;s just amazing, especially the evolution mechanisms, especially amazing given how simple the virus is.</p>
+<p>It&rsquo;s incredible that it&rsquo;s, I mean, it&rsquo;s beautiful.</p>
+<p>It&rsquo;s beautiful because it&rsquo;s one of the cleanest examples of evolution working.</p>
+<p>Well, I think, I mean, one of the sort of the reasons for its simplicity is because it does not require all the necessary functions to be stored.</p>
+<p>So it actually can hijack the majority of the necessary functions from the host cell.</p>
+<p>So the ability to do so, in my view, reduces the complexity of this machine drastically.</p>
+<p>Although if you look at the, you know, most recent discoveries.</p>
+<p>So the scientists discovered viruses that are as large as bacteria.</p>
+<p>Right. So this MIMI viruses and MAMA viruses.</p>
+<p>It actually, those discoveries made scientists to reconsider the origins of the virus.</p>
+<p>You know, and what are the mechanisms and how, you know, what are the mechanisms, the evolution mechanisms that leads to the appearance of the viruses.</p>
+<p>By the way, I mean, you did mention that viruses are, I think you mentioned that they&rsquo;re not living.</p>
+<p>Yes, they&rsquo;re not living organisms.</p>
+<p>So let me ask that question again.</p>
+<p>Why do you think they&rsquo;re not living organisms?</p>
+<p>Well, because they are dependent.</p>
+<p>The majority of the functions of the virus are dependent on the host.</p>
+<p>So let me do the devil&rsquo;s advocate, let me be the philosophical devil&rsquo;s advocate here and say,</p>
+<p>well, humans, which we would say are living, need our host planet to survive.</p>
+<p>So you can basically take every living organism that we think of as definitively living.</p>
+<p>It&rsquo;s always going to have some aspects of its host that it needs, of its environment.</p>
+<p>So is that really the key aspect of why a virus is that dependence?</p>
+<p>Because it seems to be very good at doing so many things that we consider to be intelligent.</p>
+<p>It&rsquo;s just that dependence part.</p>
+<p>Well, I mean, it&rsquo;s difficult to answer in this way.</p>
+<p>I mean, the way I think about the virus is, you know, in order for it to function,</p>
+<p>it needs to have the critical component, the critical tools that it doesn&rsquo;t have.</p>
+<p>So, I mean, in my way, it&rsquo;s not autonomous.</p>
+<p>That&rsquo;s how I separate the idea of the living organism on a very high level between the living organism</p>
+<p>and&hellip;</p>
+<p>And you have some, we have, I mean, these are just terms and perhaps they don&rsquo;t mean much,</p>
+<p>but we have some kind of sense of what autonomous means and that humans are autonomous.</p>
+<p>You&rsquo;ve also done excellent work in the epidemiological modeling, the simulation of these things.</p>
+<p>So the zooming out outside of the body, doing the agent based simulation.</p>
+<p>So that&rsquo;s where you actually simulate individual human beings</p>
+<p>and then the spread of viruses from one to the other.</p>
+<p>How does at a high level agent based simulation work?</p>
+<p>All right.</p>
+<p>So it&rsquo;s also one of this irony of timing.</p>
+<p>Because, I mean, we&rsquo;ve worked on this project for the past five years</p>
+<p>and the New Year&rsquo;s Eve, I got an email from my PhD student that the last experiments were completed.</p>
+<p>And three weeks after that, we get this Diamond Princess story</p>
+<p>and emailing each other with the same news saying like&hellip;</p>
+<p>So the Diamond Princess is a cruise ship.</p>
+<p>Yes.</p>
+<p>And what was the project that you worked on for five years?</p>
+<p>The project, I mean, the code name, it started with a bunch of undergraduates.</p>
+<p>The code name was Zombies on a Cruise Ship.</p>
+<p>So they wanted to essentially model the zombie apocalypse on a cruise ship.</p>
+<p>And after having some fun, we then thought about the fact that if you look at the cruise ships,</p>
+<p>the infectious outbreak has been one of the biggest threats to the cruise ship economy.</p>
+<p>So perhaps the most frequently occurring is the Norwalk virus.</p>
+<p>And this is essentially one of these stomach flus that you have.</p>
+<p>And it can be quite devastating.</p>
+<p>So occasionally there are cruise ships, they get canceled, they get returned back to the origin.</p>
+<p>And so we wanted to study, and this is very different from the traditional epidemiological studies</p>
+<p>where the scale is much larger.</p>
+<p>So we wanted to study this in a confined environment, which is a cruise ship, it could be a school,</p>
+<p>it could be other places such as this large company where people are in interaction.</p>
+<p>And the benefit of this model is we can actually track that in the real time.</p>
+<p>So we can actually see the whole course of the evolution, the whole course of the interaction between the infected host</p>
+<p>and the host and the pathogen, et cetera.</p>
+<p>So agent based system or multi agent system to be precisely is a good way to approach this problem</p>
+<p>because we can introduce the behavior of the passengers, of the crews.</p>
+<p>And what we did for the first time, that&rsquo;s where we introduced some novelty is we introduced a pathogen agent explicitly.</p>
+<p>So that allowed us to essentially model the behavior on the host side as well on the pathogen side.</p>
+<p>And all of a sudden we can have a flexible model that allows us to integrate all the key parameters about the infections.</p>
+<p>So for example, the virus, right?</p>
+<p>So the ways of transmitting the virus between the host.</p>
+<p>How long does virus survive on the surface, the fomite?</p>
+<p>What is, you know, how much of the viral particles does a host shed when he or she is asymptomatic versus symptomatic?</p>
+<p>And you can encode all of that into this pathogen. It&rsquo;s just for people who don&rsquo;t know.</p>
+<p>So agent based simulation, usually the agent represents a single human being.</p>
+<p>And then there&rsquo;s some graphs, like contact graphs that represent the interaction between those human beings.</p>
+<p>So, yes. So we, so essentially, you know, so agents are, you know, individual programs that are run in parallel.</p>
+<p>And we can provide instructions for these agents how to interact with each other, how to exchange information, in this case, exchange the infection.</p>
+<p>But in this case, in your case, you&rsquo;ve added a pathogen as an agent. I mean, that&rsquo;s kind of fascinating.</p>
+<p>It&rsquo;s kind of a brilliant way to condense the parameters, to aggregate, to bring the parameters together that represent the pathogen, the virus.</p>
+<p>Yes. That&rsquo;s fascinating, actually.</p>
+<p>So, yeah, it was, you know, we realized that, you know, by bringing in the virus, we can actually start modeling.</p>
+<p>I mean, we are no longer bounded by very specific sort of aspects of the specific virus.</p>
+<p>So we end up, we started with, you know, Norwalk virus and of course, zombies.</p>
+<p>But we continued to modeling Ebola virus outbreak, flu, SARS, and because I felt that we need to add a little bit more sort of excitement for our undergraduate students.</p>
+<p>So we actually modeled the virus from the Contagion movie.</p>
+<p>So MEV1 and, you know, unfortunately, that virus and we tried to extract as much information.</p>
+<p>Luckily, the this movie was the scientific consultant was Ian Lipkin, a virologist from Columbia University, who is actually who provided.</p>
+<p>I think he designed this virus for this movie based on Nipah virus.</p>
+<p>And I think with some ideas behind SARS or flu like airborne viruses and, you know, the movie surprisingly contained enough details for us to extract and to model it.</p>
+<p>I was hoping you would like publish a paper of how this virus works.</p>
+<p>Yeah, we are planning to publish.</p>
+<p>I would love it if you did, but it would be nice if the, you know, if the the the origin of the virus.</p>
+<p>But you&rsquo;re now actually being a scientist and studying the virus from that perspective.</p>
+<p>But the origin of the virus, you know, you know, the first time I actually saw this movie is assignment number one in my bioinformatics class that they give.</p>
+<p>Because it it also tell it tells you that, you know, bioinformatics can be of use because if if I don&rsquo;t know you watched it.</p>
+<p>Have you watched it a long time ago?</p>
+<p>So so there is, you know, approximately a week from the virus detection.</p>
+<p>We see a screenshot of scientists looking at the structure of the surface protein.</p>
+<p>And this is where I tell my students that, you know, if you ask an experimental biologist, they will tell you that it&rsquo;s impossible because it takes months,</p>
+<p>maybe years to get the crystal structure of this, you know, the structure that is represented.</p>
+<p>If you ask a bioinformatician, they tell you, sure, why not just get it modeled.</p>
+<p>And and yes, but but it was very interesting to to see that there is actually, you know, and if you do it, do screenshots,</p>
+<p>you actually see the filogenetic tree, the evolutionary tree that relate this virus with other viruses.</p>
+<p>So it was a lot of scientific thought put into the movie.</p>
+<p>And one thing that I was actually, you know, it was interesting to learn is that the origin of this virus was there were two animals that led to the,</p>
+<p>you know, the the, you know, the zoonotic origin of this virus were fruit bat and a pig.</p>
+<p>So, you know, so this is this is this doesn&rsquo;t feel like we&rsquo;re this.</p>
+<p>This definitely feels like we&rsquo;re living in a simulation.</p>
+<p>OK, but maybe a big picture.</p>
+<p>Ageing based simulation now, larger scale, sort of not focused on inclusion, but larger scale are used now to drive some policy.</p>
+<p>So politicians use them to tell stories and narratives and try to figure out how how to move forward under so much, so much uncertainty.</p>
+<p>But in your sense, are ageing based simulation useful for actually predicting the future?</p>
+<p>Or are they useful mostly for comparing relative comparison of different intervention methods?</p>
+<p>Well, I think both because, you know, in the case of new coronavirus, we we essentially learning that the current intervention methods may not be efficient enough.</p>
+<p>One thing that one important aspect that I find to be so critical and yet something that was overlooked, you know, during the past pandemics is the effect of the asymptomatic period.</p>
+<p>This virus is different because it has such a long symptomatic period.</p>
+<p>And all of a sudden, that creates a completely new game when trying to contain this virus.</p>
+<p>In terms of the dynamics of the infection.</p>
+<p>Exactly.</p>
+<p>Do you also I don&rsquo;t know how close you&rsquo;re tracking this, but do you also think that there&rsquo;s a different rate of infection for when you&rsquo;re asymptomatic like that?</p>
+<p>That aspect or does a virus not care?</p>
+<p>So there were a couple of works.</p>
+<p>So one important parameter that tells us how contagious the the person was asymptomatic versus asymptomatic is looking at the number of viral particles this person sheds.</p>
+<p>You know, as a function of time.</p>
+<p>So, so far, what I saw is the study that tells us that the, you know, the person during the asymptomatic period is already contagious and it sheds the person sheds enough viruses to infect another host.</p>
+<p>And I think there&rsquo;s so many excellent papers coming out, but I think I just saw some maybe a nature paper that said the first week is when you&rsquo;re symptomatic or asymptomatic, you&rsquo;re the most contagious.</p>
+<p>So the highest level of the like the plot sort of in the 14 day period that collected a bunch of subjects.</p>
+<p>And I think the first week is when it&rsquo;s the most.</p>
+<p>Yeah, I think, I mean, I&rsquo;m waiting, I&rsquo;m waiting to see sort of more, more populated studies with higher numbers.</p>
+<p>My one of my favorite studies was, again, very recent one where scientists determined that</p>
+<p>tears are not contagious. So, so there is, you know, so there is no viral shedding done through, through tears.</p>
+<p>So they found one moist thing that&rsquo;s not contagious. And I mean, there&rsquo;s a lot of, I&rsquo;ve personally been, because I&rsquo;m on a survey paper, somehow that&rsquo;s looking at masks.</p>
+<p>And there&rsquo;s been so much interesting debates on the efficacy of masks.</p>
+<p>And there&rsquo;s a lot of work and there&rsquo;s a lot of interesting work on whether this virus is airborne.</p>
+<p>I mean, it&rsquo;s a totally open question. It&rsquo;s leaning one way right now, but it&rsquo;s a totally open question whether it can travel in aerosols long distances.</p>
+<p>I mean, do you have a, do you think about this stuff? Do you track this stuff? Are you focused on the, the bioinformatics of it?</p>
+<p>I mean, this is, this is a very important aspect for our epidemiology study.</p>
+<p>I think the, I mean, and it&rsquo;s sort of a very simple sort of idea, but I agree with people who say that the mask, the masks work in both ways.</p>
+<p>So it not only protects you from the, you know, incoming viral particles, but also, you know, it, it, you know, makes the potentially contagious person not to spread the viral particles.</p>
+<p>Who is, when they&rsquo;re asymptomatic may not even know that they&rsquo;re, in fact, it seems to be, there&rsquo;s evidence that they don&rsquo;t, surgical and certainly homemade masks,</p>
+<p>which is what&rsquo;s needed now actually, because there&rsquo;s a huge shortage of, they don&rsquo;t work as to protect you that well.</p>
+<p>They work much better to protect others. So it&rsquo;s, it&rsquo;s, it&rsquo;s a motivation for us to all wear one.</p>
+<p>Exactly. Cause I mean, you know, you don&rsquo;t know where, you know, about 30%, as far as I remember, at least 30% of the asymptomatic cases are completely asymptomatic.</p>
+<p>Right. So you don&rsquo;t really cough. You don&rsquo;t, I mean, you don&rsquo;t have any symptoms, yet you shed viruses.</p>
+<p>Do you think it&rsquo;s possible that we&rsquo;ll all wear masks? I wore a mask at a grocery store and you just, you get looks.</p>
+<p>I mean, this was like a week ago. Maybe it&rsquo;s already changed because I think CDC or somebody, I think the CDC has said that we should be wearing masks, like LA, they starting to happen.</p>
+<p>But do you, it just seems like something that this country will really struggle doing or no?</p>
+<p>I hope not. I mean, you know, it, it was interesting. I was looking through the, through the old pictures during the Spanish flu and you could see that the, you know,</p>
+<p>pretty much everyone was wearing masks with some exceptions and they were like, you know, sort of iconic photograph of the, I think it was San Francisco, this tram who was refusing to let in a, you know, someone without the mask.</p>
+<p>So I think, well, you know, it&rsquo;s also, you know, it&rsquo;s related to the fact of how much we are scared. Right. So how much do we treat this problem seriously?</p>
+<p>And, you know, my take on it is we should, because it is very serious.</p>
+<p>Yeah, I, from a psychology perspective, just worry about the entirety, the entire big mess of a psychology experiment that this is, whether mask will help it or hurt it. You know, masks have a way of distancing us from others by removing the emotional expression and all that kind of stuff.</p>
+<p>But at the same time, mask also signal that I care about your wellbeing. Exactly. So it&rsquo;s a really interesting trade off. That&rsquo;s just, yeah, it&rsquo;s, it&rsquo;s interesting, right? About distancing. Aren&rsquo;t we distanced enough?</p>
+<p>Right. Exactly. And when we try to come closer together, when they do reopen the economy, that&rsquo;s going to be a long road of rebuilding trust and not all being huge germaphobes.</p>
+<p>Let me ask sort of, you have a bit of a Russian accent, Russian or no Russian accent? Were you born in Russia? Yes. And you&rsquo;re too kind. I have a pretty thick Russian accent.</p>
+<p>What are your favorite memories of Russia?</p>
+<p>So I moved first to Canada and then to the United States back in 99. So by that time I was 22. So, you know, whatever Russian accent I got back then, you know, it stuck with me for the rest of my life.</p>
+<p>You know, it&rsquo;s, yeah, so I, you know, by the time the Soviet Union collapsed, I was, you know, I was a kid, but sort of, you know, old enough to realize that there are changes.</p>
+<p>Did you want to be a scientist back then?</p>
+<p>Oh, yes. Oh, yeah. I mean, my first, the first sort of 10 years of my sort of, you know, juvenile life, I wanted to be a pilot of a passenger jet plane.</p>
+<p>Wow.</p>
+<p>So yes, it was like, you know, I was getting ready, you know, to go to a college to get the degree, but I&rsquo;ve been always fascinated by science.</p>
+<p>And, you know, so not just by math, of course, math was one of my favorite subjects, but, you know, biology, chemistry, physics, somehow I, you know, I liked those four subjects together.</p>
+<p>And yes, so essentially after a certain period of time, I wanted to actually, back then it was a very popular sort of area of science called cybernetics.</p>
+<p>So it&rsquo;s sort of, it&rsquo;s not really computer science, but it was like, you know, computational robotics in this sense.</p>
+<p>And so I really wanted to do that. And but then, you know, I, you know, I realized that, you know, my biggest passion was in mathematics.</p>
+<p>And later I, you know, when, you know, studying in Moscow State University, I also realized that I really want to apply the knowledge.</p>
+<p>So I really wanted to mix, you know, the mathematical knowledge that I get with real life problems.</p>
+<p>And that could be, you mentioned chemistry and now biology. And I sort of, does it make you sad?</p>
+<p>Maybe I&rsquo;m wrong on this, but it seems like it&rsquo;s difficult to be in collaboration, to do open, big science in Russia.</p>
+<p>From my distant perspective in computer science, I don&rsquo;t, I&rsquo;m not, I can go to conferences in Russia.</p>
+<p>I sadly don&rsquo;t have many collaborators in Russia. I don&rsquo;t know many people doing great AI work in Russia.</p>
+<p>Does it make, does that make you sad? Am I wrong in seeing it this way?</p>
+<p>Well, I mean, I am, I have to tell you, I am privileged to have collaborators in bioinformatics in Russia. And I think this is the bioinformatics school in Russia is very strong.</p>
+<p>In Moscow?</p>
+<p>In Moscow, in Novosibirsk, in St. Petersburg, have great collaborators in Kazan. And so at least, you know, in terms of, you know, my area of research.</p>
+<p>There&rsquo;s strong people there.</p>
+<p>Yeah, strong people, a lot of great ideas, very open to collaborations. So I, perhaps, you know, it&rsquo;s my luck, but, you know, I haven&rsquo;t experienced, you know, any difficulties in establishing collaborations.</p>
+<p>That&rsquo;s bioinformatics though.</p>
+<p>It could be bioinformatics too. And it could, yeah, it could be person by person related, but I just don&rsquo;t feel the warmth and love that I would, you know, you talk about the Seminole people who are French in artificial intelligence.</p>
+<p>France welcomes them with open arms in so many ways. I just don&rsquo;t feel the love from Russia. I do on the human beings, like people in general, like friends and just cool, interesting people. But from the scientific community, no conferences, no big conferences.</p>
+<p>Yeah, it&rsquo;s actually, you know, I&rsquo;m trying to think. Yeah, I cannot recall any big AI conferences in Russia.</p>
+<p>It has an effect on, for me, I haven&rsquo;t sadly been back to Russia. But my problem is it&rsquo;s very difficult. So now I have to renounce the citizenship.</p>
+<p>Oh, is that right?</p>
+<p>I mean, I&rsquo;m a citizen in the United States and it makes it very difficult. There&rsquo;s a mess now, right? So, I want to be able to travel like, you know, legitimately.</p>
+<p>Yeah.</p>
+<p>And it&rsquo;s not an obvious process that will make it super easy. I mean, that&rsquo;s part of that, like, you know, it should be super easy for me to travel there.</p>
+<p>Well, you know, hopefully this unfortunate circumstances that we&rsquo;re in will actually promote the remote collaborations.</p>
+<p>Yes.</p>
+<p>And I think what we are experiencing right now is that you still can do science, you know, being quarantined in your own homes, especially when it comes. I mean, you know, I certainly understand there is a very challenging time for experimental scientists.</p>
+<p>I mean, I have many collaborators who are, you know, who are affected by that. But for computational scientists.</p>
+<p>Yeah, we&rsquo;re really leaning into the remote communication. Nevertheless, I had to force you to talk to you in person because there&rsquo;s something that you just can&rsquo;t do in terms of conversation like this.</p>
+<p>I don&rsquo;t know why, but in person is very much needed. So I really appreciate you doing it.</p>
+<p>You have a collection of science bobbleheads.</p>
+<p>Yes.</p>
+<p>Which look amazing. Which bobblehead is your favorite and which real world version, which scientist is your favorite?</p>
+<p>So yeah, by the way, I was trying to bring it in, but they are quarantined now. In my office, they sort of demonstrate the social distance so they&rsquo;re nicely spaced away from each other.</p>
+<p>But so, you know, it&rsquo;s interesting. So I&rsquo;ve been collecting those bobbleheads for the past maybe 12 or 13 years. And it, you know, interestingly enough, it started with the two bobbleheads of Watson and Crick.</p>
+<p>And interestingly enough, my last bobblehead in this collection for now, and my favorite one, because I felt so good when I got it, was the Rosalind Franklin.</p>
+<p>Who is the full group? So I have Watson, Crick, Newton, Einstein, Marie Curie, Tesla, of course, Charles Darwin, and Rosalind Franklin.</p>
+<p>I am definitely missing quite a few of my favorite scientists. And but so, you know, if I were to add to this collection, so I would add, of course, Kolmogorov.</p>
+<p>That&rsquo;s, you know, I&rsquo;ve been always fascinated by his, well, his dedication to science, but also his dedication to educating young people, the next generation. So it&rsquo;s very inspiring.</p>
+<p>He&rsquo;s one of the, okay, yeah, he&rsquo;s one of the Russia&rsquo;s greats. Yes. Yeah. So he also, you know, the school, the high school that I attended was named after him, and he was great.</p>
+<p>You know, so he founded the school, and he actually taught there.</p>
+<p>Is this in Moscow? Yes. So, but then, I mean, you know, other people that I would definitely like to see in my collections was, would be Alan Turing, would be John von Neumann.</p>
+<p>Yeah, you&rsquo;re a little bit late on the computer scientists. Yes. Well, I mean, they don&rsquo;t, they don&rsquo;t make them, you know, I still am amazed that they haven&rsquo;t made Alan Turing yet.</p>
+<p>Yes. And I would also add Linus Pauling. Linus Pauling. Who is Linus Pauling?</p>
+<p>So this is, this is, to me is one of the greatest chemists. And the person who actually discovered the secondary structure of proteins, who was very close to solving the DNA structure.</p>
+<p>And, you know, people argue, but some of them were pretty sure that if not for this, you know, photograph 51 by Rosalind Franklin that, you know, Watson and Crick got access to, he would be, he would be the one who would solve it.</p>
+<p>Science is a funny race. It is. Let me ask the biggest and the most ridiculous question. So you&rsquo;ve kind of studied the human body and its defenses and these enemies that are about from a biological perspective, bioinformatics perspective, a computer scientists perspective.</p>
+<p>How has that made you see your own life, sort of the meaning of it, or just even seeing your, what it means to be human?</p>
+<p>Well, it certainly makes me realizing how fragile the human life is. If you think about this little tiny thing can impact the life of the whole human kind to such extent.</p>
+<p>So, you know, it&rsquo;s, it&rsquo;s something to appreciate and to remember that, that, you know, we are fragile, we have to bond together as a society.</p>
+<p>And, you know, it also gives me sort of hope that what we do as scientists is useful.</p>
+<p>Well, I don&rsquo;t think there&rsquo;s a better way to end it. Dmitry, thank you so much for talking today. It was an honor.</p>
+<p>Thank you very much.</p>
+<p>Thanks for listening to this conversation with Dmitry Korkin. And thank you to our presenting sponsor, Cash App. Please consider supporting the podcast by downloading Cash App and using code LexPodcast.</p>
+<p>If you enjoy this podcast, subscribe on YouTube, review it with five stars on Apple Podcast, support it on Patreon, or simply connect with me on Twitter at LexFriedman.</p>
+<p>And now, let me leave you with some words from Edward Osborne Wilson, E.O. Wilson, the variety of genes on the planet and viruses exceeds or is likely to exceed that in all of the rest of life combined.</p>
+<p>Thank you for listening and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

@@ -1,0 +1,3000 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Marcus Hutter,
+senior research scientist at Google DeepMind.
+Throughout his career of research,
+including with Jürgen Schmidhuber and Shane Legge,
+he has proposed a lot of interesting ideas
+in and around the field of artificial general
+intelligence, including the development of AICSI,
+spelled AIXI model, which is a mathematical approach to AGI
+that incorporates ideas of Kolmogorov complexity,
+Solomonov induction, and reinforcement learning.
+In 2006, Marcus launched the 50,000 Euro Hutter Prize'>
+<title>Lex Fridman Podcast - #75 - Marcus Hutter: Universal Artificial Intelligence, AIXI, and AGI | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500075/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #75 - Marcus Hutter: Universal Artificial Intelligence, AIXI, and AGI'>
+<meta property='og:description' content='The following is a conversation with Marcus Hutter,
+senior research scientist at Google DeepMind.
+Throughout his career of research,
+including with Jürgen Schmidhuber and Shane Legge,
+he has proposed a lot of interesting ideas
+in and around the field of artificial general
+intelligence, including the development of AICSI,
+spelled AIXI model, which is a mathematical approach to AGI
+that incorporates ideas of Kolmogorov complexity,
+Solomonov induction, and reinforcement learning.
+In 2006, Marcus launched the 50,000 Euro Hutter Prize'>
+<meta property='og:url' content='https://swiest.com/en/1310500075/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-05-14T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-05-14T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #75 - Marcus Hutter: Universal Artificial Intelligence, AIXI, and AGI">
+<meta name="twitter:description" content="The following is a conversation with Marcus Hutter,
+senior research scientist at Google DeepMind.
+Throughout his career of research,
+including with Jürgen Schmidhuber and Shane Legge,
+he has proposed a lot of interesting ideas
+in and around the field of artificial general
+intelligence, including the development of AICSI,
+spelled AIXI model, which is a mathematical approach to AGI
+that incorporates ideas of Kolmogorov complexity,
+Solomonov induction, and reinforcement learning.
+In 2006, Marcus launched the 50,000 Euro Hutter Prize">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500075/">Lex Fridman Podcast - #75 - Marcus Hutter: Universal Artificial Intelligence, AIXI, and AGI</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-05-14</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    75 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Marcus Hutter,</p>
+<p>senior research scientist at Google DeepMind.</p>
+<p>Throughout his career of research,</p>
+<p>including with Jürgen Schmidhuber and Shane Legge,</p>
+<p>he has proposed a lot of interesting ideas</p>
+<p>in and around the field of artificial general</p>
+<p>intelligence, including the development of AICSI,</p>
+<p>spelled AIXI model, which is a mathematical approach to AGI</p>
+<p>that incorporates ideas of Kolmogorov complexity,</p>
+<p>Solomonov induction, and reinforcement learning.</p>
+<p>In 2006, Marcus launched the 50,000 Euro Hutter Prize</p>
+<p>for lossless compression of human knowledge.</p>
+<p>The idea behind this prize is that the ability</p>
+<p>to compress well is closely related to intelligence.</p>
+<p>This, to me, is a profound idea.</p>
+<p>Specifically, if you can compress the first 100</p>
+<p>megabytes or 1 gigabyte of Wikipedia</p>
+<p>better than your predecessors, your compressor</p>
+<p>likely has to also be smarter.</p>
+<p>The intention of this prize is to encourage</p>
+<p>the development of intelligent compressors as a path to AGI.</p>
+<p>In conjunction with his podcast release just a few days ago,</p>
+<p>Marcus announced a 10x increase in several aspects</p>
+<p>of this prize, including the money, to 500,000 Euros.</p>
+<p>The better your compressor works relative to the previous</p>
+<p>winners, the higher fraction of that prize money</p>
+<p>is awarded to you.</p>
+<p>You can learn more about it if you Google simply Hutter Prize.</p>
+<p>I&rsquo;m a big fan of benchmarks for developing AI systems,</p>
+<p>and the Hutter Prize may indeed be</p>
+<p>one that will spark some good ideas for approaches that</p>
+<p>will make progress on the path of developing AGI systems.</p>
+<p>This is the Artificial Intelligence Podcast.</p>
+<p>If you enjoy it, subscribe on YouTube,</p>
+<p>give it five stars on Apple Podcast,</p>
+<p>support it on Patreon, or simply connect with me on Twitter</p>
+<p>at Lex Friedman, spelled F R I D M A N.</p>
+<p>As usual, I&rsquo;ll do one or two minutes of ads</p>
+<p>now and never any ads in the middle</p>
+<p>that can break the flow of the conversation.</p>
+<p>I hope that works for you and doesn&rsquo;t</p>
+<p>hurt the listening experience.</p>
+<p>This show is presented by Cash App, the number one finance</p>
+<p>app in the App Store.</p>
+<p>When you get it, use code LEX PODCAST.</p>
+<p>Cash App lets you send money to friends,</p>
+<p>buy Bitcoin, and invest in the stock market</p>
+<p>with as little as $1.</p>
+<p>Broker services are provided by Cash App Investing,</p>
+<p>a subsidiary of Square, a member SIPC.</p>
+<p>Since Cash App allows you to send and receive money</p>
+<p>digitally, peer to peer, and security</p>
+<p>in all digital transactions is very important.</p>
+<p>Let me mention the PCI data security standard</p>
+<p>that Cash App is compliant with.</p>
+<p>I&rsquo;m a big fan of standards for safety and security.</p>
+<p>PCI DSS is a good example of that,</p>
+<p>where a bunch of competitors got together</p>
+<p>and agreed that there needs to be</p>
+<p>a global standard around the security of transactions.</p>
+<p>Now, we just need to do the same for autonomous vehicles</p>
+<p>and AI systems in general.</p>
+<p>So again, if you get Cash App from the App Store or Google</p>
+<p>Play and use the code LEX PODCAST, you&rsquo;ll get $10.</p>
+<p>And Cash App will also donate $10 to FIRST,</p>
+<p>one of my favorite organizations that</p>
+<p>is helping to advance robotics and STEM education</p>
+<p>for young people around the world.</p>
+<p>And now, here&rsquo;s my conversation with Markus Hutter.</p>
+<p>Do you think of the universe as a computer</p>
+<p>or maybe an information processing system?</p>
+<p>Let&rsquo;s go with a big question first.</p>
+<p>Okay, with a big question first.</p>
+<p>I think it&rsquo;s a very interesting hypothesis or idea.</p>
+<p>And I have a background in physics,</p>
+<p>so I know a little bit about physical theories,</p>
+<p>the standard model of particle physics</p>
+<p>and general relativity theory.</p>
+<p>And they are amazing and describe virtually everything</p>
+<p>in the universe.</p>
+<p>And they&rsquo;re all in a sense, computable theories.</p>
+<p>I mean, they&rsquo;re very hard to compute.</p>
+<p>And it&rsquo;s very elegant, simple theories,</p>
+<p>which describe virtually everything in the universe.</p>
+<p>So there&rsquo;s a strong indication that somehow</p>
+<p>the universe is computable, but it&rsquo;s a plausible hypothesis.</p>
+<p>So what do you think, just like you said, general relativity,</p>
+<p>quantum field theory, what do you think that</p>
+<p>the laws of physics are so nice and beautiful</p>
+<p>and simple and compressible?</p>
+<p>Do you think our universe was designed,</p>
+<p>is naturally this way?</p>
+<p>Are we just focusing on the parts</p>
+<p>that are especially compressible?</p>
+<p>Are human minds just enjoy something about that simplicity?</p>
+<p>And in fact, there&rsquo;s other things</p>
+<p>that are not so compressible.</p>
+<p>I strongly believe and I&rsquo;m pretty convinced</p>
+<p>that the universe is inherently beautiful, elegant</p>
+<p>and simple and described by these equations.</p>
+<p>And we&rsquo;re not just picking that.</p>
+<p>I mean, if there were some phenomena</p>
+<p>which cannot be neatly described,</p>
+<p>scientists would try that.</p>
+<p>And there&rsquo;s biology, which is more messy,</p>
+<p>but we understand that it&rsquo;s an emergent phenomena</p>
+<p>and it&rsquo;s complex systems,</p>
+<p>but they still follow the same rules</p>
+<p>of quantum and electrodynamics.</p>
+<p>All of chemistry follows that and we know that.</p>
+<p>I mean, we cannot compute everything</p>
+<p>because we have limited computational resources.</p>
+<p>No, I think it&rsquo;s not a bias of the humans,</p>
+<p>but it&rsquo;s objectively simple.</p>
+<p>I mean, of course, you never know,</p>
+<p>maybe there&rsquo;s some corners very far out in the universe</p>
+<p>or super, super tiny below the nucleus of atoms</p>
+<p>or parallel universes which are not nice and simple,</p>
+<p>but there&rsquo;s no evidence for that.</p>
+<p>And we should apply Occam&rsquo;s razor</p>
+<p>and choose the simplest three consistent with it.</p>
+<p>But also it&rsquo;s a little bit self referential.</p>
+<p>So maybe a quick pause.</p>
+<p>What is Occam&rsquo;s razor?</p>
+<p>So Occam&rsquo;s razor says that you should not multiply entities</p>
+<p>beyond necessity, which sort of,</p>
+<p>if you translate it to proper English means,</p>
+<p>and in the scientific context means</p>
+<p>that if you have two theories or hypothesis or models,</p>
+<p>which equally well describe the phenomenon,</p>
+<p>your study or the data,</p>
+<p>you should choose the more simple one.</p>
+<p>So that&rsquo;s just the principle or sort of,</p>
+<p>that&rsquo;s not like a provable law, perhaps.</p>
+<p>Perhaps we&rsquo;ll kind of discuss it and think about it,</p>
+<p>but what&rsquo;s the intuition of why the simpler answer</p>
+<p>is the one that is likely to be more correct descriptor</p>
+<p>of whatever we&rsquo;re talking about?</p>
+<p>I believe that Occam&rsquo;s razor</p>
+<p>is probably the most important principle in science.</p>
+<p>I mean, of course we lead logical deduction</p>
+<p>and we do experimental design,</p>
+<p>but science is about finding, understanding the world,</p>
+<p>finding models of the world.</p>
+<p>And we can come up with crazy complex models,</p>
+<p>which explain everything but predict nothing.</p>
+<p>But the simple model seem to have predictive power</p>
+<p>and it&rsquo;s a valid question why?</p>
+<p>And there are two answers to that.</p>
+<p>You can just accept it.</p>
+<p>That is the principle of science and we use this principle</p>
+<p>and it seems to be successful.</p>
+<p>We don&rsquo;t know why, but it just happens to be.</p>
+<p>Or you can try, find another principle</p>
+<p>which explains Occam&rsquo;s razor.</p>
+<p>And if we start with the assumption</p>
+<p>that the world is governed by simple rules,</p>
+<p>then there&rsquo;s a bias towards simplicity</p>
+<p>and applying Occam&rsquo;s razor is the mechanism</p>
+<p>to finding these rules.</p>
+<p>And actually in a more quantitative sense,</p>
+<p>and we come back to that later in terms of somnolent reduction,</p>
+<p>you can rigorously prove that.</p>
+<p>You can assume that the world is simple,</p>
+<p>then Occam&rsquo;s razor is the best you can do</p>
+<p>in a certain sense.</p>
+<p>So I apologize for the romanticized question,</p>
+<p>but why do you think, outside of its effectiveness,</p>
+<p>why do you think we find simplicity</p>
+<p>so appealing as human beings?</p>
+<p>Why does E equals MC squared seem so beautiful to us humans?</p>
+<p>I guess mostly, in general, many things</p>
+<p>can be explained by an evolutionary argument.</p>
+<p>And there&rsquo;s some artifacts in humans</p>
+<p>which are just artifacts and not evolutionary necessary.</p>
+<p>But with this beauty and simplicity,</p>
+<p>it&rsquo;s, I believe, at least the core is about,</p>
+<p>like science, finding regularities in the world,</p>
+<p>understanding the world, which is necessary for survival.</p>
+<p>If I look at a bush and I just see noise,</p>
+<p>and there is a tiger and it eats me, then I&rsquo;m dead.</p>
+<p>But if I try to find a pattern,</p>
+<p>and we know that humans are prone to find more patterns</p>
+<p>in data than they are, like the Mars face</p>
+<p>and all these things, but these biads</p>
+<p>towards finding patterns, even if they are non,</p>
+<p>but, I mean, it&rsquo;s best, of course, if they are, yeah,</p>
+<p>helps us for survival.</p>
+<p>Yeah, that&rsquo;s fascinating.</p>
+<p>I haven&rsquo;t thought really about the,</p>
+<p>I thought I just loved science,</p>
+<p>but indeed, in terms of just for survival purposes,</p>
+<p>there is an evolutionary argument</p>
+<p>for why we find the work of Einstein so beautiful.</p>
+<p>Maybe a quick small tangent.</p>
+<p>Could you describe what&rsquo;s,</p>
+<p>Salomonov induction is?</p>
+<p>Yeah, so that&rsquo;s a theory which I claim,</p>
+<p>and Mr. Lomanov sort of claimed a long time ago,</p>
+<p>that this solves the big philosophical problem of induction.</p>
+<p>And I believe the claim is essentially true.</p>
+<p>And what it does is the following.</p>
+<p>So, okay, for the picky listener,</p>
+<p>induction can be interpreted narrowly and widely.</p>
+<p>Narrow means inferring models from data.</p>
+<p>And widely means also then using these models</p>
+<p>for doing predictions,</p>
+<p>so predictions also part of the induction.</p>
+<p>So I&rsquo;m a little bit sloppy sort of with the terminology,</p>
+<p>and maybe that comes from Ray Salomonov, you know,</p>
+<p>being sloppy, maybe I shouldn&rsquo;t say that.</p>
+<p>He can&rsquo;t complain anymore.</p>
+<p>So let me explain a little bit this theory in simple terms.</p>
+<p>So assume you have a data sequence,</p>
+<p>make it very simple, the simplest one say 1, 1, 1, 1, 1,</p>
+<p>and you see if 100 ones, what do you think comes next?</p>
+<p>The natural answer, I&rsquo;m gonna speed up a little bit,</p>
+<p>the natural answer is of course, you know, one, okay?</p>
+<p>And the question is why, okay?</p>
+<p>Well, we see a pattern there, yeah, okay,</p>
+<p>there&rsquo;s a one and we repeat it.</p>
+<p>And why should it suddenly after 100 ones be different?</p>
+<p>So what we&rsquo;re looking for is simple explanations or models</p>
+<p>for the data we have.</p>
+<p>And now the question is,</p>
+<p>a model has to be presented in a certain language,</p>
+<p>in which language do we use?</p>
+<p>In science, we want formal languages,</p>
+<p>and we can use mathematics,</p>
+<p>or we can use programs on a computer.</p>
+<p>So abstractly on a Turing machine, for instance,</p>
+<p>or it can be a general purpose computer.</p>
+<p>So, and there are of course, lots of models of,</p>
+<p>you can say maybe it&rsquo;s 100 ones and then 100 zeros</p>
+<p>and 100 ones, that&rsquo;s a model, right?</p>
+<p>But there are simpler models, there&rsquo;s a model print one loop,</p>
+<p>and it also explains the data.</p>
+<p>And if you push that to the extreme,</p>
+<p>you are looking for the shortest program,</p>
+<p>which if you run this program reproduces the data you have,</p>
+<p>it will not stop, it will continue naturally.</p>
+<p>And this you take for your prediction.</p>
+<p>And on the sequence of ones, it&rsquo;s very plausible, right?</p>
+<p>That print one loop is the shortest program.</p>
+<p>We can give some more complex examples</p>
+<p>like one, two, three, four, five.</p>
+<p>What comes next?</p>
+<p>The short program is again, you know,</p>
+<p>counter, and so that is roughly speaking</p>
+<p>how solomotive induction works.</p>
+<p>The extra twist is that it can also deal with noisy data.</p>
+<p>So if you have, for instance, a coin flip,</p>
+<p>say a biased coin, which comes up head with 60% probability,</p>
+<p>then it will predict, it will learn and figure this out,</p>
+<p>and after a while it predicts, oh, the next coin flip</p>
+<p>will be head with probability 60%.</p>
+<p>So it&rsquo;s the stochastic version of that.</p>
+<p>But the goal is, the dream is always the search</p>
+<p>for the short program.</p>
+<p>Yes, yeah.</p>
+<p>Well, in solomotive induction, precisely what you do is,</p>
+<p>so you combine, so looking for the shortest program</p>
+<p>is like applying Opaque&rsquo;s razor,</p>
+<p>like looking for the simplest theory.</p>
+<p>There&rsquo;s also Epicorus principle, which says,</p>
+<p>if you have multiple hypotheses,</p>
+<p>which equally well describe your data,</p>
+<p>don&rsquo;t discard any of them, keep all of them around,</p>
+<p>you never know.</p>
+<p>And you can put that together and say,</p>
+<p>okay, I have a bias towards simplicity,</p>
+<p>but it don&rsquo;t rule out the larger models.</p>
+<p>And technically what we do is,</p>
+<p>we weigh the shorter models higher</p>
+<p>and the longer models lower.</p>
+<p>And you use a Bayesian techniques, you have a prior,</p>
+<p>and which is precisely two to the minus</p>
+<p>the complexity of the program.</p>
+<p>And you weigh all this hypothesis and take this mixture,</p>
+<p>and then you get also the stochasticity in.</p>
+<p>Yeah, like many of your ideas,</p>
+<p>that&rsquo;s just a beautiful idea of weighing based</p>
+<p>on the simplicity of the program.</p>
+<p>I love that, that seems to me</p>
+<p>maybe a very human centric concept.</p>
+<p>It seems to be a very appealing way</p>
+<p>of discovering good programs in this world.</p>
+<p>You&rsquo;ve used the term compression quite a bit.</p>
+<p>I think it&rsquo;s a beautiful idea.</p>
+<p>Sort of, we just talked about simplicity</p>
+<p>and maybe science or just all of our intellectual pursuits</p>
+<p>is basically the time to compress the complexity</p>
+<p>all around us into something simple.</p>
+<p>So what does this word mean to you, compression?</p>
+<p>I essentially have already explained it.</p>
+<p>So it compression means for me,</p>
+<p>finding short programs for the data</p>
+<p>or the phenomenon at hand.</p>
+<p>You could interpret it more widely,</p>
+<p>finding simple theories,</p>
+<p>which can be mathematical theories</p>
+<p>or maybe even informal, like just in words.</p>
+<p>Compression means finding short descriptions,</p>
+<p>explanations, programs for the data.</p>
+<p>Do you see science as a kind of our human attempt</p>
+<p>at compression, so we&rsquo;re speaking more generally,</p>
+<p>because when you say programs,</p>
+<p>you&rsquo;re kind of zooming in on a particular sort of</p>
+<p>almost like a computer science,</p>
+<p>artificial intelligence focus,</p>
+<p>but do you see all of human endeavor</p>
+<p>as a kind of compression?</p>
+<p>Well, at least all of science,</p>
+<p>I see as an endeavor of compression,</p>
+<p>not all of humanity, maybe.</p>
+<p>And well, there are also some other aspects of science</p>
+<p>like experimental design, right?</p>
+<p>I mean, we create experiments specifically</p>
+<p>to get extra knowledge.</p>
+<p>And that isn&rsquo;t part of the decision making process,</p>
+<p>but once we have the data,</p>
+<p>to understand the data is essentially compression.</p>
+<p>So I don&rsquo;t see any difference between compression,</p>
+<p>compression, understanding, and prediction.</p>
+<p>So we&rsquo;re jumping around topics a little bit,</p>
+<p>but returning back to simplicity,</p>
+<p>a fascinating concept of Kolmogorov complexity.</p>
+<p>So in your sense, do most objects</p>
+<p>in our mathematical universe</p>
+<p>have high Kolmogorov complexity?</p>
+<p>And maybe what is, first of all,</p>
+<p>what is Kolmogorov complexity?</p>
+<p>Okay, Kolmogorov complexity is a notion</p>
+<p>of simplicity or complexity,</p>
+<p>and it takes the compression view to the extreme.</p>
+<p>So I explained before that if you have some data sequence,</p>
+<p>just think about a file in a computer</p>
+<p>and best sort of, you know, just a string of bits.</p>
+<p>And if you, and we have data compressors,</p>
+<p>like we compress big files into zip files</p>
+<p>with certain compressors.</p>
+<p>And you can also produce self extracting ArcaFs.</p>
+<p>That means as an executable,</p>
+<p>if you run it, it reproduces your original file</p>
+<p>without needing an extra decompressor.</p>
+<p>It&rsquo;s just a decompressor plus the ArcaF together in one.</p>
+<p>And now there are better and worse compressors,</p>
+<p>and you can ask, what is the ultimate compressor?</p>
+<p>So what is the shortest possible self extracting ArcaF</p>
+<p>you could produce for a certain data set here,</p>
+<p>which reproduces the data set.</p>
+<p>And the length of this is called the Kolmogorov complexity.</p>
+<p>And arguably that is the information content</p>
+<p>in the data set.</p>
+<p>I mean, if the data set is very redundant or very boring,</p>
+<p>you can compress it very well.</p>
+<p>So the information content should be low</p>
+<p>and you know, it is low according to this definition.</p>
+<p>So it&rsquo;s the length of the shortest program</p>
+<p>that summarizes the data?</p>
+<p>Yes.</p>
+<p>And what&rsquo;s your sense of our sort of universe</p>
+<p>when we think about the different objects in our universe</p>
+<p>that we try, concepts or whatever at every level,</p>
+<p>do they have higher or low Kolmogorov complexity?</p>
+<p>So what&rsquo;s the hope?</p>
+<p>Do we have a lot of hope</p>
+<p>and be able to summarize much of our world?</p>
+<p>That&rsquo;s a tricky and difficult question.</p>
+<p>So as I said before, I believe that the whole universe</p>
+<p>based on the evidence we have is very simple.</p>
+<p>So it has a very short description.</p>
+<p>Sorry, to linger on that, the whole universe,</p>
+<p>what does that mean?</p>
+<p>You mean at the very basic fundamental level</p>
+<p>in order to create the universe?</p>
+<p>Yes, yeah.</p>
+<p>So you need a very short program and you run it.</p>
+<p>To get the thing going.</p>
+<p>To get the thing going</p>
+<p>and then it will reproduce our universe.</p>
+<p>There&rsquo;s a problem with noise.</p>
+<p>We can come back to that later possibly.</p>
+<p>Is noise a problem or is it a bug or a feature?</p>
+<p>I would say it makes our life as a scientist</p>
+<p>really, really much harder.</p>
+<p>I mean, think about without noise,</p>
+<p>we wouldn&rsquo;t need all of the statistics.</p>
+<p>But then maybe we wouldn&rsquo;t feel like there&rsquo;s a free will.</p>
+<p>Maybe we need that for the&hellip;</p>
+<p>This is an illusion that noise can give you free will.</p>
+<p>At least in that way, it&rsquo;s a feature.</p>
+<p>But also, if you don&rsquo;t have noise,</p>
+<p>you have chaotic phenomena,</p>
+<p>which are effectively like noise.</p>
+<p>So we can&rsquo;t get away with statistics even then.</p>
+<p>I mean, think about rolling a dice</p>
+<p>and forget about quantum mechanics</p>
+<p>and you know exactly how you throw it.</p>
+<p>But I mean, it&rsquo;s still so hard to compute the trajectory</p>
+<p>that effectively it is best to model it</p>
+<p>as coming out with a number,</p>
+<p>this probability one over six.</p>
+<p>But from this set of philosophical</p>
+<p>Kolmogorov complexity perspective,</p>
+<p>if we didn&rsquo;t have noise,</p>
+<p>then arguably you could describe the whole universe</p>
+<p>as well as a standard model plus generativity.</p>
+<p>I mean, we don&rsquo;t have a theory of everything yet,</p>
+<p>but sort of assuming we are close to it or have it.</p>
+<p>Plus the initial conditions, which may hopefully be simple.</p>
+<p>And then you just run it</p>
+<p>and then you would reproduce the universe.</p>
+<p>But that&rsquo;s spoiled by noise or by chaotic systems</p>
+<p>or by initial conditions, which may be complex.</p>
+<p>So now if we don&rsquo;t take the whole universe,</p>
+<p>but just a subset, just take planet Earth.</p>
+<p>Planet Earth cannot be compressed</p>
+<p>into a couple of equations.</p>
+<p>This is a hugely complex system.</p>
+<p>So interesting.</p>
+<p>So when you look at the window,</p>
+<p>like the whole thing might be simple,</p>
+<p>but when you just take a small window, then&hellip;</p>
+<p>It may become complex and that may be counterintuitive,</p>
+<p>but there&rsquo;s a very nice analogy.</p>
+<p>The book, the library of all books.</p>
+<p>So imagine you have a normal library with interesting books</p>
+<p>and you go there, great, lots of information</p>
+<p>and quite complex.</p>
+<p>So now I create a library which contains all possible books,</p>
+<p>say of 500 pages.</p>
+<p>So the first book just has A, A, A, A, A over all the pages.</p>
+<p>The next book A, A, A and ends with B and so on.</p>
+<p>I create this library of all books.</p>
+<p>I can write a super short program which creates this library.</p>
+<p>So this library which has all books</p>
+<p>has zero information content.</p>
+<p>And you take a subset of this library</p>
+<p>and suddenly you have a lot of information in there.</p>
+<p>So that&rsquo;s fascinating.</p>
+<p>I think one of the most beautiful object,</p>
+<p>mathematical objects that at least today</p>
+<p>seems to be understudied or under talked about</p>
+<p>is cellular automata.</p>
+<p>What lessons do you draw from sort of the game of life</p>
+<p>for cellular automata where you start with the simple rules</p>
+<p>just like you&rsquo;re describing with the universe</p>
+<p>and somehow complexity emerges.</p>
+<p>Do you feel like you have an intuitive grasp</p>
+<p>on the fascinating behavior of such systems</p>
+<p>where like you said, some chaotic behavior could happen,</p>
+<p>some complexity could emerge,</p>
+<p>some it could die out and some very rigid structures.</p>
+<p>Do you have a sense about cellular automata</p>
+<p>that somehow transfers maybe</p>
+<p>to the bigger questions of our universe?</p>
+<p>Yeah, the cellular automata</p>
+<p>and especially the Conway&rsquo;s game of life</p>
+<p>is really great because these rules are so simple.</p>
+<p>You can explain it to every child</p>
+<p>and even by hand you can simulate a little bit</p>
+<p>and you see these beautiful patterns emerge</p>
+<p>and people have proven that it&rsquo;s even Turing complete.</p>
+<p>You cannot just use a computer to simulate game of life</p>
+<p>but you can also use game of life to simulate any computer.</p>
+<p>That is truly amazing.</p>
+<p>And it&rsquo;s the prime example probably to demonstrate</p>
+<p>that very simple rules can lead to very rich phenomena.</p>
+<p>And people sometimes,</p>
+<p>how is chemistry and biology so rich?</p>
+<p>I mean, this can&rsquo;t be based on simple rules.</p>
+<p>But no, we know quantum electrodynamics</p>
+<p>describes all of chemistry.</p>
+<p>And we come later back to that.</p>
+<p>I claim intelligence can be explained</p>
+<p>or described in one single equation.</p>
+<p>This very rich phenomenon.</p>
+<p>You asked also about whether I understand this phenomenon</p>
+<p>and it&rsquo;s probably not.</p>
+<p>And there&rsquo;s this saying,</p>
+<p>you never understand really things,</p>
+<p>you just get used to them.</p>
+<p>And I think I got pretty used to cellular automata.</p>
+<p>So you believe that you understand</p>
+<p>now why this phenomenon happens.</p>
+<p>But I give you a different example.</p>
+<p>I didn&rsquo;t play too much with Conway&rsquo;s game of life</p>
+<p>but a little bit more with fractals</p>
+<p>and with the Mandelbrot set and these beautiful patterns,</p>
+<p>just look Mandelbrot set.</p>
+<p>And well, when the computers were really slow</p>
+<p>and I just had a black and white monitor</p>
+<p>and programmed my own programs in assembler too.</p>
+<p>Assembler, wow.</p>
+<p>Wow, you&rsquo;re legit.</p>
+<p>To get these fractals on the screen</p>
+<p>and it was mesmerized and much later.</p>
+<p>So I returned to this every couple of years</p>
+<p>and then I tried to understand what is going on.</p>
+<p>And you can understand a little bit.</p>
+<p>So I tried to derive the locations,</p>
+<p>there are these circles and the apple shape</p>
+<p>and then you have smaller Mandelbrot sets</p>
+<p>recursively in this set.</p>
+<p>And there&rsquo;s a way to mathematically</p>
+<p>by solving high order polynomials</p>
+<p>to figure out where these centers are</p>
+<p>and what size they are approximately.</p>
+<p>And by sort of mathematically approaching this problem,</p>
+<p>you slowly get a feeling of why things are like they are</p>
+<p>and that sort of isn&rsquo;t, you know,</p>
+<p>first step to understanding why this rich phenomena.</p>
+<p>Do you think it&rsquo;s possible, what&rsquo;s your intuition?</p>
+<p>Do you think it&rsquo;s possible to reverse engineer</p>
+<p>and find the short program that generated these fractals</p>
+<p>sort of by looking at the fractals?</p>
+<p>Well, in principle, yes, yeah.</p>
+<p>So, I mean, in principle, what you can do is</p>
+<p>you take, you know, any data set, you know,</p>
+<p>you take these fractals or you take whatever your data set,</p>
+<p>whatever you have, say a picture of Convey&rsquo;s Game of Life</p>
+<p>and you run through all programs.</p>
+<p>You take a program size one, two, three, four</p>
+<p>and all these programs around them all in parallel</p>
+<p>in so called dovetailing fashion,</p>
+<p>give them computational resources,</p>
+<p>first one 50%, second one half resources and so on</p>
+<p>and let them run, wait until they halt,</p>
+<p>give an output, compare it to your data</p>
+<p>and if some of these programs produce the correct data,</p>
+<p>then you stop and then you have already some program.</p>
+<p>It may be a long program because it&rsquo;s faster</p>
+<p>and then you continue and you get shorter</p>
+<p>and shorter programs until you eventually</p>
+<p>find the shortest program.</p>
+<p>The interesting thing, you can never know</p>
+<p>whether it&rsquo;s the shortest program</p>
+<p>because there could be an even shorter program</p>
+<p>which is just even slower and you just have to wait here.</p>
+<p>But asymptotically and actually after a finite time,</p>
+<p>you have the shortest program.</p>
+<p>So this is a theoretical but completely impractical way</p>
+<p>of finding the underlying structure in every data set</p>
+<p>and that is what Solomov induction does</p>
+<p>and Kolmogorov complexity.</p>
+<p>In practice, of course, we have to approach the problem</p>
+<p>more intelligently.</p>
+<p>And then if you take resource limitations into account,</p>
+<p>there&rsquo;s, for instance, a field of pseudo random numbers</p>
+<p>and these are deterministic sequences,</p>
+<p>but no algorithm which is fast,</p>
+<p>fast means runs in polynomial time,</p>
+<p>can detect that it&rsquo;s actually deterministic.</p>
+<p>So we can produce interesting,</p>
+<p>I mean, random numbers maybe not that interesting,</p>
+<p>but just an example.</p>
+<p>We can produce complex looking data</p>
+<p>and we can then prove that no fast algorithm</p>
+<p>can detect the underlying pattern.</p>
+<p>Which is, unfortunately, that&rsquo;s a big challenge</p>
+<p>for our search for simple programs</p>
+<p>in the space of artificial intelligence, perhaps.</p>
+<p>Yes, it definitely is for artificial intelligence</p>
+<p>and it&rsquo;s quite surprising that it&rsquo;s, I can&rsquo;t say easy.</p>
+<p>I mean, physicists worked really hard to find these theories,</p>
+<p>but apparently it was possible for human minds</p>
+<p>to find these simple rules in the universe.</p>
+<p>It could have been different, right?</p>
+<p>It could have been different.</p>
+<p>It&rsquo;s awe inspiring.</p>
+<p>So let me ask another absurdly big question.</p>
+<p>What is intelligence in your view?</p>
+<p>So I have, of course, a definition.</p>
+<p>I wasn&rsquo;t sure what you&rsquo;re going to say</p>
+<p>because you could have just as easily said,</p>
+<p>I have no clue.</p>
+<p>Which many people would say,</p>
+<p>but I&rsquo;m not modest in this question.</p>
+<p>So the informal version,</p>
+<p>which I worked out together with Shane Lack,</p>
+<p>who cofounded DeepMind,</p>
+<p>is that intelligence measures an agent&rsquo;s ability</p>
+<p>to perform well in a wide range of environments.</p>
+<p>So that doesn&rsquo;t sound very impressive.</p>
+<p>And these words have been very carefully chosen</p>
+<p>and there is a mathematical theory behind that</p>
+<p>and we come back to that later.</p>
+<p>And if you look at this definition by itself,</p>
+<p>it seems like, yeah, okay,</p>
+<p>but it seems a lot of things are missing.</p>
+<p>But if you think it through,</p>
+<p>then you realize that most,</p>
+<p>and I claim all of the other traits,</p>
+<p>at least of rational intelligence,</p>
+<p>which we usually associate with intelligence,</p>
+<p>are emergent phenomena from this definition.</p>
+<p>Like creativity, memorization, planning, knowledge.</p>
+<p>You all need that in order to perform well</p>
+<p>in a wide range of environments.</p>
+<p>So you don&rsquo;t have to explicitly mention</p>
+<p>that in a definition.</p>
+<p>Interesting.</p>
+<p>So yeah, so the consciousness, abstract reasoning,</p>
+<p>all these kinds of things are just emergent phenomena</p>
+<p>that help you in towards,</p>
+<p>can you say the definition again?</p>
+<p>So multiple environments.</p>
+<p>Did you mention the word goals?</p>
+<p>No, but we have an alternative definition.</p>
+<p>Instead of performing well,</p>
+<p>you can just replace it by goals.</p>
+<p>So intelligence measures an agent&rsquo;s ability</p>
+<p>to achieve goals in a wide range of environments.</p>
+<p>That&rsquo;s more or less equal.</p>
+<p>But interesting,</p>
+<p>because in there, there&rsquo;s an injection of the word goals.</p>
+<p>So we want to specify there should be a goal.</p>
+<p>Yeah, but perform well is sort of,</p>
+<p>what does it mean?</p>
+<p>It&rsquo;s the same problem.</p>
+<p>Yeah.</p>
+<p>There&rsquo;s a little bit gray area,</p>
+<p>but it&rsquo;s much closer to something that could be formalized.</p>
+<p>In your view, are humans,</p>
+<p>where do humans fit into that definition?</p>
+<p>Are they general intelligence systems</p>
+<p>that are able to perform in,</p>
+<p>like how good are they at fulfilling that definition</p>
+<p>at performing well in multiple environments?</p>
+<p>Yeah, that&rsquo;s a big question.</p>
+<p>I mean, the humans are performing best among all species.</p>
+<p>We know of, yeah.</p>
+<p>Depends.</p>
+<p>You could say that trees and plants are doing a better job.</p>
+<p>They&rsquo;ll probably outlast us.</p>
+<p>Yeah, but they are in a much more narrow environment, right?</p>
+<p>I mean, you just have a little bit of air pollutions</p>
+<p>and these trees die and we can adapt, right?</p>
+<p>We build houses, we build filters,</p>
+<p>we do geoengineering.</p>
+<p>So the multiple environment part.</p>
+<p>Yeah, that is very important, yeah.</p>
+<p>So that distinguish narrow intelligence</p>
+<p>from wide intelligence, also in the AI research.</p>
+<p>So let me ask the Allentourian question.</p>
+<p>Can machines think?</p>
+<p>Can machines be intelligent?</p>
+<p>So in your view, I have to kind of ask,</p>
+<p>the answer is probably yes,</p>
+<p>but I want to kind of hear what your thoughts on it.</p>
+<p>Can machines be made to fulfill this definition</p>
+<p>of intelligence, to achieve intelligence?</p>
+<p>Well, we are sort of getting there</p>
+<p>and on a small scale, we are already there.</p>
+<p>The wide range of environments are missing,</p>
+<p>but we have self driving cars,</p>
+<p>we have programs which play Go and chess,</p>
+<p>we have speech recognition.</p>
+<p>So that&rsquo;s pretty amazing,</p>
+<p>but these are narrow environments.</p>
+<p>But if you look at AlphaZero,</p>
+<p>that was also developed by DeepMind.</p>
+<p>I mean, got famous with AlphaGo</p>
+<p>and then came AlphaZero a year later.</p>
+<p>That was truly amazing.</p>
+<p>So reinforcement learning algorithm,</p>
+<p>which is able just by self play,</p>
+<p>to play chess and then also Go.</p>
+<p>And I mean, yes, they&rsquo;re both games,</p>
+<p>but they&rsquo;re quite different games.</p>
+<p>And you didn&rsquo;t don&rsquo;t feed them the rules of the game.</p>
+<p>And the most remarkable thing,</p>
+<p>which is still a mystery to me,</p>
+<p>that usually for any decent chess program,</p>
+<p>I don&rsquo;t know much about Go,</p>
+<p>you need opening books and end game tables and so on too.</p>
+<p>And nothing in there, nothing was put in there.</p>
+<p>Especially with AlphaZero,</p>
+<p>the self playing mechanism starting from scratch,</p>
+<p>being able to learn actually new strategies is&hellip;</p>
+<p>Yeah, it rediscovered all these famous openings</p>
+<p>within four hours by itself.</p>
+<p>What I was really happy about,</p>
+<p>I&rsquo;m a terrible chess player, but I like Queen Gumby.</p>
+<p>And AlphaZero figured out that this is the best opening.</p>
+<p>Finally, somebody proved you correct.</p>
+<p>So yes, to answer your question,</p>
+<p>yes, I believe that general intelligence is possible.</p>
+<p>And it also, I mean, it depends how you define it.</p>
+<p>Do you say AGI with general intelligence,</p>
+<p>artificial intelligence,</p>
+<p>only refers to if you achieve human level</p>
+<p>or a subhuman level, but quite broad,</p>
+<p>is it also general intelligence?</p>
+<p>So we have to distinguish,</p>
+<p>or it&rsquo;s only super human intelligence,</p>
+<p>general artificial intelligence.</p>
+<p>Is there a test in your mind,</p>
+<p>like the Turing test for natural language</p>
+<p>or some other test that would impress the heck out of you</p>
+<p>that would kind of cross the line of your sense</p>
+<p>of intelligence within the framework that you said?</p>
+<p>Well, the Turing test has been criticized a lot,</p>
+<p>but I think it&rsquo;s not as bad as some people think.</p>
+<p>And some people think it&rsquo;s too strong.</p>
+<p>So it tests not just for system to be intelligent,</p>
+<p>but it also has to fake human deception,</p>
+<p>which is much harder.</p>
+<p>And on the other hand, they say it&rsquo;s too weak</p>
+<p>because it just maybe fakes emotions</p>
+<p>or intelligent behavior.</p>
+<p>It&rsquo;s not real.</p>
+<p>But I don&rsquo;t think that&rsquo;s the problem or a big problem.</p>
+<p>So if you would pass the Turing test,</p>
+<p>so a conversation over terminal with a bot for an hour,</p>
+<p>or maybe a day or so,</p>
+<p>and you can fool a human into not knowing</p>
+<p>whether this is a human or not,</p>
+<p>so that&rsquo;s the Turing test,</p>
+<p>I would be truly impressed.</p>
+<p>And we have this annual competition, the Lübner Prize.</p>
+<p>And I mean, it started with ELISA,</p>
+<p>that was the first conversational program.</p>
+<p>And what is it called?</p>
+<p>The Japanese Mitsuko or so.</p>
+<p>That&rsquo;s the winner of the last couple of years.</p>
+<p>And well.</p>
+<p>Quite impressive.</p>
+<p>Yeah, it&rsquo;s quite impressive.</p>
+<p>And then Google has developed Mina, right?</p>
+<p>Just recently, that&rsquo;s an open domain conversational bot,</p>
+<p>just a couple of weeks ago, I think.</p>
+<p>Yeah, I kind of like the metric</p>
+<p>that sort of the Alexa Prize has proposed.</p>
+<p>I mean, maybe it&rsquo;s obvious to you.</p>
+<p>It wasn&rsquo;t to me of setting sort of a length</p>
+<p>of a conversation.</p>
+<p>Like you want the bot to be sufficiently interesting</p>
+<p>that you would want to keep talking to it</p>
+<p>for like 20 minutes.</p>
+<p>And that&rsquo;s a surprisingly effective in aggregate metric,</p>
+<p>because really, like nobody has the patience</p>
+<p>to be able to talk to a bot that&rsquo;s not interesting</p>
+<p>and intelligent and witty,</p>
+<p>and is able to go on to different tangents, jump domains,</p>
+<p>be able to say something interesting</p>
+<p>to maintain your attention.</p>
+<p>And maybe many humans will also fail this test.</p>
+<p>That&rsquo;s the, unfortunately, we set,</p>
+<p>just like with autonomous vehicles, with chatbots,</p>
+<p>we also set a bar that&rsquo;s way too high to reach.</p>
+<p>I said, you know, the Turing test is not as bad</p>
+<p>as some people believe,</p>
+<p>but what is really not useful about the Turing test,</p>
+<p>it gives us no guidance</p>
+<p>how to develop these systems in the first place.</p>
+<p>Of course, you know, we can develop them by trial and error</p>
+<p>and, you know, do whatever and then run the test</p>
+<p>and see whether it works or not.</p>
+<p>But a mathematical definition of intelligence</p>
+<p>gives us, you know, an objective,</p>
+<p>which we can then analyze by theoretical tools</p>
+<p>or computational, and, you know,</p>
+<p>maybe even prove how close we are.</p>
+<p>And we will come back to that later with the iXe model.</p>
+<p>So, I mentioned the compression, right?</p>
+<p>So in natural language processing,</p>
+<p>they have achieved amazing results.</p>
+<p>And one way to test this, of course,</p>
+<p>you know, take the system, you train it,</p>
+<p>and then you see how well it performs on the task.</p>
+<p>But a lot of performance measurement</p>
+<p>is done by so called perplexity,</p>
+<p>which is essentially the same as complexity</p>
+<p>or compression length.</p>
+<p>So the NLP community develops new systems</p>
+<p>and then they measure the compression length</p>
+<p>and then they have ranking and leaks</p>
+<p>because there&rsquo;s a strong correlation</p>
+<p>between compressing well,</p>
+<p>and then the system&rsquo;s performing well at the task at hand.</p>
+<p>It&rsquo;s not perfect, but it&rsquo;s good enough</p>
+<p>for them as an intermediate aim.</p>
+<p>So you mean a measure,</p>
+<p>so this is kind of almost returning</p>
+<p>to the common goal of complexity.</p>
+<p>So you&rsquo;re saying good compression</p>
+<p>usually means good intelligence.</p>
+<p>Yes.</p>
+<p>So you mentioned you&rsquo;re one of the only people</p>
+<p>who dared boldly to try to formalize</p>
+<p>the idea of artificial general intelligence,</p>
+<p>to have a mathematical framework for intelligence,</p>
+<p>just like as we mentioned,</p>
+<p>termed AIXI, A, I, X, I.</p>
+<p>So let me ask the basic question.</p>
+<p>What is AIXI?</p>
+<p>Okay, so let me first say what it stands for because&hellip;</p>
+<p>What it stands for, actually,</p>
+<p>that&rsquo;s probably the more basic question.</p>
+<p>What it&hellip;</p>
+<p>The first question is usually how it&rsquo;s pronounced,</p>
+<p>but finally I put it on the website how it&rsquo;s pronounced</p>
+<p>and you figured it out.</p>
+<p>The name comes from AI, artificial intelligence,</p>
+<p>and the X, I, is the Greek letter Xi,</p>
+<p>which are used for Solomonov&rsquo;s distribution</p>
+<p>for quite stupid reasons,</p>
+<p>which I&rsquo;m not willing to repeat here in front of camera.</p>
+<p>Sure.</p>
+<p>So it just happened to be more or less arbitrary.</p>
+<p>I chose the Xi.</p>
+<p>But it also has nice other interpretations.</p>
+<p>So there are actions and perceptions in this model.</p>
+<p>An agent has actions and perceptions over time.</p>
+<p>So this is A index I, X index I.</p>
+<p>So there&rsquo;s the action at time I</p>
+<p>and then followed by perception at time I.</p>
+<p>Yeah, we&rsquo;ll go with that.</p>
+<p>I&rsquo;ll edit out the first part.</p>
+<p>I&rsquo;m just kidding.</p>
+<p>I have some more interpretations.</p>
+<p>So at some point, maybe five years ago or 10 years ago,</p>
+<p>I discovered in Barcelona, it was on a big church</p>
+<p>that was in stone engraved, some text,</p>
+<p>and the word Aixia appeared there a couple of times.</p>
+<p>I was very surprised and happy about that.</p>
+<p>And I looked it up.</p>
+<p>So it is a Catalan language</p>
+<p>and it means with some interpretation of that&rsquo;s it,</p>
+<p>that&rsquo;s the right thing to do.</p>
+<p>Yeah, Huayrica.</p>
+<p>Oh, so it&rsquo;s almost like destined somehow.</p>
+<p>It came to you in a dream.</p>
+<p>And similar, there&rsquo;s a Chinese word, Aixi,</p>
+<p>also written like Aixi, if you transcribe that to Pinyin.</p>
+<p>And the final one is that it&rsquo;s AI crossed with induction</p>
+<p>because that is, and that&rsquo;s going more to the content now.</p>
+<p>So good old fashioned AI is more about planning</p>
+<p>and known deterministic world</p>
+<p>and induction is more about often IID data</p>
+<p>and inferring models.</p>
+<p>And essentially what this Aixi model does</p>
+<p>is combining these two.</p>
+<p>And I actually also recently, I think heard that</p>
+<p>in Japanese AI means love.</p>
+<p>So if you can combine XI somehow with that,</p>
+<p>I think we can, there might be some interesting ideas there.</p>
+<p>So Aixi, let&rsquo;s then take the next step.</p>
+<p>Can you maybe talk at the big level</p>
+<p>of what is this mathematical framework?</p>
+<p>Yeah, so it consists essentially of two parts.</p>
+<p>One is the learning and induction and prediction part.</p>
+<p>And the other one is the planning part.</p>
+<p>So let&rsquo;s come first to the learning,</p>
+<p>induction, prediction part,</p>
+<p>which essentially I explained already before.</p>
+<p>So what we need for any agent to act well</p>
+<p>is that it can somehow predict what happens.</p>
+<p>I mean, if you have no idea what your actions do,</p>
+<p>how can you decide which actions are good or not?</p>
+<p>So you need to have some model of what your actions effect.</p>
+<p>So what you do is you have some experience,</p>
+<p>you build models like scientists of your experience,</p>
+<p>then you hope these models are roughly correct,</p>
+<p>and then you use these models for prediction.</p>
+<p>And the model is, sorry to interrupt,</p>
+<p>and the model is based on your perception of the world,</p>
+<p>how your actions will affect that world.</p>
+<p>That&rsquo;s not&hellip;</p>
+<p>So how do you think about a model?</p>
+<p>That&rsquo;s not the important part,</p>
+<p>but it is technically important,</p>
+<p>but at this stage we can just think about predicting,</p>
+<p>let&rsquo;s say, stock market data, weather data,</p>
+<p>or IQ sequences, one, two, three, four, five,</p>
+<p>what comes next, yeah?</p>
+<p>So of course our actions affect what we&rsquo;re doing,</p>
+<p>but I&rsquo;ll come back to that in a second.</p>
+<p>So, and I&rsquo;ll keep just interrupting.</p>
+<p>So just to draw a line between prediction and planning,</p>
+<p>what do you mean by prediction in this way?</p>
+<p>It&rsquo;s trying to predict the environment</p>
+<p>without your long term action in the environment?</p>
+<p>What is prediction?</p>
+<p>Okay, if you want to put the actions in now,</p>
+<p>okay, then let&rsquo;s put it in now, yeah?</p>
+<p>So&hellip;</p>
+<p>We don&rsquo;t have to put them now.</p>
+<p>Yeah, yeah.</p>
+<p>Scratch it, scratch it, dumb question, okay.</p>
+<p>So the simplest form of prediction is</p>
+<p>that you just have data which you passively observe,</p>
+<p>and you want to predict what happens</p>
+<p>without interfering, as I said,</p>
+<p>weather forecasting, stock market, IQ sequences,</p>
+<p>or just anything, okay?</p>
+<p>And Solomonov&rsquo;s theory of induction based on compression,</p>
+<p>so you look for the shortest program</p>
+<p>which describes your data sequence,</p>
+<p>and then you take this program, run it,</p>
+<p>it reproduces your data sequence by definition,</p>
+<p>and then you let it continue running,</p>
+<p>and then it will produce some predictions,</p>
+<p>and you can rigorously prove that for any prediction task,</p>
+<p>this is essentially the best possible predictor.</p>
+<p>Of course, if there&rsquo;s a prediction task,</p>
+<p>or a task which is unpredictable,</p>
+<p>like, you know, you have fair coin flips.</p>
+<p>Yeah, I cannot predict the next fair coin flip.</p>
+<p>What Solomonov does is says,</p>
+<p>okay, next head is probably 50%.</p>
+<p>It&rsquo;s the best you can do.</p>
+<p>So if something is unpredictable,</p>
+<p>Solomonov will also not magically predict it.</p>
+<p>But if there is some pattern and predictability,</p>
+<p>then Solomonov induction will figure that out eventually,</p>
+<p>and not just eventually, but rather quickly,</p>
+<p>and you can have proof convergence rates,</p>
+<p>whatever your data is.</p>
+<p>So there&rsquo;s pure magic in a sense.</p>
+<p>What&rsquo;s the catch?</p>
+<p>Well, the catch is that it&rsquo;s not computable,</p>
+<p>and we come back to that later.</p>
+<p>You cannot just implement it</p>
+<p>even with Google resources here,</p>
+<p>and run it and predict the stock market and become rich.</p>
+<p>I mean, Ray Solomonov already tried it at the time.</p>
+<p>But so the basic task is you&rsquo;re in the environment,</p>
+<p>and you&rsquo;re interacting with the environment</p>
+<p>to try to learn to model that environment,</p>
+<p>and the model is in the space of all these programs,</p>
+<p>and your goal is to get a bunch of programs that are simple.</p>
+<p>Yeah, so let&rsquo;s go to the actions now.</p>
+<p>But actually, good that you asked.</p>
+<p>Usually I skip this part,</p>
+<p>although there is also a minor contribution which I did,</p>
+<p>so the action part,</p>
+<p>but I usually sort of just jump to the decision part.</p>
+<p>So let me explain the action part now.</p>
+<p>Thanks for asking.</p>
+<p>So you have to modify it a little bit</p>
+<p>by now not just predicting a sequence</p>
+<p>which just comes to you,</p>
+<p>but you have an observation, then you act somehow,</p>
+<p>and then you want to predict the next observation</p>
+<p>based on the past observation and your action.</p>
+<p>Then you take the next action.</p>
+<p>You don&rsquo;t care about predicting it because you&rsquo;re doing it.</p>
+<p>Then you get the next observation,</p>
+<p>and you want, well, before you get it,</p>
+<p>you want to predict it, again,</p>
+<p>based on your past action and observation sequence.</p>
+<p>You just condition extra on your actions.</p>
+<p>There&rsquo;s an interesting alternative</p>
+<p>that you also try to predict your own actions.</p>
+<p>If you want.</p>
+<p>In the past or the future?</p>
+<p>In your future actions.</p>
+<p>That&rsquo;s interesting.</p>
+<p>Yeah. Wait, let me wrap.</p>
+<p>I think my brain just broke.</p>
+<p>We should maybe discuss that later</p>
+<p>after I&rsquo;ve explained the IXE model.</p>
+<p>That&rsquo;s an interesting variation.</p>
+<p>But that is a really interesting variation,</p>
+<p>and a quick comment.</p>
+<p>I don&rsquo;t know if you want to insert that in here,</p>
+<p>but you&rsquo;re looking at the, in terms of observations,</p>
+<p>you&rsquo;re looking at the entire, the big history,</p>
+<p>the long history of the observations.</p>
+<p>Exactly. That&rsquo;s very important.</p>
+<p>The whole history from birth sort of of the agent,</p>
+<p>and we can come back to that.</p>
+<p>And also why this is important.</p>
+<p>Often, you know, in RL, you have MDPs,</p>
+<p>micro decision processes, which are much more limiting.</p>
+<p>Okay. So now we can predict conditioned on actions.</p>
+<p>So even if you influence environment,</p>
+<p>but prediction is not all we want to do, right?</p>
+<p>We also want to act really in the world.</p>
+<p>And the question is how to choose the actions.</p>
+<p>And we don&rsquo;t want to greedily choose the actions,</p>
+<p>you know, just, you know, what is best in the next time step.</p>
+<p>And we first, I should say, you know, what is, you know,</p>
+<p>how do we measure performance?</p>
+<p>So we measure performance by giving the agent reward.</p>
+<p>That&rsquo;s the so called reinforcement learning framework.</p>
+<p>So every time step, you can give it a positive reward</p>
+<p>or negative reward, or maybe no reward.</p>
+<p>It could be a very scarce, right?</p>
+<p>Like if you play chess, just at the end of the game,</p>
+<p>you give plus one for winning or minus one for losing.</p>
+<p>So in the RxC framework, that&rsquo;s completely sufficient.</p>
+<p>So occasionally you give a reward signal</p>
+<p>and you ask the agent to maximize reward,</p>
+<p>but not greedily sort of, you know, the next one, next one,</p>
+<p>because that&rsquo;s very bad in the long run if you&rsquo;re greedy.</p>
+<p>So, but over the lifetime of the agent.</p>
+<p>So let&rsquo;s assume the agent lives for M time steps,</p>
+<p>or say dies in sort of a hundred years sharp.</p>
+<p>That&rsquo;s just, you know, the simplest model to explain.</p>
+<p>So it looks at the future reward sum</p>
+<p>and ask what is my action sequence,</p>
+<p>or actually more precisely my policy,</p>
+<p>which leads in expectation, because I don&rsquo;t know the world,</p>
+<p>to the maximum reward sum.</p>
+<p>Let me give you an analogy.</p>
+<p>In chess, for instance,</p>
+<p>we know how to play optimally in theory.</p>
+<p>It&rsquo;s just a mini max strategy.</p>
+<p>I play the move which seems best to me</p>
+<p>under the assumption that the opponent plays the move</p>
+<p>which is best for him.</p>
+<p>So best, so worst for me under the assumption that he,</p>
+<p>I play again, the best move.</p>
+<p>And then you have this expecting max three</p>
+<p>to the end of the game, and then you back propagate,</p>
+<p>and then you get the best possible move.</p>
+<p>So that is the optimal strategy,</p>
+<p>which von Neumann already figured out a long time ago,</p>
+<p>for playing adversarial games.</p>
+<p>Luckily, or maybe unluckily for the theory,</p>
+<p>it becomes harder.</p>
+<p>The world is not always adversarial.</p>
+<p>So it can be, if there are other humans,</p>
+<p>even cooperative, or nature is usually,</p>
+<p>I mean, the dead nature is stochastic, you know,</p>
+<p>things just happen randomly, or don&rsquo;t care about you.</p>
+<p>So what you have to take into account is the noise,</p>
+<p>and not necessarily adversarialty.</p>
+<p>So you replace the minimum on the opponent&rsquo;s side</p>
+<p>by an expectation,</p>
+<p>which is general enough to include also adversarial cases.</p>
+<p>So now instead of a mini max strategy,</p>
+<p>you have an expected max strategy.</p>
+<p>So far, so good.</p>
+<p>So that is well known.</p>
+<p>It&rsquo;s called sequential decision theory.</p>
+<p>But the question is,</p>
+<p>on which probability distribution do you base that?</p>
+<p>If I have the true probability distribution,</p>
+<p>like say I play backgammon, right?</p>
+<p>There&rsquo;s dice, and there&rsquo;s certain randomness involved.</p>
+<p>Yeah, I can calculate probabilities</p>
+<p>and feed it in the expected max,</p>
+<p>or the sequential decision tree,</p>
+<p>come up with the optimal decision if I have enough compute.</p>
+<p>But for the real world, we don&rsquo;t know that, you know,</p>
+<p>what is the probability the driver in front of me breaks?</p>
+<p>I don&rsquo;t know.</p>
+<p>So depends on all kinds of things,</p>
+<p>and especially new situations, I don&rsquo;t know.</p>
+<p>So this is this unknown thing about prediction,</p>
+<p>and there&rsquo;s where Solomonov comes in.</p>
+<p>So what you do is in sequential decision tree,</p>
+<p>you just replace the true distribution,</p>
+<p>which we don&rsquo;t know, by this universal distribution.</p>
+<p>I didn&rsquo;t explicitly talk about it,</p>
+<p>but this is used for universal prediction</p>
+<p>and plug it into the sequential decision tree mechanism.</p>
+<p>And then you get the best of both worlds.</p>
+<p>You have a long term planning agent,</p>
+<p>but it doesn&rsquo;t need to know anything about the world</p>
+<p>because the Solomonov induction part learns.</p>
+<p>Can you explicitly try to describe</p>
+<p>the universal distribution</p>
+<p>and how Solomonov induction plays a role here?</p>
+<p>I&rsquo;m trying to understand.</p>
+<p>So what it does it, so in the simplest case,</p>
+<p>I said, take the shortest program, describing your data,</p>
+<p>run it, have a prediction which would be deterministic.</p>
+<p>Yes. Okay.</p>
+<p>But you should not just take the shortest program,</p>
+<p>but also consider the longer ones,</p>
+<p>but give it lower a priori probability.</p>
+<p>So in the Bayesian framework, you say a priori,</p>
+<p>any distribution, which is a model or a stochastic program,</p>
+<p>has a certain a priori probability,</p>
+<p>which is two to the minus, and why two to the minus length?</p>
+<p>You know, I could explain length of this program.</p>
+<p>So longer programs are punished a priori.</p>
+<p>And then you multiply it</p>
+<p>with the so called likelihood function,</p>
+<p>which is, as the name suggests,</p>
+<p>is how likely is this model given the data at hand.</p>
+<p>So if you have a very wrong model,</p>
+<p>it&rsquo;s very unlikely that this model is true.</p>
+<p>And so it is very small number.</p>
+<p>So even if the model is simple, it gets penalized by that.</p>
+<p>And what you do is then you take just the sum,</p>
+<p>or this is the average over it.</p>
+<p>And this gives you a probability distribution.</p>
+<p>So it&rsquo;s universal distribution or Solomonov distribution.</p>
+<p>So it&rsquo;s weighed by the simplicity of the program</p>
+<p>and the likelihood.</p>
+<p>Yes.</p>
+<p>It&rsquo;s kind of a nice idea.</p>
+<p>Yeah.</p>
+<p>So okay, and then you said there&rsquo;s you&rsquo;re playing N or M</p>
+<p>or forgot the letter steps into the future.</p>
+<p>So how difficult is that problem?</p>
+<p>What&rsquo;s involved there?</p>
+<p>Okay, so basic optimization problem.</p>
+<p>What are we talking about?</p>
+<p>Yeah, so you have a planning problem up to horizon M,</p>
+<p>and that&rsquo;s exponential time in the horizon M,</p>
+<p>which is, I mean, it&rsquo;s computable, but intractable.</p>
+<p>I mean, even for chess, it&rsquo;s already intractable</p>
+<p>to do that exactly.</p>
+<p>And you know, for goal.</p>
+<p>But it could be also discounted kind of framework where.</p>
+<p>Yeah, so having a hard horizon, you know, at 100 years,</p>
+<p>it&rsquo;s just for simplicity of discussing the model</p>
+<p>and also sometimes the math is simple.</p>
+<p>But there are lots of variations,</p>
+<p>actually quite interesting parameter.</p>
+<p>There&rsquo;s nothing really problematic about it,</p>
+<p>but it&rsquo;s very interesting.</p>
+<p>So for instance, you think, no,</p>
+<p>let&rsquo;s let the parameter M tend to infinity, right?</p>
+<p>You want an agent which lives forever, right?</p>
+<p>If you do it normally, you have two problems.</p>
+<p>First, the mathematics breaks down</p>
+<p>because you have an infinite reward sum,</p>
+<p>which may give infinity,</p>
+<p>and getting reward 0.1 every time step is infinity,</p>
+<p>and giving reward one every time step is infinity,</p>
+<p>so equally good.</p>
+<p>Not really what we want.</p>
+<p>Other problem is that if you have an infinite life,</p>
+<p>you can be lazy for as long as you want for 10 years</p>
+<p>and then catch up with the same expected reward.</p>
+<p>And think about yourself or maybe some friends or so.</p>
+<p>If they knew they lived forever, why work hard now?</p>
+<p>Just enjoy your life and then catch up later.</p>
+<p>So that&rsquo;s another problem with infinite horizon.</p>
+<p>And you mentioned, yes, we can go to discounting,</p>
+<p>but then the standard discounting</p>
+<p>is so called geometric discounting.</p>
+<p>So a dollar today is about worth</p>
+<p>as much as $1.05 tomorrow.</p>
+<p>So if you do the so called geometric discounting,</p>
+<p>you have introduced an effective horizon.</p>
+<p>So the agent is now motivated to look ahead</p>
+<p>a certain amount of time effectively.</p>
+<p>It&rsquo;s like a moving horizon.</p>
+<p>And for any fixed effective horizon,</p>
+<p>there is a problem to solve,</p>
+<p>which requires larger horizon.</p>
+<p>So if I look ahead five time steps,</p>
+<p>I&rsquo;m a terrible chess player, right?</p>
+<p>I&rsquo;ll need to look ahead longer.</p>
+<p>If I play go, I probably have to look ahead even longer.</p>
+<p>So for every problem, for every horizon,</p>
+<p>there is a problem which this horizon cannot solve.</p>
+<p>But I introduced the so called near harmonic horizon,</p>
+<p>which goes down with one over T</p>
+<p>rather than exponential in T,</p>
+<p>which produces an agent,</p>
+<p>which effectively looks into the future</p>
+<p>proportional to each age.</p>
+<p>So if it&rsquo;s five years old, it plans for five years.</p>
+<p>If it&rsquo;s 100 years old, it then plans for 100 years.</p>
+<p>And it&rsquo;s a little bit similar to humans too, right?</p>
+<p>I mean, children don&rsquo;t plan ahead very long,</p>
+<p>but then we get adult, we play ahead more longer.</p>
+<p>Maybe when we get very old,</p>
+<p>I mean, we know that we don&rsquo;t live forever.</p>
+<p>Maybe then our horizon shrinks again.</p>
+<p>So that&rsquo;s really interesting.</p>
+<p>So adjusting the horizon,</p>
+<p>is there some mathematical benefit of that?</p>
+<p>Or is it just a nice,</p>
+<p>I mean, intuitively, empirically,</p>
+<p>it would probably be a good idea</p>
+<p>to sort of push the horizon back,</p>
+<p>extend the horizon as you experience more of the world.</p>
+<p>But is there some mathematical conclusions here</p>
+<p>that are beneficial?</p>
+<p>With solomonic reductions or the prediction part,</p>
+<p>we have extremely strong finite time,</p>
+<p>but not finite data results.</p>
+<p>So you have so and so much data,</p>
+<p>then you lose so and so much.</p>
+<p>So it&rsquo;s a, the theory is really great.</p>
+<p>With the ICSE model, with the planning part,</p>
+<p>many results are only asymptotic, which, well, this is&hellip;</p>
+<p>What does asymptotic mean?</p>
+<p>Asymptotic means you can prove, for instance,</p>
+<p>that in the long run, if the agent, you know,</p>
+<p>acts long enough, then, you know,</p>
+<p>it performs optimal or some nice thing happens.</p>
+<p>So, but you don&rsquo;t know how fast it converges.</p>
+<p>So it may converge fast,</p>
+<p>but we&rsquo;re just not able to prove it</p>
+<p>because of a difficult problem.</p>
+<p>Or maybe there&rsquo;s a bug in the model</p>
+<p>so that it&rsquo;s really that slow.</p>
+<p>So that is what asymptotic means,</p>
+<p>sort of eventually, but we don&rsquo;t know how fast.</p>
+<p>And if I give the agent a fixed horizon M,</p>
+<p>then I cannot prove asymptotic results, right?</p>
+<p>So I mean, sort of if it dies in a hundred years,</p>
+<p>then in a hundred years it&rsquo;s over, I cannot say eventually.</p>
+<p>So this is the advantage of the discounting</p>
+<p>that I can prove asymptotic results.</p>
+<p>So just to clarify, so I, okay, I made,</p>
+<p>I&rsquo;ve built up a model, we&rsquo;re now in the moment of,</p>
+<p>I have this way of looking several steps ahead.</p>
+<p>How do I pick what action I will take?</p>
+<p>It&rsquo;s like with the playing chess, right?</p>
+<p>You do this minimax.</p>
+<p>In this case here, do expectimax based on the solomonov</p>
+<p>distribution, you propagate back,</p>
+<p>and then while an action falls out,</p>
+<p>the action which maximizes the future expected reward</p>
+<p>on the solomonov distribution,</p>
+<p>and then you just take this action.</p>
+<p>And then repeat.</p>
+<p>And then you get a new observation,</p>
+<p>and you feed it in this action observation,</p>
+<p>then you repeat.</p>
+<p>And the reward, so on.</p>
+<p>Yeah, so you rewrote too, yeah.</p>
+<p>And then maybe you can even predict your own action.</p>
+<p>I love that idea.</p>
+<p>But okay, this big framework,</p>
+<p>what is it, I mean,</p>
+<p>it&rsquo;s kind of a beautiful mathematical framework</p>
+<p>to think about artificial general intelligence.</p>
+<p>What can you, what does it help you into it</p>
+<p>about how to build such systems?</p>
+<p>Or maybe from another perspective,</p>
+<p>what does it help us in understanding AGI?</p>
+<p>So when I started in the field,</p>
+<p>I was always interested in two things.</p>
+<p>One was AGI, the name didn&rsquo;t exist then,</p>
+<p>what&rsquo;s called general AI or strong AI,</p>
+<p>and the physics theory of everything.</p>
+<p>So I switched back and forth between computer science</p>
+<p>and physics quite often.</p>
+<p>You said the theory of everything.</p>
+<p>The theory of everything, yeah.</p>
+<p>Those are basically the two biggest problems</p>
+<p>before all of humanity.</p>
+<p>Yeah, I can explain if you wanted some later time,</p>
+<p>why I&rsquo;m interested in these two questions.</p>
+<p>Can I ask you in a small tangent,</p>
+<p>if it was one to be solved,</p>
+<p>which one would you,</p>
+<p>if an apple fell on your head</p>
+<p>and there was a brilliant insight</p>
+<p>and you could arrive at the solution to one,</p>
+<p>would it be AGI or the theory of everything?</p>
+<p>Definitely AGI, because once the AGI problem is solved,</p>
+<p>I can ask the AGI to solve the other problem for me.</p>
+<p>Yeah, brilliant input.</p>
+<p>Okay, so as you were saying about it.</p>
+<p>Okay, so, and the reason why I didn&rsquo;t settle,</p>
+<p>I mean, this thought about,</p>
+<p>once you have solved AGI, it solves all kinds of other,</p>
+<p>not just the theory of every problem,</p>
+<p>but all kinds of more useful problems to humanity</p>
+<p>is very appealing to many people.</p>
+<p>And I had this thought also,</p>
+<p>but I was quite disappointed with the state of the art</p>
+<p>of the field of AI.</p>
+<p>There was some theory about logical reasoning,</p>
+<p>but I was never convinced that this will fly.</p>
+<p>And then there was this more heuristic approaches</p>
+<p>with neural networks and I didn&rsquo;t like these heuristics.</p>
+<p>So, and also I didn&rsquo;t have any good idea myself.</p>
+<p>So that&rsquo;s the reason why I toggled back and forth</p>
+<p>quite some while and even worked four and a half years</p>
+<p>in a company developing software,</p>
+<p>something completely unrelated.</p>
+<p>But then I had this idea about the ICSE model.</p>
+<p>And so what it gives you, it gives you a gold standard.</p>
+<p>So I have proven that this is the most intelligent agents</p>
+<p>which anybody could build in quotation mark,</p>
+<p>because it&rsquo;s just mathematical</p>
+<p>and you need infinite compute.</p>
+<p>But this is the limit and this is completely specified.</p>
+<p>It&rsquo;s not just a framework and every year,</p>
+<p>tens of frameworks are developed,</p>
+<p>which are just skeletons and then pieces are missing.</p>
+<p>And usually these missing pieces,</p>
+<p>turn out to be really, really difficult.</p>
+<p>And so this is completely and uniquely defined</p>
+<p>and we can analyze that mathematically.</p>
+<p>And we&rsquo;ve also developed some approximations.</p>
+<p>I can talk about that a little bit later.</p>
+<p>That would be sort of the top down approach,</p>
+<p>like say for Neumann&rsquo;s minimax theory,</p>
+<p>that&rsquo;s the theoretical optimal play of games.</p>
+<p>And now we need to approximate it,</p>
+<p>put heuristics in, prune the tree, blah, blah, blah,</p>
+<p>and so on.</p>
+<p>So we can do that also with the ICSE model,</p>
+<p>but for general AI.</p>
+<p>It can also inspire those,</p>
+<p>and most researchers go bottom up, right?</p>
+<p>They have the systems,</p>
+<p>they try to make it more general, more intelligent.</p>
+<p>It can inspire in which direction to go.</p>
+<p>What do you mean by that?</p>
+<p>So if you have some choice to make, right?</p>
+<p>So how should I evaluate my system</p>
+<p>if I can&rsquo;t do cross validation?</p>
+<p>How should I do my learning</p>
+<p>if my standard regularization doesn&rsquo;t work well?</p>
+<p>So the answer is always this,</p>
+<p>we have a system which does everything, that&rsquo;s ICSE.</p>
+<p>It&rsquo;s just completely in the ivory tower,</p>
+<p>completely useless from a practical point of view.</p>
+<p>But you can look at it and see,</p>
+<p>ah, yeah, maybe I can take some aspects.</p>
+<p>And instead of Kolmogorov complexity,</p>
+<p>that just takes some compressors,</p>
+<p>which has been developed so far.</p>
+<p>And for the planning, well, we have UCT,</p>
+<p>which has also been used in Go.</p>
+<p>And at least it&rsquo;s inspired me a lot</p>
+<p>to have this formal definition.</p>
+<p>And if you look at other fields,</p>
+<p>like I always come back to physics</p>
+<p>because I have a physics background,</p>
+<p>think about the phenomenon of energy.</p>
+<p>That was long time a mysterious concept.</p>
+<p>And at some point it was completely formalized.</p>
+<p>And that really helped a lot.</p>
+<p>And you can point out a lot of these things</p>
+<p>which were first mysterious and vague,</p>
+<p>and then they have been rigorously formalized.</p>
+<p>Speed and acceleration has been confused, right?</p>
+<p>Until it was formally defined,</p>
+<p>yeah, there was a time like this.</p>
+<p>And people often who don&rsquo;t have any background,</p>
+<p>still confuse it.</p>
+<p>And this ICSE model or the intelligence definitions,</p>
+<p>which is sort of the dual to it,</p>
+<p>we come back to that later,</p>
+<p>formalizes the notion of intelligence</p>
+<p>uniquely and rigorously.</p>
+<p>So in a sense, it serves as kind of the light</p>
+<p>at the end of the tunnel.</p>
+<p>So for, I mean, there&rsquo;s a million questions</p>
+<p>I could ask her.</p>
+<p>So maybe kind of, okay,</p>
+<p>let&rsquo;s feel around in the dark a little bit.</p>
+<p>So there&rsquo;s been here a deep mind,</p>
+<p>but in general, been a lot of breakthrough ideas,</p>
+<p>just like we&rsquo;ve been saying around reinforcement learning.</p>
+<p>So how do you see the progress</p>
+<p>in reinforcement learning is different?</p>
+<p>Like which subset of ICSE does it occupy?</p>
+<p>The current, like you said,</p>
+<p>maybe the Markov assumption is made quite often</p>
+<p>in reinforcement learning.</p>
+<p>There&rsquo;s other assumptions made</p>
+<p>in order to make the system work.</p>
+<p>What do you see as the difference connection</p>
+<p>between reinforcement learning and ICSE?</p>
+<p>And so the major difference is that</p>
+<p>essentially all other approaches,</p>
+<p>they make stronger assumptions.</p>
+<p>So in reinforcement learning, the Markov assumption</p>
+<p>is that the next state or next observation</p>
+<p>only depends on the previous observation</p>
+<p>and not the whole history,</p>
+<p>which makes, of course, the mathematics much easier</p>
+<p>rather than dealing with histories.</p>
+<p>Of course, they profit from it also,</p>
+<p>because then you have algorithms</p>
+<p>that run on current computers</p>
+<p>and do something practically useful.</p>
+<p>But for general AI, all the assumptions</p>
+<p>which are made by other approaches,</p>
+<p>we know already now they are limiting.</p>
+<p>So, for instance, usually you need</p>
+<p>a goddessity assumption in the MDP frameworks</p>
+<p>in order to learn.</p>
+<p>A goddessity essentially means that you can recover</p>
+<p>from your mistakes and that there are no traps</p>
+<p>in the environment.</p>
+<p>And if you make this assumption,</p>
+<p>then essentially you can go back to a previous state,</p>
+<p>go there a couple of times and then learn</p>
+<p>what statistics and what the state is like,</p>
+<p>and then in the long run perform well in this state.</p>
+<p>But there are no fundamental problems.</p>
+<p>But in real life, we know there can be one single action.</p>
+<p>One second of being inattentive while driving a car fast</p>
+<p>can ruin the rest of my life.</p>
+<p>I can become quadriplegic or whatever.</p>
+<p>So, and there&rsquo;s no recovery anymore.</p>
+<p>So, the real world is not ergodic, I always say.</p>
+<p>There are traps and there are situations</p>
+<p>where you are not recover from.</p>
+<p>And very little theory has been developed for this case.</p>
+<p>What about, what do you see in the context of IECSIA</p>
+<p>as the role of exploration?</p>
+<p>Sort of, you mentioned in the real world</p>
+<p>you can get into trouble when we make the wrong decisions</p>
+<p>and really pay for it.</p>
+<p>But exploration seems to be fundamentally important</p>
+<p>for learning about this world, for gaining new knowledge.</p>
+<p>So, is exploration baked in?</p>
+<p>Another way to ask it, what are the potential</p>
+<p>to ask it, what are the parameters of IECSIA</p>
+<p>that can be controlled?</p>
+<p>Yeah, I say the good thing is that there are no parameters</p>
+<p>to control.</p>
+<p>Some other people track knobs to control.</p>
+<p>And you can do that.</p>
+<p>I mean, you can modify IECSIA so that you have some knobs</p>
+<p>to play with if you want to.</p>
+<p>But the exploration is directly baked in.</p>
+<p>And that comes from the Bayesian learning</p>
+<p>and the longterm planning.</p>
+<p>So these together already imply exploration.</p>
+<p>You can nicely and explicitly prove that</p>
+<p>for simple problems like so called bandit problems,</p>
+<p>where you say, to give a real world example,</p>
+<p>say you have two medical treatments, A and B,</p>
+<p>you don&rsquo;t know the effectiveness,</p>
+<p>you try A a little bit, B a little bit,</p>
+<p>but you don&rsquo;t want to harm too many patients.</p>
+<p>So you have to sort of trade off exploring.</p>
+<p>And at some point you want to explore</p>
+<p>and you can do the mathematics</p>
+<p>and figure out the optimal strategy.</p>
+<p>They talk about Bayesian agents,</p>
+<p>they&rsquo;re also non Bayesian agents,</p>
+<p>but it shows that this Bayesian framework</p>
+<p>by taking a prior or possible worlds,</p>
+<p>doing the Bayesian mixture,</p>
+<p>then the Bayes optimal decision with longterm planning</p>
+<p>that is important,</p>
+<p>automatically implies exploration,</p>
+<p>also to the proper extent,</p>
+<p>not too much exploration and not too little.</p>
+<p>It is very simple settings.</p>
+<p>In the IXE model, I was also able to prove</p>
+<p>that it is a self optimizing theorem</p>
+<p>or asymptotic optimality theorems,</p>
+<p>although they&rsquo;re only asymptotic, not finite time bounds.</p>
+<p>So it seems like the longterm planning is really important,</p>
+<p>but the longterm part of the planning is really important.</p>
+<p>And also, I mean, maybe a quick tangent,</p>
+<p>how important do you think is removing</p>
+<p>the Markov assumption and looking at the full history?</p>
+<p>Sort of intuitively, of course, it&rsquo;s important,</p>
+<p>but is it like fundamentally transformative</p>
+<p>to the entirety of the problem?</p>
+<p>What&rsquo;s your sense of it?</p>
+<p>Like, cause we all, we make that assumption quite often.</p>
+<p>It&rsquo;s just throwing away the past.</p>
+<p>No, I think it&rsquo;s absolutely crucial.</p>
+<p>The question is whether there&rsquo;s a way to deal with it</p>
+<p>in a more heuristic and still sufficiently well way.</p>
+<p>So I have to come up with an example and fly,</p>
+<p>but you have some key event in your life,</p>
+<p>long time ago in some city or something,</p>
+<p>you realized that&rsquo;s a really dangerous street or whatever.</p>
+<p>And you want to remember that forever,</p>
+<p>in case you come back there.</p>
+<p>Kind of a selective kind of memory.</p>
+<p>So you remember all the important events in the past,</p>
+<p>but somehow selecting the important is.</p>
+<p>That&rsquo;s very hard.</p>
+<p>And I&rsquo;m not concerned about just storing the whole history.</p>
+<p>Just, you can calculate, human life says 30 or 100 years,</p>
+<p>doesn&rsquo;t matter, right?</p>
+<p>How much data comes in through the vision system</p>
+<p>and the auditory system, you compress it a little bit,</p>
+<p>in this case, lossily and store it.</p>
+<p>We are soon in the means of just storing it.</p>
+<p>But you still need to the selection for the planning part</p>
+<p>and the compression for the understanding part.</p>
+<p>The raw storage I&rsquo;m really not concerned about.</p>
+<p>And I think we should just store,</p>
+<p>if you develop an agent,</p>
+<p>preferably just store all the interaction history.</p>
+<p>And then you build of course models on top of it</p>
+<p>and you compress it and you are selective,</p>
+<p>but occasionally you go back to the old data</p>
+<p>and reanalyze it based on your new experience you have.</p>
+<p>Sometimes you are in school,</p>
+<p>you learn all these things you think is totally useless</p>
+<p>and much later you realize,</p>
+<p>oh, they were not so useless as you thought.</p>
+<p>I&rsquo;m looking at you, linear algebra.</p>
+<p>Right.</p>
+<p>So maybe let me ask about objective functions</p>
+<p>because that rewards, it seems to be an important part.</p>
+<p>The rewards are kind of given to the system.</p>
+<p>For a lot of people,</p>
+<p>the specification of the objective function</p>
+<p>is a key part of intelligence.</p>
+<p>The agent itself figuring out what is important.</p>
+<p>What do you think about that?</p>
+<p>Is it possible within the IXE framework</p>
+<p>to yourself discover the reward</p>
+<p>based on which you should operate?</p>
+<p>Okay, that will be a long answer.</p>
+<p>So, and that is a very interesting question.</p>
+<p>And I&rsquo;m asked a lot about this question,</p>
+<p>where do the rewards come from?</p>
+<p>And that depends.</p>
+<p>So, and then I give you now a couple of answers.</p>
+<p>So if you want to build agents, now let&rsquo;s start simple.</p>
+<p>So let&rsquo;s assume we want to build an agent</p>
+<p>based on the IXE model, which performs a particular task.</p>
+<p>Let&rsquo;s start with something super simple,</p>
+<p>like, I mean, super simple, like playing chess,</p>
+<p>or go or something, yeah.</p>
+<p>Then you just, the reward is winning the game is plus one,</p>
+<p>losing the game is minus one, done.</p>
+<p>You apply this agent.</p>
+<p>If you have enough compute, you let it self play</p>
+<p>and it will learn the rules of the game,</p>
+<p>will play perfect chess after some while, problem solved.</p>
+<p>Okay, so if you have more complicated problems,</p>
+<p>then you may believe that you have the right reward,</p>
+<p>but it&rsquo;s not.</p>
+<p>So a nice, cute example is the elevator control</p>
+<p>that is also in Rich Sutton&rsquo;s book,</p>
+<p>which is a great book, by the way.</p>
+<p>So you control the elevator and you think,</p>
+<p>well, maybe the reward should be coupled</p>
+<p>to how long people wait in front of the elevator.</p>
+<p>Long wait is bad.</p>
+<p>You program it and you do it.</p>
+<p>And what happens is the elevator eagerly picks up</p>
+<p>all the people, but never drops them off.</p>
+<p>So then you realize, oh, maybe the time in the elevator</p>
+<p>also counts, so you minimize the sum, yeah?</p>
+<p>And the elevator does that, but never picks up the people</p>
+<p>in the 10th floor and the top floor</p>
+<p>because in expectation, it&rsquo;s not worth it.</p>
+<p>Just let them stay.</p>
+<p>Yeah.</p>
+<p>So even in apparently simple problems,</p>
+<p>you can make mistakes, yeah?</p>
+<p>And that&rsquo;s what in more serious contexts</p>
+<p>AGI safety researchers consider.</p>
+<p>So now let&rsquo;s go back to general agents.</p>
+<p>So assume you want to build an agent,</p>
+<p>which is generally useful to humans, yeah?</p>
+<p>So you have a household robot, yeah?</p>
+<p>And it should do all kinds of tasks.</p>
+<p>So in this case, the human should give the reward</p>
+<p>on the fly.</p>
+<p>I mean, maybe it&rsquo;s pre trained in the factory</p>
+<p>and that there&rsquo;s some sort of internal reward</p>
+<p>for the battery level or whatever, yeah?</p>
+<p>But so it does the dishes badly, you punish the robot,</p>
+<p>it does it good, you reward the robot</p>
+<p>and then train it to a new task, yeah, like a child, right?</p>
+<p>So you need the human in the loop.</p>
+<p>If you want a system, which is useful to the human.</p>
+<p>And as long as these agents stay subhuman level,</p>
+<p>that should work reasonably well,</p>
+<p>apart from these examples.</p>
+<p>It becomes critical if they become on a human level.</p>
+<p>It&rsquo;s like with children, small children,</p>
+<p>you have reasonably well under control,</p>
+<p>they become older, the reward technique</p>
+<p>doesn&rsquo;t work so well anymore.</p>
+<p>So then finally, so this would be agents,</p>
+<p>which are just, you could say slaves to the humans, yeah?</p>
+<p>So if you are more ambitious and just say,</p>
+<p>we want to build a new species of intelligent beings,</p>
+<p>we put them on a new planet</p>
+<p>and we want them to develop this planet or whatever.</p>
+<p>So we don&rsquo;t give them any reward.</p>
+<p>So what could we do?</p>
+<p>And you could try to come up with some reward functions</p>
+<p>like it should maintain itself, the robot,</p>
+<p>it should maybe multiply, build more robots, right?</p>
+<p>And maybe all kinds of things which you find useful,</p>
+<p>but that&rsquo;s pretty hard, right?</p>
+<p>What does self maintenance mean?</p>
+<p>What does it mean to build a copy?</p>
+<p>Should it be exact copy, an approximate copy?</p>
+<p>And so that&rsquo;s really hard,</p>
+<p>but Laurent also at DeepMind developed a beautiful model.</p>
+<p>So it just took the ICSE model</p>
+<p>and coupled the rewards to information gain.</p>
+<p>So he said the reward is proportional</p>
+<p>to how much the agent had learned about the world.</p>
+<p>And you can rigorously, formally, uniquely define that</p>
+<p>in terms of archival versions, okay?</p>
+<p>So if you put that in, you get a completely autonomous agent.</p>
+<p>And actually, interestingly, for this agent,</p>
+<p>we can prove much stronger result</p>
+<p>than for the general agent, which is also nice.</p>
+<p>And if you let this agent loose,</p>
+<p>it will be in a sense, the optimal scientist.</p>
+<p>It is absolutely curious to learn as much as possible</p>
+<p>about the world.</p>
+<p>And of course, it will also have</p>
+<p>a lot of instrumental goals, right?</p>
+<p>In order to learn, it needs to at least survive, right?</p>
+<p>A dead agent is not good for anything.</p>
+<p>So it needs to have self preservation.</p>
+<p>And if it builds small helpers, acquiring more information,</p>
+<p>it will do that, yeah?</p>
+<p>If exploration, space exploration or whatever is necessary,</p>
+<p>right, to gathering information and develop it.</p>
+<p>So it has a lot of instrumental goals</p>
+<p>falling on this information gain.</p>
+<p>And this agent is completely autonomous of us.</p>
+<p>No rewards necessary anymore.</p>
+<p>Yeah, of course, it could find a way</p>
+<p>to game the concept of information</p>
+<p>and get stuck in that library</p>
+<p>that you mentioned beforehand</p>
+<p>with a very large number of books.</p>
+<p>The first agent had this problem.</p>
+<p>It would get stuck in front of an old TV screen,</p>
+<p>which has just had white noise.</p>
+<p>Yeah, white noise, yeah.</p>
+<p>But the second version can deal with at least stochasticity.</p>
+<p>Well.</p>
+<p>Yeah, what about curiosity?</p>
+<p>This kind of word, curiosity, creativity,</p>
+<p>is that kind of the reward function being</p>
+<p>of getting new information?</p>
+<p>Is that similar to idea of kind of injecting exploration</p>
+<p>for its own sake inside the reward function?</p>
+<p>Do you find this at all appealing, interesting?</p>
+<p>I think that&rsquo;s a nice definition.</p>
+<p>Curiosity is rewards.</p>
+<p>Sorry, curiosity is exploration for its own sake.</p>
+<p>Yeah, I would accept that.</p>
+<p>But most curiosity, well, in humans,</p>
+<p>and especially in children,</p>
+<p>is not just for its own sake,</p>
+<p>but for actually learning about the environment</p>
+<p>and for behaving better.</p>
+<p>So I think most curiosity is tied in the end</p>
+<p>towards performing better.</p>
+<p>Well, okay, so if intelligence systems</p>
+<p>need to have this reward function,</p>
+<p>let me, you&rsquo;re an intelligence system,</p>
+<p>currently passing the torrent test quite effectively.</p>
+<p>What&rsquo;s the reward function</p>
+<p>of our human intelligence existence?</p>
+<p>What&rsquo;s the reward function</p>
+<p>that Marcus Hutter is operating under?</p>
+<p>Okay, to the first question,</p>
+<p>the biological reward function is to survive and to spread,</p>
+<p>and very few humans sort of are able to overcome</p>
+<p>this biological reward function.</p>
+<p>But we live in a very nice world</p>
+<p>where we have lots of spare time</p>
+<p>and can still survive and spread,</p>
+<p>so we can develop arbitrary other interests,</p>
+<p>which is quite interesting.</p>
+<p>On top of that.</p>
+<p>On top of that, yeah.</p>
+<p>But the survival and spreading sort of is,</p>
+<p>I would say, the goal or the reward function of humans,</p>
+<p>so that the core one.</p>
+<p>I like how you avoided answering the second question,</p>
+<p>which a good intelligence system would.</p>
+<p>So my.</p>
+<p>That your own meaning of life and the reward function.</p>
+<p>My own meaning of life and reward function</p>
+<p>is to find an AGI to build it.</p>
+<p>Beautifully put.</p>
+<p>Okay, let&rsquo;s dissect the X even further.</p>
+<p>So one of the assumptions is kind of infinity</p>
+<p>keeps creeping up everywhere,</p>
+<p>which, what are your thoughts</p>
+<p>on kind of bounded rationality</p>
+<p>and sort of the nature of our existence</p>
+<p>and intelligence systems is that we&rsquo;re operating</p>
+<p>always under constraints, under limited time,</p>
+<p>limited resources.</p>
+<p>How does that, how do you think about that</p>
+<p>within the IXE framework,</p>
+<p>within trying to create an AGI system</p>
+<p>that operates under these constraints?</p>
+<p>Yeah, that is one of the criticisms about IXE,</p>
+<p>that it ignores computation and completely.</p>
+<p>And some people believe that intelligence</p>
+<p>is inherently tied to what&rsquo;s bounded resources.</p>
+<p>What do you think on this one point?</p>
+<p>Do you think it&rsquo;s,</p>
+<p>do you think the bounded resources</p>
+<p>are fundamental to intelligence?</p>
+<p>I would say that an intelligence notion,</p>
+<p>which ignores computational limits is extremely useful.</p>
+<p>A good intelligence notion,</p>
+<p>which includes these resources would be even more useful,</p>
+<p>but we don&rsquo;t have that yet.</p>
+<p>And so look at other fields outside of computer science,</p>
+<p>computational aspects never play a fundamental role.</p>
+<p>You develop biological models for cells,</p>
+<p>something in physics, these theories,</p>
+<p>I mean, become more and more crazy</p>
+<p>and harder and harder to compute.</p>
+<p>Well, in the end, of course,</p>
+<p>we need to do something with this model,</p>
+<p>but this is more a nuisance than a feature.</p>
+<p>And I&rsquo;m sometimes wondering if artificial intelligence</p>
+<p>would not sit in a computer science department,</p>
+<p>but in a philosophy department,</p>
+<p>then this computational focus</p>
+<p>would be probably significantly less.</p>
+<p>I mean, think about the induction problem</p>
+<p>is more in the philosophy department.</p>
+<p>There&rsquo;s virtually no paper who cares about,</p>
+<p>how long it takes to compute the answer.</p>
+<p>That is completely secondary.</p>
+<p>Of course, once we have figured out the first problem,</p>
+<p>so intelligence without computational resources,</p>
+<p>then the next and very good question is,</p>
+<p>could we improve it by including computational resources,</p>
+<p>but nobody was able to do that so far</p>
+<p>in an even halfway satisfactory manner.</p>
+<p>I like that, that in the long run,</p>
+<p>the right department to belong to is philosophy.</p>
+<p>That&rsquo;s actually quite a deep idea,</p>
+<p>or even to at least to think about</p>
+<p>big picture philosophical questions,</p>
+<p>big picture questions,</p>
+<p>even in the computer science department.</p>
+<p>But you&rsquo;ve mentioned approximation.</p>
+<p>Sort of, there&rsquo;s a lot of infinity,</p>
+<p>a lot of huge resources needed.</p>
+<p>Are there approximations to IXE</p>
+<p>that within the IXE framework that are useful?</p>
+<p>Yeah, we have developed a couple of approximations.</p>
+<p>And what we do there is that</p>
+<p>the Solomov induction part,</p>
+<p>which was find the shortest program describing your data,</p>
+<p>we just replace it by standard data compressors.</p>
+<p>And the better compressors get,</p>
+<p>the better this part will become.</p>
+<p>We focus on a particular compressor</p>
+<p>called context tree weighting,</p>
+<p>which is pretty amazing, not so well known.</p>
+<p>It has beautiful theoretical properties,</p>
+<p>also works reasonably well in practice.</p>
+<p>So we use that for the approximation of the induction</p>
+<p>and the learning and the prediction part.</p>
+<p>And for the planning part,</p>
+<p>we essentially just took the ideas from a computer go</p>
+<p>from 2006.</p>
+<p>It was Java Zipes Bari, also now at DeepMind,</p>
+<p>who developed the so called UCT algorithm,</p>
+<p>upper confidence bound for trees algorithm</p>
+<p>on top of the Monte Carlo tree search.</p>
+<p>So we approximate this planning part by sampling.</p>
+<p>And it&rsquo;s successful on some small toy problems.</p>
+<p>We don&rsquo;t want to lose the generality, right?</p>
+<p>And that&rsquo;s sort of the handicap, right?</p>
+<p>If you want to be general, you have to give up something.</p>
+<p>So, but this single agent was able to play small games</p>
+<p>like Coon poker and Tic Tac Toe and even Pacman</p>
+<p>in the same architecture, no change.</p>
+<p>The agent doesn&rsquo;t know the rules of the game,</p>
+<p>really nothing and all by self or by a player</p>
+<p>with these environments.</p>
+<p>So Jürgen Schmidhuber proposed something called</p>
+<p>Ghetto Machines, which is a self improving program</p>
+<p>that rewrites its own code.</p>
+<p>Sort of mathematically, philosophically,</p>
+<p>what&rsquo;s the relationship in your eyes,</p>
+<p>if you&rsquo;re familiar with it,</p>
+<p>between AXI and the Ghetto Machines?</p>
+<p>Yeah, familiar with it.</p>
+<p>He developed it while I was in his lab.</p>
+<p>Yeah, so the Ghetto Machine, to explain it briefly,</p>
+<p>you give it a task.</p>
+<p>It could be a simple task as, you know,</p>
+<p>finding prime factors in numbers, right?</p>
+<p>You can formally write it down.</p>
+<p>There&rsquo;s a very slow algorithm to do that.</p>
+<p>Just try all the factors, yeah.</p>
+<p>Or play chess, right?</p>
+<p>Optimally, you write the algorithm to minimax</p>
+<p>to the end of the game.</p>
+<p>So you write down what the Ghetto Machine should do.</p>
+<p>Then it will take part of its resources to run this program</p>
+<p>and other part of its resources to improve this program.</p>
+<p>And when it finds an improved version,</p>
+<p>which provably computes the same answer.</p>
+<p>So that&rsquo;s the key part, yeah.</p>
+<p>It needs to prove by itself that this change of program</p>
+<p>still satisfies the original specification.</p>
+<p>And if it does so, then it replaces the original program</p>
+<p>by the improved program.</p>
+<p>And by definition, it does the same job,</p>
+<p>but just faster, okay?</p>
+<p>And then, you know, it proves over it and over it.</p>
+<p>And it&rsquo;s developed in a way that all parts</p>
+<p>of this Ghetto Machine can self improve,</p>
+<p>but it stays provably consistent</p>
+<p>with the original specification.</p>
+<p>So from this perspective, it has nothing to do with iXe.</p>
+<p>But if you would now put iXe as the starting axioms in,</p>
+<p>it would run iXe, but you know, that takes forever.</p>
+<p>But then if it finds a provable speed up of iXe,</p>
+<p>it would replace it by this and this and this.</p>
+<p>And maybe eventually it comes up with a model</p>
+<p>which is still the iXe model.</p>
+<p>It cannot be, I mean, just for the knowledgeable reader,</p>
+<p>iXe is incomputable and that can prove that therefore</p>
+<p>there cannot be a computable exact algorithm computers.</p>
+<p>There needs to be some approximations</p>
+<p>and this is not dealt with the Ghetto Machine.</p>
+<p>So you have to do something about it.</p>
+<p>But there&rsquo;s the iXe TL model, which is finitely computable,</p>
+<p>which we could put in.</p>
+<p>Which part of iXe is noncomputable?</p>
+<p>The Solomonov induction part.</p>
+<p>The induction, okay, so.</p>
+<p>But there is ways of getting computable approximations</p>
+<p>of the iXe model, so then it&rsquo;s at least computable.</p>
+<p>It is still way beyond any resources anybody will ever have,</p>
+<p>but then the Ghetto Machine could sort of improve it</p>
+<p>further and further in an exact way.</p>
+<p>So is it theoretically possible</p>
+<p>that the Ghetto Machine process could improve?</p>
+<p>Isn&rsquo;t iXe already optimal?</p>
+<p>It is optimal in terms of the reward collected</p>
+<p>over its interaction cycles,</p>
+<p>but it takes infinite time to produce one action.</p>
+<p>And the world continues whether you want it or not.</p>
+<p>So the model is assuming you had an oracle,</p>
+<p>which solved this problem,</p>
+<p>and then in the next 100 milliseconds</p>
+<p>or the reaction time you need gives the answer,</p>
+<p>then iXe is optimal.</p>
+<p>It&rsquo;s optimal in sense of also from learning efficiency</p>
+<p>and data efficiency, but not in terms of computation time.</p>
+<p>And then the Ghetto Machine in theory,</p>
+<p>but probably not provably could make it go faster.</p>
+<p>Yes.</p>
+<p>Okay, interesting.</p>
+<p>Those two components are super interesting.</p>
+<p>The sort of the perfect intelligence combined</p>
+<p>with self improvement,</p>
+<p>sort of provable self improvement</p>
+<p>since you&rsquo;re always getting the correct answer</p>
+<p>and you&rsquo;re improving.</p>
+<p>Beautiful ideas.</p>
+<p>Okay, so you&rsquo;ve also mentioned that different kinds</p>
+<p>of things in the chase of solving this reward,</p>
+<p>sort of optimizing for the goal,</p>
+<p>interesting human things could emerge.</p>
+<p>So is there a place for consciousness within iXe?</p>
+<p>Where does, maybe you can comment,</p>
+<p>because I suppose we humans are just another instantiation</p>
+<p>of iXe agents and we seem to have consciousness.</p>
+<p>You say humans are an instantiation of an iXe agent?</p>
+<p>Yes.</p>
+<p>Well, that would be amazing,</p>
+<p>but I think that&rsquo;s not true even for the smartest</p>
+<p>and most rational humans.</p>
+<p>I think maybe we are very crude approximations.</p>
+<p>Interesting.</p>
+<p>I mean, I tend to believe, again, I&rsquo;m Russian,</p>
+<p>so I tend to believe our flaws are part of the optimal.</p>
+<p>So we tend to laugh off and criticize our flaws</p>
+<p>and I tend to think that that&rsquo;s actually close</p>
+<p>to an optimal behavior.</p>
+<p>Well, some flaws, if you think more carefully about it,</p>
+<p>are actually not flaws, yeah,</p>
+<p>but I think there are still enough flaws.</p>
+<p>I don&rsquo;t know.</p>
+<p>It&rsquo;s unclear.</p>
+<p>As a student of history,</p>
+<p>I think all the suffering that we&rsquo;ve endured</p>
+<p>as a civilization,</p>
+<p>it&rsquo;s possible that that&rsquo;s the optimal amount of suffering</p>
+<p>we need to endure to minimize longterm suffering.</p>
+<p>That&rsquo;s your Russian background, I think.</p>
+<p>That&rsquo;s the Russian.</p>
+<p>Whether humans are or not instantiations of an iXe agent,</p>
+<p>do you think there&rsquo;s a consciousness</p>
+<p>of something that could emerge</p>
+<p>in a computational form or framework like iXe?</p>
+<p>Let me also ask you a question.</p>
+<p>Do you think I&rsquo;m conscious?</p>
+<p>Yeah, that&rsquo;s a good question.</p>
+<p>That tie is confusing me, but I think so.</p>
+<p>You think that makes me unconscious</p>
+<p>because it strangles me or?</p>
+<p>If an agent were to solve the imitation game</p>
+<p>posed by Turing,</p>
+<p>I think that would be dressed similarly to you.</p>
+<p>That because there&rsquo;s a kind of flamboyant,</p>
+<p>interesting, complex behavior pattern</p>
+<p>that sells that you&rsquo;re human and you&rsquo;re conscious.</p>
+<p>But why do you ask?</p>
+<p>Was it a yes or was it a no?</p>
+<p>Yes, I think you&rsquo;re conscious, yes.</p>
+<p>So, and you explained sort of somehow why,</p>
+<p>but you infer that from my behavior, right?</p>
+<p>You can never be sure about that.</p>
+<p>And I think the same thing will happen</p>
+<p>with any intelligent agent we develop</p>
+<p>if it behaves in a way sufficiently close to humans</p>
+<p>or maybe even not humans.</p>
+<p>I mean, maybe a dog is also sometimes</p>
+<p>a little bit self conscious, right?</p>
+<p>So if it behaves in a way</p>
+<p>where we attribute typically consciousness,</p>
+<p>we would attribute consciousness</p>
+<p>to these intelligent systems.</p>
+<p>And I see probably in particular</p>
+<p>that of course doesn&rsquo;t answer the question</p>
+<p>whether it&rsquo;s really conscious.</p>
+<p>And that&rsquo;s the big hard problem of consciousness.</p>
+<p>Maybe I&rsquo;m a zombie.</p>
+<p>I mean, not the movie zombie, but the philosophical zombie.</p>
+<p>Is to you the display of consciousness</p>
+<p>close enough to consciousness</p>
+<p>from a perspective of AGI</p>
+<p>that the distinction of the hard problem of consciousness</p>
+<p>is not an interesting one?</p>
+<p>I think we don&rsquo;t have to worry</p>
+<p>about the consciousness problem,</p>
+<p>especially the hard problem for developing AGI.</p>
+<p>I think, you know, we progress.</p>
+<p>At some point we have solved all the technical problems</p>
+<p>and this system will behave intelligent</p>
+<p>and then super intelligent.</p>
+<p>And this consciousness will emerge.</p>
+<p>I mean, definitely it will display behavior</p>
+<p>which we will interpret as conscious.</p>
+<p>And then it&rsquo;s a philosophical question.</p>
+<p>Did this consciousness really emerge</p>
+<p>or is it a zombie which just, you know, fakes everything?</p>
+<p>We still don&rsquo;t have to figure that out.</p>
+<p>Although it may be interesting,</p>
+<p>at least from a philosophical point of view,</p>
+<p>it&rsquo;s very interesting,</p>
+<p>but it may also be sort of practically interesting.</p>
+<p>You know, there&rsquo;s some people saying,</p>
+<p>if it&rsquo;s just faking consciousness and feelings,</p>
+<p>you know, then we don&rsquo;t need to be concerned about,</p>
+<p>you know, rights.</p>
+<p>But if it&rsquo;s real conscious and has feelings,</p>
+<p>then we need to be concerned, yeah.</p>
+<p>I can&rsquo;t wait till the day</p>
+<p>where AI systems exhibit consciousness</p>
+<p>because it&rsquo;ll truly be some of the hardest ethical questions</p>
+<p>of what we do with that.</p>
+<p>It is rather easy to build systems</p>
+<p>which people ascribe consciousness.</p>
+<p>And I give you an analogy.</p>
+<p>I mean, remember, maybe it was before you were born,</p>
+<p>the Tamagotchi?</p>
+<p>Yeah.</p>
+<p>Freaking born.</p>
+<p>How dare you, sir?</p>
+<p>Why, that&rsquo;s the, you&rsquo;re young, right?</p>
+<p>Yes, that&rsquo;s good.</p>
+<p>Thank you, thank you very much.</p>
+<p>But I was also in the Soviet Union.</p>
+<p>We didn&rsquo;t have any of those fun things.</p>
+<p>But you have heard about this Tamagotchi,</p>
+<p>which was, you know, really, really primitive,</p>
+<p>actually, for the time it was,</p>
+<p>and, you know, you could raise, you know, this,</p>
+<p>and kids got so attached to it</p>
+<p>and, you know, didn&rsquo;t want to let it die</p>
+<p>and probably, if we would have asked, you know,</p>
+<p>the children, do you think this Tamagotchi is conscious?</p>
+<p>They would have said yes.</p>
+<p>Half of them would have said yes, I would guess.</p>
+<p>I think that&rsquo;s kind of a beautiful thing, actually,</p>
+<p>because that consciousness, ascribing consciousness,</p>
+<p>seems to create a deeper connection.</p>
+<p>Yeah.</p>
+<p>Which is a powerful thing.</p>
+<p>But we&rsquo;ll have to be careful on the ethics side of that.</p>
+<p>Well, let me ask about the AGI community broadly.</p>
+<p>You kind of represent some of the most serious work on AGI,</p>
+<p>as of at least earlier,</p>
+<p>and DeepMind represents serious work on AGI these days.</p>
+<p>But why, in your sense, is the AGI community so small</p>
+<p>or has been so small until maybe DeepMind came along?</p>
+<p>Like, why aren&rsquo;t more people seriously working</p>
+<p>on human level and superhuman level intelligence</p>
+<p>from a formal perspective?</p>
+<p>Okay, from a formal perspective,</p>
+<p>that&rsquo;s sort of an extra point.</p>
+<p>So I think there are a couple of reasons.</p>
+<p>I mean, AI came in waves, right?</p>
+<p>You know, AI winters and AI summers,</p>
+<p>and then there were big promises which were not fulfilled,</p>
+<p>and people got disappointed.</p>
+<p>And that narrow AI solving particular problems,</p>
+<p>which seemed to require intelligence,</p>
+<p>was always to some extent successful,</p>
+<p>and there were improvements, small steps.</p>
+<p>And if you build something which is useful for society</p>
+<p>or industrial useful, then there&rsquo;s a lot of funding.</p>
+<p>So I guess it was in parts the money,</p>
+<p>which drives people to develop a specific system</p>
+<p>solving specific tasks.</p>
+<p>But you would think that, at least in university,</p>
+<p>you should be able to do ivory tower research.</p>
+<p>And that was probably better a long time ago,</p>
+<p>but even nowadays, there&rsquo;s quite some pressure</p>
+<p>of doing applied research or translational research,</p>
+<p>and it&rsquo;s harder to get grants as a theorist.</p>
+<p>So that also drives people away.</p>
+<p>It&rsquo;s maybe also harder</p>
+<p>attacking the general intelligence problem.</p>
+<p>So I think enough people, I mean, maybe a small number</p>
+<p>were still interested in formalizing intelligence</p>
+<p>and thinking of general intelligence,</p>
+<p>but not much came up, right?</p>
+<p>Well, not much great stuff came up.</p>
+<p>So what do you think,</p>
+<p>we talked about the formal big light</p>
+<p>at the end of the tunnel,</p>
+<p>but from the engineering perspective,</p>
+<p>what do you think it takes to build an AGI system?</p>
+<p>Is that, and I don&rsquo;t know if that&rsquo;s a stupid question</p>
+<p>or a distinct question</p>
+<p>from everything we&rsquo;ve been talking about at AICSI,</p>
+<p>but what do you see as the steps that are necessary to take</p>
+<p>to start to try to build something?</p>
+<p>So you want a blueprint now,</p>
+<p>and then you go off and do it?</p>
+<p>That&rsquo;s the whole point of this conversation,</p>
+<p>trying to squeeze that in there.</p>
+<p>Now, is there, I mean, what&rsquo;s your intuition?</p>
+<p>Is it in the robotics space</p>
+<p>or something that has a body and tries to explore the world?</p>
+<p>Is it in the reinforcement learning space,</p>
+<p>like the efforts with AlphaZero and AlphaStar</p>
+<p>that are kind of exploring how you can solve it through</p>
+<p>in the simulation in the gaming world?</p>
+<p>Is there stuff in sort of all the transformer work</p>
+<p>and natural English processing,</p>
+<p>sort of maybe attacking the open domain dialogue?</p>
+<p>Like what, where do you see a promising pathways?</p>
+<p>Let me pick the embodiment maybe.</p>
+<p>So embodiment is important, yes and no.</p>
+<p>I don&rsquo;t believe that we need a physical robot</p>
+<p>walking or rolling around, interacting with the real world</p>
+<p>in order to achieve AGI.</p>
+<p>And I think it&rsquo;s more of a distraction probably</p>
+<p>than helpful, it&rsquo;s sort of confusing the body with the mind.</p>
+<p>For industrial applications or near term applications,</p>
+<p>of course we need robots for all kinds of things,</p>
+<p>but for solving the big problem, at least at this stage,</p>
+<p>I think it&rsquo;s not necessary.</p>
+<p>But the answer is also yes,</p>
+<p>that I think the most promising approach</p>
+<p>is that you have an agent</p>
+<p>and that can be a virtual agent in a computer</p>
+<p>interacting with an environment,</p>
+<p>possibly a 3D simulated environment</p>
+<p>like in many computer games.</p>
+<p>And you train and learn the agent,</p>
+<p>even if you don&rsquo;t intend to later put it sort of,</p>
+<p>this algorithm in a robot brain</p>
+<p>and leave it forever in the virtual reality,</p>
+<p>getting experience in a,</p>
+<p>although it&rsquo;s just simulated 3D world,</p>
+<p>is possibly, and I say possibly,</p>
+<p>important to understand things</p>
+<p>on a similar level as humans do,</p>
+<p>especially if the agent or primarily if the agent</p>
+<p>needs to interact with the humans.</p>
+<p>If you talk about objects on top of each other in space</p>
+<p>and flying and cars and so on,</p>
+<p>and the agent has no experience</p>
+<p>with even virtual 3D worlds,</p>
+<p>it&rsquo;s probably hard to grasp.</p>
+<p>So if you develop an abstract agent,</p>
+<p>say we take the mathematical path</p>
+<p>and we just want to build an agent</p>
+<p>which can prove theorems</p>
+<p>and becomes a better and better mathematician,</p>
+<p>then this agent needs to be able to reason</p>
+<p>in very abstract spaces</p>
+<p>and then maybe sort of putting it into 3D environments,</p>
+<p>simulated or not is even harmful.</p>
+<p>It should sort of, you put it in, I don&rsquo;t know,</p>
+<p>an environment which it creates itself or so.</p>
+<p>It seems like you have a interesting, rich,</p>
+<p>complex trajectory through life</p>
+<p>in terms of your journey of ideas.</p>
+<p>So it&rsquo;s interesting to ask what books,</p>
+<p>technical, fiction, philosophical,</p>
+<p>books, ideas, people had a transformative effect.</p>
+<p>Books are most interesting</p>
+<p>because maybe people could also read those books</p>
+<p>and see if they could be inspired as well.</p>
+<p>Yeah, luckily I asked books and not singular book.</p>
+<p>It&rsquo;s very hard and I try to pin down one book.</p>
+<p>And I can do that at the end.</p>
+<p>So the most,</p>
+<p>the books which were most transformative for me</p>
+<p>or which I can most highly recommend</p>
+<p>to people interested in AI.</p>
+<p>Both perhaps.</p>
+<p>Yeah, yeah, both, both, yeah, yeah.</p>
+<p>I would always start with Russell and Norvig,</p>
+<p>Artificial Intelligence, A Modern Approach.</p>
+<p>That&rsquo;s the AI Bible.</p>
+<p>It&rsquo;s an amazing book.</p>
+<p>It&rsquo;s very broad.</p>
+<p>It covers all approaches to AI.</p>
+<p>And even if you focused on one approach,</p>
+<p>I think that is the minimum you should know</p>
+<p>about the other approaches out there.</p>
+<p>So that should be your first book.</p>
+<p>Fourth edition should be coming out soon.</p>
+<p>Oh, okay, interesting.</p>
+<p>There&rsquo;s a deep learning chapter now,</p>
+<p>so there must be.</p>
+<p>Written by Ian Goodfellow, okay.</p>
+<p>And then the next book I would recommend,</p>
+<p>The Reinforcement Learning Book by Satneen Barto.</p>
+<p>That&rsquo;s a beautiful book.</p>
+<p>If there&rsquo;s any problem with the book,</p>
+<p>it makes RL feel and look much easier than it actually is.</p>
+<p>It&rsquo;s very gentle book.</p>
+<p>It&rsquo;s very nice to read, the exercises to do.</p>
+<p>You can very quickly get some RL systems to run.</p>
+<p>You know, very toy problems, but it&rsquo;s a lot of fun.</p>
+<p>And in a couple of days you feel you know what RL is about,</p>
+<p>but it&rsquo;s much harder than the book.</p>
+<p>Yeah.</p>
+<p>Oh, come on now, it&rsquo;s an awesome book.</p>
+<p>Yeah, it is, yeah.</p>
+<p>And maybe, I mean, there&rsquo;s so many books out there.</p>
+<p>If you like the information theoretic approach,</p>
+<p>then there&rsquo;s Kolmogorov Complexity by Alin Vitani,</p>
+<p>but probably, you know, some short article is enough.</p>
+<p>You don&rsquo;t need to read a whole book,</p>
+<p>but it&rsquo;s a great book.</p>
+<p>And if you have to mention one all time favorite book,</p>
+<p>it&rsquo;s of different flavor, that&rsquo;s a book</p>
+<p>which is used in the International Baccalaureate</p>
+<p>for high school students in several countries.</p>
+<p>That&rsquo;s from Nicholas Alchin, Theory of Knowledge,</p>
+<p>second edition or first, not the third, please.</p>
+<p>The third one, they took out all the fun.</p>
+<p>Okay.</p>
+<p>So this asks all the interesting,</p>
+<p>or to me, interesting philosophical questions</p>
+<p>about how we acquire knowledge from all perspectives,</p>
+<p>from math, from art, from physics,</p>
+<p>and ask how can we know anything?</p>
+<p>And the book is called Theory of Knowledge.</p>
+<p>From which, is this almost like a philosophical exploration</p>
+<p>of how we get knowledge from anything?</p>
+<p>Yes, yeah, I mean, can religion tell us, you know,</p>
+<p>about something about the world?</p>
+<p>Can science tell us something about the world?</p>
+<p>Can mathematics, or is it just playing with symbols?</p>
+<p>And, you know, it&rsquo;s open ended questions.</p>
+<p>And, I mean, it&rsquo;s for high school students,</p>
+<p>so they have then resources from Hitchhiker&rsquo;s Guide</p>
+<p>to the Galaxy and from Star Wars</p>
+<p>and The Chicken Crossed the Road, yeah.</p>
+<p>And it&rsquo;s fun to read, but it&rsquo;s also quite deep.</p>
+<p>If you could live one day of your life over again,</p>
+<p>has it made you truly happy?</p>
+<p>Or maybe like we said with the books,</p>
+<p>it was truly transformative.</p>
+<p>What day, what moment would you choose</p>
+<p>that something pop into your mind?</p>
+<p>Does it need to be a day in the past,</p>
+<p>or can it be a day in the future?</p>
+<p>Well, space time is an emergent phenomena,</p>
+<p>so it&rsquo;s all the same anyway.</p>
+<p>Okay.</p>
+<p>Okay, from the past.</p>
+<p>You&rsquo;re really good at saying from the future, I love it.</p>
+<p>No, I will tell you from the future, okay.</p>
+<p>So from the past, I would say</p>
+<p>when I discovered my Axie model.</p>
+<p>I mean, it was not in one day,</p>
+<p>but it was one moment where I realized</p>
+<p>Kolmogorov complexity and didn&rsquo;t even know that it existed,</p>
+<p>but I discovered sort of this compression idea</p>
+<p>myself, but immediately I knew I can&rsquo;t be the first one,</p>
+<p>but I had this idea.</p>
+<p>And then I knew about sequential decisionry,</p>
+<p>and I knew if I put it together, this is the right thing.</p>
+<p>And yeah, still when I think back about this moment,</p>
+<p>I&rsquo;m super excited about it.</p>
+<p>Was there any more details and context that moment?</p>
+<p>Did an apple fall on your head?</p>
+<p>So it was like, if you look at Ian Goodfellow</p>
+<p>talking about GANs, there was beer involved.</p>
+<p>Is there some more context of what sparked your thought,</p>
+<p>or was it just?</p>
+<p>No, it was much more mundane.</p>
+<p>So I worked in this company.</p>
+<p>So in this sense, the four and a half years</p>
+<p>was not completely wasted.</p>
+<p>And I worked on an image interpolation problem,</p>
+<p>and I developed a quite neat new interpolation techniques</p>
+<p>and they got patented, which happens quite often.</p>
+<p>I got sort of overboard and thought about,</p>
+<p>yeah, that&rsquo;s pretty good, but it&rsquo;s not the best.</p>
+<p>So what is the best possible way of doing interpolation?</p>
+<p>And then I thought, yeah, you want the simplest picture,</p>
+<p>which is if you coarse grain it,</p>
+<p>recovers your original picture.</p>
+<p>And then I thought about the simplicity concept</p>
+<p>more in quantitative terms,</p>
+<p>and then everything developed.</p>
+<p>And somehow the four beautiful mix</p>
+<p>of also being a physicist</p>
+<p>and thinking about the big picture of it,</p>
+<p>then led you to probably think big with AIX.</p>
+<p>So as a physicist, I was probably trained</p>
+<p>not to always think in computational terms,</p>
+<p>just ignore that and think about</p>
+<p>the fundamental properties, which you want to have.</p>
+<p>So what about if you could really one day in the future?</p>
+<p>What would that be?</p>
+<p>When I solve the AGI problem.</p>
+<p>In practice, so in theory,</p>
+<p>I have solved it with the AIX model, but in practice.</p>
+<p>And then I ask the first question.</p>
+<p>What would be the first question?</p>
+<p>What&rsquo;s the meaning of life?</p>
+<p>I don&rsquo;t think there&rsquo;s a better way to end it.</p>
+<p>Thank you so much for talking today.</p>
+<p>It&rsquo;s a huge honor to finally meet you.</p>
+<p>Yeah, thank you too.</p>
+<p>It was a pleasure of mine too.</p>
+<p>And now let me leave you with some words of wisdom</p>
+<p>from Albert Einstein.</p>
+<p>The measure of intelligence is the ability to change.</p>
+<p>Thank you for listening and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

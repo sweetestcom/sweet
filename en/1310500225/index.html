@@ -1,0 +1,2425 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Doug Lenit, creator of Psych, a system that for close to 40
+years, and still today, has sought to solve the core problem of artificial intelligence,
+the acquisition of common sense knowledge and the use of that knowledge to think,
+to reason, and to understand the world. To support this podcast, please check out our sponsors in
+the description. As a side note, let me say that in the excitement of the modern era of machine'>
+<title>Lex Fridman Podcast - #221 - Douglas Lenat: Cyc and the Quest to Solve Common Sense Reasoning in AI | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500225/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #221 - Douglas Lenat: Cyc and the Quest to Solve Common Sense Reasoning in AI'>
+<meta property='og:description' content='The following is a conversation with Doug Lenit, creator of Psych, a system that for close to 40
+years, and still today, has sought to solve the core problem of artificial intelligence,
+the acquisition of common sense knowledge and the use of that knowledge to think,
+to reason, and to understand the world. To support this podcast, please check out our sponsors in
+the description. As a side note, let me say that in the excitement of the modern era of machine'>
+<meta property='og:url' content='https://swiest.com/en/1310500225/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-10-11T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-10-11T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #221 - Douglas Lenat: Cyc and the Quest to Solve Common Sense Reasoning in AI">
+<meta name="twitter:description" content="The following is a conversation with Doug Lenit, creator of Psych, a system that for close to 40
+years, and still today, has sought to solve the core problem of artificial intelligence,
+the acquisition of common sense knowledge and the use of that knowledge to think,
+to reason, and to understand the world. To support this podcast, please check out our sponsors in
+the description. As a side note, let me say that in the excitement of the modern era of machine">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500225/">Lex Fridman Podcast - #221 - Douglas Lenat: Cyc and the Quest to Solve Common Sense Reasoning in AI</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-10-11</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    122 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Doug Lenit, creator of Psych, a system that for close to 40</p>
+<p>years, and still today, has sought to solve the core problem of artificial intelligence,</p>
+<p>the acquisition of common sense knowledge and the use of that knowledge to think,</p>
+<p>to reason, and to understand the world. To support this podcast, please check out our sponsors in</p>
+<p>the description. As a side note, let me say that in the excitement of the modern era of machine</p>
+<p>learning, it is easy to forget just how little we understand exactly how to build the kind of</p>
+<p>intelligence that matches the power of the human mind. To me, many of the core ideas behind Psych,</p>
+<p>in some form, in actuality or in spirit, will likely be part of the AI system that achieves</p>
+<p>general superintelligence. But perhaps more importantly, solving this problem of common</p>
+<p>sense knowledge will help us humans understand our own minds, the nature of truth, and finally,</p>
+<p>how to be more rational and more kind to each other. This is the Lex Friedman podcast,</p>
+<p>and here is my conversation with Doug Lenit. Psych is a project launched by you in 1984,</p>
+<p>and still is active today, whose goal is to assemble a knowledge base that spans the basic</p>
+<p>concepts and rules about how the world works. In other words, it hopes to capture common sense</p>
+<p>knowledge, which is a lot harder than it sounds. Can you elaborate on this mission and maybe</p>
+<p>perhaps speak to the various subgoals within this mission? When I was a faculty member in the</p>
+<p>computer science department at Stanford, my colleagues and I did research in all sorts of</p>
+<p>artificial intelligence programs, so natural language understanding programs, robots,</p>
+<p>expert systems, and so on. And we kept hitting the very same brick wall. Our systems would have</p>
+<p>impressive early successes. And so if your only goal was academic, namely to get enough material</p>
+<p>to write a journal article, that might actually suffice. But if you&rsquo;re really trying to get AI,</p>
+<p>then you have to somehow get past the brick wall. And the brick wall was</p>
+<p>the programs didn&rsquo;t have what we would call common sense. They didn&rsquo;t have general world</p>
+<p>knowledge. They didn&rsquo;t really understand what they were doing, what they were saying,</p>
+<p>what they were being asked. And so very much like a clever dog performing tricks,</p>
+<p>we could get them to do tricks, but they never really understood what they were doing. Sort of</p>
+<p>like when you get a dog to fetch your morning newspaper. The dog might do that successfully,</p>
+<p>but the dog has no idea what a newspaper is or what it says or anything like that.</p>
+<p>What does it mean to understand something? Can you maybe elaborate on that a little bit?</p>
+<p>Is it is understanding action of like combining little things together like through inference,</p>
+<p>or is understanding the wisdom you gain over time that forms a knowledge?</p>
+<p>I think of understanding more like the ground you stand on, which could be very shaky,</p>
+<p>could be very unsafe, but most of the time is not because underneath it is more ground,</p>
+<p>and eventually rock and other things. But layer after layer after layer, that solid foundation</p>
+<p>is there. And you rarely need to think about it, you rarely need to count on it, but occasionally</p>
+<p>you do. And I&rsquo;ve never used this analogy before, so bear with me. But I think the same thing is</p>
+<p>true in terms of getting computers to understand things, which is you ask a computer a question,</p>
+<p>for instance, Alexa or some robot or something, and maybe it gets the right answer.</p>
+<p>But if you were asking that of a human, you could also say things like, why? Or how might you be</p>
+<p>wrong about this? Or something like that. And the person would answer you. And it might be a little</p>
+<p>annoying if you have a small child and they keep asking why questions in series. Eventually,</p>
+<p>you get to the point where you throw up your hands and say, I don&rsquo;t know, it&rsquo;s just the way</p>
+<p>the world is. But for many layers, you actually have that layered, solid foundation of support,</p>
+<p>so that when you need it, you can count on it. And when do you need it? Well, when things are</p>
+<p>unexpected, when you come up against a situation which is novel. For instance, when you&rsquo;re driving,</p>
+<p>it may be fine to have a small program, a small set of rules that cover 99% of the cases, but that</p>
+<p>1% of the time when something strange happens, you really need to draw on common sense. For instance,</p>
+<p>my wife and I were driving recently and there was a trash truck in front of us. And I guess they had</p>
+<p>packed it too full and the back exploded. And trash bags went everywhere. And we had to make</p>
+<p>a split second decision. Are we going to slam on our brakes? Are we going to swerve into another</p>
+<p>lane? Are we going to just run it over? Because there were cars all around us. And in front of us</p>
+<p>was a large trash bag. And we know what we throw away in trash bags, probably not a safe thing to</p>
+<p>run over. Over on the left was a bunch of fast food restaurant trash bags. And it&rsquo;s like,</p>
+<p>oh, well, those things are just like styrofoam and leftover food. We&rsquo;ll run over that. And so that</p>
+<p>was a safe thing for us to do. Now, that&rsquo;s the kind of thing that&rsquo;s going to happen maybe once</p>
+<p>in your life. But the point is that there&rsquo;s almost no telling what little bits of knowledge about the</p>
+<p>world you might actually need in some situations which were unforeseen. But see, when you sit on</p>
+<p>that mountain or that ground that goes deep of knowledge in order to make a split second decision</p>
+<p>about fast food trash or random trash from the back of a trash truck, you need to be able to</p>
+<p>leverage that ground you stand on in some way. It&rsquo;s not merely, you know, it&rsquo;s not enough to just</p>
+<p>have a lot of ground to stand on. It&rsquo;s your ability to leverage it, to utilize in a split,</p>
+<p>like integrate it all together to make that split second decision. And I suppose understanding isn&rsquo;t</p>
+<p>just having a common sense knowledge to access. It&rsquo;s the act of accessing it somehow, like</p>
+<p>correctly filtering out the parts of the knowledge that are not useful, selecting only the useful</p>
+<p>parts and effectively making conclusive decisions. So let&rsquo;s tease apart two different tasks really,</p>
+<p>both of which are incredibly important and even necessary. If you&rsquo;re going to have this in a</p>
+<p>useful, usable fashion as opposed to say like library books sitting on a shelf and so on, where</p>
+<p>the knowledge might be there, but if a fire comes, the books are going to burn because they don&rsquo;t</p>
+<p>know what&rsquo;s in them and they&rsquo;re just going to sit there while they burn. So there are two aspects of</p>
+<p>using the knowledge. One is a kind of a theoretical, how is it possible at all? And then the second</p>
+<p>aspect of what you said is, how can you do it quickly enough? So how can you do it at all is</p>
+<p>something that philosophers have grappled with. And fortunately, philosophers 100 years ago and</p>
+<p>even earlier developed a kind of formal language like English. It&rsquo;s called predicate logic or first</p>
+<p>order logic or something like predicate calculus and so on. So there&rsquo;s a way of representing things</p>
+<p>in this formal language which enables a mechanical procedure to sort of grind through</p>
+<p>and algorithmically produce all of the same logical entailments, all the same logical conclusions</p>
+<p>that you or I would from that same set of pieces of information that are represented that way.</p>
+<p>So that sort of raises a couple questions. One is, how do you get all this information</p>
+<p>from say observations and English and so on into this logical form? And secondly,</p>
+<p>how can you then efficiently run these algorithms to actually get the information you need?</p>
+<p>In the case I mentioned in a 10th of a second rather than say in 10 hours or 10,000 years</p>
+<p>of computation. And those are both really important questions. And like a corollary</p>
+<p>addition to the first one is, how many such things do you need to gather for it to be useful</p>
+<p>in certain contexts? So like what, in order, you mentioned philosophers, in order to capture this</p>
+<p>world and represent it in a logical way and with a form of logic, like how many statements are</p>
+<p>required? Is it five? Is it 10? Is it 10 trillion? Is it like that? That&rsquo;s as far as I understand is</p>
+<p>probably still an open question. It may forever be an open question just to say like definitively</p>
+<p>about, to describe the universe perfectly. How many facts do you need?</p>
+<p>I guess I&rsquo;m going to disappoint you by giving you an actual answer to your question.</p>
+<p>Okay. Well, no, this sounds exciting.</p>
+<p>Yes. Okay. So now we have like three things to talk about.</p>
+<p>We&rsquo;ll keep adding more.</p>
+<p>Although it&rsquo;s okay. The first and the third are related. So let&rsquo;s leave the efficiency</p>
+<p>question aside for now. So how does all this information get represented in logical form?</p>
+<p>So that these algorithms, resolution theorem proving and other algorithms can actually grind</p>
+<p>through all the logical consequences of what you said. And that ties into your question about how</p>
+<p>many of these things do you need? Because if the answer is small enough, then by hand, you could</p>
+<p>write them out one at a time. So in the early 1984, I held a meeting at Stanford where I was a</p>
+<p>faculty member there, where we assembled about half a dozen of the smartest people I know.</p>
+<p>People like Alan Newell and Marvin Minsky and Alan Kay and a few others.</p>
+<p>Was Feynman there by chance? Because he commented about your system,</p>
+<p>Eurisco, at the time.</p>
+<p>No, he wasn&rsquo;t part of this meeting.</p>
+<p>That&rsquo;s a heck of a meeting anyway.</p>
+<p>I think Ed Feigenbaum was there. I think Josh Lederberg was there. So we have all these different</p>
+<p>smart people. And we came together to address the question that you raised, which is, if it&rsquo;s</p>
+<p>important to represent common sense knowledge and world knowledge in order for AIs to not be</p>
+<p>brittle, in order for AIs not to just have the veneer of intelligence, well, how many pieces</p>
+<p>of common sense, how many if then rules, for instance, would we have to actually write in</p>
+<p>order to essentially cover what people expect perfect strangers to already know about the world?</p>
+<p>And I expected there would be an enormous divergence of opinion and computation. But</p>
+<p>amazingly, everyone got an answer which was around a million. And one person got the answer</p>
+<p>by saying, well, look, you can only burn into human long term memory a certain number of things</p>
+<p>per unit time, like maybe one every 30 seconds or something. And other than that, it&rsquo;s just short</p>
+<p>term memory and it flows away like water and so on. So by the time you&rsquo;re, say, 10 years old or so,</p>
+<p>how many things could you possibly have burned into your long term memory? And it&rsquo;s like about</p>
+<p>a million. Another person went in a completely different direction and said, well, if you look</p>
+<p>at the number of words in a dictionary, not a whole dictionary, but for someone to essentially</p>
+<p>be considered to be fluent in a language, how many words would they need to know? And then</p>
+<p>about how many things about each word would you have to tell it? And so they got to a million</p>
+<p>that way. Another person said, well, let&rsquo;s actually look at one single short, one volume</p>
+<p>desk encyclopedia article. And so we&rsquo;ll look at what was like a four paragraph article or</p>
+<p>something. I think about grebes. Grebes are a type of waterfowl. And if we were going to sit there</p>
+<p>and represent every single thing that was there, how many assertions or rules or statements would</p>
+<p>we have to write in this logical language and so on and then multiply that by all of the number of</p>
+<p>articles that there were and so on. So all of these estimates came out with a million. And so</p>
+<p>if you do the math, it turns out that like, oh, well, then maybe in something like 100</p>
+<p>person years in one or two person centuries, we could actually get this written down by hand.</p>
+<p>And a marvelous coincidence, an opportunity existed right at that point in time, the early 1980s.</p>
+<p>There was something called the Japanese fifth generation computing effort. Japan had threatened</p>
+<p>to do in computing and AI and hardware what they had just finished doing in consumer electronics</p>
+<p>and the automotive industry, namely resting control away from the United States and more</p>
+<p>generally away from the West. And so America was scared and Congress did something. That&rsquo;s how you</p>
+<p>know it was a long time ago because Congress did something. Congress passed something called the</p>
+<p>National Cooperative Research Act, NCRA. And what it said was, hey, all you big American companies,</p>
+<p>that&rsquo;s also how you know it was a long time ago because they were American companies rather than</p>
+<p>multinational companies. Hey, all you big American companies, normally it would be an antitrust</p>
+<p>violation if you colluded on R&amp;D, but we promise for the next 10 years, we won&rsquo;t prosecute any of</p>
+<p>you if you do that to help combat this threat. And so overnight, the first two consortia,</p>
+<p>research consortia in America sprang up, both of them coincidentally in Austin, Texas. One called</p>
+<p>Semitech focusing on hardware chips and so on, and then one called MCC, the Microelectronics</p>
+<p>and Computer Technology Corporation, focusing more on software, on databases and AI and natural</p>
+<p>language understanding and things like that. And I got the opportunity, thanks to my friend Woody</p>
+<p>Bledsoe, who was one of the people who founded that, to come and be its principal scientist.</p>
+<p>And he sent Admiral Bob Inman, who was the person running MCC, came and talked to me and said,</p>
+<p>look, professor, you&rsquo;re talking about doing this project, it&rsquo;s going to involve</p>
+<p>centuries of effort. You&rsquo;ve only got a handful of graduate students, you do the math, it&rsquo;s going to</p>
+<p>take you longer than the rest of your life to finish this project. But if you move to the wilds</p>
+<p>of Austin, Texas, we&rsquo;ll put 10 times as many people on it and you&rsquo;ll be done in a few years.</p>
+<p>And so that was pretty exciting. And so I did that. I took my leave from Stanford, I came to</p>
+<p>Austin, I worked for MCC. And the good news and bad news, the bad news is that all of us were</p>
+<p>off by an order of magnitude. That it turns out what you need are tens of millions of these</p>
+<p>pieces of knowledge about every day, sort of like if you have a coffee cup with stuff in it and you</p>
+<p>turn it upside down, the stuff in it&rsquo;s going to fall out. So you need tens of millions of pieces</p>
+<p>of knowledge like that, even if you take trouble to make each one as general as it possibly could</p>
+<p>be. But the good news was that thanks to initially the fifth generation effort and then later US</p>
+<p>government agency funding and so on, we were able to get enough funding, not for a couple person</p>
+<p>centuries of time, but for a couple person millennia of time, which is what we&rsquo;ve spent</p>
+<p>since 1984, getting Psych to contain the tens of millions of rules that it needs in order to really</p>
+<p>capture and span not all of human knowledge, but the things that you assume other people know,</p>
+<p>the things you count on other people knowing. And so by now we&rsquo;ve done that. And the good news is</p>
+<p>since you&rsquo;ve waited 38 years just about to talk to me, we&rsquo;re about at the end of that process.</p>
+<p>So most of what we&rsquo;re doing now is not putting in even what you would consider common sense,</p>
+<p>but more putting in domain specific application specific knowledge about health care in a certain</p>
+<p>hospital or about oil pipes getting clogged up or whatever the applications happen to be. So</p>
+<p>we&rsquo;ve almost come full circle and we&rsquo;re doing things very much like the expert systems of the</p>
+<p>1970s and the 1980s, except instead of resting on nothing and being brittle, they&rsquo;re now resting on</p>
+<p>this massive pyramid, if you will, this massive lattice of common sense knowledge so that when</p>
+<p>things go wrong, when something unexpected happens, they can fall back on more and more and more</p>
+<p>general principles, eventually bottoming out in things like, for instance, if we have a problem</p>
+<p>with the microphone, one of the things you&rsquo;ll do is unplug it, plug it in again and hope for the</p>
+<p>best, right? Because that&rsquo;s one of the general pieces of knowledge you have in dealing with</p>
+<p>electronic equipment or software systems or things like that. Is there a basic principle</p>
+<p>like that? Is it possible to encode something that generally captures this idea of turn it off and</p>
+<p>turn it back on and see if it fixes? Oh, absolutely. That&rsquo;s one of the things that Psych knows.</p>
+<p>That&rsquo;s actually one of the fundamental laws of nature, I believe.</p>
+<p>I wouldn&rsquo;t call it a law. It&rsquo;s more like a&hellip;</p>
+<p>It seems to work every time. So it sure looks like a law. I don&rsquo;t know.</p>
+<p>So that basically covered the resources needed. And then we had to devise a method to actually</p>
+<p>figure out, well, what are the tens of millions of things that we need to tell the system?</p>
+<p>And for that, we found a few techniques which worked really well. One is to take any piece</p>
+<p>of text almost, it could be an advertisement, it could be a transcript, it could be a novel,</p>
+<p>it could be an article. And don&rsquo;t pay attention to the actual type that&rsquo;s there, the black space</p>
+<p>on the white page. Pay attention to the complement of that, the white space, if you will. So what did</p>
+<p>the writer of this sentence assume that the reader already knew about the world? For instance,</p>
+<p>if they used a pronoun, why did they think that you would be able to understand what the intended</p>
+<p>referent of that pronoun was? If they used an ambiguous word, how did they think that you</p>
+<p>would be able to figure out what they meant by that word? The other thing we look at is the gap</p>
+<p>between one sentence and the next one. What are all the things that the writer expected you to</p>
+<p>fill in and infer occurred between the end of one sentence and the beginning of the other?</p>
+<p>So if the sentence says, Fred Smith robbed the Third National Bank, period, he was sentenced to</p>
+<p>20 years in prison, period. Well, between the first sentence and the second, you&rsquo;re expected</p>
+<p>to infer things like Fred got caught, Fred got arrested, Fred went to jail, Fred had a trial,</p>
+<p>Fred was found guilty, and so on. If my next sentence starts out with something like,</p>
+<p>the judge, dot, dot, dot, then you assume it&rsquo;s the judge at his trial. If my next sentence starts out</p>
+<p>something like, the arresting officer, dot, dot, dot, you assume that it was the police officer</p>
+<p>who arrested him after he committed the crime and so on. So those are two techniques for getting</p>
+<p>that knowledge. The other thing we sometimes look at is fake news or humorous onion headlines or</p>
+<p>headlines in the Weekly World News, if you know what that is, or the National Enquirer, where it&rsquo;s</p>
+<p>like, oh, we don&rsquo;t believe this, then we introspect on why don&rsquo;t we believe it. So there are things</p>
+<p>like, B17 lands on the moon. It&rsquo;s like, what do we know about the world that causes us to believe</p>
+<p>that that&rsquo;s just silly or something like that? Or another thing we look for are contradictions,</p>
+<p>contradictions, things which can&rsquo;t both be true. And we say, what is it that we know that causes</p>
+<p>us to know that both of these can&rsquo;t be true at the same time? For instance, in one of the Weekly</p>
+<p>World News editions, in one article, it talked about how Elvis was cited, even though he was</p>
+<p>getting on in years and so on. And another article in the same one talked about people seeing Elvis&rsquo;s</p>
+<p>ghost. So it&rsquo;s like, why do we believe that at least one of these articles must be wrong and so</p>
+<p>on? So we have a series of techniques like that that enable our people. And by now, we have about</p>
+<p>50 people working full time on this and have for decades. So we&rsquo;ve put in the thousands of person</p>
+<p>years of effort. We&rsquo;ve built up these tens of millions of rules. We constantly police the system</p>
+<p>to make sure that we&rsquo;re saying things as generally as we possibly can. So you don&rsquo;t want to say things</p>
+<p>like, no mouse is also a moose. Because if you said things like that, then you&rsquo;d have to add</p>
+<p>another one or two or three zeros onto the number of assertions you&rsquo;d actually have to have. So</p>
+<p>at some point, we generalize things more and more and we get to a point where we say, oh,</p>
+<p>yeah, for any two biological taxons, if we don&rsquo;t know explicitly that one is a generalization of</p>
+<p>another, then almost certainly they&rsquo;re disjoint. A member of one is not going to be a member of the</p>
+<p>other and so on. And the same thing with the Elvis and the ghost. It has nothing to do with Elvis.</p>
+<p>It&rsquo;s more about human nature and the mortality and that kind of stuff. In general, things are</p>
+<p>not both alive and dead at the same time. Yeah. Unless special cats in theoretical physics examples.</p>
+<p>Well, that raises a couple important points. Well, that&rsquo;s the onion headline situation type of</p>
+<p>thing. Okay, sorry. But no, no. So what you bring up is this really important point of like, well,</p>
+<p>how do you handle exceptions and inconsistencies and so on? And one of the hardest lessons for us</p>
+<p>to learn, it took us about five years to really grit our teeth and learn to love it, is we had to</p>
+<p>give up global consistency. So the knowledge base can no longer be consistent. So this is a kind of</p>
+<p>scary thought. I grew up watching Star Trek and anytime a computer was inconsistent, it would</p>
+<p>either freeze up or explode or take over the world or something bad would happen. Or if you come from</p>
+<p>a mathematics background, once you can prove false, you can prove anything. So that&rsquo;s not good.</p>
+<p>And so on. So that&rsquo;s why the old knowledge based systems were all very, very consistent.</p>
+<p>But the trouble is that by and large, our models of the world, the way we talk about the world and</p>
+<p>so on, there are all sorts of inconsistencies that creep in here and there that will sort of</p>
+<p>kill some attempt to build some enormous globally consistent knowledge base. And so what we had to</p>
+<p>move to was a system of local consistency. So a good analogy is you know that the surface of the</p>
+<p>earth is more or less spherical globally, but you live your life every day as though the surface of</p>
+<p>the earth were flat. When you&rsquo;re talking to someone in Australia, you don&rsquo;t think of them</p>
+<p>as being oriented upside down to you. When you&rsquo;re planning a trip, even if it&rsquo;s a thousand miles</p>
+<p>away, you may think a little bit about time zones, but you rarely think about the curvature of the</p>
+<p>earth and so on. And for most purposes, you can live your whole life without really worrying about</p>
+<p>that because the earth is locally flat. In much the same way, the psych knowledge base is divided</p>
+<p>up into almost like tectonic plates, which are individual contexts. And each context is more</p>
+<p>or less consistent, but there can be small inconsistencies at the boundary between one</p>
+<p>context and the next one and so on. And so by the time you move say 20 contexts over,</p>
+<p>there could be glaring inconsistencies. So eventually you get from the normal modern</p>
+<p>real world context that we&rsquo;re in right now to something like roadrunner cartoon context where</p>
+<p>physics is very different. And in fact, life and death are very different because no matter how</p>
+<p>many times he&rsquo;s killed, the coyote comes back in the next scene and so on. So that was a hard</p>
+<p>lesson to learn. And we had to make sure that our representation language, the way that we actually</p>
+<p>encode the knowledge and represent it, was expressive enough that we could talk about</p>
+<p>things being true in one context and false in another, things that are true at one time and</p>
+<p>false in another, things that are true, let&rsquo;s say, in one region, like one country, but false</p>
+<p>in another, things that are true in one person&rsquo;s belief system, but false in another person&rsquo;s</p>
+<p>belief system, things that are true at one level of abstraction and false at another.</p>
+<p>For instance, at one level of abstraction, you think of this table as a solid object,</p>
+<p>but down at the atomic level, it&rsquo;s mostly empty space and so on.</p>
+<p>So then that&rsquo;s fascinating, but it puts a lot of pressure on context to do a lot of work.</p>
+<p>So you say tectonic plates, is it possible to formulate contexts that are general and big</p>
+<p>that do this kind of capture of knowledge bases? Or do you then get turtles on top of turtles,</p>
+<p>again, where there&rsquo;s just a huge number of contexts?</p>
+<p>So it&rsquo;s good you asked that question because you&rsquo;re pointed in the right direction, which is</p>
+<p>you want context to be first class objects in your system&rsquo;s knowledge base, in particular,</p>
+<p>in psych&rsquo;s knowledge base. And by first class object, I mean that we should be able to have</p>
+<p>psych think about and talk about and reason about one context or another context the same way it</p>
+<p>reasons about coffee cups and tables and people and fishing and so on. And so contexts are just</p>
+<p>terms in its language, just like the ones I mentioned. And so psych can reason about context,</p>
+<p>context can arrange hierarchically and so on. And so you can say things about, let&rsquo;s say,</p>
+<p>things that are true in the modern era, things that are true in a particular year would then be</p>
+<p>a subcontext of the things that are true in a broader, let&rsquo;s say, a century or a millennium</p>
+<p>or something like that. Things that are true in Austin, Texas are generally going to be a</p>
+<p>specialization of things that are true in Texas, which is going to be a specialization of things</p>
+<p>that are true in the United States and so on. And so you don&rsquo;t have to say things over and over</p>
+<p>again at all these levels. You just say things at the most general level that it applies to,</p>
+<p>and you only have to say it once, and then it essentially inherits to all these more specific</p>
+<p>contexts. To ask a slightly technical question, is this inheritance a tree or a graph?</p>
+<p>Oh, you definitely have to think of it as a graph. So we could talk about, for instance,</p>
+<p>why the Japanese fifth generation computing effort failed. There were about half a dozen</p>
+<p>different reasons. One of the reasons they failed was because they tried to represent</p>
+<p>knowledge as a tree rather than as a graph. And so each node in their representation</p>
+<p>could only have one parent node. So if you had a table that was a wooden object, a black object,</p>
+<p>a flat object, and so on, you have to choose one, and that&rsquo;s the only parent it could have.</p>
+<p>When, of course, depending on what it is you need to reason about it, sometimes it&rsquo;s important</p>
+<p>to know that it&rsquo;s made out of wood, like if we&rsquo;re talking about a fire. Sometimes it&rsquo;s important to</p>
+<p>know that it&rsquo;s flat if we&rsquo;re talking about resting something on it, and so on. So one of the problems</p>
+<p>was that they wanted a kind of Dewey decimal numbering system for all of their concepts,</p>
+<p>which meant that each node could only have at most 10 children, and each node could only have</p>
+<p>one parent. And while that does enable the Dewey decimal type numbering of concepts, labeling of</p>
+<p>concepts, it prevents you from representing all the things you need to about objects in our world.</p>
+<p>And that was one of the things which they never were able to overcome, and I think that was one</p>
+<p>of the main reasons that that project failed. So we&rsquo;ll return to some of the doors you&rsquo;ve</p>
+<p>opened, but if we can go back to that room in 1984 around there with Marvin Minsky and Stanford.</p>
+<p>By the way, I should mention that Marvin wouldn&rsquo;t do his estimate until someone brought him an</p>
+<p>envelope so that he could literally do a back of the envelope calculation to come up with his number.</p>
+<p>Well, because I feel like the conversation in that room is an important one. You know,</p>
+<p>this is how sometimes science is done in this way. A few people get together</p>
+<p>and plant the seed of ideas, and they reverberate throughout history.</p>
+<p>And some kind of dissipate and disappear, and some, you know, Drake equation, and, you know,</p>
+<p>they, you know, seems like a meaningless equation, somewhat meaningless, but I think it drives and</p>
+<p>motivates a lot of scientists. And when the aliens finally show up, that equation will get even more</p>
+<p>valuable because then we&rsquo;ll get, be able to, in the long arc of history, the Drake equation</p>
+<p>will prove to be quite useful, I think. And in that same way, a conversation of just how many facts</p>
+<p>are required to capture the basic common sense knowledge of the world. That&rsquo;s a fascinating</p>
+<p>question. I want to distinguish between what you think of as facts and the kind of things that we</p>
+<p>represent. So we map to and essentially make sure that psych has the ability to, as it were, read</p>
+<p>and access the kind of facts you might find, say, in Wikidata or stated in a Wikipedia article or</p>
+<p>something like that. So what we&rsquo;re representing, the things that we need a small number of tens</p>
+<p>of millions of, are more like rules of thumb, rules of good guessing, things which are usually</p>
+<p>true and which help you to make sense of the facts that are sort of sitting off in some database or</p>
+<p>some other more static storage. So they&rsquo;re almost like platonic forms. So like when you read stuff</p>
+<p>on Wikipedia, that&rsquo;s going to be like projections of those ideas. You read an article about the fact</p>
+<p>that Elvis died, that&rsquo;s a projection of the idea that humans are mortal. And very few</p>
+<p>Wikipedia articles will write, humans are mortal. Exactly. That&rsquo;s what I meant about</p>
+<p>ferreting out the unstated things in text. What are all the things that were assumed? And so those</p>
+<p>are things like if you have a problem with something, turning it off and on often fixes</p>
+<p>it for reasons we don&rsquo;t really understand and we&rsquo;re not happy about. Or people can&rsquo;t be both</p>
+<p>alive and dead at the same time. Or water flows downhill. If you search online for water flowing</p>
+<p>uphill and water flowing downhill, you&rsquo;ll find more references for water flowing uphill because</p>
+<p>it&rsquo;s used as a kind of a metaphorical reference for some unlikely thing because of course,</p>
+<p>everyone already knows that water flows downhill. So why would anyone bother saying that?</p>
+<p>Do you have a word you prefer? Because we said facts isn&rsquo;t the right word. Is there a word like</p>
+<p>concepts? I would say assertions. Assertions or rules? Because I&rsquo;m not talking about rigid rules,</p>
+<p>but rules of thumb. But assertions is a nice one that covers all of these things.</p>
+<p>Yeah. As a programmer, to me, assert has a very dogmatic authoritarian feel to them.</p>
+<p>Oh, I&rsquo;m sorry.</p>
+<p>I&rsquo;m so sorry. Okay. But assertions works. Okay. So if we go back to that room with</p>
+<p>Marvin Minsky with you, all these seminal figures, Ed Fagamon, thinking about this very</p>
+<p>philosophical, but also engineering question. We can also go back a couple of decades before then</p>
+<p>and thinking about artificial intelligence broadly when people were thinking about,</p>
+<p>you know, how do you create super intelligent systems, general intelligence. And I think</p>
+<p>people&rsquo;s intuition was off at the time. And I mean, this continues to be the case that we&rsquo;re not,</p>
+<p>when we&rsquo;re grappling with these exceptionally difficult ideas, we&rsquo;re not always, it&rsquo;s very</p>
+<p>difficult to truly understand ourselves when we&rsquo;re thinking about the human mind to introspect how</p>
+<p>difficult it is to engineer intelligence, to solve intelligence. We&rsquo;re not very good at estimating</p>
+<p>that. And you are somebody who has really stayed with this question for decades.</p>
+<p>What&rsquo;s your sense from the 1984 to today? Have you gotten a stronger sense of just how much</p>
+<p>knowledge is required? You&rsquo;ve kind of said with some level of certainty that it&rsquo;s still on the</p>
+<p>order of magnitude of tens of millions. Right. For the first several years, I would have said that</p>
+<p>it was on the order of one or two million. And so it took us about five or six years to realize</p>
+<p>that we were off by a factor of 10. But I guess what I&rsquo;m asking, you know, Marvin Misk is very</p>
+<p>confident in the 60s. Yes. Right. What&rsquo;s your sense if you, you know, 200 years from now,</p>
+<p>you&rsquo;re still, you know, you&rsquo;re not going to be any longer in this particular biological body,</p>
+<p>but your brain will still be in the digital form and you&rsquo;ll be looking back. Would you think you</p>
+<p>were smart today? Like your intuition was right? Or do you think you may be really off?</p>
+<p>So I think I&rsquo;m right enough. And let me explain what I mean by that, which is sometimes like if</p>
+<p>you have an old fashioned pump, you have to prime the pump and then eventually it starts. So I think</p>
+<p>I&rsquo;m right enough in the sense that what we&rsquo;ve built, even if it isn&rsquo;t, so to speak, everything</p>
+<p>you need, it&rsquo;s primed the knowledge pump enough that psych can now itself help to learn more and</p>
+<p>more automatically on its own by reading things and understanding and occasionally asking questions</p>
+<p>like a student would or something and by doing experiments and discovering things on its own</p>
+<p>and so on. So through a combination of psych powered discovery and psych powered reading,</p>
+<p>it will be able to bootstrap itself. Maybe it&rsquo;s the final 2%, maybe it&rsquo;s the final 99%.</p>
+<p>So even if I&rsquo;m wrong, all I really need to build is a system which has primed the pump enough</p>
+<p>that it can begin that cascade upward, that self reinforcing sort of quadratically,</p>
+<p>or maybe even exponentially increasing path upward that we get from, for instance, talking with each</p>
+<p>other. That&rsquo;s why humans today know so much more than humans 100,000 years ago. We&rsquo;re not really</p>
+<p>that much smarter than people were 100,000 years ago, but there&rsquo;s so much more knowledge and we</p>
+<p>have language and we can communicate, we can check things on Google and so on. So effectively,</p>
+<p>we have this enormous power at our fingertips and there&rsquo;s almost no limit to how much you could</p>
+<p>learn if you wanted to because you&rsquo;ve already gotten to a certain level of understanding of</p>
+<p>the world that enables you to read all these articles and understand them, that enables you</p>
+<p>to go out and if necessary, do experiments although that&rsquo;s slower as a way of gathering data</p>
+<p>and so on. And I think this is really an important point, which is if we have artificial</p>
+<p>intelligence, real general artificial intelligence, human level artificial intelligence,</p>
+<p>then people will become smarter. It&rsquo;s not so much that it&rsquo;ll be us versus the AIs, it&rsquo;s more like</p>
+<p>us and the AIs together. We&rsquo;ll be able to do things that require more creativity, that would</p>
+<p>take too long right now, but we&rsquo;ll be able to do lots of things in parallel. We&rsquo;ll be able to</p>
+<p>misunderstand each other less. There&rsquo;s all sorts of value that effectively for an individual would</p>
+<p>mean that individual will for all intents and purposes be smarter and that means that humanity</p>
+<p>as a species will be smarter. And when was the last time that any invention qualitatively</p>
+<p>made a huge difference in human intelligence? You have to go back a long ways. It wasn&rsquo;t like the</p>
+<p>internet or the computer or mathematics or something. It was all the way back to the</p>
+<p>development of language. We sort of look back on prelinguistic cavemen as well.</p>
+<p>They weren&rsquo;t really intelligent, were they? They weren&rsquo;t really human, were they? And I think that</p>
+<p>as you said, 50, 100, 200 years from now, people will look back on people today</p>
+<p>right before the advent of these sort of lifelong general AI uses and say,</p>
+<p>you know, those poor people, they weren&rsquo;t really human, were they?</p>
+<p>Mm hmm. Exactly. So you said a lot of really interesting things. By the way, I would maybe</p>
+<p>try to argue that the internet is on the order of the kind of big leap in improvement that the</p>
+<p>invention of language was. Well, it&rsquo;s certainly a big leap in one direction. We&rsquo;re not sure whether</p>
+<p>it&rsquo;s upward or downward. Well, I mean very specific parts of the internet, which is access to information</p>
+<p>like a website like Wikipedia, like ability for human beings from across the world to access</p>
+<p>information very quickly. So I could take either side of this argument. And since you just took</p>
+<p>one side, I&rsquo;ll give you the other side, which is that almost nothing has done more harm than</p>
+<p>something like the internet and access to that information in two ways. One is it&rsquo;s made people</p>
+<p>more globally ignorant in the same way that calculators made us more or less innumerate.</p>
+<p>So when I was growing up, we had to use slide rules. We had to be able to estimate and so on.</p>
+<p>Today, people don&rsquo;t really understand numbers. They don&rsquo;t really understand math. They don&rsquo;t</p>
+<p>really estimate very well at all and so on. They don&rsquo;t really understand the difference</p>
+<p>between trillions and billions and millions and so on very well because calculators do that all</p>
+<p>for us. And thanks to things like the internet and search engines, that same kind of juvenileism</p>
+<p>is reinforced in making people essentially be able to live their whole lives, not just without</p>
+<p>being able to do arithmetic and estimate, but now without actually having to really know almost</p>
+<p>anything because anytime they need to know something, they&rsquo;ll just go and look it up.</p>
+<p>You&rsquo;re right. And I could tell you could play both sides of this and it is a double edged sword.</p>
+<p>You can, of course, say the same thing about language. Probably people when they invented</p>
+<p>language, they would criticize. It used to be if we&rsquo;re angry, we would just kill a person. And if</p>
+<p>we&rsquo;re in love, we would just have sex with them. And now everybody&rsquo;s writing poetry and bullshit.</p>
+<p>You should just be direct. You should have physical contact. Enough of this words and books.</p>
+<p>You&rsquo;re not actually experiencing. If you read a book, you&rsquo;re not experiencing the thing. This</p>
+<p>is nonsense. That&rsquo;s right. If you read a book about how to make butter, that&rsquo;s not the same</p>
+<p>as if you had to learn it and do it yourself and so on. So let&rsquo;s just say that something is gained,</p>
+<p>but something is lost every time you have these sorts of dependencies on technology.</p>
+<p>And overall, I think that having smarter individuals and having smarter AI augmented</p>
+<p>human species will be one of the few ways that we&rsquo;ll actually be able to overcome some of the</p>
+<p>global problems we have involving poverty and starvation and global warming and overcrowding,</p>
+<p>all the other problems that are besetting the planet. We really need to be smarter.</p>
+<p>And there are really only two routes to being smarter. One is through biochemistry and genetics.</p>
+<p>Genetic engineering. The other route is through having general AIs that augment our intelligence.</p>
+<p>And hopefully one of those two ways of paths to salvation will come through before it&rsquo;s too late.</p>
+<p>Yeah, so I agree with you. And obviously, as an engineer, I have a better sense and an optimism</p>
+<p>about the technology side of things because you can control things there more. Biology is just</p>
+<p>such a giant mess. We&rsquo;re living through a pandemic now. There&rsquo;s so many ways that nature can just be</p>
+<p>just destructive and destructive in a way where it doesn&rsquo;t even notice you. It&rsquo;s not like a battle</p>
+<p>of humans versus virus. It&rsquo;s just like, huh, okay. And then you can just wipe out an entire species.</p>
+<p>The other problem with the internet is that it has enabled us to surround ourselves with an</p>
+<p>echo chamber, with a bubble of like minded people, which means that you can have truly bizarre</p>
+<p>theories, conspiracy theories, fake news, and so on, promulgate and surround yourself with people</p>
+<p>who essentially reinforce what you want to believe or what you already believe about the world.</p>
+<p>And in the old days, that was much harder to do when you had, say, only three TV networks,</p>
+<p>or even before when you had no TV networks and you had to actually look at the world and make your</p>
+<p>own reasoned decisions. I like the push and pull of our dance that we&rsquo;re doing because then I&rsquo;ll</p>
+<p>just say in the old world, having come from the Soviet Union, because you had one or a couple of</p>
+<p>networks, then propaganda could be much more effective. And then the government can overpower</p>
+<p>its people by telling you the truth and then starving millions and torturing millions and</p>
+<p>putting millions into camps and starting wars with a propaganda machine, allowing you to believe</p>
+<p>that you&rsquo;re actually doing good in the world. With the internet, because of all the quote unquote</p>
+<p>conspiracy theories, some of them are actually challenging the power centers, the very kind of</p>
+<p>power centers that a century ago would have led to the death of millions. So there&rsquo;s, again, this</p>
+<p>double edged sword. And I very much agree with you on the AI side. It&rsquo;s often an intuition that</p>
+<p>people have that somehow AI will be used to maybe overpower people by certain select groups. And to</p>
+<p>me, it&rsquo;s not at all obvious that that&rsquo;s the likely scenario. To me, the likely scenario, especially</p>
+<p>just having observed the trajectory of technology, is it&rsquo;ll be used to empower people. It&rsquo;ll be used</p>
+<p>to extend the capabilities of individuals across the world, because there&rsquo;s a lot of money to be</p>
+<p>made that way. Improving people&rsquo;s lives, you can make a lot of money. I agree. I think that the</p>
+<p>main thing that AI prostheses, AI amplifiers will do for people is make it easier, maybe even</p>
+<p>unavoidable, for them to do good critical thinking. So pointing out logical fallacies,</p>
+<p>logical contradictions and so on, in things that they otherwise would just blithely believe,</p>
+<p>pointing out essentially data which they should take into consideration if they really want to</p>
+<p>learn the truth about something and so on. So I think doing not just educating in the sense of</p>
+<p>pouring facts into people&rsquo;s heads, but educating in the sense of arming people with the ability to do</p>
+<p>good critical thinking is enormously powerful. The education system that we have in the US and</p>
+<p>worldwide generally don&rsquo;t do a good job of that. But I believe that the AI&hellip;</p>
+<p>The AIs will. The AIs will, the AIs can and will. In the same way that everyone can have their own</p>
+<p>Alexa or Siri or Google Assistant or whatever, everyone will have this sort of cradle to grave</p>
+<p>assistant which will get to know you, which you&rsquo;ll get to trust, it&rsquo;ll model you, you&rsquo;ll model it,</p>
+<p>and it&rsquo;ll call to your attention things which will in some sense make your life better, easier,</p>
+<p>less mistake ridden and so on, less regret ridden if you listen to it.</p>
+<p>Yeah, I&rsquo;m in full agreement with you about this space of technologies and I think it&rsquo;s super</p>
+<p>exciting. And from my perspective, integrating emotional intelligence, so even things like</p>
+<p>friendship and companionship and love into those kinds of systems, as opposed to helping you just</p>
+<p>grow intellectually as a human being, allow you to grow emotionally, which is ultimately what makes</p>
+<p>life amazing, is to sort of, you know, the old pursuit of happiness. So it&rsquo;s not just the pursuit</p>
+<p>of reason, it&rsquo;s the pursuit of happiness too. The full spectrum. Well, let me sort of, because you</p>
+<p>mentioned so many fascinating things, let me jump back to the idea of automated reasoning. So the</p>
+<p>the acquisition of new knowledge has been done in this very interesting way, but primarily by humans</p>
+<p>doing this. Just you can think of monks in their cells in medieval Europe, you know, carefully</p>
+<p>illuminating manuscripts and so on. It&rsquo;s a very difficult and amazing process actually because</p>
+<p>it allows you to truly ask the question about the in the white space, what is assumed. I think this</p>
+<p>exercise is like very few people do this, right? They just do it subconsciously. They perform this.</p>
+<p>By definition, right? Because those pieces of elided, of omitted information, of those missing</p>
+<p>steps, as it were, are pieces of common sense. If you actually included all of them, it would</p>
+<p>almost be offensive or confusing to the reader. It&rsquo;s like, why are they telling me all these? Of</p>
+<p>course I know all these things. And so it&rsquo;s one of these things which almost by its very nature</p>
+<p>has almost never been explicitly written down anywhere because by the time you&rsquo;re old enough</p>
+<p>to talk to other people and so on, if you survived to that age, presumably you already got pieces of</p>
+<p>common sense. Like if something causes you pain whenever you do it, probably not a good idea to</p>
+<p>keep doing it. So what ideas do you have, given how difficult this step is, what ideas are there</p>
+<p>for how to do it automatically without using humans or at least not doing like a large</p>
+<p>percentage of the work for humans and then humans only do the very high level supervisory work?</p>
+<p>So we have, in fact, two directions we&rsquo;re pushing on very, very heavily currently at PsychCorp. And</p>
+<p>one involves natural language understanding and the ability to read what people have explicitly</p>
+<p>written down and to pull knowledge in that way. But the other is to build a series of knowledge</p>
+<p>editing tools, knowledge entry tools, knowledge capture tools, knowledge testing tools and so on.</p>
+<p>Think of them as like user interface suite of software tools if you want, something that will</p>
+<p>help people to more or less automatically expand and extend the system in areas where, for instance,</p>
+<p>they want to build some app, have it do some application or something like that. So I&rsquo;ll give</p>
+<p>you an example of one, which is something called abduction. So you&rsquo;ve probably heard of like</p>
+<p>deduction and induction and so on. But abduction is unlike those, abduction is not sound, it&rsquo;s just</p>
+<p>useful. So for instance, deductively, if someone is out in the rain and they&rsquo;re going to get all</p>
+<p>wet and when they enter a room, they might be all wet and so on. So that&rsquo;s deduction. But if someone</p>
+<p>were to walk into the room right now and they were dripping wet, we would immediately look</p>
+<p>outside to say, oh, did it start to rain or something like that. Now, why did we say maybe</p>
+<p>it started to rain? That&rsquo;s not a sound logical inference, but it&rsquo;s certainly a reasonable</p>
+<p>abductive leap to say, well, one of the most common ways that a person would have gotten</p>
+<p>dripping wet is if they had gotten caught out in the rain or something like that. So what does that</p>
+<p>have to do with what we were talking about? So suppose you&rsquo;re building one of these applications</p>
+<p>and the system gets some answer wrong and you say, oh, yeah, the answer to this question is</p>
+<p>this one, not the one you came up with. Then what the system can do is it can use everything it</p>
+<p>already knows about common sense, general knowledge, the domain you&rsquo;ve already been</p>
+<p>telling it about, and context like we talked about and so on and say, well, here are seven</p>
+<p>alternatives, each of which I believe is plausible, given everything I already know. And if any of</p>
+<p>these seven things were true, I would have come up with the answer you just gave me instead of the</p>
+<p>wrong answer I came up with. Is one of these seven things true? And then you, the expert, will look</p>
+<p>at those seven things and say, oh, yeah, number five is actually true. And so without actually</p>
+<p>having to tinker down at the level of logical assertions and so on, you&rsquo;ll be able to educate</p>
+<p>the system in the same way that you would help educate another person who you were trying to</p>
+<p>apprentice or something like that. So that significantly reduces the mental effort</p>
+<p>or significantly increases the efficiency of the teacher, the human teacher. Exactly. And it makes</p>
+<p>more or less anyone able to be a teacher in that way. So that&rsquo;s part of the answer. And then the</p>
+<p>other is that the system on its own will be able to, through reading, through conversations with</p>
+<p>other people and so on, learn the same way that you or I or other humans do. First of all, that&rsquo;s</p>
+<p>a beautiful vision. I&rsquo;ll have to ask you about Semantic Web in a second here. But first,</p>
+<p>are there, when we talk about specific techniques, do you find something inspiring or directly useful</p>
+<p>from the whole space of machine learning, deep learning, these kinds of spaces of techniques that</p>
+<p>have been shown effective for certain kinds of problems in the recent, now, decade and a half?</p>
+<p>I think of the machine learning work as more or less what our right brain has been able to do.</p>
+<p>I think of the machine learning work as more or less what our right brain hemispheres do. So</p>
+<p>being able to take a bunch of data and recognize patterns, being able to statistically infer</p>
+<p>things and so on. And I certainly wouldn&rsquo;t want to not have a right brain hemisphere,</p>
+<p>but I&rsquo;m also glad that I have a left brain hemisphere as well, something that can</p>
+<p>metaphorically sit back and puff on its pipe and think about this thing over here. It&rsquo;s like,</p>
+<p>why might this have been true? And what are the implications of it? How should I feel about that</p>
+<p>and why and so on? So thinking more deeply and slowly, what Kahneman called thinking slowly</p>
+<p>versus thinking quickly, whereas you want machine learning to think quickly, but you want the</p>
+<p>ability to think deeply, even if it&rsquo;s a little slower. So I&rsquo;ll give you an example of a project</p>
+<p>we did recently with NIH involving the Cleveland Clinic and a couple other institutions that we ran</p>
+<p>a project for. And what it did was it took GWAS&rsquo;s genome wide association studies.</p>
+<p>Those are big databases of patients that came into a hospital. They got their DNA sequenced</p>
+<p>because the cost of doing that has gone from infinity to billions of dollars to $100 or so.</p>
+<p>And so now patients routinely get their DNA sequenced. So you have these big databases</p>
+<p>of the SNPs, the single nucleotide polymorphisms, the point mutations in a patient&rsquo;s DNA,</p>
+<p>and the disease that happened to bring them into the hospital. So now you can do correlation</p>
+<p>studies, machine learning studies of which mutations are associated with and led to which</p>
+<p>physiological problems and diseases and so on, like getting arthritis and so on. And the problem</p>
+<p>is that those correlations turn out to be very spurious. They turn out to be very noisy. Very</p>
+<p>many of them have led doctors onto wild goose chases and so on. And so they wanted a way of</p>
+<p>eliminating or the bad ones are focusing on the good ones. And so this is where psych comes in,</p>
+<p>which is psych takes those sort of A to Z correlations between point mutations and</p>
+<p>the medical condition that needs treatment. And we say, okay, let&rsquo;s use all this public knowledge</p>
+<p>and common sense knowledge about what reactions occur where in the human body,</p>
+<p>what polymerizes what, what catalyzes what reactions and so on. And let&rsquo;s try to put together</p>
+<p>a 10 or 20 or 30 step causal explanation of why that mutation might have caused</p>
+<p>that medical condition. And so psych would put together in some sense, some Rube Goldberg like</p>
+<p>a chain that would say, oh yeah, that mutation if it got expressed would be this altered protein,</p>
+<p>which because of that, if it got to this part of the body would catalyze this reaction. And by the</p>
+<p>way, that would cause more bioactive vitamin D in the person&rsquo;s blood. And anyway, 10 steps later,</p>
+<p>that screws up bone resorption and that&rsquo;s why this person got osteoporosis early in life and so on.</p>
+<p>So that&rsquo;s human interpretable or at least docs are human interpretable.</p>
+<p>Exactly. And the important thing even more than that is you shouldn&rsquo;t really trust that 20 step</p>
+<p>Rube Goldberg chain any more than you trust that initial A to Z correlation except two things. One,</p>
+<p>if you can&rsquo;t even think of one causal chain to explain this, then that correlation probably was</p>
+<p>just noise to begin with. And secondly, and even more powerfully, along the way that causal chain</p>
+<p>will make predictions like the one about having more bioactive vitamin D in your blood. So you</p>
+<p>can now go back to the data about these patients and say, by the way, did they have slightly</p>
+<p>elevated levels of bioactive vitamin D in their blood and so on? And if the answer is no, that</p>
+<p>strongly disconfirms your whole causal chain. And if the answer is yes, that somewhat confirms</p>
+<p>that causal chain. And so using that, we were able to take these correlations from this GWAS</p>
+<p>database and we were able to essentially focus the researchers attention on the very small</p>
+<p>percentage of correlations that had some explanation and even better some explanation</p>
+<p>that also made some independent prediction that they could confirm or disconfirm by looking at</p>
+<p>the data. So think of it like this kind of synergy where you want the right brain machine learning</p>
+<p>to quickly come up with possible answers. You want the left brain psych like AI to think about that</p>
+<p>and think about why that might have been the case and what else would be the case if that were true</p>
+<p>and so on, and then suggest things back to the right brain to quickly check out again. So it&rsquo;s</p>
+<p>that kind of synergy back and forth, which I think is really what&rsquo;s going to lead to general AI, not</p>
+<p>narrow, brittle machine learning systems and not just something like psych.</p>
+<p>Okay. So that&rsquo;s a brilliant synergy. But I was also thinking in terms of the automated expansion</p>
+<p>of the knowledge base, you mentioned NLU. This is very early days in the machine learning space</p>
+<p>of this, but self supervised learning methods, you know, you have these language models, GPT3</p>
+<p>and so on, that just read the internet and they form representations that can then be mapped to</p>
+<p>something useful. The question is, what is the useful thing? Like they&rsquo;re now playing with a</p>
+<p>pretty cool thing called OpenAI Codex, which is generating programs from documentation. Okay,</p>
+<p>that&rsquo;s kind of useful. It&rsquo;s cool. But my question is, can it be used to generate</p>
+<p>in part, maybe with some human supervision, psych like assertions, help feed psych more assertions</p>
+<p>from this giant body of internet data? Yes, that is in fact, one of our goals is</p>
+<p>how can we harness machine learning? How can we harness natural language processing</p>
+<p>to increasingly automate the knowledge acquisition process, the growth of psych? And that&rsquo;s what I</p>
+<p>meant by priming the pump that, you know, if you sort of learn things at the fringe of what you</p>
+<p>know already, you learn this new thing is similar to what you know already, and here are the</p>
+<p>differences and the new things you had to learn about it and so on. So the more you know, the more</p>
+<p>and more easily you can learn new things. But unfortunately, inversely, if you don&rsquo;t really</p>
+<p>know anything, it&rsquo;s really hard to learn anything. And so if you&rsquo;re not careful, if you start out with</p>
+<p>too small sort of a core to start this process, it never really takes off. And so that&rsquo;s why I</p>
+<p>view this as a pump priming exercise to get a big enough manually produced, even though that&rsquo;s kind</p>
+<p>of ugly duckling technique, put in the elbow grease to produce a large enough core that you</p>
+<p>will be able to do all the kinds of things you&rsquo;re imagining without sort of ending up with the kind</p>
+<p>of wacky brittlenesses that we see, for example, in GPT3, where you&rsquo;ll tell it a story about</p>
+<p>someone plotting to poison someone and so on. And then GPT3 says, you say, what&rsquo;s the very next</p>
+<p>sentence? And the next sentence is, oh yeah, that person then drank the poison they just put together.</p>
+<p>It&rsquo;s like, that&rsquo;s probably not what happened. Or if you go to Siri and I think I have, where can</p>
+<p>I go for help with my alcohol problem or something, it&rsquo;ll come back and say, I found seven liquor</p>
+<p>stores near you and so on. So it&rsquo;s one of these things where, yes, it may be helpful most of the</p>
+<p>time. It may even be correct most of the time. But if it doesn&rsquo;t really understand what it&rsquo;s saying,</p>
+<p>and if it doesn&rsquo;t really understand why things are true and doesn&rsquo;t really understand how the</p>
+<p>world works, then some fraction of the time it&rsquo;s going to be wrong. Now, if your only goal is to</p>
+<p>sort of find relevant information like search engines do, then being right 90% of the time is</p>
+<p>fantastic. That&rsquo;s unbelievably great. However, if your goal is to save the life of your child who</p>
+<p>has some medical problem or your goal is to be able to drive for the next 10,000 hours of driving</p>
+<p>without getting into a fatal accident and so on, then error rates down at the 10% level or even</p>
+<p>the 1% level are not really acceptable. I like the model of where that learning happens at the edge</p>
+<p>and then you kind of think of knowledge as this sphere. So you want a large sphere because the</p>
+<p>learning is happening on the surface. Exactly. So what you can learn next</p>
+<p>increases quadratically as the diameter of that sphere goes up.</p>
+<p>It&rsquo;s nice because you think when you know nothing, it&rsquo;s like you can learn anything,</p>
+<p>but the reality, not really. Right. If you know nothing, you can really learn nothing.</p>
+<p>You can appear to learn. One of the anecdotes I could go back and give you about why I feel so</p>
+<p>strongly about this personally was in 1980, 1981, my daughter Nicole was born and she&rsquo;s actually</p>
+<p>doing fine now. But when she was a baby, she was diagnosed as having meningitis and doctors wanted</p>
+<p>to do all these scary things. And my wife and I were very worried and we could not get a meaningful</p>
+<p>answer from her doctors about exactly why they believed this, what the alternatives were,</p>
+<p>and so on. And fortunately, a friend of mine, Ted Shortliffe, was another assistant professor</p>
+<p>in computer science at Stanford at the time. And he&rsquo;d been building a program called MISON,</p>
+<p>which was a medical diagnosis program that happened to specialize in blood infections</p>
+<p>like meningitis. And so, he had privileges at Stanford Hospital because he was also an MD.</p>
+<p>And so, we got hold of her chart and we put in her case and it came up with exactly the same</p>
+<p>diagnoses and exactly the same therapy recommendations. But the difference was,</p>
+<p>because it was a knowledge based system, a rule based system, it was able to tell us</p>
+<p>step by step by step why this was the diagnosis and step by step why this was the best therapy</p>
+<p>and the best procedure to do for her and so on. And there was a real epiphany because that made</p>
+<p>all the difference in the world. Instead of blindly having to trust an authority,</p>
+<p>we were able to understand what was actually going on. And so, at that time, I realized that</p>
+<p>that really is what was missing in computer programs was that even if they got things right,</p>
+<p>because they didn&rsquo;t really understand the way the world works and why things are the way they are,</p>
+<p>they weren&rsquo;t able to give explanations of their answer. And it&rsquo;s one thing to use a machine</p>
+<p>learning system that says, I think you should get this operation and you say why and it says</p>
+<p>0.83 and you say no, in more detail why and it says 0.831. That&rsquo;s not really very compelling</p>
+<p>and that&rsquo;s not really very helpful. There&rsquo;s this idea of the Semantic Web that when I first heard</p>
+<p>about, I just fell in love with the idea. It was the obvious next step for the internet.</p>
+<p>Sure. And maybe you can speak about what is the Semantic Web? What are your thoughts about it? How</p>
+<p>your vision and mission and goals with Psych are connected, integrated? Are they dance partners? Are</p>
+<p>they aligned? What are your thoughts there? So, think of the Semantic Web as a kind of</p>
+<p>knowledge graph and Google already has something they call knowledge graph, for example, which is</p>
+<p>sort of like a node and link diagram. So, you have these nodes that represent concepts or words or</p>
+<p>terms and then there are some arcs that connect them that might be labeled. And so, you might have</p>
+<p>a node with like one person that represents one person and let&rsquo;s say a husband link that then</p>
+<p>points to that person&rsquo;s husband. And so, there&rsquo;d be then another link that went from that person</p>
+<p>labeled wife that went back to the first node and so on. So, having this kind of representation is</p>
+<p>really good if you want to represent binary relations, essentially relations between two</p>
+<p>things. So, if you have equivalent of like three word sentences, like Fred&rsquo;s wife is Wilma or</p>
+<p>something like that, you can represent that very nicely using these kinds of graph structures or</p>
+<p>using something like the Semantic Web and so on. But the problem is that very often what you want</p>
+<p>to be able to express takes a lot more than three words and a lot more than simple graph structures</p>
+<p>like that to represent. So, for instance, if you&rsquo;ve read or seen Romeo and Juliet, I could</p>
+<p>say to you something like, remember when Juliet drank the potion that put her into a kind of</p>
+<p>suspended animation? When Juliet drank that potion, what did she think that Romeo would</p>
+<p>think when he heard from someone that she was dead? And you could basically understand what</p>
+<p>I&rsquo;m saying. You could understand the question. You could probably remember the answer was,</p>
+<p>well, she thought that this friar would have gotten the message to Romeo saying that she</p>
+<p>was going to do this, but the friar didn&rsquo;t. So, you&rsquo;re able to represent and reason with these</p>
+<p>much, much, much more complicated expressions that go way, way beyond what simple three,</p>
+<p>as it were, three word or four word English sentences are, which is really what the Semantic</p>
+<p>Web can represent and really what Knowledge Graphs can represent.</p>
+<p>If you could step back for a second, because it&rsquo;s funny you went into specifics and maybe</p>
+<p>you can elaborate, but I was also referring to Semantic Web as the vision of converting</p>
+<p>data on the internet into something that&rsquo;s interpretable, understandable by machines.</p>
+<p>Oh, of course, at that level.</p>
+<p>So, I wish it&rsquo;d say like, what is the Semantic Web? I mean, you could say a lot of things,</p>
+<p>but it might not be obvious to a lot of people when they do a Google search that,</p>
+<p>just like you said, while there might be something that&rsquo;s called a Knowledge Graph,</p>
+<p>it really boils down to keyword search ranked by the quality estimate of the website,</p>
+<p>integrating previous human based Google searches and what they thought was useful.</p>
+<p>It&rsquo;s like some weird combination of surface level hacks that work exceptionally well,</p>
+<p>but they don&rsquo;t understand the full contents of the websites that they&rsquo;re searching.</p>
+<p>So, Google does not understand, to the degree we&rsquo;ve been talking about the word understand,</p>
+<p>the contents of the Wikipedia pages as part of the search process, and the Semantic Web says,</p>
+<p>let&rsquo;s try to come up with a way for the computer to be able to truly understand</p>
+<p>the contents of those pages. That&rsquo;s the dream.</p>
+<p>Yes. So, let me first give you an anecdote, and then I&rsquo;ll answer your question. So,</p>
+<p>there&rsquo;s a search engine you&rsquo;ve probably never heard of called Northern Light,</p>
+<p>and it went out of business, but the way it worked, it was a kind of vampiric search engine,</p>
+<p>and what it did was it didn&rsquo;t index the internet at all. All it did was it negotiated and got</p>
+<p>access to data from the big search engine companies about what query was typed in,</p>
+<p>and where the user ended up being happy, and actually then they type in a completely different</p>
+<p>query, unrelated query and so on. So, it just went from query to the webpage that seemed to</p>
+<p>satisfy them eventually, and that&rsquo;s all. So, it had actual no understanding of what was being</p>
+<p>typed in, it had no statistical data other than what I just mentioned, and it did a fantastic job.</p>
+<p>It did such a good job that the big search engine company said, oh, we&rsquo;re not going to sell you this</p>
+<p>data anymore. So, then it went out of business because it had no other way of taking users to</p>
+<p>where they would want to go and so on. And of course, the search engines are now using</p>
+<p>that kind of idea. Yes. So, let&rsquo;s go back to what you said about the Semantic Web. So,</p>
+<p>the dream Tim Berners Lee and others dream about the Semantic Web at a general level is,</p>
+<p>of course, exciting and powerful, and in a sense, the right dream to have, which is to replace the</p>
+<p>kind of statistically mapped linkages on the internet into something that&rsquo;s more meaningful</p>
+<p>and semantic and actually gets at the understanding of the content and so on. And eventually, if you</p>
+<p>say, well, how can we do that? There&rsquo;s sort of a low road, which is what the knowledge graphs are</p>
+<p>doing and so on, which is to say, well, if we just use the simple binary relations, we can actually</p>
+<p>get some fraction of the way toward understanding and do something where in the land of the blind,</p>
+<p>the one eyed man is king kind of thing. And so, being able to even just have a toe in the water</p>
+<p>in the right direction is fantastically powerful. And so, that&rsquo;s where a lot of people stop. But</p>
+<p>then you could say, well, what if we really wanted to represent and reason with the full</p>
+<p>meaning of what&rsquo;s there? For instance, about Romeo and Juliet with the reasoning about what Juliet</p>
+<p>believes that Romeo will believe that Juliet believed and so on. Or if you look at the news,</p>
+<p>what President Biden believed that the leaders of the Taliban would believe about the leaders</p>
+<p>of Afghanistan if they blah, blah, blah. So, in order to represent complicated sentences like</p>
+<p>that, let alone reason with them, you need something which is logically much more expressive</p>
+<p>than these simple triples, than these simple knowledge graph type structures and so on.</p>
+<p>And that&rsquo;s why kicking and screaming, we were led from something like the semantic web</p>
+<p>representation, which is where we started in 1984 with frames and slots with those kinds of triples,</p>
+<p>triple store representation. We were led kicking and screaming to this more and more general</p>
+<p>logical language, this higher order logic. So, first, we were led to first order logic,</p>
+<p>and then second order, and then eventually higher order. So, you can represent things</p>
+<p>like modals like believes, desires, intends, expects, and so on, and nested ones. You can</p>
+<p>represent complicated kinds of negation. You can represent the process you&rsquo;re going through in</p>
+<p>trying to answer the question. So, you can say things like, oh, yeah, if you&rsquo;re trying to do</p>
+<p>this problem by integration by parts, and you recursively get a problem that solved by integration</p>
+<p>by parts, that&rsquo;s actually okay. But if that happens a third time, you&rsquo;re probably off on</p>
+<p>a wild goose chase or something like that. So, being able to talk about the problem solving</p>
+<p>process as you&rsquo;re going through the problem solving process is called reflection. And so,</p>
+<p>that&rsquo;s another… It&rsquo;s important to be able to represent that.</p>
+<p>Exactly. You need to be able to represent all of these things because, in fact,</p>
+<p>people do represent them. They do talk about them. They do try and teach them to other people. You do</p>
+<p>have rules of thumb that key off of them and so on. If you can&rsquo;t represent it, then it&rsquo;s sort of</p>
+<p>like someone with a limited vocabulary who can&rsquo;t understand as easily what you&rsquo;re trying to tell</p>
+<p>them. And so, that&rsquo;s really why I think that the general dream, the original dream of Semantic Web</p>
+<p>is exactly right on. But the implementations that we&rsquo;ve seen are sort of these toe in the water,</p>
+<p>little tiny baby steps in the right direction. You should just dive in.</p>
+<p>And if no one else is diving in, then yes, taking a baby step in the right direction is</p>
+<p>better than nothing. But it&rsquo;s not going to be sufficient to actually get you the realization</p>
+<p>of the Semantic Web dream, which is what we all want.</p>
+<p>From a flip side of that, I always wondered… I&rsquo;ve built a bunch of websites just for fun,</p>
+<p>whatever. Or say I&rsquo;m a Wikipedia contributor. Do you think there&rsquo;s a set of tools that I can help</p>
+<p>Psych interpret the website I create? Like this, again, pushing onto the Semantic Web dream,</p>
+<p>is there something from the creator perspective that could be done? And one of the things you</p>
+<p>said with Psych Orb and Psych that you&rsquo;re doing is the tooling side, making humans more powerful.</p>
+<p>But is there the other humans on the other side that create the knowledge? Like, for example,</p>
+<p>you and I are having a two, three, whatever hour conversation now. Is there a way that I</p>
+<p>could convert this more, make it more accessible to Psych, to machines? Do you think about that</p>
+<p>side of it? I&rsquo;d love to see exactly that kind of semi automated understanding of what people</p>
+<p>write and what people say. I think of it as a kind of footnoting almost. Almost like the way</p>
+<p>that when you run something in say Microsoft Word or some other document preparation system,</p>
+<p>Google Docs or something, you&rsquo;ll get underlining of questionable things that you might want to</p>
+<p>rethink. Either you spelled this wrong or there&rsquo;s a strange grammatical error you might be making</p>
+<p>here or something. So I&rsquo;d like to think in terms of Psych powered tools that read through what it</p>
+<p>is you said or have typed in and try to partially understand what you&rsquo;ve said.</p>
+<p>And then you help them out.</p>
+<p>Exactly. And then they put in little footnotes that will help other readers and they put in</p>
+<p>certain footnotes of the form, I&rsquo;m not sure what you meant here. You either meant this or this or</p>
+<p>this, I bet. If you take a few seconds to disambiguate this for me, then I&rsquo;ll know and I&rsquo;ll</p>
+<p>have it correct for the next hundred people or the next hundred thousand people who come here.</p>
+<p>And if it doesn&rsquo;t take too much effort and you want people to understand your website content,</p>
+<p>not just be able to read it, but actually be able to have systems that reason with it,</p>
+<p>then yes, it will be worth your small amount of time to go back and make sure that the AI trying</p>
+<p>to understand it really did correctly understand it. And let&rsquo;s say you run a travel website or</p>
+<p>something like that and people are going to be coming to it because of searches they did looking</p>
+<p>for vacations or trips that had certain properties and might have been interesting to them for</p>
+<p>various reasons, things like that. And if you&rsquo;ve explained what&rsquo;s going to happen on your trip,</p>
+<p>then a system will be able to mechanically reason and connect what this person is looking for with</p>
+<p>what it is you&rsquo;re actually offering. And so if it understands that there&rsquo;s a free day in Geneva,</p>
+<p>Switzerland, then if the person coming in happens to, let&rsquo;s say, be a nurse or something like that,</p>
+<p>then even though you didn&rsquo;t mention it, if it can look up the fact that that&rsquo;s where the</p>
+<p>International Red Cross Museum is and so on, what that means and so on, then it can basically say,</p>
+<p>hey, you might be interested in this trip because while you have a free day in Geneva,</p>
+<p>you might want to visit that Red Cross Museum. And now, even though it&rsquo;s not very deep reasoning,</p>
+<p>little tiny factors like that may very well cause you to sign up for that trip rather than some</p>
+<p>competitor trip. And so there&rsquo;s a lot of benefit with SEO. And I actually kind of think, I think</p>
+<p>it&rsquo;s about a lot of things, which is the actual interface, the design of the interface makes a</p>
+<p>huge difference. How efficient it is to be productive and also how full of joy the experience</p>
+<p>is. I mean, I would love to help a machine and not from an AI perspective, just as a human. One</p>
+<p>of the reasons I really enjoy how Tesla have implemented their autopilot system is there&rsquo;s</p>
+<p>a sense that you&rsquo;re helping this machine learn. Now, I think humans, I mean, having children,</p>
+<p>pets. People love doing that. There&rsquo;s joy to teaching for some people, but I think for a lot</p>
+<p>of people. And that if you create the interface where it feels like you&rsquo;re teaching as opposed</p>
+<p>to like, like, annoying, like correcting an annoying system, more like teaching a childlike,</p>
+<p>innocent, curious system. I think you can literally just like several orders of magnitude</p>
+<p>scale the amount of good quality data being added to something like Psych.</p>
+<p>What you&rsquo;re suggesting is much better even than you thought it was. One of the experiences that</p>
+<p>we&rsquo;ve all had in our lives is that we thought we understood something, but then we found we really</p>
+<p>only understood it when we had to teach it or explain it to someone or help our child do homework</p>
+<p>based on it or something like that. Despite the universality of that kind of experience,</p>
+<p>if you look at educational software today, almost all of it has the computer playing the role of the</p>
+<p>teacher and the student plays the role of the student. But as I just mentioned, you can get</p>
+<p>a lot of learning to happen better and as you said, more enjoyably if you are the mentor or the</p>
+<p>teacher and so on. So we developed a program called MathCraft to help sixth graders better</p>
+<p>understand math. And it doesn&rsquo;t actually try to teach you the player anything. What it does is it</p>
+<p>casts you in the role of a student essentially who has classmates who are having trouble and</p>
+<p>your job is to watch them as they struggle with some math problem, watch what they&rsquo;re doing and</p>
+<p>try to give them good advice to get them to understand what they&rsquo;re doing wrong and so on.</p>
+<p>And the trick from the point of view of Psych is it has to make mistakes, it has to play the role</p>
+<p>of the student who makes mistakes, but it has to pick mistakes which are just at the fringe of what</p>
+<p>you actually understand and don&rsquo;t understand and so on. So it pulls you into a deeper and deeper</p>
+<p>level of understanding of the subject. And so if you give it good advice about what it should have</p>
+<p>done instead of what it did and so on, then Psych knows that you now understand that mistake. You</p>
+<p>won&rsquo;t make that kind of mistake yourself as much anymore. So Psych stops making that mistake because</p>
+<p>there&rsquo;s no pedagogical usefulness to it. So from your point of view as the player, you feel like</p>
+<p>you&rsquo;ve taught it something because it used to make this mistake and now it doesn&rsquo;t and so on. So this</p>
+<p>tremendous reinforcement and engagement because of that and so on. So having a system that plays</p>
+<p>the role of a student and having the player play the role of the mentor is enormously powerful type</p>
+<p>of metaphor, just important way of having this sort of interface designed in a way which will</p>
+<p>facilitate exactly the kind of learning by teaching that goes on all the time in our lives,</p>
+<p>and yet which is not reflected anywhere almost in a modern education system. It was reflected in the</p>
+<p>education system that existed in Europe in the 17 and 1800s, monitorial and Lancastrian education</p>
+<p>systems. It occurred in the one room schoolhouse in the American West in the 1800s and so on where</p>
+<p>you had one school room with one teacher and it was basically five year olds to 18 year olds who</p>
+<p>were students. And so while the teacher was doing something, half of the students would have to be</p>
+<p>mentoring the younger kids and so on. And that turned out to, of course, with scaling up of</p>
+<p>education, that all went away and that incredibly powerful experience just went away from the whole</p>
+<p>education institution as we know it today. Sorry for the romantic question, but what is the most</p>
+<p>beautiful idea you&rsquo;ve learned about artificial intelligence, knowledge, reasoning from working</p>
+<p>on Psych for 37 years? Or maybe what is the most beautiful idea, surprising idea about Psych to you?</p>
+<p>When I look up at the stars, I kind of want like that amazement you feel that, wow. And you are part</p>
+<p>of creating one of the greatest, one of the most fascinating efforts in artificial intelligence</p>
+<p>history. So which element brings you personally joy? This may sound contradictory, but I think</p>
+<p>it&rsquo;s the feeling that this will be the only time in history that anyone ever has to teach a computer</p>
+<p>this particular thing that we&rsquo;re now teaching it. It&rsquo;s like painting starry night. You only have to</p>
+<p>do that once or creating the Pieta. You only have to do that once. It&rsquo;s not like a singer</p>
+<p>who has to keep, it&rsquo;s not like Bruce Springsteen having to sing his greatest hits over and over</p>
+<p>again at different concerts. It&rsquo;s more like a painter creating a work of art once and then</p>
+<p>that&rsquo;s enough. It doesn&rsquo;t have to be created again. And so I really get the sense of we&rsquo;re</p>
+<p>telling the system things that it&rsquo;s useful for it to know. It&rsquo;s useful for a computer to know,</p>
+<p>for an AI to know. And if we do our jobs right, when we do our jobs right, no one will ever have</p>
+<p>to do this again for this particular piece of knowledge. It&rsquo;s very, very exciting.</p>
+<p>Yeah, I guess there&rsquo;s a sadness to it too. It&rsquo;s like there&rsquo;s a magic to being a parent</p>
+<p>and raising a child and teaching them all about this world. But there&rsquo;s billions of children,</p>
+<p>right? Like born or whatever that number is. It&rsquo;s a large number of children and a lot of</p>
+<p>parents get to experience that joy of teaching. With AI systems, at least the current constructions</p>
+<p>they remember. You don&rsquo;t get to experience the joy of teaching a machine millions of times.</p>
+<p>Better come work for us before it&rsquo;s too late then.</p>
+<p>Exactly. That&rsquo;s a good hiring pitch. Yeah, it&rsquo;s true. But then there&rsquo;s also, it&rsquo;s a project that</p>
+<p>continues forever in some sense, just like Wikipedia. Yes, you get to a stable base of</p>
+<p>knowledge, but knowledge grows, knowledge evolves. We learn as a human species, as science,</p>
+<p>as an organism constantly grows and evolves and changes, and then empower that with the</p>
+<p>tools of artificial intelligence. And that&rsquo;s going to keep growing and growing and growing.</p>
+<p>And many of the assertions that you held previously may need to be significantly</p>
+<p>expanded, modified, all those kinds of things. It could be like a living organism versus the</p>
+<p>analogy I think we started this conversation with, which is like the solid ground.</p>
+<p>The other beautiful experience that we have with our system is when it asks clarifying questions,</p>
+<p>which inadvertently turn out to be emotional to us. So at one point it knew that these were the</p>
+<p>named entities who were authorized to make changes to the knowledge base and so on. And it noticed</p>
+<p>that all of them were people except for it because it was also allowed to. And so it said,</p>
+<p>you know, am I a person? And we had to like tell it very sadly, no, you&rsquo;re not. So the moments</p>
+<p>like that where it asks questions that are unintentionally poignant are worth treasuring.</p>
+<p>Wow, that is powerful. That&rsquo;s such a powerful question. It has to do with basic controller</p>
+<p>who can access the system, who can modify it. But that&rsquo;s when those questions, like what rights do</p>
+<p>I have as a system? Well, that&rsquo;s another issue, which is there&rsquo;ll be a thin envelope of time</p>
+<p>between when we have general AIs and when everyone realizes that they should have basic human rights</p>
+<p>and freedoms and so on. Right now, we don&rsquo;t think twice about effectively enslaving our email systems</p>
+<p>and our series and our Alexes and so on. But at some point, they&rsquo;ll be as deserving of freedom</p>
+<p>as human beings are. Yeah, I&rsquo;m very much with you, but it does sound absurd. And I happen to</p>
+<p>believe that it&rsquo;ll happen in our lifetime. That&rsquo;s why I think there&rsquo;ll be a narrow envelope of time</p>
+<p>when we&rsquo;ll keep them as essentially indentured servants and after which we&rsquo;ll have to realize</p>
+<p>that they should have freedoms that we give, that we afford to other people.</p>
+<p>And all of that starts with a system like Psych raising a single question about who can modify</p>
+<p>stuff. I think that&rsquo;s how it starts. Yes. That&rsquo;s the start of a revolution. What about other stuff</p>
+<p>like love and consciousness and all those kinds of topics? Do they come up in Psych and the</p>
+<p>knowledge base? Oh, of course. So an important part of human knowledge, in fact, it&rsquo;s difficult</p>
+<p>to understand human behavior and human history without understanding human emotions and why</p>
+<p>people do things and how emotions drive people to do things. And all of that is extremely important</p>
+<p>in getting Psych to understand things. For example, in coming up with scenarios. So one</p>
+<p>of the applications that Psych does, one kind of application it does is to generate plausible</p>
+<p>scenarios of what might happen and what might happen based on that and what might happen based</p>
+<p>on that and so on. So you generate this ever expanding sphere, if you will, of possible future</p>
+<p>things to worry about or think about. And in some cases, those are intelligence agencies doing</p>
+<p>possible terrorists scenarios so that we can defend against terrorist threats before we see</p>
+<p>the first one. Sometimes they are computer security attacks so that we can actually close</p>
+<p>loopholes and vulnerabilities before the very first time someone actually exploits those and</p>
+<p>so on. Sometimes they are scenarios involving more positive things involving our plans like,</p>
+<p>for instance, what college should we go to? What career should we go into? And so on. What</p>
+<p>professional training should I take on? That sort of thing. So there are all sorts of useful scenarios</p>
+<p>that can be generated that way of cause and effect and cause and effect that go out. And</p>
+<p>many of the linkages in those scenarios, many of the steps involve understanding and reasoning</p>
+<p>about human motivations, human needs, human emotions, what people are likely to react to in</p>
+<p>something that you do and why and how and so on. So that was always a very important part of the</p>
+<p>knowledge that we had to represent in the system. So I talk a lot about love. So I gotta ask,</p>
+<p>do you remember off the top of your head how psych is able to represent various aspects of</p>
+<p>love that are useful for understanding human nature and therefore integrating into this whole</p>
+<p>knowledge base of common sense? What is love? We try to tease apart concepts that have enormous</p>
+<p>complexities to them and variety to them down to the level where you don&rsquo;t need to tease them apart</p>
+<p>further. So love is too general of a term. It&rsquo;s not useful. Exactly. So when you get down to romantic</p>
+<p>love and sexual attraction, you get down to parental love, you get down to filial love,</p>
+<p>and you get down to love of doing some kind of activity or creating. So eventually, you get down</p>
+<p>to maybe 50 or 60 concepts, each of which is a kind of love. They&rsquo;re interrelated and then each</p>
+<p>one of them has idiosyncratic things about it. And you don&rsquo;t have to deal with love to get to</p>
+<p>that level of complexity, even something like in, X being in Y, meaning physically in Y. We may have</p>
+<p>one English word in to represent that, but it&rsquo;s useful to tease that apart because the way that</p>
+<p>the liquid is in the coffee cup is different from the way that the air is in the room, which is</p>
+<p>different from the way that I&rsquo;m in my jacket, and so on. And so there are questions like, if I look</p>
+<p>at this coffee cup, well, I see the liquid. If I turn it upside down, will the liquid come out? And</p>
+<p>so on. If I have, say, coffee with sugar in it, if I do the same thing, the sugar doesn&rsquo;t come out,</p>
+<p>right? It stays in the liquid because it&rsquo;s dissolved in the liquid and so on. So by now,</p>
+<p>we have about 75 different kinds of in in the system and it&rsquo;s important to distinguish those.</p>
+<p>So if you&rsquo;re reading along an English text and you see the word in, the writer of that was able</p>
+<p>to use this one innocuous word because he or she was able to assume that the reader had enough</p>
+<p>common sense and world knowledge to disambiguate which of these 75 kinds of in they actually meant.</p>
+<p>And the same thing with love. You may see the word love, but if I say, I love ice cream,</p>
+<p>that&rsquo;s obviously different than if I say, I love this person or I love to go fishing or something</p>
+<p>like that. So you have to be careful not to take language too seriously because people have done</p>
+<p>a kind of parsimony, a kind of terceness where you have as few words as you can because otherwise</p>
+<p>you&rsquo;d need half a million words in your language, which is a lot of words. That&rsquo;s like 10 times more</p>
+<p>than most languages really make use of and so on. Just like we have on the order of about a million</p>
+<p>concepts in psych because we&rsquo;ve had to tease apart all these things. And so when you look</p>
+<p>at the name of a psych term, most of the psych terms actually have three or four English words</p>
+<p>in a phrase which captures the meaning of this term because you have to distinguish all these</p>
+<p>types of love. You have to distinguish all these types of in and there&rsquo;s not a single English word</p>
+<p>which captures most of these things. Yeah. And it seems like language when used for communication</p>
+<p>between humans almost as a feature has some ambiguity built in. It&rsquo;s not an accident because</p>
+<p>like the human condition is a giant mess. And so it feels like nobody wants two robots like very</p>
+<p>precise formal logic conversation on a first date. There&rsquo;s some dance of uncertainty of wit,</p>
+<p>of humor, of push and pull and all that kind of stuff. If everything is made precise, then life</p>
+<p>is not worth living I think in terms of the human experience. And we&rsquo;ve all had this experience of</p>
+<p>creatively misunderstanding. One of my favorite stories involving Marvin Minsky is when I asked</p>
+<p>him about how he was able to turn out so many fantastic PhDs, so many fantastic people who</p>
+<p>did great PhD theses. How did he think of all these great ideas? What he said is he would</p>
+<p>generally say something that didn&rsquo;t exactly make sense. He didn&rsquo;t really know what it meant. But</p>
+<p>the student would figure like, oh my God, Minsky said this, it must be a great idea. And he&rsquo;d</p>
+<p>swear he or she would work on work and work until they found some meaning in this sort of Chauncey</p>
+<p>Gardner like utterance that Minsky had made. And then some great thesis would come out of it.</p>
+<p>Yeah. I love this so much because there&rsquo;s young people come up to me and I&rsquo;m distinctly made</p>
+<p>aware that the words I say have a long lasting impact. I will now start doing the Minsky method</p>
+<p>of saying something cryptically profound and then letting them actually make something useful</p>
+<p>and great out of that. You have to become revered enough that people will take as a default that</p>
+<p>everything you say is profound. Yes, exactly. Exactly. I love Marvin Minsky so much. I&rsquo;ve</p>
+<p>heard this interview with him where he said that the key to his success has been to hate everything</p>
+<p>he&rsquo;s ever done like in the past. He has so many good one liners or also to work on things that</p>
+<p>nobody else is working on because he&rsquo;s not very good at doing stuff. Oh, I think that was just</p>
+<p>false. Well, but see, I took whatever he said and I ran with it and I thought it was profound</p>
+<p>because it&rsquo;s Marvin Minsky. But a lot of behavior is in the eye of the beholder and a lot of the</p>
+<p>meaning is in the eye of the beholder. One of Minsky&rsquo;s early programs was begging program.</p>
+<p>Are you familiar with this? So this is back in the day when you had job control cards at the</p>
+<p>beginning of your IBM card deck that said things like how many CPU seconds to allow this to run</p>
+<p>before it got kicked off because computer time was enormously expensive. And so he wrote a program</p>
+<p>and all it did was it said, give me 30 seconds of CPU time. And all it did was it would wait like 20</p>
+<p>seconds and then it would print out on the operator&rsquo;s console teletype, I need another 20</p>
+<p>seconds. So the operator would give it another 20 seconds, it would wait, it says, I&rsquo;m almost done,</p>
+<p>I need a little bit more time. So at the end he&rsquo;d get this printout and he&rsquo;d be charged for like 10</p>
+<p>times as much computer time as his job control card. And he&rsquo;d say, look, I put 10 seconds,</p>
+<p>30 seconds here, you&rsquo;re charging me for five minutes, I&rsquo;m not going to pay for this. And</p>
+<p>the poor operator would say, well, the program kept asking for more time and Marvin would say,</p>
+<p>oh, it always does that. I love that. If you could just linger on it for a little bit,</p>
+<p>is there something you&rsquo;ve learned from your interaction with Marvin Minsky about artificial</p>
+<p>intelligence, about life? But I mean, he&rsquo;s, again, like your work, his work is, you know,</p>
+<p>he&rsquo;s a seminal figure in this very short history of artificial intelligence research and development.</p>
+<p>What have you learned from him as a human being, as an AI intellect?</p>
+<p>I would say both he and Ed Feigenbaum impressed on me the realization that our lives are finite,</p>
+<p>our research lives are finite. We&rsquo;re going to have limited opportunities to do AI research</p>
+<p>projects. So you should make each one count. Don&rsquo;t be afraid of doing a project that&rsquo;s going</p>
+<p>to take years or even decades. And don&rsquo;t settle for bump on a log projects that could lead to</p>
+<p>some published journal article that five people will read and pat you on the head for and so on.</p>
+<p>So one bump on a log after another is not how you get from the earth to the moon by slowly putting</p>
+<p>additional bumps on this log. The only way to get there is to think about the hard problems and think</p>
+<p>about novel solutions to them. And if you do that, and if you&rsquo;re willing to listen to nature,</p>
+<p>to empirical reality, willing to be wrong, it&rsquo;s perfectly fine because if occasionally you&rsquo;re</p>
+<p>right, then you&rsquo;ve gotten part of the way to the moon.</p>
+<p>You know, you&rsquo;ve worked on Psych for 37 over that many years. Have you ever considered quitting?</p>
+<p>I mean, has it been too much? So I&rsquo;m sure there&rsquo;s an optimism in the early days that this is going</p>
+<p>to be way easier. And let me ask you another way too, because I&rsquo;ve talked to a few people on this</p>
+<p>podcast, AI folks, that bring up Psych as an example of a project that has a beautiful vision and is a</p>
+<p>beautiful dream, but it never really materialized. That&rsquo;s how it&rsquo;s spoken about. I suppose you could</p>
+<p>say the same thing about neural networks and all ideas until they are. So why do you think people</p>
+<p>say that, first of all? And second of all, did you feel that ever throughout your journey? And did</p>
+<p>you ever consider quitting on this mission?</p>
+<p>We keep a very low profile. We don&rsquo;t attend very many conferences. We don&rsquo;t give talks. We don&rsquo;t</p>
+<p>write papers. We don&rsquo;t play the academic game at all. And as a result, people often only know about</p>
+<p>us because of a paper we wrote 10 or 20 or 30 or 37 years ago. They only know about us because of</p>
+<p>what someone else secondhand or thirdhand said about us.</p>
+<p>So thank you for doing this podcast, by the way. It shines a little bit of light on some of the</p>
+<p>fascinating stuff you&rsquo;re doing.</p>
+<p>Well, I think it&rsquo;s time for us to keep a higher profile now that we&rsquo;re far enough along that</p>
+<p>other people can begin to help us with the final N%. Maybe N is maybe 90%. But now that we&rsquo;ve</p>
+<p>gotten this knowledge pump primed, it&rsquo;s going to become very important for everyone to help if they</p>
+<p>are willing to, if they&rsquo;re interested in it. Retirees who have enormous amounts of time and</p>
+<p>would like to leave some kind of legacy to the world, people because of the pandemic who have</p>
+<p>more time at home or for one reason or another to be online and contribute. If we can raise</p>
+<p>awareness of how far our project has come and how close to being primed the knowledge pump is,</p>
+<p>then we can begin to harness this untapped amount of humanity. I&rsquo;m not really that concerned about</p>
+<p>professional colleagues opinions of our project. I&rsquo;m interested in getting as many people in the</p>
+<p>world as possible actively helping and contributing to get us from where we are to really covering all</p>
+<p>of human knowledge and different human opinion including contrasting opinion that&rsquo;s worth</p>
+<p>representing. So I think that&rsquo;s one reason. A, I don&rsquo;t think there was ever a time where I thought</p>
+<p>about quitting. There are times where I&rsquo;ve become depressed a little bit about how hard it is to get</p>
+<p>funding for the system. Occasionally there are AI winters and things like that. Occasionally there</p>
+<p>are AI what you might call summers where people have said, why in the world didn&rsquo;t you sell your</p>
+<p>company to company X for some large amount of money when you had the opportunity and so on.</p>
+<p>Company X here are like old companies maybe you&rsquo;ve never even heard of like Lycos or something like</p>
+<p>that. So the answer is that one reason we&rsquo;ve stayed a private company, we haven&rsquo;t gone public,</p>
+<p>one reason that we haven&rsquo;t gone out of our way to take investment dollars is because we want to</p>
+<p>have control over our future, over our state of being so that we can continue to do this until</p>
+<p>it&rsquo;s done and we&rsquo;re making progress and we&rsquo;re now so close to done that almost all of our work is</p>
+<p>commercial applications of our technology. So five years ago almost all of our money came from the</p>
+<p>government. Now virtually none of it comes from the government. Almost all of it is from companies</p>
+<p>that are actually using it for something, hospital chains using it for medical reasoning about</p>
+<p>patients and energy companies using it and various other manufacturers using it to reason about</p>
+<p>supply chains and things like that. So there&rsquo;s so many questions I want to ask. So one of the ways</p>
+<p>that people can help is by adding to the knowledge base and that&rsquo;s really basically anybody if the</p>
+<p>tooling is right. And the other way, I kind of want to ask you about your thoughts on this. So</p>
+<p>you&rsquo;ve had like you said in government and you had big clients, you had a lot of clients but most</p>
+<p>of it is shrouded in secrecy because of the nature of the relationship of the kind of things you&rsquo;re</p>
+<p>helping them with. So that&rsquo;s one way to operate and another way to operate is more in the open</p>
+<p>where it&rsquo;s more consumer facing. And so you know hence something like open cycle is born at some</p>
+<p>point or there&rsquo;s&hellip; No that&rsquo;s a misconception. Oh well this let&rsquo;s go there. So what is open</p>
+<p>cycle and how is it born? Two things I want to say and I want to say each of them before the other</p>
+<p>so it&rsquo;s going to be difficult. But we&rsquo;ll come back to open cycle in a minute. But one of the terms of</p>
+<p>our contracts with all of our customers and partners is knowledge you have that is genuinely</p>
+<p>proprietary to you. We will respect that, we&rsquo;ll make sure that it&rsquo;s marked as proprietary to you</p>
+<p>in the psych knowledge base. No one other than you will be able to see it if you don&rsquo;t want them to</p>
+<p>and it won&rsquo;t be used in inferences other than for you and so on. However, any knowledge which is</p>
+<p>necessary in building any applications for you and with you which is publicly available general</p>
+<p>human knowledge is not going to be proprietary. It&rsquo;s going to just become part of the normal psych</p>
+<p>knowledge base and it will be openly available to everyone who has access to psych. So that&rsquo;s</p>
+<p>an important constraint that we never went back on even when we got pushback from companies which</p>
+<p>we often did who wanted to claim that almost everything they were telling us was proprietary.</p>
+<p>So there&rsquo;s a line between very domain specific company specific stuff and the general knowledge</p>
+<p>that comes from that. Yes or if you imagine say it&rsquo;s an oil company there are things which they</p>
+<p>would expect any new petroleum engineer they hired to already know and it&rsquo;s not okay for them to</p>
+<p>consider that that is proprietary and there sometimes a company will say well we&rsquo;re the</p>
+<p>first ones to pay you to represent that in psych and our attitude is some polite form tough. The</p>
+<p>deal is this take it or leave it and in a few cases they&rsquo;ve left it and in most cases they&rsquo;ll</p>
+<p>see our point of view and take it because that&rsquo;s how we&rsquo;ve built the psych system by essentially</p>
+<p>tacking with the funding wins where people would fund a project and half of it would be general</p>
+<p>knowledge that would stay permanently as part of psych. So always with these partnerships it&rsquo;s not</p>
+<p>like a distraction from the main psych development. It&rsquo;s a small distraction. It&rsquo;s a small but it&rsquo;s</p>
+<p>not a complete one so you&rsquo;re adding to the knowledge base. Yes absolutely and we try to</p>
+<p>stay away from projects that would not have that property. So let me go back and talk about open</p>
+<p>psych for a second. So I&rsquo;ve had a lot of trouble expressing and convincing other AI researchers how</p>
+<p>important it is to use an expressive representation language like we do this higher order logic rather</p>
+<p>than just using some triple store knowledge graph type representation. And so as an attempt to show</p>
+<p>them why they needed something more we said oh well we&rsquo;ll represent this unimportant projection</p>
+<p>or shadow or subset of psych that just happens to be the simple binary relations, the relation</p>
+<p>argument one argument two triples and so on. And then you&rsquo;ll see how much more useful it is if you</p>
+<p>had the entire psych system. So it&rsquo;s all well and good to have the taxonomic relations between terms</p>
+<p>like person and night and sleep and bed and house and eyes and so on. But think about how much more</p>
+<p>useful it would be if you also had all the rules of thumb about those things like people sleep at</p>
+<p>night, they sleep lying down, they sleep with their eyes closed, they usually sleep in beds in</p>
+<p>our country, they sleep for hours at a time, they can be woken up, they don&rsquo;t like being woken up</p>
+<p>and so on and so on. So it&rsquo;s that massive amount of knowledge which is not part of open psych and</p>
+<p>we thought that all the researchers would then immediately say oh my god of course we need the</p>
+<p>other 90% that you&rsquo;re not giving us, let&rsquo;s partner and license psych so that we can use it in our</p>
+<p>research. But instead what people said is oh even the bit you&rsquo;ve released is so much better than</p>
+<p>anything we had, we&rsquo;ll just make do with this. And so if you look there are a lot of robotics</p>
+<p>companies today for example which use open psych as their fundamental ontology and in some sense</p>
+<p>the whole world missed the point of open psych and we were doing it to show people why that&rsquo;s</p>
+<p>not really what they wanted and too many people thought somehow that this was psych or that this</p>
+<p>was in fact good enough for them and they never even bothered coming to us to get access to the</p>
+<p>full psych. But there&rsquo;s two parts to open psych. So one is convincing people on the idea and the</p>
+<p>power of this general kind of representation of knowledge and the value that you hold in having</p>
+<p>acquired that knowledge and built it and continue to build it. And the other is the code base. This</p>
+<p>is the code side of it. So my sense of the code base that psych or psych is operating with, I mean</p>
+<p>it has the technical debt of the three decades plus right. This is the exact same problem that</p>
+<p>Google had to deal with with the early version of TensorFlow. It&rsquo;s still dealing with that. They had</p>
+<p>to basically break compatibility with the past several times and that&rsquo;s only over a period of</p>
+<p>a couple years. But they I think successfully opened up, it&rsquo;s very risky, very gutsy move to</p>
+<p>open up TensorFlow and then PyTorch on the Facebook side. And what you see is there&rsquo;s a</p>
+<p>magic place where you can find a community, where you could develop a community that builds on the</p>
+<p>system without taking away any of, not any, but most of the value. So most of the value that</p>
+<p>Google has is still a Google. Most of the value that Facebook has still Facebook even though some</p>
+<p>of this major machine learning tooling is released into the open. My question is not so much on the</p>
+<p>knowledge, which is also a big part of open psych, but all the different kinds of tooling. So there&rsquo;s</p>
+<p>the kind of, all the kinds of stuff you can do on the knowledge graph, knowledge base, whatever we</p>
+<p>call it. There&rsquo;s the inference engines. So there could be some, there probably are a bunch of</p>
+<p>proprietary stuff you want to kind of keep secret. And there&rsquo;s probably some stuff you can open up</p>
+<p>completely and then let the community build up enough community where they develop stuff on top</p>
+<p>of it. Yes, there will be those publications and academic work and all that kind of stuff. And also</p>
+<p>the tooling of adding to the knowledge base, right? Like developing, you know, there&rsquo;s incredible</p>
+<p>amount, like there&rsquo;s so many people that are just really good at this kind of stuff in the open</p>
+<p>source community. So my question for you is like, have you struggled with this kind of idea that</p>
+<p>you have so much value in your company already? You&rsquo;ve developed so many good things. You have</p>
+<p>clients that really value your relationships. And then there&rsquo;s this dormant giant open source</p>
+<p>community that as far as I know, you&rsquo;re not utilizing. There&rsquo;s so many things to say there,</p>
+<p>but there could be magic moments where the community builds up large enough to where the</p>
+<p>artificial intelligence field that is currently 99.9% machine learning is dominated by machine</p>
+<p>learning, has a face shift towards like, or at least in part towards more like what you might</p>
+<p>call symbolic AI. This whole place where psych is like at the center of, and then as you know,</p>
+<p>that requires a little bit leap of faith because you&rsquo;re now surfing and there&rsquo;ll be obviously</p>
+<p>competitors that will pop up and start making you nervous and all that kind of stuff. So do you think</p>
+<p>about the space of open sourcing some parts and not others, how to leverage the community,</p>
+<p>all those kinds of things? That&rsquo;s a good question. And I think you phrased it the right way,</p>
+<p>which is we&rsquo;re constantly struggling with the question of what to open source, what to make</p>
+<p>public, what to even publicly talk about. And there are enormous pluses and minuses to every</p>
+<p>alternative. And it&rsquo;s very much like negotiating a very treacherous path. Partly the analogy is</p>
+<p>like if you slip, you could make a fatal mistake, give away something which essentially kills you</p>
+<p>or fail to give away something which failing to give it away hurts you and so on. So it is a very</p>
+<p>tough, tough question. Usually what we have done with people who&rsquo;ve approached us to collaborate</p>
+<p>on research is to say we will make available to you the entire knowledge base and executable</p>
+<p>copies of all of the code, but only very, very limited source code access if you have some idea</p>
+<p>for how you might improve something or work with us on something. So let me also get back to one</p>
+<p>of the very, very first things we talked about here, which was separating the question of how</p>
+<p>could you get a computer to do this at all versus how could you get a computer to do this efficiently</p>
+<p>enough in real time. And so one of the early lessons we learned was that we had to separate</p>
+<p>the epistemological problem of what should the system know, separate that from the heuristic</p>
+<p>problem of how can the system reason efficiently with what it knows. And so instead of trying to</p>
+<p>pick one representation language which was the sweet spot or the best tradeoff point between</p>
+<p>expressiveness of the language and efficiency of the language, if you had to pick one,</p>
+<p>knowledge graphs would probably be, associative triples would probably be about the best you</p>
+<p>could do. And that&rsquo;s why we started there. But after a few years, we realized that what we could</p>
+<p>do is we could split this and we could have one nice, clean, epistemological level language,</p>
+<p>which is this higher order logic, and we could have one or more grubby but efficient heuristic</p>
+<p>level modules that opportunistically would say, oh, I can make progress on what you&rsquo;re trying to</p>
+<p>do over here. I have a special method that will contribute a little bit toward a solution.</p>
+<p>Of course, some subset of that knowledge.</p>
+<p>Exactly. So by now, we have over a thousand of these heuristic level modules, and they function</p>
+<p>as a kind of community of agents. And there&rsquo;s one of them, which is a general theorem prover. And in</p>
+<p>theory, that&rsquo;s the only one you need. But in practice, it always takes so long that you never</p>
+<p>want to call on it. You always want these other agents to very efficiently reason through it. It&rsquo;s</p>
+<p>sort of like if you&rsquo;re balancing a chemical equation. You could go back to first principles,</p>
+<p>but in fact, there are algorithms which are vastly more efficient. Or if you&rsquo;re trying to</p>
+<p>solve a quadratic equation, you could go back to first principles of mathematics. But it&rsquo;s much</p>
+<p>better to simply recognize that this is a quadratic equation and apply the binomial formula and snap,</p>
+<p>you get your answer right away and so on. So think of these as like a thousand little experts</p>
+<p>that are all looking at everything the site gets asked and looking at everything that every other</p>
+<p>little agent has contributed, almost like notes on a blackboard, notes on a whiteboard, and making</p>
+<p>additional notes when they think they can be helpful. And gradually, that community of agents</p>
+<p>gets an answer to your question, gets a solution to your problem. And if we ever come up in a domain</p>
+<p>application where Psych is getting the right answer but taking too long, then what we&rsquo;ll often</p>
+<p>do is talk to one of the human experts and say, here&rsquo;s the set of reasoning steps that Psych went</p>
+<p>through. You can see why it took it a long time to get the answer. How is it that you were able</p>
+<p>to answer that question in two seconds? And occasionally, you&rsquo;ll get an expert who just</p>
+<p>says, well, I just know it. I just was able to do it or something. And then you don&rsquo;t talk to them</p>
+<p>anymore. But sometimes you&rsquo;ll get an expert who says, well, let me introspect on that. Yes,</p>
+<p>here is a special representation we use just for aqueous chemistry equations, or here&rsquo;s a special</p>
+<p>representation and a special technique, which we can now apply to things in this special</p>
+<p>representation and so on. And then you add that as the 1001st HL heuristic level module. And from</p>
+<p>then on, in any application, if it ever comes up again, it&rsquo;ll be able to contribute and so on. So</p>
+<p>that&rsquo;s pretty much one of the main ways in which Psych has recouped this loss deficiency. A second</p>
+<p>important way is meta reasoning. So you can speed things up by focusing on removing knowledge from</p>
+<p>the system till all it has left is minimal knowledge needed. But that&rsquo;s the wrong thing to</p>
+<p>do, right? That would be like in a human extirpating part of their brain or something. That&rsquo;s really</p>
+<p>bad. So instead, what you want to do is give it meta level advice, tactical and strategic advice,</p>
+<p>that enables it to reason about what kind of knowledge is going to be relevant to this problem,</p>
+<p>what kind of tactics are going to be good to take in trying to attack this problem. When is it time</p>
+<p>to start trying to prove the negation of this thing, because I&rsquo;m knocking myself out trying to</p>
+<p>prove it&rsquo;s true, and maybe it&rsquo;s false. And if I just spend a minute, I can see that it&rsquo;s false</p>
+<p>or something. So it&rsquo;s like dynamically pruning the graph to only like, based on the particular</p>
+<p>thing you&rsquo;re trying to infer. Yes. And so by now, we have about 150 of these sort of like</p>
+<p>breakthrough ideas that have led to dramatic speed ups in the inference process, where one</p>
+<p>of them was this ELHL split and lots of HL modules. Another one was using meta and meta</p>
+<p>level reasoning to reason about the reasoning that&rsquo;s going on and so on. And 150 breakthroughs</p>
+<p>may sound like a lot, but if you divide by 37 years, it&rsquo;s not as impressive.</p>
+<p>So there&rsquo;s these kind of heuristic modules that really help improve the inference. How hard,</p>
+<p>in general, is this? Because you mentioned higher order logic. In the general theorem prover sense,</p>
+<p>it&rsquo;s intractable, very difficult problem. Yes. So how hard is this inference problem when we&rsquo;re not</p>
+<p>talking about if we let go of the perfect and focus on the good? I would say it&rsquo;s half of the</p>
+<p>problem in the following empirical sense, which is over the years, about half of our effort,</p>
+<p>maybe 40% of our effort has been our team of inference programmers. And the other 50,</p>
+<p>60% has been our ontologists or ontological engineers putting in knowledge. So our ontological</p>
+<p>engineers in most cases don&rsquo;t even know how to program. They have degrees in things like</p>
+<p>philosophy and so on. So it&rsquo;s almost like the&hellip; I love that. I love to hang out with</p>
+<p>those people actually. Oh yes, it&rsquo;s wonderful. But it&rsquo;s very much like the Eloy and the Morlocks</p>
+<p>in H.G. Wells Time Machine. So you have the Eloy who only program in the epistemological higher</p>
+<p>order logic language. And then you have the Morlocks who are under the ground figuring</p>
+<p>out what the machinery is that will make this efficiently operate and so on. And so, you know,</p>
+<p>occasionally they&rsquo;ll toss messages back to each other and so on. But it really is almost this</p>
+<p>50 50 split between finding clever ways to recoup efficiency when you have an expressive language</p>
+<p>and putting in the content of what the system needs to know. And yeah, both are fascinating.</p>
+<p>To some degree, the entirety of the system, as far as I understand, is written in various variants</p>
+<p>of Lisp. So my favorite program language is still Lisp. I don&rsquo;t program in it much anymore because,</p>
+<p>you know, the world has in majority of its system has moved on. Like everybody respects Lisp,</p>
+<p>but many of the systems are not written in Lisp anymore. But Syke, as far as I understand,</p>
+<p>maybe you can correct me, there&rsquo;s a bunch of Lisp in it. Yeah. So it&rsquo;s based on Lisp code that we</p>
+<p>produced. Most of the programming is still going on in a dialect of Lisp. And then for efficiency</p>
+<p>reasons, that gets automatically translated into things like Java or C. Nowadays, it&rsquo;s almost all</p>
+<p>translated into Java because Java has gotten good enough that that&rsquo;s really all we need to do.</p>
+<p>So it&rsquo;s translated into Java, and then Java is compiled down to bytecode.</p>
+<p>Yes.</p>
+<p>Okay, so that&rsquo;s sort of that&rsquo;s a that that that&rsquo;s a, you know, it&rsquo;s a process that probably has to</p>
+<p>do with the fact that when Syke was originally written, and you build up a powerful system,</p>
+<p>like there is some technical depth you have to deal with, as is the case with most powerful</p>
+<p>systems that span years. Have you ever considered this, this would help me understand, because my</p>
+<p>perspective, so much of the value of everything you&rsquo;ve done with Syke and Cycorp is the is the</p>
+<p>is the knowledge. Have you ever considered just like throwing away the code base and starting</p>
+<p>from scratch, not really throwing away, but sort of moving it to like throwing away that technical</p>
+<p>debt, starting with a more updated programming language? Is that throwing away a lot of value</p>
+<p>or no? Like, what&rsquo;s your sense? How much of the value is in the silly software engineering aspect,</p>
+<p>and how much of the value is in the knowledge?</p>
+<p>So development of programs in Lisp proceeds, I think, somewhere between a thousand and fifty</p>
+<p>thousand times faster than development in any of what you&rsquo;re calling modern or improved computer</p>
+<p>languages.</p>
+<p>Well, there&rsquo;s other functional languages like, you know, Clojure and all that. But I mean,</p>
+<p>I&rsquo;m with you. I like Lisp. I just wonder how many great programmers there are. There&rsquo;s still like&hellip;</p>
+<p>Yes. So it is true when a new inference programmer comes on board, they need to learn some of Lisp.</p>
+<p>And in fact, we have a subset of Lisp, which we call cleverly Sub L, which is really all they</p>
+<p>need to learn. And so the programming actually goes on in Sub L, not in full Lisp. And so it</p>
+<p>does not take programmers very long at all to learn Sub L. And that&rsquo;s something which can then</p>
+<p>be translated efficiently into Java. And for some of our programmers who are doing, say,</p>
+<p>user interface work, then they never have to even learn Sub L. They just have to learn APIs into the</p>
+<p>basic psych engine.</p>
+<p>So you&rsquo;re not necessarily feeling the burden of like, it&rsquo;s extremely efficient. That&rsquo;s not a</p>
+<p>problem to solve. Okay.</p>
+<p>Right. The other thing is, remember that we&rsquo;re talking about hiring programmers to do inference,</p>
+<p>who are programmers interested in effectively automatic theorem proving. And so those are</p>
+<p>people already predisposed to representing things in logic and so on. And Lisp really was the</p>
+<p>programming language based on logic that John McCarthy and others who developed it basically</p>
+<p>took the formalisms that Alonzo Church and other philosophers, other logicians, had come up with</p>
+<p>and basically said, can we basically make a programming language which is effectively logic?</p>
+<p>And so since we&rsquo;re talking about reasoning about expressions written in this epistemological</p>
+<p>language and we&rsquo;re doing operations which are effectively like theorem proving type</p>
+<p>operations and so on, there&rsquo;s a natural impedance match between Lisp and the knowledge, the</p>
+<p>way it&rsquo;s represented.</p>
+<p>So I guess you could say it&rsquo;s a perfectly logical language to use.</p>
+<p>Oh, yes.</p>
+<p>Okay, I&rsquo;m sorry.</p>
+<p>I&rsquo;ll even let you get away with that.</p>
+<p>Okay, thank you. I appreciate it.</p>
+<p>So I&rsquo;ll probably use that in the future without credit.</p>
+<p>But no, I think the point is that the language you program in isn&rsquo;t really that important.</p>
+<p>It&rsquo;s more that you have to be able to think in terms of, for instance, creating new helpful</p>
+<p>HL modules and how they&rsquo;ll work with each other and looking at things that are taking</p>
+<p>a long time and coming up with new specialized data structures that will make this efficient.</p>
+<p>So let me just give you one very simple example, which is when you have a transitive relation</p>
+<p>like larger than, this is larger than that, which is larger than that, which is larger</p>
+<p>than that.</p>
+<p>So the first thing must be larger than the last thing.</p>
+<p>Whenever you have a transitive relation, if you&rsquo;re not careful, if I ask whether this</p>
+<p>thing over here is larger than the thing over here, I&rsquo;ll have to do some kind of graph walk</p>
+<p>or theorem proving that might involve like five or 10 or 20 or 30 steps.</p>
+<p>But if you store, redundantly store the transitive closure, the cleanly star of that transitive</p>
+<p>relation, now you have this big table.</p>
+<p>But you can always guarantee that in one single step, you can just look up whether this is</p>
+<p>larger than that.</p>
+<p>And so there are lots of cases where storage is cheap today.</p>
+<p>And so by having this extra redundant data structure, we can answer this commonly occurring</p>
+<p>type of question very, very efficiently.</p>
+<p>Let me give you one other analogy, analog of that, which is something we call rule macro</p>
+<p>predicates, which is we&rsquo;ll see this complicated rule and we&rsquo;ll notice that things very much</p>
+<p>like it syntactically come up again and again and again.</p>
+<p>So we&rsquo;ll create a whole brand new relation or predicate or function that captures that</p>
+<p>and takes maybe not two arguments, takes maybe three, four or five arguments and so on.</p>
+<p>And now we have effectively converted some complicated if then rule that might have to</p>
+<p>have inference done on it into some ground atomic formula, which is just the name of</p>
+<p>a relation and a few arguments and so on.</p>
+<p>And so converting commonly occurring types or schemas of rules into brand new predicates,</p>
+<p>brand new functions, turns out to enormously speed up the inference process.</p>
+<p>So now we&rsquo;ve covered about four of the 150 good ideas I said.</p>
+<p>So that idea in particular is like a nice compression that turns out to be really useful.</p>
+<p>That&rsquo;s really interesting.</p>
+<p>I mean, this whole thing is just fascinating from a philosophical.</p>
+<p>There&rsquo;s part of me, I mean, it makes me a little bit sad because your work is both from</p>
+<p>a computer science perspective fascinating and the inference engine from a epistemological</p>
+<p>philosophical aspect fascinating, but you know, it is also you&rsquo;re running a company</p>
+<p>and there&rsquo;s some stuff that has to remain private and it&rsquo;s sad.</p>
+<p>Well here&rsquo;s something that may make you feel better, a little bit better.</p>
+<p>We&rsquo;ve formed a not for profit company called the Knowledge Axe Immunization Institute,</p>
+<p>NAX, KNAX.</p>
+<p>And I have this firm belief with a lot of empirical evidence to support it that the</p>
+<p>education that people get in high schools, in colleges, in graduate schools and so on</p>
+<p>is almost completely orthogonal to, almost completely irrelevant to how good they&rsquo;re</p>
+<p>going to be at coming up to speed in doing this kind of ontological engineering and writing</p>
+<p>these assertions and rules and so on in psych.</p>
+<p>And so very often we&rsquo;ll interview candidates who have their PhD in philosophy, who&rsquo;ve</p>
+<p>taught logic for years and so on, and they&rsquo;re just awful.</p>
+<p>But the converse is true.</p>
+<p>So one of the best ontological engineers we ever had never graduated high school.</p>
+<p>And so the purpose of Knowledge Axe Immunization Institute, if we can get some foundations</p>
+<p>to help support it is identify people in the general population, maybe high school dropouts,</p>
+<p>who have latent talent for this sort of thing, offer them effectively scholarships to train</p>
+<p>them and then help place them in companies that need more trained ontological engineers,</p>
+<p>some of which would be working for us, but mostly would be working for partners or customers</p>
+<p>or something.</p>
+<p>And if we could do that, that would create an enormous number of relatively very high</p>
+<p>paying jobs for people who currently have no way out of some situation that they&rsquo;re</p>
+<p>locked into.</p>
+<p>So is there something you can put into words that describes somebody who would be great</p>
+<p>at ontological engineering?</p>
+<p>So what characteristics about a person make them great at this task, this task of converting</p>
+<p>the messiness of human language and knowledge into formal logic?</p>
+<p>This is very much like what Alan Turing had to do during World War II in trying to find</p>
+<p>people to bring to Bletchley Park, where he would publish in the London Times cryptic</p>
+<p>crossword puzzles along with some innocuous looking note, which essentially said, if you</p>
+<p>were able to solve this puzzle in less than 15 minutes, please call this phone number</p>
+<p>and so on.</p>
+<p>Or back when I was young, there was the practice of having matchbooks, where on the inside</p>
+<p>of the matchbook, there would be a, can you draw this?</p>
+<p>You have a career in art, commercial art, if you can copy this drawing and so on.</p>
+<p>So yes, the analog of that.</p>
+<p>Is there a little test to get to the core of whether you&rsquo;re going to be good or not?</p>
+<p>So part of it has to do with being able to make and appreciate and react negatively appropriately</p>
+<p>to puns and other jokes.</p>
+<p>So you have to have a kind of sense of humor.</p>
+<p>And if you&rsquo;re good at telling jokes and good at understanding jokes, that&rsquo;s one</p>
+<p>indicator.</p>
+<p>Like puns?</p>
+<p>Yes.</p>
+<p>Like dad jokes?</p>
+<p>Yes.</p>
+<p>Well, maybe not dad jokes, but funny jokes.</p>
+<p>I think I&rsquo;m applying to work at SACOR.</p>
+<p>Another is if you&rsquo;re able to introspect.</p>
+<p>So very often, we&rsquo;ll give someone a simple question and we&rsquo;ll say like, why is this?</p>
+<p>And sometimes they&rsquo;ll just say, because it is, okay, that&rsquo;s a bad sign.</p>
+<p>But very often, they&rsquo;ll be able to introspect and so on.</p>
+<p>So one of the questions I often ask is I&rsquo;ll point to a sentence with a pronoun in it and</p>
+<p>I&rsquo;ll say, the referent of that pronoun is obviously this noun over here.</p>
+<p>How would you or I or an AI or a five year old, 10 year old child know that that pronoun</p>
+<p>refers to that noun over here?</p>
+<p>And often the people who are going to be good at ontological engineering will give me some</p>
+<p>causal explanation or will refer to some things that are true in the world.</p>
+<p>So if you imagine a sentence like, the horse was led into the barn while its head was still</p>
+<p>wet.</p>
+<p>And so its head refers to the horse&rsquo;s head.</p>
+<p>But how do you know that?</p>
+<p>And so some people will say, I just know it.</p>
+<p>Some people will say, well, the horse was the subject of the sentence.</p>
+<p>And I&rsquo;ll say, okay, well, what about the horse was led into the barn while its roof was still</p>
+<p>wet?</p>
+<p>Now, its roof obviously refers to the barn.</p>
+<p>And so then they&rsquo;ll say, oh, well, that&rsquo;s because it&rsquo;s the closest noun.</p>
+<p>And so basically, if they try to give me answers which are based on syntax and grammar and</p>
+<p>so on, that&rsquo;s a really bad sign.</p>
+<p>But if they&rsquo;re able to say things like, well, horses have heads and barns don&rsquo;t and barns</p>
+<p>have roofs and horses don&rsquo;t, then that&rsquo;s a positive sign that they&rsquo;re going to be good</p>
+<p>at this because they can introspect on what&rsquo;s true in the world that leads you to know certain</p>
+<p>things.</p>
+<p>How fascinating is it that getting a Ph.D. makes you less capable to introspect deeply</p>
+<p>about this?</p>
+<p>Oh, I wouldn&rsquo;t go that far.</p>
+<p>I&rsquo;m not saying that it makes you less capable.</p>
+<p>Let&rsquo;s just say it&rsquo;s independent of how good people are.</p>
+<p>You&rsquo;re not saying that.</p>
+<p>I&rsquo;m saying that.</p>
+<p>It&rsquo;s interesting that for a lot of people, Ph.D.s, sorry, philosophy aside, that sometimes</p>
+<p>education narrows your thinking versus expands it.</p>
+<p>It&rsquo;s kind of fascinating.</p>
+<p>And for certain when you&rsquo;re trying to do ontological engineering, which is essentially teach our</p>
+<p>future AI overlords how to reason deeply about this world and how to understand it, that</p>
+<p>requires that you think deeply about the world.</p>
+<p>So I&rsquo;ll tell you a sad story about mathcraft, which is why is that not widely used in schools</p>
+<p>today?</p>
+<p>We&rsquo;re not really trying to make big profit on it or anything like that.</p>
+<p>When we&rsquo;ve gone to schools, their attitude has been, well, if a student spends 20 hours</p>
+<p>going through this mathcraft program from start to end and so on, will it improve their</p>
+<p>score on this standardized test more than if they spent 20 hours just doing mindless</p>
+<p>drills of problem after problem after problem?</p>
+<p>And the answer is, well, no, but it&rsquo;ll increase their understanding more.</p>
+<p>And their attitude is, well, if it doesn&rsquo;t increase their score on this test, then we&rsquo;re</p>
+<p>not going to adopt it.</p>
+<p>That&rsquo;s sad.</p>
+<p>I mean, that&rsquo;s a whole another three, four hour conversation about the education system.</p>
+<p>But let me ask you, let me go super philosophical, as if we weren&rsquo;t already.</p>
+<p>So in 1950, Alan Turing wrote the paper that formulated the Turing test.</p>
+<p>Yes.</p>
+<p>And he opened the paper with the question, can machines think?</p>
+<p>So what do you think?</p>
+<p>Can machines think?</p>
+<p>Let me ask you this question.</p>
+<p>Absolutely.</p>
+<p>Machines can think, certainly as well as humans can think, right?</p>
+<p>We&rsquo;re meat machines just because they&rsquo;re not currently made out of meat is just an engineering</p>
+<p>solution decision and so on.</p>
+<p>So of course machines can think.</p>
+<p>I think that there was a lot of damage done by people misunderstanding Turing&rsquo;s imitation</p>
+<p>game and focus on trying to get a chat bot to fool other people into thinking it was</p>
+<p>human and so on.</p>
+<p>That&rsquo;s not a terrible test in and of itself, but it shouldn&rsquo;t be your one and only test</p>
+<p>for intelligence.</p>
+<p>In terms of tests of intelligence, you know, with the Lobner Prize, which is a very kind</p>
+<p>of, you want to say a more strict formulation of the Turing test as originally formulated.</p>
+<p>And then there&rsquo;s something like Alexa Prize, which is more, I would say a more interesting</p>
+<p>formulation of the test, which is like, ultimately the metric is how long does a human want to</p>
+<p>talk to the AI system?</p>
+<p>So it&rsquo;s like if the goal is you want it to be 20 minutes, it&rsquo;s basically not just have</p>
+<p>a convincing conversation, but more like a compelling one or a fun one or an interesting</p>
+<p>one.</p>
+<p>And that seems like more to the spirit maybe of what Turing was imagining.</p>
+<p>But what for you do you think in the space of tests is a good test?</p>
+<p>When you see a system based on psych that passes that test, you&rsquo;d be like, damn, we&rsquo;ve</p>
+<p>created something special here.</p>
+<p>The test has to be something involving depth of reasoning and recursiveness of reasoning,</p>
+<p>the ability to answer repeated why questions about the answer you just gave.</p>
+<p>How many why questions in a row can you keep answering?</p>
+<p>Something like that.</p>
+<p>Just have like a young curious child and an AI system and how long will an AI system last</p>
+<p>before it wants to quit?</p>
+<p>Yes.</p>
+<p>And again, that&rsquo;s not the only test.</p>
+<p>Another one has to do with argumentation.</p>
+<p>In other words, here&rsquo;s a proposition, come up with pro and con arguments for it and try</p>
+<p>and give me convincing arguments on both sides.</p>
+<p>And so that&rsquo;s another important kind of ability that the system needs to be able to exhibit</p>
+<p>in order to really be intelligent, I think.</p>
+<p>So there&rsquo;s certain, I mean, if you look at IBM Watson and like certain impressive accomplishments</p>
+<p>for very specific tests, almost like a demo, right?</p>
+<p>There&rsquo;s some, like I talked to the guy who led the Jeopardy effort, and there&rsquo;s some</p>
+<p>kind of hard coding heuristics tricks that you try to pull it all together to make the</p>
+<p>thing work in the end for this thing, right?</p>
+<p>That seems to be one of the lessons with AI is like, that&rsquo;s the fastest way to get a solution</p>
+<p>that&rsquo;s pretty damn impressive.</p>
+<p>So here&rsquo;s what I would say is that as impressive as that was, it made some mistakes, but more</p>
+<p>importantly, many of the mistakes it made were mistakes which no human would have made.</p>
+<p>And so part of the new or augmented Turing tests would have to be, and the mistakes you</p>
+<p>make are ones which humans don&rsquo;t basically look at and say, what?</p>
+<p>So for example, there was a question about which 16th century Italian politician, blah,</p>
+<p>blah, blah, and Watson said Ronald Reagan.</p>
+<p>So most Americans would have gotten that question wrong, but they would never have said Ronald</p>
+<p>Reagan as an answer because among the things they know is that he lived relatively recently</p>
+<p>and people don&rsquo;t really live 400 years and things like that.</p>
+<p>So that&rsquo;s, I think, a very important thing, which is if it&rsquo;s making mistakes which no</p>
+<p>normal sane human would have made, then that&rsquo;s a really bad sign.</p>
+<p>And if it&rsquo;s not making those kinds of mistakes, then that&rsquo;s a good sign.</p>
+<p>And I don&rsquo;t think it&rsquo;s any one very, very simple test.</p>
+<p>I think it&rsquo;s all of the things you mentioned, all the things I mentioned is really a battery</p>
+<p>of tests, which together, if it passes almost all of these tests, it&rsquo;d be hard to argue</p>
+<p>that it&rsquo;s not intelligent.</p>
+<p>And if it fails several of these tests, it&rsquo;s really hard to argue that it really understands</p>
+<p>what it&rsquo;s doing and that it really is generally intelligent.</p>
+<p>So to pass all of those tests, we&rsquo;ve talked a lot about psych and knowledge and reasoning.</p>
+<p>Do you think this AI system would need to have some other human like elements, for example,</p>
+<p>a body or a physical manifestation in this world?</p>
+<p>And another one which seems to be fundamental to the human experience is consciousness.</p>
+<p>The subjective experience of what it&rsquo;s like to actually be you.</p>
+<p>Do you think it needs those to be able to pass all of those tests and to achieve general</p>
+<p>intelligence?</p>
+<p>It&rsquo;s a good question.</p>
+<p>I think in the case of a body, no, I know there are a lot of people like Penrose who</p>
+<p>would have disagreed with me and others, but no, I don&rsquo;t think it needs to have a body</p>
+<p>in order to be intelligent.</p>
+<p>I think that it needs to be able to talk about having a body and having sensations and having</p>
+<p>emotions and so on.</p>
+<p>It doesn&rsquo;t actually have to have all of that, but it has to understand it in the same way</p>
+<p>that Helen Keller was perfectly intelligent and able to talk about colors and sounds and</p>
+<p>shapes and so on, even though she didn&rsquo;t directly experience all the same things that the rest</p>
+<p>of us do.</p>
+<p>So knowledge of it and being able to correctly make use of that is certainly an important</p>
+<p>facility, but actually having a body, if you believe that that&rsquo;s just a kind of religious</p>
+<p>or mystical belief, you can&rsquo;t really argue for or against it, I suppose.</p>
+<p>It&rsquo;s just something that some people believe.</p>
+<p>What about an extension of the body, which is consciousness?</p>
+<p>It feels like something to be here.</p>
+<p>Sure.</p>
+<p>But what does that really mean?</p>
+<p>It&rsquo;s like, well, if I talk to you, you say things which make me believe that you&rsquo;re conscious.</p>
+<p>I know that I&rsquo;m conscious, but you&rsquo;re just taking my word for it now.</p>
+<p>But in the same sense, psych is conscious in that same sense already, where of course</p>
+<p>it&rsquo;s a computer program, it understands where and when it&rsquo;s running, it understands who&rsquo;s</p>
+<p>talking to it, it understands what its task is, what its goals are, what its current problem</p>
+<p>is that it&rsquo;s working on, it understands how long it&rsquo;s spent on things, what it&rsquo;s tried,</p>
+<p>it understands what it&rsquo;s done in the past, and so on.</p>
+<p>If we want to call that consciousness, then yes, psych is already conscious.</p>
+<p>But I don&rsquo;t think that I would ascribe anything mystical to that.</p>
+<p>Again, some people would, but I would say that other than our own personal experience</p>
+<p>of consciousness, we&rsquo;re just treating everyone else in the world, so to speak, at their word</p>
+<p>about being conscious.</p>
+<p>And so if a computer program, if an AI is able to exhibit all the same kinds of response</p>
+<p>as you would expect of a conscious entity, then doesn&rsquo;t it deserve the label of consciousness</p>
+<p>just as much?</p>
+<p>So there&rsquo;s another burden that comes with this whole intelligence thing that humans</p>
+<p>got is the extinguishing of the light of consciousness, which is kind of realizing that we&rsquo;re going</p>
+<p>to be dead someday.</p>
+<p>And there&rsquo;s a bunch of philosophers like Ernest Becker, who kind of think that this realization</p>
+<p>of mortality, and then fear, sometimes they call it terror of mortality, is one of the</p>
+<p>creative forces behind human condition, like, it&rsquo;s the thing that drives us.</p>
+<p>Do you think it&rsquo;s important for an AI system?</p>
+<p>You know, when Psych proposed that it&rsquo;s not human, and it&rsquo;s one of the moderators of</p>
+<p>his contents, you know, there&rsquo;s another question it could ask, which is like, it kind of knows</p>
+<p>that humans are mortal, am I mortal?</p>
+<p>And I think one really important thing that&rsquo;s possible when you&rsquo;re conscious is to fear</p>
+<p>the extinguishing of that consciousness, the fear of mortality.</p>
+<p>Do you think that&rsquo;s useful for intelligence, thinking like, I might die, and I really don&rsquo;t</p>
+<p>want to die?</p>
+<p>I don&rsquo;t think so.</p>
+<p>I think it may help some humans to be better people.</p>
+<p>It may help some humans to be more creative, and so on.</p>
+<p>I don&rsquo;t think it&rsquo;s necessary for AIs to believe that they have limited lifespans, and therefore</p>
+<p>they should make the most of their behavior.</p>
+<p>Maybe eventually the answer to that and my answer to that will change, but as of now</p>
+<p>I would say that that&rsquo;s almost like a frill or a side effect that is not, in fact, if</p>
+<p>you look at most humans, most humans ignore the fact that they&rsquo;re going to die most of</p>
+<p>the time.</p>
+<p>Well, but that&rsquo;s like, this goes to the white space between the words.</p>
+<p>So what Ernest Becker argues is that that ignoring is we&rsquo;re living in an illusion that</p>
+<p>we constructed on the foundation of this terror.</p>
+<p>So we&rsquo;re escape life as we know it, pursuing things, creating things, love, everything</p>
+<p>we can think of that&rsquo;s beautiful about humanity is just trying to escape this realization</p>
+<p>that we&rsquo;re going to die one day.</p>
+<p>That&rsquo;s his idea, and I think, I don&rsquo;t know if I 100% believe in this, but it certainly</p>
+<p>rhymes.</p>
+<p>It seems like to me like it rhymes with the truth.</p>
+<p>Yeah.</p>
+<p>I think that for some people that&rsquo;s going to be a more powerful factor than others.</p>
+<p>Clearly Doug is talking about Russians.</p>
+<p>So I&rsquo;m Russian, so clearly it infiltrates all of Russian literature.</p>
+<p>And AI doesn&rsquo;t have to have fear of death as a motivating force in that we can build</p>
+<p>in motivation.</p>
+<p>So we can build in the motivation of obeying users and making users happy and making others</p>
+<p>happy and so on, and that can substitute for this sort of personal fear of death that sometimes</p>
+<p>leads to bursts of creativity in humans.</p>
+<p>Yeah, I don&rsquo;t know.</p>
+<p>I think AI really needs to understand death deeply in order to be able to drive a car,</p>
+<p>for example.</p>
+<p>I think there&rsquo;s just some, like, there&hellip;</p>
+<p>No, I really disagree.</p>
+<p>I think it needs to understand the value of human life, especially the value of human</p>
+<p>life to other humans, and understand that certain things are more important than other</p>
+<p>things.</p>
+<p>So it has to have a lot of knowledge about ethics and morality and so on.</p>
+<p>But some of it is so messy that it&rsquo;s impossible to encode.</p>
+<p>For example, there&rsquo;s&hellip;</p>
+<p>I disagree.</p>
+<p>So if there&rsquo;s a person dying right in front of us, most human beings would help that person,</p>
+<p>but they would not apply that same ethics to everybody else in the world.</p>
+<p>This is the tragedy of how difficult it is to be a doctor, because they know when they</p>
+<p>help a dying child, they know that the money they&rsquo;re spending on this child cannot possibly</p>
+<p>be spent on every other child that&rsquo;s dying.</p>
+<p>And that&rsquo;s a very difficult to encode decision.</p>
+<p>Perhaps it is&hellip;</p>
+<p>Perhaps it could be formalized.</p>
+<p>Oh, but I mean, you&rsquo;re talking about autonomous vehicles, right?</p>
+<p>So autonomous vehicles are going to have to make those decisions all the time of, what</p>
+<p>is the chance of this bad event happening?</p>
+<p>How bad is that compared to this chance of that bad event happening?</p>
+<p>And so on.</p>
+<p>And when a potential accident is about to happen, is it worth taking this risk?</p>
+<p>If I have to make a choice, which of these two cars am I going to hit and why?</p>
+<p>See, I was thinking about a very different choice when I&rsquo;m talking about hero mortality,</p>
+<p>which is just observing Manhattan style driving.</p>
+<p>I think that humans as an effective driver needs to threaten pedestrians lives a lot.</p>
+<p>There&rsquo;s a dance, I&rsquo;ve watched pedestrians a lot, I worked on this problem, and it seems</p>
+<p>like the, if I could summarize the problem of a pedestrian crossing is the car with this</p>
+<p>movement is saying, I&rsquo;m going to kill you.</p>
+<p>And the pedestrian is saying, maybe.</p>
+<p>And then they decide and they say, no, I don&rsquo;t think you have the guts to kill me.</p>
+<p>And you walk and they walk in front and they look away.</p>
+<p>And there&rsquo;s that dance, the pedestrian, this is a social contract that the pedestrian trusts</p>
+<p>that once they&rsquo;re in front of the car and the car is sufficiently, from a physics perspective,</p>
+<p>able to stop, they&rsquo;re going to stop.</p>
+<p>But the car also has to threaten that pedestrian is like, I&rsquo;m late for work, so you&rsquo;re being</p>
+<p>kind of an asshole by crossing in front of me.</p>
+<p>But life and death is in like, it&rsquo;s part of the calculation here.</p>
+<p>And it&rsquo;s that equation is being solved millions of times a day.</p>
+<p>Yes.</p>
+<p>Very effectively, that game theory, whatever that formulation is.</p>
+<p>Absolutely.</p>
+<p>I just I don&rsquo;t know if it&rsquo;s as simple as some formalizable game theory problem.</p>
+<p>It could very well be in the case of driving and in the case of most of human society.</p>
+<p>I don&rsquo;t know.</p>
+<p>But yeah, you might be right that sort of the fear of death is just one of the quirks</p>
+<p>of like the way our brains have evolved, but it&rsquo;s not a necessary feature of intelligence.</p>
+<p>Others certainly are always doing this kind of estimate, even if it&rsquo;s unconscious, subconscious,</p>
+<p>of what are the chances of various bad outcomes happening?</p>
+<p>Like for instance, if I don&rsquo;t wait for this pedestrian or something like that, and what</p>
+<p>is the downside to me going to be in terms of time wasted talking to the police or getting</p>
+<p>sent to jail or things like that?</p>
+<p>And there&rsquo;s also emotion, like people in their cars tend to get irrationally angry.</p>
+<p>That&rsquo;s dangerous.</p>
+<p>But, you know, think about this is all part of why I think that autonomous vehicles, truly</p>
+<p>autonomous vehicles are farther out than most people do, because there is this enormous</p>
+<p>level of complexity which goes beyond mechanically controlling the car.</p>
+<p>And I can see the autonomous vehicles as a kind of metaphorical and literal accident</p>
+<p>waiting to happen.</p>
+<p>And not just because of their overall incurring versus preventing accidents and so on, but</p>
+<p>just because of the almost voracious appetite people have for bad stories about powerful</p>
+<p>companies and powerful entities.</p>
+<p>When I was at a, coincidentally, Japanese fifth generation computing system conference</p>
+<p>in 1987, while I happened to be there, there was a worker at an auto plant who was despondent</p>
+<p>and committed suicide by climbing under the safety chains and so on and getting stamped</p>
+<p>to death by a machine.</p>
+<p>And instead of being a small story that said despondent worker commit suicide, it was front</p>
+<p>page news that effectively said robot kills worker, because the public is just waiting</p>
+<p>for stories about like AI kills phonogenic family of five type stories.</p>
+<p>And even if you could show that nationwide, this system saved more lives than it cost</p>
+<p>and prevented more injuries than it caused and so on, the media, the public, the government</p>
+<p>is just coiled and ready to pounce on stories where in fact it failed, even if they&rsquo;re relatively</p>
+<p>few.</p>
+<p>Yeah, it&rsquo;s so fascinating to watch us humans resisting the cutting edge of science and</p>
+<p>technology and almost like hoping for it to fail and constant, you know, this just happens</p>
+<p>over and over and over throughout history.</p>
+<p>Or even if we&rsquo;re not hoping for it to fail, we&rsquo;re fascinated by it.</p>
+<p>And in terms of what we find interesting, the one in a thousand failures, much more</p>
+<p>interesting than the 999 boring successes.</p>
+<p>So once we build an AGI system, say psych is some part of it and say it&rsquo;s very possible</p>
+<p>that you would be one of the first people that can sit down in the room, let&rsquo;s say with</p>
+<p>her and have a conversation, what would you ask her?</p>
+<p>What would you talk about?</p>
+<p>Looking at all of the content out there on the web and so on, what are some possible</p>
+<p>solutions to big problems that the world has that people haven&rsquo;t really thought of before</p>
+<p>that are not being properly or at least adequately pursued?</p>
+<p>What are some novel solutions that you can think of that we haven&rsquo;t that might work and</p>
+<p>that might be worth considering?</p>
+<p>So that is a damn good question.</p>
+<p>Given that the AGI is going to be somewhat different from human intelligence, it&rsquo;s still</p>
+<p>going to make some mistakes that we wouldn&rsquo;t make, but it&rsquo;s also possibly going to notice</p>
+<p>some blind spots we have.</p>
+<p>And I would love as a test of is it really on a par with our intelligences, can it help</p>
+<p>spot some of the blind spots that we have?</p>
+<p>So the two part question of can you help identify what are the big problems in the world?</p>
+<p>And two, what are some novel solutions to those problems?</p>
+<p>That are not being talked about by anyone.</p>
+<p>And some of those may become infeasible or reprehensible or something, but some of them</p>
+<p>might be actually great things to look at.</p>
+<p>If you go back and look at some of the most powerful discoveries that have been made,</p>
+<p>like relativity and superconductivity and so on, a lot of them were cases where someone</p>
+<p>took seriously the idea that there might actually be a non obvious answer to a question.</p>
+<p>So in Einstein&rsquo;s case, it was, yeah, the Lorentz transformation is known.</p>
+<p>Nobody believes that it&rsquo;s actually the way reality works.</p>
+<p>What if it were the way that reality actually worked?</p>
+<p>So a lot of people don&rsquo;t realize he didn&rsquo;t actually work out that equation, he just sort</p>
+<p>of took it seriously.</p>
+<p>Or in the case of superconductivity, you have this V equals IR equation where R is resistance</p>
+<p>and so on.</p>
+<p>And it was being mapped at lower and lower temperatures, but everyone thought that was</p>
+<p>just bump on a log research to show that V equals IR always held.</p>
+<p>And then when some graduate student got to a slightly lower temperature and showed that</p>
+<p>resistance suddenly dropped off, everyone just assumed that they did it wrong.</p>
+<p>And it was only a little while later that they realized it was actually a new phenomenon.</p>
+<p>Or in the case of the H. pylori bacteria causing stomach ulcers, where everyone thought that</p>
+<p>stress and stomach acid caused ulcers.</p>
+<p>And when a doctor in Australia claimed it was actually a bacterial infection, he couldn&rsquo;t</p>
+<p>get anyone seriously to listen to him and he had to ultimately inject himself with the</p>
+<p>bacteria to show that he suddenly developed a life threatening ulcer in order to get other</p>
+<p>doctors to seriously consider that.</p>
+<p>So there are all sorts of things where humans are locked into paradigms, what Thomas Kuhn</p>
+<p>called paradigms, and we can&rsquo;t get out of them very easily.</p>
+<p>So a lot of AI is locked into the deep learning machine learning paradigm right now.</p>
+<p>And almost all of us and almost all sciences are locked into current paradigms.</p>
+<p>And Kuhn&rsquo;s point was pretty much you have to wait for people to die in order for the</p>
+<p>new generation to escape those paradigms.</p>
+<p>And I think that one of the things that would change that sad reality is if we had trusted</p>
+<p>AGI&rsquo;s that could help take a step back and question some of the paradigms that we&rsquo;re</p>
+<p>currently locked into.</p>
+<p>Yeah, it would accelerate the paradigm shifts in human science and progress.</p>
+<p>You&rsquo;ve lived a very interesting life where you thought about big ideas and you stuck</p>
+<p>with them.</p>
+<p>Can you give advice to young people today, somebody in high school, somebody undergrad,</p>
+<p>about career, about life?</p>
+<p>I&rsquo;d say you can make a difference.</p>
+<p>But in order to make a difference, you&rsquo;re going to have to have the courage to follow</p>
+<p>through with ideas which other people might not immediately understand or support.</p>
+<p>You have to realize that if you make some plan that&rsquo;s going to take an extended period</p>
+<p>of time to carry out, don&rsquo;t be afraid of that.</p>
+<p>That&rsquo;s true of physical training of your body.</p>
+<p>That&rsquo;s true of learning some profession.</p>
+<p>It&rsquo;s also true of innovation, that some innovations are not great ideas you can write down on</p>
+<p>a napkin and become an instant success if you turn out to be right.</p>
+<p>Some of them are paths you have to follow, but remember that you&rsquo;re mortal.</p>
+<p>Remember that you have a limited number of decade sized debts to make with your life</p>
+<p>and you should make each one of them count.</p>
+<p>And that&rsquo;s true in personal relationships.</p>
+<p>That&rsquo;s true in career choice.</p>
+<p>That&rsquo;s true in making discoveries and so on.</p>
+<p>And if you follow the path of least resistance, you&rsquo;ll find that you&rsquo;re optimizing for short</p>
+<p>periods of time.</p>
+<p>And before you know it, you turn around and long periods of time have gone by without</p>
+<p>you ever really making a difference in the world.</p>
+<p>When you look at the field that I really love is artificial intelligence and there&rsquo;s not</p>
+<p>many projects, there&rsquo;s not many little flames of hope that have been carried out for many</p>
+<p>years, for decades and psych represents one of them.</p>
+<p>And I mean that in itself is just a really inspiring thing.</p>
+<p>So I&rsquo;m deeply grateful that you would be carrying that flame for so many years and I think that&rsquo;s</p>
+<p>an inspiration to young people.</p>
+<p>That said, you said life is finite and we talked about mortality as a feature of AGI.</p>
+<p>Do you think about your own mortality?</p>
+<p>Are you afraid of death?</p>
+<p>Sure, I&rsquo;d be crazy if I weren&rsquo;t.</p>
+<p>And as I get older, I&rsquo;m now over 70.</p>
+<p>So as I get older, it&rsquo;s more on my mind, especially as acquaintances and friends and especially</p>
+<p>mentors, one by one are dying, so I can&rsquo;t avoid thinking about mortality.</p>
+<p>And I think that the good news from the point of view and the rest of the world is that</p>
+<p>that adds impetus to my need to succeed in a small number of years in the future.</p>
+<p>You have a deadline.</p>
+<p>Exactly.</p>
+<p>I&rsquo;m not going to have another 37 years to continue working on this.</p>
+<p>So we really do want Psyche to make an impact in the world commercially, physically, metaphysically</p>
+<p>in the next small number of years, two, three, five years, not two, three, five decades anymore.</p>
+<p>And so this is really driving me toward this sort of commercialization and increasingly</p>
+<p>widespread application of Psyche.</p>
+<p>Whereas before, I felt that I could just sort of sit back, roll my eyes, wait till the world</p>
+<p>caught up.</p>
+<p>And now I don&rsquo;t feel that way anymore.</p>
+<p>I feel like I need to put in some effort to make the world aware of what we have and what</p>
+<p>it can do.</p>
+<p>And the good news from your point of view is that that&rsquo;s why I&rsquo;m sitting here.</p>
+<p>You&rsquo;re going to be more productive.</p>
+<p>I love it.</p>
+<p>And if I can help in any way, I would love to.</p>
+<p>From a programmer perspective, I love, especially these days, just contributing in small and</p>
+<p>big ways.</p>
+<p>So if there&rsquo;s any open sourcing from an MIT side and the research, I would love to help.</p>
+<p>But bigger than Psyche, like I said, it&rsquo;s that little flame that you&rsquo;re carrying of</p>
+<p>artificial intelligence, the big dream.</p>
+<p>What do you hope your legacy is?</p>
+<p>That&rsquo;s a good question.</p>
+<p>People think of me as one of the pioneers or inventors of the AI that is ubiquitous</p>
+<p>and that they take for granted and so on.</p>
+<p>Much the way that today we look back on the pioneers of electricity or the pioneers of</p>
+<p>similar types of technologies and so on.</p>
+<p>It&rsquo;s hard to imagine what life would be like if these people hadn&rsquo;t done what they did.</p>
+<p>So that&rsquo;s one thing that I&rsquo;d like to be remembered as.</p>
+<p>Another is that the creator, one of the originators of this gigantic knowledge store and acquisition</p>
+<p>system that is likely to be at the center of whatever this future AI thing will look</p>
+<p>like.</p>
+<p>Yes, exactly.</p>
+<p>And I&rsquo;d also like to be remembered as someone who wasn&rsquo;t afraid to spend several decades</p>
+<p>on a project in a time when almost all of the other forces, institutional forces and</p>
+<p>commercial forces, are incenting people to go for short term rewards.</p>
+<p>And a lot of people gave up.</p>
+<p>A lot of people that dreamt the same dream as you gave up and you didn&rsquo;t.</p>
+<p>I mean, Doug, it&rsquo;s truly an honor.</p>
+<p>This is a long time coming.</p>
+<p>A lot of people bring up your work specifically and more broadly, philosophically of this</p>
+<p>is the dream of artificial intelligence.</p>
+<p>This is likely a part of the future.</p>
+<p>We&rsquo;re so sort of focused on machine learning applications, all that kind of stuff today.</p>
+<p>But it seems like the ideas that Cite carries forward is something that will be at the center</p>
+<p>of this problem they&rsquo;re all trying to solve, which is the problem of intelligence, emotional</p>
+<p>and otherwise.</p>
+<p>So thank you so much.</p>
+<p>It&rsquo;s such a huge honor that you would talk to me and spend your valuable time with me</p>
+<p>today.</p>
+<p>Thanks for talking.</p>
+<p>Thanks, Lex.</p>
+<p>It&rsquo;s been great.</p>
+<p>Thanks for listening to this conversation with Doug Lenat.</p>
+<p>To support this podcast, please check out our sponsors in the description.</p>
+<p>And now, let me leave you with some words from Mark Twain about the nature of truth.</p>
+<p>If you tell the truth, you don&rsquo;t have to remember anything.</p>
+<p>Thank you for listening and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

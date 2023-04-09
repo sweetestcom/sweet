@@ -1,0 +1,2828 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Michael Littman, a computer science professor at Brown
+University doing research on and teaching machine learning, reinforcement learning,
+and artificial intelligence. He enjoys being silly and lighthearted in conversation,
+so this was definitely a fun one. Quick mention of each sponsor,
+followed by some thoughts related to the episode. Thank you to SimplySafe, a home security company
+I use to monitor and protect my apartment, ExpressVPN, the VPN I&amp;rsquo;ve used for many years'>
+<title>Lex Fridman Podcast - #144 - Michael Littman: Reinforcement Learning and the Future of AI | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500147/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #144 - Michael Littman: Reinforcement Learning and the Future of AI'>
+<meta property='og:description' content='The following is a conversation with Michael Littman, a computer science professor at Brown
+University doing research on and teaching machine learning, reinforcement learning,
+and artificial intelligence. He enjoys being silly and lighthearted in conversation,
+so this was definitely a fun one. Quick mention of each sponsor,
+followed by some thoughts related to the episode. Thank you to SimplySafe, a home security company
+I use to monitor and protect my apartment, ExpressVPN, the VPN I&amp;rsquo;ve used for many years'>
+<meta property='og:url' content='https://swiest.com/en/1310500147/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-07-25T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-07-25T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #144 - Michael Littman: Reinforcement Learning and the Future of AI">
+<meta name="twitter:description" content="The following is a conversation with Michael Littman, a computer science professor at Brown
+University doing research on and teaching machine learning, reinforcement learning,
+and artificial intelligence. He enjoys being silly and lighthearted in conversation,
+so this was definitely a fun one. Quick mention of each sponsor,
+followed by some thoughts related to the episode. Thank you to SimplySafe, a home security company
+I use to monitor and protect my apartment, ExpressVPN, the VPN I&amp;rsquo;ve used for many years">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500147/">Lex Fridman Podcast - #144 - Michael Littman: Reinforcement Learning and the Future of AI</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-07-25</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    97 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Michael Littman, a computer science professor at Brown</p>
+<p>University doing research on and teaching machine learning, reinforcement learning,</p>
+<p>and artificial intelligence. He enjoys being silly and lighthearted in conversation,</p>
+<p>so this was definitely a fun one. Quick mention of each sponsor,</p>
+<p>followed by some thoughts related to the episode. Thank you to SimplySafe, a home security company</p>
+<p>I use to monitor and protect my apartment, ExpressVPN, the VPN I&rsquo;ve used for many years</p>
+<p>to protect my privacy on the internet, MasterClass, online courses that I enjoy from</p>
+<p>some of the most amazing humans in history, and BetterHelp, online therapy with a licensed</p>
+<p>professional. Please check out these sponsors in the description to get a discount and to support</p>
+<p>this podcast. As a side note, let me say that I may experiment with doing some solo episodes</p>
+<p>in the coming month or two. The three ideas I have floating in my head currently is to use one,</p>
+<p>a particular moment in history, two, a particular movie, or three, a book to drive a conversation</p>
+<p>about a set of related concepts. For example, I could use 2001, A Space Odyssey, or Ex Machina</p>
+<p>to talk about AGI for one, two, three hours. Or I could do an episode on the, yes, rise and fall of</p>
+<p>Hitler and Stalin, each in a separate episode, using relevant books and historical moments</p>
+<p>for reference. I find the format of a solo episode very uncomfortable and challenging,</p>
+<p>but that just tells me that it&rsquo;s something I definitely need to do and learn from the experience.</p>
+<p>Of course, I hope you come along for the ride. Also, since we have all this momentum built up</p>
+<p>on announcements, I&rsquo;m giving a few lectures on machine learning at MIT this January.</p>
+<p>In general, if you have ideas for the episodes, for the lectures, or for just short videos on</p>
+<p>YouTube, let me know in the comments that I still definitely read, despite my better judgment,</p>
+<p>and the wise sage advice of the great Joe Rogan. If you enjoy this thing, subscribe on YouTube,</p>
+<p>review it with Five Stars and Apple Podcast, follow on Spotify, support on Patreon, or connect</p>
+<p>with me on Twitter at Lex Friedman. And now, here&rsquo;s my conversation with Michael Littman.</p>
+<p>I saw a video of you talking to Charles Isbell about Westworld, the TV series. You guys were</p>
+<p>doing the kind of thing where you&rsquo;re watching new things together, but let&rsquo;s rewind back.</p>
+<p>Is there a sci fi movie or book or shows that was profound, that had an impact on you philosophically,</p>
+<p>or just specifically something you enjoyed nerding out about?</p>
+<p>Yeah, interesting. I think a lot of us have been inspired by robots in movies. One that I really</p>
+<p>like is, there&rsquo;s a movie called Robot and Frank, which I think is really interesting because it&rsquo;s</p>
+<p>very near term future, where robots are being deployed as helpers in people&rsquo;s homes. And we</p>
+<p>don&rsquo;t know how to make robots like that at this point, but it seemed very plausible. It seemed</p>
+<p>very realistic or imaginable. And I thought that was really cool because they&rsquo;re awkward,</p>
+<p>they do funny things that raise some interesting issues, but it seemed like something that would</p>
+<p>ultimately be helpful and good if we could do it right.</p>
+<p>Yeah, he was an older cranky gentleman, right?</p>
+<p>He was an older cranky jewel thief, yeah.</p>
+<p>It&rsquo;s kind of funny little thing, which is, you know, he&rsquo;s a jewel thief and so he pulls the</p>
+<p>robot into his life, which is like, which is something you could imagine taking a home robotics</p>
+<p>thing and pulling into whatever quirky thing that&rsquo;s involved in your existence.</p>
+<p>It&rsquo;s meaningful to you. Exactly so. Yeah. And I think from that perspective, I mean,</p>
+<p>not all of us are jewel thieves. And so when we bring our robots into our lives, it explains a</p>
+<p>lot about this apartment, actually. But no, the idea that people should have the ability to make</p>
+<p>this technology their own, that it becomes part of their lives. And I think it&rsquo;s hard for us</p>
+<p>as technologists to make that kind of technology. It&rsquo;s easier to mold people into what we need them</p>
+<p>to be. And just that opposite vision, I think, is really inspiring. And then there&rsquo;s a</p>
+<p>anthropomorphization where we project certain things on them, because I think the robot was</p>
+<p>kind of dumb. But I have a bunch of Roombas I play with and you immediately project stuff onto</p>
+<p>them. Much greater level of intelligence. We&rsquo;ll probably do that with each other too. Much greater</p>
+<p>degree of compassion. That&rsquo;s right. One of the things we&rsquo;re learning from AI is where we are</p>
+<p>smart and where we are not smart. Yeah. You also enjoy, as people can see, and I enjoyed</p>
+<p>myself watching you sing and even dance a little bit, a little bit, a little bit of dancing.</p>
+<p>A little bit of dancing. That&rsquo;s not quite my thing. As a method of education or just in life,</p>
+<p>you know, in general. So easy question. What&rsquo;s the definitive, objectively speaking,</p>
+<p>top three songs of all time? Maybe something that, you know, to walk that back a little bit,</p>
+<p>maybe something that others might be surprised by the three songs that you kind of enjoy.</p>
+<p>That is a great question that I cannot answer. But instead, let me tell you a story.</p>
+<p>So pick a question you do want to answer. That&rsquo;s right. I&rsquo;ve been watching the</p>
+<p>presidential debates and vice presidential debates. And it turns out, yeah, it&rsquo;s really,</p>
+<p>you can just answer any question you want. So it&rsquo;s a related question. Well said.</p>
+<p>I really like pop music. I&rsquo;ve enjoyed pop music ever since I was very young. So 60s music,</p>
+<p>70s music, 80s music. This is all awesome. And then I had kids and I think I stopped listening</p>
+<p>to music and I was starting to realize that my musical taste had sort of frozen out.</p>
+<p>And so I decided in 2011, I think, to start listening to the top 10 billboard songs each week.</p>
+<p>So I&rsquo;d be on the on the treadmill and I would listen to that week&rsquo;s top 10 songs</p>
+<p>so I could find out what was popular now. And what I discovered is that I have no musical</p>
+<p>taste whatsoever. I like what I&rsquo;m familiar with. And so the first time I&rsquo;d hear a song</p>
+<p>is the first week that was on the charts, I&rsquo;d be like, and then the second week,</p>
+<p>I was into it a little bit. And the third week, I was loving it. And by the fourth week is like,</p>
+<p>just part of me. And so I&rsquo;m afraid that I can&rsquo;t tell you the most my favorite song of all time,</p>
+<p>because it&rsquo;s whatever I heard most recently. Yeah, that&rsquo;s interesting. People have told me that</p>
+<p>there&rsquo;s an art to listening to music as well. And you can start to, if you listen to a song,</p>
+<p>just carefully, like explicitly, just force yourself to really listen. You start to,</p>
+<p>I did this when I was part of jazz band and fusion band in college. You start to hear the layers</p>
+<p>of the instruments. You start to hear the individual instruments and you start to,</p>
+<p>you can listen to classical music or to orchestra this way. You can listen to jazz this way.</p>
+<p>I mean, it&rsquo;s funny to imagine you now to walking that forward to listening to pop hits now as like</p>
+<p>a scholar, listening to like Cardi B or something like that, or Justin Timberlake. Is he? No,</p>
+<p>not Timberlake, Bieber. They&rsquo;ve both been in the top 10 since I&rsquo;ve been listening.</p>
+<p>They&rsquo;re still up there. Oh my God, I&rsquo;m so cool.</p>
+<p>If you haven&rsquo;t heard Justin Timberlake&rsquo;s top 10 in the last few years, there was one</p>
+<p>song that he did where the music video was set at essentially NeurIPS.</p>
+<p>Oh, wow. Oh, the one with the robotics. Yeah, yeah, yeah, yeah, yeah.</p>
+<p>Yeah, yeah. It&rsquo;s like at an academic conference and he&rsquo;s doing a demo.</p>
+<p>He was presenting, right?</p>
+<p>It was sort of a cross between the Apple, like Steve Jobs kind of talk and NeurIPS.</p>
+<p>Yeah.</p>
+<p>So, you know, it&rsquo;s always fun when AI shows up in pop culture.</p>
+<p>I wonder if he consulted somebody for that. That&rsquo;s really interesting. So maybe on that topic,</p>
+<p>I&rsquo;ve seen your celebrity multiple dimensions, but one of them is you&rsquo;ve done cameos in different</p>
+<p>places. I&rsquo;ve seen you in a TurboTax commercial as like, I guess, the brilliant Einstein character.</p>
+<p>And the point is that TurboTax doesn&rsquo;t need somebody like you. It doesn&rsquo;t need a brilliant</p>
+<p>person.</p>
+<p>Very few things need someone like me. But yes, they were specifically emphasizing the</p>
+<p>idea that you don&rsquo;t need to be like a computer expert to be able to use their software.</p>
+<p>How did you end up in that world?</p>
+<p>I think it&rsquo;s an interesting story. So I was teaching my class. It was an intro computer</p>
+<p>science class for non concentrators, non majors. And sometimes when people would visit campus,</p>
+<p>they would check in to say, hey, we want to see what a class is like. Can we sit on your class?</p>
+<p>So a person came to my class who was the daughter of the brother of the husband of the best friend</p>
+<p>of my wife. Anyway, basically a family friend came to campus to check out Brown and asked to</p>
+<p>come to my class and came with her dad. Her dad is, who I&rsquo;ve known from various</p>
+<p>kinds of family events and so forth, but he also does advertising. And he said that he was</p>
+<p>recruiting scientists for this ad, this TurboTax set of ads. And he said, we wrote the ad with the</p>
+<p>idea that we get like the most brilliant researchers, but they all said no. So can you</p>
+<p>help us find like B level scientists? And I&rsquo;m like, sure, that&rsquo;s who I hang out with.</p>
+<p>So that should be fine. So I put together a list and I did what some people call the Dick Cheney.</p>
+<p>So I included myself on the list of possible candidates, with a little blurb about each one</p>
+<p>and why I thought that would make sense for them to do it. And they reached out to a handful of</p>
+<p>them, but then they ultimately, they YouTube stalked me a little bit and they thought,</p>
+<p>oh, I think he could do this. And they said, okay, we&rsquo;re going to offer you the commercial.</p>
+<p>I&rsquo;m like, what? So it was such an interesting experience because they have another world, the</p>
+<p>people who do like nationwide kind of ad campaigns and television shows and movies and so forth.</p>
+<p>It&rsquo;s quite a remarkable system that they have going because they have a set. Yeah. So I went to,</p>
+<p>it was just somebody&rsquo;s house that they rented in New Jersey. But in the commercial, it&rsquo;s just me</p>
+<p>and this other woman. In reality, there were 50 people in that room and another, I don&rsquo;t know,</p>
+<p>half a dozen kind of spread out around the house in various ways. There were people whose job it</p>
+<p>was to control the sun. They were in the backyard on ladders, putting filters up to try to make sure</p>
+<p>that the sun didn&rsquo;t glare off the window in a way that would wreck the shot. So there was like</p>
+<p>six people out there doing that. There was three people out there giving snacks, the craft table.</p>
+<p>There was another three people giving healthy snacks because that was a separate craft table.</p>
+<p>There was one person whose job it was to keep me from getting lost. And I think the reason for all</p>
+<p>this is because so many people are in one place at one time. They have to be time efficient. They</p>
+<p>have to get it done. The morning they were going to do my commercial. In the afternoon, they were</p>
+<p>going to do a commercial of a mathematics professor from Princeton. They had to get it done. No wasted</p>
+<p>time or energy. And so there&rsquo;s just a fleet of people all working as an organism. And it was</p>
+<p>fascinating. I was just the whole time just looking around like, this is so neat. Like one person</p>
+<p>whose job it was to take the camera off of the cameraman so that someone else whose job it was</p>
+<p>to remove the film canister. Because every couple&rsquo;s takes, they had to replace the film because film</p>
+<p>gets used up. It was just, I don&rsquo;t know. I was geeking out the whole time. It was so fun.</p>
+<p>How many takes did it take? It looked the opposite. There was more than two people there. It was very</p>
+<p>relaxed. Right. Yeah. The person who I was in the scene with is a professional. She&rsquo;s an improv</p>
+<p>comedian from New York City. And when I got there, they had given me a script as such as it was. And</p>
+<p>then I got there and they said, we&rsquo;re going to do this as improv. I&rsquo;m like, I don&rsquo;t know how to</p>
+<p>improv. I don&rsquo;t know what you&rsquo;re telling me to do here. Don&rsquo;t worry. She knows. I&rsquo;m like, okay.</p>
+<p>I&rsquo;ll go see how this goes. I guess I got pulled into the story because like, where the heck did</p>
+<p>you come from? I guess in the scene. Like, how did you show up in this random person&rsquo;s house?</p>
+<p>Yeah. Well, I mean, the reality of it is I stood outside in the blazing sun. There was someone</p>
+<p>whose job it was to keep an umbrella over me because I started to sweat. And so I would wreck</p>
+<p>the shot because my face was all shiny with sweat. So there was one person who would dab me off,</p>
+<p>had an umbrella. But yeah, like the reality of it, like, why is this strange stalkery person hanging</p>
+<p>around outside somebody&rsquo;s house? We&rsquo;re not sure when you have to look in,</p>
+<p>what the ways for the book, but are you, so you make, you make, like you said, YouTube,</p>
+<p>you make videos yourself, you make awesome parody, sort of parody songs that kind of focus on a</p>
+<p>particular aspect of computer science. How much those seem really interesting to you?</p>
+<p>How much those seem really natural? How much production value goes into that?</p>
+<p>Do you also have a team of 50 people? The videos, almost all the videos,</p>
+<p>except for the ones that people would have actually seen, are just me. I write the lyrics,</p>
+<p>I sing the song. I generally find a, like a backing track online because I&rsquo;m like you,</p>
+<p>can&rsquo;t really play an instrument. And then I do, in some cases I&rsquo;ll do visuals using just like</p>
+<p>PowerPoint. Lots and lots of PowerPoint to make it sort of like an animation.</p>
+<p>The most produced one is the one that people might have seen, which is the overfitting video</p>
+<p>that I did with Charles Isbell. And that was produced by the Georgia Tech and Udacity people</p>
+<p>because we were doing a class together. It was kind of, I usually do parody songs kind of to</p>
+<p>cap off a class at the end of a class. So that one you&rsquo;re wearing, so it was just a</p>
+<p>thriller. You&rsquo;re wearing the Michael Jackson, the red leather jacket. The interesting thing</p>
+<p>with podcasting that you&rsquo;re also into is that I really enjoy is that there&rsquo;s not a team of people.</p>
+<p>It&rsquo;s kind of more, because you know, there&rsquo;s something that happens when there&rsquo;s more people</p>
+<p>involved than just one person that just the way you start acting, I don&rsquo;t know. There&rsquo;s a censorship.</p>
+<p>You&rsquo;re not given, especially for like slow thinkers like me, you&rsquo;re not. And I think most of us are,</p>
+<p>if we&rsquo;re trying to actually think we&rsquo;re a little bit slow and careful, it kind of large teams get</p>
+<p>in the way of that. And I don&rsquo;t know what to do with that. Like that&rsquo;s the, to me, like if,</p>
+<p>yeah, it&rsquo;s very popular to criticize quote unquote mainstream media.</p>
+<p>But there is legitimacy to criticizing them the same. I love listening to NPR, for example,</p>
+<p>but every, it&rsquo;s clear that there&rsquo;s a team behind it. There&rsquo;s a commercial,</p>
+<p>there&rsquo;s constant commercial breaks. There&rsquo;s this kind of like rush of like,</p>
+<p>okay, I have to interrupt you now because we have to go to commercial. Just this whole,</p>
+<p>it creates, it destroys the possibility of nuanced conversation. Yeah, exactly. Evian,</p>
+<p>which Charles Isbell, who I talked to yesterday told me that Evian is naive backwards, which</p>
+<p>the fact that his mind thinks this way is quite brilliant. Anyway, there&rsquo;s a freedom to this</p>
+<p>podcast. He&rsquo;s Dr. Awkward, which by the way, is a palindrome. That&rsquo;s a palindrome that I happen to</p>
+<p>know from other parts of my life. And I just, well, you know, use it against Charles. Dr. Awkward.</p>
+<p>So what was the most challenging parody song to make? Was it the Thriller one?</p>
+<p>No, that one was really fun. I wrote the lyrics really quickly and then I gave it over to the</p>
+<p>production team. They recruited a acapella group to sing. That went really smoothly. It&rsquo;s great</p>
+<p>having a team because then you can just focus on the part that you really love, which in my case</p>
+<p>is writing the lyrics. For me, the most challenging one, not challenging in a bad way, but challenging</p>
+<p>in a really fun way, was I did one of the parody songs I did is about the halting problem in</p>
+<p>computer science. The fact that you can&rsquo;t create a program that can tell for any other arbitrary</p>
+<p>program whether it actually going to get stuck in infinite loop or whether it&rsquo;s going to eventually</p>
+<p>stop. And so I did it to an 80&rsquo;s song because I hadn&rsquo;t started my new thing of learning current</p>
+<p>songs. And it was Billy Joel&rsquo;s The Piano Man. Nice. Which is a great song. Sing me a song.</p>
+<p>You&rsquo;re the piano man. Yeah. So the lyrics are great because first of all, it rhymes. Not all</p>
+<p>songs rhyme. I&rsquo;ve done Rolling Stones songs which turn out to have no rhyme scheme whatsoever. They&rsquo;re</p>
+<p>just sort of yelling and having a good time, which makes it not fun from a parody perspective because</p>
+<p>like you can say anything. But the lines rhymed and there was a lot of internal rhymes as well.</p>
+<p>And so figuring out how to sing with internal rhymes, a proof of the halting problem was really</p>
+<p>challenging. And I really enjoyed that process. What about, last question on this topic, what</p>
+<p>about the dancing in the Thriller video? How many takes that take? So I wasn&rsquo;t planning to dance.</p>
+<p>They had me in the studio and they gave me the jacket and it&rsquo;s like, well, you can&rsquo;t,</p>
+<p>if you have the jacket and the glove, like there&rsquo;s not much you can do. Yeah. So I think I just</p>
+<p>danced around and then they said, why don&rsquo;t you dance a little bit? There was a scene with me</p>
+<p>and Charles dancing together. They did not use it in the video, but we recorded it. Yeah. Yeah. No,</p>
+<p>it was pretty funny. And Charles, who has this beautiful, wonderful voice doesn&rsquo;t really sing.</p>
+<p>He&rsquo;s not really a singer. And so that was why I designed the song with him doing a spoken section</p>
+<p>and me doing the singing. It&rsquo;s very like Barry White. Yeah. Smooth baritone. Yeah. Yeah. It&rsquo;s</p>
+<p>great. That was awesome. So one of the other things Charles said is that, you know, everyone</p>
+<p>knows you as like a super nice guy, super passionate about teaching and so on. What he said,</p>
+<p>don&rsquo;t know if it&rsquo;s true, that despite the fact that you&rsquo;re, you are. Okay. I will admit this</p>
+<p>finally for the first time. That was, that was me. It&rsquo;s the Johnny Cash song. Kill the Manorino just</p>
+<p>to watch him die. That you actually do have some strong opinions on some topics. So if this in fact</p>
+<p>is true, what strong opinions would you say you have? Is there ideas you think maybe in artificial</p>
+<p>intelligence and machine learning, maybe in life that you believe is true that others might,</p>
+<p>you know, some number of people might disagree with you on? So I try very hard to see things</p>
+<p>from multiple perspectives. There&rsquo;s this great Calvin and Hobbes cartoon where, do you know?</p>
+<p>Yeah. Okay. So Calvin&rsquo;s dad is always kind of a bit of a foil and he talked Calvin into,</p>
+<p>Calvin had done something wrong. The dad talks him into like seeing it from another perspective</p>
+<p>and Calvin, like this breaks Calvin because he&rsquo;s like, oh my gosh, now I can see the opposite sides</p>
+<p>of things. And so the, it&rsquo;s, it becomes like a Cubist cartoon where there is no front and back.</p>
+<p>Everything&rsquo;s just exposed and it really freaks him out. And finally he settles back down. It&rsquo;s</p>
+<p>like, oh good. No, I can make that go away. But like, I&rsquo;m that, I&rsquo;m that I live in that world where</p>
+<p>I&rsquo;m trying to see everything from every perspective all the time. So there are some things that I&rsquo;ve</p>
+<p>formed opinions about that I would be harder, I think, to disavow me of. One is the super</p>
+<p>intelligence argument and the existential threat of AI is one where I feel pretty confident in my</p>
+<p>feeling about that one. Like I&rsquo;m willing to hear other arguments, but like, I am not particularly</p>
+<p>moved by the idea that if we&rsquo;re not careful, we will accidentally create a super intelligence</p>
+<p>that will destroy human life. Let&rsquo;s talk about that. Let&rsquo;s get you in trouble and record your</p>
+<p>video. It&rsquo;s like Bill Gates, I think he said like some quote about the internet that that&rsquo;s just</p>
+<p>going to be a small thing. It&rsquo;s not going to really go anywhere. And then I think Steve</p>
+<p>Ballmer said, I don&rsquo;t know why I&rsquo;m sticking on Microsoft. That&rsquo;s something that like smartphones</p>
+<p>are useless. There&rsquo;s no reason why Microsoft should get into smartphones, that kind of.</p>
+<p>So let&rsquo;s get, let&rsquo;s talk about AGI. As AGI is destroying the world, we&rsquo;ll look back at this</p>
+<p>video and see. No, I think it&rsquo;s really interesting to actually talk about because nobody really</p>
+<p>knows the future. So you have to use your best intuition. It&rsquo;s very difficult to predict it,</p>
+<p>but you have spoken about AGI and the existential risks around it and sort of basing your intuition</p>
+<p>that we&rsquo;re quite far away from that being a serious concern relative to the other concerns</p>
+<p>we have. Can you maybe unpack that a little bit? Yeah, sure, sure, sure. So as I understand it,</p>
+<p>that for example, I read Bostrom&rsquo;s book and a bunch of other reading material about this sort</p>
+<p>of general way of thinking about the world. And I think the story goes something like this, that we</p>
+<p>will at some point create computers that are smart enough that they can help design the next version</p>
+<p>of themselves, which itself will be smarter than the previous version of themselves and eventually</p>
+<p>bootstrapped up to being smarter than us. At which point we are essentially at the mercy of this sort</p>
+<p>of more powerful intellect, which in principle we don&rsquo;t have any control over what its goals are.</p>
+<p>And so if its goals are at all out of sync with our goals, for example, the continued existence</p>
+<p>of humanity, we won&rsquo;t be able to stop it. It&rsquo;ll be way more powerful than us and we will be toast.</p>
+<p>So there&rsquo;s some, I don&rsquo;t know, very smart people who have signed on to that story. And it&rsquo;s a</p>
+<p>compelling story. Now I can really get myself in trouble. I once wrote an op ed about this,</p>
+<p>specifically responding to some quotes from Elon Musk, who has been on this very podcast</p>
+<p>more than once. AI summoning the demon. But then he came to Providence, Rhode Island,</p>
+<p>which is where I live, and said to the governors of all the states, you know, you&rsquo;re worried about</p>
+<p>entirely the wrong thing. You need to be worried about AI. You need to be very, very worried about</p>
+<p>AI. And journalists kind of reacted to that and they wanted to get people&rsquo;s take. And I was like,</p>
+<p>OK, my my my belief is that one of the things that makes Elon Musk so successful and so remarkable</p>
+<p>as an individual is that he believes in the power of ideas. He believes that you can have you can</p>
+<p>if you know, if you have a really good idea for getting into space, you can get into space.</p>
+<p>If you have a really good idea for a company or for how to change the way that people drive,</p>
+<p>you just have to do it and it can happen. It&rsquo;s really natural to apply that same idea to AI.</p>
+<p>You see these systems that are doing some pretty remarkable computational tricks, demonstrations,</p>
+<p>and then to take that idea and just push it all the way to the limit and think, OK, where does</p>
+<p>this go? Where is this going to take us next? And if you&rsquo;re a deep believer in the power of ideas,</p>
+<p>then it&rsquo;s really natural to believe that those ideas could be taken to the extreme and kill us.</p>
+<p>So I think, you know, his strength is also his undoing, because that doesn&rsquo;t mean it&rsquo;s true.</p>
+<p>Like, it doesn&rsquo;t mean that that has to happen, but it&rsquo;s natural for him to think that.</p>
+<p>So another way to phrase the way he thinks, and I find it very difficult to argue with that line</p>
+<p>of thinking. So Sam Harris is another person from neuroscience perspective that thinks like that</p>
+<p>is saying, well, is there something fundamental in the physics of the universe that prevents this</p>
+<p>from eventually happening? And Nick Bostrom thinks in the same way, that kind of zooming out, yeah,</p>
+<p>OK, we humans now are existing in this like time scale of minutes and days. And so our intuition</p>
+<p>is in this time scale of minutes, hours and days. But if you look at the span of human history,</p>
+<p>is there any reason you can&rsquo;t see this in 100 years? And like, is there something fundamental</p>
+<p>about the laws of physics that prevent this? And if it doesn&rsquo;t, then it eventually will happen</p>
+<p>or will we will destroy ourselves in some other way. And it&rsquo;s very difficult, I find,</p>
+<p>to actually argue against that. Yeah, me too.</p>
+<p>And not sound like. Not sound like you&rsquo;re just like rolling your eyes like I have like science</p>
+<p>fiction, we don&rsquo;t have to think about it, but even even worse than that, which is like, I don&rsquo;t have</p>
+<p>kids, but like I got to pick up my kids now like this. OK, I see there&rsquo;s more pressing short. Yeah,</p>
+<p>there&rsquo;s more pressing short term things that like stop over the next national crisis. We have much,</p>
+<p>much shorter things like now, especially this year, there&rsquo;s covid. So like any kind of discussion</p>
+<p>like that is like there&rsquo;s this, you know, this pressing things today is. And then so the Sam</p>
+<p>Harris argument, well, like any day the exponential singularity can can occur is very difficult to</p>
+<p>argue against. I mean, I don&rsquo;t know. But part of his story is also he&rsquo;s not going to put a date on</p>
+<p>it. It could be in a thousand years, it could be in a hundred years, it could be in two years. It&rsquo;s</p>
+<p>just that as long as we keep making this kind of progress, it&rsquo;s ultimately has to become a concern.</p>
+<p>I kind of am on board with that. But the thing that the piece that I feel like is missing from</p>
+<p>that that way of extrapolating from the moment that we&rsquo;re in, is that I believe that in the</p>
+<p>process of actually developing technology that can really get around in the world and really process</p>
+<p>and do things in the world in a sophisticated way, we&rsquo;re going to learn a lot about what that means,</p>
+<p>which that we don&rsquo;t know now because we don&rsquo;t know how to do this right now.</p>
+<p>If you believe that you can just turn on a deep learning network and eventually give it enough</p>
+<p>compute and eventually get there. Well, sure, that seems really scary because we won&rsquo;t we won&rsquo;t be</p>
+<p>in the loop at all. We won&rsquo;t we won&rsquo;t be helping to design or target these kinds of systems.</p>
+<p>But I don&rsquo;t I don&rsquo;t see that. That feels like it is against the laws of physics,</p>
+<p>because these systems need help. Right. They need they need to surpass the the the difficulty,</p>
+<p>the wall of complexity that happens in arranging something in the form that that will happen.</p>
+<p>Yeah, like I believe in evolution, like I believe that that that there&rsquo;s an argument. Right. So</p>
+<p>there&rsquo;s another argument, just to look at it from a different perspective, that people say,</p>
+<p>why don&rsquo;t believe in evolution? How could evolution? It&rsquo;s it&rsquo;s sort of like a random set of</p>
+<p>parts assemble themselves into a 747. And that could just never happen. So it&rsquo;s like,</p>
+<p>OK, that&rsquo;s maybe hard to argue against. But clearly, 747 do get assembled. They get assembled</p>
+<p>by us. Basically, the idea being that there&rsquo;s a process by which we will get to the point of</p>
+<p>making technology that has that kind of awareness. And in that process, we&rsquo;re going to learn a lot</p>
+<p>about that process and we&rsquo;ll have more ability to control it or to shape it or to build it in our</p>
+<p>own image. It&rsquo;s not something that is going to spring into existence like that 747. And we&rsquo;re</p>
+<p>just going to have to contend with it completely unprepared. That&rsquo;s very possible that in the</p>
+<p>context of the long arc of human history, it will, in fact, spring into existence.</p>
+<p>But that springing might take like if you look at nuclear weapons, like even 20 years is a springing</p>
+<p>in in the context of human history. And it&rsquo;s very possible, just like with nuclear weapons,</p>
+<p>that we could have I don&rsquo;t know what percentage you want to put at it, but the possibility could</p>
+<p>have knocked ourselves out. Yeah. The possibility of human beings destroying themselves in the 20th</p>
+<p>century with nuclear weapons. I don&rsquo;t know. You can if you really think through it, you could</p>
+<p>really put it close to, like, I don&rsquo;t know, 30, 40 percent, given like the certain moments of</p>
+<p>crisis that happen. So, like, I think one, like, fear in the shadows that&rsquo;s not being acknowledged</p>
+<p>is it&rsquo;s not so much the A.I. will run away is is that as it&rsquo;s running away,</p>
+<p>we won&rsquo;t have enough time to think through how to stop it. Right. Fast takeoff or FOOM. Yeah.</p>
+<p>I mean, my much bigger concern, I wonder what you think about it, which is</p>
+<p>we won&rsquo;t know it&rsquo;s happening. So I kind of think that there&rsquo;s an A.G.I. situation already happening</p>
+<p>with social media that our minds, our collective intelligence of human civilization is already</p>
+<p>being controlled by an algorithm. And like we&rsquo;re we&rsquo;re already super like the level of a collective</p>
+<p>intelligence, thanks to Wikipedia, people should donate to Wikipedia to feed the A.G.I.</p>
+<p>. Man, if we had a super intelligence that that was in line with Wikipedia&rsquo;s values,</p>
+<p>that it&rsquo;s a lot better than a lot of other things I could imagine. I trust Wikipedia more than I</p>
+<p>trust Facebook or YouTube as far as trying to do the right thing from a rational perspective.</p>
+<p>Yeah. Now, that&rsquo;s not where you were going. I understand that. But it does strike me that</p>
+<p>there&rsquo;s sort of smarter and less smart ways of exposing ourselves to each other on the Internet.</p>
+<p>Yeah. The interesting thing is that Wikipedia and social media have very different forces.</p>
+<p>You&rsquo;re right. I mean, Wikipedia, if A.G.I. was Wikipedia, it&rsquo;d be just like this cranky, overly</p>
+<p>competent editor of articles. You know, there&rsquo;s something to that. But the social</p>
+<p>media aspect is not. So the vision of A.G.I. is as a separate system that&rsquo;s super intelligent.</p>
+<p>That&rsquo;s super intelligent. That&rsquo;s one key little thing. I mean, there&rsquo;s the paperclip argument</p>
+<p>that&rsquo;s super dumb, but super powerful systems. But with social media, you have a relatively like</p>
+<p>algorithms we may talk about today, very simple algorithms that when something Charles talks a</p>
+<p>lot about, which is interactive A.I., when they start like having at scale, like tiny little</p>
+<p>interactions with human beings, they can start controlling these human beings. So a single</p>
+<p>algorithm can control the minds of human beings slowly to what we might not realize. It could</p>
+<p>start wars. It could start. It could change the way we think about things. It feels like</p>
+<p>in the long arc of history, if I were to sort of zoom out from all the outrage and all the tension</p>
+<p>on social media, that it&rsquo;s progressing us towards better and better things. It feels like chaos and</p>
+<p>toxic and all that kind of stuff. It&rsquo;s chaos and toxic. Yeah. But it feels like actually</p>
+<p>the chaos and toxic is similar to the kind of debates we had from the founding of this country.</p>
+<p>You know, there was a civil war that happened over that period. And ultimately it was all about</p>
+<p>this tension of like something doesn&rsquo;t feel right about our implementation of the core values we</p>
+<p>hold as human beings. And they&rsquo;re constantly struggling with this. And that results in people</p>
+<p>calling each other, just being shady to each other on Twitter. But ultimately the algorithm is</p>
+<p>managing all that. And it feels like there&rsquo;s a possible future in which that algorithm</p>
+<p>controls us into the direction of self destruction and whatever that looks like.</p>
+<p>Yeah. So, all right. I do believe in the power of social media to screw us up royally. I do believe</p>
+<p>in the power of social media to benefit us too. I do think that we&rsquo;re in a, yeah, it&rsquo;s sort of</p>
+<p>almost got dropped on top of us. And now we&rsquo;re trying to, as a culture, figure out how to cope</p>
+<p>with it. There&rsquo;s a sense in which, I don&rsquo;t know, there&rsquo;s some arguments that say that, for example,</p>
+<p>I guess college age students now, late college age students now, people who were in middle school</p>
+<p>when social media started to really take off, may be really damaged. Like this may have really hurt</p>
+<p>their development in a way that we don&rsquo;t have all the implications of quite yet. That&rsquo;s the generation</p>
+<p>who, and I hate to make it somebody else&rsquo;s responsibility, but like they&rsquo;re the ones who</p>
+<p>can fix it. They&rsquo;re the ones who can figure out how do we keep the good of this kind of technology</p>
+<p>without letting it eat us alive. And if they&rsquo;re successful, we move on to the next phase, the next</p>
+<p>level of the game. If they&rsquo;re not successful, then yeah, then we&rsquo;re going to wreck each other. We&rsquo;re</p>
+<p>going to destroy society. So you&rsquo;re going to, in your old age, sit on a porch and watch the world</p>
+<p>burn because of the TikTok generation that&hellip; I believe, well, so this is my kid&rsquo;s age,</p>
+<p>right? And that&rsquo;s certainly my daughter&rsquo;s age. And she&rsquo;s very tapped in to social stuff, but she&rsquo;s</p>
+<p>also, she&rsquo;s trying to find that balance, right? Of participating in it and in getting the positives</p>
+<p>of it, but without letting it eat her alive. And I think sometimes she ventures, I hope she doesn&rsquo;t</p>
+<p>watch this. Sometimes I think she ventures a little too far and is consumed by it. And other</p>
+<p>times she gets a little distance. And if there&rsquo;s enough people like her out there, they&rsquo;re going to</p>
+<p>navigate this choppy waters. That&rsquo;s an interesting skill actually to develop. I talked to my dad</p>
+<p>about it. I&rsquo;ve now, somehow this podcast in particular, but other reasons has received a</p>
+<p>little bit of attention. And with that, apparently in this world, even though I don&rsquo;t shut up about</p>
+<p>love and I&rsquo;m just all about kindness, I have now a little mini army of trolls. It&rsquo;s kind of hilarious</p>
+<p>actually, but it also doesn&rsquo;t feel good, but it&rsquo;s a skill to learn to not look at that, like to</p>
+<p>moderate actually how much you look at that. The discussion I have with my dad, it&rsquo;s similar to,</p>
+<p>it doesn&rsquo;t have to be about trolls. It could be about checking email, which is like, if you&rsquo;re</p>
+<p>anticipating, you know, there&rsquo;s a, my dad runs a large Institute at Drexel University and there</p>
+<p>could be stressful like emails you&rsquo;re waiting, like there&rsquo;s drama of some kinds. And so like,</p>
+<p>there&rsquo;s a temptation to check the email. If you send an email and you kind of,</p>
+<p>and that pulls you in into, it doesn&rsquo;t feel good. And it&rsquo;s a skill that he actually complains that</p>
+<p>he hasn&rsquo;t learned. I mean, he grew up without it. So he hasn&rsquo;t learned the skill of how to</p>
+<p>shut off the internet and walk away. And I think young people, while they&rsquo;re also being</p>
+<p>quote unquote damaged by like, you know, being bullied online, all of those stories, which are</p>
+<p>very like horrific, you basically can&rsquo;t escape your bullies these days when you&rsquo;re growing up.</p>
+<p>But at the same time, they&rsquo;re also learning that skill of how to be able to shut off the,</p>
+<p>like disconnect with it, be able to laugh at it, not take it too seriously. It&rsquo;s fascinating. Like</p>
+<p>we&rsquo;re all trying to figure this out. Just like you said, it&rsquo;s been dropped on us and we&rsquo;re trying to</p>
+<p>figure it out. Yeah. I think that&rsquo;s really interesting. And I guess I&rsquo;ve become a believer</p>
+<p>in the human design, which I feel like I don&rsquo;t completely understand. Like how do you make</p>
+<p>something as robust as us? Like we&rsquo;re so flawed in so many ways. And yet, and yet, you know,</p>
+<p>we dominate the planet and we do seem to manage to get ourselves out of scrapes eventually,</p>
+<p>not necessarily the most elegant possible way, but somehow we get, we get to the next step.</p>
+<p>And I don&rsquo;t know how I&rsquo;d make a machine do that. Generally speaking, like if I train one of my</p>
+<p>reinforcement learning agents to play a video game and it works really hard on that first stage</p>
+<p>over and over and over again, and it makes it through, it succeeds on that first level.</p>
+<p>And then the new level comes and it&rsquo;s just like, okay, I&rsquo;m back to the drawing board. And somehow</p>
+<p>humanity, we keep leveling up and then somehow managing to put together the skills necessary to</p>
+<p>achieve success, some semblance of success in that next level too. And, you know,</p>
+<p>I hope we can keep doing that.</p>
+<p>You mentioned reinforcement learning. So you&rsquo;ve had a couple of years in the field. No, quite,</p>
+<p>you know, quite a few, quite a long career in artificial intelligence broadly, but reinforcement</p>
+<p>learning specifically, can you maybe give a hint about your sense of the history of the field?</p>
+<p>And in some ways it&rsquo;s changed with the advent of deep learning, but as a long roots, like how is it</p>
+<p>weaved in and out of your own life? How have you seen the community change or maybe the ideas that</p>
+<p>it&rsquo;s playing with change? I&rsquo;ve had the privilege, the pleasure of being, of having almost a front</p>
+<p>row seat to a lot of this stuff. And it&rsquo;s been really, really fun and interesting. So when I was</p>
+<p>in college in the eighties, early eighties, the neural net thing was starting to happen.</p>
+<p>And I was taking a lot of psychology classes and a lot of computer science classes as a college</p>
+<p>student. And I thought, you know, something that can play tic tac toe and just like learn to get</p>
+<p>better at it. That ought to be a really easy thing. So I spent almost, almost all of my, what would</p>
+<p>have been vacations during college, like hacking on my home computer, trying to teach it how to</p>
+<p>play tic tac toe and programming language. Basic. Oh yeah. That&rsquo;s, that&rsquo;s, I was, I that&rsquo;s my first</p>
+<p>language. That&rsquo;s my native language. Is that when you first fell in love with computer science,</p>
+<p>just like programming basic on that? Uh, what was, what was the computer? Do you remember? I had,</p>
+<p>I had a TRS 80 model one before they were called model ones. Cause there was nothing else. Uh,</p>
+<p>I got my computer in 1979, uh, instead. So I was, I was, I would have been bar mitzvahed,</p>
+<p>but instead of having a big party that my parents threw on my behalf, they just got me a computer.</p>
+<p>Cause that&rsquo;s what I really, really, really wanted. I saw them in the, in the, in the mall and</p>
+<p>radio shack. And I thought, what, how are they doing that? I would try to stump them. I would</p>
+<p>give them math problems like one plus and then in parentheses, two plus one. And I would always get</p>
+<p>it right. I&rsquo;m like, how do you know so much? Like I&rsquo;ve had to go to algebra class for the last few</p>
+<p>years to learn this stuff and you just seem to know. So I was, I was, I was smitten and, uh,</p>
+<p>got a computer and I think ages 13 to 15. I have no memory of those years. I think I just was in</p>
+<p>my room with the computer, listening to Billy Joel, communing, possibly listening to the radio,</p>
+<p>listening to Billy Joel. That was the one album I had, uh, on vinyl at that time. And, um, and then</p>
+<p>I got it on cassette tape and that was really helpful because then I could play it. I didn&rsquo;t</p>
+<p>have to go down to my parents, wifi or hi fi sorry. Uh, and at age 15, I remember kind of</p>
+<p>walking out and like, okay, I&rsquo;m ready to talk to people again. Like I&rsquo;ve learned what I need to</p>
+<p>learn here. And, um, so yeah, so, so that was, that was my home computer. And so I went to college</p>
+<p>and I was like, oh, I&rsquo;m totally going to study computer science. And I opted the college I chose</p>
+<p>specifically had a computer science major. The one that I really wanted the college I really wanted</p>
+<p>to go to didn&rsquo;t so bye bye to them. So I went to Yale, uh, Princeton would have been way more</p>
+<p>convenient and it was just beautiful campus and it was close enough to home. And I was really</p>
+<p>excited about Princeton. And I visited, I said, so computer science majors like, well, we have</p>
+<p>computer engineering. I&rsquo;m like, Oh, I don&rsquo;t like that word engineering. I like computer science.</p>
+<p>I really, I want to do like, you&rsquo;re saying hardware and software. They&rsquo;re like, yeah.</p>
+<p>I&rsquo;m like, I just want to do software. I couldn&rsquo;t care less about hardware. And you grew up in</p>
+<p>Philadelphia. I grew up outside Philly. Yeah. Yeah. Uh, so the, you know, local schools were</p>
+<p>like Penn and Drexel and, uh, temple. Like everyone in my family went to temple at least at</p>
+<p>one point in their lives, except for me. So yeah, Philly, Philly family, Yale had a computer science</p>
+<p>department. And that&rsquo;s when you, it&rsquo;s kind of interesting. You said eighties and neural</p>
+<p>networks. That&rsquo;s when the neural networks was a hot new thing or a hot thing period. Uh, so what</p>
+<p>is that in college when you first learned about neural networks or when she learned, like how did</p>
+<p>it was in a psychology class, not in a CS. Yeah. Was it psychology or cognitive science or like,</p>
+<p>do you remember like what context it was? Yeah. Yeah. Yeah. So, so I was a, I&rsquo;ve always been a</p>
+<p>bit of a cognitive psychology groupie. So like I&rsquo;m, I studied computer science, but I like,</p>
+<p>I like to hang around where the cognitive scientists are. Cause I don&rsquo;t know brains, man.</p>
+<p>They&rsquo;re like, they&rsquo;re wacky. Cool. And they have a bigger picture view of things. They&rsquo;re a little</p>
+<p>less engineering. I would say they&rsquo;re more, they&rsquo;re more interested in the nature of cognition and</p>
+<p>intelligence and perception and how like the vision system work. Like they&rsquo;re asking always</p>
+<p>bigger questions. Now with the deep learning community there, I think more, there&rsquo;s a lot of</p>
+<p>intersections, but I do find that the neuroscience folks actually in cognitive psychology, cognitive</p>
+<p>science folks are starting to learn how to program, how to use neural, artificial neural networks.</p>
+<p>And they are actually approaching problems in like totally new, interesting ways. It&rsquo;s fun to</p>
+<p>watch that grad students from those departments, like approach a problem of machine learning.</p>
+<p>Right. They come in with a different perspective. Yeah. They don&rsquo;t care about like your</p>
+<p>image net data set or whatever they want, like to understand the, the, the, like the basic</p>
+<p>mechanisms at the, at the neuronal level and the functional level of intelligence. It&rsquo;s kind of,</p>
+<p>it&rsquo;s kind of cool to see them work, but yeah. Okay. So you always love, you&rsquo;re always a groupie</p>
+<p>of cognitive psychology. Yeah. Yeah. And so, so it was in a class by Richard Garrig. He was kind of</p>
+<p>like my favorite psych professor in college. And I took like three different classes with him</p>
+<p>and yeah. So they were talking specifically the class, I think was kind of a,</p>
+<p>there was a big paper that was written by Steven Pinker and Prince. I don&rsquo;t, I&rsquo;m blanking on</p>
+<p>Prince&rsquo;s first name, but Prince and Pinker and Prince, they wrote kind of a, they were at that</p>
+<p>time kind of like, ah, I&rsquo;m blanking on the names of the current people. The cognitive scientists</p>
+<p>who are complaining a lot about deep networks. Oh, Gary, Gary Marcus, Marcus and who else? I mean,</p>
+<p>there&rsquo;s a few, but Gary, Gary&rsquo;s the most feisty. Sure. Gary&rsquo;s very feisty. And with this, with his</p>
+<p>coauthor, they, they, you know, they&rsquo;re kind of doing these kinds of take downs where they say,</p>
+<p>okay, well, yeah, it does all these amazing, amazing things, but here&rsquo;s a shortcoming. Here&rsquo;s</p>
+<p>a shortcoming. Here&rsquo;s a shortcoming. And so the Pinker Prince paper is kind of like the,</p>
+<p>that generation&rsquo;s version of Marcus and Davis, right? Where they&rsquo;re, they&rsquo;re trained as cognitive</p>
+<p>scientists, but they&rsquo;re looking skeptically at the results in the, in the artificial intelligence,</p>
+<p>neural net kind of world and saying, yeah, it can do this and this and this, but low,</p>
+<p>it can&rsquo;t do that. And it can&rsquo;t do that. And it can&rsquo;t do that maybe in principle or maybe just</p>
+<p>in practice at this point. But, but the fact of the matter is you&rsquo;re, you&rsquo;ve narrowed your focus</p>
+<p>too far to be impressed. You know, you&rsquo;re impressed with the things within that circle,</p>
+<p>but you need to broaden that circle a little bit. You need to look at a wider set of problems.</p>
+<p>And so, so we had, so I was in this seminar in college that was basically a close reading of</p>
+<p>the Pinker Prince paper, which was like really thick. There was a lot going on in there. And,</p>
+<p>and it, you know, and it talked about the reinforcement learning idea a little bit.</p>
+<p>I&rsquo;m like, oh, that sounds really cool because behavior is what is really interesting to me</p>
+<p>about psychology anyway. So making programs that, I mean, programs are things that behave.</p>
+<p>People are things that behave. Like I want to make learning that learns to behave.</p>
+<p>And which way was reinforcement learning presented? Is this talking about human and</p>
+<p>animal behavior or are we talking about actual mathematical construct?</p>
+<p>Ah, that&rsquo;s right. So that&rsquo;s a good question. Right. So this is, I think it wasn&rsquo;t actually</p>
+<p>talked about as behavior in the paper that I was reading. I think that it just talked about</p>
+<p>learning. And to me, learning is about learning to behave, but really neural nets at that point</p>
+<p>were about learning like supervised learning. So learning to produce outputs from inputs.</p>
+<p>So I kind of tried to invent reinforcement learning. When I graduated, I joined a research</p>
+<p>group at Bellcore, which had spun out of Bell Labs recently at that time because of the divestiture</p>
+<p>of the long distance and local phone service in the 1980s, 1984. And I was in a group with</p>
+<p>Dave Ackley, who was the first author of the Boltzmann machine paper. So the very first neural</p>
+<p>net paper that could handle XOR, right? So XOR sort of killed neural nets. The very first,</p>
+<p>the zero with the first winter. Yeah. Um, the, the perceptrons paper and Hinton along with his</p>
+<p>student, Dave Ackley, and I think there was other authors as well showed that no, no, no,</p>
+<p>with Boltzmann machines, we can actually learn nonlinear concepts. And so everything&rsquo;s back on</p>
+<p>the table again. And that kind of started that second wave of neural networks. So Dave Ackley</p>
+<p>was, he became my mentor at, at Bellcore and we talked a lot about learning and life and</p>
+<p>computation and how all these things fit together. Now Dave and I have a podcast together. So,</p>
+<p>so I get to kind of enjoy that sort of his, his perspective once again, even, even all these years</p>
+<p>later. And so I said, so I said, I was really interested in learning, but in the concept of</p>
+<p>behavior and he&rsquo;s like, oh, well that&rsquo;s reinforcement learning here. And he gave me</p>
+<p>Rich Sutton&rsquo;s 1984 TD paper. So I read that paper. I honestly didn&rsquo;t get all of it,</p>
+<p>but I got the idea. I got that they were using, that he was using ideas that I was familiar with</p>
+<p>in the context of neural nets and, and like sort of back prop. But with this idea of making</p>
+<p>predictions over time, I&rsquo;m like, this is so interesting, but I don&rsquo;t really get all the</p>
+<p>details I said to Dave. And Dave said, oh, well, why don&rsquo;t we have him come and give a talk?</p>
+<p>And I was like, wait, what, you can do that? Like, these are real people. I thought they</p>
+<p>were just words. I thought it was just like ideas that somehow magically seeped into paper. He&rsquo;s</p>
+<p>like, no, I, I, I know Rich like, we&rsquo;ll just have him come down and he&rsquo;ll give a talk. And so I was,</p>
+<p>you know, my mind was blown. And so Rich came and he gave a talk at Bellcore and he talked about</p>
+<p>what he was super excited, which was they had just figured out at the time Q learning. So Watkins</p>
+<p>had visited the Rich Sutton&rsquo;s lab at, at UMass or Andy Bartow&rsquo;s lab that Rich was a part of.</p>
+<p>And, um, he was really excited about this because it resolved a whole bunch of problems that he</p>
+<p>didn&rsquo;t know how to resolve in the, in the earlier paper. And so, um,</p>
+<p>For people who don&rsquo;t know TD, temporal difference, these are all just algorithms</p>
+<p>for reinforcement learning.</p>
+<p>Right. And TD, temporal difference in particular is about making predictions over time. And you can</p>
+<p>try to use it for making decisions, right? Cause if you can predict how good a future action or an</p>
+<p>action outcomes will be in the future, you can choose one that has better and, or, but the thing</p>
+<p>that&rsquo;s really cool about Q learning is it was off policy, which meant that you could actually be</p>
+<p>learning about the environment and what the value of different actions would be while actually</p>
+<p>figuring out how to behave optimally. So that was a revelation.</p>
+<p>Yeah. And the proof of that is kind of interesting. I mean, that&rsquo;s really surprising</p>
+<p>to me when I first read that paper. I mean, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s,</p>
+<p>it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s, it&rsquo;s,</p>
+<p>it&rsquo;s interesting. I mean, that&rsquo;s really surprising to me when I first read that and then in Richard,</p>
+<p>Rich Sutton&rsquo;s book on the matter, it&rsquo;s, it&rsquo;s kind of a beautiful that a single equation can</p>
+<p>capture all one line of code and like, you can learn anything. Yeah. Like enough time.</p>
+<p>So equation and code, you&rsquo;re right. Like you can the code that you can arguably, at least</p>
+<p>if you like squint your eyes can say,</p>
+<p>this is all of intelligence is that you can implement</p>
+<p>that in a single one.</p>
+<p>I think I started with Lisp, which is a shout out to Lisp</p>
+<p>with like a single line of code, key piece of code,</p>
+<p>maybe a couple that you could do that.</p>
+<p>It&rsquo;s kind of magical.</p>
+<p>It&rsquo;s feels too good to be true.</p>
+<p>Well, and it sort of is.</p>
+<p>Yeah, kind of.</p>
+<p>It seems to require an awful lot</p>
+<p>of extra stuff supporting it.</p>
+<p>But nonetheless, the idea is really good.</p>
+<p>And as far as we know, it is a very reasonable way</p>
+<p>of trying to create adaptive behavior,</p>
+<p>behavior that gets better at something over time.</p>
+<p>Did you find the idea of optimal at all compelling</p>
+<p>that you could prove that it&rsquo;s optimal?</p>
+<p>So like one part of computer science</p>
+<p>that it makes people feel warm and fuzzy inside</p>
+<p>is when you can prove something like</p>
+<p>that a sorting algorithm worst case runs</p>
+<p>and N log N, and it makes everybody feel so good.</p>
+<p>Even though in reality, it doesn&rsquo;t really matter</p>
+<p>what the worst case is, what matters is like,</p>
+<p>does this thing actually work in practice</p>
+<p>on this particular actual set of data that I enjoy?</p>
+<p>Did you?</p>
+<p>So here&rsquo;s a place where I have maybe a strong opinion,</p>
+<p>which is like, you&rsquo;re right, of course, but no, no.</p>
+<p>Like, so what makes worst case so great, right?</p>
+<p>If you have a worst case analysis so great</p>
+<p>is that you get modularity.</p>
+<p>You can take that thing and plug it into another thing</p>
+<p>and still have some understanding of what&rsquo;s gonna happen</p>
+<p>when you click them together, right?</p>
+<p>If it just works well in practice, in other words,</p>
+<p>with respect to some distribution that you care about,</p>
+<p>when you go plug it into another thing,</p>
+<p>that distribution can shift, it can change,</p>
+<p>and your thing may not work well anymore.</p>
+<p>And you want it to, and you wish it does,</p>
+<p>and you hope that it will, but it might not,</p>
+<p>and then, ah.</p>
+<p>So you&rsquo;re saying you don&rsquo;t like machine learning.</p>
+<p>But we have some positive theoretical results</p>
+<p>for these things.</p>
+<p>You can come back at me with,</p>
+<p>yeah, but they&rsquo;re really weak,</p>
+<p>and yeah, they&rsquo;re really weak.</p>
+<p>And you can even say that sorting algorithms,</p>
+<p>like if you do the optimal sorting algorithm,</p>
+<p>it&rsquo;s not really the one that you want,</p>
+<p>and that might be true as well.</p>
+<p>But it is, the modularity is a really powerful statement.</p>
+<p>I really like that.</p>
+<p>If you&rsquo;re an engineer, you can then assemble</p>
+<p>different things, you can count on them to be,</p>
+<p>I mean, it&rsquo;s interesting.</p>
+<p>It&rsquo;s a balance, like with everything else in life,</p>
+<p>you don&rsquo;t want to get too obsessed.</p>
+<p>I mean, this is what computer scientists do,</p>
+<p>which they tend to get obsessed,</p>
+<p>and they overoptimize things,</p>
+<p>or they start by optimizing, and then they overoptimize.</p>
+<p>So it&rsquo;s easy to get really granular about this thing,</p>
+<p>but like the step from an n squared to an n log n</p>
+<p>sorting algorithm is a big leap for most real world systems.</p>
+<p>No matter what the actual behavior of the system is,</p>
+<p>that&rsquo;s a big leap.</p>
+<p>And the same can probably be said</p>
+<p>for other kind of first leaps</p>
+<p>that you would take on a particular problem.</p>
+<p>Like it&rsquo;s picking the low hanging fruit,</p>
+<p>or whatever the equivalent of doing the,</p>
+<p>not the dumbest thing, but the next to the dumbest thing.</p>
+<p>Picking the most delicious reachable fruit.</p>
+<p>Yeah, most delicious reachable fruit.</p>
+<p>I don&rsquo;t know why that&rsquo;s not a saying.</p>
+<p>Yeah.</p>
+<p>Okay, so then this is the 80s,</p>
+<p>and this kind of idea starts to percolate of learning.</p>
+<p>At that point, I got to meet Rich Sutton,</p>
+<p>so everything was sort of downhill from there,</p>
+<p>and that was really the pinnacle of everything.</p>
+<p>But then I felt like I was kind of on the inside.</p>
+<p>So then as interesting results were happening,</p>
+<p>I could like check in with Rich or with Jerry Tesaro,</p>
+<p>who had a huge impact on kind of early thinking</p>
+<p>in temporal difference learning and reinforcement learning</p>
+<p>and showed that you could do,</p>
+<p>you could solve problems</p>
+<p>that we didn&rsquo;t know how to solve any other way.</p>
+<p>And so that was really cool.</p>
+<p>So as good things were happening,</p>
+<p>I would hear about it from either the people</p>
+<p>who were doing it,</p>
+<p>or the people who were talking to the people</p>
+<p>who were doing it.</p>
+<p>And so I was able to track things pretty well</p>
+<p>through the 90s.</p>
+<p>So what wasn&rsquo;t most of the excitement</p>
+<p>on reinforcement learning in the 90s era</p>
+<p>with, what is it, TD Gamma?</p>
+<p>Like what&rsquo;s the role of these kind of little</p>
+<p>like fun game playing things and breakthroughs</p>
+<p>about exciting the community?</p>
+<p>Was that, like what were your,</p>
+<p>because you&rsquo;ve also built across,</p>
+<p>or part of building across a puzzle solver,</p>
+<p>solving program called proverb.</p>
+<p>So you were interested in this as a problem,</p>
+<p>like in forming, using games to understand</p>
+<p>how to build intelligence systems.</p>
+<p>So like, what did you think about TD Gamma?</p>
+<p>Like what did you think about that whole thing in the 90s?</p>
+<p>Yeah, I mean, I found the TD Gamma result</p>
+<p>really just remarkable.</p>
+<p>So I had known about some of Jerry&rsquo;s stuff</p>
+<p>before he did TD Gamma and he did a system,</p>
+<p>just more vanilla, well, not entirely vanilla,</p>
+<p>but a more classical back proppy kind of network</p>
+<p>for playing backgammon,</p>
+<p>where he was training it on expert moves.</p>
+<p>So it was kind of supervised,</p>
+<p>but the way that it worked was not to mimic the actions,</p>
+<p>but to learn internally an evaluation function.</p>
+<p>So to learn, well, if the expert chose this over this,</p>
+<p>that must mean that the expert values this more than this.</p>
+<p>And so let me adjust my weights to make it</p>
+<p>so that the network evaluates this</p>
+<p>as being better than this.</p>
+<p>So it could learn from human preferences,</p>
+<p>it could learn its own preferences.</p>
+<p>And then when he took the step from that</p>
+<p>to actually doing it</p>
+<p>as a full on reinforcement learning problem,</p>
+<p>where you didn&rsquo;t need a trainer,</p>
+<p>you could just let it play, that was remarkable, right?</p>
+<p>And so I think as humans often do,</p>
+<p>as we&rsquo;ve done in the recent past as well,</p>
+<p>people extrapolate.</p>
+<p>It&rsquo;s like, oh, well, if you can do that,</p>
+<p>which is obviously very hard,</p>
+<p>then obviously you could do all these other problems</p>
+<p>that we wanna solve that we know are also really hard.</p>
+<p>And it turned out very few of them ended up being practical,</p>
+<p>partly because I think neural nets,</p>
+<p>certainly at the time,</p>
+<p>were struggling to be consistent and reliable.</p>
+<p>And so training them in a reinforcement learning setting</p>
+<p>was a bit of a mess.</p>
+<p>I had, I don&rsquo;t know, generation after generation</p>
+<p>of like master students</p>
+<p>who wanted to do value function approximation,</p>
+<p>basically reinforcement learning with neural nets.</p>
+<p>And over and over and over again, we were failing.</p>
+<p>We couldn&rsquo;t get the good results that Jerry Tesaro got.</p>
+<p>I now believe that Jerry is a neural net whisperer.</p>
+<p>He has a particular ability to get neural networks</p>
+<p>to do things that other people would find impossible.</p>
+<p>And it&rsquo;s not the technology,</p>
+<p>it&rsquo;s the technology and Jerry together.</p>
+<p>Which I think speaks to the role of the human expert</p>
+<p>in the process of machine learning.</p>
+<p>Right, it&rsquo;s so easy.</p>
+<p>We&rsquo;re so drawn to the idea that it&rsquo;s the technology</p>
+<p>that is where the power is coming from</p>
+<p>that I think we lose sight of the fact</p>
+<p>that sometimes you need a really good,</p>
+<p>just like, I mean, no one would think,</p>
+<p>hey, here&rsquo;s this great piece of software.</p>
+<p>Here&rsquo;s like, I don&rsquo;t know, GNU Emacs or whatever.</p>
+<p>And doesn&rsquo;t that prove that computers are super powerful</p>
+<p>and basically gonna take over the world?</p>
+<p>It&rsquo;s like, no, Stalman is a hell of a hacker, right?</p>
+<p>So he was able to make the code do these amazing things.</p>
+<p>He couldn&rsquo;t have done it without the computer,</p>
+<p>but the computer couldn&rsquo;t have done it without him.</p>
+<p>And so I think people discount the role of people</p>
+<p>like Jerry who have just a particular set of skills.</p>
+<p>On that topic, by the way, as a small side note,</p>
+<p>I tweeted Emacs is greater than Vim yesterday</p>
+<p>and deleted the tweet 10 minutes later</p>
+<p>when I realized it started a war.</p>
+<p>I was like, oh, I was just kidding.</p>
+<p>I was just being, and I&rsquo;m gonna walk back and forth.</p>
+<p>So people still feel passionately</p>
+<p>about that particular piece of good stuff.</p>
+<p>Yeah, I don&rsquo;t get that</p>
+<p>because Emacs is clearly so much better, I don&rsquo;t understand.</p>
+<p>But why do I say that?</p>
+<p>Because I spent a block of time in the 80s</p>
+<p>making my fingers know the Emacs keys</p>
+<p>and now that&rsquo;s part of the thought process for me.</p>
+<p>Like I need to express, and if you take that,</p>
+<p>if you take my Emacs key bindings away, I become&hellip;</p>
+<p>I can&rsquo;t express myself.</p>
+<p>I&rsquo;m the same way with the,</p>
+<p>I don&rsquo;t know if you know what it is,</p>
+<p>but it&rsquo;s a Kinesis keyboard, which is this butt shaped keyboard.</p>
+<p>Yes, I&rsquo;ve seen them.</p>
+<p>They&rsquo;re very, I don&rsquo;t know, sexy, elegant?</p>
+<p>They&rsquo;re just beautiful.</p>
+<p>Yeah, they&rsquo;re gorgeous, way too expensive.</p>
+<p>But the problem with them, similar with Emacs,</p>
+<p>is once you learn to use it.</p>
+<p>It&rsquo;s harder to use other things.</p>
+<p>It&rsquo;s hard to use other things.</p>
+<p>There&rsquo;s this absurd thing where I have like small, elegant,</p>
+<p>lightweight, beautiful little laptops</p>
+<p>and I&rsquo;m sitting there in a coffee shop</p>
+<p>with a giant Kinesis keyboard and a sexy little laptop.</p>
+<p>It&rsquo;s absurd, but I used to feel bad about it,</p>
+<p>but at the same time, you just kind of have to,</p>
+<p>sometimes it&rsquo;s back to the Billy Joel thing.</p>
+<p>You just have to throw that Billy Joel record</p>
+<p>and throw Taylor Swift and Justin Bieber to the wind.</p>
+<p>So&hellip;</p>
+<p>See, but I like them now because again,</p>
+<p>I have no musical taste.</p>
+<p>Like now that I&rsquo;ve heard Justin Bieber enough,</p>
+<p>I&rsquo;m like, I really like his songs.</p>
+<p>And Taylor Swift, not only do I like her songs,</p>
+<p>but my daughter&rsquo;s convinced that she&rsquo;s a genius.</p>
+<p>And so now I basically have signed onto that.</p>
+<p>So&hellip;</p>
+<p>So yeah, that speaks to the,</p>
+<p>back to the robustness of the human brain.</p>
+<p>That speaks to the neuroplasticity</p>
+<p>that you can just like a mouse teach yourself to,</p>
+<p>or probably a dog teach yourself to enjoy Taylor Swift.</p>
+<p>I&rsquo;ll try it out.</p>
+<p>I don&rsquo;t know.</p>
+<p>I try, you know what?</p>
+<p>It has to do with just like acclimation, right?</p>
+<p>Just like you said, a couple of weeks.</p>
+<p>Yeah.</p>
+<p>That&rsquo;s an interesting experiment.</p>
+<p>I&rsquo;ll actually try that.</p>
+<p>Like I&rsquo;ll listen to it.</p>
+<p>That wasn&rsquo;t the intent of the experiment?</p>
+<p>Just like social media,</p>
+<p>it wasn&rsquo;t intended as an experiment</p>
+<p>to see what we can take as a society,</p>
+<p>but it turned out that way.</p>
+<p>I don&rsquo;t think I&rsquo;ll be the same person</p>
+<p>on the other side of the week listening to Taylor Swift,</p>
+<p>but let&rsquo;s try.</p>
+<p>No, it&rsquo;s more compartmentalized.</p>
+<p>Don&rsquo;t be so worried.</p>
+<p>Like it&rsquo;s, like I get that you can be worried,</p>
+<p>but don&rsquo;t be so worried</p>
+<p>because we compartmentalize really well.</p>
+<p>And so it won&rsquo;t bleed into other parts of your life.</p>
+<p>You won&rsquo;t start, I don&rsquo;t know,</p>
+<p>wearing red lipstick or whatever.</p>
+<p>Like it&rsquo;s fine.</p>
+<p>It&rsquo;s fine.</p>
+<p>It changed fashion and everything.</p>
+<p>It&rsquo;s fine.</p>
+<p>But you know what?</p>
+<p>The thing you have to watch out for</p>
+<p>is you&rsquo;ll walk into a coffee shop</p>
+<p>once we can do that again.</p>
+<p>And recognize the song?</p>
+<p>And you&rsquo;ll be, no,</p>
+<p>you won&rsquo;t know that you&rsquo;re singing along</p>
+<p>until everybody in the coffee shop is looking at you.</p>
+<p>And then you&rsquo;re like, that wasn&rsquo;t me.</p>
+<p>Yeah, that&rsquo;s the, you know,</p>
+<p>people are afraid of AGI.</p>
+<p>I&rsquo;m afraid of the Taylor Swift.</p>
+<p>The Taylor Swift takeover.</p>
+<p>Yeah, and I mean, people should know that TD Gammon was,</p>
+<p>I get, would you call it,</p>
+<p>do you like the terminology of self play by any chance?</p>
+<p>So like systems that learn by playing themselves.</p>
+<p>Just, I don&rsquo;t know if it&rsquo;s the best word, but.</p>
+<p>So what&rsquo;s the problem with that term?</p>
+<p>I don&rsquo;t know.</p>
+<p>So it&rsquo;s like the big bang,</p>
+<p>like it&rsquo;s like talking to a serious physicist.</p>
+<p>Do you like the term big bang?</p>
+<p>And when it was early,</p>
+<p>I feel like it&rsquo;s the early days of self play.</p>
+<p>I don&rsquo;t know, maybe it was used previously,</p>
+<p>but I think it&rsquo;s been used by only a small group of people.</p>
+<p>And so like, I think we&rsquo;re still deciding</p>
+<p>is this ridiculously silly name a good name</p>
+<p>for potentially one of the most important concepts</p>
+<p>in artificial intelligence?</p>
+<p>Okay, it depends how broadly you apply the term.</p>
+<p>So I used the term in my 1996 PhD dissertation.</p>
+<p>Wow, the actual terms of self play.</p>
+<p>Yeah, because Tesoro&rsquo;s paper was something like</p>
+<p>training up an expert backgammon player through self play.</p>
+<p>So I think it was in the title of his paper.</p>
+<p>If not in the title, it was definitely a term that he used.</p>
+<p>There&rsquo;s another term that we got from that work is rollout.</p>
+<p>So I don&rsquo;t know if you, do you ever hear the term rollout?</p>
+<p>That&rsquo;s a backgammon term that has now applied</p>
+<p>generally in computers, well, at least in AI</p>
+<p>because of TD gammon.</p>
+<p>That&rsquo;s fascinating.</p>
+<p>So how is self play being used now?</p>
+<p>And like, why is it,</p>
+<p>does it feel like a more general powerful concept</p>
+<p>is sort of the idea of,</p>
+<p>well, the machine&rsquo;s just gonna teach itself to be smart.</p>
+<p>Yeah, so that&rsquo;s where maybe you can correct me,</p>
+<p>but that&rsquo;s where the continuation of the spirit</p>
+<p>and actually like literally the exact algorithms</p>
+<p>of TD gammon are applied by DeepMind and OpenAI</p>
+<p>to learn games that are a little bit more complex</p>
+<p>that when I was learning artificial intelligence,</p>
+<p>Go was presented to me</p>
+<p>with artificial intelligence, the modern approach.</p>
+<p>I don&rsquo;t know if they explicitly pointed to Go</p>
+<p>in those books as like unsolvable kind of thing,</p>
+<p>like implying that these approaches hit their limit</p>
+<p>in this, with these particular kind of games.</p>
+<p>So something, I don&rsquo;t remember if the book said it or not,</p>
+<p>but something in my head,</p>
+<p>or if it was the professors instilled in me the idea</p>
+<p>like this is the limits of artificial intelligence</p>
+<p>of the field.</p>
+<p>Like it instilled in me the idea</p>
+<p>that if we can create a system that can solve the game of Go</p>
+<p>we&rsquo;ve achieved AGI.</p>
+<p>That was kind of, I didn&rsquo;t explicitly like say this,</p>
+<p>but that was the feeling.</p>
+<p>And so from, I was one of the people that it seemed magical</p>
+<p>when a learning system was able to beat</p>
+<p>a human world champion at the game of Go</p>
+<p>and even more so from that, that was AlphaGo,</p>
+<p>even more so with AlphaGo Zero</p>
+<p>than kind of renamed and advanced into AlphaZero</p>
+<p>beating a world champion or world class player</p>
+<p>without any supervised learning on expert games.</p>
+<p>We&rsquo;re doing only through by playing itself.</p>
+<p>So that is, I don&rsquo;t know what to make of it.</p>
+<p>I think it would be interesting to hear</p>
+<p>what your opinions are on just how exciting,</p>
+<p>surprising, profound, interesting, or boring</p>
+<p>the breakthrough performance of AlphaZero was.</p>
+<p>Okay, so AlphaGo knocked my socks off.</p>
+<p>That was so remarkable.</p>
+<p>Which aspect of it?</p>
+<p>That they got it to work,</p>
+<p>that they actually were able to leverage</p>
+<p>a whole bunch of different ideas,</p>
+<p>integrate them into one giant system.</p>
+<p>Just the software engineering aspect of it is mind blowing.</p>
+<p>I don&rsquo;t, I&rsquo;ve never been a part of a program</p>
+<p>as complicated as the program that they built for that.</p>
+<p>And just the, like Jerry Tesaro is a neural net whisperer,</p>
+<p>like David Silver is a kind of neural net whisperer too.</p>
+<p>He was able to coax these networks</p>
+<p>and these new way out there architectures</p>
+<p>to do these, solve these problems that,</p>
+<p>as you said, when we were learning from AI,</p>
+<p>no one had an idea how to make it work.</p>
+<p>It was remarkable that these techniques</p>
+<p>that were so good at playing chess</p>
+<p>and that could beat the world champion in chess</p>
+<p>couldn&rsquo;t beat your typical Go playing teenager in Go.</p>
+<p>So the fact that in a very short number of years,</p>
+<p>we kind of ramped up to trouncing people in Go</p>
+<p>just blew me away.</p>
+<p>So you&rsquo;re kind of focusing on the engineering aspect,</p>
+<p>which is also very surprising.</p>
+<p>I mean, there&rsquo;s something different</p>
+<p>about large, well funded companies.</p>
+<p>I mean, there&rsquo;s a compute aspect to it too.</p>
+<p>Like that, of course, I mean, that&rsquo;s similar</p>
+<p>to Deep Blue, right, with IBM.</p>
+<p>Like there&rsquo;s something important to be learned</p>
+<p>and remembered about a large company</p>
+<p>taking the ideas that are already out there</p>
+<p>and investing a few million dollars into it or more.</p>
+<p>And so you&rsquo;re kind of saying the engineering</p>
+<p>is kind of fascinating, both on the,</p>
+<p>with AlphaGo is probably just gathering all the data,</p>
+<p>right, of the expert games, like organizing everything,</p>
+<p>actually doing distributed supervised learning.</p>
+<p>And to me, see the engineering I kind of took for granted,</p>
+<p>to me philosophically being able to persist</p>
+<p>in the face of like long odds,</p>
+<p>because it feels like for me,</p>
+<p>I would be one of the skeptical people in the room</p>
+<p>thinking that you can learn your way to beat Go.</p>
+<p>Like it sounded like, especially with David Silver,</p>
+<p>it sounded like David was not confident at all.</p>
+<p>So like it was, like not,</p>
+<p>it&rsquo;s funny how confidence works.</p>
+<p>It&rsquo;s like, you&rsquo;re not like cocky about it, like, but.</p>
+<p>Right, because if you&rsquo;re cocky about it,</p>
+<p>you kind of stop and stall and don&rsquo;t get anywhere.</p>
+<p>But there&rsquo;s like a hope that&rsquo;s unbreakable.</p>
+<p>Maybe that&rsquo;s better than confidence.</p>
+<p>It&rsquo;s a kind of wishful hope and a little dream.</p>
+<p>And you almost don&rsquo;t want to do anything else.</p>
+<p>You kind of keep doing it.</p>
+<p>That&rsquo;s, that seems to be the story and.</p>
+<p>But with enough skepticism that you&rsquo;re looking</p>
+<p>for where the problems are and fighting through them.</p>
+<p>Cause you know, there&rsquo;s gotta be a way out of this thing.</p>
+<p>And for him, it was probably,</p>
+<p>there&rsquo;s a bunch of little factors that come into play.</p>
+<p>It&rsquo;s funny how these stories just all come together.</p>
+<p>Like everything he did in his life came into play,</p>
+<p>which is like a love for video games</p>
+<p>and also a connection to,</p>
+<p>so the nineties had to happen with TD Gammon and so on.</p>
+<p>In some ways it&rsquo;s surprising,</p>
+<p>maybe you can provide some intuition to it</p>
+<p>that not much more than TD Gammon was done</p>
+<p>for quite a long time on the reinforcement learning front.</p>
+<p>Is that weird to you?</p>
+<p>I mean, like I said, the students who I worked with,</p>
+<p>we tried to get, basically apply that architecture</p>
+<p>to other problems and we consistently failed.</p>
+<p>There were a couple of really nice demonstrations</p>
+<p>that ended up being in the literature.</p>
+<p>There was a paper about controlling elevators, right?</p>
+<p>Where it&rsquo;s like, okay, can we modify the heuristic</p>
+<p>that elevators use for deciding,</p>
+<p>like a bank of elevators for deciding which floors</p>
+<p>we should be stopping on to maximize throughput essentially.</p>
+<p>And you can set that up as a reinforcement learning problem</p>
+<p>and you can have a neural net represent the value function</p>
+<p>so that it&rsquo;s taking where all the elevators,</p>
+<p>where the button pushes, you know, this high dimensional,</p>
+<p>well, at the time high dimensional input,</p>
+<p>you know, a couple of dozen dimensions</p>
+<p>and turn that into a prediction as to,</p>
+<p>oh, is it gonna be better if I stop at this floor or not?</p>
+<p>And ultimately it appeared as though</p>
+<p>for the standard simulation distribution</p>
+<p>for people trying to leave the building</p>
+<p>at the end of the day,</p>
+<p>that the neural net learned a better strategy</p>
+<p>than the standard one that&rsquo;s implemented</p>
+<p>in elevator controllers.</p>
+<p>So that was nice.</p>
+<p>There was some work that Satyendra Singh et al</p>
+<p>did on handoffs with cell phones,</p>
+<p>you know, deciding when should you hand off</p>
+<p>from this cell tower to this cell tower.</p>
+<p>Oh, okay, communication networks, yeah.</p>
+<p>Yeah, and so a couple of things</p>
+<p>seemed like they were really promising.</p>
+<p>None of them made it into production that I&rsquo;m aware of.</p>
+<p>And neural nets as a whole started</p>
+<p>to kind of implode around then.</p>
+<p>And so there just wasn&rsquo;t a lot of air in the room</p>
+<p>for people to try to figure out,</p>
+<p>okay, how do we get this to work in the RL setting?</p>
+<p>And then they found their way back in 10 plus years.</p>
+<p>So you said AlphaGo was impressive,</p>
+<p>like it&rsquo;s a big spectacle.</p>
+<p>Is there, is that?</p>
+<p>Right, so then AlphaZero.</p>
+<p>So I think I may have a slightly different opinion</p>
+<p>on this than some people.</p>
+<p>So I talked to Satyendra Singh in particular about this.</p>
+<p>So Satyendra was like Rich Sutton,</p>
+<p>a student of Andy Bartow.</p>
+<p>So they came out of the same lab,</p>
+<p>very influential machine learning,</p>
+<p>reinforcement learning researcher.</p>
+<p>Now at DeepMind, as is Rich.</p>
+<p>Though different sites, the two of them.</p>
+<p>He&rsquo;s in Alberta.</p>
+<p>Rich is in Alberta and Satyendra would be in England,</p>
+<p>but I think he&rsquo;s in England from Michigan at the moment.</p>
+<p>But the, but he was, yes,</p>
+<p>he was much more impressed with AlphaGo Zero,</p>
+<p>which is didn&rsquo;t get a kind of a bootstrap</p>
+<p>in the beginning with human trained games.</p>
+<p>It just was purely self play.</p>
+<p>Though the first one AlphaGo</p>
+<p>was also a tremendous amount of self play, right?</p>
+<p>They started off, they kickstarted the action network</p>
+<p>that was making decisions,</p>
+<p>but then they trained it for a really long time</p>
+<p>using more traditional temporal difference methods.</p>
+<p>So as a result, I didn&rsquo;t,</p>
+<p>it didn&rsquo;t seem that different to me.</p>
+<p>Like, it seems like, yeah, why wouldn&rsquo;t that work?</p>
+<p>Like once you, once it works, it works.</p>
+<p>So what, but he found that removal</p>
+<p>of that extra information to be breathtaking.</p>
+<p>Like that&rsquo;s a game changer.</p>
+<p>To me, the first thing was more of a game changer.</p>
+<p>But the open question, I mean,</p>
+<p>I guess that&rsquo;s the assumption is the expert games</p>
+<p>might contain within them a humongous amount of information.</p>
+<p>But we know that it went beyond that, right?</p>
+<p>We know that it somehow got away from that information</p>
+<p>because it was learning strategies.</p>
+<p>I don&rsquo;t think AlphaGo is just better</p>
+<p>at implementing human strategies.</p>
+<p>I think it actually developed its own strategies</p>
+<p>that were more effective.</p>
+<p>And so from that perspective, okay, well,</p>
+<p>so it made at least one quantum leap</p>
+<p>in terms of strategic knowledge.</p>
+<p>Okay, so now maybe it makes three, like, okay.</p>
+<p>But that first one is the doozy, right?</p>
+<p>Getting it to work reliably and for the networks</p>
+<p>to hold onto the value well enough.</p>
+<p>Like that was a big step.</p>
+<p>Well, maybe you could speak to this</p>
+<p>on the reinforcement learning front.</p>
+<p>So starting from scratch and learning to do something,</p>
+<p>like the first like random behavior</p>
+<p>to like crappy behavior to like somewhat okay behavior.</p>
+<p>It&rsquo;s not obvious to me that that&rsquo;s not like impossible</p>
+<p>to take those steps.</p>
+<p>Like if you just think about the intuition,</p>
+<p>like how the heck does random behavior</p>
+<p>become somewhat basic intelligent behavior?</p>
+<p>Not human level, not superhuman level, but just basic.</p>
+<p>But you&rsquo;re saying to you kind of the intuition is like,</p>
+<p>if you can go from human to superhuman level intelligence</p>
+<p>on this particular task of game playing,</p>
+<p>then so you&rsquo;re good at taking leaps.</p>
+<p>So you can take many of them.</p>
+<p>That the system, I believe that the system</p>
+<p>can take that kind of leap.</p>
+<p>Yeah, and also I think that beginner knowledge in go,</p>
+<p>like you can start to get a feel really quickly</p>
+<p>for the idea that being in certain parts of the board</p>
+<p>seems to be more associated with winning, right?</p>
+<p>Cause it&rsquo;s not stumbling upon the concept of winning.</p>
+<p>It&rsquo;s told that it wins or that it loses.</p>
+<p>Well, it&rsquo;s self play.</p>
+<p>So it both wins and loses.</p>
+<p>It&rsquo;s told which side won.</p>
+<p>And the information is kind of there</p>
+<p>to start percolating around to make a difference as to,</p>
+<p>well, these things have a better chance of helping you win.</p>
+<p>And these things have a worse chance of helping you win.</p>
+<p>And so it can get to basic play, I think pretty quickly.</p>
+<p>Then once it has basic play,</p>
+<p>well now it&rsquo;s kind of forced to do some search</p>
+<p>to actually experiment with, okay,</p>
+<p>well what gets me that next increment of improvement?</p>
+<p>How far do you think, okay, this is where you kind of</p>
+<p>bring up the Elon Musk and the Sam Harris, right?</p>
+<p>How far is your intuition about these kinds</p>
+<p>of self play mechanisms being able to take us?</p>
+<p>Cause it feels, one of the ominous but stated calmly things</p>
+<p>that when I talked to David Silver, he said,</p>
+<p>is that they have not yet discovered a ceiling</p>
+<p>for Alpha Zero, for example, in the game of Go or chess.</p>
+<p>Like it keeps, no matter how much they compute,</p>
+<p>they throw at it, it keeps improving.</p>
+<p>So it&rsquo;s possible, it&rsquo;s very possible that if you throw,</p>
+<p>you know, some like 10 X compute that it will improve</p>
+<p>by five X or something like that.</p>
+<p>And when stated calmly, it&rsquo;s so like, oh yeah, I guess so.</p>
+<p>But like, and then you think like,</p>
+<p>well, can we potentially have like continuations</p>
+<p>of Moore&rsquo;s law in totally different way,</p>
+<p>like broadly defined Moore&rsquo;s law,</p>
+<p>not the exponential improvement, like,</p>
+<p>are we going to have an Alpha Zero that swallows the world?</p>
+<p>But notice it&rsquo;s not getting better at other things.</p>
+<p>It&rsquo;s getting better at Go.</p>
+<p>And I think that&rsquo;s a big leap to say,</p>
+<p>okay, well, therefore it&rsquo;s better at other things.</p>
+<p>Well, I mean, the question is how much of the game of life</p>
+<p>can be turned into.</p>
+<p>Right, so that I think is a really good question.</p>
+<p>And I think that we don&rsquo;t, I don&rsquo;t think we as a,</p>
+<p>I don&rsquo;t know, community really know the answer to this,</p>
+<p>but so, okay, so I went to a talk</p>
+<p>by some experts on computer chess.</p>
+<p>So in particular, computer chess is really interesting</p>
+<p>because for, of course, for a thousand years,</p>
+<p>humans were the best chess playing things on the planet.</p>
+<p>And then computers like edged ahead of the best person.</p>
+<p>And they&rsquo;ve been ahead ever since.</p>
+<p>It&rsquo;s not like people have overtaken computers.</p>
+<p>But computers and people together</p>
+<p>have overtaken computers.</p>
+<p>So at least last time I checked,</p>
+<p>I don&rsquo;t know what the very latest is,</p>
+<p>but last time I checked that there were teams of people</p>
+<p>who could work with computer programs</p>
+<p>to defeat the best computer programs.</p>
+<p>In the game of Go?</p>
+<p>In the game of chess.</p>
+<p>Right, and so using the information about how,</p>
+<p>these things called ELO scores,</p>
+<p>this sort of notion of how strong a player are you.</p>
+<p>There&rsquo;s kind of a range of possible scores.</p>
+<p>And you increment in score,</p>
+<p>basically if you can beat another player</p>
+<p>of that lower score 62% of the time or something like that.</p>
+<p>Like there&rsquo;s some threshold</p>
+<p>of if you can somewhat consistently beat someone,</p>
+<p>then you are of a higher score than that person.</p>
+<p>And there&rsquo;s a question as to how many times</p>
+<p>can you do that in chess, right?</p>
+<p>And so we know that there&rsquo;s a range of human ability levels</p>
+<p>that cap out with the best playing humans.</p>
+<p>And the computers went a step beyond that.</p>
+<p>And computers and people together have not gone,</p>
+<p>I think a full step beyond that.</p>
+<p>It feels, the estimates that they have</p>
+<p>is that it&rsquo;s starting to asymptote.</p>
+<p>That we&rsquo;ve reached kind of the maximum,</p>
+<p>the best possible chess playing.</p>
+<p>And so that means that there&rsquo;s kind of</p>
+<p>a finite strategic depth, right?</p>
+<p>At some point you just can&rsquo;t get any better at this game.</p>
+<p>Yeah, I mean, I don&rsquo;t, so I&rsquo;ll actually check that.</p>
+<p>I think it&rsquo;s interesting because if you have somebody</p>
+<p>like Magnus Carlsen, who&rsquo;s using these chess programs</p>
+<p>to train his mind, like to learn about chess.</p>
+<p>To become a better chess player, yeah.</p>
+<p>And so like, that&rsquo;s a very interesting thing</p>
+<p>because we&rsquo;re not static creatures.</p>
+<p>We&rsquo;re learning together.</p>
+<p>I mean, just like we&rsquo;re talking about social networks,</p>
+<p>those algorithms are teaching us</p>
+<p>just like we&rsquo;re teaching those algorithms.</p>
+<p>So that&rsquo;s a fascinating thing.</p>
+<p>But I think the best chess playing programs</p>
+<p>are now better than the pairs.</p>
+<p>Like they have competition between pairs,</p>
+<p>but it&rsquo;s still, even if they weren&rsquo;t,</p>
+<p>it&rsquo;s an interesting question, where&rsquo;s the ceiling?</p>
+<p>So the David, the ominous David Silver kind of statement</p>
+<p>is like, we have not found the ceiling.</p>
+<p>Right, so the question is, okay,</p>
+<p>so I don&rsquo;t know his analysis on that.</p>
+<p>My, from talking to Go experts,</p>
+<p>the depth, the strategic depth of Go</p>
+<p>seems to be substantially greater than that of chess.</p>
+<p>That there&rsquo;s more kind of steps of improvement</p>
+<p>that you can make, getting better and better</p>
+<p>and better and better.</p>
+<p>But there&rsquo;s no reason to think that it&rsquo;s infinite.</p>
+<p>Infinite, yeah.</p>
+<p>And so it could be that what David is seeing</p>
+<p>is a kind of asymptoting that you can keep getting better,</p>
+<p>but with diminishing returns.</p>
+<p>And at some point you hit optimal play.</p>
+<p>Like in theory, all these finite games, they&rsquo;re finite.</p>
+<p>They have an optimal strategy.</p>
+<p>There&rsquo;s a strategy that is the minimax optimal strategy.</p>
+<p>And so at that point, you can&rsquo;t get any better.</p>
+<p>You can&rsquo;t beat that strategy.</p>
+<p>Now that strategy may be,</p>
+<p>from an information processing perspective, intractable.</p>
+<p>Right, you need, all the situations</p>
+<p>are sufficiently different that you can&rsquo;t compress it at all.</p>
+<p>It&rsquo;s this giant mess of hardcoded rules.</p>
+<p>And we can never achieve that.</p>
+<p>But that still puts a cap on how many levels of improvement</p>
+<p>that we can actually make.</p>
+<p>But the thing about self play is if you put it,</p>
+<p>although I don&rsquo;t like doing that,</p>
+<p>in the broader category of self supervised learning,</p>
+<p>is that it doesn&rsquo;t require too much or any human input.</p>
+<p>Human labeling, yeah.</p>
+<p>Yeah, human label or just human effort.</p>
+<p>The human involvement passed a certain point.</p>
+<p>And the same thing you could argue is true</p>
+<p>for the recent breakthroughs in natural language processing</p>
+<p>with language models.</p>
+<p>Oh, this is how you get to GPT3.</p>
+<p>Yeah, see how that did the.</p>
+<p>That was a good transition.</p>
+<p>Yeah, I practiced that for days leading up to this now.</p>
+<p>But like that&rsquo;s one of the questions is,</p>
+<p>can we find ways to formulate problems in this world</p>
+<p>that are important to us humans,</p>
+<p>like more important than the game of chess,</p>
+<p>that to which self supervised kinds of approaches</p>
+<p>could be applied?</p>
+<p>Whether it&rsquo;s self play, for example,</p>
+<p>for like maybe you could think of like autonomous vehicles</p>
+<p>in simulation, that kind of stuff,</p>
+<p>or just robotics applications and simulation,</p>
+<p>or in the self supervised learning,</p>
+<p>where unannotated data,</p>
+<p>or data that&rsquo;s generated by humans naturally</p>
+<p>without extra costs, like Wikipedia,</p>
+<p>or like all of the internet can be used</p>
+<p>to learn something about,</p>
+<p>to create intelligent systems that do something</p>
+<p>really powerful, that pass the Turing test,</p>
+<p>or that do some kind of superhuman level performance.</p>
+<p>So what&rsquo;s your intuition,</p>
+<p>like trying to stitch all of it together</p>
+<p>about our discussion of AGI,</p>
+<p>the limits of self play,</p>
+<p>and your thoughts about maybe the limits of neural networks</p>
+<p>in the context of language models.</p>
+<p>Is there some intuition in there</p>
+<p>that might be useful to think about?</p>
+<p>Yeah, yeah, yeah.</p>
+<p>So first of all, the whole Transformer network</p>
+<p>family of things is really cool.</p>
+<p>It&rsquo;s really, really cool.</p>
+<p>I mean, if you&rsquo;ve ever,</p>
+<p>back in the day you played with,</p>
+<p>I don&rsquo;t know, Markov models for generating texts,</p>
+<p>and you&rsquo;ve seen the kind of texts that they spit out,</p>
+<p>and you compare it to what&rsquo;s happening now,</p>
+<p>it&rsquo;s amazing, it&rsquo;s so amazing.</p>
+<p>Now, it doesn&rsquo;t take very long interacting</p>
+<p>with one of these systems before you find the holes, right?</p>
+<p>It&rsquo;s not smart in any kind of general way.</p>
+<p>It&rsquo;s really good at a bunch of things.</p>
+<p>And it does seem to understand</p>
+<p>a lot of the statistics of language extremely well.</p>
+<p>And that turns out to be very powerful.</p>
+<p>You can answer many questions with that.</p>
+<p>But it doesn&rsquo;t make it a good conversationalist, right?</p>
+<p>And it doesn&rsquo;t make it a good storyteller.</p>
+<p>It just makes it good at imitating</p>
+<p>of things that is seen in the past.</p>
+<p>The exact same thing could be said</p>
+<p>by people who are voting for Donald Trump</p>
+<p>about Joe Biden supporters,</p>
+<p>and people voting for Joe Biden</p>
+<p>about Donald Trump supporters is, you know.</p>
+<p>That they&rsquo;re not intelligent, they&rsquo;re just following the.</p>
+<p>Yeah, they&rsquo;re following things they&rsquo;ve seen in the past.</p>
+<p>And it doesn&rsquo;t take long to find the flaws</p>
+<p>in their natural language generation abilities.</p>
+<p>Yes, yes.</p>
+<p>So we&rsquo;re being very.</p>
+<p>That&rsquo;s interesting.</p>
+<p>Critical of AI systems.</p>
+<p>Right, so I&rsquo;ve had a similar thought,</p>
+<p>which was that the stories that GPT3 spits out</p>
+<p>are amazing and very humanlike.</p>
+<p>And it doesn&rsquo;t mean that computers are smarter</p>
+<p>than we realize necessarily.</p>
+<p>It partly means that people are dumber than we realize.</p>
+<p>Or that much of what we do day to day is not that deep.</p>
+<p>Like we&rsquo;re just kind of going with the flow.</p>
+<p>We&rsquo;re saying whatever feels like the natural thing</p>
+<p>to say next.</p>
+<p>Not a lot of it is creative or meaningful or intentional.</p>
+<p>But enough is that we actually get by, right?</p>
+<p>We do come up with new ideas sometimes,</p>
+<p>and we do manage to talk each other into things sometimes.</p>
+<p>And we do sometimes vote for reasonable people sometimes.</p>
+<p>But it&rsquo;s really hard to see in the statistics</p>
+<p>because so much of what we&rsquo;re saying is kind of rote.</p>
+<p>And so our metrics that we use to measure</p>
+<p>how these systems are doing don&rsquo;t reveal that</p>
+<p>because it&rsquo;s in the interstices that is very hard to detect.</p>
+<p>But is your, do you have an intuition</p>
+<p>that with these language models, if they grow in size,</p>
+<p>it&rsquo;s already surprising when you go from GPT2 to GPT3</p>
+<p>that there is a noticeable improvement.</p>
+<p>So the question now goes back to the ominous David Silver</p>
+<p>and the ceiling.</p>
+<p>Right, so maybe there&rsquo;s just no ceiling.</p>
+<p>We just need more compute.</p>
+<p>Now, I mean, okay, so now I&rsquo;m speculating.</p>
+<p>Yes.</p>
+<p>As opposed to before when I was completely on firm ground.</p>
+<p>All right, I don&rsquo;t believe that you can get something</p>
+<p>that really can do language and use language as a thing</p>
+<p>that doesn&rsquo;t interact with people.</p>
+<p>Like I think that it&rsquo;s not enough</p>
+<p>to just take everything that we&rsquo;ve said written down</p>
+<p>and just say, that&rsquo;s enough.</p>
+<p>You can just learn from that and you can be intelligent.</p>
+<p>I think you really need to be pushed back at.</p>
+<p>I think that conversations,</p>
+<p>even people who are pretty smart,</p>
+<p>maybe the smartest thing that we know,</p>
+<p>maybe not the smartest thing we can imagine,</p>
+<p>but we get so much benefit</p>
+<p>out of talking to each other and interacting.</p>
+<p>That&rsquo;s presumably why you have conversations live with guests</p>
+<p>is that there&rsquo;s something in that interaction</p>
+<p>that would not be exposed by,</p>
+<p>oh, I&rsquo;ll just write you a story</p>
+<p>and then you can read it later.</p>
+<p>And I think because these systems</p>
+<p>are just learning from our stories,</p>
+<p>they&rsquo;re not learning from being pushed back at by us,</p>
+<p>that they&rsquo;re fundamentally limited</p>
+<p>into what they can actually become on this route.</p>
+<p>They have to get shut down.</p>
+<p>Like we have to have an argument,</p>
+<p>they have to have an argument with us</p>
+<p>and lose a couple of times</p>
+<p>before they start to realize, oh, okay, wait,</p>
+<p>there&rsquo;s some nuance here that actually matters.</p>
+<p>Yeah, that&rsquo;s actually subtle sounding,</p>
+<p>but quite profound that the interaction with humans</p>
+<p>is essential and the limitation within that</p>
+<p>is profound as well because the timescale,</p>
+<p>like the bandwidth at which you can really interact</p>
+<p>with humans is very low.</p>
+<p>So it&rsquo;s costly.</p>
+<p>So you can&rsquo;t, one of the underlying things about self plays,</p>
+<p>it has to do a very large number of interactions.</p>
+<p>And so you can&rsquo;t really deploy reinforcement learning systems</p>
+<p>into the real world to interact.</p>
+<p>Like you couldn&rsquo;t deploy a language model</p>
+<p>into the real world to interact with humans</p>
+<p>because it was just not getting enough data</p>
+<p>relative to the cost it takes to interact.</p>
+<p>Like the time of humans is expensive,</p>
+<p>which is really interesting.</p>
+<p>That takes us back to reinforcement learning</p>
+<p>and trying to figure out if there&rsquo;s ways</p>
+<p>to make algorithms that are more efficient at learning,</p>
+<p>keep the spirit in reinforcement learning</p>
+<p>and become more efficient.</p>
+<p>In some sense, that seems to be the goal.</p>
+<p>I&rsquo;d love to hear what your thoughts are.</p>
+<p>I don&rsquo;t know if you got a chance to see</p>
+<p>the blog post called Bitter Lesson.</p>
+<p>Oh yes.</p>
+<p>By Rich Sutton that makes an argument,</p>
+<p>hopefully I can summarize it.</p>
+<p>Perhaps you can.</p>
+<p>Yeah, but do you want?</p>
+<p>Okay.</p>
+<p>So I mean, I could try and you can correct me,</p>
+<p>which is he makes an argument that it seems</p>
+<p>if we look at the long arc of the history</p>
+<p>of the artificial intelligence field,</p>
+<p>he calls 70 years that the algorithms</p>
+<p>from which we&rsquo;ve seen the biggest improvements in practice</p>
+<p>are the very simple, like dumb algorithms</p>
+<p>that are able to leverage computation.</p>
+<p>And you just wait for the computation to improve.</p>
+<p>Like all of the academics and so on have fun</p>
+<p>by finding little tricks</p>
+<p>and congratulate themselves on those tricks.</p>
+<p>And sometimes those tricks can be like big,</p>
+<p>that feel in the moment like big spikes and breakthroughs,</p>
+<p>but in reality over the decades,</p>
+<p>it&rsquo;s still the same dumb algorithm</p>
+<p>that just waits for the compute to get faster and faster.</p>
+<p>Do you find that to be an interesting argument</p>
+<p>against the entirety of the field of machine learning</p>
+<p>as an academic discipline?</p>
+<p>That we&rsquo;re really just a subfield of computer architecture.</p>
+<p>We&rsquo;re just kind of waiting around</p>
+<p>for them to do their next thing.</p>
+<p>Who really don&rsquo;t want to do hardware work.</p>
+<p>So like.</p>
+<p>That&rsquo;s right.</p>
+<p>I really don&rsquo;t want to think about it.</p>
+<p>We&rsquo;re procrastinating.</p>
+<p>Yes, that&rsquo;s right, just waiting for them to do their jobs</p>
+<p>so that we can pretend to have done ours.</p>
+<p>So yeah, I mean, the argument reminds me a lot of,</p>
+<p>I think it was a Fred Jelinek quote,</p>
+<p>early computational linguist who said,</p>
+<p>we&rsquo;re building these computational linguistic systems</p>
+<p>and every time we fire a linguist performance goes up</p>
+<p>by 10%, something like that.</p>
+<p>And so the idea of us building the knowledge in,</p>
+<p>in that case was much less,</p>
+<p>he was finding it to be much less successful</p>
+<p>than get rid of the people who know about language as a,</p>
+<p>from a kind of scholastic academic kind of perspective</p>
+<p>and replace them with more compute.</p>
+<p>And so I think this is kind of a modern version</p>
+<p>of that story, which is, okay,</p>
+<p>we want to do better on machine vision.</p>
+<p>You could build in all these,</p>
+<p>motivated part based models that,</p>
+<p>that just feel like obviously the right thing</p>
+<p>that you have to have,</p>
+<p>or we can throw a lot of data at it</p>
+<p>and guess what we&rsquo;re doing better with a lot of data.</p>
+<p>So I hadn&rsquo;t thought about it until this moment in this way,</p>
+<p>but what I believe, well, I&rsquo;ve thought about what I believe.</p>
+<p>What I believe is that, you know, compositionality</p>
+<p>and what&rsquo;s the right way to say it,</p>
+<p>the complexity grows rapidly</p>
+<p>as you consider more and more possibilities,</p>
+<p>like explosively.</p>
+<p>And so far Moore&rsquo;s law has also been growing explosively</p>
+<p>exponentially.</p>
+<p>And so it really does seem like, well,</p>
+<p>we don&rsquo;t have to think really hard about the algorithm</p>
+<p>design or the way that we build the systems,</p>
+<p>because the best benefit we could get is exponential.</p>
+<p>And the best benefit that we can get from waiting</p>
+<p>is exponential.</p>
+<p>So we can just wait.</p>
+<p>It&rsquo;s got, that&rsquo;s gotta end, right?</p>
+<p>And there&rsquo;s hints now that,</p>
+<p>that Moore&rsquo;s law is starting to feel some friction,</p>
+<p>starting to, the world is pushing back a little bit.</p>
+<p>One thing that I don&rsquo;t know, do lots of people know this?</p>
+<p>I didn&rsquo;t know this, I was trying to write an essay</p>
+<p>and yeah, Moore&rsquo;s law has been amazing</p>
+<p>and it&rsquo;s enabled all sorts of things,</p>
+<p>but there&rsquo;s also a kind of counter Moore&rsquo;s law,</p>
+<p>which is that the development cost</p>
+<p>for each successive generation of chips also is doubling.</p>
+<p>So it&rsquo;s costing twice as much money.</p>
+<p>So the amount of development money per cycle or whatever</p>
+<p>is actually sort of constant.</p>
+<p>And at some point we run out of money.</p>
+<p>So, or we have to come up with an entirely different way</p>
+<p>of doing the development process.</p>
+<p>So like, I guess I always a bit skeptical of the look,</p>
+<p>it&rsquo;s an exponential curve, therefore it has no end.</p>
+<p>Soon the number of people going to NeurIPS</p>
+<p>will be greater than the population of the earth.</p>
+<p>That means we&rsquo;re gonna discover life on other planets.</p>
+<p>No, it doesn&rsquo;t.</p>
+<p>It means that we&rsquo;re in a sigmoid curve on the front half,</p>
+<p>which looks a lot like an exponential.</p>
+<p>The second half is gonna look a lot like diminishing returns.</p>
+<p>Yeah, I mean, but the interesting thing about Moore&rsquo;s law,</p>
+<p>if you actually like look at the technologies involved,</p>
+<p>it&rsquo;s hundreds, if not thousands of S curves</p>
+<p>stacked on top of each other.</p>
+<p>It&rsquo;s not actually an exponential curve,</p>
+<p>it&rsquo;s constant breakthroughs.</p>
+<p>And then what becomes useful to think about,</p>
+<p>which is exactly what you&rsquo;re saying,</p>
+<p>the cost of development, like the size of teams,</p>
+<p>the amount of resources that are invested</p>
+<p>in continuing to find new S curves, new breakthroughs.</p>
+<p>And yeah, it&rsquo;s an interesting idea.</p>
+<p>If we live in the moment, if we sit here today,</p>
+<p>it seems to be the reasonable thing</p>
+<p>to say that exponentials end.</p>
+<p>And yet in the software realm,</p>
+<p>they just keep appearing to be happening.</p>
+<p>And it&rsquo;s so, I mean, it&rsquo;s so hard to disagree</p>
+<p>with Elon Musk on this.</p>
+<p>Because it like, I&rsquo;ve, you know,</p>
+<p>I used to be one of those folks,</p>
+<p>I&rsquo;m still one of those folks that studied</p>
+<p>autonomous vehicles, that&rsquo;s what I worked on.</p>
+<p>And it&rsquo;s like, you look at what Elon Musk is saying</p>
+<p>about autonomous vehicles, well, obviously,</p>
+<p>in a couple of years, or in a year, or next month,</p>
+<p>we&rsquo;ll have fully autonomous vehicles.</p>
+<p>Like there&rsquo;s no reason why we can&rsquo;t.</p>
+<p>Driving is pretty simple, like it&rsquo;s just a learning problem</p>
+<p>and you just need to convert all the driving</p>
+<p>that we&rsquo;re doing into data and just having you all know</p>
+<p>with the trains on that data.</p>
+<p>And like, we use only our eyes, so you can use cameras</p>
+<p>and you can train on it.</p>
+<p>And it&rsquo;s like, yeah, that should work.</p>
+<p>And then you put that hat on, like the philosophical hat,</p>
+<p>and but then you put the pragmatic hat and it&rsquo;s like,</p>
+<p>this is what the flaws of computer vision are.</p>
+<p>Like, this is what it means to train at scale.</p>
+<p>And then you put the human factors, the psychology hat on,</p>
+<p>which is like, it&rsquo;s actually driving us a lot,</p>
+<p>the cognitive science or cognitive,</p>
+<p>whatever the heck you call it, it&rsquo;s really hard,</p>
+<p>it&rsquo;s much harder to drive than we realize,</p>
+<p>there&rsquo;s a much larger number of edge cases.</p>
+<p>So building up an intuition around this is,</p>
+<p>around exponentials is really difficult.</p>
+<p>And on top of that, the pandemic is making us think</p>
+<p>about exponentials, making us realize that like,</p>
+<p>we don&rsquo;t understand anything about it,</p>
+<p>we&rsquo;re not able to intuit exponentials,</p>
+<p>we&rsquo;re either ultra terrified, some part of the population</p>
+<p>and some part is like the opposite of whatever</p>
+<p>the different carefree and we&rsquo;re not managing it very well.</p>
+<p>Blase, well, wow, is that French?</p>
+<p>I assume so, it&rsquo;s got an accent.</p>
+<p>So it&rsquo;s fascinating to think what the limits</p>
+<p>of this exponential growth of technology,</p>
+<p>not just Moore&rsquo;s law, it&rsquo;s technology,</p>
+<p>how that rubs up against the bitter lesson</p>
+<p>and GPT three and self play mechanisms.</p>
+<p>Like it&rsquo;s not obvious, I used to be much more skeptical</p>
+<p>about neural networks.</p>
+<p>Now I at least give a slither of possibility</p>
+<p>that we&rsquo;ll be very much surprised</p>
+<p>and also caught in a way that like,</p>
+<p>we are not prepared for.</p>
+<p>Like in applications of social networks, for example,</p>
+<p>cause it feels like really good transformer models</p>
+<p>that are able to do some kind of like very good</p>
+<p>natural language generation of the same kind of models</p>
+<p>that can be used to learn human behavior</p>
+<p>and then manipulate that human behavior</p>
+<p>to gain advertisers dollars and all those kinds of things</p>
+<p>through the capitalist system.</p>
+<p>And they arguably already are manipulating human behavior.</p>
+<p>But not for self preservation, which I think is a big,</p>
+<p>that would be a big step.</p>
+<p>Like if they were trying to manipulate us</p>
+<p>to convince us not to shut them off,</p>
+<p>I would be very freaked out.</p>
+<p>But I don&rsquo;t see a path to that from where we are now.</p>
+<p>They don&rsquo;t have any of those abilities.</p>
+<p>That&rsquo;s not what they&rsquo;re trying to do.</p>
+<p>They&rsquo;re trying to keep people on the site.</p>
+<p>But see the thing is, this is the thing about life on earth</p>
+<p>is they might be borrowing our consciousness</p>
+<p>and sentience like, so like in a sense they do</p>
+<p>because the creators of the algorithms have,</p>
+<p>like they&rsquo;re not, if you look at our body,</p>
+<p>we&rsquo;re not a single organism.</p>
+<p>We&rsquo;re a huge number of organisms</p>
+<p>with like tiny little motivations</p>
+<p>were built on top of each other.</p>
+<p>In the same sense, the AI algorithms that are,</p>
+<p>they&rsquo;re not like.</p>
+<p>It&rsquo;s a system that includes companies and corporations,</p>
+<p>because corporations are funny organisms</p>
+<p>in and of themselves that really do seem</p>
+<p>to have self preservation built in.</p>
+<p>And I think that&rsquo;s at the design level.</p>
+<p>I think they&rsquo;re designed to have self preservation</p>
+<p>to be a focus.</p>
+<p>So you&rsquo;re right.</p>
+<p>In that broader system that we&rsquo;re also a part of</p>
+<p>and can have some influence on,</p>
+<p>it is much more complicated, much more powerful.</p>
+<p>Yeah, I agree with that.</p>
+<p>So people really love it when I ask,</p>
+<p>what three books, technical, philosophical, fiction</p>
+<p>had a big impact on your life?</p>
+<p>Maybe you can recommend.</p>
+<p>We went with movies, we went with Billy Joe</p>
+<p>and I forgot what music you recommended, but.</p>
+<p>I didn&rsquo;t, I just said I have no taste in music.</p>
+<p>I just like pop music.</p>
+<p>That was actually really skillful</p>
+<p>the way you avoided that question.</p>
+<p>Thank you, thanks.</p>
+<p>I&rsquo;m gonna try to do the same with the books.</p>
+<p>So do you have a skillful way to avoid answering</p>
+<p>the question about three books you would recommend?</p>
+<p>I&rsquo;d like to tell you a story.</p>
+<p>So my first job out of college was at Bellcore.</p>
+<p>I mentioned that before, where I worked with Dave Ackley.</p>
+<p>The head of the group was a guy named Tom Landauer.</p>
+<p>And I don&rsquo;t know how well known he&rsquo;s known now,</p>
+<p>but arguably he&rsquo;s the inventor</p>
+<p>and the first proselytizer of word embeddings.</p>
+<p>So they developed a system shortly before I got to the group</p>
+<p>that was called latent semantic analysis</p>
+<p>that would take words of English</p>
+<p>and embed them in multi hundred dimensional space</p>
+<p>and then use that as a way of assessing</p>
+<p>similarity and basically doing reinforcement learning,</p>
+<p>I&rsquo;m sorry, not reinforcement, information retrieval,</p>
+<p>sort of pre Google information retrieval.</p>
+<p>And he was trained as an anthropologist,</p>
+<p>but then became a cognitive scientist.</p>
+<p>So I was in the cognitive science research group.</p>
+<p>Like I said, I&rsquo;m a cognitive science groupie.</p>
+<p>At the time I thought I&rsquo;d become a cognitive scientist,</p>
+<p>but then I realized in that group,</p>
+<p>no, I&rsquo;m a computer scientist,</p>
+<p>but I&rsquo;m a computer scientist who really loves</p>
+<p>to hang out with cognitive scientists.</p>
+<p>And he said, he studied language acquisition in particular.</p>
+<p>He said, you know, humans have about this number of words</p>
+<p>of vocabulary and most of that is learned from reading.</p>
+<p>And I said, that can&rsquo;t be true</p>
+<p>because I have a really big vocabulary and I don&rsquo;t read.</p>
+<p>He&rsquo;s like, you must.</p>
+<p>I&rsquo;m like, I don&rsquo;t think I do.</p>
+<p>I mean like stop signs, I definitely read stop signs,</p>
+<p>but like reading books is not a thing that I do a lot of.</p>
+<p>Do you really though?</p>
+<p>It might be just visual, maybe the red color.</p>
+<p>Do I read stop signs?</p>
+<p>No, it&rsquo;s just pattern recognition at this point.</p>
+<p>I don&rsquo;t sound it out.</p>
+<p>So now I do.</p>
+<p>I wonder what that, oh yeah, stop the guns.</p>
+<p>So.</p>
+<p>That&rsquo;s fascinating.</p>
+<p>So you don&rsquo;t.</p>
+<p>So I don&rsquo;t read very, I mean, obviously I read</p>
+<p>and I&rsquo;ve read plenty of books,</p>
+<p>but like some people like Charles,</p>
+<p>my friend Charles and others,</p>
+<p>like a lot of people in my field, a lot of academics,</p>
+<p>like reading was really a central topic to them</p>
+<p>in development and I&rsquo;m not that guy.</p>
+<p>In fact, I used to joke that when I got into college,</p>
+<p>that it was on kind of a help out the illiterate</p>
+<p>kind of program because I got to,</p>
+<p>like in my house, I wasn&rsquo;t a particularly bad</p>
+<p>or good reader, but when I got to college,</p>
+<p>I was surrounded by these people that were just voracious</p>
+<p>in their reading appetite.</p>
+<p>And they would like, have you read this?</p>
+<p>Have you read this?</p>
+<p>And I&rsquo;m like, no, I&rsquo;m clearly not qualified</p>
+<p>to be at this school.</p>
+<p>Like there&rsquo;s no way I should be here.</p>
+<p>Now I&rsquo;ve discovered books on tape, like audio books.</p>
+<p>And so I&rsquo;m much better.</p>
+<p>I&rsquo;m more caught up.</p>
+<p>I read a lot of books.</p>
+<p>The small tangent on that,</p>
+<p>it is a fascinating open question to me</p>
+<p>on the topic of driving.</p>
+<p>Whether, you know, supervised learning people,</p>
+<p>machine learning people think you have to like drive</p>
+<p>to learn how to drive.</p>
+<p>To me, it&rsquo;s very possible that just by us humans,</p>
+<p>by first of all, walking,</p>
+<p>but also by watching other people drive,</p>
+<p>not even being inside cars as a passenger,</p>
+<p>but let&rsquo;s say being inside the car as a passenger,</p>
+<p>but even just like being a pedestrian and crossing the road,</p>
+<p>you learn so much about driving from that.</p>
+<p>It&rsquo;s very possible that you can,</p>
+<p>without ever being inside of a car,</p>
+<p>be okay at driving once you get in it.</p>
+<p>Or like watching a movie, for example.</p>
+<p>I don&rsquo;t know, something like that.</p>
+<p>Have you taught anyone to drive?</p>
+<p>No, except myself.</p>
+<p>I have two children.</p>
+<p>And I learned a lot about car driving</p>
+<p>because my wife doesn&rsquo;t want to be the one in the car</p>
+<p>while they&rsquo;re learning.</p>
+<p>So that&rsquo;s my job.</p>
+<p>So I sit in the passenger seat and it&rsquo;s really scary.</p>
+<p>You know, I have wishes to live</p>
+<p>and they&rsquo;re figuring things out.</p>
+<p>Now, they start off very much better</p>
+<p>than I imagine like a neural network would, right?</p>
+<p>They get that they&rsquo;re seeing the world.</p>
+<p>They get that there&rsquo;s a road that they&rsquo;re trying to be on.</p>
+<p>They get that there&rsquo;s a relationship</p>
+<p>between the angle of the steering,</p>
+<p>but it takes a while to not be very jerky.</p>
+<p>And so that happens pretty quickly.</p>
+<p>Like the ability to stay in lane at speed,</p>
+<p>that happens relatively fast.</p>
+<p>It&rsquo;s not zero shot learning, but it&rsquo;s pretty fast.</p>
+<p>The thing that&rsquo;s remarkably hard,</p>
+<p>and this is I think partly why self driving cars</p>
+<p>are really hard,</p>
+<p>is the degree to which driving</p>
+<p>is a social interaction activity.</p>
+<p>And that blew me away.</p>
+<p>I was completely unaware of it</p>
+<p>until I watched my son learning to drive.</p>
+<p>And I was realizing that he was sending signals</p>
+<p>to all the cars around him.</p>
+<p>And those in his case,</p>
+<p>he&rsquo;s always had social communication challenges.</p>
+<p>He was sending very mixed confusing signals</p>
+<p>to the other cars.</p>
+<p>And that was causing the other cars</p>
+<p>to drive weirdly and erratically.</p>
+<p>And there was no question in my mind</p>
+<p>that he would have an accident</p>
+<p>because they didn&rsquo;t know how to read him.</p>
+<p>There&rsquo;s things you do with the speed that you drive,</p>
+<p>the positioning of your car,</p>
+<p>that you&rsquo;re constantly like in the head</p>
+<p>of the other drivers.</p>
+<p>And seeing him not knowing how to do that</p>
+<p>and having to be taught explicitly,</p>
+<p>okay, you have to be thinking</p>
+<p>about what the other driver is thinking,</p>
+<p>was a revelation to me.</p>
+<p>I was stunned.</p>
+<p>So creating kind of theories of mind of the other.</p>
+<p>Theories of mind of the other cars.</p>
+<p>Yeah, yeah.</p>
+<p>Which I just hadn&rsquo;t heard discussed</p>
+<p>in the self driving car talks that I&rsquo;ve been to.</p>
+<p>Since then, there&rsquo;s some people who do consider</p>
+<p>those kinds of issues,</p>
+<p>but it&rsquo;s way more subtle than I think</p>
+<p>there&rsquo;s a little bit of work involved with that</p>
+<p>when you realize like when you especially focus</p>
+<p>not on other cars, but on pedestrians, for example,</p>
+<p>it&rsquo;s literally staring you in the face.</p>
+<p>So then when you&rsquo;re just like,</p>
+<p>how do I interact with pedestrians?</p>
+<p>Pedestrians, you&rsquo;re practically talking</p>
+<p>to an octopus at that point.</p>
+<p>They&rsquo;ve got all these weird degrees of freedom.</p>
+<p>You don&rsquo;t know what they&rsquo;re gonna do.</p>
+<p>They can turn around any second.</p>
+<p>But the point is, we humans know what they&rsquo;re gonna do.</p>
+<p>Like we have a good theory of mind.</p>
+<p>We have a good mental model of what they&rsquo;re doing.</p>
+<p>And we have a good model of the model they have a view</p>
+<p>and the model of the model of the model.</p>
+<p>Like we&rsquo;re able to kind of reason about this kind of,</p>
+<p>the social like game of it all.</p>
+<p>The hope is that it&rsquo;s quite simple actually,</p>
+<p>that it could be learned.</p>
+<p>That&rsquo;s why I just talked to the Waymo.</p>
+<p>I don&rsquo;t know if you know that company.</p>
+<p>It&rsquo;s Google South Africa.</p>
+<p>They, I talked to their CTO about this podcast</p>
+<p>and they like, I rode in their car</p>
+<p>and it&rsquo;s quite aggressive and it&rsquo;s quite fast</p>
+<p>and it&rsquo;s good and it feels great.</p>
+<p>It also, just like Tesla,</p>
+<p>Waymo made me change my mind about like,</p>
+<p>maybe driving is easier than I thought.</p>
+<p>Maybe I&rsquo;m just being speciest, human centric, maybe.</p>
+<p>It&rsquo;s a speciest argument.</p>
+<p>Yeah, so I don&rsquo;t know.</p>
+<p>But it&rsquo;s fascinating to think about like the same</p>
+<p>as with reading, which I think you just said.</p>
+<p>You avoided the question,</p>
+<p>though I still hope you answered it somewhat.</p>
+<p>You avoided it brilliantly.</p>
+<p>It is, there&rsquo;s blind spots as artificial intelligence,</p>
+<p>that artificial intelligence researchers have</p>
+<p>about what it actually takes to learn to solve a problem.</p>
+<p>That&rsquo;s fascinating.</p>
+<p>Have you had Anca Dragan on?</p>
+<p>Yeah.</p>
+<p>Okay.</p>
+<p>She&rsquo;s one of my favorites.</p>
+<p>So much energy.</p>
+<p>She&rsquo;s right.</p>
+<p>Oh, yeah.</p>
+<p>She&rsquo;s amazing.</p>
+<p>Fantastic.</p>
+<p>And in particular, she thinks a lot about this kind of,</p>
+<p>I know that you know that I know kind of planning.</p>
+<p>And the last time I spoke with her,</p>
+<p>she was very articulate about the ways</p>
+<p>in which self driving cars are not solved.</p>
+<p>Like what&rsquo;s still really, really hard.</p>
+<p>But even her intuition is limited.</p>
+<p>Like we&rsquo;re all like new to this.</p>
+<p>So in some sense, the Elon Musk approach</p>
+<p>of being ultra confident and just like plowing.</p>
+<p>Put it out there.</p>
+<p>Putting it out there.</p>
+<p>Like some people say it&rsquo;s reckless and dangerous and so on.</p>
+<p>But like, partly it&rsquo;s like, it seems to be one</p>
+<p>of the only ways to make progress</p>
+<p>in artificial intelligence.</p>
+<p>So it&rsquo;s, you know, these are difficult things.</p>
+<p>You know, democracy is messy.</p>
+<p>Implementation of artificial intelligence systems</p>
+<p>in the real world is messy.</p>
+<p>So many years ago, before self driving cars</p>
+<p>were an actual thing you could have a discussion about,</p>
+<p>somebody asked me, like, what if we could use</p>
+<p>that robotic technology and use it to drive cars around?</p>
+<p>Like, isn&rsquo;t that, aren&rsquo;t people gonna be killed?</p>
+<p>And then it&rsquo;s not, you know, blah, blah, blah.</p>
+<p>I&rsquo;m like, that&rsquo;s not what&rsquo;s gonna happen.</p>
+<p>I said with confidence, incorrectly, obviously.</p>
+<p>What I think is gonna happen is we&rsquo;re gonna have a lot more,</p>
+<p>like a very gradual kind of rollout</p>
+<p>where people have these cars in like closed communities,</p>
+<p>right, where it&rsquo;s somewhat realistic,</p>
+<p>but it&rsquo;s still in a box, right?</p>
+<p>So that we can really get a sense of what,</p>
+<p>what are the weird things that can happen?</p>
+<p>How do we, how do we have to change the way we behave</p>
+<p>around these vehicles?</p>
+<p>Like, it&rsquo;s obviously requires a kind of co evolution</p>
+<p>that you can&rsquo;t just plop them in and see what happens.</p>
+<p>But of course, we&rsquo;re basically popping them in</p>
+<p>and see what happens.</p>
+<p>So I was wrong, but I do think that would have been</p>
+<p>a better plan.</p>
+<p>So that&rsquo;s, but your intuition, that&rsquo;s funny,</p>
+<p>just zooming out and looking at the forces of capitalism.</p>
+<p>And it seems that capitalism rewards risk takers</p>
+<p>and rewards and punishes risk takers, like,</p>
+<p>and like, try it out.</p>
+<p>The academic approach to let&rsquo;s try a small thing</p>
+<p>and try to understand slowly the fundamentals</p>
+<p>of the problem.</p>
+<p>And let&rsquo;s start with one, then do two, and then see that.</p>
+<p>And then do the three, you know, the capitalist</p>
+<p>like startup entrepreneurial dream is let&rsquo;s build a thousand</p>
+<p>and let&rsquo;s.</p>
+<p>Right, and 500 of them fail, but whatever,</p>
+<p>the other 500, we learned from them.</p>
+<p>But if you&rsquo;re good enough, I mean, one thing is like,</p>
+<p>your intuition would say like, that&rsquo;s gonna be</p>
+<p>hugely destructive to everything.</p>
+<p>But actually, it&rsquo;s kind of the forces of capitalism,</p>
+<p>like people are quite, it&rsquo;s easy to be critical,</p>
+<p>but if you actually look at the data at the way</p>
+<p>our world has progressed in terms of the quality of life,</p>
+<p>it seems like the competent good people rise to the top.</p>
+<p>This is coming from me from the Soviet Union and so on.</p>
+<p>It&rsquo;s like, it&rsquo;s interesting that somebody like Elon Musk</p>
+<p>is the way you push progress in artificial intelligence.</p>
+<p>Like it&rsquo;s forcing Waymo to step their stuff up</p>
+<p>and Waymo is forcing Elon Musk to step up.</p>
+<p>It&rsquo;s fascinating, because I have this tension in my heart</p>
+<p>and just being upset by the lack of progress</p>
+<p>in autonomous vehicles within academia.</p>
+<p>So there&rsquo;s a huge progress in the early days</p>
+<p>of the DARPA challenges.</p>
+<p>And then it just kind of stopped like at MIT,</p>
+<p>but it&rsquo;s true everywhere else with an exception</p>
+<p>of a few sponsors here and there is like,</p>
+<p>it&rsquo;s not seen as a sexy problem, Thomas.</p>
+<p>Like the moment artificial intelligence starts approaching</p>
+<p>the problems of the real world,</p>
+<p>like academics kind of like, all right, let the&hellip;</p>
+<p>They get really hard in a different way.</p>
+<p>In a different way, that&rsquo;s right.</p>
+<p>I think, yeah, right, some of us are not excited</p>
+<p>about that other way.</p>
+<p>But I still think there&rsquo;s fundamentals problems</p>
+<p>to be solved in those difficult things.</p>
+<p>It&rsquo;s not, it&rsquo;s still publishable, I think.</p>
+<p>Like we just need to, it&rsquo;s the same criticism</p>
+<p>you could have of all these conferences in Europe, CVPR,</p>
+<p>where application papers are often as powerful</p>
+<p>and as important as like a theory paper.</p>
+<p>Even like theory just seems much more respectable and so on.</p>
+<p>I mean, machine learning community is changing</p>
+<p>that a little bit.</p>
+<p>I mean, at least in statements,</p>
+<p>but it&rsquo;s still not seen as the sexiest of pursuits,</p>
+<p>which is like, how do I actually make this thing</p>
+<p>work in practice as opposed to on this toy data set?</p>
+<p>All that to say, are you still avoiding</p>
+<p>the three books question?</p>
+<p>Is there something on audio book that you can recommend?</p>
+<p>Oh, yeah, I mean, yeah, I&rsquo;ve read a lot of really fun stuff.</p>
+<p>In terms of books that I find myself thinking back on</p>
+<p>that I read a while ago,</p>
+<p>like that stood the test of time to some degree.</p>
+<p>I find myself thinking of program or be programmed a lot</p>
+<p>by Douglas Roschkopf, which was,</p>
+<p>it basically put out the premise</p>
+<p>that we all need to become programmers</p>
+<p>in one form or another.</p>
+<p>And it was an analogy to once upon a time</p>
+<p>we all had to become readers.</p>
+<p>We had to become literate.</p>
+<p>And there was a time before that</p>
+<p>when not everybody was literate,</p>
+<p>but once literacy was possible,</p>
+<p>the people who were literate had more of a say in society</p>
+<p>than the people who weren&rsquo;t.</p>
+<p>And so we made a big effort to get everybody up to speed.</p>
+<p>And now it&rsquo;s not 100% universal, but it&rsquo;s quite widespread.</p>
+<p>Like the assumption is generally that people can read.</p>
+<p>The analogy that he makes is that programming</p>
+<p>is a similar kind of thing,</p>
+<p>that we need to have a say in, right?</p>
+<p>So being a reader, being literate, being a reader means</p>
+<p>you can receive all this information,</p>
+<p>but you don&rsquo;t get to put it out there.</p>
+<p>And programming is the way that we get to put it out there.</p>
+<p>And that was the argument that he made.</p>
+<p>I think he specifically has now backed away from this idea.</p>
+<p>He doesn&rsquo;t think it&rsquo;s happening quite this way.</p>
+<p>And that might be true that it didn&rsquo;t,</p>
+<p>society didn&rsquo;t sort of play forward quite that way.</p>
+<p>I still believe in the premise.</p>
+<p>I still believe that at some point,</p>
+<p>the relationship that we have to these machines</p>
+<p>and these networks has to be one of each individual</p>
+<p>can, has the wherewithal to make the machines help them.</p>
+<p>Do the things that that person wants done.</p>
+<p>And as software people, we know how to do that.</p>
+<p>And when we have a problem, we&rsquo;re like, okay,</p>
+<p>I&rsquo;ll just, I&rsquo;ll hack up a Pearl script or something</p>
+<p>and make it so.</p>
+<p>If we lived in a world where everybody could do that,</p>
+<p>that would be a better world.</p>
+<p>And computers would be, have, I think less sway over us.</p>
+<p>And other people&rsquo;s software would have less sway over us</p>
+<p>as a group.</p>
+<p>In some sense, software engineering, programming is power.</p>
+<p>Programming is power, right?</p>
+<p>Yeah, it&rsquo;s like magic.</p>
+<p>It&rsquo;s like magic spells.</p>
+<p>And it&rsquo;s not out of reach of everyone.</p>
+<p>But at the moment, it&rsquo;s just a sliver of the population</p>
+<p>who can commune with machines in this way.</p>
+<p>So I don&rsquo;t know, so that book had a big impact on me.</p>
+<p>Currently, I&rsquo;m reading The Alignment Problem,</p>
+<p>actually by Brian Christian.</p>
+<p>So I don&rsquo;t know if you&rsquo;ve seen this out there yet.</p>
+<p>Is this similar to Stuart Russell&rsquo;s work</p>
+<p>with the control problem?</p>
+<p>It&rsquo;s in that same general neighborhood.</p>
+<p>I mean, they have different emphases</p>
+<p>that they&rsquo;re concentrating on.</p>
+<p>I think Stuart&rsquo;s book did a remarkably good job,</p>
+<p>like just a celebratory good job</p>
+<p>at describing AI technology and sort of how it works.</p>
+<p>I thought that was great.</p>
+<p>It was really cool to see that in a book.</p>
+<p>I think he has some experience writing some books.</p>
+<p>You know, that&rsquo;s probably a possible thing.</p>
+<p>He&rsquo;s maybe thought a thing or two</p>
+<p>about how to explain AI to people.</p>
+<p>Yeah, that&rsquo;s a really good point.</p>
+<p>This book so far has been remarkably good</p>
+<p>at telling the story of sort of the history,</p>
+<p>the recent history of some of the things</p>
+<p>that have happened.</p>
+<p>I&rsquo;m in the first third.</p>
+<p>He said this book is in three thirds.</p>
+<p>The first third is essentially AI fairness</p>
+<p>and implications of AI on society</p>
+<p>that we&rsquo;re seeing right now.</p>
+<p>And that&rsquo;s been great.</p>
+<p>I mean, he&rsquo;s telling the stories really well.</p>
+<p>He went out and talked to the frontline people</p>
+<p>whose names were associated with some of these ideas</p>
+<p>and it&rsquo;s been terrific.</p>
+<p>He says the second half of the book</p>
+<p>is on reinforcement learning.</p>
+<p>So maybe that&rsquo;ll be fun.</p>
+<p>And then the third half, third third,</p>
+<p>is on the super intelligence alignment problem.</p>
+<p>And I suspect that that part will be less fun</p>
+<p>for me to read.</p>
+<p>Yeah.</p>
+<p>Yeah, it&rsquo;s an interesting problem to talk about.</p>
+<p>I find it to be the most interesting,</p>
+<p>just like thinking about whether we live</p>
+<p>in a simulation or not,</p>
+<p>as a thought experiment to think about our own existence.</p>
+<p>So in the same way,</p>
+<p>talking about alignment problem with AGI</p>
+<p>is a good way to think similar</p>
+<p>to like the trolley problem with autonomous vehicles.</p>
+<p>It&rsquo;s a useless thing for engineering,</p>
+<p>but it&rsquo;s a nice little thought experiment</p>
+<p>for actually thinking about what are like</p>
+<p>our own human ethical systems, our moral systems</p>
+<p>to by thinking how we engineer these things,</p>
+<p>you start to understand yourself.</p>
+<p>So sci fi can be good at that too.</p>
+<p>So one sci fi book to recommend</p>
+<p>is Exhalations by Ted Chiang,</p>
+<p>bunch of short stories.</p>
+<p>This Ted Chiang is the guy who wrote the short story</p>
+<p>that became the movie Arrival.</p>
+<p>And all of his stories just from a,</p>
+<p>he was a computer scientist,</p>
+<p>actually he studied at Brown.</p>
+<p>And they all have this sort of really insightful bit</p>
+<p>of science or computer science that drives them.</p>
+<p>And so it&rsquo;s just a romp, right?</p>
+<p>To just like, he creates these artificial worlds</p>
+<p>with these by extrapolating on these ideas</p>
+<p>that we know about,</p>
+<p>but hadn&rsquo;t really thought through</p>
+<p>to this kind of conclusion.</p>
+<p>And so his stuff is, it&rsquo;s really fun to read,</p>
+<p>it&rsquo;s mind warping.</p>
+<p>So I&rsquo;m not sure if you&rsquo;re familiar,</p>
+<p>I seem to mention this every other word</p>
+<p>is I&rsquo;m from the Soviet Union and I&rsquo;m Russian.</p>
+<p>Way too much to see us.</p>
+<p>My roots are Russian too,</p>
+<p>but a couple generations back.</p>
+<p>Well, it&rsquo;s probably in there somewhere.</p>
+<p>So maybe we can pull at that thread a little bit</p>
+<p>of the existential dread that we all feel.</p>
+<p>You mentioned that you,</p>
+<p>I think somewhere in the conversation you mentioned</p>
+<p>that you don&rsquo;t really pretty much like dying.</p>
+<p>I forget in which context,</p>
+<p>it might&rsquo;ve been a reinforcement learning perspective.</p>
+<p>I don&rsquo;t know.</p>
+<p>No, you know what it was?</p>
+<p>It was in teaching my kids to drive.</p>
+<p>That&rsquo;s how you face your mortality, yes.</p>
+<p>From a human beings perspective</p>
+<p>or from a reinforcement learning researchers perspective,</p>
+<p>let me ask you the most absurd question.</p>
+<p>What do you think is the meaning of this whole thing?</p>
+<p>The meaning of life on this spinning rock.</p>
+<p>I mean, I think reinforcement learning researchers</p>
+<p>maybe think about this from a science perspective</p>
+<p>more often than a lot of other people, right?</p>
+<p>As a supervised learning person,</p>
+<p>you&rsquo;re probably not thinking about the sweep of a lifetime,</p>
+<p>but reinforcement learning agents</p>
+<p>are having little lifetimes, little weird little lifetimes.</p>
+<p>And it&rsquo;s hard not to project yourself</p>
+<p>into their world sometimes.</p>
+<p>But as far as the meaning of life,</p>
+<p>so when I turned 42, you may know from,</p>
+<p>that is a book I read,</p>
+<p>The Hitchhiker&rsquo;s Guide to the Galaxy,</p>
+<p>that that is the meaning of life.</p>
+<p>So when I turned 42, I had a meaning of life party</p>
+<p>where I invited people over</p>
+<p>and everyone shared their meaning of life.</p>
+<p>We had slides made up.</p>
+<p>And so we all sat down and did a slide presentation</p>
+<p>to each other about the meaning of life.</p>
+<p>And mine was balance.</p>
+<p>I think that life is balance.</p>
+<p>And so the activity at the party,</p>
+<p>for a 42 year old, maybe this is a little bit nonstandard,</p>
+<p>but I found all the little toys and devices that I had</p>
+<p>where you had to balance on them.</p>
+<p>You had to like stand on it and balance,</p>
+<p>or a pogo stick I brought,</p>
+<p>a rip stick, which is like a weird two wheeled skateboard.</p>
+<p>I got a unicycle, but I didn&rsquo;t know how to do it.</p>
+<p>I now can do it.</p>
+<p>I would love watching you try.</p>
+<p>Yeah, I&rsquo;ll send you a video.</p>
+<p>I&rsquo;m not great, but I managed.</p>
+<p>And so balance, yeah.</p>
+<p>So my wife has a really good one that she sticks to</p>
+<p>and is probably pretty accurate.</p>
+<p>And it has to do with healthy relationships</p>
+<p>with people that you love and working hard for good causes.</p>
+<p>But to me, yeah, balance, balance in a word.</p>
+<p>That works for me.</p>
+<p>Not too much of anything,</p>
+<p>because too much of anything is iffy.</p>
+<p>That feels like a Rolling Stones song.</p>
+<p>I feel like they must be.</p>
+<p>You can&rsquo;t always get what you want,</p>
+<p>but if you try sometimes, you can strike a balance.</p>
+<p>Yeah, I think that&rsquo;s how it goes, Michael.</p>
+<p>I&rsquo;ll write you a parody.</p>
+<p>It&rsquo;s a huge honor to talk to you.</p>
+<p>This is really fun.</p>
+<p>Oh, no, the honor&rsquo;s mine.</p>
+<p>I&rsquo;ve been a big fan of yours,</p>
+<p>so can&rsquo;t wait to see what you do next</p>
+<p>in the world of education, in the world of parody,</p>
+<p>in the world of reinforcement learning.</p>
+<p>Thanks for talking to me.</p>
+<p>My pleasure.</p>
+<p>Thank you for listening to this conversation</p>
+<p>with Michael Littman, and thank you to our sponsors,</p>
+<p>SimpliSafe, a home security company I use</p>
+<p>to monitor and protect my apartment, ExpressVPN,</p>
+<p>the VPN I&rsquo;ve used for many years</p>
+<p>to protect my privacy on the internet,</p>
+<p>Masterclass, online courses that I enjoy</p>
+<p>from some of the most amazing humans in history,</p>
+<p>and BetterHelp, online therapy with a licensed professional.</p>
+<p>Please check out these sponsors in the description</p>
+<p>to get a discount and to support this podcast.</p>
+<p>If you enjoy this thing, subscribe on YouTube,</p>
+<p>review it with five stars on Apple Podcast,</p>
+<p>follow on Spotify, support it on Patreon,</p>
+<p>or connect with me on Twitter at Lex Friedman.</p>
+<p>And now, let me leave you with some words</p>
+<p>from Groucho Marx.</p>
+<p>If you&rsquo;re not having fun, you&rsquo;re doing something wrong.</p>
+<p>Thank you for listening, and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

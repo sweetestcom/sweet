@@ -1,0 +1,3844 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Francois Chollet,
+his second time on the podcast.
+He&amp;rsquo;s both a world class engineer and a philosopher
+in the realm of deep learning and artificial intelligence.
+This time, we talk a lot about his paper titled
+on the measure of intelligence that discusses
+how we might define and measure general intelligence
+in our computing machinery.
+Quick summary of the sponsors,
+Babbel, Masterclass, and Cash App.'>
+<title>Lex Fridman Podcast - #120 - François Chollet: Measures of Intelligence | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500121/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #120 - François Chollet: Measures of Intelligence'>
+<meta property='og:description' content='The following is a conversation with Francois Chollet,
+his second time on the podcast.
+He&amp;rsquo;s both a world class engineer and a philosopher
+in the realm of deep learning and artificial intelligence.
+This time, we talk a lot about his paper titled
+on the measure of intelligence that discusses
+how we might define and measure general intelligence
+in our computing machinery.
+Quick summary of the sponsors,
+Babbel, Masterclass, and Cash App.'>
+<meta property='og:url' content='https://swiest.com/en/1310500121/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-06-29T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-06-29T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #120 - François Chollet: Measures of Intelligence">
+<meta name="twitter:description" content="The following is a conversation with Francois Chollet,
+his second time on the podcast.
+He&amp;rsquo;s both a world class engineer and a philosopher
+in the realm of deep learning and artificial intelligence.
+This time, we talk a lot about his paper titled
+on the measure of intelligence that discusses
+how we might define and measure general intelligence
+in our computing machinery.
+Quick summary of the sponsors,
+Babbel, Masterclass, and Cash App.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500121/">Lex Fridman Podcast - #120 - François Chollet: Measures of Intelligence</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-29</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    106 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Francois Chollet,</p>
+<p>his second time on the podcast.</p>
+<p>He&rsquo;s both a world class engineer and a philosopher</p>
+<p>in the realm of deep learning and artificial intelligence.</p>
+<p>This time, we talk a lot about his paper titled</p>
+<p>on the measure of intelligence that discusses</p>
+<p>how we might define and measure general intelligence</p>
+<p>in our computing machinery.</p>
+<p>Quick summary of the sponsors,</p>
+<p>Babbel, Masterclass, and Cash App.</p>
+<p>Click the sponsor links in the description</p>
+<p>to get a discount and to support this podcast.</p>
+<p>As a side note, let me say that the serious,</p>
+<p>rigorous scientific study</p>
+<p>of artificial general intelligence is a rare thing.</p>
+<p>The mainstream machine learning community works</p>
+<p>on very narrow AI with very narrow benchmarks.</p>
+<p>This is very good for incremental</p>
+<p>and sometimes big incremental progress.</p>
+<p>On the other hand, the outside the mainstream,</p>
+<p>renegade, you could say, AGI community works</p>
+<p>on approaches that verge on the philosophical</p>
+<p>and even the literary without big public benchmarks.</p>
+<p>Walking the line between the two worlds is a rare breed,</p>
+<p>but it doesn&rsquo;t have to be.</p>
+<p>I ran the AGI series at MIT as an attempt</p>
+<p>to inspire more people to walk this line.</p>
+<p>Deep mind and open AI for a time</p>
+<p>and still on occasion walk this line.</p>
+<p>Francois Chollet does as well.</p>
+<p>I hope to also.</p>
+<p>It&rsquo;s a beautiful dream to work towards</p>
+<p>and to make real one day.</p>
+<p>If you enjoy this thing, subscribe on YouTube,</p>
+<p>review it with five stars on Apple Podcast,</p>
+<p>follow on Spotify, support on Patreon,</p>
+<p>or connect with me on Twitter at Lex Friedman.</p>
+<p>As usual, I&rsquo;ll do a few minutes of ads now</p>
+<p>and no ads in the middle.</p>
+<p>I try to make these interesting,</p>
+<p>but I give you timestamps so you can skip.</p>
+<p>But still, please do check out the sponsors</p>
+<p>by clicking the links in the description.</p>
+<p>It&rsquo;s the best way to support this podcast.</p>
+<p>This show is sponsored by Babbel,</p>
+<p>an app and website that gets you speaking</p>
+<p>in a new language within weeks.</p>
+<p>Go to babbel.com and use code Lex to get three months free.</p>
+<p>They offer 14 languages, including Spanish, French,</p>
+<p>Italian, German, and yes, Russian.</p>
+<p>Daily lessons are 10 to 15 minutes,</p>
+<p>super easy, effective,</p>
+<p>designed by over 100 language experts.</p>
+<p>Let me read a few lines from the Russian poem</p>
+<p>Noch, ulitsa, fanar, apteka, by Alexander Bloch,</p>
+<p>that you&rsquo;ll start to understand if you sign up to Babbel.</p>
+<p>Noch, ulitsa, fanar, apteka,</p>
+<p>Bessmysliny, ituskly, svet,</p>
+<p>Zhevi esho, khod chetvert veka,</p>
+<p>Vse budet tak, ishoda, net.</p>
+<p>Now, I say that you&rsquo;ll start to understand this poem</p>
+<p>because Russian starts with a language</p>
+<p>and ends with vodka.</p>
+<p>Now, the latter part is definitely not endorsed</p>
+<p>or provided by Babbel.</p>
+<p>It will probably lose me this sponsorship,</p>
+<p>although it hasn&rsquo;t yet.</p>
+<p>But once you graduate with Babbel,</p>
+<p>you can enroll in my advanced course</p>
+<p>of late night Russian conversation over vodka.</p>
+<p>No app for that yet.</p>
+<p>So get started by visiting babbel.com</p>
+<p>and use code Lex to get three months free.</p>
+<p>This show is also sponsored by Masterclass.</p>
+<p>Sign up at masterclass.com slash Lex</p>
+<p>to get a discount and to support this podcast.</p>
+<p>When I first heard about Masterclass,</p>
+<p>I thought it was too good to be true.</p>
+<p>I still think it&rsquo;s too good to be true.</p>
+<p>For $180 a year, you get an all access pass</p>
+<p>to watch courses from, to list some of my favorites.</p>
+<p>Chris Hatfield on space exploration,</p>
+<p>hope to have him in this podcast one day.</p>
+<p>Neil Dugras Tyson on scientific thinking and communication,</p>
+<p>Neil too.</p>
+<p>Will Wright, creator of SimCity and Sims</p>
+<p>on game design, Carlos Santana on guitar,</p>
+<p>Kary Kasparov on chess, Daniel Nagrano on poker,</p>
+<p>and many more.</p>
+<p>Chris Hatfield explaining how rockets work</p>
+<p>and the experience of being watched at the space</p>
+<p>alone is worth the money.</p>
+<p>By the way, you can watch it on basically any device.</p>
+<p>Once again, sign up at masterclass.com slash Lex</p>
+<p>to get a discount and to support this podcast.</p>
+<p>This show finally is presented by Cash App,</p>
+<p>the number one finance app in the App Store.</p>
+<p>When you get it, use code LexPodcast.</p>
+<p>Cash App lets you send money to friends,</p>
+<p>buy Bitcoin, and invest in the stock market</p>
+<p>with as little as $1.</p>
+<p>Since Cash App allows you to send</p>
+<p>and receive money digitally,</p>
+<p>let me mention a surprising fact related to physical money.</p>
+<p>Of all the currency in the world,</p>
+<p>roughly 8% of it is actually physical money.</p>
+<p>The other 92% of the money only exists digitally,</p>
+<p>and that&rsquo;s only going to increase.</p>
+<p>So again, if you get Cash App from the App Store</p>
+<p>through Google Play and use code LexPodcast,</p>
+<p>you get 10 bucks,</p>
+<p>and Cash App will also donate $10 to FIRST,</p>
+<p>an organization that is helping to advance robotics</p>
+<p>and STEM education for young people around the world.</p>
+<p>And now here&rsquo;s my conversation with Francois Chalet.</p>
+<p>What philosophers, thinkers, or ideas</p>
+<p>had a big impact on you growing up and today?</p>
+<p>So one author that had a big impact on me</p>
+<p>when I read his books as a teenager was Jean Piaget,</p>
+<p>who is a Swiss psychologist,</p>
+<p>is considered to be the father of developmental psychology.</p>
+<p>And he has a large body of work about</p>
+<p>basically how intelligence develops in children.</p>
+<p>And so it&rsquo;s very old work,</p>
+<p>like most of it is from the 1930s, 1940s.</p>
+<p>So it&rsquo;s not quite up to date.</p>
+<p>It&rsquo;s actually superseded by many newer developments</p>
+<p>in developmental psychology.</p>
+<p>But to me, it was very interesting, very striking,</p>
+<p>and actually shaped the early ways</p>
+<p>in which I started thinking about the mind</p>
+<p>and the development of intelligence as a teenager.</p>
+<p>His actual ideas or the way he thought about it</p>
+<p>or just the fact that you could think</p>
+<p>about the developing mind at all?</p>
+<p>I guess both.</p>
+<p>Jean Piaget is the author that really introduced me</p>
+<p>to the notion that intelligence and the mind</p>
+<p>is something that you construct throughout your life</p>
+<p>and that children construct it in stages.</p>
+<p>And I thought that was a very interesting idea,</p>
+<p>which is, of course, very relevant to AI,</p>
+<p>to building artificial minds.</p>
+<p>Another book that I read around the same time</p>
+<p>that had a big impact on me,</p>
+<p>and there was actually a little bit of overlap</p>
+<p>with Jean Piaget as well,</p>
+<p>and I read it around the same time,</p>
+<p>is Geoff Hawking&rsquo;s On Intelligence, which is a classic.</p>
+<p>And he has this vision of the mind</p>
+<p>as a multi scale hierarchy of temporal prediction modules.</p>
+<p>And these ideas really resonated with me,</p>
+<p>like the notion of a modular hierarchy</p>
+<p>of potentially compression functions</p>
+<p>or prediction functions.</p>
+<p>I thought it was really, really interesting,</p>
+<p>and it shaped the way I started thinking</p>
+<p>about how to build minds.</p>
+<p>The hierarchical nature, which aspect?</p>
+<p>Also, he&rsquo;s a neuroscientist, so he was thinking actual,</p>
+<p>he was basically talking about how our mind works.</p>
+<p>Yeah, the notion that cognition is prediction</p>
+<p>was an idea that was kind of new to me at the time</p>
+<p>and that I really loved at the time.</p>
+<p>And yeah, and the notion that there are multiple scales</p>
+<p>of processing in the brain.</p>
+<p>The hierarchy.</p>
+<p>Yes.</p>
+<p>This was before deep learning.</p>
+<p>These ideas of hierarchies in AI</p>
+<p>have been around for a long time,</p>
+<p>even before on intelligence.</p>
+<p>They&rsquo;ve been around since the 1980s.</p>
+<p>And yeah, that was before deep learning.</p>
+<p>But of course, I think these ideas really found</p>
+<p>their practical implementation in deep learning.</p>
+<p>What about the memory side of things?</p>
+<p>I think he was talking about knowledge representation.</p>
+<p>Do you think about memory a lot?</p>
+<p>One way you can think of neural networks</p>
+<p>as a kind of memory, you&rsquo;re memorizing things,</p>
+<p>but it doesn&rsquo;t seem to be the kind of memory</p>
+<p>that&rsquo;s in our brains,</p>
+<p>or it doesn&rsquo;t have the same rich complexity,</p>
+<p>long term nature that&rsquo;s in our brains.</p>
+<p>Yes, the brain is more of a sparse access memory</p>
+<p>so that you can actually retrieve very precisely</p>
+<p>like bits of your experience.</p>
+<p>The retrieval aspect, you can like introspect,</p>
+<p>you can ask yourself questions.</p>
+<p>I guess you can program your own memory</p>
+<p>and language is actually the tool you use to do that.</p>
+<p>I think language is a kind of operating system for the mind</p>
+<p>and use language.</p>
+<p>Well, one of the uses of language is as a query</p>
+<p>that you run over your own memory,</p>
+<p>use words as keys to retrieve specific experiences</p>
+<p>or specific concepts, specific thoughts.</p>
+<p>Like language is a way you store thoughts,</p>
+<p>not just in writing, in the physical world,</p>
+<p>but also in your own mind.</p>
+<p>And it&rsquo;s also how you retrieve them.</p>
+<p>Like, imagine if you didn&rsquo;t have language,</p>
+<p>then you would have to,</p>
+<p>you would not really have a self,</p>
+<p>internally triggered way of retrieving past thoughts.</p>
+<p>You would have to rely on external experiences.</p>
+<p>For instance, you see a specific site,</p>
+<p>you smell a specific smell and that brings up memories,</p>
+<p>but you would not really have a way</p>
+<p>to deliberately access these memories without language.</p>
+<p>Well, the interesting thing you mentioned</p>
+<p>is you can also program the memory.</p>
+<p>You can change it probably with language.</p>
+<p>Yeah, using language, yes.</p>
+<p>Well, let me ask you a Chomsky question,</p>
+<p>which is like, first of all,</p>
+<p>do you think language is like fundamental,</p>
+<p>like there&rsquo;s turtles, what&rsquo;s at the bottom of the turtles?</p>
+<p>They don&rsquo;t go, it can&rsquo;t be turtles all the way down.</p>
+<p>Is language at the bottom of cognition of everything?</p>
+<p>Is like language, the fundamental aspect</p>
+<p>of like what it means to be a thinking thing?</p>
+<p>No, I don&rsquo;t think so.</p>
+<p>I think language is.</p>
+<p>You disagree with Norm Chomsky?</p>
+<p>Yes, I think language is a layer on top of cognition.</p>
+<p>So it is fundamental to cognition in the sense that</p>
+<p>to use a computing metaphor,</p>
+<p>I see language as the operating system of the brain,</p>
+<p>of the human mind.</p>
+<p>And the operating system is a layer on top of the computer.</p>
+<p>The computer exists before the operating system,</p>
+<p>but the operating system is how you make it truly useful.</p>
+<p>And the operating system is most likely Windows, not Linux,</p>
+<p>because language is messy.</p>
+<p>Yeah, it&rsquo;s messy and it&rsquo;s pretty difficult</p>
+<p>to inspect it, introspect it.</p>
+<p>How do you think about language?</p>
+<p>Like we use actually sort of human interpretable language,</p>
+<p>but is there something like a deeper,</p>
+<p>that&rsquo;s closer to like logical type of statements?</p>
+<p>Like, yeah, what is the nature of language, do you think?</p>
+<p>Like is there something deeper than like the syntactic rules</p>
+<p>we construct?</p>
+<p>Is there something that doesn&rsquo;t require utterances</p>
+<p>or writing or so on?</p>
+<p>Are you asking about the possibility</p>
+<p>that there could exist languages for thinking</p>
+<p>that are not made of words?</p>
+<p>Yeah.</p>
+<p>Yeah, I think so.</p>
+<p>I think, so the mind is layers, right?</p>
+<p>And language is almost like the outermost,</p>
+<p>the uppermost layer.</p>
+<p>But before we think in words,</p>
+<p>I think we think in terms of emotion in space</p>
+<p>and we think in terms of physical actions.</p>
+<p>And I think babies in particular,</p>
+<p>probably expresses thoughts in terms of the actions</p>
+<p>that they&rsquo;ve seen or that they can perform</p>
+<p>and in terms of motions of objects in their environment</p>
+<p>before they start thinking in terms of words.</p>
+<p>It&rsquo;s amazing to think about that</p>
+<p>as the building blocks of language.</p>
+<p>So like the kind of actions and ways the babies see the world</p>
+<p>as like more fundamental</p>
+<p>than the beautiful Shakespearean language</p>
+<p>you construct on top of it.</p>
+<p>And we probably don&rsquo;t have any idea</p>
+<p>what that looks like, right?</p>
+<p>Like what, because it&rsquo;s important</p>
+<p>for them trying to engineer it into AI systems.</p>
+<p>I think visual analogies and motion</p>
+<p>is a fundamental building block of the mind.</p>
+<p>And you actually see it reflected in language.</p>
+<p>Like language is full of special metaphors.</p>
+<p>And when you think about things,</p>
+<p>I consider myself very much as a visual thinker.</p>
+<p>You often express these thoughts</p>
+<p>by using things like visualizing concepts</p>
+<p>in 2D space or like you solve problems</p>
+<p>by imagining yourself navigating a concept space.</p>
+<p>So I don&rsquo;t know if you have this sort of experience.</p>
+<p>You said visualizing concept space.</p>
+<p>So like, so I certainly think about,</p>
+<p>I certainly visualize mathematical concepts,</p>
+<p>but you mean like in concept space,</p>
+<p>visually you&rsquo;re embedding ideas</p>
+<p>into a three dimensional space</p>
+<p>you can explore with your mind essentially?</p>
+<p>You should be more like 2D, but yeah.</p>
+<p>2D?</p>
+<p>Yeah.</p>
+<p>You&rsquo;re a flatlander.</p>
+<p>You&rsquo;re, okay.</p>
+<p>No, I do not.</p>
+<p>I always have to, before I jump from concept to concept,</p>
+<p>I have to put it back down on paper.</p>
+<p>It has to be on paper.</p>
+<p>I can only travel on 2D paper, not inside my mind.</p>
+<p>You&rsquo;re able to move inside your mind.</p>
+<p>But even if you&rsquo;re writing like a paper, for instance,</p>
+<p>don&rsquo;t you have like a spatial representation of your paper?</p>
+<p>Like you visualize where ideas lie topologically</p>
+<p>in relationship to other ideas,</p>
+<p>kind of like a subway map of the ideas in your paper.</p>
+<p>Yeah, that&rsquo;s true.</p>
+<p>I mean, there is, in papers, I don&rsquo;t know about you,</p>
+<p>but it feels like there&rsquo;s a destination.</p>
+<p>There&rsquo;s a key idea that you want to arrive at.</p>
+<p>And a lot of it is in the fog</p>
+<p>and you&rsquo;re trying to kind of,</p>
+<p>it&rsquo;s almost like, what&rsquo;s that called</p>
+<p>when you do a path planning search from both directions,</p>
+<p>from the start and from the end.</p>
+<p>And then you find, you do like shortest path,</p>
+<p>but like, you know, in game playing,</p>
+<p>you do this with like A star from both sides.</p>
+<p>And you see where we&rsquo;re on the join.</p>
+<p>Yeah, so you kind of do, at least for me,</p>
+<p>I think like, first of all,</p>
+<p>just exploring from the start from like first principles,</p>
+<p>what do I know, what can I start proving from that, right?</p>
+<p>And then from the destination,</p>
+<p>if you start backtracking,</p>
+<p>like if I want to show some kind of sets of ideas,</p>
+<p>what would it take to show them and you kind of backtrack,</p>
+<p>but like, yeah,</p>
+<p>I don&rsquo;t think I&rsquo;m doing all that in my mind though.</p>
+<p>Like I&rsquo;m putting it down on paper.</p>
+<p>Do you use mind maps to organize your ideas?</p>
+<p>Yeah, I like mind maps.</p>
+<p>Let&rsquo;s get into this,</p>
+<p>because I&rsquo;ve been so jealous of people.</p>
+<p>I haven&rsquo;t really tried it.</p>
+<p>I&rsquo;ve been jealous of people that seem to like,</p>
+<p>they get like this fire of passion in their eyes</p>
+<p>because everything starts making sense.</p>
+<p>It&rsquo;s like Tom Cruise in the movie</p>
+<p>was like moving stuff around.</p>
+<p>Some of the most brilliant people I know use mind maps.</p>
+<p>I haven&rsquo;t tried really.</p>
+<p>Can you explain what the hell a mind map is?</p>
+<p>I guess mind map is a way to make</p>
+<p>kind of like the mess inside your mind</p>
+<p>to just put it on paper so that you gain more control over it.</p>
+<p>It&rsquo;s a way to organize things on paper</p>
+<p>and as kind of like a consequence</p>
+<p>of organizing things on paper,</p>
+<p>they start being more organized inside your own mind.</p>
+<p>So what does that look like?</p>
+<p>You put, like, do you have an example?</p>
+<p>Like what&rsquo;s the first thing you write on paper?</p>
+<p>What&rsquo;s the second thing you write?</p>
+<p>I mean, typically you draw a mind map</p>
+<p>to organize the way you think about a topic.</p>
+<p>So you would start by writing down</p>
+<p>like the key concept about that topic.</p>
+<p>Like you would write intelligence or something,</p>
+<p>and then you would start adding associative connections.</p>
+<p>Like what do you think about</p>
+<p>when you think about intelligence?</p>
+<p>What do you think are the key elements of intelligence?</p>
+<p>So maybe you would have language, for instance,</p>
+<p>and you&rsquo;d have motion.</p>
+<p>And so you would start drawing notes with these things.</p>
+<p>And then you would see what do you think about</p>
+<p>when you think about motion and so on.</p>
+<p>And you would go like that, like a tree.</p>
+<p>Is it a tree mostly or is it a graph too, like a tree?</p>
+<p>Oh, it&rsquo;s more of a graph than a tree.</p>
+<p>And it&rsquo;s not limited to just writing down words.</p>
+<p>You can also draw things.</p>
+<p>And it&rsquo;s not supposed to be purely hierarchical, right?</p>
+<p>The point is that once you start writing it down,</p>
+<p>you can start reorganizing it so that it makes more sense,</p>
+<p>so that it&rsquo;s connected in a more effective way.</p>
+<p>See, but I&rsquo;m so OCD that you just mentioned</p>
+<p>intelligence and language and motion.</p>
+<p>I would start becoming paranoid</p>
+<p>that the categorization isn&rsquo;t perfect.</p>
+<p>Like that I would become paralyzed with the mind map</p>
+<p>that like this may not be.</p>
+<p>So like the, even though you&rsquo;re just doing</p>
+<p>associative kind of connections,</p>
+<p>there&rsquo;s an implied hierarchy that&rsquo;s emerging.</p>
+<p>And I would start becoming paranoid</p>
+<p>that it&rsquo;s not the proper hierarchy.</p>
+<p>So you&rsquo;re not just, one way to see mind maps</p>
+<p>is you&rsquo;re putting thoughts on paper.</p>
+<p>It&rsquo;s like a stream of consciousness,</p>
+<p>but then you can also start getting paranoid.</p>
+<p>Well, is this the right hierarchy?</p>
+<p>Sure, which it&rsquo;s mind maps, your mind map.</p>
+<p>You&rsquo;re free to draw anything you want.</p>
+<p>You&rsquo;re free to draw any connection you want.</p>
+<p>And you can just make a different mind map</p>
+<p>if you think the central node is not the right node.</p>
+<p>Yeah, I suppose there&rsquo;s a fear of being wrong.</p>
+<p>If you want to organize your ideas</p>
+<p>by writing down what you think,</p>
+<p>which I think is very effective.</p>
+<p>Like how do you know what you think about something</p>
+<p>if you don&rsquo;t write it down, right?</p>
+<p>If you do that, the thing is that it imposes</p>
+<p>much more syntactic structure over your ideas,</p>
+<p>which is not required with mind maps.</p>
+<p>So mind map is kind of like a lower level,</p>
+<p>more freehand way of organizing your thoughts.</p>
+<p>And once you&rsquo;ve drawn it,</p>
+<p>then you can start actually voicing your thoughts</p>
+<p>in terms of, you know, paragraphs.</p>
+<p>It&rsquo;s a two dimensional aspect of layout too, right?</p>
+<p>Yeah.</p>
+<p>It&rsquo;s a kind of flower, I guess, you start.</p>
+<p>There&rsquo;s usually, you want to start with a central concept?</p>
+<p>Yes.</p>
+<p>Then you move out.</p>
+<p>Typically it ends up more like a subway map.</p>
+<p>So it ends up more like a graph,</p>
+<p>a topological graph without a root node.</p>
+<p>Yeah, so like in a subway map,</p>
+<p>there are some nodes that are more connected than others.</p>
+<p>And there are some nodes that are more important than others.</p>
+<p>So there are destinations,</p>
+<p>but it&rsquo;s not going to be purely like a tree, for instance.</p>
+<p>Yeah, it&rsquo;s fascinating to think that</p>
+<p>if there&rsquo;s something to that about the way our mind thinks.</p>
+<p>By the way, I just kind of remembered obvious thing</p>
+<p>that I have probably thousands of documents</p>
+<p>in Google Doc at this point, that are bullet point lists,</p>
+<p>which is, you can probably map a mind map</p>
+<p>to a bullet point list.</p>
+<p>It&rsquo;s the same, it&rsquo;s a, no, it&rsquo;s not, it&rsquo;s a tree.</p>
+<p>It&rsquo;s a tree, yeah.</p>
+<p>So I create trees,</p>
+<p>but also they don&rsquo;t have the visual element.</p>
+<p>Like, I guess I&rsquo;m comfortable with the structure.</p>
+<p>It feels like the narrowness,</p>
+<p>the constraints feel more comforting.</p>
+<p>If you have thousands of documents</p>
+<p>with your own thoughts in Google Docs,</p>
+<p>why don&rsquo;t you write some kind of search engine,</p>
+<p>like maybe a mind map, a piece of software,</p>
+<p>mind mapping software, where you write down a concept</p>
+<p>and then it gives you sentences or paragraphs</p>
+<p>from your thousand Google Docs document</p>
+<p>that match this concept.</p>
+<p>The problem is it&rsquo;s so deeply, unlike mind maps,</p>
+<p>it&rsquo;s so deeply rooted in natural language.</p>
+<p>So it&rsquo;s not, it&rsquo;s not semantically searchable,</p>
+<p>I would say, because the categories are very,</p>
+<p>you kind of mentioned intelligence, language, and motion.</p>
+<p>They&rsquo;re very strong, semantic.</p>
+<p>Like, it feels like the mind map forces you</p>
+<p>to be semantically clear and specific.</p>
+<p>The bullet points list I have are sparse,</p>
+<p>desperate thoughts that poetically represent</p>
+<p>a category like motion, as opposed to saying motion.</p>
+<p>So unfortunately, that&rsquo;s the same problem with the internet.</p>
+<p>That&rsquo;s why the idea of semantic web is difficult to get.</p>
+<p>It&rsquo;s, most language on the internet is a giant mess</p>
+<p>of natural language that&rsquo;s hard to interpret, which,</p>
+<p>so do you think there&rsquo;s something to mind maps as,</p>
+<p>you actually originally brought it up</p>
+<p>as we were talking about kind of cognition and language.</p>
+<p>Do you think there&rsquo;s something to mind maps</p>
+<p>about how our brain actually deals,</p>
+<p>like think reasons about things?</p>
+<p>It&rsquo;s possible.</p>
+<p>I think it&rsquo;s reasonable to assume that there is</p>
+<p>some level of topological processing in the brain,</p>
+<p>that the brain is very associative in nature.</p>
+<p>And I also believe that a topological space</p>
+<p>is a better medium to encode thoughts</p>
+<p>than a geometric space.</p>
+<p>So I think&hellip;</p>
+<p>What&rsquo;s the difference in a topological</p>
+<p>and a geometric space?</p>
+<p>Well, if you&rsquo;re talking about topologies,</p>
+<p>then points are either connected or not.</p>
+<p>So a topology is more like a subway map.</p>
+<p>And geometry is when you&rsquo;re interested</p>
+<p>in the distance between things.</p>
+<p>And in a subway map,</p>
+<p>you don&rsquo;t really have the concept of distance.</p>
+<p>You only have the concept of whether there is a train</p>
+<p>going from station A to station B.</p>
+<p>And what we do in deep learning is that we&rsquo;re actually</p>
+<p>dealing with geometric spaces.</p>
+<p>We are dealing with concept vectors, word vectors,</p>
+<p>that have a distance between them</p>
+<p>to express in terms of that product.</p>
+<p>So we are not really building topological models usually.</p>
+<p>I think you&rsquo;re absolutely right.</p>
+<p>Like distance is a fundamental importance in deep learning.</p>
+<p>I mean, it&rsquo;s the continuous aspect of it.</p>
+<p>Yes, because everything is a vector</p>
+<p>and everything has to be a vector</p>
+<p>because everything has to be differentiable.</p>
+<p>If your space is discrete, it&rsquo;s no longer differentiable.</p>
+<p>You cannot do deep learning in it anymore.</p>
+<p>Well, you could, but you can only do it by embedding it</p>
+<p>in a bigger continuous space.</p>
+<p>So if you do topology in the context of deep learning,</p>
+<p>you have to do it by embedding your topology</p>
+<p>in the geometry.</p>
+<p>Well, let me zoom out for a second.</p>
+<p>Let&rsquo;s get into your paper on the measure of intelligence</p>
+<p>that you put out in 2019.</p>
+<p>Yes.</p>
+<p>Okay.</p>
+<p>November.</p>
+<p>Yeah, remember 2019?</p>
+<p>That was a different time.</p>
+<p>Yeah, I remember.</p>
+<p>I still remember.</p>
+<p>It feels like a different world.</p>
+<p>You could travel, you could actually go outside</p>
+<p>and see friends.</p>
+<p>Yeah.</p>
+<p>Let me ask the most absurd question.</p>
+<p>I think there&rsquo;s some nonzero probability</p>
+<p>there&rsquo;ll be a textbook one day, like 200 years from now</p>
+<p>on artificial intelligence,</p>
+<p>or it&rsquo;ll be called like just intelligence</p>
+<p>cause humans will already be gone.</p>
+<p>It&rsquo;ll be your picture with a quote.</p>
+<p>This is, you know, one of the early biological systems</p>
+<p>would consider the nature of intelligence</p>
+<p>and there&rsquo;ll be like a definition</p>
+<p>of how they thought about intelligence.</p>
+<p>Which is one of the things you do in your paper</p>
+<p>on measure intelligence is to ask like,</p>
+<p>well, what is intelligence</p>
+<p>and how to test for intelligence and so on.</p>
+<p>So is there a spiffy quote about what is intelligence?</p>
+<p>What is the definition of intelligence</p>
+<p>according to Francois Chollet?</p>
+<p>Yeah, so do you think the super intelligent AIs</p>
+<p>of the future will want to remember us</p>
+<p>the way we remember humans from the past?</p>
+<p>And do you think they will be, you know,</p>
+<p>they won&rsquo;t be ashamed of having a biological origin?</p>
+<p>No, I think it would be a niche topic.</p>
+<p>It won&rsquo;t be that interesting,</p>
+<p>but it&rsquo;ll be like the people that study</p>
+<p>in certain contexts like historical civilization</p>
+<p>that no longer exists, the Aztecs and so on.</p>
+<p>That&rsquo;s how it&rsquo;ll be seen.</p>
+<p>And it&rsquo;ll be study in also the context on social media.</p>
+<p>There&rsquo;ll be hashtags about the atrocity</p>
+<p>committed to human beings</p>
+<p>when the robots finally got rid of them.</p>
+<p>Like it was a mistake.</p>
+<p>You&rsquo;ll be seen as a giant mistake,</p>
+<p>but ultimately in the name of progress</p>
+<p>and it created a better world</p>
+<p>because humans were over consuming the resources</p>
+<p>and they were not very rational</p>
+<p>and were destructive in the end in terms of productivity</p>
+<p>and putting more love in the world.</p>
+<p>And so within that context,</p>
+<p>there&rsquo;ll be a chapter about these biological systems.</p>
+<p>It seems to have a very detailed vision of that hit here.</p>
+<p>You should write a sci fi novel about it.</p>
+<p>I&rsquo;m working on a sci fi novel currently, yes.</p>
+<p>Self published, yeah.</p>
+<p>The definition of intelligence.</p>
+<p>So intelligence is the efficiency</p>
+<p>with which you acquire new skills at tasks</p>
+<p>that you did not previously know about,</p>
+<p>that you did not prepare for, right?</p>
+<p>So intelligence is not skill itself.</p>
+<p>It&rsquo;s not what you know, it&rsquo;s not what you can do.</p>
+<p>It&rsquo;s how well and how efficiently</p>
+<p>you can learn new things.</p>
+<p>New things.</p>
+<p>Yes.</p>
+<p>The idea of newness there</p>
+<p>seems to be fundamentally important.</p>
+<p>Yes.</p>
+<p>So you would see intelligence on display, for instance.</p>
+<p>Whenever you see a human being or an AI creature</p>
+<p>adapt to a new environment that it does not see before,</p>
+<p>that its creators did not anticipate.</p>
+<p>When you see adaptation, when you see improvisation,</p>
+<p>when you see generalization, that&rsquo;s intelligence.</p>
+<p>In reverse, if you have a system</p>
+<p>that when you put it in a slightly new environment,</p>
+<p>it cannot adapt, it cannot improvise,</p>
+<p>it cannot deviate from what it&rsquo;s hard coded to do</p>
+<p>or what it has been trained to do,</p>
+<p>that is a system that is not intelligent.</p>
+<p>There&rsquo;s actually a quote from Einstein</p>
+<p>that captures this idea, which is,</p>
+<p>the measure of intelligence is the ability to change.</p>
+<p>I like that quote.</p>
+<p>I think it captures at least part of this idea.</p>
+<p>You know, there might be something interesting</p>
+<p>about the difference between your definition and Einstein&rsquo;s.</p>
+<p>I mean, he&rsquo;s just being Einstein and clever,</p>
+<p>but acquisition of new ability to deal with new things</p>
+<p>versus ability to just change.</p>
+<p>What&rsquo;s the difference between those two things?</p>
+<p>So just change in itself.</p>
+<p>Do you think there&rsquo;s something to that?</p>
+<p>Just being able to change.</p>
+<p>Yes, being able to adapt.</p>
+<p>So not change, but certainly change its direction.</p>
+<p>Being able to adapt yourself to your environment.</p>
+<p>Whatever the environment is.</p>
+<p>That&rsquo;s a big part of intelligence.</p>
+<p>And intelligence is more precisely, you know,</p>
+<p>how efficiently you&rsquo;re able to adapt,</p>
+<p>how efficiently you&rsquo;re able to basically master your environment,</p>
+<p>how efficiently you can acquire new skills.</p>
+<p>And I think there&rsquo;s a big distinction to be drawn</p>
+<p>between intelligence, which is a process,</p>
+<p>and the output of that process, which is skill.</p>
+<p>So for instance, if you have a very smart human brain,</p>
+<p>so for instance, if you have a very smart human programmer</p>
+<p>that considers the game of chess,</p>
+<p>and that writes down a static program that can play chess,</p>
+<p>then the intelligence is the process</p>
+<p>of developing that program.</p>
+<p>But the program itself is just encoding</p>
+<p>the output artifact of that process.</p>
+<p>The program itself is not intelligent.</p>
+<p>And the way you tell it&rsquo;s not intelligent</p>
+<p>is that if you put it in a different context,</p>
+<p>you ask it to play Go or something,</p>
+<p>it&rsquo;s not going to be able to perform well</p>
+<p>without human involvement,</p>
+<p>because the source of intelligence,</p>
+<p>the entity that is capable of that process</p>
+<p>is the human programmer.</p>
+<p>So we should be able to tell the difference</p>
+<p>between the process and its output.</p>
+<p>We should not confuse the output and the process.</p>
+<p>It&rsquo;s the same as, you know,</p>
+<p>do not confuse a road building company</p>
+<p>and one specific road,</p>
+<p>because one specific road takes you from point A to point B,</p>
+<p>but a road building company can take you from,</p>
+<p>can make a path from anywhere to anywhere else.</p>
+<p>Yeah, that&rsquo;s beautifully put,</p>
+<p>but it&rsquo;s also to play devil&rsquo;s advocate a little bit.</p>
+<p>You know, it&rsquo;s possible that there&rsquo;s something</p>
+<p>more fundamental than us humans.</p>
+<p>So you kind of said the programmer creates</p>
+<p>the difference between the choir,</p>
+<p>the skill and the skill itself.</p>
+<p>There could be something like,</p>
+<p>you could argue the universe is more intelligent.</p>
+<p>Like the base intelligence that we should be trying</p>
+<p>to measure is something that created humans.</p>
+<p>We should be measuring God or the source of the universe</p>
+<p>as opposed to, like there could be a deeper intelligence.</p>
+<p>Sure.</p>
+<p>There&rsquo;s always deeper intelligence, I guess.</p>
+<p>You can argue that,</p>
+<p>but that does not take anything away</p>
+<p>from the fact that humans are intelligent.</p>
+<p>And you can tell that</p>
+<p>because they are capable of adaptation and generality.</p>
+<p>Got it.</p>
+<p>And you see that in particular in the fact</p>
+<p>that humans are capable of handling situations and tasks</p>
+<p>that are quite different from anything</p>
+<p>that any of our evolutionary ancestors</p>
+<p>has ever encountered.</p>
+<p>So we are capable of generalizing very much</p>
+<p>out of distribution,</p>
+<p>if you consider our evolutionary history</p>
+<p>as being in a way our training data.</p>
+<p>Of course, evolutionary biologists would argue</p>
+<p>that we&rsquo;re not going too far out of the distribution.</p>
+<p>We&rsquo;re like mapping the skills we&rsquo;ve learned previously,</p>
+<p>desperately trying to like jam them</p>
+<p>into like these new situations.</p>
+<p>I mean, there&rsquo;s definitely a little bit of that,</p>
+<p>but it&rsquo;s pretty clear to me that we&rsquo;re able to,</p>
+<p>most of the things we do any given day</p>
+<p>in our modern civilization</p>
+<p>are things that are very, very different</p>
+<p>from what our ancestors a million years ago</p>
+<p>would have been doing in a given day.</p>
+<p>And your environment is very different.</p>
+<p>So I agree that everything we do,</p>
+<p>we do it with cognitive building blocks</p>
+<p>that we acquired over the course of evolution, right?</p>
+<p>And that anchors our cognition to a certain context,</p>
+<p>which is the human condition very much.</p>
+<p>But still our mind is capable of a pretty remarkable degree</p>
+<p>of generality far beyond anything we can create</p>
+<p>in artificial systems today.</p>
+<p>Like the degree in which the mind can generalize</p>
+<p>from its evolutionary history,</p>
+<p>can generalize away from its evolutionary history</p>
+<p>is much greater than the degree</p>
+<p>to which a deep learning system today</p>
+<p>can generalize away from its training data.</p>
+<p>And like the key point you&rsquo;re making,</p>
+<p>which I think is quite beautiful is like,</p>
+<p>we shouldn&rsquo;t measure, if we&rsquo;re talking about measurement,</p>
+<p>we shouldn&rsquo;t measure the skill.</p>
+<p>We should measure like the creation of the new skill,</p>
+<p>the ability to create that new skill.</p>
+<p>But it&rsquo;s tempting, like it&rsquo;s weird</p>
+<p>because the skill is a little bit of a small window</p>
+<p>into the system.</p>
+<p>So whenever you have a lot of skills,</p>
+<p>it&rsquo;s tempting to measure the skills.</p>
+<p>I mean, the skill is the only thing you can objectively</p>
+<p>measure, but yeah.</p>
+<p>So the thing to keep in mind is that</p>
+<p>when you see skill in the human,</p>
+<p>it gives you a strong signal that that human is intelligent</p>
+<p>because you know they weren&rsquo;t born with that skill typically.</p>
+<p>Like you see a very strong chess player,</p>
+<p>maybe you&rsquo;re a very strong chess player yourself.</p>
+<p>I think you&rsquo;re saying that because I&rsquo;m Russian</p>
+<p>and now you&rsquo;re prejudiced, you assume.</p>
+<p>All Russians are good at chess.</p>
+<p>I&rsquo;m biased, exactly.</p>
+<p>I&rsquo;m biased, yeah.</p>
+<p>Well, you&rsquo;re definitely biased.</p>
+<p>So if you see a very strong chess player,</p>
+<p>you know they weren&rsquo;t born knowing how to play chess.</p>
+<p>So they had to acquire that skill</p>
+<p>with their limited resources, with their limited lifetime.</p>
+<p>And they did that because they are generally intelligent.</p>
+<p>And so they may as well have acquired any other skill.</p>
+<p>You know they have this potential.</p>
+<p>And on the other hand, if you see a computer playing chess,</p>
+<p>you cannot make the same assumptions</p>
+<p>because you cannot just assume</p>
+<p>the computer is generally intelligent.</p>
+<p>The computer may be born knowing how to play chess</p>
+<p>in the sense that it may have been programmed by a human</p>
+<p>that has understood chess for the computer</p>
+<p>and that has just encoded the output</p>
+<p>of that understanding in a static program.</p>
+<p>And that program is not intelligent.</p>
+<p>So let&rsquo;s zoom out just for a second and say like,</p>
+<p>what is the goal on the measure of intelligence paper?</p>
+<p>Like what do you hope to achieve with it?</p>
+<p>So the goal of the paper is to clear up</p>
+<p>some longstanding misunderstandings</p>
+<p>about the way we&rsquo;ve been conceptualizing intelligence</p>
+<p>in the AI community and in the way we&rsquo;ve been</p>
+<p>evaluating progress in AI.</p>
+<p>There&rsquo;s been a lot of progress recently in machine learning</p>
+<p>and people are extrapolating from that progress</p>
+<p>that we are about to solve general intelligence.</p>
+<p>And if you want to be able to evaluate these statements,</p>
+<p>you need to precisely define what you&rsquo;re talking about</p>
+<p>when you&rsquo;re talking about general intelligence.</p>
+<p>And you need a formal way, a reliable way to measure</p>
+<p>how much intelligence,</p>
+<p>how much general intelligence a system processes.</p>
+<p>And ideally this measure of intelligence</p>
+<p>should be actionable.</p>
+<p>So it should not just describe what intelligence is.</p>
+<p>It should not just be a binary indicator</p>
+<p>that tells you the system is intelligent or it isn&rsquo;t.</p>
+<p>It should be actionable.</p>
+<p>It should have explanatory power, right?</p>
+<p>So you could use it as a feedback signal.</p>
+<p>It would show you the way</p>
+<p>towards building more intelligent systems.</p>
+<p>So at the first level, you draw a distinction</p>
+<p>between two divergent views of intelligence.</p>
+<p>As we just talked about,</p>
+<p>intelligence is a collection of task specific skills</p>
+<p>and a general learning ability.</p>
+<p>So what&rsquo;s the difference between</p>
+<p>kind of this memorization of skills</p>
+<p>and a general learning ability?</p>
+<p>We&rsquo;ve talked about it a little bit,</p>
+<p>but can you try to linger on this topic for a bit?</p>
+<p>Yeah, so the first part of the paper</p>
+<p>is an assessment of the different ways</p>
+<p>we&rsquo;ve been thinking about intelligence</p>
+<p>and the different ways we&rsquo;ve been evaluating progress in AI.</p>
+<p>And this tree of cognitive sciences</p>
+<p>has been shaped by two views of the human mind.</p>
+<p>And one view is the evolutionary psychology view</p>
+<p>in which the mind is a collection of fairly static</p>
+<p>special purpose ad hoc mechanisms</p>
+<p>that have been hard coded by evolution</p>
+<p>over our history as a species for a very long time.</p>
+<p>And early AI researchers,</p>
+<p>people like Marvin Minsky, for instance,</p>
+<p>they clearly subscribed to this view.</p>
+<p>And they saw the mind as a kind of</p>
+<p>collection of static programs</p>
+<p>similar to the programs they would run</p>
+<p>on like mainframe computers.</p>
+<p>And in fact, I think they very much understood the mind</p>
+<p>through the metaphor of the mainframe computer</p>
+<p>because that was the tool they were working with, right?</p>
+<p>And so you had these static programs,</p>
+<p>this collection of very different static programs</p>
+<p>operating over a database like memory.</p>
+<p>And in this picture, learning was not very important.</p>
+<p>Learning was considered to be just memorization.</p>
+<p>And in fact, learning is basically not featured</p>
+<p>in AI textbooks until the 1980s</p>
+<p>with the rise of machine learning.</p>
+<p>It&rsquo;s kind of fun to think about</p>
+<p>that learning was the outcast.</p>
+<p>Like the weird people working on learning,</p>
+<p>like the mainstream AI world was,</p>
+<p>I mean, I don&rsquo;t know what the best term is,</p>
+<p>but it&rsquo;s non learning.</p>
+<p>It was seen as like reasoning would not be learning based.</p>
+<p>Yes, it was considered that the mind</p>
+<p>was a collection of programs</p>
+<p>that were primarily logical in nature.</p>
+<p>And that&rsquo;s all you needed to do to create a mind</p>
+<p>was to write down these programs</p>
+<p>and they would operate over knowledge,</p>
+<p>which would be stored in some kind of database.</p>
+<p>And as long as your database would encompass,</p>
+<p>you know, everything about the world</p>
+<p>and your logical rules were comprehensive,</p>
+<p>then you would have a mind.</p>
+<p>So the other view of the mind</p>
+<p>is the brain as a sort of blank slate, right?</p>
+<p>This is a very old idea.</p>
+<p>You find it in John Locke&rsquo;s writings.</p>
+<p>This is the tabula rasa.</p>
+<p>And this is this idea that the mind</p>
+<p>is some kind of like information sponge</p>
+<p>that starts empty, that starts blank.</p>
+<p>And that absorbs knowledge and skills from experience, right?</p>
+<p>So it&rsquo;s a sponge that reflects the complexity of the world,</p>
+<p>the complexity of your life experience, essentially.</p>
+<p>That everything you know and everything you can do</p>
+<p>is a reflection of something you found</p>
+<p>in the outside world, essentially.</p>
+<p>So this is an idea that&rsquo;s very old.</p>
+<p>That was not very popular, for instance, in the 1970s.</p>
+<p>But that gained a lot of vitality recently</p>
+<p>with the rise of connectionism, in particular deep learning.</p>
+<p>And so today, deep learning</p>
+<p>is the dominant paradigm in AI.</p>
+<p>And I feel like lots of AI researchers</p>
+<p>are conceptualizing the mind via a deep learning metaphor.</p>
+<p>Like they see the mind as a kind of</p>
+<p>randomly initialized neural network that starts blank</p>
+<p>when you&rsquo;re born.</p>
+<p>And then that gets trained via exposure to trained data</p>
+<p>that acquires knowledge and skills</p>
+<p>via exposure to trained data.</p>
+<p>By the way, it&rsquo;s a small tangent.</p>
+<p>I feel like people who are thinking about intelligence</p>
+<p>are not conceptualizing it that way.</p>
+<p>I actually haven&rsquo;t met too many people</p>
+<p>who believe that a neural network</p>
+<p>will be able to reason, who seriously think that rigorously.</p>
+<p>Because I think it&rsquo;s actually an interesting worldview.</p>
+<p>And we&rsquo;ll talk about it more,</p>
+<p>but it&rsquo;s been impressive what neural networks</p>
+<p>have been able to accomplish.</p>
+<p>And to me, I don&rsquo;t know, you might disagree,</p>
+<p>but it&rsquo;s an open question whether like scaling size</p>
+<p>eventually might lead to incredible results</p>
+<p>to us mere humans will appear as if it&rsquo;s general.</p>
+<p>I mean, if you ask people who are seriously thinking</p>
+<p>about intelligence, they will definitely not say</p>
+<p>that all you need to do is,</p>
+<p>like the mind is just a neural network.</p>
+<p>However, it&rsquo;s actually a view that&rsquo;s very popular,</p>
+<p>I think, in the deep learning community</p>
+<p>that many people are kind of conceptually</p>
+<p>intellectually lazy about it.</p>
+<p>Right, it&rsquo;s a, but I guess what I&rsquo;m saying exactly right,</p>
+<p>it&rsquo;s, I mean, I haven&rsquo;t met many people</p>
+<p>and I think it would be interesting to meet a person</p>
+<p>who is not intellectually lazy about this particular topic</p>
+<p>and still believes that neural networks will go all the way.</p>
+<p>I think Yama is probably closest to that</p>
+<p>with self supervised.</p>
+<p>There are definitely people who argue</p>
+<p>that current deep learning techniques</p>
+<p>are already the way to general artificial intelligence.</p>
+<p>And that all you need to do is to scale it up</p>
+<p>to all the available trained data.</p>
+<p>And that&rsquo;s, if you look at the waves</p>
+<p>that OpenAI&rsquo;s GPT3 model has made,</p>
+<p>you see echoes of this idea.</p>
+<p>So on that topic, GPT3, similar to GPT2 actually,</p>
+<p>have captivated some part of the imagination of the public.</p>
+<p>There&rsquo;s just a bunch of hype of different kind.</p>
+<p>That&rsquo;s, I would say it&rsquo;s emergent.</p>
+<p>It&rsquo;s not artificially manufactured.</p>
+<p>It&rsquo;s just like people just get excited</p>
+<p>for some strange reason.</p>
+<p>And in the case of GPT3, which is funny,</p>
+<p>that there&rsquo;s, I believe, a couple months delay</p>
+<p>from release to hype.</p>
+<p>Maybe I&rsquo;m not historically correct on that,</p>
+<p>but it feels like there was a little bit of a lack of hype</p>
+<p>and then there&rsquo;s a phase shift into hype.</p>
+<p>But nevertheless, there&rsquo;s a bunch of cool applications</p>
+<p>that seem to captivate the imagination of the public</p>
+<p>about what this language model</p>
+<p>that&rsquo;s trained in unsupervised way</p>
+<p>without any fine tuning is able to achieve.</p>
+<p>So what do you make of that?</p>
+<p>What are your thoughts about GPT3?</p>
+<p>Yeah, so I think what&rsquo;s interesting about GPT3</p>
+<p>is the idea that it may be able to learn new tasks</p>
+<p>after just being shown a few examples.</p>
+<p>So I think if it&rsquo;s actually capable of doing that,</p>
+<p>that&rsquo;s novel and that&rsquo;s very interesting</p>
+<p>and that&rsquo;s something we should investigate.</p>
+<p>That said, I must say, I&rsquo;m not entirely convinced</p>
+<p>that we have shown it&rsquo;s capable of doing that.</p>
+<p>It&rsquo;s very likely, given the amount of data</p>
+<p>that the model is trained on,</p>
+<p>that what it&rsquo;s actually doing is pattern matching</p>
+<p>a new task you give it with a task</p>
+<p>that it&rsquo;s been exposed to in its trained data.</p>
+<p>It&rsquo;s just recognizing the task</p>
+<p>instead of just developing a model of the task, right?</p>
+<p>But there&rsquo;s, sorry to interrupt,</p>
+<p>there&rsquo;s a parallel as to what you said before,</p>
+<p>which is it&rsquo;s possible to see GPT3 as like the prompts</p>
+<p>it&rsquo;s given as a kind of SQL query</p>
+<p>into this thing that it&rsquo;s learned,</p>
+<p>similar to what you said before,</p>
+<p>which is language is used to query the memory.</p>
+<p>Yes.</p>
+<p>So is it possible that neural network</p>
+<p>is a giant memorization thing,</p>
+<p>but then if it gets sufficiently giant,</p>
+<p>it&rsquo;ll memorize sufficiently large amounts</p>
+<p>of things in the world or it becomes,</p>
+<p>or intelligence becomes a querying machine?</p>
+<p>I think it&rsquo;s possible that a significant chunk</p>
+<p>of intelligence is this giant associative memory.</p>
+<p>I definitely don&rsquo;t believe that intelligence</p>
+<p>is just a giant associative memory,</p>
+<p>but it may well be a big component.</p>
+<p>So do you think GPT3, 4, 5,</p>
+<p>GPT10 will eventually, like, what do you think,</p>
+<p>where&rsquo;s the ceiling?</p>
+<p>Do you think you&rsquo;ll be able to reason?</p>
+<p>No, that&rsquo;s a bad question.</p>
+<p>Like, what is the ceiling is the better question.</p>
+<p>How well is it gonna scale?</p>
+<p>How good is GPTN going to be?</p>
+<p>Yeah.</p>
+<p>So I believe GPTN is gonna.</p>
+<p>GPTN.</p>
+<p>Is gonna improve on the strength of GPT2 and 3,</p>
+<p>which is it will be able to generate, you know,</p>
+<p>ever more plausible text in context.</p>
+<p>Just monotonically increasing performance.</p>
+<p>Yes, if you train a bigger model on more data,</p>
+<p>then your text will be increasingly more context aware</p>
+<p>and increasingly more plausible</p>
+<p>in the same way that GPT3 is much better</p>
+<p>at generating plausible text compared to GPT2.</p>
+<p>But that said, I don&rsquo;t think just scaling up the model</p>
+<p>to more transformer layers and more trained data</p>
+<p>is gonna address the flaws of GPT3,</p>
+<p>which is that it can generate plausible text,</p>
+<p>but that text is not constrained by anything else</p>
+<p>other than plausibility.</p>
+<p>So in particular, it&rsquo;s not constrained by factualness</p>
+<p>or even consistency, which is why it&rsquo;s very easy</p>
+<p>to get GPT3 to generate statements</p>
+<p>that are factually untrue.</p>
+<p>Or to generate statements that are even self contradictory.</p>
+<p>Right?</p>
+<p>Because it&rsquo;s only goal is plausibility,</p>
+<p>and it has no other constraints.</p>
+<p>It&rsquo;s not constrained to be self consistent, for instance.</p>
+<p>Right?</p>
+<p>And so for this reason, one thing that I thought</p>
+<p>was very interesting with GPT3 is that you can</p>
+<p>predetermine the answer it will give you</p>
+<p>by asking the question in a specific way,</p>
+<p>because it&rsquo;s very responsive to the way you ask the question.</p>
+<p>Since it has no understanding of the content of the question.</p>
+<p>Right.</p>
+<p>And if you have the same question in two different ways</p>
+<p>that are basically adversarially engineered</p>
+<p>to produce certain answer,</p>
+<p>you will get two different answers,</p>
+<p>two contradictory answers.</p>
+<p>It&rsquo;s very susceptible to adversarial attacks, essentially.</p>
+<p>Potentially, yes.</p>
+<p>So in general, the problem with these models,</p>
+<p>these generative models, is that they are very good</p>
+<p>at generating plausible text,</p>
+<p>but that&rsquo;s just not enough.</p>
+<p>Right?</p>
+<p>I think one avenue that would be very interesting</p>
+<p>to make progress is to make it possible</p>
+<p>to write programs over the latent space</p>
+<p>that these models operate on.</p>
+<p>That you would rely on these self supervised models</p>
+<p>to generate a sort of like pool of knowledge and concepts</p>
+<p>and common sense.</p>
+<p>And then you would be able to write</p>
+<p>explicit reasoning programs over it.</p>
+<p>Because the current problem with GPT3 is that</p>
+<p>it can be quite difficult to get it to do what you want to do.</p>
+<p>If you want to turn GPT3 into products,</p>
+<p>you need to put constraints on it.</p>
+<p>You need to force it to obey certain rules.</p>
+<p>So you need a way to program it explicitly.</p>
+<p>Yeah, so if you look at its ability</p>
+<p>to do program synthesis,</p>
+<p>it generates, like you said, something that&rsquo;s plausible.</p>
+<p>Yeah, so if you try to make it generate programs,</p>
+<p>it will perform well for any program</p>
+<p>that it has seen in its training data.</p>
+<p>But because program space is not interpretive, right?</p>
+<p>It&rsquo;s not going to be able to generalize to problems</p>
+<p>it hasn&rsquo;t seen before.</p>
+<p>Now that&rsquo;s currently, do you think sort of an absurd,</p>
+<p>but I think useful, I guess, intuition builder is,</p>
+<p>you know, the GPT3 has 175 billion parameters.</p>
+<p>Human brain has 100, has about a thousand times that</p>
+<p>or more in terms of number of synapses.</p>
+<p>Do you think, obviously, very different kinds of things,</p>
+<p>but there is some degree of similarity.</p>
+<p>Do you think, what do you think GPT will look like</p>
+<p>when it has 100 trillion parameters?</p>
+<p>You think our conversation might be in nature different?</p>
+<p>Like, because you&rsquo;ve criticized GPT3 very effectively now.</p>
+<p>Do you think?</p>
+<p>No, I don&rsquo;t think so.</p>
+<p>So to begin with, the bottleneck with scaling up GPT3,</p>
+<p>GPT models, generative pre trained transformer models,</p>
+<p>is not going to be the size of the model</p>
+<p>or how long it takes to train it.</p>
+<p>The bottleneck is going to be the trained data</p>
+<p>because OpenAI is already training GPT3</p>
+<p>on a core of basically the entire web, right?</p>
+<p>And that&rsquo;s a lot of data.</p>
+<p>So you could imagine training on more data than that,</p>
+<p>like Google could train on more data than that,</p>
+<p>but it would still be only incrementally more data.</p>
+<p>And I don&rsquo;t recall exactly how much more data GPT3</p>
+<p>was trained on compared to GPT2,</p>
+<p>but it&rsquo;s probably at least like a hundred,</p>
+<p>maybe even a thousand X.</p>
+<p>I don&rsquo;t have the exact number.</p>
+<p>You&rsquo;re not going to be able to train a model</p>
+<p>on a hundred more data than what you&rsquo;re already doing.</p>
+<p>So that&rsquo;s brilliant.</p>
+<p>So it&rsquo;s easier to think of compute as a bottleneck</p>
+<p>and then arguing that we can remove that bottleneck.</p>
+<p>But we can remove the compute bottleneck.</p>
+<p>I don&rsquo;t think it&rsquo;s a big problem.</p>
+<p>If you look at the pace at which we&rsquo;ve improved</p>
+<p>the efficiency of deep learning models</p>
+<p>in the past few years,</p>
+<p>I&rsquo;m not worried about train time bottlenecks</p>
+<p>or model size bottlenecks.</p>
+<p>The bottleneck in the case</p>
+<p>of these generative transformer models</p>
+<p>is absolutely the trained data.</p>
+<p>What about the quality of the data?</p>
+<p>So, yeah.</p>
+<p>So the quality of the data is an interesting point.</p>
+<p>The thing is,</p>
+<p>if you&rsquo;re going to want to use these models</p>
+<p>in real products,</p>
+<p>then you want to feed them data</p>
+<p>that&rsquo;s as high quality, as factual,</p>
+<p>I would say as unbiased as possible,</p>
+<p>that there&rsquo;s not really such a thing</p>
+<p>as unbiased data in the first place.</p>
+<p>But you probably don&rsquo;t want to train it on Reddit,</p>
+<p>for instance.</p>
+<p>It sounds like a bad plan.</p>
+<p>So from my personal experience,</p>
+<p>working with large scale deep learning models.</p>
+<p>So at some point I was working on a model at Google</p>
+<p>that&rsquo;s trained on 350 million labeled images.</p>
+<p>It&rsquo;s an image classification model.</p>
+<p>That&rsquo;s a lot of images.</p>
+<p>That&rsquo;s like probably most publicly available images</p>
+<p>on the web at the time.</p>
+<p>And it was a very noisy data set</p>
+<p>because the labels were not originally annotated by hand,</p>
+<p>by humans.</p>
+<p>They were automatically derived from like tags</p>
+<p>on social media,</p>
+<p>or just keywords in the same page</p>
+<p>as the image was found and so on.</p>
+<p>So it was very noisy.</p>
+<p>And it turned out that you could easily get a better model,</p>
+<p>not just by training,</p>
+<p>like if you train on more of the noisy data,</p>
+<p>you get an incrementally better model,</p>
+<p>but you very quickly hit diminishing returns.</p>
+<p>On the other hand,</p>
+<p>if you train on smaller data set</p>
+<p>with higher quality annotations,</p>
+<p>quality annotations that are actually made by humans,</p>
+<p>you get a better model.</p>
+<p>And it also takes less time to train it.</p>
+<p>Yeah, that&rsquo;s fascinating.</p>
+<p>It&rsquo;s the self supervised learning.</p>
+<p>There&rsquo;s a way to get better doing the automated labeling.</p>
+<p>Yeah, so you can enrich or refine your labels</p>
+<p>in an automated way.</p>
+<p>That&rsquo;s correct.</p>
+<p>Do you have a hope for,</p>
+<p>I don&rsquo;t know if you&rsquo;re familiar</p>
+<p>with the idea of a semantic web.</p>
+<p>Is a semantic web just for people who are not familiar</p>
+<p>and is the idea of being able to convert the internet</p>
+<p>or be able to attach like semantic meaning</p>
+<p>to the words on the internet,</p>
+<p>the sentences, the paragraphs,</p>
+<p>to be able to convert information on the internet</p>
+<p>or some fraction of the internet</p>
+<p>into something that&rsquo;s interpretable by machines.</p>
+<p>That was kind of a dream for,</p>
+<p>I think the semantic web papers in the nineties,</p>
+<p>it&rsquo;s kind of the dream that, you know,</p>
+<p>the internet is full of rich, exciting information.</p>
+<p>Even just looking at Wikipedia,</p>
+<p>we should be able to use that as data for machines.</p>
+<p>And so far it&rsquo;s not,</p>
+<p>it&rsquo;s not really in a format that&rsquo;s available to machines.</p>
+<p>So no, I don&rsquo;t think the semantic web will ever work</p>
+<p>simply because it would be a lot of work, right?</p>
+<p>To make, to provide that information in structured form.</p>
+<p>And there is not really any incentive</p>
+<p>for anyone to provide that work.</p>
+<p>So I think the way forward to make the knowledge</p>
+<p>on the web available to machines</p>
+<p>is actually something closer to unsupervised deep learning.</p>
+<p>So GPT3 is actually a bigger step in the direction</p>
+<p>of making the knowledge of the web available to machines</p>
+<p>than the semantic web was.</p>
+<p>Yeah, perhaps in a human centric sense,</p>
+<p>it feels like GPT3 hasn&rsquo;t learned anything</p>
+<p>that could be used to reason.</p>
+<p>But that might be just the early days.</p>
+<p>Yeah, I think that&rsquo;s correct.</p>
+<p>I think the forms of reasoning that you see it perform</p>
+<p>are basically just reproducing patterns</p>
+<p>that it has seen in string data.</p>
+<p>So of course, if you&rsquo;re trained on the entire web,</p>
+<p>then you can produce an illusion of reasoning</p>
+<p>in many different situations.</p>
+<p>But it will break down if it&rsquo;s presented</p>
+<p>with a novel situation.</p>
+<p>That&rsquo;s the open question between the illusion of reasoning</p>
+<p>and actual reasoning, yeah.</p>
+<p>Yes.</p>
+<p>The power to adapt to something that is genuinely new.</p>
+<p>Because the thing is, even imagine you had,</p>
+<p>you could train on every bit of data</p>
+<p>ever generated in the history of humanity.</p>
+<p>It remains, that model would be capable</p>
+<p>of anticipating many different possible situations.</p>
+<p>But it remains that the future is</p>
+<p>going to be something different.</p>
+<p>For instance, if you train a GPT3 model on data</p>
+<p>from the year 2002, for instance,</p>
+<p>and then use it today, it&rsquo;s going to be missing many things.</p>
+<p>It&rsquo;s going to be missing many common sense</p>
+<p>facts about the world.</p>
+<p>It&rsquo;s even going to be missing vocabulary and so on.</p>
+<p>Yeah, it&rsquo;s interesting that GPT3 even doesn&rsquo;t have,</p>
+<p>I think, any information about the coronavirus.</p>
+<p>Yes.</p>
+<p>Which is why a system that&rsquo;s, you</p>
+<p>tell that the system is intelligent</p>
+<p>when it&rsquo;s capable to adapt.</p>
+<p>So intelligence is going to require</p>
+<p>some amount of continuous learning.</p>
+<p>It&rsquo;s also going to require some amount of improvisation.</p>
+<p>It&rsquo;s not enough to assume that what you&rsquo;re</p>
+<p>going to be asked to do is something</p>
+<p>that you&rsquo;ve seen before, or something</p>
+<p>that is a simple interpolation of things you&rsquo;ve seen before.</p>
+<p>Yeah.</p>
+<p>In fact, that model breaks down for even very</p>
+<p>tasks that look relatively simple from a distance,</p>
+<p>like L5 self driving, for instance.</p>
+<p>Google had a paper a couple of years</p>
+<p>back showing that something like 30 million different road</p>
+<p>situations were actually completely insufficient</p>
+<p>to train a driving model.</p>
+<p>It wasn&rsquo;t even L2, right?</p>
+<p>And that&rsquo;s a lot of data.</p>
+<p>That&rsquo;s a lot more data than the 20 or 30 hours of driving</p>
+<p>that a human needs to learn to drive,</p>
+<p>given the knowledge they&rsquo;ve already accumulated.</p>
+<p>Well, let me ask you on that topic.</p>
+<p>Elon Musk, Tesla Autopilot, one of the only companies,</p>
+<p>I believe, is really pushing for a learning based approach.</p>
+<p>Are you skeptical that that kind of network</p>
+<p>can achieve level 4?</p>
+<p>L4 is probably achievable.</p>
+<p>L5 probably not.</p>
+<p>What&rsquo;s the distinction there?</p>
+<p>Is L5 is completely you can just fall asleep?</p>
+<p>Yeah, L5 is basically human level.</p>
+<p>Well, with driving, we have to be careful saying human level,</p>
+<p>because that&rsquo;s the most of the drivers.</p>
+<p>Yeah, that&rsquo;s the clearest example of cars</p>
+<p>will most likely be much safer than humans in many situations</p>
+<p>where humans fail.</p>
+<p>It&rsquo;s the vice versa question.</p>
+<p>I&rsquo;ll tell you, the thing is the amount of trained data</p>
+<p>you would need to anticipate for pretty much every possible</p>
+<p>situation you learn content in the real world</p>
+<p>is such that it&rsquo;s not entirely unrealistic</p>
+<p>to think that at some point in the future,</p>
+<p>we&rsquo;ll develop a system that&rsquo;s trained on enough data,</p>
+<p>especially provided that we can simulate a lot of that data.</p>
+<p>We don&rsquo;t necessarily need actual cars</p>
+<p>on the road for everything.</p>
+<p>But it&rsquo;s a massive effort.</p>
+<p>And it turns out you can create a system that&rsquo;s</p>
+<p>much more adaptive, that can generalize much better</p>
+<p>if you just add explicit models of the surroundings</p>
+<p>of the car.</p>
+<p>And if you use deep learning for what</p>
+<p>it&rsquo;s good at, which is to provide</p>
+<p>perceptive information.</p>
+<p>So in general, deep learning is a way</p>
+<p>to encode perception and a way to encode intuition.</p>
+<p>But it is not a good medium for any sort of explicit reasoning.</p>
+<p>And in AI systems today, strong generalization</p>
+<p>tends to come from explicit models,</p>
+<p>tend to come from abstractions in the human mind that</p>
+<p>are encoded in program form by a human engineer.</p>
+<p>These are the abstractions you can actually generalize, not</p>
+<p>the sort of weak abstraction that</p>
+<p>is learned by a neural network.</p>
+<p>Yeah, and the question is how much reasoning,</p>
+<p>how much strong abstractions are required</p>
+<p>to solve particular tasks like driving.</p>
+<p>That&rsquo;s the question.</p>
+<p>Or human life existence.</p>
+<p>How much strong abstractions does existence require?</p>
+<p>But more specifically on driving,</p>
+<p>that seems to be a coupled question about intelligence.</p>
+<p>How much intelligence, how do you</p>
+<p>build an intelligent system?</p>
+<p>And the coupled problem, how hard is this problem?</p>
+<p>How much intelligence does this problem actually require?</p>
+<p>So we get to cheat because we get</p>
+<p>to look at the problem.</p>
+<p>It&rsquo;s not like you get to close our eyes</p>
+<p>and completely new to driving.</p>
+<p>We get to do what we do as human beings, which</p>
+<p>is for the majority of our life before we ever</p>
+<p>learn, quote unquote, to drive.</p>
+<p>We get to watch other cars and other people drive.</p>
+<p>We get to be in cars.</p>
+<p>We get to watch.</p>
+<p>We get to see movies about cars.</p>
+<p>We get to observe all this stuff.</p>
+<p>And that&rsquo;s similar to what neural networks are doing.</p>
+<p>It&rsquo;s getting a lot of data, and the question</p>
+<p>is, yeah, how many leaps of reasoning genius</p>
+<p>is required to be able to actually effectively drive?</p>
+<p>I think it&rsquo;s a good example of driving.</p>
+<p>I mean, sure, you&rsquo;ve seen a lot of cars in your life</p>
+<p>before you learned to drive.</p>
+<p>But let&rsquo;s say you&rsquo;ve learned to drive in Silicon Valley,</p>
+<p>and now you rent a car in Tokyo.</p>
+<p>Well, now everyone is driving on the other side of the road,</p>
+<p>and the signs are different, and the roads</p>
+<p>are more narrow and so on.</p>
+<p>So it&rsquo;s a very, very different environment.</p>
+<p>And a smart human, even an average human,</p>
+<p>should be able to just zero shot it,</p>
+<p>to just be operational in this very different environment</p>
+<p>right away, despite having had no contact with the novel</p>
+<p>complexity that is contained in this environment.</p>
+<p>And that novel complexity is not just an interpolation</p>
+<p>over the situations that you&rsquo;ve encountered previously,</p>
+<p>like learning to drive in the US.</p>
+<p>I would say the reason I ask is one</p>
+<p>of the most interesting tests of intelligence</p>
+<p>we have today actively, which is driving,</p>
+<p>in terms of having an impact on the world.</p>
+<p>When do you think we&rsquo;ll pass that test of intelligence?</p>
+<p>So I don&rsquo;t think driving is that much of a test of intelligence,</p>
+<p>because again, there is no task for which skill at that task</p>
+<p>demonstrates intelligence, unless it&rsquo;s</p>
+<p>a kind of meta task that involves acquiring new skills.</p>
+<p>So I don&rsquo;t think, I think you can actually</p>
+<p>solve driving without having any real amount of intelligence.</p>
+<p>For instance, if you did have infinite trained data,</p>
+<p>you could just literally train an end to end deep learning</p>
+<p>model that does driving, provided infinite trained data.</p>
+<p>The only problem with the whole idea</p>
+<p>is collecting a data set that&rsquo;s sufficiently comprehensive,</p>
+<p>that covers the very long tail of possible situations</p>
+<p>you might encounter.</p>
+<p>And it&rsquo;s really just a scale problem.</p>
+<p>So I think there&rsquo;s nothing fundamentally wrong</p>
+<p>with this plan, with this idea.</p>
+<p>It&rsquo;s just that it strikes me as a fairly inefficient thing</p>
+<p>to do, because you run into this scaling issue with diminishing</p>
+<p>returns.</p>
+<p>Whereas if instead you took a more manual engineering</p>
+<p>approach, where you use deep learning modules in combination</p>
+<p>with engineering an explicit model of the surrounding</p>
+<p>of the cars, and you bridge the two in a clever way,</p>
+<p>your model will actually start generalizing</p>
+<p>much earlier and more effectively</p>
+<p>than the end to end deep learning model.</p>
+<p>So why would you not go with the more manual engineering</p>
+<p>oriented approach?</p>
+<p>Even if you created that system, either the end</p>
+<p>to end deep learning model system that&rsquo;s</p>
+<p>running infinite data, or the slightly more human system,</p>
+<p>I don&rsquo;t think achieving L5 would demonstrate</p>
+<p>general intelligence or intelligence</p>
+<p>of any generality at all.</p>
+<p>Again, the only possible test of generality in AI</p>
+<p>would be a test that looks at skill acquisition</p>
+<p>over unknown tasks.</p>
+<p>For instance, you could take your L5 driver</p>
+<p>and ask it to learn to pilot a commercial airplane,</p>
+<p>for instance.</p>
+<p>And then you would look at how much human involvement is</p>
+<p>required and how much strength data</p>
+<p>is required for the system to learn to pilot an airplane.</p>
+<p>And that gives you a measure of how intelligent</p>
+<p>that system really is.</p>
+<p>Yeah, well, I mean, that&rsquo;s a big leap.</p>
+<p>I get you.</p>
+<p>But I&rsquo;m more interested, as a problem, I would see,</p>
+<p>to me, driving is a black box that</p>
+<p>can generate novel situations at some rate,</p>
+<p>what people call edge cases.</p>
+<p>So it does have newness that keeps being like,</p>
+<p>we&rsquo;re confronted, let&rsquo;s say, once a month.</p>
+<p>It is a very long tail, yes.</p>
+<p>It&rsquo;s a long tail.</p>
+<p>That doesn&rsquo;t mean you cannot solve it just</p>
+<p>by training a statistical model and a lot of data.</p>
+<p>Huge amount of data.</p>
+<p>It&rsquo;s really a matter of scale.</p>
+<p>But I guess what I&rsquo;m saying is if you have a vehicle that</p>
+<p>achieves level 5, it is going to be able to deal</p>
+<p>with new situations.</p>
+<p>Or, I mean, the data is so large that the rate of new situations</p>
+<p>is very low.</p>
+<p>Yes.</p>
+<p>That&rsquo;s not intelligent.</p>
+<p>So if we go back to your kind of definition of intelligence,</p>
+<p>it&rsquo;s the efficiency.</p>
+<p>With which you can adapt to new situations,</p>
+<p>to truly new situations, not situations you&rsquo;ve seen before.</p>
+<p>Not situations that could be anticipated by your creators,</p>
+<p>by the creators of the system, but truly new situations.</p>
+<p>The efficiency with which you acquire new skills.</p>
+<p>If you require, if in order to pick up a new skill,</p>
+<p>you require a very extensive training</p>
+<p>data set of most possible situations</p>
+<p>that can occur in the practice of that skill,</p>
+<p>then the system is not intelligent.</p>
+<p>It is mostly just a lookup table.</p>
+<p>Yeah.</p>
+<p>Well, likewise, if in order to acquire a skill,</p>
+<p>you need a human engineer to write down</p>
+<p>a bunch of rules that cover most or every possible situation.</p>
+<p>Likewise, the system is not intelligent.</p>
+<p>The system is merely the output artifact</p>
+<p>of a process that happens in the minds of the engineers that</p>
+<p>are creating it.</p>
+<p>It is encoding an abstraction that&rsquo;s</p>
+<p>produced by the human mind.</p>
+<p>And intelligence would actually be</p>
+<p>the process of autonomously producing this abstraction.</p>
+<p>Yeah.</p>
+<p>Not like if you take an abstraction</p>
+<p>and you encode it on a piece of paper or in a computer program,</p>
+<p>the abstraction itself is not intelligent.</p>
+<p>What&rsquo;s intelligent is the agent that&rsquo;s</p>
+<p>capable of producing these abstractions.</p>
+<p>Yeah, it feels like there&rsquo;s a little bit of a gray area.</p>
+<p>Because you&rsquo;re basically saying that deep learning forms</p>
+<p>abstractions, too.</p>
+<p>But those abstractions do not seem</p>
+<p>to be effective for generalizing far outside of the things</p>
+<p>that it&rsquo;s already seen.</p>
+<p>But generalize a little bit.</p>
+<p>Yeah, absolutely.</p>
+<p>No, deep learning does generalize a little bit.</p>
+<p>Generalization is not binary.</p>
+<p>It&rsquo;s more like a spectrum.</p>
+<p>Yeah.</p>
+<p>And there&rsquo;s a certain point, it&rsquo;s a gray area,</p>
+<p>but there&rsquo;s a certain point where</p>
+<p>there&rsquo;s an impressive degree of generalization that happens.</p>
+<p>No, I guess exactly what you were saying</p>
+<p>is intelligence is how efficiently you&rsquo;re</p>
+<p>able to generalize far outside of the distribution of things</p>
+<p>you&rsquo;ve seen already.</p>
+<p>Yes.</p>
+<p>So it&rsquo;s both the distance of how far you can,</p>
+<p>how new, how radically new something is,</p>
+<p>and how efficiently you&rsquo;re able to deal with that.</p>
+<p>So you can think of intelligence as a measure of an information</p>
+<p>conversion ratio.</p>
+<p>Imagine a space of possible situations.</p>
+<p>And you&rsquo;ve covered some of them.</p>
+<p>So you have some amount of information</p>
+<p>about your space of possible situations</p>
+<p>that&rsquo;s provided by the situations you already know.</p>
+<p>And that&rsquo;s, on the other hand, also provided</p>
+<p>by the prior knowledge that the system brings</p>
+<p>to the table, the prior knowledge embedded</p>
+<p>in the system.</p>
+<p>So the system starts with some information</p>
+<p>about the problem, about the task.</p>
+<p>And it&rsquo;s about going from that information</p>
+<p>to a program, what we would call a skill program,</p>
+<p>a behavioral program, that can cover a large area</p>
+<p>of possible situation space.</p>
+<p>And essentially, the ratio between that area</p>
+<p>and the amount of information you start with is intelligence.</p>
+<p>So a very smart agent can make efficient use</p>
+<p>of very little information about a new problem</p>
+<p>and very little prior knowledge as well</p>
+<p>to cover a very large area of potential situations</p>
+<p>in that problem without knowing what these future new situations</p>
+<p>are going to be.</p>
+<p>So one of the other big things you talk about in the paper,</p>
+<p>we&rsquo;ve talked about a little bit already,</p>
+<p>but let&rsquo;s talk about it some more,</p>
+<p>is the actual tests of intelligence.</p>
+<p>So if we look at human and machine intelligence,</p>
+<p>do you think tests of intelligence</p>
+<p>should be different for humans and machines,</p>
+<p>or how we think about testing of intelligence?</p>
+<p>Are these fundamentally the same kind of intelligences</p>
+<p>that we&rsquo;re after, and therefore, the tests should be similar?</p>
+<p>So if your goal is to create AIs that are more humanlike,</p>
+<p>then it would be super valuable, obviously,</p>
+<p>to have a test that&rsquo;s universal, that applies to both AIs</p>
+<p>and humans, so that you could establish</p>
+<p>a comparison between the two, that you</p>
+<p>could tell exactly how intelligent,</p>
+<p>in terms of human intelligence, a given system is.</p>
+<p>So that said, the constraints that</p>
+<p>apply to artificial intelligence and to human intelligence</p>
+<p>are very different.</p>
+<p>And your test should account for this difference.</p>
+<p>Because if you look at artificial systems,</p>
+<p>it&rsquo;s always possible for an experimenter</p>
+<p>to buy arbitrary levels of skill at arbitrary tasks,</p>
+<p>either by injecting hardcoded prior knowledge</p>
+<p>into the system via rules and so on that</p>
+<p>come from the human mind, from the minds of the programmers,</p>
+<p>and also buying higher levels of skill</p>
+<p>just by training on more data.</p>
+<p>For instance, you could generate an infinity</p>
+<p>of different Go games, and you could train a Go playing</p>
+<p>system that way, but you could not directly compare it</p>
+<p>to human Go playing skills.</p>
+<p>Because a human that plays Go had</p>
+<p>to develop that skill in a very constrained environment.</p>
+<p>They had a limited amount of time.</p>
+<p>They had a limited amount of energy.</p>
+<p>And of course, this started from a different set of priors.</p>
+<p>This started from innate human priors.</p>
+<p>So I think if you want to compare</p>
+<p>the intelligence of two systems, like the intelligence of an AI</p>
+<p>and the intelligence of a human, you have to control for priors.</p>
+<p>You have to start from the same set of knowledge priors</p>
+<p>about the task, and you have to control</p>
+<p>for experience, that is to say, for training data.</p>
+<p>So what&rsquo;s priors?</p>
+<p>So prior is whatever information you</p>
+<p>have about a given task before you</p>
+<p>start learning about this task.</p>
+<p>And how&rsquo;s that different from experience?</p>
+<p>Well, experience is acquired.</p>
+<p>So for instance, if you&rsquo;re trying to play Go,</p>
+<p>your experience with Go is all the Go games</p>
+<p>you&rsquo;ve played, or you&rsquo;ve seen, or you&rsquo;ve simulated</p>
+<p>in your mind, let&rsquo;s say.</p>
+<p>And your priors are things like, well,</p>
+<p>Go is a game on the 2D grid.</p>
+<p>And we have lots of hardcoded priors</p>
+<p>about the organization of 2D space.</p>
+<p>And the rules of how the dynamics of the physics</p>
+<p>of this game in this 2D space?</p>
+<p>Yes.</p>
+<p>And the idea that you have what winning is.</p>
+<p>Yes, exactly.</p>
+<p>And other board games can also share some similarities with Go.</p>
+<p>And if you&rsquo;ve played these board games, then,</p>
+<p>with respect to the game of Go, that</p>
+<p>would be part of your priors about the game.</p>
+<p>Well, it&rsquo;s interesting to think about the game of Go</p>
+<p>is how many priors are actually brought to the table.</p>
+<p>When you look at self play, reinforcement learning based</p>
+<p>mechanisms that do learning, it seems</p>
+<p>like the number of priors is pretty low.</p>
+<p>Yes.</p>
+<p>But you&rsquo;re saying you should be expec&hellip;</p>
+<p>There is a 2D special priors in the carbonate.</p>
+<p>Right.</p>
+<p>But you should be clear at making</p>
+<p>those priors explicit.</p>
+<p>Yes.</p>
+<p>So in particular, I think if your goal</p>
+<p>is to measure a humanlike form of intelligence,</p>
+<p>then you should clearly establish</p>
+<p>that you want the AI you&rsquo;re testing</p>
+<p>to start from the same set of priors that humans start with.</p>
+<p>Right.</p>
+<p>So I mean, to me personally, but I think to a lot of people,</p>
+<p>the human side of things is very interesting.</p>
+<p>So testing intelligence for humans.</p>
+<p>What do you think is a good test of human intelligence?</p>
+<p>Well, that&rsquo;s the question that psychometrics is interested in.</p>
+<p>There&rsquo;s an entire subfield of psychology</p>
+<p>that deals with this question.</p>
+<p>So what&rsquo;s psychometrics?</p>
+<p>The psychometrics is the subfield of psychology</p>
+<p>that tries to measure, quantify aspects of the human mind.</p>
+<p>So in particular, our cognitive abilities, intelligence,</p>
+<p>and personality traits as well.</p>
+<p>So what are, it might be a weird question,</p>
+<p>but what are the first principles of psychometrics</p>
+<p>this operates on?</p>
+<p>What are the priors it brings to the table?</p>
+<p>So it&rsquo;s a field with a fairly long history.</p>
+<p>So psychology sometimes gets a bad reputation</p>
+<p>for not having very reproducible results.</p>
+<p>And psychometrics has actually some fairly solidly</p>
+<p>reproducible results.</p>
+<p>So the ideal goals of the field is a test</p>
+<p>should be reliable, which is a notion tied to reproducibility.</p>
+<p>It should be valid, meaning that it should actually</p>
+<p>measure what you say it measures.</p>
+<p>So for instance, if you&rsquo;re saying</p>
+<p>that you&rsquo;re measuring intelligence,</p>
+<p>then your test results should be correlated</p>
+<p>with things that you expect to be correlated</p>
+<p>with intelligence like success in school</p>
+<p>or success in the workplace and so on.</p>
+<p>Should be standardized, meaning that you</p>
+<p>can administer your tests to many different people</p>
+<p>in some conditions.</p>
+<p>And it should be free from bias.</p>
+<p>Meaning that, for instance, if your test involves</p>
+<p>the English language, then you have</p>
+<p>to be aware that this creates a bias against people</p>
+<p>who have English as their second language</p>
+<p>or people who can&rsquo;t speak English at all.</p>
+<p>So of course, these principles for creating</p>
+<p>psychometric tests are very much an ideal.</p>
+<p>I don&rsquo;t think every psychometric test is really either</p>
+<p>reliable, valid, or free from bias.</p>
+<p>But at least the field is aware of these weaknesses</p>
+<p>and is trying to address them.</p>
+<p>So it&rsquo;s kind of interesting.</p>
+<p>Ultimately, you&rsquo;re only able to measure,</p>
+<p>like you said previously, the skill.</p>
+<p>But you&rsquo;re trying to do a bunch of measures</p>
+<p>of different skills that correlate,</p>
+<p>as you mentioned, strongly with some general concept</p>
+<p>of cognitive ability.</p>
+<p>Yes, yes.</p>
+<p>So what&rsquo;s the G factor?</p>
+<p>So right, there are many different kinds</p>
+<p>of tests of intelligence.</p>
+<p>And each of them is interesting in different aspects</p>
+<p>of intelligence.</p>
+<p>Some of them will deal with language.</p>
+<p>Some of them will deal with spatial vision,</p>
+<p>maybe mental rotations, numbers, and so on.</p>
+<p>When you run these very different tests at scale,</p>
+<p>what you start seeing is that there</p>
+<p>are clusters of correlations among test results.</p>
+<p>So for instance, if you look at homework at school,</p>
+<p>you will see that people who do well at math</p>
+<p>are also likely statistically to do well in physics.</p>
+<p>And what&rsquo;s more, people who do well at math and physics</p>
+<p>are also statistically likely to do well</p>
+<p>in things that sound completely unrelated,</p>
+<p>like writing an English essay, for instance.</p>
+<p>And so when you see clusters of correlations</p>
+<p>in statistical terms, you would explain them</p>
+<p>with the latent variable.</p>
+<p>And the latent variable that would, for instance, explain</p>
+<p>the relationship between being good at math</p>
+<p>and being good at physics would be cognitive ability.</p>
+<p>And the G factor is the latent variable</p>
+<p>that explains the fact that every test of intelligence</p>
+<p>that you can come up with results on this test</p>
+<p>end up being correlated.</p>
+<p>So there is some single unique variable</p>
+<p>that explains these correlations.</p>
+<p>That&rsquo;s the G factor.</p>
+<p>So it&rsquo;s a statistical construct.</p>
+<p>It&rsquo;s not really something you can directly measure,</p>
+<p>for instance, in a person.</p>
+<p>But it&rsquo;s there.</p>
+<p>It&rsquo;s there.</p>
+<p>It&rsquo;s there at scale.</p>
+<p>And that&rsquo;s also one thing I want to mention about psychometrics.</p>
+<p>Like when you talk about measuring intelligence</p>
+<p>in humans, for instance, some people</p>
+<p>get a little bit worried.</p>
+<p>They will say, that sounds dangerous.</p>
+<p>Maybe that sounds potentially discriminatory, and so on.</p>
+<p>And they&rsquo;re not wrong.</p>
+<p>And the thing is, personally, I&rsquo;m</p>
+<p>not interested in psychometrics as a way</p>
+<p>to characterize one individual person.</p>
+<p>Like if I get your psychometric personality</p>
+<p>assessments or your IQ, I don&rsquo;t think that actually</p>
+<p>tells me much about you as a person.</p>
+<p>I think psychometrics is most useful as a statistical tool.</p>
+<p>So it&rsquo;s most useful at scale.</p>
+<p>It&rsquo;s most useful when you start getting test results</p>
+<p>for a large number of people.</p>
+<p>And you start cross correlating these test results.</p>
+<p>Because that gives you information</p>
+<p>about the structure of the human mind,</p>
+<p>in particular about the structure</p>
+<p>of human cognitive abilities.</p>
+<p>So at scale, psychometrics paints a certain picture</p>
+<p>of the human mind.</p>
+<p>And that&rsquo;s interesting.</p>
+<p>And that&rsquo;s what&rsquo;s relevant to AI, the structure</p>
+<p>of human cognitive abilities.</p>
+<p>Yeah, it gives you an insight into it.</p>
+<p>I mean, to me, I remember when I learned about G factor,</p>
+<p>it seemed like it would be impossible for it</p>
+<p>to be real, even as a statistical variable.</p>
+<p>Like it felt kind of like astrology.</p>
+<p>Like it&rsquo;s like wishful thinking among psychologists.</p>
+<p>But the more I learned, I realized that there&rsquo;s some.</p>
+<p>I mean, I&rsquo;m not sure what to make about human beings,</p>
+<p>the fact that the G factor is a thing.</p>
+<p>There&rsquo;s a commonality across all of human species,</p>
+<p>that there does seem to be a strong correlation</p>
+<p>between cognitive abilities.</p>
+<p>That&rsquo;s kind of fascinating, actually.</p>
+<p>So human cognitive abilities have a structure.</p>
+<p>Like the most mainstream theory of the structure</p>
+<p>of cognitive abilities is called CHC theory.</p>
+<p>It&rsquo;s Cattell, Horn, Carroll.</p>
+<p>It&rsquo;s named after the three psychologists who</p>
+<p>contributed key pieces of it.</p>
+<p>And it describes cognitive abilities</p>
+<p>as a hierarchy with three levels.</p>
+<p>And at the top, you have the G factor.</p>
+<p>Then you have broad cognitive abilities,</p>
+<p>for instance fluid intelligence, that</p>
+<p>encompass a broad set of possible kinds of tasks</p>
+<p>that are all related.</p>
+<p>And then you have narrow cognitive abilities</p>
+<p>at the last level, which is closer to task specific skill.</p>
+<p>And there are actually different theories of the structure</p>
+<p>of cognitive abilities that just emerge</p>
+<p>from different statistical analysis of IQ test results.</p>
+<p>But they all describe a hierarchy with a kind of G</p>
+<p>factor at the top.</p>
+<p>And you&rsquo;re right that the G factor,</p>
+<p>it&rsquo;s not quite real in the sense that it&rsquo;s not something</p>
+<p>you can observe and measure, like your height,</p>
+<p>for instance.</p>
+<p>But it&rsquo;s real in the sense that you</p>
+<p>see it in a statistical analysis of the data.</p>
+<p>One thing I want to mention is that the fact</p>
+<p>that there is a G factor does not really</p>
+<p>mean that human intelligence is general in a strong sense.</p>
+<p>It does not mean human intelligence</p>
+<p>can be applied to any problem at all,</p>
+<p>and that someone who has a high IQ</p>
+<p>is going to be able to solve any problem at all.</p>
+<p>That&rsquo;s not quite what it means.</p>
+<p>I think one popular analogy to understand it</p>
+<p>is the sports analogy.</p>
+<p>If you consider the concept of physical fitness,</p>
+<p>it&rsquo;s a concept that&rsquo;s very similar to intelligence</p>
+<p>because it&rsquo;s a useful concept.</p>
+<p>It&rsquo;s something you can intuitively understand.</p>
+<p>Some people are fit, maybe like you.</p>
+<p>Some people are not as fit, maybe like me.</p>
+<p>But none of us can fly.</p>
+<p>Absolutely.</p>
+<p>It&rsquo;s constrained to a specific set of skills.</p>
+<p>Even if you&rsquo;re very fit, that doesn&rsquo;t</p>
+<p>mean you can do anything at all in any environment.</p>
+<p>You obviously cannot fly.</p>
+<p>You cannot survive at the bottom of the ocean and so on.</p>
+<p>And if you were a scientist and you</p>
+<p>wanted to precisely define and measure physical fitness</p>
+<p>in humans, then you would come up with a battery of tests.</p>
+<p>You would have running 100 meter, playing soccer,</p>
+<p>playing table tennis, swimming, and so on.</p>
+<p>And if you ran these tests over many different people,</p>
+<p>you would start seeing correlations in test results.</p>
+<p>For instance, people who are good at soccer</p>
+<p>are also good at sprinting.</p>
+<p>And you would explain these correlations</p>
+<p>with physical abilities that are strictly</p>
+<p>analogous to cognitive abilities.</p>
+<p>And then you would start also observing correlations</p>
+<p>between biological characteristics,</p>
+<p>like maybe lung volume is correlated with being</p>
+<p>a fast runner, for instance, in the same way</p>
+<p>that there are neurophysical correlates of cognitive</p>
+<p>abilities.</p>
+<p>And at the top of the hierarchy of physical abilities</p>
+<p>that you would be able to observe,</p>
+<p>you would have a G factor, a physical G factor, which</p>
+<p>would map to physical fitness.</p>
+<p>And as you just said, that doesn&rsquo;t</p>
+<p>mean that people with high physical fitness can&rsquo;t fly.</p>
+<p>It doesn&rsquo;t mean human morphology and human physiology</p>
+<p>is universal.</p>
+<p>It&rsquo;s actually super specialized.</p>
+<p>We can only do the things that we were evolved to do.</p>
+<p>We are not appropriate to, you could not</p>
+<p>exist on Venus or Mars or in the void of space</p>
+<p>or the bottom of the ocean.</p>
+<p>So that said, one thing that&rsquo;s really striking and remarkable</p>
+<p>is that our morphology generalizes</p>
+<p>far beyond the environments that we evolved for.</p>
+<p>Like in a way, you could say we evolved to run after prey</p>
+<p>in the savanna, right?</p>
+<p>That&rsquo;s very much where our human morphology comes from.</p>
+<p>And that said, we can do a lot of things</p>
+<p>that are completely unrelated to that.</p>
+<p>We can climb mountains.</p>
+<p>We can swim across lakes.</p>
+<p>We can play table tennis.</p>
+<p>I mean, table tennis is very different from what</p>
+<p>we were evolved to do, right?</p>
+<p>So our morphology, our bodies, our sense and motor</p>
+<p>affordances have a degree of generality</p>
+<p>that is absolutely remarkable, right?</p>
+<p>And I think cognition is very similar to that.</p>
+<p>Our cognitive abilities have a degree of generality</p>
+<p>that goes far beyond what the mind was initially</p>
+<p>supposed to do, which is why we can play music and write</p>
+<p>novels and go to Mars and do all kinds of crazy things.</p>
+<p>But it&rsquo;s not universal in the same way</p>
+<p>that human morphology and our body</p>
+<p>is not appropriate for actually most of the universe by volume.</p>
+<p>In the same way, you could say that the human mind is not</p>
+<p>really appropriate for most of problem space,</p>
+<p>potential problem space by volume.</p>
+<p>So we have very strong cognitive biases, actually,</p>
+<p>that mean that there are certain types of problems</p>
+<p>that we handle very well and certain types of problems</p>
+<p>that we are completely in adapted for.</p>
+<p>So that&rsquo;s really how we&rsquo;d interpret the G factor.</p>
+<p>It&rsquo;s not a sign of strong generality.</p>
+<p>It&rsquo;s really just the broadest cognitive ability.</p>
+<p>But our abilities, whether we are</p>
+<p>talking about sensory motor abilities or cognitive</p>
+<p>abilities, they still remain very specialized</p>
+<p>in the human condition, right?</p>
+<p>Within the constraints of the human cognition,</p>
+<p>they&rsquo;re general.</p>
+<p>Yes, absolutely.</p>
+<p>But the constraints, as you&rsquo;re saying, are very limited.</p>
+<p>I think what&rsquo;s limiting.</p>
+<p>So we evolved our cognition and our body</p>
+<p>evolved in very specific environments.</p>
+<p>Because our environment was so variable, fast changing,</p>
+<p>and so unpredictable, part of the constraints</p>
+<p>that drove our evolution is generality itself.</p>
+<p>So we were, in a way, evolved to be able to improvise</p>
+<p>in all kinds of physical or cognitive environments.</p>
+<p>And for this reason, it turns out</p>
+<p>that the minds and bodies that we ended up with</p>
+<p>can be applied to much, much broader scope</p>
+<p>than what they were evolved for.</p>
+<p>And that&rsquo;s truly remarkable.</p>
+<p>And that&rsquo;s a degree of generalization</p>
+<p>that is far beyond anything you can see in artificial systems</p>
+<p>today.</p>
+<p>That said, it does not mean that human intelligence</p>
+<p>is anywhere universal.</p>
+<p>Yeah, it&rsquo;s not general.</p>
+<p>It&rsquo;s a kind of exciting topic for people,</p>
+<p>even outside of artificial intelligence, is IQ tests.</p>
+<p>I think it&rsquo;s Mensa, whatever.</p>
+<p>There&rsquo;s different degrees of difficulty for questions.</p>
+<p>We talked about this offline a little bit, too,</p>
+<p>about difficult questions.</p>
+<p>What makes a question on an IQ test more difficult or less</p>
+<p>difficult, do you think?</p>
+<p>So the thing to keep in mind is that there&rsquo;s</p>
+<p>no such thing as a question that&rsquo;s intrinsically difficult.</p>
+<p>It has to be difficult to suspect to the things you</p>
+<p>already know and the things you can already do, right?</p>
+<p>So in terms of an IQ test question,</p>
+<p>typically it would be structured, for instance,</p>
+<p>as a set of demonstration input and output pairs, right?</p>
+<p>And then you would be given a test input, a prompt,</p>
+<p>and you would need to recognize or produce</p>
+<p>the corresponding output.</p>
+<p>And in that narrow context, you could say a difficult question</p>
+<p>is a question where the input prompt is</p>
+<p>very surprising and unexpected, given the training examples.</p>
+<p>Just even the nature of the patterns</p>
+<p>that you&rsquo;re observing in the input prompt.</p>
+<p>For instance, let&rsquo;s say you have a rotation problem.</p>
+<p>You must relate the shape by 90 degrees.</p>
+<p>If I give you two examples and then I give you one prompt,</p>
+<p>which is actually one of the two training examples,</p>
+<p>then there is zero generalization difficulty</p>
+<p>for the task.</p>
+<p>It&rsquo;s actually a trivial task.</p>
+<p>You just recognize that it&rsquo;s one of the training examples,</p>
+<p>and you produce the same answer.</p>
+<p>Now, if it&rsquo;s a more complex shape,</p>
+<p>there is a little bit more generalization,</p>
+<p>but it remains that you are still</p>
+<p>doing the same thing at this time,</p>
+<p>as you were being demonstrated at training time.</p>
+<p>A difficult task starts to require some amount of test</p>
+<p>time adaptation, some amount of improvisation, right?</p>
+<p>So consider, I don&rsquo;t know, you&rsquo;re</p>
+<p>teaching a class on quantum physics or something.</p>
+<p>If you wanted to test the understanding that students</p>
+<p>have of the material, you would come up</p>
+<p>with an exam that&rsquo;s very different from anything</p>
+<p>they&rsquo;ve seen on the internet when they were cramming.</p>
+<p>On the other hand, if you wanted to make it easy,</p>
+<p>you would just give them something</p>
+<p>that&rsquo;s very similar to the mock exams</p>
+<p>that they&rsquo;ve taken, something that&rsquo;s</p>
+<p>just a simple interpolation of questions</p>
+<p>that they&rsquo;ve already seen.</p>
+<p>And so that would be an easy exam.</p>
+<p>It&rsquo;s very similar to what you&rsquo;ve been trained on.</p>
+<p>And a difficult exam is one that really probes your understanding</p>
+<p>because it forces you to improvise.</p>
+<p>It forces you to do things that are</p>
+<p>different from what you were exposed to before.</p>
+<p>So that said, it doesn&rsquo;t mean that the exam that</p>
+<p>requires improvisation is intrinsically hard, right?</p>
+<p>Because maybe you&rsquo;re a quantum physics expert.</p>
+<p>So when you take the exam, this is actually</p>
+<p>stuff that, despite being new to the students,</p>
+<p>it&rsquo;s not new to you, right?</p>
+<p>So it can only be difficult with respect</p>
+<p>to what the test taker already knows</p>
+<p>and with respect to the information</p>
+<p>that the test taker has about the task.</p>
+<p>So that&rsquo;s what I mean by controlling for priors</p>
+<p>what the information you bring to the table.</p>
+<p>And the experience.</p>
+<p>And the experience, which is to train data.</p>
+<p>So in the case of the quantum physics exam,</p>
+<p>that would be all the course material itself</p>
+<p>and all the mock exams that students</p>
+<p>might have taken online.</p>
+<p>Yeah, it&rsquo;s interesting because I&rsquo;ve also sent you an email.</p>
+<p>I asked you, I&rsquo;ve been in just this curious question</p>
+<p>of what&rsquo;s a really hard IQ test question.</p>
+<p>And I&rsquo;ve been talking to also people</p>
+<p>who have designed IQ tests.</p>
+<p>There&rsquo;s a few folks on the internet, it&rsquo;s like a thing.</p>
+<p>People are really curious about it.</p>
+<p>First of all, most of the IQ tests they designed,</p>
+<p>they like religiously protect against the correct answers.</p>
+<p>Like you can&rsquo;t find the correct answers anywhere.</p>
+<p>In fact, the question is ruined once you know,</p>
+<p>even like the approach you&rsquo;re supposed to take.</p>
+<p>So they&rsquo;re very&hellip;</p>
+<p>That said, the approach is implicit in the training examples.</p>
+<p>So if you release the training examples, it&rsquo;s over.</p>
+<p>Which is why in Arc, for instance,</p>
+<p>there is a test set that is private and no one has seen it.</p>
+<p>No, for really tough IQ questions, it&rsquo;s not obvious.</p>
+<p>It&rsquo;s not because the ambiguity.</p>
+<p>Like it&rsquo;s, I mean, we&rsquo;ll have to look through them,</p>
+<p>but like some number sequences and so on,</p>
+<p>it&rsquo;s not completely clear.</p>
+<p>So like you can get a sense, but there&rsquo;s like some,</p>
+<p>you know, when you look at a number sequence, I don&rsquo;t know,</p>
+<p>like your Fibonacci number sequence,</p>
+<p>if you look at the first few numbers,</p>
+<p>that sequence could be completed in a lot of different ways.</p>
+<p>And you know, some are, if you think deeply,</p>
+<p>are more correct than others.</p>
+<p>Like there&rsquo;s a kind of intuitive simplicity</p>
+<p>and elegance to the correct solution.</p>
+<p>Yes.</p>
+<p>I am personally not a fan of ambiguity</p>
+<p>in test questions actually,</p>
+<p>but I think you can have difficulty</p>
+<p>without requiring ambiguity simply by making the test</p>
+<p>require a lot of extrapolation over the training examples.</p>
+<p>But the beautiful question is difficult,</p>
+<p>but gives away everything</p>
+<p>when you give the training example.</p>
+<p>Basically, yes.</p>
+<p>Meaning that, so the tests I&rsquo;m interested in creating</p>
+<p>are not necessarily difficult for humans</p>
+<p>because human intelligence is the benchmark.</p>
+<p>They&rsquo;re supposed to be difficult for machines</p>
+<p>in ways that are easy for humans.</p>
+<p>Like I think an ideal test of human and machine intelligence</p>
+<p>is a test that is actionable,</p>
+<p>that highlights the need for progress,</p>
+<p>and that highlights the direction</p>
+<p>in which you should be making progress.</p>
+<p>I think we&rsquo;ll talk about the ARC challenge</p>
+<p>and the test you&rsquo;ve constructed</p>
+<p>and you have these elegant examples.</p>
+<p>I think that highlight,</p>
+<p>like this is really easy for us humans,</p>
+<p>but it&rsquo;s really hard for machines.</p>
+<p>But on the, you know, the designing an IQ test</p>
+<p>for IQs of like higher than 160 and so on,</p>
+<p>you have to say, you have to take that</p>
+<p>and put it on steroids, right?</p>
+<p>You have to think like, what is hard for humans?</p>
+<p>And that&rsquo;s a fascinating exercise in itself, I think.</p>
+<p>And it was an interesting question</p>
+<p>of what it takes to create a really hard question for humans</p>
+<p>because you again have to do the same process</p>
+<p>as you mentioned, which is, you know,</p>
+<p>something basically where the experience</p>
+<p>that you have likely to have encountered</p>
+<p>throughout your whole life,</p>
+<p>even if you&rsquo;ve prepared for IQ tests,</p>
+<p>which is a big challenge,</p>
+<p>that this will still be novel for you.</p>
+<p>Yeah, I mean, novelty is a requirement.</p>
+<p>You should not be able to practice for the questions</p>
+<p>that you&rsquo;re gonna be tested on.</p>
+<p>That&rsquo;s important because otherwise what you&rsquo;re doing</p>
+<p>is not exhibiting intelligence.</p>
+<p>What you&rsquo;re doing is just retrieving</p>
+<p>what you&rsquo;ve been exposed before.</p>
+<p>It&rsquo;s the same thing as deep learning model.</p>
+<p>If you train a deep learning model</p>
+<p>on all the possible answers, then it will ace your test</p>
+<p>in the same way that, you know,</p>
+<p>a stupid student can still ace the test</p>
+<p>if they cram for it.</p>
+<p>They memorize, you know,</p>
+<p>a hundred different possible mock exams.</p>
+<p>And then they hope that the actual exam</p>
+<p>will be a very simple interpolation of the mock exams.</p>
+<p>And that student could just be a deep learning model</p>
+<p>at that point.</p>
+<p>But you can actually do that</p>
+<p>without any understanding of the material.</p>
+<p>And in fact, many students pass their exams</p>
+<p>in exactly this way.</p>
+<p>And if you want to avoid that,</p>
+<p>you need an exam that&rsquo;s unlike anything they&rsquo;ve seen</p>
+<p>that really probes their understanding.</p>
+<p>So how do we design an IQ test for machines,</p>
+<p>an intelligent test for machines?</p>
+<p>All right, so in the paper I outline</p>
+<p>a number of requirements that you expect of such a test.</p>
+<p>And in particular, we should start by acknowledging</p>
+<p>the priors that we expect to be required</p>
+<p>in order to perform the test.</p>
+<p>So we should be explicit about the priors, right?</p>
+<p>And if the goal is to compare machine intelligence</p>
+<p>and human intelligence,</p>
+<p>then we should assume human cognitive priors, right?</p>
+<p>And secondly, we should make sure that we are testing</p>
+<p>for skill acquisition ability,</p>
+<p>skill acquisition efficiency in particular,</p>
+<p>and not for skill itself.</p>
+<p>Meaning that every task featured in your test</p>
+<p>should be novel and should not be something</p>
+<p>that you can anticipate.</p>
+<p>So for instance, it should not be possible</p>
+<p>to brute force the space of possible questions, right?</p>
+<p>To pre generate every possible question and answer.</p>
+<p>So it should be tasks that cannot be anticipated,</p>
+<p>not just by the system itself,</p>
+<p>but by the creators of the system, right?</p>
+<p>Yeah, you know what&rsquo;s fascinating?</p>
+<p>I mean, one of my favorite aspects of the paper</p>
+<p>and the work you do with the ARC challenge</p>
+<p>is the process of making priors explicit.</p>
+<p>Just even that act alone is a really powerful one</p>
+<p>of like, what are, it&rsquo;s a really powerful question</p>
+<p>asked of us humans.</p>
+<p>What are the priors that we bring to the table?</p>
+<p>So the next step is like, once you have those priors,</p>
+<p>how do you use them to solve a novel task?</p>
+<p>But like, just even making the priors explicit</p>
+<p>is a really difficult and really powerful step.</p>
+<p>And that&rsquo;s like visually beautiful</p>
+<p>and conceptually philosophically beautiful part</p>
+<p>of the work you did with, and I guess continue to do</p>
+<p>probably with the paper and the ARC challenge.</p>
+<p>Can you talk about some of the priors</p>
+<p>that we&rsquo;re talking about here?</p>
+<p>Yes, so a researcher has done a lot of work</p>
+<p>on what exactly are the knowledge priors</p>
+<p>that are innate to humans is Elizabeth Spelke from Harvard.</p>
+<p>So she developed the core knowledge theory,</p>
+<p>which outlines four different core knowledge systems.</p>
+<p>So systems of knowledge that we are basically</p>
+<p>either born with or that we are hardwired</p>
+<p>to acquire very early on in our development.</p>
+<p>And there&rsquo;s no strong distinction between the two.</p>
+<p>Like if you are primed to acquire</p>
+<p>a certain type of knowledge in just a few weeks,</p>
+<p>you might as well just be born with it.</p>
+<p>It&rsquo;s just part of who you are.</p>
+<p>And so there are four different core knowledge systems.</p>
+<p>Like the first one is the notion of objectness</p>
+<p>and basic physics.</p>
+<p>Like you recognize that something that moves</p>
+<p>coherently, for instance, is an object.</p>
+<p>So we intuitively, naturally, innately divide the world</p>
+<p>into objects based on this notion of coherence,</p>
+<p>physical coherence.</p>
+<p>And in terms of elementary physics,</p>
+<p>there&rsquo;s the fact that objects can bump against each other</p>
+<p>and the fact that they can occlude each other.</p>
+<p>So these are things that we are essentially born with</p>
+<p>or at least that we are going to be acquiring extremely early</p>
+<p>because we&rsquo;re really hardwired to acquire them.</p>
+<p>So a bunch of points, pixels that move together</p>
+<p>on objects are partly the same object.</p>
+<p>Yes.</p>
+<p>I don&rsquo;t smoke weed, but if I did,</p>
+<p>that&rsquo;s something I could sit all night</p>
+<p>and just think about, remember what I wrote in your paper,</p>
+<p>just objectness, I wasn&rsquo;t self aware, I guess,</p>
+<p>of that particular prior.</p>
+<p>That&rsquo;s such a fascinating prior that like&hellip;</p>
+<p>That&rsquo;s the most basic one, but actually&hellip;</p>
+<p>Objectness, just identity, just objectness.</p>
+<p>It&rsquo;s very basic, I suppose, but it&rsquo;s so fundamental.</p>
+<p>It is fundamental to human cognition.</p>
+<p>Yeah.</p>
+<p>The second prior that&rsquo;s also fundamental is agentness,</p>
+<p>which is not a real world, a real world, so agentness.</p>
+<p>The fact that some of these objects</p>
+<p>that you segment your environment into,</p>
+<p>some of these objects are agents.</p>
+<p>So what&rsquo;s an agent?</p>
+<p>It&rsquo;s basically, it&rsquo;s an object that has goals.</p>
+<p>That has what?</p>
+<p>That has goals, that is capable of pursuing goals.</p>
+<p>So for instance, if you see two dots</p>
+<p>moving in roughly synchronized fashion,</p>
+<p>you will intuitively infer that one of the dots</p>
+<p>is pursuing the other.</p>
+<p>So that one of the dots is&hellip;</p>
+<p>And one of the dots is an agent</p>
+<p>and its goal is to avoid the other dot.</p>
+<p>And one of the dots, the other dot is also an agent</p>
+<p>and its goal is to catch the first dot.</p>
+<p>Belke has shown that babies as young as three months</p>
+<p>identify agentness and goal directedness</p>
+<p>in their environment.</p>
+<p>Another prior is basic geometry and topology,</p>
+<p>like the notion of distance,</p>
+<p>the ability to navigate in your environment and so on.</p>
+<p>This is something that is fundamentally hardwired</p>
+<p>into our brain.</p>
+<p>It&rsquo;s in fact backed by very specific neural mechanisms,</p>
+<p>like for instance, grid cells and place cells.</p>
+<p>So it&rsquo;s something that&rsquo;s literally hard coded</p>
+<p>at the neural level in our hippocampus.</p>
+<p>And the last prior would be the notion of numbers.</p>
+<p>Like numbers are not actually a cultural construct.</p>
+<p>We are intuitively, innately able to do some basic counting</p>
+<p>and to compare quantities.</p>
+<p>So it doesn&rsquo;t mean we can do arbitrary arithmetic.</p>
+<p>Counting, the actual counting.</p>
+<p>Counting, like counting one, two, three ish,</p>
+<p>then maybe more than three.</p>
+<p>You can also compare quantities.</p>
+<p>If I give you three dots and five dots,</p>
+<p>you can tell the side with five dots has more dots.</p>
+<p>So this is actually an innate prior.</p>
+<p>So that said, the list may not be exhaustive.</p>
+<p>So SpellKey is still, you know,</p>
+<p>passing the potential existence of new knowledge systems.</p>
+<p>For instance, knowledge systems that we deal</p>
+<p>with social relationships.</p>
+<p>Yeah, I mean, and there could be&hellip;</p>
+<p>Which is much less relevant to something like ARC</p>
+<p>or IQ test and so on.</p>
+<p>Right.</p>
+<p>There could be stuff that&rsquo;s like you said,</p>
+<p>rotation, symmetry, is there like&hellip;</p>
+<p>Symmetry is really interesting.</p>
+<p>It&rsquo;s very likely that there is, speaking about rotation,</p>
+<p>that there is in the brain, a hard coded system</p>
+<p>that is capable of performing rotations.</p>
+<p>One famous experiment that people did in the&hellip;</p>
+<p>I don&rsquo;t remember which was exactly,</p>
+<p>but in the 70s was that people found that</p>
+<p>if you asked people, if you give them two different shapes</p>
+<p>and one of the shapes is a rotated version</p>
+<p>of the first shape, and you ask them,</p>
+<p>is that shape a rotated version of the first shape or not?</p>
+<p>What you see is that the time it takes people to answer</p>
+<p>is linearly proportional, right, to the angle of rotation.</p>
+<p>So it&rsquo;s almost like you have somewhere in your brain</p>
+<p>like a turntable with a fixed speed.</p>
+<p>And if you want to know if two objects are a rotated version</p>
+<p>of each other, you put the object on the turntable,</p>
+<p>you let it move around a little bit,</p>
+<p>and then you stop when you have a match.</p>
+<p>And that&rsquo;s really interesting.</p>
+<p>So what&rsquo;s the ARC challenge?</p>
+<p>So in the paper, I outline all these principles</p>
+<p>that a good test of machine intelligence</p>
+<p>and human intelligence should follow.</p>
+<p>And the ARC challenge is one attempt</p>
+<p>to embody as many of these principles as possible.</p>
+<p>So I don&rsquo;t think it&rsquo;s anywhere near a perfect attempt, right?</p>
+<p>It does not actually follow every principle,</p>
+<p>but it is what I was able to do given the constraints.</p>
+<p>So the format of ARC is very similar to classic IQ tests,</p>
+<p>in particular Raven&rsquo;s Progressive Metrices.</p>
+<p>Raven&rsquo;s?</p>
+<p>Yeah, Raven&rsquo;s Progressive Metrices.</p>
+<p>I mean, if you&rsquo;ve done IQ tests in the past,</p>
+<p>you know what that is, probably.</p>
+<p>Or at least you&rsquo;ve seen it, even if you</p>
+<p>don&rsquo;t know what it&rsquo;s called.</p>
+<p>And so you have a set of tasks, that&rsquo;s what they&rsquo;re called.</p>
+<p>And for each task, you have training data,</p>
+<p>which is a set of input and output pairs.</p>
+<p>So an input or output pair is a grid of colors, basically.</p>
+<p>The grid, the size of the grid is variables.</p>
+<p>The size of the grid is variable.</p>
+<p>And you&rsquo;re given an input, and you must transform it</p>
+<p>into the proper output.</p>
+<p>And so you&rsquo;re shown a few demonstrations</p>
+<p>of a task in the form of existing input output pairs,</p>
+<p>and then you&rsquo;re given a new input.</p>
+<p>And you must provide, you must produce the correct output.</p>
+<p>And the assumptions in Arc is that every task should only</p>
+<p>require core knowledge priors, should not</p>
+<p>require any outside knowledge.</p>
+<p>So for instance, no language, no English, nothing like this.</p>
+<p>No concepts taken from our human experience,</p>
+<p>like trees, dogs, cats, and so on.</p>
+<p>So only reasoning tasks that are built on top</p>
+<p>of core knowledge priors.</p>
+<p>And some of the tasks are actually explicitly</p>
+<p>trying to probe specific forms of abstraction.</p>
+<p>Part of the reason why I wanted to create Arc</p>
+<p>is I&rsquo;m a big believer in when you&rsquo;re</p>
+<p>faced with a problem as murky as understanding</p>
+<p>how to autonomously generate abstraction in a machine,</p>
+<p>you have to coevolve the solution and the problem.</p>
+<p>And so part of the reason why I designed Arc</p>
+<p>was to clarify my ideas about the nature of abstraction.</p>
+<p>And some of the tasks are actually</p>
+<p>designed to probe bits of that theory.</p>
+<p>And there are things that turn out</p>
+<p>to be very easy for humans to perform, including young kids,</p>
+<p>but turn out to be near impossible for machines.</p>
+<p>So what have you learned from the nature of abstraction</p>
+<p>from designing that?</p>
+<p>Can you clarify what you mean?</p>
+<p>One of the things you wanted to try to understand</p>
+<p>was this idea of abstraction.</p>
+<p>Yes, so clarifying my own ideas about abstraction</p>
+<p>by forcing myself to produce tasks that</p>
+<p>would require the ability to produce</p>
+<p>that form of abstraction in order to solve them.</p>
+<p>Got it.</p>
+<p>OK, so and by the way, just the people should check out.</p>
+<p>I&rsquo;ll probably overlay if you&rsquo;re watching the video part.</p>
+<p>But the grid input output with the different colors</p>
+<p>on the grid, that&rsquo;s it.</p>
+<p>I mean, it&rsquo;s a very simple world,</p>
+<p>but it&rsquo;s kind of beautiful.</p>
+<p>It&rsquo;s very similar to classic IQ tests.</p>
+<p>It&rsquo;s not very original in that sense.</p>
+<p>The main difference with IQ tests</p>
+<p>is that we make the priors explicit, which is not</p>
+<p>usually the case in IQ tests.</p>
+<p>So you make it explicit that everything should only</p>
+<p>be built on top of core knowledge priors.</p>
+<p>I also think it&rsquo;s generally more diverse than IQ tests</p>
+<p>in general.</p>
+<p>And it perhaps requires a bit more manual work</p>
+<p>to produce solutions, because you</p>
+<p>have to click around on a grid for a while.</p>
+<p>Sometimes the grids can be as large as 30 by 30 cells.</p>
+<p>So how did you come up, if you can reveal, with the questions?</p>
+<p>What&rsquo;s the process of the questions?</p>
+<p>Was it mostly you that came up with the questions?</p>
+<p>How difficult is it to come up with a question?</p>
+<p>Is this scalable to a much larger number?</p>
+<p>If we think, with IQ tests, you might not necessarily</p>
+<p>want it to or need it to be scalable.</p>
+<p>With machines, it&rsquo;s possible, you</p>
+<p>could argue, that it needs to be scalable.</p>
+<p>So there are 1,000 questions, 1,000 tasks,</p>
+<p>including the test set, the prior test set.</p>
+<p>I think it&rsquo;s fairly difficult in the sense</p>
+<p>that a big requirement is that every task should</p>
+<p>be novel and unique and unpredictable.</p>
+<p>You don&rsquo;t want to create your own little world that</p>
+<p>is simple enough that it would be possible for a human</p>
+<p>to reverse and generate and write down</p>
+<p>an algorithm that could generate every possible arc</p>
+<p>task and their solution.</p>
+<p>So that would completely invalidate the test.</p>
+<p>So you&rsquo;re constantly coming up with new stuff.</p>
+<p>Yeah, you need a source of novelty,</p>
+<p>of unfakeable novelty.</p>
+<p>And one thing I found is that, as a human,</p>
+<p>you are not a very good source of unfakeable novelty.</p>
+<p>And so you have to base the creation of these tasks</p>
+<p>quite a bit.</p>
+<p>There are only so many unique tasks</p>
+<p>that you can do in a given day.</p>
+<p>So that means coming up with truly original new ideas.</p>
+<p>Did psychedelics help you at all?</p>
+<p>No, I&rsquo;m just kidding.</p>
+<p>But I mean, that&rsquo;s fascinating to think about.</p>
+<p>So you would be walking or something like that.</p>
+<p>Are you constantly thinking of something totally new?</p>
+<p>Yes.</p>
+<p>This is hard.</p>
+<p>Yeah, I mean, I&rsquo;m not saying you&rsquo;ve done anywhere</p>
+<p>near a perfect job at it.</p>
+<p>There is some amount of redundancy,</p>
+<p>and there are many imperfections in ARC.</p>
+<p>So that said, you should consider</p>
+<p>ARC as a work in progress.</p>
+<p>It is not the definitive state.</p>
+<p>The ARC tasks today are not the definitive state of the test.</p>
+<p>I want to keep refining it in the future.</p>
+<p>I also think it should be possible to open up</p>
+<p>the creation of tasks to a broad audience</p>
+<p>to do crowdsourcing.</p>
+<p>That would involve several levels of filtering,</p>
+<p>obviously.</p>
+<p>But I think it&rsquo;s possible to apply crowdsourcing</p>
+<p>to develop a much bigger and much more diverse ARC data set.</p>
+<p>That would also be free of potentially some</p>
+<p>of my own personal biases.</p>
+<p>Is there always need to be a part of ARC</p>
+<p>that the test is hidden?</p>
+<p>Yes, absolutely.</p>
+<p>It is imperative that the tests that you&rsquo;re</p>
+<p>using to actually benchmark algorithms</p>
+<p>is not accessible to the people developing these algorithms.</p>
+<p>Because otherwise, what&rsquo;s going to happen</p>
+<p>is that the human engineers are just</p>
+<p>going to solve the tasks themselves</p>
+<p>and encode their solution in program form.</p>
+<p>But that, again, what you&rsquo;re seeing here</p>
+<p>is the process of intelligence happening</p>
+<p>in the mind of the human.</p>
+<p>And then you&rsquo;re just capturing its crystallized output.</p>
+<p>But that crystallized output is not the same thing</p>
+<p>as the process it generated.</p>
+<p>It&rsquo;s not intelligent in itself.</p>
+<p>So what, by the way, the idea of crowdsourcing it</p>
+<p>is fascinating.</p>
+<p>I think the creation of questions</p>
+<p>is really exciting for people.</p>
+<p>I think there&rsquo;s a lot of really brilliant people</p>
+<p>out there that love to create these kinds of stuff.</p>
+<p>Yeah, one thing that kind of surprised me</p>
+<p>that I wasn&rsquo;t expecting is that lots of people</p>
+<p>seem to actually enjoy ARC as a kind of game.</p>
+<p>And I was releasing it as a test,</p>
+<p>as a benchmark of fluid general intelligence.</p>
+<p>And lots of people just, including kids,</p>
+<p>just started enjoying it as a game.</p>
+<p>So I think that&rsquo;s encouraging.</p>
+<p>Yeah, I&rsquo;m fascinated by it.</p>
+<p>There&rsquo;s a world of people who create IQ questions.</p>
+<p>I think that&rsquo;s a cool activity for machines and for humans.</p>
+<p>And humans are themselves fascinated</p>
+<p>by taking the questions, like measuring</p>
+<p>their own intelligence.</p>
+<p>I mean, that&rsquo;s just really compelling.</p>
+<p>It&rsquo;s really interesting to me, too.</p>
+<p>One of the cool things about ARC, you said,</p>
+<p>is kind of inspired by IQ tests or whatever</p>
+<p>follows a similar process.</p>
+<p>But because of its nature, because of the context</p>
+<p>in which it lives, it immediately</p>
+<p>forces you to think about the nature of intelligence</p>
+<p>as opposed to just the test of your own.</p>
+<p>It forces you to really think.</p>
+<p>I don&rsquo;t know if it&rsquo;s within the question,</p>
+<p>inherent in the question, or just the fact</p>
+<p>that it lives in the test that&rsquo;s supposed</p>
+<p>to be a test of machine intelligence.</p>
+<p>Absolutely.</p>
+<p>As you solve ARC tasks as a human,</p>
+<p>you will be forced to basically introspect</p>
+<p>how you come up with solutions.</p>
+<p>And that forces you to reflect on the human problem solving</p>
+<p>process.</p>
+<p>And the way your own mind generates</p>
+<p>abstract representations of the problems it&rsquo;s exposed to.</p>
+<p>I think it&rsquo;s due to the fact that the set of core knowledge</p>
+<p>priors that ARC is built upon is so small.</p>
+<p>It&rsquo;s all a recombination of a very, very small set</p>
+<p>of assumptions.</p>
+<p>OK, so what&rsquo;s the future of ARC?</p>
+<p>So you held ARC as a challenge, as part</p>
+<p>of like a Kaggle competition.</p>
+<p>Yes.</p>
+<p>Kaggle competition.</p>
+<p>And what do you think?</p>
+<p>Do you think that&rsquo;s something that</p>
+<p>continues for five years, 10 years,</p>
+<p>like just continues growing?</p>
+<p>Yes, absolutely.</p>
+<p>So ARC itself will keep evolving.</p>
+<p>So I&rsquo;ve talked about crowdsourcing.</p>
+<p>I think that&rsquo;s a good avenue.</p>
+<p>Another thing I&rsquo;m starting is I&rsquo;ll</p>
+<p>be collaborating with folks from the psychology department</p>
+<p>at NYU to do human testing on ARC.</p>
+<p>And I think there are lots of interesting questions</p>
+<p>you can start asking, especially as you start correlating</p>
+<p>machine solutions to ARC tasks and the human characteristics</p>
+<p>of solutions.</p>
+<p>Like for instance, you can try to see</p>
+<p>if there&rsquo;s a relationship between the human perceived</p>
+<p>difficulty of a task and the machine perceived.</p>
+<p>Yes, and exactly some measure of machine</p>
+<p>perceived difficulty.</p>
+<p>Yeah, it&rsquo;s a nice playground in which</p>
+<p>to explore this very difference.</p>
+<p>It&rsquo;s the same thing as we talked about the autonomous vehicles.</p>
+<p>The things that could be difficult for humans</p>
+<p>might be very different than the things that are difficult.</p>
+<p>And formalizing or making explicit that difference</p>
+<p>in difficulty may teach us something fundamental</p>
+<p>about intelligence.</p>
+<p>So one thing I think we did well with ARC</p>
+<p>is that it&rsquo;s proving to be a very actionable test in the sense</p>
+<p>that machine performance on ARC started at very much zero</p>
+<p>initially, while humans found actually the task very easy.</p>
+<p>And that alone was like a big red flashing light saying</p>
+<p>that something is going on and that we are missing something.</p>
+<p>And at the same time, machine performance</p>
+<p>did not stay at zero for very long.</p>
+<p>Actually, within two weeks of the Kaggle competition,</p>
+<p>we started having a nonzero number.</p>
+<p>And now the state of the art is around 20%</p>
+<p>of the test set solved.</p>
+<p>And so ARC is actually a challenge</p>
+<p>where our capabilities start at zero, which indicates</p>
+<p>the need for progress.</p>
+<p>But it&rsquo;s also not an impossible challenge.</p>
+<p>It&rsquo;s not accessible.</p>
+<p>You can start making progress basically right away.</p>
+<p>At the same time, we are still very far</p>
+<p>from having solved it.</p>
+<p>And that&rsquo;s actually a very positive outcome</p>
+<p>of the competition is that the competition has proven</p>
+<p>that there was no obvious shortcut to solve these tasks.</p>
+<p>Yeah, so the test held up.</p>
+<p>Yeah, exactly.</p>
+<p>That was the primary reason to use the Kaggle competition</p>
+<p>is to check if some clever person was</p>
+<p>going to hack the benchmark that did not happen.</p>
+<p>People who are solving the task are essentially doing it.</p>
+<p>Well, in a way, they&rsquo;re actually exploring some flaws of ARC</p>
+<p>that we will need to address in the future,</p>
+<p>especially they&rsquo;re essentially anticipating</p>
+<p>what sort of tasks may be contained in the test set.</p>
+<p>Right, which is kind of, yeah, that&rsquo;s the kind of hacking.</p>
+<p>It&rsquo;s human hacking of the test.</p>
+<p>Yes, that said, with the state of the art,</p>
+<p>it&rsquo;s like 20% we&rsquo;re still very, very far from human level,</p>
+<p>which is closer to 100%.</p>
+<p>And I do believe that it will take a while</p>
+<p>until we reach human parity on ARC.</p>
+<p>And that by the time we have human parity,</p>
+<p>we will have AI systems that are probably</p>
+<p>pretty close to human level in terms of general fluid</p>
+<p>intelligence, which is, I mean, they are not</p>
+<p>going to be necessarily human like.</p>
+<p>They&rsquo;re not necessarily, you would not necessarily</p>
+<p>recognize them as being an AGI.</p>
+<p>But they would be capable of a degree of generalization</p>
+<p>that matches the generalization performed</p>
+<p>by human fluid intelligence.</p>
+<p>Sure.</p>
+<p>I mean, this is a good point in terms</p>
+<p>of general fluid intelligence to mention in your paper.</p>
+<p>You describe different kinds of generalizations,</p>
+<p>local, broad, extreme.</p>
+<p>And there&rsquo;s a kind of a hierarchy that you form.</p>
+<p>So when we say generalizations, what are we talking about?</p>
+<p>What kinds are there?</p>
+<p>Right, so generalization is a very old idea.</p>
+<p>I mean, it&rsquo;s even older than machine learning.</p>
+<p>In the context of machine learning,</p>
+<p>you say a system generalizes if it can make sense of an input</p>
+<p>it has not yet seen.</p>
+<p>And that&rsquo;s what I would call system centric generalization,</p>
+<p>generalization with respect to novelty</p>
+<p>for the specific system you&rsquo;re considering.</p>
+<p>So I think a good test of intelligence</p>
+<p>should actually deal with developer aware generalization,</p>
+<p>which is slightly stronger than system centric generalization.</p>
+<p>So developer aware generalization</p>
+<p>would be the ability to generalize</p>
+<p>to novelty or uncertainty that not only the system itself has</p>
+<p>not access to, but the developer of the system</p>
+<p>could not have access to either.</p>
+<p>That&rsquo;s a fascinating meta definition.</p>
+<p>So the system is basically the edge case thing</p>
+<p>we&rsquo;re talking about with autonomous vehicles.</p>
+<p>Neither the developer nor the system</p>
+<p>know about the edge cases in my encounter.</p>
+<p>So it&rsquo;s up to the system should be</p>
+<p>able to generalize the thing that nobody expected,</p>
+<p>neither the designer of the training data,</p>
+<p>nor obviously the contents of the training data.</p>
+<p>That&rsquo;s a fascinating definition.</p>
+<p>So you can see degrees of generalization as a spectrum.</p>
+<p>And the lowest level is what machine learning</p>
+<p>is trying to do is the assumption</p>
+<p>that any new situation is going to be sampled</p>
+<p>from a static distribution of possible situations</p>
+<p>and that you already have a representative sample</p>
+<p>of the distribution.</p>
+<p>That&rsquo;s your training data.</p>
+<p>And so in machine learning, you generalize to a new sample</p>
+<p>from a known distribution.</p>
+<p>And the ways in which your new sample will be new or different</p>
+<p>are ways that are already understood by the developers</p>
+<p>of the system.</p>
+<p>So you are generalizing to known unknowns</p>
+<p>for one specific task.</p>
+<p>That&rsquo;s what you would call robustness.</p>
+<p>You are robust to things like noise, small variations,</p>
+<p>and so on for one fixed known distribution</p>
+<p>that you know through your training data.</p>
+<p>And the higher degree would be flexibility</p>
+<p>in machine intelligence.</p>
+<p>So flexibility would be something</p>
+<p>like an L5 cell driving car or maybe a robot that</p>
+<p>can pass the coffee cup test, which</p>
+<p>is the notion that you&rsquo;d be given a random kitchen</p>
+<p>somewhere in the country.</p>
+<p>And you would have to go make a cup of coffee in that kitchen.</p>
+<p>So flexibility would be the ability</p>
+<p>to deal with unknown unknowns, so things that could not,</p>
+<p>dimensions of viability that could not</p>
+<p>have been possibly foreseen by the creators of the system</p>
+<p>within one specific task.</p>
+<p>So generalizing to the long tail of situations in self driving,</p>
+<p>for instance, would be flexibility.</p>
+<p>So you have robustness, flexibility, and finally,</p>
+<p>you would have extreme generalization,</p>
+<p>which is basically flexibility, but instead</p>
+<p>of just considering one specific domain,</p>
+<p>like driving or domestic robotics,</p>
+<p>you&rsquo;re considering an open ended range of possible domains.</p>
+<p>So a robot would be capable of extreme generalization</p>
+<p>if, let&rsquo;s say, it&rsquo;s designed and trained for cooking,</p>
+<p>for instance.</p>
+<p>And if I buy the robot and if it&rsquo;s</p>
+<p>able to teach itself gardening in a couple of weeks,</p>
+<p>it would be capable of extreme generalization, for instance.</p>
+<p>So the ultimate goal is extreme generalization.</p>
+<p>Yes.</p>
+<p>So creating a system that is so general that it could</p>
+<p>essentially achieve human skill parity over arbitrary tasks</p>
+<p>and arbitrary domains with the same level of improvisation</p>
+<p>and adaptation power as humans when</p>
+<p>it encounters new situations.</p>
+<p>And it would do so over basically the same range</p>
+<p>of possible domains and tasks as humans</p>
+<p>and using essentially the same amount of training</p>
+<p>experience of practice as humans would require.</p>
+<p>That would be human level extreme generalization.</p>
+<p>So I don&rsquo;t actually think humans are anywhere</p>
+<p>near the optimal intelligence bounds</p>
+<p>if there is such a thing.</p>
+<p>So I think for humans or in general?</p>
+<p>In general.</p>
+<p>I think it&rsquo;s quite likely that there</p>
+<p>is a hard limit to how intelligent any system can be.</p>
+<p>But at the same time, I don&rsquo;t think humans are anywhere</p>
+<p>near that limit.</p>
+<p>Yeah, last time I think we talked,</p>
+<p>I think you had this idea that we&rsquo;re only</p>
+<p>as intelligent as the problems we face.</p>
+<p>Sort of we are bounded by the problems.</p>
+<p>In a way, yes.</p>
+<p>We are bounded by our environments,</p>
+<p>and we are bounded by the problems we try to solve.</p>
+<p>Yeah.</p>
+<p>What do you make of Neuralink and outsourcing</p>
+<p>some of the brain power, like brain computer interfaces?</p>
+<p>Do you think we can expand or augment our intelligence?</p>
+<p>I am fairly skeptical of neural interfaces</p>
+<p>because they are trying to fix one specific bottleneck</p>
+<p>in human machine cognition, which</p>
+<p>is the bandwidth bottleneck, input and output</p>
+<p>of information in the brain.</p>
+<p>And my perception of the problem is that bandwidth is not</p>
+<p>at this time a bottleneck at all.</p>
+<p>Meaning that we already have sensors</p>
+<p>that enable us to take in far more information than what</p>
+<p>we can actually process.</p>
+<p>Well, to push back on that a little bit,</p>
+<p>to sort of play devil&rsquo;s advocate a little bit,</p>
+<p>is if you look at the internet, Wikipedia, let&rsquo;s say Wikipedia,</p>
+<p>I would say that humans, after the advent of Wikipedia,</p>
+<p>are much more intelligent.</p>
+<p>Yes, I think that&rsquo;s a good one.</p>
+<p>But that&rsquo;s also not about, that&rsquo;s about externalizing</p>
+<p>our intelligence via information processing systems,</p>
+<p>external information processing systems,</p>
+<p>which is very different from brain computer interfaces.</p>
+<p>Right, but the question is whether if we have direct</p>
+<p>access, if our brain has direct access to Wikipedia without</p>
+<p>Your brain already has direct access to Wikipedia.</p>
+<p>It&rsquo;s on your phone.</p>
+<p>And you have your hands and your eyes and your ears</p>
+<p>and so on to access that information.</p>
+<p>And the speed at which you can access it</p>
+<p>Is bottlenecked by the cognition.</p>
+<p>I think it&rsquo;s already close, fairly close to optimal,</p>
+<p>which is why speed reading, for instance, does not work.</p>
+<p>The faster you read, the less you understand.</p>
+<p>But maybe it&rsquo;s because it uses the eyes.</p>
+<p>So maybe.</p>
+<p>So I don&rsquo;t believe so.</p>
+<p>I think the brain is very slow.</p>
+<p>It typically operates, you know, the fastest things</p>
+<p>that happen in the brain are at the level of 50 milliseconds.</p>
+<p>Forming a conscious thought can potentially</p>
+<p>take entire seconds, right?</p>
+<p>And you can already read pretty fast.</p>
+<p>So I think the speed at which you can take information in</p>
+<p>and even the speed at which you can output information</p>
+<p>can only be very incrementally improved.</p>
+<p>Maybe there&rsquo;s a question.</p>
+<p>If you&rsquo;re a very fast typer, if you&rsquo;re a very trained typer,</p>
+<p>the speed at which you can express your thoughts</p>
+<p>is already the speed at which you can form your thoughts.</p>
+<p>Right, so that&rsquo;s kind of an idea that there are</p>
+<p>fundamental bottlenecks to the human mind.</p>
+<p>But it&rsquo;s possible that everything we have</p>
+<p>in the human mind is just to be able to survive</p>
+<p>in the environment.</p>
+<p>And there&rsquo;s a lot more to expand.</p>
+<p>Maybe, you know, you said the speed of the thought.</p>
+<p>So I think augmenting human intelligence</p>
+<p>is a very valid and very powerful avenue, right?</p>
+<p>And that&rsquo;s what computers are about.</p>
+<p>In fact, that&rsquo;s what all of culture and civilization</p>
+<p>is about.</p>
+<p>Our culture is externalized cognition</p>
+<p>and we rely on culture to think constantly.</p>
+<p>Yeah, I mean, that&rsquo;s another, yeah.</p>
+<p>Not just computers, not just phones and the internet.</p>
+<p>I mean, all of culture, like language, for instance,</p>
+<p>is a form of externalized cognition.</p>
+<p>Books are obviously externalized cognition.</p>
+<p>Yeah, that&rsquo;s a good point.</p>
+<p>And you can scale that externalized cognition</p>
+<p>far beyond the capability of the human brain.</p>
+<p>And you could see civilization itself</p>
+<p>is it has capabilities that are far beyond any individual brain</p>
+<p>and will keep scaling it because it&rsquo;s not</p>
+<p>rebound by individual brains.</p>
+<p>It&rsquo;s a different kind of system.</p>
+<p>Yeah, and that system includes nonhuman, nonhumans.</p>
+<p>First of all, it includes all the other biological systems,</p>
+<p>which are probably contributing to the overall intelligence</p>
+<p>of the organism.</p>
+<p>And then computers are part of it.</p>
+<p>Nonhuman systems are probably not contributing much,</p>
+<p>but AIs are definitely contributing to that.</p>
+<p>Like Google search, for instance, is a big part of it.</p>
+<p>Yeah, yeah, a huge part, a part that we can&rsquo;t probably</p>
+<p>introspect.</p>
+<p>Like how the world has changed in the past 20 years,</p>
+<p>it&rsquo;s probably very difficult for us</p>
+<p>to be able to understand until, of course,</p>
+<p>whoever created the simulation we&rsquo;re in is probably</p>
+<p>doing metrics, measuring the progress.</p>
+<p>There was probably a big spike in performance.</p>
+<p>They&rsquo;re enjoying this.</p>
+<p>So what are your thoughts on the Turing test</p>
+<p>and the Lobner Prize, which is one</p>
+<p>of the most famous attempts at the test of artificial</p>
+<p>intelligence by doing a natural language open dialogue test</p>
+<p>that&rsquo;s judged by humans as far as how well the machine did?</p>
+<p>So I&rsquo;m not a fan of the Turing test.</p>
+<p>Itself or any of its variants for two reasons.</p>
+<p>So first of all, it&rsquo;s really coping out</p>
+<p>of trying to define and measure intelligence</p>
+<p>because it&rsquo;s entirely outsourcing that</p>
+<p>to a panel of human judges.</p>
+<p>And these human judges, they may not themselves</p>
+<p>have any proper methodology.</p>
+<p>They may not themselves have any proper definition</p>
+<p>of intelligence.</p>
+<p>They may not be reliable.</p>
+<p>So the Turing test is already failing</p>
+<p>one of the core psychometrics principles, which</p>
+<p>is reliability because you have biased human judges.</p>
+<p>It&rsquo;s also violating the standardization requirement</p>
+<p>and the freedom from bias requirement.</p>
+<p>And so it&rsquo;s really a cope out because you are outsourcing</p>
+<p>everything that matters, which is precisely describing</p>
+<p>intelligence and finding a standalone test to measure it.</p>
+<p>You&rsquo;re outsourcing everything to people.</p>
+<p>So it&rsquo;s really a cope out.</p>
+<p>And by the way, we should keep in mind</p>
+<p>that when Turing proposed the imitation game,</p>
+<p>it was not meaning for the imitation game</p>
+<p>to be an actual goal for the field of AI</p>
+<p>and actual test of intelligence.</p>
+<p>It was using the imitation game as a thought experiment</p>
+<p>in a philosophical discussion in his 1950 paper.</p>
+<p>He was trying to argue that theoretically, it</p>
+<p>should be possible for something very much like the human mind,</p>
+<p>indistinguishable from the human mind,</p>
+<p>to be encoded in a Turing machine.</p>
+<p>And at the time, that was a very daring idea.</p>
+<p>It was stretching credulity.</p>
+<p>But nowadays, I think it&rsquo;s fairly well accepted</p>
+<p>that the mind is an information processing system</p>
+<p>and that you could probably encode it into a computer.</p>
+<p>So another reason why I&rsquo;m not a fan of this type of test</p>
+<p>is that the incentives that it creates</p>
+<p>are incentives that are not conducive to proper scientific</p>
+<p>research.</p>
+<p>If your goal is to trick, to convince a panel of human</p>
+<p>judges that they are talking to a human,</p>
+<p>then you have an incentive to rely on tricks</p>
+<p>and prestidigitation.</p>
+<p>In the same way that, let&rsquo;s say, you&rsquo;re doing physics</p>
+<p>and you want to solve teleportation.</p>
+<p>And what if the test that you set out to pass</p>
+<p>is you need to convince a panel of judges</p>
+<p>that teleportation took place?</p>
+<p>And they&rsquo;re just sitting there and watching what you&rsquo;re doing.</p>
+<p>And that is something that you can achieve with David</p>
+<p>Copperfield could achieve it in his show at Vegas.</p>
+<p>And what he&rsquo;s doing is very elaborate.</p>
+<p>But it&rsquo;s not physics.</p>
+<p>It&rsquo;s not making any progress in our understanding</p>
+<p>of the universe.</p>
+<p>To push back on that is possible.</p>
+<p>That&rsquo;s the hope with these kinds of subjective evaluations</p>
+<p>is that it&rsquo;s easier to solve it generally</p>
+<p>than it is to come up with tricks that convince</p>
+<p>a large number of judges.</p>
+<p>That&rsquo;s the hope.</p>
+<p>In practice, it turns out that it&rsquo;s</p>
+<p>very easy to deceive people in the same way</p>
+<p>that you can do magic in Vegas.</p>
+<p>You can actually very easily convince people</p>
+<p>that they&rsquo;re talking to a human when they&rsquo;re actually</p>
+<p>talking to an algorithm.</p>
+<p>I just disagree.</p>
+<p>I disagree with that.</p>
+<p>I think it&rsquo;s easy.</p>
+<p>I would push.</p>
+<p>No, it&rsquo;s not easy.</p>
+<p>It&rsquo;s doable.</p>
+<p>It&rsquo;s very easy because we are biased.</p>
+<p>We have theory of mind.</p>
+<p>We are constantly projecting emotions, intentions, agentness.</p>
+<p>Agentness is one of our core innate priors.</p>
+<p>We are projecting these things on everything around us.</p>
+<p>Like if you paint a smiley on a rock,</p>
+<p>the rock becomes happy in our eyes.</p>
+<p>And because we have this extreme bias that</p>
+<p>permits everything we see around us,</p>
+<p>it&rsquo;s actually pretty easy to trick people.</p>
+<p>I just disagree with that.</p>
+<p>I so totally disagree with that.</p>
+<p>You brilliantly put as a huge, the anthropomorphization</p>
+<p>that we naturally do, the agentness of that word.</p>
+<p>Is that a real word?</p>
+<p>No, it&rsquo;s not a real word.</p>
+<p>I like it.</p>
+<p>But it&rsquo;s a useful word.</p>
+<p>It&rsquo;s a useful word.</p>
+<p>Let&rsquo;s make it real.</p>
+<p>It&rsquo;s a huge help.</p>
+<p>But I still think it&rsquo;s really difficult to convince.</p>
+<p>If you do like the Alexa Prize formulation,</p>
+<p>where you talk for an hour, there&rsquo;s</p>
+<p>formulations of the test you can create,</p>
+<p>where it&rsquo;s very difficult.</p>
+<p>So I like the Alexa Prize better because it&rsquo;s more pragmatic.</p>
+<p>It&rsquo;s more practical.</p>
+<p>It&rsquo;s actually incentivizing developers</p>
+<p>to create something that&rsquo;s useful as a human machine</p>
+<p>interface.</p>
+<p>So that&rsquo;s slightly better than just the imitation.</p>
+<p>So I like it.</p>
+<p>Your idea is like a test which hopefully</p>
+<p>help us in creating intelligent systems as a result.</p>
+<p>Like if you create a system that passes it,</p>
+<p>it&rsquo;ll be useful for creating further intelligent systems.</p>
+<p>Yes, at least.</p>
+<p>Yeah.</p>
+<p>Just to kind of comment, I&rsquo;m a little bit surprised</p>
+<p>how little inspiration people draw from the Turing test</p>
+<p>today.</p>
+<p>The media and the popular press might write about it</p>
+<p>every once in a while.</p>
+<p>The philosophers might talk about it.</p>
+<p>But most engineers are not really inspired by it.</p>
+<p>And I know you don&rsquo;t like the Turing test,</p>
+<p>but we&rsquo;ll have this argument another time.</p>
+<p>There&rsquo;s something inspiring about it, I think.</p>
+<p>As a philosophical device in a physical discussion,</p>
+<p>I think there is something very interesting about it.</p>
+<p>I don&rsquo;t think it is in practical terms.</p>
+<p>I don&rsquo;t think it&rsquo;s conducive to progress.</p>
+<p>And one of the reasons why is that I</p>
+<p>think being very human like, being</p>
+<p>indistinguishable from a human is actually</p>
+<p>the very last step in the creation of machine</p>
+<p>intelligence.</p>
+<p>That the first ARs that will show strong generalization</p>
+<p>that will actually implement human like broad cognitive</p>
+<p>abilities, they will not actually behave or look</p>
+<p>anything like humans.</p>
+<p>Human likeness is the very last step in that process.</p>
+<p>And so a good test is a test that</p>
+<p>points you towards the first step on the ladder,</p>
+<p>not towards the top of the ladder.</p>
+<p>So to push back on that, I usually</p>
+<p>agree with you on most things.</p>
+<p>I remember you, I think at some point,</p>
+<p>tweeting something about the Turing test</p>
+<p>not being being counterproductive</p>
+<p>or something like that.</p>
+<p>And I think a lot of very smart people agree with that.</p>
+<p>I, a computation speaking, not very smart person,</p>
+<p>disagree with that.</p>
+<p>Because I think there&rsquo;s some magic</p>
+<p>to the interactivity with other humans.</p>
+<p>So to play devil&rsquo;s advocate on your statement,</p>
+<p>it&rsquo;s possible that in order to demonstrate</p>
+<p>the generalization abilities of a system,</p>
+<p>you have to show your ability, in conversation,</p>
+<p>show your ability to adjust, adapt to the conversation</p>
+<p>through not just like as a standalone system,</p>
+<p>but through the process of like the interaction,</p>
+<p>the game theoretic, where you really</p>
+<p>are changing the environment by your actions.</p>
+<p>So in the ARC challenge, for example,</p>
+<p>you&rsquo;re an observer.</p>
+<p>You can&rsquo;t scare the test into changing.</p>
+<p>You can&rsquo;t talk to the test.</p>
+<p>You can&rsquo;t play with it.</p>
+<p>So there&rsquo;s some aspect of that interactivity</p>
+<p>that becomes highly subjective, but it</p>
+<p>feels like it could be conducive to generalizability.</p>
+<p>I think you make a great point.</p>
+<p>The interactivity is a very good setting</p>
+<p>to force a system to show adaptation,</p>
+<p>to show generalization.</p>
+<p>That said, at the same time, it&rsquo;s</p>
+<p>not something very scalable, because you</p>
+<p>rely on human judges.</p>
+<p>It&rsquo;s not something reliable, because the human judges may</p>
+<p>not, may not.</p>
+<p>So you don&rsquo;t like human judges.</p>
+<p>Basically, yes.</p>
+<p>And I think so.</p>
+<p>I love the idea of interactivity.</p>
+<p>I initially wanted an ARC test that</p>
+<p>had some amount of interactivity where your score on a task</p>
+<p>would not be 1 or 0, if you can solve it or not,</p>
+<p>but would be the number of attempts</p>
+<p>that you can make before you hit the right solution, which</p>
+<p>means that now you can start applying</p>
+<p>the scientific method as you solve ARC tasks,</p>
+<p>that you can start formulating hypotheses and probing</p>
+<p>the system to see whether the observation will</p>
+<p>match the hypothesis or not.</p>
+<p>It would be amazing if you could also,</p>
+<p>even higher level than that, measure the quality of your attempts,</p>
+<p>which, of course, is impossible.</p>
+<p>But again, that gets subjective.</p>
+<p>How good was your thinking?</p>
+<p>How efficient was?</p>
+<p>So one thing that&rsquo;s interesting about this notion of scoring you</p>
+<p>as how many attempts you need is that you</p>
+<p>can start producing tasks that are way more ambiguous, right?</p>
+<p>Right.</p>
+<p>Because with the different attempts,</p>
+<p>you can actually probe that ambiguity, right?</p>
+<p>Right.</p>
+<p>So that&rsquo;s, in a sense, which is how good can</p>
+<p>you adapt to the uncertainty and reduce the uncertainty?</p>
+<p>Yes, it&rsquo;s half fast.</p>
+<p>It&rsquo;s the efficiency with which you reduce uncertainty</p>
+<p>in program space, exactly.</p>
+<p>Very difficult to come up with that kind of test, though.</p>
+<p>Yeah, so I would love to be able to create something like this.</p>
+<p>In practice, it would be very, very difficult, but yes.</p>
+<p>I mean, what you&rsquo;re doing, what you&rsquo;ve done with the ARC challenge</p>
+<p>is brilliant.</p>
+<p>I&rsquo;m also not surprised that it&rsquo;s not more popular,</p>
+<p>but I think it&rsquo;s picking up.</p>
+<p>It does its niche.</p>
+<p>It does its niche, yeah.</p>
+<p>Yeah.</p>
+<p>What are your thoughts about another test?</p>
+<p>I talked with Marcus Hutter.</p>
+<p>He has the Hutter Prize for compression of human knowledge.</p>
+<p>And the idea is really sort of quantify and reduce</p>
+<p>the test of intelligence purely to just the ability</p>
+<p>to compress.</p>
+<p>What&rsquo;s your thoughts about this intelligence as compression?</p>
+<p>I mean, it&rsquo;s a very fun test because it&rsquo;s</p>
+<p>such a simple idea, like you&rsquo;re given Wikipedia,</p>
+<p>basic English Wikipedia, and you must compress it.</p>
+<p>And so it stems from the idea that cognition is compression,</p>
+<p>that the brain is basically a compression algorithm.</p>
+<p>This is a very old idea.</p>
+<p>It&rsquo;s a very, I think, striking and beautiful idea.</p>
+<p>I used to believe it.</p>
+<p>I eventually had to realize that it was very much</p>
+<p>a flawed idea.</p>
+<p>So I no longer believe that cognition is compression.</p>
+<p>But I can tell you what&rsquo;s the difference.</p>
+<p>So it&rsquo;s very easy to believe that cognition and compression</p>
+<p>are the same thing.</p>
+<p>So Jeff Hawkins, for instance, says</p>
+<p>that cognition is prediction.</p>
+<p>And of course, prediction is basically the same thing</p>
+<p>as compression.</p>
+<p>It&rsquo;s just including the temporal axis.</p>
+<p>And it&rsquo;s very easy to believe this</p>
+<p>because compression is something that we</p>
+<p>do all the time very naturally.</p>
+<p>We are constantly compressing information.</p>
+<p>We are constantly trying.</p>
+<p>We have this bias towards simplicity.</p>
+<p>We are constantly trying to organize things in our mind</p>
+<p>and around us to be more regular.</p>
+<p>So it&rsquo;s a beautiful idea.</p>
+<p>It&rsquo;s very easy to believe.</p>
+<p>There is a big difference between what</p>
+<p>we do with our brains and compression.</p>
+<p>So compression is actually kind of a tool</p>
+<p>in the human cognitive toolkit that is used in many ways.</p>
+<p>But it&rsquo;s just a tool.</p>
+<p>It is a tool for cognition.</p>
+<p>It is not cognition itself.</p>
+<p>And the big fundamental difference</p>
+<p>is that cognition is about being able to operate</p>
+<p>in future situations that include fundamental uncertainty</p>
+<p>and novelty.</p>
+<p>So for instance, consider a child at age 10.</p>
+<p>And so they have 10 years of life experience.</p>
+<p>They&rsquo;ve gotten pain, pleasure, rewards, and punishment</p>
+<p>in a period of time.</p>
+<p>If you were to generate the shortest behavioral program</p>
+<p>that would have basically run that child over these 10 years</p>
+<p>in an optimal way, the shortest optimal behavioral program</p>
+<p>given the experience of that child so far,</p>
+<p>well, that program, that compressed program,</p>
+<p>this is what you would get if the mind of the child</p>
+<p>was a compression algorithm essentially,</p>
+<p>would be utterly unable, inappropriate,</p>
+<p>to process the next 70 years in the life of that child.</p>
+<p>So in the models we build of the world,</p>
+<p>we are not trying to make them actually optimally compressed.</p>
+<p>We are using compression as a tool</p>
+<p>to promote simplicity and efficiency in our models.</p>
+<p>But they are not perfectly compressed</p>
+<p>because they need to include things</p>
+<p>that are seemingly useless today, that have seemingly</p>
+<p>been useless so far.</p>
+<p>But that may turn out to be useful in the future</p>
+<p>because you just don&rsquo;t know the future.</p>
+<p>And that&rsquo;s the fundamental principle</p>
+<p>that cognition, that intelligence arises from</p>
+<p>is that you need to be able to run</p>
+<p>appropriate behavioral programs except you have absolutely</p>
+<p>no idea what sort of context, environment, situation</p>
+<p>they are going to be running in.</p>
+<p>And you have to deal with that uncertainty,</p>
+<p>with that future anomaly.</p>
+<p>So an analogy that you can make is with investing,</p>
+<p>for instance.</p>
+<p>If I look at the past 20 years of stock market data,</p>
+<p>and I use a compression algorithm</p>
+<p>to figure out the best trading strategy,</p>
+<p>it&rsquo;s going to be you buy Apple stock, then</p>
+<p>maybe the past few years you buy Tesla stock or something.</p>
+<p>But is that strategy still going to be</p>
+<p>true for the next 20 years?</p>
+<p>Well, actually, probably not, which</p>
+<p>is why if you&rsquo;re a smart investor,</p>
+<p>you&rsquo;re not just going to be following the strategy that</p>
+<p>corresponds to compression of the past.</p>
+<p>You&rsquo;re going to be following, you&rsquo;re</p>
+<p>going to have a balanced portfolio, right?</p>
+<p>Because you just don&rsquo;t know what&rsquo;s going to happen.</p>
+<p>I mean, I guess in that same sense,</p>
+<p>the compression is analogous to what</p>
+<p>you talked about, which is local or robust generalization</p>
+<p>versus extreme generalization.</p>
+<p>It&rsquo;s much closer to that side of being able to generalize</p>
+<p>in the local sense.</p>
+<p>That&rsquo;s why as humans, when we are children, in our education,</p>
+<p>so a lot of it is driven by play, driven by curiosity.</p>
+<p>We are not efficiently compressing things.</p>
+<p>We&rsquo;re actually exploring.</p>
+<p>We are retaining all kinds of things</p>
+<p>from our environment that seem to be completely useless.</p>
+<p>Because they might turn out to be eventually useful, right?</p>
+<p>And that&rsquo;s what cognition is really about.</p>
+<p>And what makes it antagonistic to compression</p>
+<p>is that it is about hedging for future uncertainty.</p>
+<p>And that&rsquo;s antagonistic to compression.</p>
+<p>Yes.</p>
+<p>Officially hedging.</p>
+<p>Cognition leverages compression as a tool</p>
+<p>to promote efficiency and simplicity in our models.</p>
+<p>It&rsquo;s like Einstein said, make it simpler, but not,</p>
+<p>however that quote goes, but not too simple.</p>
+<p>So compression simplifies things,</p>
+<p>but you don&rsquo;t want to make it too simple.</p>
+<p>Yes.</p>
+<p>So a good model of the world is going</p>
+<p>to include all kinds of things that are completely useless,</p>
+<p>actually, just in case.</p>
+<p>Because you need diversity in the same way</p>
+<p>that in your portfolio.</p>
+<p>You need all kinds of stocks that may not</p>
+<p>have performed well so far, but you need diversity.</p>
+<p>And the reason you need diversity</p>
+<p>is because fundamentally you don&rsquo;t know what you&rsquo;re doing.</p>
+<p>And the same is true of the human mind,</p>
+<p>is that it needs to behave appropriately in the future.</p>
+<p>And it has no idea what the future is going to be like.</p>
+<p>But it&rsquo;s not going to be like the past.</p>
+<p>So compressing the past is not appropriate,</p>
+<p>because the past is not, it&rsquo;s not predictive of the future.</p>
+<p>Yeah, history repeats itself, but not perfectly.</p>
+<p>I don&rsquo;t think I asked you last time the most inappropriately</p>
+<p>absurd question.</p>
+<p>We&rsquo;ve talked a lot about intelligence,</p>
+<p>but the bigger question from intelligence is of meaning.</p>
+<p>Intelligence systems are kind of goal oriented.</p>
+<p>They&rsquo;re always optimizing for a goal.</p>
+<p>If you look at the Hutter Prize, actually,</p>
+<p>I mean, there&rsquo;s always a clean formulation of a goal.</p>
+<p>But the natural question for us humans,</p>
+<p>since we don&rsquo;t know our objective function,</p>
+<p>is what is the meaning of it all?</p>
+<p>So the absurd question is, what, Francois,</p>
+<p>do you think is the meaning of life?</p>
+<p>What&rsquo;s the meaning of life?</p>
+<p>Yeah, that&rsquo;s a big question.</p>
+<p>And I think I can give you my answer, at least one</p>
+<p>of my answers.</p>
+<p>And so one thing that&rsquo;s very important in understanding who</p>
+<p>we are is that everything that makes up ourselves,</p>
+<p>that makes up who we are, even your most personal thoughts,</p>
+<p>is not actually your own.</p>
+<p>Even your most personal thoughts are expressed in words</p>
+<p>that you did not invent and are built on concepts and images</p>
+<p>that you did not invent.</p>
+<p>We are very much cultural beings.</p>
+<p>We are made of culture.</p>
+<p>What makes us different from animals, for instance?</p>
+<p>So everything about ourselves is an echo of the past.</p>
+<p>Is an echo of the past, an echo of people who lived before us.</p>
+<p>That&rsquo;s who we are.</p>
+<p>And in the same way, if we manage</p>
+<p>to contribute something to the collective edifice of culture,</p>
+<p>a new idea, maybe a beautiful piece of music,</p>
+<p>a work of art, a grand theory, a new world, maybe,</p>
+<p>that something is going to become</p>
+<p>a part of the minds of future humans, essentially, forever.</p>
+<p>So everything we do creates ripples</p>
+<p>that propagate into the future.</p>
+<p>And in a way, this is our path to immortality,</p>
+<p>is that as we contribute things to culture,</p>
+<p>culture in turn becomes future humans.</p>
+<p>And we keep influencing people thousands of years from now.</p>
+<p>So our actions today create ripples.</p>
+<p>And these ripples, I think, basically</p>
+<p>sum up the meaning of life.</p>
+<p>In the same way that we are the sum</p>
+<p>of the interactions between many different ripples that</p>
+<p>came from our past, we are ourselves</p>
+<p>creating ripples that will propagate into the future.</p>
+<p>And that&rsquo;s why we should be, this</p>
+<p>seems like perhaps an eighth thing to say,</p>
+<p>but we should be kind to others during our time on Earth</p>
+<p>because every act of kindness creates ripples.</p>
+<p>And in reverse, every act of violence also creates ripples.</p>
+<p>And you want to carefully choose which kind of ripples</p>
+<p>you want to create, and you want to propagate into the future.</p>
+<p>And in your case, first of all, beautifully put,</p>
+<p>but in your case, creating ripples</p>
+<p>into the future human and future AGI systems.</p>
+<p>Yes.</p>
+<p>It&rsquo;s fascinating.</p>
+<p>Our successors.</p>
+<p>I don&rsquo;t think there&rsquo;s a better way to end it,</p>
+<p>Francois, as always, for a second time.</p>
+<p>And I&rsquo;m sure many times in the future,</p>
+<p>it&rsquo;s been a huge honor.</p>
+<p>You&rsquo;re one of the most brilliant people</p>
+<p>in the machine learning, computer science world.</p>
+<p>Again, it&rsquo;s a huge honor.</p>
+<p>Thanks for talking to me.</p>
+<p>It&rsquo;s been a pleasure.</p>
+<p>Thanks a lot for having me.</p>
+<p>We appreciate it.</p>
+<p>Thanks for listening to this conversation with Francois</p>
+<p>Chollet, and thank you to our sponsors, Babbel, Masterclass,</p>
+<p>and Cash App.</p>
+<p>Click the sponsor links in the description</p>
+<p>to get a discount and to support this podcast.</p>
+<p>If you enjoy this thing, subscribe on YouTube,</p>
+<p>review it with five stars on Apple Podcast,</p>
+<p>follow on Spotify, support on Patreon,</p>
+<p>or connect with me on Twitter at Lex Friedman.</p>
+<p>And now let me leave you with some words</p>
+<p>from René Descartes in 1668, an excerpt of which Francois</p>
+<p>includes and is on the measure of intelligence paper.</p>
+<p>If there were machines which bore a resemblance</p>
+<p>to our bodies and imitated our actions as closely as possible</p>
+<p>for all practical purposes, we should still</p>
+<p>have two very certain means of recognizing</p>
+<p>that they were not real men.</p>
+<p>The first is that they could never use words or put together</p>
+<p>signs, as we do in order to declare our thoughts to others.</p>
+<p>For we can certainly conceive of a machine so constructed</p>
+<p>that it utters words and even utters</p>
+<p>words that correspond to bodily actions causing</p>
+<p>a change in its organs.</p>
+<p>But it is not conceivable that such a machine should produce</p>
+<p>different arrangements of words so as</p>
+<p>to give an appropriately meaningful answer to whatever</p>
+<p>is said in its presence as the dullest of men can do.</p>
+<p>Here, Descartes is anticipating the Turing test,</p>
+<p>and the argument still continues to this day.</p>
+<p>Secondly, he continues, even though some machines might</p>
+<p>do some things as well as we do them, or perhaps even better,</p>
+<p>they would inevitably fail in others,</p>
+<p>which would reveal that they are acting not from understanding</p>
+<p>but only from the disposition of their organs.</p>
+<p>This is an incredible quote.</p>
+<p>Whereas reason is a universal instrument</p>
+<p>which can be used in all kinds of situations,</p>
+<p>these organs need some particular action.</p>
+<p>Hence, it is for all practical purposes</p>
+<p>impossible for a machine to have enough different organs</p>
+<p>to make it act in all the contingencies of life</p>
+<p>and the way in which our reason makes us act.</p>
+<p>That&rsquo;s the debate between mimicry and memorization</p>
+<p>versus understanding.</p>
+<p>So thank you for listening and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

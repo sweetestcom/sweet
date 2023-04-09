@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Leslie Kaelbling. She is a roboticist and professor at
+MIT. She is recognized for her work in reinforcement learning, planning, robot navigation, and several
+other topics in AI. She won the IJCAI Computers and Thought Award and was the editor in chief
+of the prestigious Journal of Machine Learning Research. This conversation is part of the
+Artificial Intelligence podcast at MIT and beyond. If you enjoy it, subscribe on YouTube,'>
+<title>Lex Fridman Podcast - #15 - Leslie Kaelbling: Reinforcement Learning, Planning, and Robotics | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500015/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #15 - Leslie Kaelbling: Reinforcement Learning, Planning, and Robotics'>
+<meta property='og:description' content='The following is a conversation with Leslie Kaelbling. She is a roboticist and professor at
+MIT. She is recognized for her work in reinforcement learning, planning, robot navigation, and several
+other topics in AI. She won the IJCAI Computers and Thought Award and was the editor in chief
+of the prestigious Journal of Machine Learning Research. This conversation is part of the
+Artificial Intelligence podcast at MIT and beyond. If you enjoy it, subscribe on YouTube,'>
+<meta property='og:url' content='https://swiest.com/en/1310500015/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-03-15T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-15T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #15 - Leslie Kaelbling: Reinforcement Learning, Planning, and Robotics">
+<meta name="twitter:description" content="The following is a conversation with Leslie Kaelbling. She is a roboticist and professor at
+MIT. She is recognized for her work in reinforcement learning, planning, robot navigation, and several
+other topics in AI. She won the IJCAI Computers and Thought Award and was the editor in chief
+of the prestigious Journal of Machine Learning Research. This conversation is part of the
+Artificial Intelligence podcast at MIT and beyond. If you enjoy it, subscribe on YouTube,">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500015/">Lex Fridman Podcast - #15 - Leslie Kaelbling: Reinforcement Learning, Planning, and Robotics</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-03-15</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    49 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Leslie Kaelbling. She is a roboticist and professor at</p>
+<p>MIT. She is recognized for her work in reinforcement learning, planning, robot navigation, and several</p>
+<p>other topics in AI. She won the IJCAI Computers and Thought Award and was the editor in chief</p>
+<p>of the prestigious Journal of Machine Learning Research. This conversation is part of the</p>
+<p>Artificial Intelligence podcast at MIT and beyond. If you enjoy it, subscribe on YouTube,</p>
+<p>iTunes, or simply connect with me on Twitter at Lex Friedman, spelled F R I D.</p>
+<p>And now, here&rsquo;s my conversation with Leslie Kaelbling.</p>
+<p>What made me get excited about AI, I can say that, is I read Gödel Escher Bach when I was</p>
+<p>in high school. That was pretty formative for me because it exposed the interestingness of</p>
+<p>primitives and combination and how you can make complex things out of simple parts</p>
+<p>and ideas of AI and what kinds of programs might generate intelligent behavior. So&hellip;</p>
+<p>So you first fell in love with AI reasoning logic versus robots?</p>
+<p>Yeah, the robots came because my first job, so I finished an undergraduate degree in philosophy</p>
+<p>at Stanford and was about to finish a master&rsquo;s in computer science. And I got hired at SRI</p>
+<p>in their AI lab and they were building a robot. It was a kind of a follow on to shaky,</p>
+<p>but all the shaky people were not there anymore. And so my job was to try to get this robot to</p>
+<p>do stuff. And that&rsquo;s really kind of what got me interested in robots.</p>
+<p>So maybe taking a small step back to your bachelor&rsquo;s in Stanford in philosophy,</p>
+<p>did master&rsquo;s and PhD in computer science, but the bachelor&rsquo;s in philosophy. So what was that</p>
+<p>journey like? What elements of philosophy do you think you bring to your work in computer science?</p>
+<p>So it&rsquo;s surprisingly relevant. So the part of the reason that I didn&rsquo;t do a computer</p>
+<p>science undergraduate degree was that there wasn&rsquo;t one at Stanford at the time,</p>
+<p>but that there&rsquo;s a part of philosophy and in fact, Stanford has a special submajor in</p>
+<p>something called now symbolic systems, which is logic, model theory, formal semantics of</p>
+<p>natural language. And so that&rsquo;s actually a perfect preparation for work in AI and computer science.</p>
+<p>That&rsquo;s kind of interesting. So if you were interested in artificial intelligence,</p>
+<p>what kind of majors were people even thinking about taking? What is it in your science?</p>
+<p>So besides philosophies, what were you supposed to do if you were fascinated by the idea of creating</p>
+<p>intelligence? There weren&rsquo;t enough people who did that for that even to be a conversation.</p>
+<p>I mean, I think probably, probably philosophy. I mean, it&rsquo;s interesting in my class,</p>
+<p>my graduating class of undergraduate philosophers, probably maybe slightly less than half went on in</p>
+<p>computer science, slightly less than half went on in law and like one or two went on in philosophy.</p>
+<p>So it was a common kind of connection. Do you think AI researchers have a role</p>
+<p>to be part time philosophers or should they stick to the solid science and engineering</p>
+<p>without sort of taking the philosophizing tangents? I mean, you work with robots,</p>
+<p>you think about what it takes to create intelligent beings. Aren&rsquo;t you the perfect</p>
+<p>person to think about the big picture philosophy at all? The parts of philosophy that are closest</p>
+<p>to AI, I think, or at least the closest to AI that I think about are stuff like</p>
+<p>belief and knowledge and denotation and that kind of stuff. And that&rsquo;s, you know,</p>
+<p>it&rsquo;s quite formal. And it&rsquo;s like just one step away from the kinds of computer science work that</p>
+<p>we do kind of routinely. I think that there are important questions still about what you can do</p>
+<p>with a machine and what you can&rsquo;t and so on. Although at least my personal view is that I&rsquo;m</p>
+<p>completely a materialist. And I don&rsquo;t think that there&rsquo;s any reason why we can&rsquo;t make a robot be</p>
+<p>behaviorally indistinguishable from a human. And the question of whether it&rsquo;s</p>
+<p>distinguishable internally, whether it&rsquo;s a zombie or not in philosophy terms, I actually don&rsquo;t,</p>
+<p>I don&rsquo;t know. And I don&rsquo;t know if I care too much about that.</p>
+<p>Right. But there is a philosophical notions. They&rsquo;re mathematical and philosophical because</p>
+<p>we don&rsquo;t know so much of how difficult it is. How difficult is the perception problem?</p>
+<p>How difficult is the planning problem? How difficult is it to operate in this world successfully?</p>
+<p>Because our robots are not currently as successful as human beings in many tasks.</p>
+<p>The question about the gap between current robots and human beings borders a little bit</p>
+<p>on philosophy. You know, the expanse of knowledge that&rsquo;s required to operate in a human world,</p>
+<p>required to operate in this world and the ability to form common sense knowledge, the ability to</p>
+<p>reason about uncertainty. Much of the work you&rsquo;ve been doing, there&rsquo;s open questions there that,</p>
+<p>I don&rsquo;t know, required to activate a certain big picture view.</p>
+<p>To me, that doesn&rsquo;t seem like a philosophical gap at all. To me, there is a big technical gap.</p>
+<p>There&rsquo;s a huge technical gap, but I don&rsquo;t see any reason why it&rsquo;s more than a technical gap.</p>
+<p>Perfect. So, when you mentioned AI, you mentioned SRI, and maybe can you describe to me when you</p>
+<p>first fell in love with robotics, with robots or inspired, so you mentioned Flaky or Shaky Flaky,</p>
+<p>and what was the robot that first captured your imagination, what&rsquo;s possible?</p>
+<p>Right. Well, so the first robot I worked with was Flaky. Shaky was a robot that the SRI</p>
+<p>people had built, but by the time, I think when I arrived, it was sitting in a corner of somebody&rsquo;s</p>
+<p>office dripping hydraulic fluid into a pan, but it&rsquo;s iconic and really everybody should read the</p>
+<p>Shaky Tech Report because it has so many good ideas in it. I mean, they invented ASTAR search</p>
+<p>and symbolic planning and learning macro operators. They had low level kind of</p>
+<p>configuration space planning for their robot. They had vision. That&rsquo;s the basic ideas of</p>
+<p>a ton of things. Can you take a step back? Shaky have arms. What was the job? Shaky was a mobile</p>
+<p>robot, but it could push objects, and so it would move things around. With which actuator? With</p>
+<p>itself, with its base. Okay, great. And they had painted the baseboards black, so it used vision</p>
+<p>to localize itself in a map. It detected objects. It could detect objects that were surprising to</p>
+<p>it. It would plan and replan based on what it saw. It reasoned about whether to look and take</p>
+<p>pictures. I mean, it really had the basics of so many of the things that we think about now.</p>
+<p>How did it represent the space around it? So it had representations at a bunch of different levels</p>
+<p>of abstraction. So it had, I think, a kind of an occupancy grid of some sort at the lowest level.</p>
+<p>At the high level, it was abstract symbolic kind of rooms and connectivity. So where does flaky</p>
+<p>come in? Yeah, okay. So I showed up at SRI and we were building a brand new robot. As I said,</p>
+<p>none of the people from the previous project were kind of there or involved anymore. So we were kind</p>
+<p>of starting from scratch and my advisor was Stan Rosenstein. He ended up being my thesis advisor</p>
+<p>and he was motivated by this idea of situated computation or situated automata. And the idea was</p>
+<p>that the tools of logical reasoning were important, but possibly only for the engineers</p>
+<p>or designers to use in the analysis of a system, but not necessarily to be manipulated in the head</p>
+<p>of the system itself. So I might use logic to prove a theorem about the behavior of my robot,</p>
+<p>even if the robot&rsquo;s not using logic in its head to prove theorems. So that was kind of the</p>
+<p>distinction. And so the idea was to kind of use those principles to make a robot do stuff. But</p>
+<p>a lot of the basic things we had to kind of learn for ourselves because I had zero background in</p>
+<p>robotics. I didn&rsquo;t know anything about control. I didn&rsquo;t know anything about sensors. So we</p>
+<p>reinvented a lot of wheels on the way to getting that robot to do stuff. Do you think that was</p>
+<p>an advantage or a hindrance? Oh no, I mean, I&rsquo;m big in favor of wheel reinvention actually. I mean,</p>
+<p>I think you learn a lot by doing it. It&rsquo;s important though to eventually have the pointers</p>
+<p>to, so that you can see what&rsquo;s really going on. But I think you can appreciate much better the</p>
+<p>good solutions once you&rsquo;ve messed around a little bit on your own and found a bad one.</p>
+<p>Yeah. I think you mentioned reinventing reinforcement learning and referring to</p>
+<p>rewards as pleasures, pleasure. Yeah. Or I think, which I think is a nice name for it.</p>
+<p>Yeah. It&rsquo;s more fun almost. Do you think you could tell the history of AI machine learning</p>
+<p>reinforcement learning and how you think about it from the fifties to now?</p>
+<p>One thing is that it&rsquo;s oscillates, right? So things become fashionable and then they go out</p>
+<p>and then something else becomes cool and that goes out and so on. And I think there&rsquo;s, so there&rsquo;s</p>
+<p>some interesting sociological process that actually drives a lot of what&rsquo;s going on.</p>
+<p>Early days was kind of cybernetics and control, right? And the idea that of homeostasis,</p>
+<p>right? People have made these robots that could, I don&rsquo;t know, try to plug into the wall when they</p>
+<p>needed power and then come loose and roll around and do stuff. And then I think over time, the</p>
+<p>thought, well, that was inspiring, but people said, no, no, no, we want to get maybe closer to what</p>
+<p>feels like real intelligence or human intelligence. And then maybe the expert systems people tried</p>
+<p>to do that, but maybe a little too superficially, right? So, oh, we get the surface understanding of</p>
+<p>what intelligence is like, because I understand how a steel mill works and I can try to explain</p>
+<p>it to you and you can write it down in logic and then we can make a computer and for that.</p>
+<p>And then that didn&rsquo;t work out. But what&rsquo;s interesting, I think, is when a thing starts to not</p>
+<p>be working very well, it&rsquo;s not only do we change methods, we change problems, right? So it&rsquo;s not</p>
+<p>like we have better ways of doing the problem of the expert systems people were trying to do. We</p>
+<p>have no ways of trying to do that problem. Oh, yeah, no, I think maybe a few, but we kind of</p>
+<p>give up on that problem and we switched to a different problem and we worked that for a while</p>
+<p>and we make progress. As a broad community. As a community, yeah. And there&rsquo;s a lot of people who</p>
+<p>would argue, you don&rsquo;t give up on the problem, it&rsquo;s just you decrease the number of people working</p>
+<p>on it. You almost kind of like put it on the shelf, say, we&rsquo;ll come back to this 20 years later.</p>
+<p>Yeah, I think that&rsquo;s right. Or you might decide that it&rsquo;s malformed. Like you might say,</p>
+<p>it&rsquo;s wrong to just try to make something that does superficial symbolic reasoning</p>
+<p>behave like a doctor. You can&rsquo;t do that until you&rsquo;ve had the sensory motor experience of being</p>
+<p>a doctor or something. So there&rsquo;s arguments that say that that problem was not well formed. Or it</p>
+<p>could be that it is well formed, but we just weren&rsquo;t approaching it well. So you mentioned</p>
+<p>that your favorite part of logic and symbolic systems is that they give short names for large</p>
+<p>sets. So there is some use to this. They use symbolic reasoning. So looking at expert systems</p>
+<p>and symbolic computing, what do you think are the roadblocks that were hit in the 80s and 90s?</p>
+<p>Ah, okay. So right. So the fact that I&rsquo;m not a fan of expert systems doesn&rsquo;t mean that I&rsquo;m not a</p>
+<p>fan of some kinds of symbolic reasoning, right? So let&rsquo;s see, roadblocks. Well, the main road</p>
+<p>block, I think, was that the idea that humans could articulate their knowledge effectively</p>
+<p>into some kind of logical statements.</p>
+<p>So it&rsquo;s not just the cost, the effort, but really just the capability of doing it.</p>
+<p>Right. Because we&rsquo;re all experts in vision, right? But totally don&rsquo;t have introspective</p>
+<p>access into how we do that. Right. And it&rsquo;s true that, I mean, I think the idea was, well,</p>
+<p>of course, even people then would know, of course, I wouldn&rsquo;t ask you to please write</p>
+<p>down the rules that you use for recognizing a water bottle. That&rsquo;s crazy. And everyone</p>
+<p>understood that. But we might ask you to please write down the rules you use for deciding,</p>
+<p>I don&rsquo;t know, what tie to put on or how to set up a microphone or something like that.</p>
+<p>But even those things, I think people maybe, I think what they found, I&rsquo;m not sure about</p>
+<p>this, but I think what they found was that the so called experts could give explanations</p>
+<p>that sort of post hoc explanations for how and why they did things, but they weren&rsquo;t</p>
+<p>necessarily very good. And then they depended on maybe some kinds of perceptual things,</p>
+<p>which again, they couldn&rsquo;t really define very well. So I think fundamentally, I think the</p>
+<p>underlying problem with that was the assumption that people could articulate how and why they</p>
+<p>make their decisions. Right. So it&rsquo;s almost encoding the knowledge</p>
+<p>from converting from expert to something that a machine could understand and reason with.</p>
+<p>No, no, no, no, not even just encoding, but getting it out of you.</p>
+<p>Right. Not, not, not writing it. I mean, yes, hard also to write it down for the computer,</p>
+<p>but I don&rsquo;t think that people can produce it. You can tell me a story about why you do stuff,</p>
+<p>but I&rsquo;m not so sure that&rsquo;s the why. Great. So there are still on the</p>
+<p>hierarchical planning side, places where symbolic reasoning is very useful. So as you&rsquo;ve talked</p>
+<p>about, so where&rsquo;s the gap? Yeah. Okay, good. So saying that humans can&rsquo;t provide a description</p>
+<p>of their reasoning processes. That&rsquo;s okay. Fine. But that doesn&rsquo;t mean that it&rsquo;s not good to do</p>
+<p>reasoning of various styles inside a computer. Those are just two orthogonal points. So then</p>
+<p>the question is what kind of reasoning should you do inside a computer? Right.</p>
+<p>And the answer is, I think you need to do all different kinds of reasoning inside a computer,</p>
+<p>depending on what kinds of problems you face. I guess the question is what kind of things can you</p>
+<p>encode symbolically so you can reason about? I think the idea about, and even symbolic,</p>
+<p>I don&rsquo;t even like that terminology because I don&rsquo;t know what it means technically and formally.</p>
+<p>I do believe in abstractions. So abstractions are critical, right? You cannot reason at completely</p>
+<p>fine grain about everything in your life, right? You can&rsquo;t make a plan at the level of images and</p>
+<p>torques for getting a PhD. So you have to reduce the size of the state space and you have to reduce</p>
+<p>the horizon if you&rsquo;re going to reason about getting a PhD or even buying the ingredients to</p>
+<p>make dinner. And so how can you reduce the spaces and the horizon of the reasoning you have to do?</p>
+<p>And the answer is abstraction, spatial abstraction, temporal abstraction. I think abstraction along</p>
+<p>the lines of goals is also interesting, like you might, well, abstraction and decomposition. Goals</p>
+<p>is maybe more of a decomposition thing. So I think that&rsquo;s where these kinds of, if you want to call</p>
+<p>it symbolic or discrete models come in. You talk about a room of your house instead of your pose.</p>
+<p>You talk about doing something during the afternoon instead of at 2.54. And you do that because it</p>
+<p>and you do that because it makes your reasoning problem easier. And also because</p>
+<p>you have, you don&rsquo;t have enough information to reason in high fidelity about your pose of your</p>
+<p>elbow at 2.35 this afternoon anyway. Right. When you&rsquo;re trying to get a PhD.</p>
+<p>Or when you&rsquo;re doing anything really. Yeah. Okay.</p>
+<p>Except for at that moment, at that moment, you do have to reason about the pose of your elbow,</p>
+<p>maybe, but then you, maybe you do that in some continuous joint space kind of model.</p>
+<p>And so again, I, my biggest point about all of this is that there should be the dogma is not</p>
+<p>the thing, right? We shouldn&rsquo;t, it shouldn&rsquo;t be that I&rsquo;m in favor against symbolic reasoning</p>
+<p>and you&rsquo;re in favor against neural networks. It should be that just, just computer science</p>
+<p>tells us what the right answer to all these questions is. If we were smart enough to figure</p>
+<p>it out. Well, yeah. When you try to actually solve the problem with computers, the right answer comes</p>
+<p>out. But you mentioned abstractions. I mean, neural networks form abstractions or rather</p>
+<p>there&rsquo;s, there&rsquo;s automated ways to form abstractions and there&rsquo;s expert driven ways to</p>
+<p>form abstractions and expert human driven ways. And humans just seem to be way better at forming</p>
+<p>abstractions currently and certain problems. So when you&rsquo;re referring to 2.45 PM versus afternoon,</p>
+<p>how do we construct that taxonomy? Is there any room for automated construction of such</p>
+<p>abstractions? Oh, I think eventually, yeah. I mean, I think when we get to be better</p>
+<p>and machine learning engineers, we&rsquo;ll build algorithms that build awesome abstractions.</p>
+<p>That are useful in this kind of way that you&rsquo;re describing. Yeah. So let&rsquo;s then step from</p>
+<p>the, the abstraction discussion and let&rsquo;s talk about POMM MDPs. Partially observable</p>
+<p>Markov decision processes. So uncertainty. So first, what are Markov decision processes?</p>
+<p>What are Markov decision processes? And maybe how much of our world can be models and MDPs? How</p>
+<p>much, when you wake up in the morning and you&rsquo;re making breakfast, how do you, do you think of</p>
+<p>yourself as an MDP? So how do you think about MDPs and how they relate to our world? Well, so</p>
+<p>there&rsquo;s a stance question, right? So a stance is a position that I take with respect to a problem.</p>
+<p>So I, as a researcher or a person who designs systems, can decide to make a model of the world</p>
+<p>around me in some terms. So I take this messy world and I say, I&rsquo;m going to treat it as if it</p>
+<p>were a problem of this formal kind, and then I can apply solution concepts or algorithms or whatever</p>
+<p>to solve that formal thing, right? So of course the world is not anything. It&rsquo;s not an MDP or a</p>
+<p>POMM DP. I don&rsquo;t know what it is, but I can model aspects of it in some way or some other way.</p>
+<p>And when I model some aspect of it in a certain way, that gives me some set of algorithms I can</p>
+<p>use. You can model the world in all kinds of ways. Some have, some are, some are, some are</p>
+<p>more accepting of uncertainty, more easily modeling uncertainty of the world. Some really force the</p>
+<p>world to be deterministic. And so certainly MDPs model the uncertainty of the world. Yes. Model</p>
+<p>some uncertainty. They model not present state uncertainty, but they model uncertainty in the</p>
+<p>way the future will unfold. Right. So what are Markov decision processes? So Markov decision</p>
+<p>process is a model. It&rsquo;s a kind of a model that you could make that says, I know completely the</p>
+<p>current state of my system. And what it means to be a state is that I, that all the, I have all</p>
+<p>the information right now that will let me make predictions about the future as well as I can.</p>
+<p>So that remembering anything about my history wouldn&rsquo;t make my predictions any better.</p>
+<p>And, but then it also says that then I can take some actions that might change the state of the</p>
+<p>world. And that I don&rsquo;t have a deterministic model of those changes. I have a probabilistic</p>
+<p>model of how the world might change. It&rsquo;s a, it&rsquo;s a useful model for some kinds of systems.</p>
+<p>I think it&rsquo;s a, I mean, it&rsquo;s certainly not a good model for most problems, I think, because for most</p>
+<p>problems you don&rsquo;t actually know the state. For most problems you, it&rsquo;s partially observed. So</p>
+<p>that&rsquo;s now a different problem class. So, okay. That&rsquo;s where the POMDPs, the part that we observe</p>
+<p>with the Markov decision processes step in. So how do they address the fact that you can&rsquo;t</p>
+<p>observe most incomplete information about most of the world around you? Right. So now the idea is</p>
+<p>we still kind of postulate that there exists a state. We think that there is some information</p>
+<p>about the world out there such that if we knew that we could make good predictions, but we don&rsquo;t</p>
+<p>know the state. And so then we have to think about how, but we do get observations. Maybe I get</p>
+<p>images or I hear things or I feel things, and those might be local or noisy. And so therefore</p>
+<p>they don&rsquo;t tell me everything about what&rsquo;s going on. And then I have to reason about given the</p>
+<p>history of actions I&rsquo;ve taken and observations I&rsquo;ve gotten, what do I think is going on in the</p>
+<p>world? And then given my own kind of uncertainty about what&rsquo;s going on in the world, I can decide</p>
+<p>what actions to take. And so how difficult is this problem of planning under uncertainty in your</p>
+<p>view and your long experience of modeling the world, trying to deal with this uncertainty in</p>
+<p>especially in real world systems? Optimal planning for even discrete POMDPs can be undecidable</p>
+<p>depending on how you set it up. And so lots of people say, I don&rsquo;t use POMDPs because they are</p>
+<p>intractable. And I think that that&rsquo;s kind of a very funny thing to say because the problem you</p>
+<p>have to solve is the problem you have to solve. So if the problem you have to solve is intractable,</p>
+<p>that&rsquo;s what makes us AI people, right? So we solve, we understand that the problem we&rsquo;re</p>
+<p>solving is wildly intractable that we can&rsquo;t, we will never be able to solve it optimally,</p>
+<p>at least I don&rsquo;t. Yeah, right. So later we can come back to an idea about bounded optimality</p>
+<p>and something. But anyway, we can&rsquo;t come up with optimal solutions to these problems.</p>
+<p>So we have to make approximations, approximations in modeling, approximations in the solution</p>
+<p>algorithms and so on. And so I don&rsquo;t have a problem with saying, yeah, my problem actually,</p>
+<p>it is POMDP in continuous space with continuous observations. And it&rsquo;s so computationally complex,</p>
+<p>I can&rsquo;t even think about it&rsquo;s, you know, big O whatever. But that doesn&rsquo;t prevent me from,</p>
+<p>it helps me, gives me some clarity to think about it that way and to then take steps to</p>
+<p>make approximation after approximation to get down to something that&rsquo;s like computable</p>
+<p>in some reasonable time. When you think about optimality, the community broadly has shifted on</p>
+<p>that, I think a little bit in how much they value the idea of optimality, of chasing an optimal</p>
+<p>solution. How has your views of chasing an optimal solution changed over the years when</p>
+<p>you work with robots? That&rsquo;s interesting. I think we have a little bit of a methodological crisis</p>
+<p>actually from the theoretical side. I mean, I do think that theory is important and that right now</p>
+<p>we&rsquo;re not doing much of it. So there&rsquo;s lots of empirical hacking around and training this and</p>
+<p>doing that and reporting numbers, but is it good? Is it bad? We don&rsquo;t know. It&rsquo;s very hard to say</p>
+<p>things. And if you look at like computer science theory, so people talked for a while, everyone was</p>
+<p>about solving problems optimally or completely. And then there were interesting relaxations. So</p>
+<p>people look at, oh, are there regret bounds or can I do some kind of approximation? Can I prove</p>
+<p>something that I can approximately solve this problem or that I get closer to the solution as</p>
+<p>I spend more time and so on? What&rsquo;s interesting I think is that we don&rsquo;t have good approximate</p>
+<p>solution concepts for very difficult problems. I like to say that I&rsquo;m interested in doing a very</p>
+<p>bad job of very big problems. Right. So very bad job, very big problems. I like to do that,</p>
+<p>but I wish I could say something. I wish I had a, I don&rsquo;t know, some kind of a formal solution</p>
+<p>concept that I could use to say, oh, this algorithm actually, it gives me something.</p>
+<p>Like I know what I&rsquo;m going to get. I can do something other than just run it and get out.</p>
+<p>So that, that notion is still somewhere deeply compelling to you. The notion that you can say,</p>
+<p>you can drop thing on the table says this, you can expect this, this algorithm will</p>
+<p>give me some good results. I hope there&rsquo;s, I hope science will, I mean,</p>
+<p>there&rsquo;s engineering and there&rsquo;s science. I think that they&rsquo;re not exactly the same.</p>
+<p>And I think right now we&rsquo;re making huge engineering, like leaps and bounds. So the</p>
+<p>engineering is running away ahead of the science, which is cool. And often how it goes, right? So</p>
+<p>we&rsquo;re making things and nobody knows how and why they work roughly, but we need to turn that into</p>
+<p>science. There&rsquo;s some form. It&rsquo;s a, yeah, there&rsquo;s some room for formalizing. We need to know what</p>
+<p>the principles are. Why does this work? Why does that not work? I mean, for a while, people built</p>
+<p>bridges by trying, but now we can often predict whether it&rsquo;s going to work or not without building</p>
+<p>it. Can we do that for learning systems or for robots? So your hope is from a materialistic</p>
+<p>perspective that intelligence, artificial intelligence systems, robots are just fancier</p>
+<p>bridges. Belief space. What&rsquo;s the difference between belief space and state space? So you</p>
+<p>mentioned MDPs, FOMDPs, reasoning about, you sense the world, there&rsquo;s a state.</p>
+<p>Uh, what, what&rsquo;s this belief space idea? That sounds so good.</p>
+<p>It sounds good. So belief space, that is instead of thinking about what&rsquo;s the state of the world</p>
+<p>and trying to control that as a robot, I think about what is the space of beliefs that I could</p>
+<p>have about the world. What&rsquo;s, if I think of a belief as a probability distribution of our ways</p>
+<p>the world could be, a belief state is a distribution. And then my control problem, if I&rsquo;m reasoning</p>
+<p>about how to move through a world I&rsquo;m uncertain about, my control problem is actually the problem</p>
+<p>of controlling my beliefs. So I think about taking actions, not just what effect they&rsquo;ll have on the</p>
+<p>world outside, but what effect they&rsquo;ll have on my own understanding of the world outside. And so</p>
+<p>that might compel me to ask a question or look somewhere to gather information, which may not</p>
+<p>really change the world state, but it changes my own belief about the world. That&rsquo;s a powerful way</p>
+<p>to, to empower the agent, to reason about the world, to explore the world. So what kind of</p>
+<p>problems does it allow you to solve to, to consider belief space versus just state space?</p>
+<p>Well, any problem that requires deliberate information gathering, right? So if in some</p>
+<p>problems like chess, there&rsquo;s no uncertainty, or maybe there&rsquo;s uncertainty about the opponent,</p>
+<p>there&rsquo;s no uncertainty about the state. And some problems, there&rsquo;s uncertainty,</p>
+<p>but you gather information as you go, right? You might say, Oh, I&rsquo;m driving my autonomous car down</p>
+<p>the road and it doesn&rsquo;t know perfectly where it is, but the light hours are all going all the time.</p>
+<p>So I don&rsquo;t have to think about whether to gather information. But if you&rsquo;re a human driving down</p>
+<p>the road, you sometimes look over your shoulder to see what&rsquo;s going on behind you in the lane.</p>
+<p>And you have to decide whether you should do that now. And you have to trade off the fact that</p>
+<p>you&rsquo;re not seeing in front of you and you&rsquo;re looking behind you and how valuable is that</p>
+<p>information and so on. And so to make choices about information gathering, you have to reasonably</p>
+<p>space. Also, I mean, also to just take into account your own uncertainty before trying to</p>
+<p>do things. So you might say, if I understand where I&rsquo;m standing relative to the door jam,</p>
+<p>pretty accurately, then it&rsquo;s okay for me to go through the door. But if I&rsquo;m really</p>
+<p>not sure where the door is, then it might be better to not do that right now.</p>
+<p>The degree of your uncertainty about the world is actually part of the thing you&rsquo;re trying to</p>
+<p>optimize in forming the plan, right? So this idea of a long horizon of planning for a PhD or just</p>
+<p>even how to get out of the house or how to make breakfast. You show this presentation of the WTF,</p>
+<p>where&rsquo;s the fork of robot looking at a sink. And can you describe how we plan in this world</p>
+<p>of this idea of hierarchical planning we&rsquo;ve mentioned? So yeah, how can a robot hope to</p>
+<p>plan about something with such a long horizon where the goal is quite far away?</p>
+<p>People since probably reasoning began have thought about hierarchical reasoning,</p>
+<p>the temporal hierarchy in particular. Well, there&rsquo;s spatial hierarchy, but let&rsquo;s talk</p>
+<p>about temporal hierarchy. So you might say, oh, I have this long execution I have to do,</p>
+<p>but I can divide it into some segments abstractly, right? So maybe you have to get out of the house,</p>
+<p>I have to get in the car, I have to drive and so on. And so you can plan if you can build</p>
+<p>abstractions. So this we started out by talking about abstractions. And we&rsquo;re back to that now,</p>
+<p>if you can build abstractions in your state space, and abstractions sort of temporal abstractions,</p>
+<p>then you can make plans at a high level. And you can say, I&rsquo;m going to go to town and then I&rsquo;ll</p>
+<p>have to get gas and then I can go here and I can do this other thing. And you can reason about the</p>
+<p>dependencies and constraints among these actions, again, without thinking about the complete</p>
+<p>details. What we do in our hierarchical planning work is then say, all right, I make a plan at a</p>
+<p>high level of abstraction, I have to have some reason to think that it&rsquo;s feasible without working</p>
+<p>it out in complete detail. And that&rsquo;s actually the interesting step. I always like to talk about</p>
+<p>walking through an airport, like you can plan to go to New York and arrive at the airport, and then</p>
+<p>find yourself an office building later. You can&rsquo;t even tell me in advance what your plan is for</p>
+<p>walking through the airport, partly because you&rsquo;re too lazy to think about it, maybe, but partly</p>
+<p>also because you just don&rsquo;t have the information, you don&rsquo;t know what gate you&rsquo;re landing in, or</p>
+<p>what people are going to be in front of you or anything. So there&rsquo;s no point in planning in</p>
+<p>detail, but you have to have, you have to make a leap of faith that you can figure it out once you</p>
+<p>get there. And it&rsquo;s really interesting to me how you arrive at that. How do you, so you have learned</p>
+<p>over your lifetime to be able to make some kinds of predictions about how hard it is to achieve some</p>
+<p>kinds of sub goals. And that&rsquo;s critical. Like you would never plan to fly somewhere if you couldn&rsquo;t,</p>
+<p>didn&rsquo;t have a model of how hard it was to do some of the intermediate steps. So one of the things</p>
+<p>we&rsquo;re thinking about now is how do you do this kind of very aggressive generalization to situations</p>
+<p>that you haven&rsquo;t been in and so on to predict how long will it take to walk through the Kuala Lumpur</p>
+<p>airport. Like you could give me an estimate and it wouldn&rsquo;t be crazy. And you have to have an</p>
+<p>estimate of that in order to make plans that involve walking through the Kuala Lumpur airport,</p>
+<p>even if you don&rsquo;t need to know it in detail. So I&rsquo;m really interested in these kinds of abstract</p>
+<p>models and how do we acquire them. But once we have them, we can use them to do hierarchical</p>
+<p>reasoning, which is, I think is very important. Yeah. There&rsquo;s this notion of goal regression and</p>
+<p>preimage backchaining, this idea of starting at the goal and just forming these big clouds of</p>
+<p>states. I mean, it&rsquo;s almost like saying to the airport, you know, once you show up to the airport</p>
+<p>that you&rsquo;re like a few steps away from the goal. So like thinking of it this way, it&rsquo;s kind of</p>
+<p>interesting. I don&rsquo;t know if you have sort of further comments on that of starting at the goal.</p>
+<p>Yeah. I mean, it&rsquo;s interesting that Simon, Herb Simon back in the early days of AI talked a lot</p>
+<p>about means ends reasoning and reasoning back from the goal. There&rsquo;s a kind of an intuition that</p>
+<p>people have that the number of that state space is big. The number of actions you could take is</p>
+<p>really big. So if you say, here I sit and I want to search forward from where I am, what are all</p>
+<p>the things I could do? That&rsquo;s just overwhelming. If you say, if you can reason at this other level</p>
+<p>and say, here&rsquo;s what I&rsquo;m hoping to achieve, what could I do to make that true? That somehow the</p>
+<p>branching is smaller. Now what&rsquo;s interesting is that like in the AI planning community,</p>
+<p>that hasn&rsquo;t worked out in the class of problems that they look at and the methods that they tend</p>
+<p>to use. It hasn&rsquo;t turned out that it&rsquo;s better to go backward. It&rsquo;s still kind of my intuition that</p>
+<p>it is, but I can&rsquo;t prove that to you right now. Right. I share your intuition, at least for us</p>
+<p>mere humans. Speaking of which, when you maybe now we take a little step into that philosophy circle.</p>
+<p>How hard would it, when you think about human life, you give those examples often. How hard do</p>
+<p>you think it is to formulate human life as a planning problem or aspects of human life? So</p>
+<p>when you look at robots, you&rsquo;re often trying to think about object manipulation,</p>
+<p>tasks about moving a thing. When you take a slight step outside the room, let the robot</p>
+<p>leave and go get lunch, or maybe try to pursue more fuzzy goals. How hard do you think is that</p>
+<p>problem? If you were to try to maybe put another way, try to formulate human life as a planning</p>
+<p>problem. Well, that would be a mistake. I mean, it&rsquo;s not all a planning problem, right? I think</p>
+<p>it&rsquo;s really, really important that we understand that you have to put together pieces and parts</p>
+<p>that have different styles of reasoning and representation and learning. I think it seems</p>
+<p>probably clear to anybody that it can&rsquo;t all be this or all be that. Brains aren&rsquo;t all like this</p>
+<p>or all like that, right? They have different pieces and parts and substructure and so on.</p>
+<p>So I don&rsquo;t think that there&rsquo;s any good reason to think that there&rsquo;s going to be like one true</p>
+<p>algorithmic thing that&rsquo;s going to do the whole job. So it&rsquo;s a bunch of pieces together designed</p>
+<p>to solve a bunch of specific problems. Or maybe styles of problems. I mean, there&rsquo;s probably some</p>
+<p>reasoning that needs to go on in image space. I think, again, there&rsquo;s this model based versus</p>
+<p>model free idea, right? So in reinforcement learning, people talk about, oh, should I learn,</p>
+<p>I could learn a policy, just straight up a way of behaving. I could learn it&rsquo;s popular</p>
+<p>on a value function. That&rsquo;s some kind of weird intermediate ground. Or I could learn a transition</p>
+<p>model, which tells me something about the dynamics of the world. If I take it, imagine that I learned</p>
+<p>a transition model and I couple it with a planner and I draw a box around that, I have a policy</p>
+<p>again. It&rsquo;s just stored a different way, right? But it&rsquo;s just as much of a policy as the other</p>
+<p>policy. It&rsquo;s just I&rsquo;ve made, I think the way I see it is it&rsquo;s a time space trade off in computation,</p>
+<p>right? A more overt policy representation. Maybe it takes more space, but maybe I can</p>
+<p>compute quickly what action I should take. On the other hand, maybe a very compact model of</p>
+<p>the world dynamics plus a planner lets me compute what action to take to just more slowly. There&rsquo;s</p>
+<p>no, I don&rsquo;t, I mean, I don&rsquo;t think there&rsquo;s no argument to be had. It&rsquo;s just like a question of</p>
+<p>what form of computation is best for us for the various sub problems. Right. So, and, and so like</p>
+<p>learning to do algebra manipulations for some reason is, I mean, that&rsquo;s probably gonna want</p>
+<p>naturally a sort of a different representation than writing a unicycle at the time constraints</p>
+<p>on the unicycle are serious. The space is maybe smaller. I don&rsquo;t know, but so I could be the more</p>
+<p>human size of falling in love, having a relationship that might be another, another style of how to</p>
+<p>model that. Yeah. Let&rsquo;s first solve the algebra and the object manipulation. What do you think</p>
+<p>is harder perception or planning perception? That&rsquo;s why understanding that&rsquo;s why. So what do you think</p>
+<p>is so hard about perception by understanding the world around you? Well, I mean, I think the big</p>
+<p>question is representational. Hugely the question is representation. So perception has made great</p>
+<p>strides lately, right? And we can classify images and we can play certain kinds of games and predict</p>
+<p>how to steer the car and all this sort of stuff. Um, I don&rsquo;t think we have a very good idea of</p>
+<p>what perception should deliver, right? So if you, if you believe in modularity, okay, there&rsquo;s,</p>
+<p>there&rsquo;s a very strong view which says we shouldn&rsquo;t build in any modularity. We should make a giant</p>
+<p>gigantic neural network, train it end to end to do the thing. And that&rsquo;s the best way forward.</p>
+<p>And it&rsquo;s hard to argue with that except on a sample complexity basis, right? So you might say,</p>
+<p>Oh, well if I want to do end to end reinforcement learning on this giant, giant neural network,</p>
+<p>it&rsquo;s going to take a lot of data and a lot of like broken robots and stuff. So then the only answer</p>
+<p>is to say, okay, we have to build something in, build in some structure or some bias. We know</p>
+<p>from theory of machine learning, the only way to cut down the sample complexity is to kind of cut</p>
+<p>down, somehow cut down the hypothesis space. You can do that by building in bias. There&rsquo;s all kinds</p>
+<p>of reasons to think that nature built bias into humans. Um, convolution is a bias, right? It&rsquo;s a</p>
+<p>very strong bias and it&rsquo;s a very critical bias. So my own view is that we should look for more</p>
+<p>things that are like convolution, but the address other aspects of reasoning, right? So convolution</p>
+<p>helps us a lot with a certain kind of spatial reasoning. That&rsquo;s quite close to the imaging.</p>
+<p>I think there&rsquo;s other ideas like that. Maybe some amount of forward search, maybe some notions of</p>
+<p>abstraction, maybe the notion that objects exist. Actually, I think that&rsquo;s pretty important. And a</p>
+<p>lot of people won&rsquo;t give you that to start with. Right? So almost like a convolution in the, uh,</p>
+<p>uh, in the object, semantic object space or some kind of, some kind of ideas in there.</p>
+<p>That&rsquo;s right. And people are starting like the graph, graph convolutions are an idea that are</p>
+<p>related to relation, relational representations. And so, so I think there are, so you, I&rsquo;ve come</p>
+<p>I&rsquo;ve come far field from perception, but I think, um, I think the thing that&rsquo;s going to make</p>
+<p>perception that kind of the next step is actually understanding better what it should produce.</p>
+<p>Right? So what are we going to do with the output of it? Right? It&rsquo;s fine when what we&rsquo;re going to</p>
+<p>do with the output is steer. It&rsquo;s less clear when we&rsquo;re just trying to make a one integrated</p>
+<p>intelligent agent, what should the output of perception be? We have no idea. And how should</p>
+<p>that hook up to the other stuff? We don&rsquo;t know. So I think the pressing question is,</p>
+<p>what kinds of structure can we build in that are like the moral equivalent of convolution</p>
+<p>that will make a really awesome superstructure that then learning can kind of progress on</p>
+<p>efficiently. I agree. Very compelling description of actually where we stand with the perception</p>
+<p>problem. You&rsquo;re teaching a course on embodied intelligence. What do you think it takes to</p>
+<p>build a robot with human level intelligence? I don&rsquo;t know if we knew we would do it.</p>
+<p>If you were to, I mean, okay. So do you think a robot needs to have a self awareness,</p>
+<p>consciousness, fear of mortality, or is it, is it simpler than that? Or is consciousness a simple</p>
+<p>thing? Like, do you think about these notions? I don&rsquo;t think much about consciousness. Even</p>
+<p>most philosophers who care about it will give you that you could have robots that are zombies,</p>
+<p>right? That behave like humans, but are not conscious. And I, at this moment would be happy</p>
+<p>enough with that. So I&rsquo;m not really worried one way or the other. So the technical side,</p>
+<p>you&rsquo;re not thinking of the use of self awareness. Well, but I, okay, but then what does self</p>
+<p>awareness mean? I mean, that you need to have some part of the system that can observe other</p>
+<p>parts of the system and tell whether they&rsquo;re working well or not. That seems critical.</p>
+<p>So does that count as, I mean, does that count as self awareness or not? Well, it depends on whether</p>
+<p>you think that there&rsquo;s somebody at home who can articulate whether they&rsquo;re self aware. But clearly,</p>
+<p>if I have like, you know, some piece of code that&rsquo;s counting how many times this procedure gets</p>
+<p>executed, that&rsquo;s a kind of self awareness, right? So there&rsquo;s a big spectrum. It&rsquo;s clear you have to</p>
+<p>have some of it. Right. You know, we&rsquo;re quite far away in many dimensions, but is there a direction</p>
+<p>of research that&rsquo;s most compelling to you for, you know, trying to achieve human level intelligence</p>
+<p>in our robots? Well, to me, I guess the thing that seems most compelling to me at the moment is this</p>
+<p>question of what to build in and what to learn. Um, I think we&rsquo;re, we don&rsquo;t, we&rsquo;re missing a bunch</p>
+<p>of ideas and, and we, you know, people, you know, don&rsquo;t you dare ask me how many years it&rsquo;s going to</p>
+<p>be until that happens because I won&rsquo;t even participate in the conversation because I think</p>
+<p>we&rsquo;re missing ideas and I don&rsquo;t know how long it&rsquo;s going to take to find them. So I won&rsquo;t ask you how</p>
+<p>many years, but, uh, maybe I&rsquo;ll ask you what it, when you&rsquo;ll be sufficiently impressed that we&rsquo;ve</p>
+<p>achieved it. So what&rsquo;s, what&rsquo;s a good test of intelligence? Do you like the Turing test, the</p>
+<p>natural language in the robotic space? Is there something where you would sit back and think,</p>
+<p>Oh, that&rsquo;s, that&rsquo;s pretty impressive. Uh, as a test, as a benchmark, do you think about these</p>
+<p>kinds of problems? No, I resist. I mean, I think all the time that we spend arguing about those</p>
+<p>kinds of things could be better spent just making the robots work better. Uh, so you don&rsquo;t value</p>
+<p>competition. So, I mean, there&rsquo;s a nature of benchmark benchmarks and datasets or Turing</p>
+<p>test challenges where everybody kind of gets together and tries to build a better robot</p>
+<p>cause they want to out compete each other. Like the DARPA challenge with the autonomous vehicles.</p>
+<p>Do you see the value of that or it can get in the way? I think it can get in the way. I mean,</p>
+<p>some people, many people find it motivating. And so that&rsquo;s good. I find it anti motivating</p>
+<p>personally. Uh, but I think what, I mean, I think you get an interesting cycle where for a contest,</p>
+<p>a bunch of smart people get super motivated and they hack their brains out and much of what gets</p>
+<p>done is just hacks, but sometimes really cool ideas emerge. And then that gives us something</p>
+<p>to chew on after that. So I&rsquo;m, it&rsquo;s not a thing for me, but I don&rsquo;t, I don&rsquo;t regret that other</p>
+<p>people do it. Yeah. It&rsquo;s like you said with everything else that it makes us good. So jumping</p>
+<p>topics a little bit, you started the journal of machine learning research and served as its editor</p>
+<p>in chief. Uh, how did the publication come about and what do you think about the current publishing</p>
+<p>model space in machine learning artificial intelligence? Okay, good. So it came about</p>
+<p>because there was a journal called machine learning, which still exists, which was owned by</p>
+<p>Cluer and there was, I was on the editorial board and we used to have these meetings annually where</p>
+<p>we would complain to Cluer that it was too expensive for the libraries and that people</p>
+<p>couldn&rsquo;t publish. And we would really like to have some kind of relief on those fronts and they would</p>
+<p>always sympathize, but not do anything. So, uh, we just decided to make a new journal and, uh,</p>
+<p>there was the journal of AI research, which has, was on the same model, which had been in existence</p>
+<p>for maybe five years or so, and it was going on pretty well. So, uh, we just made a new journal.</p>
+<p>It wasn&rsquo;t, I mean, um, I don&rsquo;t know, I guess it was work, but it wasn&rsquo;t that hard. So basically</p>
+<p>the editorial board, probably 75% of the editorial board of, uh, machine learning resigned and we</p>
+<p>founded the new journal, but it was sort of, it was more open. Yeah. Right. So it&rsquo;s completely</p>
+<p>open. It&rsquo;s open access. Actually, uh, uh, I had a postdoc, George Conidaris who wanted to call</p>
+<p>these journals free for all, uh, because there were, I mean, it both has no page charges and has</p>
+<p>no, uh, uh, access restrictions. And the reason, and so lots of people, I mean, there were, there</p>
+<p>were people who were mad about the existence of this journal who thought it was a fraud or</p>
+<p>something. It would be impossible. They said to run a journal like this with basically, I mean,</p>
+<p>for a long time, I didn&rsquo;t even have a bank account. Uh, I paid for the lawyer to incorporate and the</p>
+<p>IP address and it just did cost a couple of hundred dollars a year to run. It&rsquo;s a little bit</p>
+<p>more now, but not that much more, but that&rsquo;s because I think computer scientists are competent</p>
+<p>and autonomous in a way that many scientists and other fields aren&rsquo;t. I mean, at doing these kinds</p>
+<p>of things, we already types out our own papers. We all have students and people who can hack a</p>
+<p>website together in an afternoon. So the infrastructure for us was like, not a problem,</p>
+<p>but for other people in other fields, it&rsquo;s a harder thing to do. Yeah. And this kind of</p>
+<p>open access journal is nevertheless one of the most prestigious journals. So it&rsquo;s not like, uh,</p>
+<p>prestige and it can be achieved without any of the&hellip; Paper is not required for prestige.</p>
+<p>Yeah. It turns out. Yeah. So on the review process side of actually a long time ago,</p>
+<p>I don&rsquo;t remember when I reviewed a paper where you were also a reviewer. And I remember reading</p>
+<p>your review being influenced by it and it was really well written. It influenced how I write</p>
+<p>feature reviews. Uh, you disagreed with me actually. Uh, and you made it, uh, my review,</p>
+<p>but much better. So, but nevertheless, the review process, you know, has its, uh, flaws.</p>
+<p>And how do you think, what do you think works well? How can it be improved?</p>
+<p>So actually when I started JMLR, I wanted to do something completely different.</p>
+<p>And I didn&rsquo;t because it felt like we needed a traditional journal of record. And so we just</p>
+<p>made JMLR be almost like a normal journal, except for the open access parts of it, basically. Um,</p>
+<p>increasingly of course, publication is not even a sensible word. You can publish something by</p>
+<p>putting it in an archive so I can publish everything tomorrow. So making stuff public</p>
+<p>is, there&rsquo;s no barrier. We still need curation and evaluation. I don&rsquo;t have time to read all</p>
+<p>of archive. And you could argue that kind of social thumbs upping of articles suffices,</p>
+<p>right? You might say, Oh, heck with this. We don&rsquo;t need journals at all. We&rsquo;ll put everything</p>
+<p>on archive and people will upvote and downvote the articles. And then your CV will say, Oh man,</p>
+<p>he got a lot upvotes. So, uh, that&rsquo;s good. Um, but I think there&rsquo;s still</p>
+<p>value in careful reading and commentary of things. And it&rsquo;s hard to tell when people are</p>
+<p>upvoting and downvoting or arguing about your paper on Twitter and Reddit, whether they know</p>
+<p>what they&rsquo;re talking about, right? So then I have the second order problem of trying to decide whose</p>
+<p>opinions I should value and such. So I don&rsquo;t know what I w if I had infinite time, which I don&rsquo;t,</p>
+<p>and I&rsquo;m not going to do this because I really want to make robots work. But if I felt inclined to do</p>
+<p>something more in the publication direction, I would do this other thing, which I thought about</p>
+<p>doing the first time, which is to get together some set of people whose opinions I value and</p>
+<p>who are pretty articulate. And I guess we would be public, although we could be private. I&rsquo;m not sure.</p>
+<p>And we would review papers. We wouldn&rsquo;t publish them and you wouldn&rsquo;t submit them. We would just</p>
+<p>find papers and we would write reviews and we would make those reviews public. And maybe if you,</p>
+<p>you know, so we&rsquo;re Leslie&rsquo;s friends who review papers and maybe eventually if, if we, our opinion</p>
+<p>was sufficiently valued, like the opinion of JMLR is valued, then you&rsquo;d say on your CV that Leslie&rsquo;s</p>
+<p>friends gave my paper a five star rating. And that would be just as good as saying, I got it,</p>
+<p>so, you know, accepted into this journal. So I think, I think we should have good public commentary</p>
+<p>and organize it in some way, but I don&rsquo;t really know how to do it. It&rsquo;s interesting times.</p>
+<p>The way you describe it actually is really interesting. I mean, we do it for movies,</p>
+<p>imdb.com. There&rsquo;s experts, critics come in, they write reviews, but there&rsquo;s also</p>
+<p>regular non critics, humans write reviews and they&rsquo;re separated.</p>
+<p>I like open review. The iClear process I think is interesting.</p>
+<p>It&rsquo;s a step in the right direction, but it&rsquo;s still not as compelling as reviewing movies or</p>
+<p>video games. I mean, it sometimes almost, it might be silly, at least from my perspective to say,</p>
+<p>but it boils down to the user interface, how fun and easy it is to actually perform the reviews,</p>
+<p>how efficient, how much you as a reviewer get street cred for being a good reviewer.</p>
+<p>Those elements, those human elements come into play.</p>
+<p>No, it&rsquo;s a big investment to do a good review of a paper and the flood of papers is out of control.</p>
+<p>Right. So, you know, there aren&rsquo;t 3000 new, I don&rsquo;t know how many new movies are there in a year.</p>
+<p>I don&rsquo;t know, but that&rsquo;s probably going to be less than how many machine learning papers are</p>
+<p>in a year now. And I&rsquo;m worried, you know, I, right. So I&rsquo;m like an old person. So of course,</p>
+<p>I&rsquo;m going to say, things are moving too fast. I&rsquo;m a stick in the mud. So I can say that,</p>
+<p>but my particular flavor of that is I think the horizon for researchers has gotten very short,</p>
+<p>that students want to publish a lot of papers and there&rsquo;s a huge, there&rsquo;s value. It&rsquo;s exciting. And</p>
+<p>there&rsquo;s value in that and you get patted on the head for it and so on. But, and some of that is</p>
+<p>fine, but I&rsquo;m worried that we&rsquo;re driving out people who would spend two years thinking about</p>
+<p>something. Back in my day, when we worked on our thesis, we did not publish papers. You did your</p>
+<p>thesis for years. You picked a hard problem and then you worked and chewed on it and did stuff</p>
+<p>and wasted time and for a long time. And when it was roughly, when it was done, you would write</p>
+<p>papers. And so I don&rsquo;t know how to, and I don&rsquo;t think that everybody has to work in that mode,</p>
+<p>but I think there&rsquo;s some problems that are hard enough that it&rsquo;s important to have a long</p>
+<p>research horizon. And I&rsquo;m worried that we don&rsquo;t incentivize that at all at this point.</p>
+<p>In this current structure. Yeah. So what do you see as, what are your hopes and fears about the</p>
+<p>future of AI and continuing on this theme? So AI has gone through a few winters, ups and downs. Do</p>
+<p>you see another winter of AI coming? Are you more hopeful about making robots work, as you said?</p>
+<p>I think the cycles are inevitable, but I think each time we get higher, right? I mean, so, you</p>
+<p>know, it&rsquo;s like climbing some kind of landscape with a noisy optimizer. So it&rsquo;s clear that the,</p>
+<p>you know, the deep learning stuff has made deep and important improvements. And so the high water</p>
+<p>mark is now higher. There&rsquo;s no question. But of course, I think people are overselling and</p>
+<p>eventually investors, I guess, and other people will look around and say, well, you&rsquo;re not quite</p>
+<p>delivering on this grand claim and that wild hypothesis. It&rsquo;s probably, it&rsquo;s going to crash</p>
+<p>some amount and then it&rsquo;s okay. I mean, but I don&rsquo;t, I can&rsquo;t imagine that there&rsquo;s like</p>
+<p>some awesome monotonic improvement from here to human level AI. So in, you know, I have to ask</p>
+<p>this question, I probably anticipate answers, the answers, but do you have a worry short term or</p>
+<p>long term about the existential threats of AI and maybe short term, less existential, but more</p>
+<p>robots taking away jobs?</p>
+<p>Well, actually, let me talk a little bit about utility. Actually, I had an interesting</p>
+<p>conversation with some military ethicists who wanted to talk to me about autonomous weapons.</p>
+<p>And they&rsquo;re, they were interesting, smart, well educated guys who didn&rsquo;t know too much about AI</p>
+<p>or machine learning. And the first question they asked me was, has your robot ever done</p>
+<p>something you didn&rsquo;t expect? And I like burst out laughing because anybody who&rsquo;s ever done</p>
+<p>something on the robot right knows that they don&rsquo;t do it. And what I realized was that their</p>
+<p>model of how we program a robot was completely wrong. Their model of how we can program a robot</p>
+<p>was like Lego mind storms, like, Oh, go forward a meter, turn left, take a picture, do this, do</p>
+<p>that. And so if you have that model of programming, then it&rsquo;s true. It&rsquo;s kind of weird that your robot</p>
+<p>would do something that you didn&rsquo;t anticipate. But the fact is, and actually, so now this is my</p>
+<p>new educational mission. If I have to talk to non experts, I try to teach them the idea that</p>
+<p>we don&rsquo;t operate, we operate at least one or maybe many levels of abstraction about that. And we say,</p>
+<p>Oh, here&rsquo;s a hypothesis class, maybe it&rsquo;s a space of plans, or maybe it&rsquo;s a space of</p>
+<p>classifiers or whatever. But there&rsquo;s some set of answers and an objective function. And then we</p>
+<p>work on some optimization method that tries to optimize a solution solution in that class.</p>
+<p>And we don&rsquo;t know what solution is going to come out. Right. So I think it&rsquo;s important to</p>
+<p>communicate that. So I mean, of course, probably people who listen to this, they, they know that</p>
+<p>lesson. But I think it&rsquo;s really critical to communicate that lesson. And then lots of people</p>
+<p>are now talking about, you know, the value alignment problem. So you want to be sure as</p>
+<p>robots or software systems get more competent, that their objectives are aligned with your</p>
+<p>objectives, or that our objectives are compatible in some way, or we have a good way of mediating</p>
+<p>when they have different objectives. And so I think it is important to start thinking in terms</p>
+<p>like, you don&rsquo;t have to be freaked out by the robot apocalypse, to accept that it&rsquo;s important</p>
+<p>to think about objective functions of value alignment. Yes. And that you have to really</p>
+<p>everyone who&rsquo;s done optimization knows that you have to be careful what you wish for that,</p>
+<p>you know, sometimes you get the optimal solution, and you realize, man, that was that objective was</p>
+<p>wrong. So pragmatically, in the shortest term, it seems to me that that that those are really</p>
+<p>interesting and critical questions. And the idea that we&rsquo;re going to go from being people who</p>
+<p>engineer algorithms to being people who engineer objective functions. I think that&rsquo;s, that&rsquo;s</p>
+<p>definitely going to happen. And that&rsquo;s going to change our thinking and methodology. And so we&rsquo;re</p>
+<p>gonna you started at Stanford philosophy, that&rsquo;s where she could be. And I will go back to</p>
+<p>philosophy maybe. Well, I mean, they&rsquo;re mixed together, because because, as we also know,</p>
+<p>as machine learning people, right? When you design, in fact, this is the lecture I gave in</p>
+<p>class today, when you design an objective function, you have to wear both hats, there&rsquo;s</p>
+<p>the hat that says, what do I want? And there&rsquo;s the hat that says, but I know what my optimizer</p>
+<p>can do to some degree. And I have to take that into account. So it&rsquo;s it&rsquo;s always a trade off,</p>
+<p>and we have to kind of be mindful of that. The part about taking people&rsquo;s jobs, I understand</p>
+<p>that that&rsquo;s important. I don&rsquo;t understand sociology or economics or people very well. So I</p>
+<p>don&rsquo;t know how to think about that. So that&rsquo;s Yeah, so there might be a sociological aspect</p>
+<p>there, the economic aspect that&rsquo;s very difficult to think about. Okay. I mean, I think other people</p>
+<p>should be thinking about it. But I&rsquo;m just that&rsquo;s not my strength. So what do you think is the most</p>
+<p>exciting area of research in the short term, for the community and for your for yourself?</p>
+<p>Well, so I mean, there&rsquo;s the story I&rsquo;ve been telling about how to engineer intelligent robots.</p>
+<p>So that&rsquo;s what we want to do. We all kind of want to do well, I mean, some set of us want to do this.</p>
+<p>And the question is, what&rsquo;s the most effective strategy? And we&rsquo;ve tried it. And there&rsquo;s a bunch</p>
+<p>of different things you could do at the extremes, right? One super extreme is, what&rsquo;s the most</p>
+<p>effective strategy? And there&rsquo;s a bunch of different things you could do at the extremes,</p>
+<p>right? One super extreme is, we do introspection, and we write a program. Okay, that has not worked</p>
+<p>out very well. Another extreme is we take a giant bunch of neural goo, and we try and train it up to</p>
+<p>do something. I don&rsquo;t think that&rsquo;s going to work either. So the question is, what&rsquo;s the middle</p>
+<p>ground? And, and again, this isn&rsquo;t a theological question or anything like that. It&rsquo;s just like,</p>
+<p>what&rsquo;s the middle ground? And I think it&rsquo;s clear, it&rsquo;s a combination of learning, to me, it&rsquo;s clear,</p>
+<p>it&rsquo;s a combination of learning and not learning. And what should that combination be? And what&rsquo;s</p>
+<p>the stuff we build in? So to me, that&rsquo;s the most compelling question. And when you say engineer</p>
+<p>robots, you mean engineering systems that work in the real world? Is that, that&rsquo;s the emphasis?</p>
+<p>Okay. Last question. Which robots or robot is your favorite from science fiction?</p>
+<p>So you can go with Star Wars or RTD2, or you can go with more modern,</p>
+<p>maybe Hal from&hellip; I don&rsquo;t think I have a favorite robot from science fiction.</p>
+<p>This is, this is back to, you like to make robots work in the real world here, not, not in&hellip;</p>
+<p>I mean, I love the process and I care more about the process.</p>
+<p>The engineering process.</p>
+<p>Yeah. I mean, I do research because it&rsquo;s fun, not because I care about what we produce.</p>
+<p>Well, that&rsquo;s a, that&rsquo;s a beautiful note actually. And Leslie,</p>
+<p>thank you so much for talking today.</p>
+<p>Sure. It&rsquo;s been fun.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

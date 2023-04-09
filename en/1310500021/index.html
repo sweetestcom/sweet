@@ -1,0 +1,2468 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Chris Latner.
+Currently, he&amp;rsquo;s a senior director
+at Google working on several projects, including CPU, GPU,
+TPU accelerators for TensorFlow, Swift for TensorFlow,
+and all kinds of machine learning compiler magic
+going on behind the scenes.
+He&amp;rsquo;s one of the top experts in the world
+on compiler technologies, which means he deeply
+understands the intricacies of how hardware and software come
+together to create efficient code.'>
+<title>Lex Fridman Podcast - #21 - Chris Lattner: Compilers, LLVM, Swift, TPU, and ML Accelerators | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500021/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #21 - Chris Lattner: Compilers, LLVM, Swift, TPU, and ML Accelerators'>
+<meta property='og:description' content='The following is a conversation with Chris Latner.
+Currently, he&amp;rsquo;s a senior director
+at Google working on several projects, including CPU, GPU,
+TPU accelerators for TensorFlow, Swift for TensorFlow,
+and all kinds of machine learning compiler magic
+going on behind the scenes.
+He&amp;rsquo;s one of the top experts in the world
+on compiler technologies, which means he deeply
+understands the intricacies of how hardware and software come
+together to create efficient code.'>
+<meta property='og:url' content='https://swiest.com/en/1310500021/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-03-21T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-21T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #21 - Chris Lattner: Compilers, LLVM, Swift, TPU, and ML Accelerators">
+<meta name="twitter:description" content="The following is a conversation with Chris Latner.
+Currently, he&amp;rsquo;s a senior director
+at Google working on several projects, including CPU, GPU,
+TPU accelerators for TensorFlow, Swift for TensorFlow,
+and all kinds of machine learning compiler magic
+going on behind the scenes.
+He&amp;rsquo;s one of the top experts in the world
+on compiler technologies, which means he deeply
+understands the intricacies of how hardware and software come
+together to create efficient code.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500021/">Lex Fridman Podcast - #21 - Chris Lattner: Compilers, LLVM, Swift, TPU, and ML Accelerators</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-03-21</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    62 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Chris Latner.</p>
+<p>Currently, he&rsquo;s a senior director</p>
+<p>at Google working on several projects, including CPU, GPU,</p>
+<p>TPU accelerators for TensorFlow, Swift for TensorFlow,</p>
+<p>and all kinds of machine learning compiler magic</p>
+<p>going on behind the scenes.</p>
+<p>He&rsquo;s one of the top experts in the world</p>
+<p>on compiler technologies, which means he deeply</p>
+<p>understands the intricacies of how hardware and software come</p>
+<p>together to create efficient code.</p>
+<p>He created the LLVM compiler infrastructure project</p>
+<p>and the Clang compiler.</p>
+<p>He led major engineering efforts at Apple,</p>
+<p>including the creation of the Swift programming language.</p>
+<p>He also briefly spent time at Tesla</p>
+<p>as vice president of Autopilot software</p>
+<p>during the transition from Autopilot hardware 1</p>
+<p>to hardware 2, when Tesla essentially</p>
+<p>started from scratch to build an in house software</p>
+<p>infrastructure for Autopilot.</p>
+<p>I could have easily talked to Chris for many more hours.</p>
+<p>Compiling code down across the levels of abstraction</p>
+<p>is one of the most fundamental and fascinating aspects</p>
+<p>of what computers do, and he is one of the world</p>
+<p>experts in this process.</p>
+<p>It&rsquo;s rigorous science, and it&rsquo;s messy, beautiful art.</p>
+<p>This conversation is part of the Artificial Intelligence</p>
+<p>podcast.</p>
+<p>If you enjoy it, subscribe on YouTube, iTunes,</p>
+<p>or simply connect with me on Twitter at Lex Friedman,</p>
+<p>spelled F R I D.</p>
+<p>And now, here&rsquo;s my conversation with Chris Ladner.</p>
+<p>What was the first program you&rsquo;ve ever written?</p>
+<p>My first program.</p>
+<p>Back, and when was it?</p>
+<p>I think I started as a kid, and my parents</p>
+<p>got a basic programming book.</p>
+<p>And so when I started, it was typing out programs</p>
+<p>from a book, and seeing how they worked,</p>
+<p>and then typing them in wrong, and trying</p>
+<p>to figure out why they were not working right,</p>
+<p>that kind of stuff.</p>
+<p>So BASIC, what was the first language</p>
+<p>that you remember yourself maybe falling in love with,</p>
+<p>like really connecting with?</p>
+<p>I don&rsquo;t know.</p>
+<p>I mean, I feel like I&rsquo;ve learned a lot along the way,</p>
+<p>and each of them have a different special thing</p>
+<p>about them.</p>
+<p>So I started in BASIC, and then went like GW BASIC,</p>
+<p>which was the thing back in the DOS days,</p>
+<p>and then upgraded to QBASIC, and eventually QuickBASIC,</p>
+<p>which are all slightly more fancy versions of Microsoft</p>
+<p>BASIC.</p>
+<p>Made the jump to Pascal, and started</p>
+<p>doing machine language programming and assembly</p>
+<p>in Pascal, which was really cool.</p>
+<p>Turbo Pascal was amazing for its day.</p>
+<p>Eventually got into C, C++, and then kind of did</p>
+<p>lots of other weird things.</p>
+<p>I feel like you took the dark path, which is the,</p>
+<p>you could have gone Lisp.</p>
+<p>Yeah.</p>
+<p>You could have gone higher level sort</p>
+<p>of functional philosophical hippie route.</p>
+<p>Instead, you went into like the dark arts of the C.</p>
+<p>It was straight into the machine.</p>
+<p>Straight to the machine.</p>
+<p>So I started with BASIC, Pascal, and then Assembly,</p>
+<p>and then wrote a lot of Assembly.</p>
+<p>And I eventually did Smalltalk and other things like that.</p>
+<p>But that was not the starting point.</p>
+<p>But so what is this journey to C?</p>
+<p>Is that in high school?</p>
+<p>Is that in college?</p>
+<p>That was in high school, yeah.</p>
+<p>And then that was really about trying</p>
+<p>to be able to do more powerful things than what Pascal could</p>
+<p>do, and also to learn a different world.</p>
+<p>So he was really confusing to me with pointers</p>
+<p>and the syntax and everything, and it took a while.</p>
+<p>But Pascal&rsquo;s much more principled in various ways.</p>
+<p>C is more, I mean, it has its historical roots,</p>
+<p>but it&rsquo;s not as easy to learn.</p>
+<p>With pointers, there&rsquo;s this memory management thing</p>
+<p>that you have to become conscious of.</p>
+<p>Is that the first time you start to understand</p>
+<p>that there&rsquo;s resources that you&rsquo;re supposed to manage?</p>
+<p>Well, so you have that in Pascal as well.</p>
+<p>But in Pascal, like the caret instead of the star,</p>
+<p>there&rsquo;s some small differences like that.</p>
+<p>But it&rsquo;s not about pointer arithmetic.</p>
+<p>And in C, you end up thinking about how things get</p>
+<p>laid out in memory a lot more.</p>
+<p>And so in Pascal, you have allocating and deallocating</p>
+<p>and owning the memory, but just the programs are simpler,</p>
+<p>and you don&rsquo;t have to.</p>
+<p>Well, for example, Pascal has a string type.</p>
+<p>And so you can think about a string</p>
+<p>instead of an array of characters</p>
+<p>which are consecutive in memory.</p>
+<p>So it&rsquo;s a little bit of a higher level abstraction.</p>
+<p>So let&rsquo;s get into it.</p>
+<p>Let&rsquo;s talk about LLVM, C lang, and compilers.</p>
+<p>Sure.</p>
+<p>So can you tell me first what LLVM and C lang are?</p>
+<p>And how is it that you find yourself</p>
+<p>the creator and lead developer, one</p>
+<p>of the most powerful compiler optimization systems</p>
+<p>in use today?</p>
+<p>Sure.</p>
+<p>So I guess they&rsquo;re different things.</p>
+<p>So let&rsquo;s start with what is a compiler?</p>
+<p>Is that a good place to start?</p>
+<p>What are the phases of a compiler?</p>
+<p>Where are the parts?</p>
+<p>Yeah, what is it?</p>
+<p>So what is even a compiler used for?</p>
+<p>So the way I look at this is you have a two sided problem of you</p>
+<p>have humans that need to write code.</p>
+<p>And then you have machines that need to run</p>
+<p>the program that the human wrote.</p>
+<p>And for lots of reasons, the humans</p>
+<p>don&rsquo;t want to be writing in binary</p>
+<p>and want to think about every piece of hardware.</p>
+<p>And so at the same time that you have lots of humans,</p>
+<p>you also have lots of kinds of hardware.</p>
+<p>And so compilers are the art of allowing</p>
+<p>humans to think at a level of abstraction</p>
+<p>that they want to think about.</p>
+<p>And then get that program, get the thing that they wrote,</p>
+<p>to run on a specific piece of hardware.</p>
+<p>And the interesting and exciting part of all this</p>
+<p>is that there&rsquo;s now lots of different kinds of hardware,</p>
+<p>chips like x86 and PowerPC and ARM and things like that.</p>
+<p>But also high performance accelerators</p>
+<p>for machine learning and other things like that</p>
+<p>are also just different kinds of hardware, GPUs.</p>
+<p>These are new kinds of hardware.</p>
+<p>And at the same time, on the programming side of it,</p>
+<p>you have basic, you have C, you have JavaScript,</p>
+<p>you have Python, you have Swift.</p>
+<p>You have lots of other languages</p>
+<p>that are all trying to talk to the human in a different way</p>
+<p>to make them more expressive and capable and powerful.</p>
+<p>And so compilers are the thing</p>
+<p>that goes from one to the other.</p>
+<p>End to end, from the very beginning to the very end.</p>
+<p>End to end.</p>
+<p>And so you go from what the human wrote</p>
+<p>and programming languages end up being about</p>
+<p>expressing intent, not just for the compiler</p>
+<p>and the hardware, but the programming language&rsquo;s job</p>
+<p>is really to capture an expression</p>
+<p>of what the programmer wanted</p>
+<p>that then can be maintained and adapted</p>
+<p>and evolved by other humans,</p>
+<p>as well as interpreted by the compiler.</p>
+<p>So when you look at this problem,</p>
+<p>you have, on the one hand, humans, which are complicated.</p>
+<p>And you have hardware, which is complicated.</p>
+<p>And so compilers typically work in multiple phases.</p>
+<p>And so the software engineering challenge</p>
+<p>that you have here is try to get maximum reuse</p>
+<p>out of the amount of code that you write,</p>
+<p>because these compilers are very complicated.</p>
+<p>And so the way it typically works out</p>
+<p>is that you have something called a front end or a parser</p>
+<p>that is language specific.</p>
+<p>And so you&rsquo;ll have a C parser, and that&rsquo;s what Clang is,</p>
+<p>or C++ or JavaScript or Python or whatever.</p>
+<p>That&rsquo;s the front end.</p>
+<p>Then you&rsquo;ll have a middle part,</p>
+<p>which is often the optimizer.</p>
+<p>And then you&rsquo;ll have a late part,</p>
+<p>which is hardware specific.</p>
+<p>And so compilers end up,</p>
+<p>there&rsquo;s many different layers often,</p>
+<p>but these three big groups are very common in compilers.</p>
+<p>And what LLVM is trying to do</p>
+<p>is trying to standardize that middle and last part.</p>
+<p>And so one of the cool things about LLVM</p>
+<p>is that there are a lot of different languages</p>
+<p>that compile through to it.</p>
+<p>And so things like Swift, but also Julia, Rust,</p>
+<p>Clang for C, C++, Subjective C,</p>
+<p>like these are all very different languages</p>
+<p>and they can all use the same optimization infrastructure,</p>
+<p>which gets better performance,</p>
+<p>and the same code generation infrastructure</p>
+<p>for hardware support.</p>
+<p>And so LLVM is really that layer that is common,</p>
+<p>that all these different specific compilers can use.</p>
+<p>And is it a standard, like a specification,</p>
+<p>or is it literally an implementation?</p>
+<p>It&rsquo;s an implementation.</p>
+<p>And so I think there&rsquo;s a couple of different ways</p>
+<p>of looking at it, right?</p>
+<p>Because it depends on which angle you&rsquo;re looking at it from.</p>
+<p>LLVM ends up being a bunch of code, okay?</p>
+<p>So it&rsquo;s a bunch of code that people reuse</p>
+<p>and they build compilers with.</p>
+<p>We call it a compiler infrastructure</p>
+<p>because it&rsquo;s kind of the underlying platform</p>
+<p>that you build a concrete compiler on top of.</p>
+<p>But it&rsquo;s also a community.</p>
+<p>And the LLVM community is hundreds of people</p>
+<p>that all collaborate.</p>
+<p>And one of the most fascinating things about LLVM</p>
+<p>over the course of time is that we&rsquo;ve managed somehow</p>
+<p>to successfully get harsh competitors</p>
+<p>in the commercial space to collaborate</p>
+<p>on shared infrastructure.</p>
+<p>And so you have Google and Apple,</p>
+<p>you have AMD and Intel,</p>
+<p>you have Nvidia and AMD on the graphics side,</p>
+<p>you have Cray and everybody else doing these things.</p>
+<p>And all these companies are collaborating together</p>
+<p>to make that shared infrastructure really, really great.</p>
+<p>And they do this not out of the goodness of their heart,</p>
+<p>but they do it because it&rsquo;s in their commercial interest</p>
+<p>of having really great infrastructure</p>
+<p>that they can build on top of</p>
+<p>and facing the reality that it&rsquo;s so expensive</p>
+<p>that no one company, even the big companies,</p>
+<p>no one company really wants to implement it all themselves.</p>
+<p>Expensive or difficult?</p>
+<p>Both.</p>
+<p>That&rsquo;s a great point because it&rsquo;s also about the skill sets.</p>
+<p>And the skill sets are very hard to find.</p>
+<p>How big is the LLVM?</p>
+<p>It always seems like with open source projects,</p>
+<p>the kind, an LLVM is open source?</p>
+<p>Yes, it&rsquo;s open source.</p>
+<p>It&rsquo;s about, it&rsquo;s 19 years old now, so it&rsquo;s fairly old.</p>
+<p>It seems like the magic often happens</p>
+<p>within a very small circle of people.</p>
+<p>Yes.</p>
+<p>At least their early birth and whatever.</p>
+<p>Yes, so the LLVM came from a university project,</p>
+<p>and so I was at the University of Illinois.</p>
+<p>And there it was myself, my advisor,</p>
+<p>and then a team of two or three research students</p>
+<p>in the research group,</p>
+<p>and we built many of the core pieces initially.</p>
+<p>I then graduated and went to Apple,</p>
+<p>and at Apple brought it to the products,</p>
+<p>first in the OpenGL graphics stack,</p>
+<p>but eventually to the C compiler realm,</p>
+<p>and eventually built Clang,</p>
+<p>and eventually built Swift and these things.</p>
+<p>Along the way, building a team of people</p>
+<p>that are really amazing compiler engineers</p>
+<p>that helped build a lot of that.</p>
+<p>And so as it was gaining momentum</p>
+<p>and as Apple was using it, being open source and public</p>
+<p>and encouraging contribution,</p>
+<p>many others, for example, at Google,</p>
+<p>came in and started contributing.</p>
+<p>And in some cases, Google effectively owns Clang now</p>
+<p>because it cares so much about C++</p>
+<p>and the evolution of that ecosystem,</p>
+<p>and so it&rsquo;s investing a lot in the C++ world</p>
+<p>and the tooling and things like that.</p>
+<p>And so likewise, NVIDIA cares a lot about CUDA.</p>
+<p>And so CUDA uses Clang and uses LLVM</p>
+<p>for graphics and GPGPU.</p>
+<p>And so when you first started as a master&rsquo;s project,</p>
+<p>I guess, did you think it was gonna go as far as it went?</p>
+<p>Were you crazy ambitious about it?</p>
+<p>No.</p>
+<p>It seems like a really difficult undertaking, a brave one.</p>
+<p>Yeah, no, no, no, it was nothing like that.</p>
+<p>So my goal when I went to the University of Illinois</p>
+<p>was to get in and out with a non thesis masters in a year</p>
+<p>and get back to work.</p>
+<p>So I was not planning to stay for five years</p>
+<p>and build this massive infrastructure.</p>
+<p>I got nerd sniped into staying.</p>
+<p>And a lot of it was because LLVM was fun</p>
+<p>and I was building cool stuff</p>
+<p>and learning really interesting things</p>
+<p>and facing both software engineering challenges,</p>
+<p>but also learning how to work in a team</p>
+<p>and things like that.</p>
+<p>I had worked at many companies as interns before that,</p>
+<p>but it was really a different thing</p>
+<p>to have a team of people that are working together</p>
+<p>and try and collaborate in version control.</p>
+<p>And it was just a little bit different.</p>
+<p>Like I said, I just talked to Don Knuth</p>
+<p>and he believes that 2% of the world population</p>
+<p>have something weird with their brain,</p>
+<p>that they&rsquo;re geeks, they understand computers,</p>
+<p>they&rsquo;re connected with computers.</p>
+<p>He put it at exactly 2%.</p>
+<p>Okay, so.</p>
+<p>He&rsquo;s a specific guy.</p>
+<p>It&rsquo;s very specific.</p>
+<p>Well, he says, I can&rsquo;t prove it,</p>
+<p>but it&rsquo;s very empirically there.</p>
+<p>Is there something that attracts you</p>
+<p>to the idea of optimizing code?</p>
+<p>And he seems like that&rsquo;s one of the biggest,</p>
+<p>coolest things about LLVM.</p>
+<p>Yeah, that&rsquo;s one of the major things it does.</p>
+<p>So I got into that because of a person, actually.</p>
+<p>So when I was in my undergraduate,</p>
+<p>I had an advisor, or a professor named Steve Vegdahl.</p>
+<p>And he, I went to this little tiny private school.</p>
+<p>There were like seven or nine people</p>
+<p>in my computer science department,</p>
+<p>students in my class.</p>
+<p>So it was a very tiny, very small school.</p>
+<p>It was kind of a wart on the side of the math department</p>
+<p>kind of a thing at the time.</p>
+<p>I think it&rsquo;s evolved a lot in the many years since then.</p>
+<p>But Steve Vegdahl was a compiler guy.</p>
+<p>And he was super passionate.</p>
+<p>And his passion rubbed off on me.</p>
+<p>And one of the things I like about compilers</p>
+<p>is that they&rsquo;re large, complicated software pieces.</p>
+<p>And so one of the culminating classes</p>
+<p>that many computer science departments,</p>
+<p>at least at the time, did was to say</p>
+<p>that you would take algorithms and data structures</p>
+<p>and all these core classes.</p>
+<p>But then the compilers class was one of the last classes</p>
+<p>you take because it pulls everything together.</p>
+<p>And then you work on one piece of code</p>
+<p>over the entire semester.</p>
+<p>And so you keep building on your own work,</p>
+<p>which is really interesting.</p>
+<p>And it&rsquo;s also very challenging because in many classes,</p>
+<p>if you don&rsquo;t get a project done, you just forget about it</p>
+<p>and move on to the next one and get your B or whatever it is.</p>
+<p>But here you have to live with the decisions you make</p>
+<p>and continue to reinvest in it.</p>
+<p>And I really like that.</p>
+<p>And so I did an extra study project</p>
+<p>with him the following semester.</p>
+<p>And he was just really great.</p>
+<p>And he was also a great mentor in a lot of ways.</p>
+<p>And so from him and from his advice,</p>
+<p>he encouraged me to go to graduate school.</p>
+<p>I wasn&rsquo;t super excited about going to grad school.</p>
+<p>I wanted the master&rsquo;s degree, but I</p>
+<p>didn&rsquo;t want to be an academic.</p>
+<p>But like I said, I kind of got tricked into saying</p>
+<p>and was having a lot of fun.</p>
+<p>And I definitely do not regret it.</p>
+<p>What aspects of compilers were the things you connected with?</p>
+<p>So LLVM, there&rsquo;s also the other part</p>
+<p>that&rsquo;s really interesting if you&rsquo;re interested in languages</p>
+<p>is parsing and just analyzing the language,</p>
+<p>breaking it down, parsing, and so on.</p>
+<p>Was that interesting to you, or were you</p>
+<p>more interested in optimization?</p>
+<p>For me, it was more so I&rsquo;m not really a math person.</p>
+<p>I could do math.</p>
+<p>I understand some bits of it when I get into it.</p>
+<p>But math is never the thing that attracted me.</p>
+<p>And so a lot of the parser part of the compiler</p>
+<p>has a lot of good formal theories</p>
+<p>that Don, for example, knows quite well.</p>
+<p>I&rsquo;m still waiting for his book on that.</p>
+<p>But I just like building a thing and seeing what it could do</p>
+<p>and exploring and getting it to do more things</p>
+<p>and then setting new goals and reaching for them.</p>
+<p>And in the case of LLVM, when I started working on that,</p>
+<p>my research advisor that I was working for was a compiler guy.</p>
+<p>And so he and I specifically found each other</p>
+<p>because we were both interested in compilers.</p>
+<p>And so I started working with him and taking his class.</p>
+<p>And a lot of LLVM initially was, it&rsquo;s</p>
+<p>fun implementing all the standard algorithms and all</p>
+<p>the things that people had been talking about</p>
+<p>and were well known.</p>
+<p>And they were in the curricula for advanced studies</p>
+<p>and compilers.</p>
+<p>And so just being able to build that was really fun.</p>
+<p>And I was learning a lot by, instead of reading about it,</p>
+<p>just building.</p>
+<p>And so I enjoyed that.</p>
+<p>So you said compilers are these complicated systems.</p>
+<p>Can you even just with language try</p>
+<p>to describe how you turn a C++ program into code?</p>
+<p>Like, what are the hard parts?</p>
+<p>Why is it so hard?</p>
+<p>So I&rsquo;ll give you examples of the hard parts along the way.</p>
+<p>So C++ is a very complicated programming language.</p>
+<p>It&rsquo;s something like 1,400 pages in the spec.</p>
+<p>So C++ by itself is crazy complicated.</p>
+<p>Can we just pause?</p>
+<p>What makes the language complicated in terms</p>
+<p>of what&rsquo;s syntactically?</p>
+<p>So it&rsquo;s what they call syntax.</p>
+<p>So the actual how the characters are arranged, yes.</p>
+<p>It&rsquo;s also semantics, how it behaves.</p>
+<p>It&rsquo;s also, in the case of C++, there&rsquo;s</p>
+<p>a huge amount of history.</p>
+<p>C++ is built on top of C. You play that forward.</p>
+<p>And then a bunch of suboptimal, in some cases, decisions</p>
+<p>were made, and they compound.</p>
+<p>And then more and more and more things</p>
+<p>keep getting added to C++, and it will probably never stop.</p>
+<p>But the language is very complicated</p>
+<p>from that perspective.</p>
+<p>And so the interactions between subsystems</p>
+<p>is very complicated.</p>
+<p>There&rsquo;s just a lot there.</p>
+<p>And when you talk about the front end,</p>
+<p>one of the major challenges, which</p>
+<p>clang as a project, the C, C++ compiler that I built,</p>
+<p>I and many people built, one of the challenges we took on</p>
+<p>was we looked at GCC.</p>
+<p>GCC, at the time, was a really good industry standardized</p>
+<p>compiler that had really consolidated</p>
+<p>a lot of the other compilers in the world and was a standard.</p>
+<p>But it wasn&rsquo;t really great for research.</p>
+<p>The design was very difficult to work with.</p>
+<p>And it was full of global variables and other things</p>
+<p>that made it very difficult to reuse in ways</p>
+<p>that it wasn&rsquo;t originally designed for.</p>
+<p>And so with clang, one of the things that we wanted to do</p>
+<p>is push forward on better user interface,</p>
+<p>so make error messages that are just better than GCC&rsquo;s.</p>
+<p>And that&rsquo;s actually hard, because you</p>
+<p>have to do a lot of bookkeeping in an efficient way</p>
+<p>to be able to do that.</p>
+<p>We want to make compile time better.</p>
+<p>And so compile time is about making it efficient,</p>
+<p>which is also really hard when you&rsquo;re keeping</p>
+<p>track of extra information.</p>
+<p>We wanted to make new tools available,</p>
+<p>so refactoring tools and other analysis tools</p>
+<p>that GCC never supported, also leveraging the extra information</p>
+<p>we kept, but enabling those new classes of tools</p>
+<p>that then get built into IDEs.</p>
+<p>And so that&rsquo;s been one of the areas that clang has really</p>
+<p>helped push the world forward in,</p>
+<p>is in the tooling for C and C++ and things like that.</p>
+<p>But C++ and the front end piece is complicated.</p>
+<p>And you have to build syntax trees.</p>
+<p>And you have to check every rule in the spec.</p>
+<p>And you have to turn that back into an error message</p>
+<p>to the human that the human can understand</p>
+<p>when they do something wrong.</p>
+<p>But then you start doing what&rsquo;s called lowering,</p>
+<p>so going from C++ and the way that it represents</p>
+<p>code down to the machine.</p>
+<p>And when you do that, there&rsquo;s many different phases</p>
+<p>you go through.</p>
+<p>Often, there are, I think LLVM has something like 150</p>
+<p>different what are called passes in the compiler</p>
+<p>that the code passes through.</p>
+<p>And these get organized in very complicated ways,</p>
+<p>which affect the generated code and the performance</p>
+<p>and compile time and many other things.</p>
+<p>What are they passing through?</p>
+<p>So after you do the clang parsing, what&rsquo;s the graph?</p>
+<p>What does it look like?</p>
+<p>What&rsquo;s the data structure here?</p>
+<p>Yeah, so in the parser, it&rsquo;s usually a tree.</p>
+<p>And it&rsquo;s called an abstract syntax tree.</p>
+<p>And so the idea is you have a node for the plus</p>
+<p>that the human wrote in their code.</p>
+<p>Or the function call, you&rsquo;ll have a node for call</p>
+<p>with the function that they call and the arguments they pass,</p>
+<p>things like that.</p>
+<p>This then gets lowered into what&rsquo;s</p>
+<p>called an intermediate representation.</p>
+<p>And intermediate representations are like LLVM has one.</p>
+<p>And there, it&rsquo;s what&rsquo;s called a control flow graph.</p>
+<p>And so you represent each operation in the program</p>
+<p>as a very simple, like this is going to add two numbers.</p>
+<p>This is going to multiply two things.</p>
+<p>Maybe we&rsquo;ll do a call.</p>
+<p>But then they get put in what are called blocks.</p>
+<p>And so you get blocks of these straight line operations,</p>
+<p>where instead of being nested like in a tree,</p>
+<p>it&rsquo;s straight line operations.</p>
+<p>And so there&rsquo;s a sequence and an ordering to these operations.</p>
+<p>So within the block or outside the block?</p>
+<p>That&rsquo;s within the block.</p>
+<p>And so it&rsquo;s a straight line sequence of operations</p>
+<p>within the block.</p>
+<p>And then you have branches, like conditional branches,</p>
+<p>between blocks.</p>
+<p>And so when you write a loop, for example, in a syntax tree,</p>
+<p>you would have a for node, like for a for statement</p>
+<p>in a C like language, you&rsquo;d have a for node.</p>
+<p>And you have a pointer to the expression</p>
+<p>for the initializer, a pointer to the expression</p>
+<p>for the increment, a pointer to the expression</p>
+<p>for the comparison, a pointer to the body.</p>
+<p>And these are all nested underneath it.</p>
+<p>In a control flow graph, you get a block</p>
+<p>for the code that runs before the loop, so the initializer</p>
+<p>code.</p>
+<p>And you have a block for the body of the loop.</p>
+<p>And so the body of the loop code goes in there,</p>
+<p>but also the increment and other things like that.</p>
+<p>And then you have a branch that goes back to the top</p>
+<p>and a comparison and a branch that goes out.</p>
+<p>And so it&rsquo;s more of an assembly level kind of representation.</p>
+<p>But the nice thing about this level of representation</p>
+<p>is it&rsquo;s much more language independent.</p>
+<p>And so there&rsquo;s lots of different kinds of languages</p>
+<p>with different kinds of, you know,</p>
+<p>JavaScript has a lot of different ideas of what</p>
+<p>is false, for example.</p>
+<p>And all that can stay in the front end.</p>
+<p>But then that middle part can be shared across all those.</p>
+<p>How close is that intermediate representation</p>
+<p>to neural networks, for example?</p>
+<p>Are they, because everything you describe</p>
+<p>is a kind of echoes of a neural network graph.</p>
+<p>Are they neighbors or what?</p>
+<p>They&rsquo;re quite different in details,</p>
+<p>but they&rsquo;re very similar in idea.</p>
+<p>So one of the things that neural networks do</p>
+<p>is they learn representations for data</p>
+<p>at different levels of abstraction.</p>
+<p>And then they transform those through layers, right?</p>
+<p>So the compiler does very similar things.</p>
+<p>But one of the things the compiler does</p>
+<p>is it has relatively few different representations.</p>
+<p>Where a neural network often, as you get deeper, for example,</p>
+<p>you get many different representations</p>
+<p>in each layer or set of ops.</p>
+<p>It&rsquo;s transforming between these different representations.</p>
+<p>In a compiler, often you get one representation</p>
+<p>and they do many transformations to it.</p>
+<p>And these transformations are often applied iteratively.</p>
+<p>And for programmers, there&rsquo;s familiar types of things.</p>
+<p>For example, trying to find expressions inside of a loop</p>
+<p>and pulling them out of a loop so they execute for times.</p>
+<p>Or find redundant computation.</p>
+<p>Or find constant folding or other simplifications,</p>
+<p>turning two times x into x shift left by one.</p>
+<p>And things like this are all the examples</p>
+<p>of the things that happen.</p>
+<p>But compilers end up getting a lot of theorem proving</p>
+<p>and other kinds of algorithms that</p>
+<p>try to find higher level properties of the program that</p>
+<p>then can be used by the optimizer.</p>
+<p>Cool.</p>
+<p>So what&rsquo;s the biggest bang for the buck with optimization?</p>
+<p>Today?</p>
+<p>Yeah.</p>
+<p>Well, no, not even today.</p>
+<p>At the very beginning, the 80s, I don&rsquo;t know.</p>
+<p>Yeah, so for the 80s, a lot of it</p>
+<p>was things like register allocation.</p>
+<p>So the idea of in a modern microprocessor,</p>
+<p>what you&rsquo;ll end up having is you&rsquo;ll</p>
+<p>end up having memory, which is relatively slow.</p>
+<p>And then you have registers that are relatively fast.</p>
+<p>But registers, you don&rsquo;t have very many of them.</p>
+<p>And so when you&rsquo;re writing a bunch of code,</p>
+<p>you&rsquo;re just saying, compute this,</p>
+<p>put in a temporary variable, compute this, compute this,</p>
+<p>compute this, put in a temporary variable.</p>
+<p>I have a loop.</p>
+<p>I have some other stuff going on.</p>
+<p>Well, now you&rsquo;re running on an x86,</p>
+<p>like a desktop PC or something.</p>
+<p>Well, it only has, in some cases, some modes,</p>
+<p>eight registers.</p>
+<p>And so now the compiler has to choose what values get</p>
+<p>put in what registers at what points in the program.</p>
+<p>And this is actually a really big deal.</p>
+<p>So if you think about, you have a loop, an inner loop</p>
+<p>that executes millions of times maybe.</p>
+<p>If you&rsquo;re doing loads and stores inside that loop,</p>
+<p>then it&rsquo;s going to be really slow.</p>
+<p>But if you can somehow fit all the values inside that loop</p>
+<p>in registers, now it&rsquo;s really fast.</p>
+<p>And so getting that right requires a lot of work,</p>
+<p>because there&rsquo;s many different ways to do that.</p>
+<p>And often what the compiler ends up doing</p>
+<p>is it ends up thinking about things</p>
+<p>in a different representation than what the human wrote.</p>
+<p>You wrote into x.</p>
+<p>Well, the compiler thinks about that as four different values,</p>
+<p>each which have different lifetimes across the function</p>
+<p>that it&rsquo;s in.</p>
+<p>And each of those could be put in a register or memory</p>
+<p>or different memory or maybe in some parts of the code</p>
+<p>recomputed instead of stored and reloaded.</p>
+<p>And there are many of these different kinds of techniques</p>
+<p>that can be used.</p>
+<p>So it&rsquo;s adding almost like a time dimension to it&rsquo;s</p>
+<p>trying to optimize across time.</p>
+<p>So it&rsquo;s considering when you&rsquo;re programming,</p>
+<p>you&rsquo;re not thinking in that way.</p>
+<p>Yeah, absolutely.</p>
+<p>And so the RISC era made things.</p>
+<p>So RISC chips, R I S C. The RISC chips,</p>
+<p>as opposed to CISC chips.</p>
+<p>The RISC chips made things more complicated for the compiler,</p>
+<p>because what they ended up doing is ending up</p>
+<p>adding pipelines to the processor, where</p>
+<p>the processor can do more than one thing at a time.</p>
+<p>But this means that the order of operations matters a lot.</p>
+<p>So one of the classical compiler techniques that you use</p>
+<p>is called scheduling.</p>
+<p>And so moving the instructions around</p>
+<p>so that the processor can keep its pipelines full instead</p>
+<p>of stalling and getting blocked.</p>
+<p>And so there&rsquo;s a lot of things like that that</p>
+<p>are kind of bread and butter compiler techniques</p>
+<p>that have been studied a lot over the course of decades now.</p>
+<p>But the engineering side of making them real</p>
+<p>is also still quite hard.</p>
+<p>And you talk about machine learning.</p>
+<p>This is a huge opportunity for machine learning,</p>
+<p>because many of these algorithms are full of these</p>
+<p>hokey, hand rolled heuristics, which</p>
+<p>work well on specific benchmarks that don&rsquo;t generalize,</p>
+<p>and full of magic numbers.</p>
+<p>And I hear there&rsquo;s some techniques that</p>
+<p>are good at handling that.</p>
+<p>So what would be the, if you were to apply machine learning</p>
+<p>to this, what&rsquo;s the thing you&rsquo;re trying to optimize?</p>
+<p>Is it ultimately the running time?</p>
+<p>You can pick your metric, and there&rsquo;s running time,</p>
+<p>there&rsquo;s memory use, there&rsquo;s lots of different things</p>
+<p>that you can optimize for.</p>
+<p>Code size is another one that some people care about</p>
+<p>in the embedded space.</p>
+<p>Is this like the thinking into the future,</p>
+<p>or has somebody actually been crazy enough</p>
+<p>to try to have machine learning based parameter</p>
+<p>tuning for the optimization of compilers?</p>
+<p>So this is something that is, I would say, research right now.</p>
+<p>There are a lot of research systems</p>
+<p>that have been applying search in various forms.</p>
+<p>And using reinforcement learning is one form,</p>
+<p>but also brute force search has been tried for quite a while.</p>
+<p>And usually, these are in small problem spaces.</p>
+<p>So find the optimal way to code generate a matrix</p>
+<p>multiply for a GPU, something like that,</p>
+<p>where you say, there, there&rsquo;s a lot of design space of,</p>
+<p>do you unroll loops a lot?</p>
+<p>Do you execute multiple things in parallel?</p>
+<p>And there&rsquo;s many different confounding factors here</p>
+<p>because graphics cards have different numbers of threads</p>
+<p>and registers and execution ports and memory bandwidth</p>
+<p>and many different constraints that interact</p>
+<p>in nonlinear ways.</p>
+<p>And so search is very powerful for that.</p>
+<p>And it gets used in certain ways,</p>
+<p>but it&rsquo;s not very structured.</p>
+<p>This is something that we need,</p>
+<p>we as an industry need to fix.</p>
+<p>So you said 80s, but like, so have there been like big jumps</p>
+<p>in improvement and optimization?</p>
+<p>Yeah.</p>
+<p>Yeah, since then, what&rsquo;s the coolest thing?</p>
+<p>It&rsquo;s largely been driven by hardware.</p>
+<p>So, well, it&rsquo;s hardware and software.</p>
+<p>So in the mid nineties, Java totally changed the world,</p>
+<p>right?</p>
+<p>And I&rsquo;m still amazed by how much change was introduced</p>
+<p>by the way or in a good way.</p>
+<p>So like reflecting back, Java introduced things like,</p>
+<p>all at once introduced things like JIT compilation.</p>
+<p>None of these were novel, but it pulled it together</p>
+<p>and made it mainstream and made people invest in it.</p>
+<p>JIT compilation, garbage collection, portable code,</p>
+<p>safe code, like memory safe code,</p>
+<p>like a very dynamic dispatch execution model.</p>
+<p>Like many of these things,</p>
+<p>which had been done in research systems</p>
+<p>and had been done in small ways in various places,</p>
+<p>really came to the forefront,</p>
+<p>really changed how things worked</p>
+<p>and therefore changed the way people thought</p>
+<p>about the problem.</p>
+<p>JavaScript was another major world change</p>
+<p>based on the way it works.</p>
+<p>But also on the hardware side of things,</p>
+<p>multi core and vector instructions really change</p>
+<p>the problem space and are very,</p>
+<p>they don&rsquo;t remove any of the problems</p>
+<p>that compilers faced in the past,</p>
+<p>but they add new kinds of problems</p>
+<p>of how do you find enough work</p>
+<p>to keep a four wide vector busy, right?</p>
+<p>Or if you&rsquo;re doing a matrix multiplication,</p>
+<p>how do you do different columns out of that matrix</p>
+<p>at the same time?</p>
+<p>And how do you maximally utilize the arithmetic compute</p>
+<p>that one core has?</p>
+<p>And then how do you take it to multiple cores?</p>
+<p>How did the whole virtual machine thing change</p>
+<p>the compilation pipeline?</p>
+<p>Yeah, so what the Java virtual machine does</p>
+<p>is it splits, just like I was talking about before,</p>
+<p>where you have a front end that parses the code,</p>
+<p>and then you have an intermediate representation</p>
+<p>that gets transformed.</p>
+<p>What Java did was they said,</p>
+<p>we will parse the code and then compile to</p>
+<p>what&rsquo;s known as Java byte code.</p>
+<p>And that byte code is now a portable code representation</p>
+<p>that is industry standard and locked down and can&rsquo;t change.</p>
+<p>And then the back part of the compiler</p>
+<p>that does optimization and code generation</p>
+<p>can now be built by different vendors.</p>
+<p>Okay.</p>
+<p>And Java byte code can be shipped around across the wire.</p>
+<p>It&rsquo;s memory safe and relatively trusted.</p>
+<p>And because of that, it can run in the browser.</p>
+<p>And that&rsquo;s why it runs in the browser, right?</p>
+<p>And so that way you can be in,</p>
+<p>again, back in the day, you would write a Java applet</p>
+<p>and as a web developer, you&rsquo;d build this mini app</p>
+<p>that would run on a webpage.</p>
+<p>Well, a user of that is running a web browser</p>
+<p>on their computer.</p>
+<p>You download that Java byte code, which can be trusted,</p>
+<p>and then you do all the compiler stuff on your machine</p>
+<p>so that you know that you trust that.</p>
+<p>Now, is that a good idea or a bad idea?</p>
+<p>It&rsquo;s a great idea.</p>
+<p>I mean, it&rsquo;s a great idea for certain problems.</p>
+<p>And I&rsquo;m very much a believer that technology is itself</p>
+<p>neither good nor bad.</p>
+<p>It&rsquo;s how you apply it.</p>
+<p>You know, this would be a very, very bad thing</p>
+<p>for very low levels of the software stack.</p>
+<p>But in terms of solving some of these software portability</p>
+<p>and transparency, or portability problems,</p>
+<p>I think it&rsquo;s been really good.</p>
+<p>Now, Java ultimately didn&rsquo;t win out on the desktop.</p>
+<p>And like, there are good reasons for that.</p>
+<p>But it&rsquo;s been very successful on servers and in many places,</p>
+<p>it&rsquo;s been a very successful thing over decades.</p>
+<p>So what has been LLVMs and C langs improvements</p>
+<p>and optimization that throughout its history,</p>
+<p>what are some moments we had set back</p>
+<p>and really proud of what&rsquo;s been accomplished?</p>
+<p>Yeah, I think that the interesting thing about LLVM</p>
+<p>is not the innovations and compiler research.</p>
+<p>It has very good implementations</p>
+<p>of various important algorithms, no doubt.</p>
+<p>And a lot of really smart people have worked on it.</p>
+<p>But I think that the thing that&rsquo;s most profound about LLVM</p>
+<p>is that through standardization, it made things possible</p>
+<p>that otherwise wouldn&rsquo;t have happened, okay?</p>
+<p>And so interesting things that have happened with LLVM,</p>
+<p>for example, Sony has picked up LLVM</p>
+<p>and used it to do all the graphics compilation</p>
+<p>in their movie production pipeline.</p>
+<p>And so now they&rsquo;re able to have better special effects</p>
+<p>because of LLVM.</p>
+<p>That&rsquo;s kind of cool.</p>
+<p>That&rsquo;s not what it was designed for, right?</p>
+<p>But that&rsquo;s the sign of good infrastructure</p>
+<p>when it can be used in ways it was never designed for</p>
+<p>because it has good layering and software engineering</p>
+<p>and it&rsquo;s composable and things like that.</p>
+<p>Which is where, as you said, it differs from GCC.</p>
+<p>Yes, GCC is also great in various ways,</p>
+<p>but it&rsquo;s not as good as infrastructure technology.</p>
+<p>It&rsquo;s really a C compiler, or it&rsquo;s a Fortran compiler.</p>
+<p>It&rsquo;s not infrastructure in the same way.</p>
+<p>Now you can tell I don&rsquo;t know what I&rsquo;m talking about</p>
+<p>because I keep saying C lang.</p>
+<p>You can always tell when a person has clues,</p>
+<p>by the way, to pronounce something.</p>
+<p>I don&rsquo;t think, have I ever used C lang?</p>
+<p>Entirely possible, have you?</p>
+<p>Well, so you&rsquo;ve used code, it&rsquo;s generated probably.</p>
+<p>So C lang and LLVM are used to compile</p>
+<p>all the apps on the iPhone effectively and the OSs.</p>
+<p>It compiles Google&rsquo;s production server applications.</p>
+<p>It&rsquo;s used to build GameCube games and PlayStation 4</p>
+<p>and things like that.</p>
+<p>So as a user, I have, but just everything I&rsquo;ve done</p>
+<p>that I experienced with Linux has been,</p>
+<p>I believe, always GCC.</p>
+<p>Yeah, I think Linux still defaults to GCC.</p>
+<p>And is there a reason for that?</p>
+<p>Or is it because, I mean, is there a reason for that?</p>
+<p>It&rsquo;s a combination of technical and social reasons.</p>
+<p>Many Linux developers do use C lang,</p>
+<p>but the distributions, for lots of reasons,</p>
+<p>use GCC historically, and they&rsquo;ve not switched, yeah.</p>
+<p>Because it&rsquo;s just anecdotally online,</p>
+<p>it seems that LLVM has either reached the level of GCC</p>
+<p>or superseded on different features or whatever.</p>
+<p>The way I would say it is that they&rsquo;re so close,</p>
+<p>it doesn&rsquo;t matter.</p>
+<p>Yeah, exactly.</p>
+<p>Like, they&rsquo;re slightly better in some ways,</p>
+<p>slightly worse than otherwise,</p>
+<p>but it doesn&rsquo;t actually really matter anymore, that level.</p>
+<p>So in terms of optimization breakthroughs,</p>
+<p>it&rsquo;s just been solid incremental work.</p>
+<p>Yeah, yeah, which describes a lot of compilers.</p>
+<p>The hard thing about compilers, in my experience,</p>
+<p>is the engineering, the software engineering,</p>
+<p>making it so that you can have hundreds of people</p>
+<p>collaborating on really detailed, low level work</p>
+<p>and scaling that.</p>
+<p>And that&rsquo;s really hard.</p>
+<p>And that&rsquo;s one of the things I think LLVM has done well.</p>
+<p>And that kind of goes back to the original design goals</p>
+<p>with it to be modular and things like that.</p>
+<p>And incidentally, I don&rsquo;t want to take all the credit</p>
+<p>for this, right?</p>
+<p>I mean, some of the best parts about LLVM</p>
+<p>is that it was designed to be modular.</p>
+<p>And when I started, I would write, for example,</p>
+<p>a register allocator, and then somebody much smarter than me</p>
+<p>would come in and pull it out and replace it</p>
+<p>with something else that they would come up with.</p>
+<p>And because it&rsquo;s modular, they were able to do that.</p>
+<p>And that&rsquo;s one of the challenges with GCC, for example,</p>
+<p>is replacing subsystems is incredibly difficult.</p>
+<p>It can be done, but it wasn&rsquo;t designed for that.</p>
+<p>And that&rsquo;s one of the reasons that LLVM&rsquo;s been</p>
+<p>very successful in the research world as well.</p>
+<p>But in a community sense, Guido van Rossum, right,</p>
+<p>from Python, just retired from, what is it?</p>
+<p>Benevolent Dictator for Life, right?</p>
+<p>So in managing this community of brilliant compiler folks,</p>
+<p>is there, did it, for a time at least,</p>
+<p>fall on you to approve things?</p>
+<p>Oh yeah, so I mean, I still have something like</p>
+<p>an order of magnitude more patches in LLVM</p>
+<p>than anybody else, and many of those I wrote myself.</p>
+<p>But you still write, I mean, you&rsquo;re still close to the,</p>
+<p>to the, I don&rsquo;t know what the expression is,</p>
+<p>to the metal, you still write code.</p>
+<p>Yeah, I still write code.</p>
+<p>Not as much as I was able to in grad school,</p>
+<p>but that&rsquo;s an important part of my identity.</p>
+<p>But the way that LLVM has worked over time</p>
+<p>is that when I was a grad student, I could do all the work</p>
+<p>and steer everything and review every patch</p>
+<p>and make sure everything was done</p>
+<p>exactly the way my opinionated sense</p>
+<p>felt like it should be done, and that was fine.</p>
+<p>But as things scale, you can&rsquo;t do that, right?</p>
+<p>And so what ends up happening is LLVM</p>
+<p>has a hierarchical system of what&rsquo;s called code owners.</p>
+<p>These code owners are given the responsibility</p>
+<p>not to do all the work,</p>
+<p>not necessarily to review all the patches,</p>
+<p>but to make sure that the patches do get reviewed</p>
+<p>and make sure that the right thing&rsquo;s happening</p>
+<p>architecturally in their area.</p>
+<p>And so what you&rsquo;ll see is you&rsquo;ll see that, for example,</p>
+<p>hardware manufacturers end up owning</p>
+<p>the hardware specific parts of their hardware.</p>
+<p>That&rsquo;s very common.</p>
+<p>Leaders in the community that have done really good work</p>
+<p>naturally become the de facto owner of something.</p>
+<p>And then usually somebody else is like,</p>
+<p>how about we make them the official code owner?</p>
+<p>And then we&rsquo;ll have somebody to make sure</p>
+<p>that all the patches get reviewed in a timely manner.</p>
+<p>And then everybody&rsquo;s like, yes, that&rsquo;s obvious.</p>
+<p>And then it happens, right?</p>
+<p>And usually this is a very organic thing, which is great.</p>
+<p>And so I&rsquo;m nominally the top of that stack still,</p>
+<p>but I don&rsquo;t spend a lot of time reviewing patches.</p>
+<p>What I do is I help negotiate a lot of the technical</p>
+<p>disagreements that end up happening</p>
+<p>and making sure that the community as a whole</p>
+<p>makes progress and is moving in the right direction</p>
+<p>and doing that.</p>
+<p>So we also started a nonprofit six years ago,</p>
+<p>seven years ago, time&rsquo;s gone away.</p>
+<p>And the LLVM Foundation nonprofit helps oversee</p>
+<p>all the business sides of things and make sure</p>
+<p>that the events that the LLVM community has</p>
+<p>are funded and set up and run correctly</p>
+<p>and stuff like that.</p>
+<p>But the foundation is very much stays out</p>
+<p>of the technical side of where the project is going.</p>
+<p>Right, so it sounds like a lot of it is just organic.</p>
+<p>Yeah, well, LLVM is almost 20 years old,</p>
+<p>which is hard to believe.</p>
+<p>Somebody pointed out to me recently that LLVM</p>
+<p>is now older than GCC was when LLVM started, right?</p>
+<p>So time has a way of getting away from you.</p>
+<p>But the good thing about that is it has a really robust,</p>
+<p>really amazing community of people that are</p>
+<p>in their professional lives, spread across lots</p>
+<p>of different companies, but it&rsquo;s a community</p>
+<p>of people that are interested in similar kinds of problems</p>
+<p>and have been working together effectively for years</p>
+<p>and have a lot of trust and respect for each other.</p>
+<p>And even if they don&rsquo;t always agree that we&rsquo;re able</p>
+<p>to find a path forward.</p>
+<p>So then in a slightly different flavor of effort,</p>
+<p>you started at Apple in 2005 with the task</p>
+<p>of making, I guess, LLVM production ready.</p>
+<p>And then eventually 2013 through 2017,</p>
+<p>leading the entire developer tools department.</p>
+<p>We&rsquo;re talking about LLVM, Xcode, Objective C to Swift.</p>
+<p>So in a quick overview of your time there,</p>
+<p>what were the challenges?</p>
+<p>First of all, leading such a huge group of developers,</p>
+<p>what was the big motivator, dream, mission</p>
+<p>behind creating Swift, the early birth of it</p>
+<p>from Objective C and so on, and Xcode,</p>
+<p>what are some challenges?</p>
+<p>So these are different questions.</p>
+<p>Yeah, I know, but I wanna talk about the other stuff too.</p>
+<p>I&rsquo;ll stay on the technical side,</p>
+<p>then we can talk about the big team pieces, if that&rsquo;s okay.</p>
+<p>So it&rsquo;s to really oversimplify many years of hard work.</p>
+<p>LLVM started, joined Apple, became a thing,</p>
+<p>became successful and became deployed.</p>
+<p>But then there&rsquo;s a question about</p>
+<p>how do we actually parse the source code?</p>
+<p>So LLVM is that back part,</p>
+<p>the optimizer and the code generator.</p>
+<p>And LLVM was really good for Apple</p>
+<p>as it went through a couple of harder transitions.</p>
+<p>I joined right at the time of the Intel transition,</p>
+<p>for example, and 64 bit transitions,</p>
+<p>and then the transition to ARM with the iPhone.</p>
+<p>And so LLVM was very useful</p>
+<p>for some of these kinds of things.</p>
+<p>But at the same time, there&rsquo;s a lot of questions</p>
+<p>around developer experience.</p>
+<p>And so if you&rsquo;re a programmer pounding out</p>
+<p>at the time Objective C code,</p>
+<p>the error message you get, the compile time,</p>
+<p>the turnaround cycle, the tooling and the IDE,</p>
+<p>were not great, were not as good as they could be.</p>
+<p>And so, as I occasionally do, I&rsquo;m like,</p>
+<p>well, okay, how hard is it to write a C compiler?</p>
+<p>And so I&rsquo;m not gonna commit to anybody,</p>
+<p>I&rsquo;m not gonna tell anybody, I&rsquo;m just gonna just do it</p>
+<p>nights and weekends and start working on it.</p>
+<p>And then I built up in C,</p>
+<p>there&rsquo;s this thing called the preprocessor,</p>
+<p>which people don&rsquo;t like,</p>
+<p>but it&rsquo;s actually really hard and complicated</p>
+<p>and includes a bunch of really weird things</p>
+<p>like trigraphs and other stuff like that</p>
+<p>that are really nasty,</p>
+<p>and it&rsquo;s the crux of a bunch of the performance issues</p>
+<p>in the compiler.</p>
+<p>Started working on the parser</p>
+<p>and kind of got to the point where I&rsquo;m like,</p>
+<p>ah, you know what, we could actually do this.</p>
+<p>Everybody&rsquo;s saying that this is impossible to do,</p>
+<p>but it&rsquo;s actually just hard, it&rsquo;s not impossible.</p>
+<p>And eventually told my manager about it,</p>
+<p>and he&rsquo;s like, oh, wow, this is great,</p>
+<p>we do need to solve this problem.</p>
+<p>Oh, this is great, we can get you one other person</p>
+<p>to work with you on this, you know?</p>
+<p>And slowly a team is formed and it starts taking off.</p>
+<p>And C++, for example, huge, complicated language.</p>
+<p>People always assume that it&rsquo;s impossible to implement</p>
+<p>and it&rsquo;s very nearly impossible,</p>
+<p>but it&rsquo;s just really, really hard.</p>
+<p>And the way to get there is to build it</p>
+<p>one piece at a time incrementally.</p>
+<p>And that was only possible because we were lucky</p>
+<p>to hire some really exceptional engineers</p>
+<p>that knew various parts of it very well</p>
+<p>and could do great things.</p>
+<p>Swift was kind of a similar thing.</p>
+<p>So Swift came from, we were just finishing off</p>
+<p>the first version of C++ support in Clang.</p>
+<p>And C++ is a very formidable and very important language,</p>
+<p>but it&rsquo;s also ugly in lots of ways.</p>
+<p>And you can&rsquo;t influence C++ without thinking</p>
+<p>there has to be a better thing, right?</p>
+<p>And so I started working on Swift, again,</p>
+<p>with no hope or ambition that would go anywhere,</p>
+<p>just let&rsquo;s see what could be done,</p>
+<p>let&rsquo;s play around with this thing.</p>
+<p>It was me in my spare time, not telling anybody about it,</p>
+<p>kind of a thing, and it made some good progress.</p>
+<p>I&rsquo;m like, actually, it would make sense to do this.</p>
+<p>At the same time, I started talking with the senior VP</p>
+<p>of software at the time, a guy named Bertrand Serlet.</p>
+<p>And Bertrand was very encouraging.</p>
+<p>He was like, well, let&rsquo;s have fun, let&rsquo;s talk about this.</p>
+<p>And he was a little bit of a language guy,</p>
+<p>and so he helped guide some of the early work</p>
+<p>and encouraged me and got things off the ground.</p>
+<p>And eventually told my manager and told other people,</p>
+<p>and it started making progress.</p>
+<p>The complicating thing with Swift</p>
+<p>was that the idea of doing a new language</p>
+<p>was not obvious to anybody, including myself.</p>
+<p>And the tone at the time was that the iPhone</p>
+<p>was successful because of Objective C.</p>
+<p>Oh, interesting.</p>
+<p>Not despite of or just because of.</p>
+<p>And you have to understand that at the time,</p>
+<p>Apple was hiring software people that loved Objective C.</p>
+<p>And it wasn&rsquo;t that they came despite Objective C.</p>
+<p>They loved Objective C, and that&rsquo;s why they got hired.</p>
+<p>And so you had a software team that the leadership,</p>
+<p>in many cases, went all the way back to Next,</p>
+<p>where Objective C really became real.</p>
+<p>And so they, quote unquote, grew up writing Objective C.</p>
+<p>And many of the individual engineers</p>
+<p>all were hired because they loved Objective C.</p>
+<p>And so this notion of, OK, let&rsquo;s do new language</p>
+<p>was kind of heretical in many ways.</p>
+<p>Meanwhile, my sense was that the outside community wasn&rsquo;t really</p>
+<p>in love with Objective C. Some people were,</p>
+<p>and some of the most outspoken people were.</p>
+<p>But other people were hitting challenges</p>
+<p>because it has very sharp corners</p>
+<p>and it&rsquo;s difficult to learn.</p>
+<p>And so one of the challenges of making Swift happen that</p>
+<p>was totally non technical is the social part of what do we do?</p>
+<p>If we do a new language, which at Apple, many things</p>
+<p>happen that don&rsquo;t ship.</p>
+<p>So if we ship it, what is the metrics of success?</p>
+<p>Why would we do this?</p>
+<p>Why wouldn&rsquo;t we make Objective C better?</p>
+<p>If Objective C has problems, let&rsquo;s file off</p>
+<p>those rough corners and edges.</p>
+<p>And one of the major things that became the reason to do this</p>
+<p>was this notion of safety, memory safety.</p>
+<p>And the way Objective C works is that a lot of the object system</p>
+<p>and everything else is built on top of pointers in C.</p>
+<p>Objective C is an extension on top of C.</p>
+<p>And so pointers are unsafe.</p>
+<p>And if you get rid of the pointers,</p>
+<p>it&rsquo;s not Objective C anymore.</p>
+<p>And so fundamentally, that was an issue</p>
+<p>that you could not fix safety or memory safety</p>
+<p>without fundamentally changing the language.</p>
+<p>And so once we got through that part of the mental process</p>
+<p>and the thought process, it became a design process</p>
+<p>of saying, OK, well, if we&rsquo;re going to do something new,</p>
+<p>what is good?</p>
+<p>How do we think about this?</p>
+<p>And what do we like?</p>
+<p>And what are we looking for?</p>
+<p>And that was a very different phase of it.</p>
+<p>So what are some design choices early on in Swift?</p>
+<p>Like we&rsquo;re talking about braces, are you</p>
+<p>making a typed language or not, all those kinds of things.</p>
+<p>Yeah, so some of those were obvious given the context.</p>
+<p>So a typed language, for example,</p>
+<p>Objective C is a typed language.</p>
+<p>And going with an untyped language</p>
+<p>wasn&rsquo;t really seriously considered.</p>
+<p>We wanted the performance, and we</p>
+<p>wanted refactoring tools and other things</p>
+<p>like that that go with typed languages.</p>
+<p>Quick, dumb question.</p>
+<p>Was it obvious, I think this would be a dumb question,</p>
+<p>but was it obvious that the language</p>
+<p>has to be a compiled language?</p>
+<p>Yes, that&rsquo;s not a dumb question.</p>
+<p>Earlier, I think late 90s, Apple had seriously</p>
+<p>considered moving its development experience to Java.</p>
+<p>But Swift started in 2010, which was several years</p>
+<p>after the iPhone.</p>
+<p>It was when the iPhone was definitely</p>
+<p>on an upward trajectory.</p>
+<p>And the iPhone was still extremely,</p>
+<p>and is still a bit memory constrained.</p>
+<p>And so being able to compile the code</p>
+<p>and then ship it and then having standalone code that</p>
+<p>is not JIT compiled is a very big deal</p>
+<p>and is very much part of the Apple value system.</p>
+<p>Now, JavaScript&rsquo;s also a thing.</p>
+<p>I mean, it&rsquo;s not that this is exclusive,</p>
+<p>and technologies are good depending</p>
+<p>on how they&rsquo;re applied.</p>
+<p>But in the design of Swift, saying,</p>
+<p>how can we make Objective C better?</p>
+<p>Objective C is statically compiled,</p>
+<p>and that was the contiguous, natural thing to do.</p>
+<p>Just skip ahead a little bit, and we&rsquo;ll go right back.</p>
+<p>Just as a question, as you think about today in 2019</p>
+<p>in your work at Google, TensorFlow and so on,</p>
+<p>is, again, compilations, static compilation still</p>
+<p>the right thing?</p>
+<p>Yeah, so the funny thing after working</p>
+<p>on compilers for a really long time is that,</p>
+<p>and this is one of the things that LLVM has helped with,</p>
+<p>is that I don&rsquo;t look at compilations</p>
+<p>being static or dynamic or interpreted or not.</p>
+<p>This is a spectrum.</p>
+<p>And one of the cool things about Swift</p>
+<p>is that Swift is not just statically compiled.</p>
+<p>It&rsquo;s actually dynamically compiled as well,</p>
+<p>and it can also be interpreted.</p>
+<p>Though, nobody&rsquo;s actually done that.</p>
+<p>And so what ends up happening when</p>
+<p>you use Swift in a workbook, for example in Colab or in Jupyter,</p>
+<p>is it&rsquo;s actually dynamically compiling the statements</p>
+<p>as you execute them.</p>
+<p>And so this gets back to the software engineering problems,</p>
+<p>where if you layer the stack properly,</p>
+<p>you can actually completely change</p>
+<p>how and when things get compiled because you</p>
+<p>have the right abstractions there.</p>
+<p>And so the way that a Colab workbook works with Swift</p>
+<p>is that when you start typing into it,</p>
+<p>it creates a process, a Unix process.</p>
+<p>And then each line of code you type in,</p>
+<p>it compiles it through the Swift compiler, the front end part,</p>
+<p>and then sends it through the optimizer,</p>
+<p>JIT compiles machine code, and then</p>
+<p>injects it into that process.</p>
+<p>And so as you&rsquo;re typing new stuff,</p>
+<p>it&rsquo;s like squirting in new code and overwriting and replacing</p>
+<p>and updating code in place.</p>
+<p>And the fact that it can do this is not an accident.</p>
+<p>Swift was designed for this.</p>
+<p>But it&rsquo;s an important part of how the language was set up</p>
+<p>and how it&rsquo;s layered, and this is a nonobvious piece.</p>
+<p>And one of the things with Swift that</p>
+<p>was, for me, a very strong design point</p>
+<p>is to make it so that you can learn it very quickly.</p>
+<p>And so from a language design perspective,</p>
+<p>the thing that I always come back to</p>
+<p>is this UI principle of progressive disclosure</p>
+<p>of complexity.</p>
+<p>And so in Swift, you can start by saying print, quote,</p>
+<p>hello world, quote.</p>
+<p>And there&rsquo;s no slash n, just like Python, one line of code,</p>
+<p>no main, no header files, no public static class void,</p>
+<p>blah, blah, blah, string like Java has, one line of code.</p>
+<p>And you can teach that, and it works great.</p>
+<p>Then you can say, well, let&rsquo;s introduce variables.</p>
+<p>And so you can declare a variable with var.</p>
+<p>So var x equals 4.</p>
+<p>What is a variable?</p>
+<p>You can use x, x plus 1.</p>
+<p>This is what it means.</p>
+<p>Then you can say, well, how about control flow?</p>
+<p>Well, this is what an if statement is.</p>
+<p>This is what a for statement is.</p>
+<p>This is what a while statement is.</p>
+<p>Then you can say, let&rsquo;s introduce functions.</p>
+<p>And many languages like Python have</p>
+<p>had this kind of notion of let&rsquo;s introduce small things,</p>
+<p>and then you can add complexity.</p>
+<p>Then you can introduce classes.</p>
+<p>And then you can add generics, in the case of Swift.</p>
+<p>And then you can build in modules</p>
+<p>and build out in terms of the things that you&rsquo;re expressing.</p>
+<p>But this is not very typical for compiled languages.</p>
+<p>And so this was a very strong design point,</p>
+<p>and one of the reasons that Swift, in general,</p>
+<p>is designed with this factoring of complexity in mind</p>
+<p>so that the language can express powerful things.</p>
+<p>You can write firmware in Swift if you want to.</p>
+<p>But it has a very high level feel,</p>
+<p>which is really this perfect blend, because often you</p>
+<p>have very advanced library writers that</p>
+<p>want to be able to use the nitty gritty details.</p>
+<p>But then other people just want to use the libraries</p>
+<p>and work at a higher abstraction level.</p>
+<p>It&rsquo;s kind of cool that I saw that you can just</p>
+<p>interoperability.</p>
+<p>I don&rsquo;t think I pronounced that word enough.</p>
+<p>But you can just drag in Python.</p>
+<p>It&rsquo;s just strange.</p>
+<p>You can import, like I saw this in the demo.</p>
+<p>How do you make that happen?</p>
+<p>What&rsquo;s up with that?</p>
+<p>Is that as easy as it looks, or is it?</p>
+<p>Yes, as easy as it looks.</p>
+<p>That&rsquo;s not a stage magic hack or anything like that.</p>
+<p>I don&rsquo;t mean from the user perspective.</p>
+<p>I mean from the implementation perspective to make it happen.</p>
+<p>So it&rsquo;s easy once all the pieces are in place.</p>
+<p>The way it works, so if you think about a dynamically typed</p>
+<p>language like Python, you can think about it</p>
+<p>in two different ways.</p>
+<p>You can say it has no types, which</p>
+<p>is what most people would say.</p>
+<p>Or you can say it has one type.</p>
+<p>And you can say it has one type, and it&rsquo;s the Python object.</p>
+<p>And the Python object gets passed around.</p>
+<p>And because there&rsquo;s only one type, it&rsquo;s implicit.</p>
+<p>And so what happens with Swift and Python talking</p>
+<p>to each other, Swift has lots of types.</p>
+<p>It has arrays, and it has strings, and all classes,</p>
+<p>and that kind of stuff.</p>
+<p>But it now has a Python object type.</p>
+<p>So there is one Python object type.</p>
+<p>And so when you say import NumPy, what you get</p>
+<p>is a Python object, which is the NumPy module.</p>
+<p>And then you say np.array.</p>
+<p>It says, OK, hey, Python object, I have no idea what you are.</p>
+<p>Give me your array member.</p>
+<p>OK, cool.</p>
+<p>And it just uses dynamic stuff, talks to the Python interpreter,</p>
+<p>and says, hey, Python, what&rsquo;s the.array member</p>
+<p>in that Python object?</p>
+<p>It gives you back another Python object.</p>
+<p>And now you say parentheses for the call and the arguments</p>
+<p>you&rsquo;re going to pass.</p>
+<p>And so then it says, hey, a Python object</p>
+<p>that is the result of np.array, call with these arguments.</p>
+<p>Again, calling into the Python interpreter to do that work.</p>
+<p>And so right now, this is all really simple.</p>
+<p>And if you dive into the code, what you&rsquo;ll see</p>
+<p>is that the Python module in Swift</p>
+<p>is something like 1,200 lines of code or something.</p>
+<p>It&rsquo;s written in pure Swift.</p>
+<p>It&rsquo;s super simple.</p>
+<p>And it&rsquo;s built on top of the C interoperability</p>
+<p>because it just talks to the Python interpreter.</p>
+<p>But making that possible required</p>
+<p>us to add two major language features to Swift</p>
+<p>to be able to express these dynamic calls</p>
+<p>and the dynamic member lookups.</p>
+<p>And so what we&rsquo;ve done over the last year</p>
+<p>is we&rsquo;ve proposed, implement, standardized, and contributed</p>
+<p>new language features to the Swift language</p>
+<p>in order to make it so it is really trivial.</p>
+<p>And this is one of the things about Swift</p>
+<p>that is critical to the Swift for TensorFlow work, which</p>
+<p>is that we can actually add new language features.</p>
+<p>And the bar for adding those is high,</p>
+<p>but it&rsquo;s what makes it possible.</p>
+<p>So you&rsquo;re now at Google doing incredible work</p>
+<p>on several things, including TensorFlow.</p>
+<p>So TensorFlow 2.0 or whatever leading up to 2.0 has,</p>
+<p>by default, in 2.0, has eager execution.</p>
+<p>And yet, in order to make code optimized for GPU or TPU</p>
+<p>or some of these systems, computation</p>
+<p>needs to be converted to a graph.</p>
+<p>So what&rsquo;s that process like?</p>
+<p>What are the challenges there?</p>
+<p>Yeah, so I am tangentially involved in this.</p>
+<p>But the way that it works with Autograph</p>
+<p>is that you mark your function with a decorator.</p>
+<p>And when Python calls it, that decorator is invoked.</p>
+<p>And then it says, before I call this function,</p>
+<p>you can transform it.</p>
+<p>And so the way Autograph works is, as far as I understand,</p>
+<p>is it actually uses the Python parser</p>
+<p>to go parse that, turn it into a syntax tree,</p>
+<p>and now apply compiler techniques to, again,</p>
+<p>transform this down into TensorFlow graphs.</p>
+<p>And so you can think of it as saying, hey,</p>
+<p>I have an if statement.</p>
+<p>I&rsquo;m going to create an if node in the graph,</p>
+<p>like you say tf.cond.</p>
+<p>You have a multiply.</p>
+<p>Well, I&rsquo;ll turn that into a multiply node in the graph.</p>
+<p>And it becomes this tree transformation.</p>
+<p>So where does the Swift for TensorFlow</p>
+<p>come in, which is parallels?</p>
+<p>For one, Swift is an interface.</p>
+<p>Like, Python is an interface to TensorFlow.</p>
+<p>But it seems like there&rsquo;s a lot more going on in just</p>
+<p>a different language interface.</p>
+<p>There&rsquo;s optimization methodology.</p>
+<p>So the TensorFlow world has a couple</p>
+<p>of different what I&rsquo;d call front end technologies.</p>
+<p>And so Swift and Python and Go and Rust and Julia</p>
+<p>and all these things share the TensorFlow graphs</p>
+<p>and all the runtime and everything that&rsquo;s later.</p>
+<p>And so Swift for TensorFlow is merely another front end</p>
+<p>for TensorFlow, just like any of these other systems are.</p>
+<p>There&rsquo;s a major difference between, I would say,</p>
+<p>three camps of technologies here.</p>
+<p>There&rsquo;s Python, which is a special case,</p>
+<p>because the vast majority of the community effort</p>
+<p>is going to the Python interface.</p>
+<p>And Python has its own approaches</p>
+<p>for automatic differentiation.</p>
+<p>It has its own APIs and all this kind of stuff.</p>
+<p>There&rsquo;s Swift, which I&rsquo;ll talk about in a second.</p>
+<p>And then there&rsquo;s kind of everything else.</p>
+<p>And so the everything else are effectively language bindings.</p>
+<p>So they call into the TensorFlow runtime,</p>
+<p>but they usually don&rsquo;t have automatic differentiation</p>
+<p>or they usually don&rsquo;t provide anything other than APIs</p>
+<p>that call the C APIs in TensorFlow.</p>
+<p>And so they&rsquo;re kind of wrappers for that.</p>
+<p>Swift is really kind of special.</p>
+<p>And it&rsquo;s a very different approach.</p>
+<p>Swift for TensorFlow, that is, is a very different approach.</p>
+<p>Because there we&rsquo;re saying, let&rsquo;s</p>
+<p>look at all the problems that need</p>
+<p>to be solved in the full stack of the TensorFlow compilation</p>
+<p>process, if you think about it that way.</p>
+<p>Because TensorFlow is fundamentally a compiler.</p>
+<p>It takes models, and then it makes them go fast on hardware.</p>
+<p>That&rsquo;s what a compiler does.</p>
+<p>And it has a front end, it has an optimizer,</p>
+<p>and it has many back ends.</p>
+<p>And so if you think about it the right way,</p>
+<p>or if you look at it in a particular way,</p>
+<p>it is a compiler.</p>
+<p>And so Swift is merely another front end.</p>
+<p>But it&rsquo;s saying, and the design principle is saying,</p>
+<p>let&rsquo;s look at all the problems that we face as machine</p>
+<p>learning practitioners and what is the best possible way we</p>
+<p>can do that, given the fact that we can change literally</p>
+<p>anything in this entire stack.</p>
+<p>And Python, for example, where the vast majority</p>
+<p>of the engineering and effort has gone into,</p>
+<p>is constrained by being the best possible thing you</p>
+<p>can do with a Python library.</p>
+<p>There are no Python language features</p>
+<p>that are added because of machine learning</p>
+<p>that I&rsquo;m aware of.</p>
+<p>They added a matrix multiplication operator</p>
+<p>with that, but that&rsquo;s as close as you get.</p>
+<p>And so with Swift, it&rsquo;s hard, but you</p>
+<p>can add language features to the language.</p>
+<p>And there&rsquo;s a community process for that.</p>
+<p>And so we look at these things and say, well,</p>
+<p>what is the right division of labor</p>
+<p>between the human programmer and the compiler?</p>
+<p>And Swift has a number of things that shift that balance.</p>
+<p>So because it has a type system, for example,</p>
+<p>that makes certain things possible for analysis</p>
+<p>of the code, and the compiler can automatically</p>
+<p>build graphs for you without you thinking about them.</p>
+<p>That&rsquo;s a big deal for a programmer.</p>
+<p>You just get free performance.</p>
+<p>You get clustering and fusion and optimization,</p>
+<p>things like that, without you as a programmer</p>
+<p>having to manually do it because the compiler can do it for you.</p>
+<p>Automatic differentiation is another big deal.</p>
+<p>And I think one of the key contributions of the Swift</p>
+<p>TensorFlow project is that there&rsquo;s</p>
+<p>this entire body of work on automatic differentiation</p>
+<p>that dates back to the Fortran days.</p>
+<p>People doing a tremendous amount of numerical computing</p>
+<p>in Fortran used to write these what they call source</p>
+<p>to source translators, where you take a bunch of code,</p>
+<p>shove it into a mini compiler, and it would push out</p>
+<p>more Fortran code.</p>
+<p>But it would generate the backwards passes</p>
+<p>for your functions for you, the derivatives.</p>
+<p>And so in that work in the 70s, a tremendous number</p>
+<p>of optimizations, a tremendous number of techniques</p>
+<p>for fixing numerical instability,</p>
+<p>and other kinds of problems were developed.</p>
+<p>But they&rsquo;re very difficult to port into a world</p>
+<p>where, in eager execution, you get an op by op at a time.</p>
+<p>You need to be able to look at an entire function</p>
+<p>and be able to reason about what&rsquo;s going on.</p>
+<p>And so when you have a language integrated automatic</p>
+<p>differentiation, which is one of the things</p>
+<p>that the Swift project is focusing on,</p>
+<p>you can open all these techniques</p>
+<p>and reuse them in familiar ways.</p>
+<p>But the language integration piece</p>
+<p>has a bunch of design room in it, and it&rsquo;s also complicated.</p>
+<p>The other piece of the puzzle here that&rsquo;s kind of interesting</p>
+<p>is TPUs at Google.</p>
+<p>So we&rsquo;re in a new world with deep learning.</p>
+<p>It constantly is changing, and I imagine,</p>
+<p>without disclosing anything, I imagine</p>
+<p>you&rsquo;re still innovating on the TPU front, too.</p>
+<p>Indeed.</p>
+<p>So how much interplay is there between software and hardware</p>
+<p>in trying to figure out how to together move</p>
+<p>towards an optimized solution?</p>
+<p>There&rsquo;s an incredible amount.</p>
+<p>So we&rsquo;re on our third generation of TPUs,</p>
+<p>which are now 100 petaflops in a very large liquid cooled box,</p>
+<p>virtual box with no cover.</p>
+<p>And as you might imagine, we&rsquo;re not out of ideas yet.</p>
+<p>The great thing about TPUs is that they&rsquo;re</p>
+<p>a perfect example of hardware software co design.</p>
+<p>And so it&rsquo;s about saying, what hardware</p>
+<p>do we build to solve certain classes of machine learning</p>
+<p>problems?</p>
+<p>Well, the algorithms are changing.</p>
+<p>The hardware takes some cases years to produce.</p>
+<p>And so you have to make bets and decide</p>
+<p>what is going to happen and what is the best way to spend</p>
+<p>the transistors to get the maximum performance per watt</p>
+<p>or area per cost or whatever it is that you&rsquo;re optimizing for.</p>
+<p>And so one of the amazing things about TPUs</p>
+<p>is this numeric format called bfloat16.</p>
+<p>bfloat16 is a compressed 16 bit floating point format,</p>
+<p>but it puts the bits in different places.</p>
+<p>And in numeric terms, it has a smaller mantissa</p>
+<p>and a larger exponent.</p>
+<p>That means that it&rsquo;s less precise,</p>
+<p>but it can represent larger ranges of values,</p>
+<p>which in the machine learning context</p>
+<p>is really important and useful because sometimes you</p>
+<p>have very small gradients you want to accumulate</p>
+<p>and very, very small numbers that</p>
+<p>are important to move things as you&rsquo;re learning.</p>
+<p>But sometimes you have very large magnitude numbers as well.</p>
+<p>And bfloat16 is not as precise.</p>
+<p>The mantissa is small.</p>
+<p>But it turns out the machine learning algorithms actually</p>
+<p>want to generalize.</p>
+<p>And so there&rsquo;s theories that this actually</p>
+<p>increases the ability for the network</p>
+<p>to generalize across data sets.</p>
+<p>And regardless of whether it&rsquo;s good or bad,</p>
+<p>it&rsquo;s much cheaper at the hardware level to implement</p>
+<p>because the area and time of a multiplier</p>
+<p>is n squared in the number of bits in the mantissa,</p>
+<p>but it&rsquo;s linear with size of the exponent.</p>
+<p>And you&rsquo;re connected to both efforts</p>
+<p>here both on the hardware and the software side?</p>
+<p>Yeah, and so that was a breakthrough</p>
+<p>coming from the research side and people</p>
+<p>working on optimizing network transport of weights</p>
+<p>across the network originally and trying</p>
+<p>to find ways to compress that.</p>
+<p>But then it got burned into silicon.</p>
+<p>And it&rsquo;s a key part of what makes TPU performance</p>
+<p>so amazing and great.</p>
+<p>Now, TPUs have many different aspects that are important.</p>
+<p>But the co design between the low level compiler bits</p>
+<p>and the software bits and the algorithms</p>
+<p>is all super important.</p>
+<p>And it&rsquo;s this amazing trifecta that only Google can do.</p>
+<p>Yeah, that&rsquo;s super exciting.</p>
+<p>So can you tell me about MLIR project, previously</p>
+<p>the secretive one?</p>
+<p>Yeah, so MLIR is a project that we</p>
+<p>announced at a compiler conference three weeks ago</p>
+<p>or something at the Compilers for Machine Learning</p>
+<p>conference.</p>
+<p>Basically, again, if you look at TensorFlow as a compiler stack,</p>
+<p>it has a number of compiler algorithms within it.</p>
+<p>It also has a number of compilers</p>
+<p>that get embedded into it.</p>
+<p>And they&rsquo;re made by different vendors.</p>
+<p>For example, Google has XLA, which</p>
+<p>is a great compiler system.</p>
+<p>NVIDIA has TensorRT.</p>
+<p>Intel has NGRAPH.</p>
+<p>There&rsquo;s a number of these different compiler systems.</p>
+<p>And they&rsquo;re very hardware specific.</p>
+<p>And they&rsquo;re trying to solve different parts of the problems.</p>
+<p>But they&rsquo;re all kind of similar in a sense of they</p>
+<p>want to integrate with TensorFlow.</p>
+<p>Now, TensorFlow has an optimizer.</p>
+<p>And it has these different code generation technologies</p>
+<p>built in.</p>
+<p>The idea of MLIR is to build a common infrastructure</p>
+<p>to support all these different subsystems.</p>
+<p>And initially, it&rsquo;s to be able to make it</p>
+<p>so that they all plug in together</p>
+<p>and they can share a lot more code and can be reusable.</p>
+<p>But over time, we hope that the industry</p>
+<p>will start collaborating and sharing code.</p>
+<p>And instead of reinventing the same things over and over again,</p>
+<p>that we can actually foster some of that working together</p>
+<p>to solve common problem energy that</p>
+<p>has been useful in the compiler field before.</p>
+<p>Beyond that, MLIR is some people have joked</p>
+<p>that it&rsquo;s kind of LLVM too.</p>
+<p>It learns a lot about what LLVM has been good</p>
+<p>and what LLVM has done wrong.</p>
+<p>And it&rsquo;s a chance to fix that.</p>
+<p>And also, there are challenges in the LLVM ecosystem as well,</p>
+<p>where LLVM is very good at the thing it was designed to do.</p>
+<p>But 20 years later, the world has changed.</p>
+<p>And people are trying to solve higher level problems.</p>
+<p>And we need some new technology.</p>
+<p>And what&rsquo;s the future of open source in this context?</p>
+<p>Very soon.</p>
+<p>So it is not yet open source.</p>
+<p>But it will be hopefully in the next couple months.</p>
+<p>So you still believe in the value of open source</p>
+<p>in these kinds of contexts?</p>
+<p>Oh, yeah.</p>
+<p>Absolutely.</p>
+<p>And I think that the TensorFlow community at large</p>
+<p>fully believes in open source.</p>
+<p>So I mean, there is a difference between Apple,</p>
+<p>where you were previously, and Google now,</p>
+<p>in spirit and culture.</p>
+<p>And I would say the open source in TensorFlow</p>
+<p>was a seminal moment in the history of software,</p>
+<p>because here&rsquo;s this large company releasing</p>
+<p>a very large code base that&rsquo;s open sourcing.</p>
+<p>What are your thoughts on that?</p>
+<p>Happy or not, were you to see that kind</p>
+<p>of degree of open sourcing?</p>
+<p>So between the two, I prefer the Google approach,</p>
+<p>if that&rsquo;s what you&rsquo;re saying.</p>
+<p>The Apple approach makes sense, given the historical context</p>
+<p>that Apple came from.</p>
+<p>But that&rsquo;s been 35 years ago.</p>
+<p>And I think that Apple is definitely adapting.</p>
+<p>And the way I look at it is that there&rsquo;s</p>
+<p>different kinds of concerns in the space.</p>
+<p>It is very rational for a business</p>
+<p>to care about making money.</p>
+<p>That fundamentally is what a business is about.</p>
+<p>But I think it&rsquo;s also incredibly realistic to say,</p>
+<p>it&rsquo;s not your string library that&rsquo;s</p>
+<p>the thing that&rsquo;s going to make you money.</p>
+<p>It&rsquo;s going to be the amazing UI product differentiating</p>
+<p>features and other things like that that you built on top</p>
+<p>of your string library.</p>
+<p>And so keeping your string library</p>
+<p>proprietary and secret and things</p>
+<p>like that is maybe not the important thing anymore.</p>
+<p>Where before, platforms were different.</p>
+<p>And even 15 years ago, things were a little bit different.</p>
+<p>But the world is changing.</p>
+<p>So Google strikes a very good balance,</p>
+<p>I think.</p>
+<p>And I think that TensorFlow being open source really</p>
+<p>changed the entire machine learning field</p>
+<p>and caused a revolution in its own right.</p>
+<p>And so I think it&rsquo;s amazingly forward looking</p>
+<p>because I could have imagined, and I wasn&rsquo;t at Google</p>
+<p>at the time, but I could imagine a different context</p>
+<p>and different world where a company says,</p>
+<p>machine learning is critical to what we&rsquo;re doing.</p>
+<p>We&rsquo;re not going to give it to other people.</p>
+<p>And so that decision is a profoundly brilliant insight</p>
+<p>that I think has really led to the world being</p>
+<p>better and better for Google as well.</p>
+<p>And has all kinds of ripple effects.</p>
+<p>I think it is really, I mean, you</p>
+<p>can&rsquo;t understate Google deciding how profound that</p>
+<p>is for software.</p>
+<p>It&rsquo;s awesome.</p>
+<p>Well, and again, I can understand the concern</p>
+<p>about if we release our machine learning software,</p>
+<p>our competitors could go faster.</p>
+<p>But on the other hand, I think that open sourcing TensorFlow</p>
+<p>has been fantastic for Google.</p>
+<p>And I&rsquo;m sure that decision was very nonobvious at the time,</p>
+<p>but I think it&rsquo;s worked out very well.</p>
+<p>So let&rsquo;s try this real quick.</p>
+<p>You were at Tesla for five months</p>
+<p>as the VP of autopilot software.</p>
+<p>You led the team during the transition from H hardware</p>
+<p>one to hardware two.</p>
+<p>I have a couple of questions.</p>
+<p>So one, first of all, to me, that&rsquo;s</p>
+<p>one of the bravest engineering decisions undertaking really</p>
+<p>ever in the automotive industry to me, software wise,</p>
+<p>starting from scratch.</p>
+<p>It&rsquo;s a really brave engineering decision.</p>
+<p>So my one question there is, what was that like?</p>
+<p>What was the challenge of that?</p>
+<p>Do you mean the career decision of jumping</p>
+<p>from a comfortable good job into the unknown, or?</p>
+<p>That combined, so at the individual level,</p>
+<p>you making that decision.</p>
+<p>And then when you show up, it&rsquo;s a really hard engineering</p>
+<p>problem.</p>
+<p>So you could just stay, maybe slow down,</p>
+<p>say hardware one, or those kinds of decisions.</p>
+<p>Just taking it full on, let&rsquo;s do this from scratch.</p>
+<p>What was that like?</p>
+<p>Well, so I mean, I don&rsquo;t think Tesla</p>
+<p>has a culture of taking things slow and seeing how it goes.</p>
+<p>And one of the things that attracted me about Tesla</p>
+<p>is it&rsquo;s very much a gung ho, let&rsquo;s change the world,</p>
+<p>let&rsquo;s figure it out kind of a place.</p>
+<p>And so I have a huge amount of respect for that.</p>
+<p>Tesla has done very smart things with hardware one</p>
+<p>in particular.</p>
+<p>And the hardware one design was originally</p>
+<p>designed to be very simple automation features</p>
+<p>in the car for like traffic aware cruise control and things</p>
+<p>like that.</p>
+<p>And the fact that they were able to effectively feature creep</p>
+<p>it into lane holding and a very useful driver assistance</p>
+<p>feature is pretty astounding, particularly given</p>
+<p>the details of the hardware.</p>
+<p>Hardware two built on that in a lot of ways.</p>
+<p>And the challenge there was that they</p>
+<p>were transitioning from a third party provided vision stack</p>
+<p>to an in house built vision stack.</p>
+<p>And so for the first step, which I mostly helped with,</p>
+<p>was getting onto that new vision stack.</p>
+<p>And that was very challenging.</p>
+<p>And it was time critical for various reasons,</p>
+<p>and it was a big leap.</p>
+<p>But it was fortunate that it built</p>
+<p>on a lot of the knowledge and expertise and the team</p>
+<p>that had built hardware one&rsquo;s driver assistance features.</p>
+<p>So you spoke in a collected and kind way</p>
+<p>about your time at Tesla, but it was ultimately not a good fit.</p>
+<p>Elon Musk, we&rsquo;ve talked on this podcast,</p>
+<p>several guests to the course, Elon Musk</p>
+<p>continues to do some of the most bold and innovative engineering</p>
+<p>work in the world, at times at the cost</p>
+<p>some of the members of the Tesla team.</p>
+<p>What did you learn about working in this chaotic world</p>
+<p>with Elon?</p>
+<p>Yeah, so I guess I would say that when I was at Tesla,</p>
+<p>I experienced and saw the highest degree of turnover</p>
+<p>I&rsquo;d ever seen in a company, which was a bit of a shock.</p>
+<p>But one of the things I learned and I came to respect</p>
+<p>is that Elon&rsquo;s able to attract amazing talent because he</p>
+<p>has a very clear vision of the future,</p>
+<p>and he can get people to buy into it</p>
+<p>because they want that future to happen.</p>
+<p>And the power of vision is something</p>
+<p>that I have a tremendous amount of respect for.</p>
+<p>And I think that Elon is fairly singular</p>
+<p>in the world in terms of the things</p>
+<p>he&rsquo;s able to get people to believe in.</p>
+<p>And there are many people that stand in the street corner</p>
+<p>and say, ah, we&rsquo;re going to go to Mars, right?</p>
+<p>But then there are a few people that</p>
+<p>can get others to buy into it and believe and build the path</p>
+<p>and make it happen.</p>
+<p>And so I respect that.</p>
+<p>I don&rsquo;t respect all of his methods,</p>
+<p>but I have a huge amount of respect for that.</p>
+<p>You&rsquo;ve mentioned in a few places,</p>
+<p>including in this context, working hard.</p>
+<p>What does it mean to work hard?</p>
+<p>And when you look back at your life,</p>
+<p>what were some of the most brutal periods</p>
+<p>of having to really put everything</p>
+<p>you have into something?</p>
+<p>Yeah, good question.</p>
+<p>So working hard can be defined a lot of different ways,</p>
+<p>so a lot of hours, and so that is true.</p>
+<p>The thing to me that&rsquo;s the hardest</p>
+<p>is both being short term focused on delivering and executing</p>
+<p>and making a thing happen while also thinking</p>
+<p>about the longer term and trying to balance that.</p>
+<p>Because if you are myopically focused on solving a task</p>
+<p>and getting that done and only think</p>
+<p>about that incremental next step,</p>
+<p>you will miss the next big hill you should jump over to.</p>
+<p>And so I&rsquo;ve been really fortunate that I&rsquo;ve</p>
+<p>been able to kind of oscillate between the two.</p>
+<p>And historically at Apple, for example, that</p>
+<p>was made possible because I was able to work with some really</p>
+<p>amazing people and build up teams and leadership</p>
+<p>structures and allow them to grow in their careers</p>
+<p>and take on responsibility, thereby freeing up</p>
+<p>me to be a little bit crazy and thinking about the next thing.</p>
+<p>And so it&rsquo;s a lot of that.</p>
+<p>But it&rsquo;s also about with experience,</p>
+<p>you make connections that other people don&rsquo;t necessarily make.</p>
+<p>And so I think that&rsquo;s a big part as well.</p>
+<p>But the bedrock is just a lot of hours.</p>
+<p>And that&rsquo;s OK with me.</p>
+<p>There&rsquo;s different theories on work life balance.</p>
+<p>And my theory for myself, which I do not project onto the team,</p>
+<p>but my theory for myself is that I</p>
+<p>want to love what I&rsquo;m doing and work really hard.</p>
+<p>And my purpose, I feel like, and my goal is to change the world</p>
+<p>and make it a better place.</p>
+<p>And that&rsquo;s what I&rsquo;m really motivated to do.</p>
+<p>So last question, LLVM logo is a dragon.</p>
+<p>You explain that this is because dragons have connotations</p>
+<p>of power, speed, intelligence.</p>
+<p>It can also be sleek, elegant, and modular,</p>
+<p>though you remove the modular part.</p>
+<p>What is your favorite dragon related character</p>
+<p>from fiction, video, or movies?</p>
+<p>So those are all very kind ways of explaining it.</p>
+<p>Do you want to know the real reason it&rsquo;s a dragon?</p>
+<p>Yeah.</p>
+<p>Is that better?</p>
+<p>So there is a seminal book on compiler design</p>
+<p>called The Dragon Book.</p>
+<p>And so this is a really old now book on compilers.</p>
+<p>And so the dragon logo for LLVM came about because at Apple,</p>
+<p>we kept talking about LLVM related technologies</p>
+<p>and there&rsquo;s no logo to put on a slide.</p>
+<p>And so we&rsquo;re like, what do we do?</p>
+<p>And somebody&rsquo;s like, well, what kind of logo</p>
+<p>should a compiler technology have?</p>
+<p>And I&rsquo;m like, I don&rsquo;t know.</p>
+<p>I mean, the dragon is the best thing that we&rsquo;ve got.</p>
+<p>And Apple somehow magically came up with the logo.</p>
+<p>And it was a great thing.</p>
+<p>And the whole community rallied around it.</p>
+<p>And then it got better as other graphic designers</p>
+<p>got involved.</p>
+<p>But that&rsquo;s originally where it came from.</p>
+<p>The story.</p>
+<p>Is there dragons from fiction that you</p>
+<p>connect with, that Game of Thrones, Lord of the Rings,</p>
+<p>that kind of thing?</p>
+<p>Lord of the Rings is great.</p>
+<p>I also like role playing games and things</p>
+<p>like computer role playing games.</p>
+<p>And so dragons often show up in there.</p>
+<p>But really, it comes back to the book.</p>
+<p>Oh, no, we need a thing.</p>
+<p>And hilariously, one of the funny things about LLVM</p>
+<p>is that my wife, who&rsquo;s amazing, runs the LLVM Foundation.</p>
+<p>And she goes to Grace Hopper and is</p>
+<p>trying to get more women involved in the.</p>
+<p>She&rsquo;s also a compiler engineer.</p>
+<p>So she&rsquo;s trying to get other women</p>
+<p>to get interested in compilers and things like this.</p>
+<p>And so she hands out the stickers.</p>
+<p>And people like the LLVM sticker because of Game of Thrones.</p>
+<p>And so sometimes culture has this helpful effect</p>
+<p>to get the next generation of compiler engineers</p>
+<p>engaged with the cause.</p>
+<p>OK, awesome.</p>
+<p>Chris, thanks so much for talking with us.</p>
+<p>It&rsquo;s been great talking with you.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

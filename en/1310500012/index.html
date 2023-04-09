@@ -1,0 +1,2205 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Thomas Sanholm.
+He&amp;rsquo;s a professor at CMU and co creator of Labratus,
+which is the first AI system to beat top human players
+in the game of Heads Up No Limit Texas Holdem.
+He has published over 450 papers
+on game theory and machine learning,
+including a best paper in 2017 at NIPS,
+now renamed to Newrips,
+which is where I caught up with him for this conversation.'>
+<title>Lex Fridman Podcast - #12 - Tuomas Sandholm: Poker and Game Theory | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500012/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #12 - Tuomas Sandholm: Poker and Game Theory'>
+<meta property='og:description' content='The following is a conversation with Thomas Sanholm.
+He&amp;rsquo;s a professor at CMU and co creator of Labratus,
+which is the first AI system to beat top human players
+in the game of Heads Up No Limit Texas Holdem.
+He has published over 450 papers
+on game theory and machine learning,
+including a best paper in 2017 at NIPS,
+now renamed to Newrips,
+which is where I caught up with him for this conversation.'>
+<meta property='og:url' content='https://swiest.com/en/1310500012/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-03-12T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-12T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #12 - Tuomas Sandholm: Poker and Game Theory">
+<meta name="twitter:description" content="The following is a conversation with Thomas Sanholm.
+He&amp;rsquo;s a professor at CMU and co creator of Labratus,
+which is the first AI system to beat top human players
+in the game of Heads Up No Limit Texas Holdem.
+He has published over 450 papers
+on game theory and machine learning,
+including a best paper in 2017 at NIPS,
+now renamed to Newrips,
+which is where I caught up with him for this conversation.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500012/">Lex Fridman Podcast - #12 - Tuomas Sandholm: Poker and Game Theory</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-03-12</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    50 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Thomas Sanholm.</p>
+<p>He&rsquo;s a professor at CMU and co creator of Labratus,</p>
+<p>which is the first AI system to beat top human players</p>
+<p>in the game of Heads Up No Limit Texas Holdem.</p>
+<p>He has published over 450 papers</p>
+<p>on game theory and machine learning,</p>
+<p>including a best paper in 2017 at NIPS,</p>
+<p>now renamed to Newrips,</p>
+<p>which is where I caught up with him for this conversation.</p>
+<p>His research and companies have had wide reaching impact</p>
+<p>in the real world,</p>
+<p>especially because he and his group</p>
+<p>not only propose new ideas,</p>
+<p>but also build systems to prove that these ideas work</p>
+<p>in the real world.</p>
+<p>This conversation is part of the MIT course</p>
+<p>on artificial general intelligence</p>
+<p>and the artificial intelligence podcast.</p>
+<p>If you enjoy it, subscribe on YouTube, iTunes,</p>
+<p>or simply connect with me on Twitter</p>
+<p>at Lex Friedman, spelled F R I D.</p>
+<p>And now here&rsquo;s my conversation with Thomas Sanholm.</p>
+<p>Can you describe at the high level</p>
+<p>the game of poker, Texas Holdem, Heads Up Texas Holdem</p>
+<p>for people who might not be familiar with this card game?</p>
+<p>Yeah, happy to.</p>
+<p>So Heads Up No Limit Texas Holdem</p>
+<p>has really emerged in the AI community</p>
+<p>as a main benchmark for testing these</p>
+<p>application independent algorithms</p>
+<p>for imperfect information game solving.</p>
+<p>And this is a game that&rsquo;s actually played by humans.</p>
+<p>You don&rsquo;t see that much on TV or casinos</p>
+<p>because well, for various reasons,</p>
+<p>but you do see it in some expert level casinos</p>
+<p>and you see it in the best poker movies of all time.</p>
+<p>It&rsquo;s actually an event in the World Series of Poker,</p>
+<p>but mostly it&rsquo;s played online</p>
+<p>and typically for pretty big sums of money.</p>
+<p>And this is a game that usually only experts play.</p>
+<p>So if you go to your home game on a Friday night,</p>
+<p>it probably is not gonna be Heads Up No Limit Texas Holdem.</p>
+<p>It might be No Limit Texas Holdem in some cases,</p>
+<p>but typically for a big group and it&rsquo;s not as competitive.</p>
+<p>While Heads Up means it&rsquo;s two players.</p>
+<p>So it&rsquo;s really like me against you.</p>
+<p>Am I better or are you better?</p>
+<p>Much like chess or go in that sense,</p>
+<p>but an imperfect information game,</p>
+<p>which makes it much harder because I have to deal</p>
+<p>with issues of you knowing things that I don&rsquo;t know</p>
+<p>and I know things that you don&rsquo;t know</p>
+<p>instead of pieces being nicely laid on the board</p>
+<p>for both of us to see.</p>
+<p>So in Texas Holdem, there&rsquo;s two cards</p>
+<p>that you only see that belong to you.</p>
+<p>Yeah. And there is,</p>
+<p>they gradually lay out some cards</p>
+<p>that add up overall to five cards that everybody can see.</p>
+<p>Yeah. So the imperfect nature</p>
+<p>of the information is the two cards</p>
+<p>that you&rsquo;re holding in your hand.</p>
+<p>Up front, yeah.</p>
+<p>So as you said, you first get two cards</p>
+<p>in private each and then there&rsquo;s a betting round.</p>
+<p>Then you get three cards in public on the table.</p>
+<p>Then there&rsquo;s a betting round.</p>
+<p>Then you get the fourth card in public on the table.</p>
+<p>There&rsquo;s a betting round.</p>
+<p>Then you get the 5th card on the table.</p>
+<p>There&rsquo;s a betting round.</p>
+<p>So there&rsquo;s a total of four betting rounds</p>
+<p>and four tranches of information revelation if you will.</p>
+<p>The only the first tranche is private</p>
+<p>and then it&rsquo;s public from there.</p>
+<p>And this is probably by far the most popular game in AI</p>
+<p>and just the general public</p>
+<p>in terms of imperfect information.</p>
+<p>So that&rsquo;s probably the most popular spectator game</p>
+<p>to watch, right?</p>
+<p>So, which is why it&rsquo;s a super exciting game to tackle.</p>
+<p>So it&rsquo;s on the order of chess, I would say,</p>
+<p>in terms of popularity, in terms of AI setting it</p>
+<p>as the bar of what is intelligence.</p>
+<p>So in 2017, Labratus, how do you pronounce it?</p>
+<p>Labratus.</p>
+<p>Labratus beats.</p>
+<p>A little Latin there.</p>
+<p>A little bit of Latin.</p>
+<p>Labratus beats a few, four expert human players.</p>
+<p>Can you describe that event?</p>
+<p>What you learned from it?</p>
+<p>What was it like?</p>
+<p>What was the process in general</p>
+<p>for people who have not read the papers and the study?</p>
+<p>Yeah, so the event was that we invited</p>
+<p>four of the top 10 players,</p>
+<p>with these specialist players in Heads Up No Limit,</p>
+<p>Texas Holden, which is very important</p>
+<p>because this game is actually quite different</p>
+<p>than the multiplayer version.</p>
+<p>We brought them in to Pittsburgh</p>
+<p>to play at the Reverse Casino for 20 days.</p>
+<p>We wanted to get 120,000 hands in</p>
+<p>because we wanted to get statistical significance.</p>
+<p>So it&rsquo;s a lot of hands for humans to play,</p>
+<p>even for these top pros who play fairly quickly normally.</p>
+<p>So we couldn&rsquo;t just have one of them play so many hands.</p>
+<p>20 days, they were playing basically morning to evening.</p>
+<p>And I raised 200,000 as a little incentive for them to play.</p>
+<p>And the setting was so that they didn&rsquo;t all get 50,000.</p>
+<p>We actually paid them out</p>
+<p>based on how they did against the AI each.</p>
+<p>So they had an incentive to play as hard as they could,</p>
+<p>whether they&rsquo;re way ahead or way behind</p>
+<p>or right at the mark of beating the AI.</p>
+<p>And you don&rsquo;t make any money, unfortunately.</p>
+<p>Right, no, we can&rsquo;t make any money.</p>
+<p>So originally, a couple of years earlier,</p>
+<p>I actually explored whether we could actually play for money</p>
+<p>because that would be, of course, interesting as well,</p>
+<p>to play against the top people for money.</p>
+<p>But the Pennsylvania Gaming Board said no, so we couldn&rsquo;t.</p>
+<p>So this is much like an exhibit,</p>
+<p>like for a musician or a boxer or something like that.</p>
+<p>Nevertheless, they were keeping track of the money</p>
+<p>and brought us close to $2 million, I think.</p>
+<p>So if it was for real money, if you were able to earn money,</p>
+<p>that was a quite impressive and inspiring achievement.</p>
+<p>Just a few details, what were the players looking at?</p>
+<p>Were they behind a computer?</p>
+<p>What was the interface like?</p>
+<p>Yes, they were playing much like they normally do.</p>
+<p>These top players, when they play this game,</p>
+<p>they play mostly online.</p>
+<p>So they&rsquo;re used to playing through a UI.</p>
+<p>And they did the same thing here.</p>
+<p>So there was this layout.</p>
+<p>You could imagine there&rsquo;s a table on a screen.</p>
+<p>There&rsquo;s the human sitting there,</p>
+<p>and then there&rsquo;s the AI sitting there.</p>
+<p>And the screen shows everything that&rsquo;s happening.</p>
+<p>The cards coming out and shows the bets being made.</p>
+<p>And we also had the betting history for the human.</p>
+<p>So if the human forgot what had happened in the hand so far,</p>
+<p>they could actually reference back and so forth.</p>
+<p>Is there a reason they were given access</p>
+<p>to the betting history for?</p>
+<p>Well, we just, it didn&rsquo;t really matter.</p>
+<p>They wouldn&rsquo;t have forgotten anyway.</p>
+<p>These are top quality people.</p>
+<p>But we just wanted to put out there</p>
+<p>so it&rsquo;s not a question of the human forgetting</p>
+<p>and the AI somehow trying to get advantage</p>
+<p>of better memory.</p>
+<p>So what was that like?</p>
+<p>I mean, that was an incredible accomplishment.</p>
+<p>So what did it feel like before the event?</p>
+<p>Did you have doubt, hope?</p>
+<p>Where was your confidence at?</p>
+<p>Yeah, that&rsquo;s great.</p>
+<p>So great question.</p>
+<p>So 18 months earlier, I had organized a similar brains</p>
+<p>versus AI competition with a previous AI called Cloudyco</p>
+<p>and we couldn&rsquo;t beat the humans.</p>
+<p>So this time around, it was only 18 months later.</p>
+<p>And I knew that this new AI, Libratus, was way stronger,</p>
+<p>but it&rsquo;s hard to say how you&rsquo;ll do against the top humans</p>
+<p>before you try.</p>
+<p>So I thought we had about a 50, 50 shot.</p>
+<p>And the international betting sites put us</p>
+<p>as a four to one or five to one underdog.</p>
+<p>So it&rsquo;s kind of interesting that people really believe</p>
+<p>in people and over AI, not just people.</p>
+<p>People don&rsquo;t just over believe in themselves,</p>
+<p>but they have overconfidence in other people as well</p>
+<p>compared to the performance of AI.</p>
+<p>And yeah, so we were a four to one or five to one underdog.</p>
+<p>And even after three days of beating the humans in a row,</p>
+<p>we were still 50, 50 on the international betting sites.</p>
+<p>Do you think there&rsquo;s something special and magical</p>
+<p>about poker and the way people think about it,</p>
+<p>in the sense you have,</p>
+<p>I mean, even in chess, there&rsquo;s no Hollywood movies.</p>
+<p>Poker is the star of many movies.</p>
+<p>And there&rsquo;s this feeling that certain human facial</p>
+<p>expressions and body language, eye movement,</p>
+<p>all these tells are critical to poker.</p>
+<p>Like you can look into somebody&rsquo;s soul</p>
+<p>and understand their betting strategy and so on.</p>
+<p>So that&rsquo;s probably why, possibly,</p>
+<p>do you think that is why people have a confidence</p>
+<p>that humans will outperform?</p>
+<p>Because AI systems cannot, in this construct,</p>
+<p>perceive these kinds of tells.</p>
+<p>They&rsquo;re only looking at betting patterns</p>
+<p>and nothing else, betting patterns and statistics.</p>
+<p>So what&rsquo;s more important to you</p>
+<p>if you step back on human players, human versus human?</p>
+<p>What&rsquo;s the role of these tells,</p>
+<p>of these ideas that we romanticize?</p>
+<p>Yeah, so I&rsquo;ll split it into two parts.</p>
+<p>So one is why do humans trust humans more than AI</p>
+<p>and have overconfidence in humans?</p>
+<p>I think that&rsquo;s not really related to the tell question.</p>
+<p>It&rsquo;s just that they&rsquo;ve seen these top players,</p>
+<p>how good they are, and they&rsquo;re really fantastic.</p>
+<p>So it&rsquo;s just hard to believe that an AI could beat them.</p>
+<p>So I think that&rsquo;s where that comes from.</p>
+<p>And that&rsquo;s actually maybe a more general lesson about AI.</p>
+<p>That until you&rsquo;ve seen it overperform a human,</p>
+<p>it&rsquo;s hard to believe that it could.</p>
+<p>But then the tells, a lot of these top players,</p>
+<p>they&rsquo;re so good at hiding tells</p>
+<p>that among the top players,</p>
+<p>it&rsquo;s actually not really worth it</p>
+<p>for them to invest a lot of effort</p>
+<p>trying to find tells in each other</p>
+<p>because they&rsquo;re so good at hiding them.</p>
+<p>So yes, at the kind of Friday evening game,</p>
+<p>tells are gonna be a huge thing.</p>
+<p>You can read other people.</p>
+<p>And if you&rsquo;re a good reader,</p>
+<p>you&rsquo;ll read them like an open book.</p>
+<p>But at the top levels of poker now,</p>
+<p>the tells become a much smaller and smaller aspect</p>
+<p>of the game as you go to the top levels.</p>
+<p>The amount of strategies, the amount of possible actions</p>
+<p>is very large, 10 to the power of 100 plus.</p>
+<p>So there has to be some, I&rsquo;ve read a few of the papers</p>
+<p>related, it has to form some abstractions</p>
+<p>of various hands and actions.</p>
+<p>So what kind of abstractions are effective</p>
+<p>for the game of poker?</p>
+<p>Yeah, so you&rsquo;re exactly right.</p>
+<p>So when you go from a game tree that&rsquo;s 10 to the 161,</p>
+<p>especially in an imperfect information game,</p>
+<p>it&rsquo;s way too large to solve directly,</p>
+<p>even with our fastest equilibrium finding algorithms.</p>
+<p>So you wanna abstract it first.</p>
+<p>And abstraction in games is much trickier</p>
+<p>than abstraction in MDPs or other single agent settings.</p>
+<p>Because you have these abstraction pathologies</p>
+<p>that if I have a finer grained abstraction,</p>
+<p>the strategy that I can get from that for the real game</p>
+<p>might actually be worse than the strategy</p>
+<p>I can get from the coarse grained abstraction.</p>
+<p>So you have to be very careful.</p>
+<p>Now the kinds of abstractions, just to zoom out,</p>
+<p>we&rsquo;re talking about, there&rsquo;s the hands abstractions</p>
+<p>and then there&rsquo;s betting strategies.</p>
+<p>Yeah, betting actions, yeah.</p>
+<p>Baiting actions.</p>
+<p>So there&rsquo;s information abstraction,</p>
+<p>don&rsquo;t talk about general games, information abstraction,</p>
+<p>which is the abstraction of what chance does.</p>
+<p>And this would be the cards in the case of poker.</p>
+<p>And then there&rsquo;s action abstraction,</p>
+<p>which is abstracting the actions of the actual players,</p>
+<p>which would be bets in the case of poker.</p>
+<p>Yourself and the other players?</p>
+<p>Yes, yourself and other players.</p>
+<p>And for information abstraction,</p>
+<p>we were completely automated.</p>
+<p>So these are algorithms,</p>
+<p>but they do what we call potential aware abstraction,</p>
+<p>where we don&rsquo;t just look at the value of the hand,</p>
+<p>but also how it might materialize</p>
+<p>into good or bad hands over time.</p>
+<p>And it&rsquo;s a certain kind of bottom up process</p>
+<p>with integer programming there and clustering</p>
+<p>and various aspects, how do you build this abstraction?</p>
+<p>And then in the action abstraction,</p>
+<p>there it&rsquo;s largely based on how humans and other AIs</p>
+<p>have played this game in the past.</p>
+<p>But in the beginning,</p>
+<p>we actually used an automated action abstraction technology,</p>
+<p>which is provably convergent</p>
+<p>that it finds the optimal combination of bet sizes,</p>
+<p>but it&rsquo;s not very scalable.</p>
+<p>So we couldn&rsquo;t use it for the whole game,</p>
+<p>but we use it for the first couple of betting actions.</p>
+<p>So what&rsquo;s more important, the strength of the hand,</p>
+<p>so the information abstraction or the how you play them,</p>
+<p>the actions, does it, you know,</p>
+<p>the romanticized notion again,</p>
+<p>is that it doesn&rsquo;t matter what hands you have,</p>
+<p>that the actions, the betting may be the way you win</p>
+<p>no matter what hands you have.</p>
+<p>Yeah, so that&rsquo;s why you have to play a lot of hands</p>
+<p>so that the role of luck gets smaller.</p>
+<p>So you could otherwise get lucky and get some good hands</p>
+<p>and then you&rsquo;re gonna win the match.</p>
+<p>Even with thousands of hands, you can get lucky</p>
+<p>because there&rsquo;s so much variance</p>
+<p>in No Limit Texas Holden because if we both go all in,</p>
+<p>it&rsquo;s a huge stack of variance, so there are these</p>
+<p>massive swings in No Limit Texas Holden.</p>
+<p>So that&rsquo;s why you have to play not just thousands,</p>
+<p>but over 100,000 hands to get statistical significance.</p>
+<p>So let me ask another way this question.</p>
+<p>If you didn&rsquo;t even look at your hands,</p>
+<p>but they didn&rsquo;t know that, the opponents didn&rsquo;t know that,</p>
+<p>how well would you be able to do?</p>
+<p>Oh, that&rsquo;s a good question.</p>
+<p>There&rsquo;s actually, I heard this story</p>
+<p>that there&rsquo;s this Norwegian female poker player</p>
+<p>called Annette Oberstad who&rsquo;s actually won a tournament</p>
+<p>by doing exactly that, but that would be extremely rare.</p>
+<p>So you cannot really play well that way.</p>
+<p>Okay, so the hands do have some role to play, okay.</p>
+<p>So Labradus does not use, as far as I understand,</p>
+<p>they use learning methods, deep learning.</p>
+<p>Is there room for learning in,</p>
+<p>there&rsquo;s no reason why Labradus doesn&rsquo;t combine</p>
+<p>with an AlphaGo type approach for estimating</p>
+<p>the quality for function estimator.</p>
+<p>What are your thoughts on this,</p>
+<p>maybe as compared to another algorithm</p>
+<p>which I&rsquo;m not that familiar with, DeepStack,</p>
+<p>the engine that does use deep learning,</p>
+<p>that it&rsquo;s unclear how well it does,</p>
+<p>but nevertheless uses deep learning.</p>
+<p>So what are your thoughts about learning methods</p>
+<p>to aid in the way that Labradus plays in the game of poker?</p>
+<p>Yeah, so as you said,</p>
+<p>Labradus did not use learning methods</p>
+<p>and played very well without them.</p>
+<p>Since then, we have actually, actually here,</p>
+<p>we have a couple of papers on things</p>
+<p>that do use learning techniques.</p>
+<p>Excellent.</p>
+<p>And deep learning in particular.</p>
+<p>And sort of the way you&rsquo;re talking about</p>
+<p>where it&rsquo;s learning an evaluation function,</p>
+<p>but in imperfect information games,</p>
+<p>unlike let&rsquo;s say in Go or now also in chess and shogi,</p>
+<p>it&rsquo;s not sufficient to learn an evaluation for a state</p>
+<p>because the value of an information set</p>
+<p>depends not only on the exact state,</p>
+<p>but it also depends on both players beliefs.</p>
+<p>Like if I have a bad hand,</p>
+<p>I&rsquo;m much better off if the opponent thinks I have a good hand</p>
+<p>and vice versa.</p>
+<p>If I have a good hand,</p>
+<p>I&rsquo;m much better off if the opponent believes</p>
+<p>I have a bad hand.</p>
+<p>So the value of a state is not just a function of the cards.</p>
+<p>It depends on, if you will, the path of play,</p>
+<p>but only to the extent that it&rsquo;s captured</p>
+<p>in the belief distributions.</p>
+<p>So that&rsquo;s why it&rsquo;s not as simple</p>
+<p>as it is in perfect information games.</p>
+<p>And I don&rsquo;t wanna say it&rsquo;s simple there either.</p>
+<p>It&rsquo;s of course very complicated computationally there too,</p>
+<p>but at least conceptually, it&rsquo;s very straightforward.</p>
+<p>There&rsquo;s a state, there&rsquo;s an evaluation function.</p>
+<p>You can try to learn it.</p>
+<p>Here, you have to do something more.</p>
+<p>And what we do is in one of these papers,</p>
+<p>we&rsquo;re looking at where we allow the opponent</p>
+<p>to actually take different strategies</p>
+<p>at the leaf of the search tree, if you will.</p>
+<p>And that is a different way of doing it.</p>
+<p>And it doesn&rsquo;t assume therefore a particular way</p>
+<p>that the opponent plays,</p>
+<p>but it allows the opponent to choose</p>
+<p>from a set of different continuation strategies.</p>
+<p>And that forces us to not be too optimistic</p>
+<p>in a look ahead search.</p>
+<p>And that&rsquo;s one way you can do sound look ahead search</p>
+<p>in imperfect information games,</p>
+<p>which is very difficult.</p>
+<p>And you were asking about DeepStack.</p>
+<p>What they did, it was very different than what we do,</p>
+<p>either in Libratus or in this new work.</p>
+<p>They were randomly generating various situations</p>
+<p>in the game.</p>
+<p>Then they were doing the look ahead</p>
+<p>from there to the end of the game,</p>
+<p>as if that was the start of a different game.</p>
+<p>And then they were using deep learning</p>
+<p>to learn those values of those states,</p>
+<p>but the states were not just the physical states.</p>
+<p>They include belief distributions.</p>
+<p>When you talk about look ahead for DeepStack</p>
+<p>or with Libratus, does it mean,</p>
+<p>considering every possibility that the game can evolve,</p>
+<p>are we talking about extremely,</p>
+<p>sort of this exponentially growth of a tree?</p>
+<p>Yes, so we&rsquo;re talking about exactly that.</p>
+<p>Much like you do in alpha beta search</p>
+<p>or Monte Carlo tree search, but with different techniques.</p>
+<p>So there&rsquo;s a different search algorithm.</p>
+<p>And then we have to deal with the leaves differently.</p>
+<p>So if you think about what Libratus did,</p>
+<p>we didn&rsquo;t have to worry about this</p>
+<p>because we only did it at the end of the game.</p>
+<p>So we would always terminate into a real situation</p>
+<p>and we would know what the payout is.</p>
+<p>It didn&rsquo;t do these depth limited lookaheads,</p>
+<p>but now in this new paper, which is called depth limited,</p>
+<p>I think it&rsquo;s called depth limited search</p>
+<p>for imperfect information games,</p>
+<p>we can actually do sound depth limited lookahead.</p>
+<p>So we can actually start to do the look ahead</p>
+<p>from the beginning of the game on,</p>
+<p>because that&rsquo;s too complicated to do</p>
+<p>for this whole long game.</p>
+<p>So in Libratus, we were just doing it for the end.</p>
+<p>So, and then the other side, this belief distribution,</p>
+<p>so is it explicitly modeled what kind of beliefs</p>
+<p>that the opponent might have?</p>
+<p>Yeah, it is explicitly modeled, but it&rsquo;s not assumed.</p>
+<p>The beliefs are actually output, not input.</p>
+<p>Of course, the starting beliefs are input,</p>
+<p>but they just fall from the rules of the game</p>
+<p>because we know that the dealer deals uniformly</p>
+<p>from the deck, so I know that every pair of cards</p>
+<p>that you might have is equally likely.</p>
+<p>I know that for a fact, that just follows</p>
+<p>from the rules of the game.</p>
+<p>Of course, except the two cards that I have,</p>
+<p>I know you don&rsquo;t have those.</p>
+<p>Yeah.</p>
+<p>You have to take that into account.</p>
+<p>That&rsquo;s called card removal and that&rsquo;s very important.</p>
+<p>Is the dealing always coming from a single deck</p>
+<p>in Heads Up, so you can assume.</p>
+<p>Single deck, so you know that if I have the ace of spades,</p>
+<p>I know you don&rsquo;t have an ace of spades.</p>
+<p>Great, so in the beginning, your belief is basically</p>
+<p>the fact that it&rsquo;s a fair dealing of hands,</p>
+<p>but how do you start to adjust that belief?</p>
+<p>Well, that&rsquo;s where this beauty of game theory comes.</p>
+<p>So Nash equilibrium, which John Nash introduced in 1950,</p>
+<p>introduces what rational play is</p>
+<p>when you have more than one player.</p>
+<p>And these are pairs of strategies</p>
+<p>where strategies are contingency plans,</p>
+<p>one for each player.</p>
+<p>So that neither player wants to deviate</p>
+<p>to a different strategy,</p>
+<p>given that the other doesn&rsquo;t deviate.</p>
+<p>But as a side effect, you get the beliefs from base roll.</p>
+<p>So Nash equilibrium really isn&rsquo;t just deriving</p>
+<p>in these imperfect information games,</p>
+<p>Nash equilibrium, it doesn&rsquo;t just define strategies.</p>
+<p>It also defines beliefs for both of us</p>
+<p>and defines beliefs for each state.</p>
+<p>So at each state, it&rsquo;s called information sets.</p>
+<p>At each information set in the game,</p>
+<p>there&rsquo;s a set of different states that we might be in,</p>
+<p>but I don&rsquo;t know which one we&rsquo;re in.</p>
+<p>Nash equilibrium tells me exactly</p>
+<p>what is the probability distribution</p>
+<p>over those real world states in my mind.</p>
+<p>How does Nash equilibrium give you that distribution?</p>
+<p>So why?</p>
+<p>I&rsquo;ll do a simple example.</p>
+<p>So you know the game Rock, Paper, Scissors?</p>
+<p>So we can draw it as player one moves first</p>
+<p>and then player two moves.</p>
+<p>But of course, it&rsquo;s important that player two</p>
+<p>doesn&rsquo;t know what player one moved,</p>
+<p>otherwise player two would win every time.</p>
+<p>So we can draw that as an information set</p>
+<p>where player one makes one of three moves first,</p>
+<p>and then there&rsquo;s an information set for player two.</p>
+<p>So player two doesn&rsquo;t know which of those nodes</p>
+<p>the world is in.</p>
+<p>But once we know the strategy for player one,</p>
+<p>Nash equilibrium will say that you play 1 3rd Rock,</p>
+<p>1 3rd Paper, 1 3rd Scissors.</p>
+<p>From that, I can derive my beliefs on the information set</p>
+<p>that they&rsquo;re 1 3rd, 1 3rd, 1 3rd.</p>
+<p>So Bayes gives you that.</p>
+<p>Bayes gives you.</p>
+<p>But is that specific to a particular player,</p>
+<p>or is it something you quickly update</p>
+<p>with the specific player?</p>
+<p>No, the game theory isn&rsquo;t really player specific.</p>
+<p>So that&rsquo;s also why we don&rsquo;t need any data.</p>
+<p>We don&rsquo;t need any history</p>
+<p>how these particular humans played in the past</p>
+<p>or how any AI or human had played before.</p>
+<p>It&rsquo;s all about rationality.</p>
+<p>So the AI just thinks about</p>
+<p>what would a rational opponent do?</p>
+<p>And what would I do if I am rational?</p>
+<p>And that&rsquo;s the idea of game theory.</p>
+<p>So it&rsquo;s really a data free, opponent free approach.</p>
+<p>So it comes from the design of the game</p>
+<p>as opposed to the design of the player.</p>
+<p>Exactly, there&rsquo;s no opponent modeling per se.</p>
+<p>I mean, we&rsquo;ve done some work on combining opponent modeling</p>
+<p>with game theory so you can exploit weak players even more,</p>
+<p>but that&rsquo;s another strand.</p>
+<p>And in Librarus, we didn&rsquo;t turn that on.</p>
+<p>So I decided that these players are too good.</p>
+<p>And when you start to exploit an opponent,</p>
+<p>you typically open yourself up to exploitation.</p>
+<p>And these guys have so few holes to exploit</p>
+<p>and they&rsquo;re world&rsquo;s leading experts in counter exploitation.</p>
+<p>So I decided that we&rsquo;re not gonna turn that stuff on.</p>
+<p>Actually, I saw a few of your papers exploiting opponents.</p>
+<p>It sounded very interesting to explore.</p>
+<p>Do you think there&rsquo;s room for exploitation</p>
+<p>generally outside of Librarus?</p>
+<p>Is there a subject or people differences</p>
+<p>that could be exploited, maybe not just in poker,</p>
+<p>but in general interactions and negotiations,</p>
+<p>all these other domains that you&rsquo;re considering?</p>
+<p>Yeah, definitely.</p>
+<p>We&rsquo;ve done some work on that.</p>
+<p>And I really like the work at hybrid digested too.</p>
+<p>So you figure out what would a rational opponent do.</p>
+<p>And by the way, that&rsquo;s safe in these zero sum games,</p>
+<p>two player zero sum games,</p>
+<p>because if the opponent does something irrational,</p>
+<p>yes, it might throw off my beliefs,</p>
+<p>but the amount that the player can gain</p>
+<p>by throwing off my belief is always less</p>
+<p>than they lose by playing poorly.</p>
+<p>So it&rsquo;s safe.</p>
+<p>But still, if somebody&rsquo;s weak as a player,</p>
+<p>you might wanna play differently to exploit them more.</p>
+<p>So you can think about it this way,</p>
+<p>a game theoretic strategy is unbeatable,</p>
+<p>but it doesn&rsquo;t maximally beat the other opponent.</p>
+<p>So the winnings per hand might be better</p>
+<p>with a different strategy.</p>
+<p>And the hybrid is that you start</p>
+<p>from a game theoretic approach.</p>
+<p>And then as you gain data about the opponent</p>
+<p>in certain parts of the game tree,</p>
+<p>then in those parts of the game tree,</p>
+<p>you start to tweak your strategy more and more</p>
+<p>towards exploitation while still staying fairly close</p>
+<p>to the game theoretic strategy</p>
+<p>so as to not open yourself up to exploitation too much.</p>
+<p>How do you do that?</p>
+<p>Do you try to vary up strategies, make it unpredictable?</p>
+<p>It&rsquo;s like, what is it, tit for tat strategies</p>
+<p>in Prisoner&rsquo;s Dilemma or?</p>
+<p>Well, that&rsquo;s a repeated game.</p>
+<p>Repeated games.</p>
+<p>Simple Prisoner&rsquo;s Dilemma, repeated games.</p>
+<p>But even there, there&rsquo;s no proof that says</p>
+<p>that that&rsquo;s the best thing.</p>
+<p>But experimentally, it actually does well.</p>
+<p>So what kind of games are there, first of all?</p>
+<p>I don&rsquo;t know if this is something</p>
+<p>that you could just summarize.</p>
+<p>There&rsquo;s perfect information games</p>
+<p>where all the information&rsquo;s on the table.</p>
+<p>There is imperfect information games.</p>
+<p>There&rsquo;s repeated games that you play over and over.</p>
+<p>There&rsquo;s zero sum games.</p>
+<p>There&rsquo;s non zero sum games.</p>
+<p>And then there&rsquo;s a really important distinction</p>
+<p>you&rsquo;re making, two player versus more players.</p>
+<p>So what are, what other games are there?</p>
+<p>And what&rsquo;s the difference, for example,</p>
+<p>with this two player game versus more players?</p>
+<p>What are the key differences in your view?</p>
+<p>So let me start from the basics.</p>
+<p>So a repeated game is a game where the same exact game</p>
+<p>is played over and over.</p>
+<p>In these extensive form games, where it&rsquo;s,</p>
+<p>think about three form, maybe with these information sets</p>
+<p>to represent incomplete information,</p>
+<p>you can have kind of repetitive interactions.</p>
+<p>Even repeated games are a special case of that, by the way.</p>
+<p>But the game doesn&rsquo;t have to be exactly the same.</p>
+<p>It&rsquo;s like in sourcing auctions.</p>
+<p>Yes, we&rsquo;re gonna see the same supply base year to year,</p>
+<p>but what I&rsquo;m buying is a little different every time.</p>
+<p>And the supply base is a little different every time</p>
+<p>and so on.</p>
+<p>So it&rsquo;s not really repeated.</p>
+<p>So to find a purely repeated game</p>
+<p>is actually very rare in the world.</p>
+<p>So they&rsquo;re really a very course model of what&rsquo;s going on.</p>
+<p>Then if you move up from just repeated,</p>
+<p>simple repeated matrix games,</p>
+<p>not all the way to extensive form games,</p>
+<p>but in between, they&rsquo;re stochastic games,</p>
+<p>where, you know, there&rsquo;s these,</p>
+<p>you think about it like these little matrix games.</p>
+<p>And when you take an action and your opponent takes an action,</p>
+<p>they determine not which next state I&rsquo;m going to,</p>
+<p>next game I&rsquo;m going to,</p>
+<p>but the distribution over next games</p>
+<p>where I might be going to.</p>
+<p>So that&rsquo;s the stochastic game.</p>
+<p>But it&rsquo;s like matrix games, repeated stochastic games,</p>
+<p>extensive form games.</p>
+<p>That is from less to more general.</p>
+<p>And poker is an example of the last one.</p>
+<p>So it&rsquo;s really in the most general setting.</p>
+<p>Extensive form games.</p>
+<p>And that&rsquo;s kind of what the AI community has been working on</p>
+<p>and being benchmarked on</p>
+<p>with this Heads Up No Limit Texas Holdem.</p>
+<p>Can you describe extensive form games?</p>
+<p>What&rsquo;s the model here?</p>
+<p>Yeah, so if you&rsquo;re familiar with the tree form,</p>
+<p>so it&rsquo;s really the tree form.</p>
+<p>Like in chess, there&rsquo;s a search tree.</p>
+<p>Versus a matrix.</p>
+<p>Versus a matrix, yeah.</p>
+<p>And the matrix is called the matrix form</p>
+<p>or bi matrix form or normal form game.</p>
+<p>And here you have the tree form.</p>
+<p>So you can actually do certain types of reasoning there</p>
+<p>that you lose the information when you go to normal form.</p>
+<p>There&rsquo;s a certain form of equivalence.</p>
+<p>Like if you go from tree form and you say it,</p>
+<p>every possible contingency plan is a strategy.</p>
+<p>Then I can actually go back to the normal form,</p>
+<p>but I lose some information from the lack of sequentiality.</p>
+<p>Then the multiplayer versus two player distinction</p>
+<p>is an important one.</p>
+<p>So two player games in zero sum</p>
+<p>are conceptually easier and computationally easier.</p>
+<p>They&rsquo;re still huge like this one,</p>
+<p>but they&rsquo;re conceptually easier and computationally easier</p>
+<p>in that conceptually, you don&rsquo;t have to worry about</p>
+<p>which equilibrium is the other guy going to play</p>
+<p>when there are multiple,</p>
+<p>because any equilibrium strategy is a best response</p>
+<p>to any other equilibrium strategy.</p>
+<p>So I can play a different equilibrium from you</p>
+<p>and we&rsquo;ll still get the right values of the game.</p>
+<p>That falls apart even with two players</p>
+<p>when you have general sum games.</p>
+<p>Even without cooperation just in general.</p>
+<p>Even without cooperation.</p>
+<p>So there&rsquo;s a big gap from two player zero sum</p>
+<p>to two player general sum or even to three player zero sum.</p>
+<p>That&rsquo;s a big gap, at least in theory.</p>
+<p>Can you maybe non mathematically provide the intuition</p>
+<p>why it all falls apart with three or more players?</p>
+<p>It seems like you should still be able to have</p>
+<p>a Nash equilibrium that&rsquo;s instructive, that holds.</p>
+<p>Okay, so it is true that all finite games</p>
+<p>have a Nash equilibrium.</p>
+<p>So this is what John Nash actually proved.</p>
+<p>So they do have a Nash equilibrium.</p>
+<p>That&rsquo;s not the problem.</p>
+<p>The problem is that there can be many.</p>
+<p>And then there&rsquo;s a question of which equilibrium to select.</p>
+<p>So, and if you select your strategy</p>
+<p>from a different equilibrium and I select mine,</p>
+<p>then what does that mean?</p>
+<p>And in these non zero sum games,</p>
+<p>we may lose some joint benefit</p>
+<p>by being just simply stupid.</p>
+<p>We could actually both be better off</p>
+<p>if we did something else.</p>
+<p>And in three player, you get other problems</p>
+<p>also like collusion.</p>
+<p>Like maybe you and I can gang up on a third player</p>
+<p>and we can do radically better by colluding.</p>
+<p>So there are lots of issues that come up there.</p>
+<p>So Noah Brown, the student you work with on this</p>
+<p>has mentioned, I looked through the AMA on Reddit.</p>
+<p>He mentioned that the ability of poker players</p>
+<p>to collaborate will make the game.</p>
+<p>He was asked the question of,</p>
+<p>how would you make the game of poker,</p>
+<p>or both of you were asked the question,</p>
+<p>how would you make the game of poker</p>
+<p>beyond being solvable by current AI methods?</p>
+<p>And he said that there&rsquo;s not many ways</p>
+<p>of making poker more difficult,</p>
+<p>but a collaboration or cooperation between players</p>
+<p>would make it extremely difficult.</p>
+<p>So can you provide the intuition behind why that is,</p>
+<p>if you agree with that idea?</p>
+<p>Yeah, so I&rsquo;ve done a lot of work on coalitional games</p>
+<p>and we actually have a paper here</p>
+<p>with my other student Gabriele Farina</p>
+<p>and some other collaborators at NIPS on that.</p>
+<p>Actually just came back from the poster session</p>
+<p>where we presented this.</p>
+<p>But so when you have a collusion, it&rsquo;s a different problem.</p>
+<p>And it typically gets even harder then.</p>
+<p>Even the game representations,</p>
+<p>some of the game representations don&rsquo;t really allow</p>
+<p>good computation.</p>
+<p>So we actually introduced a new game representation</p>
+<p>for that.</p>
+<p>Is that kind of cooperation part of the model?</p>
+<p>Are you, do you have, do you have information</p>
+<p>about the fact that other players are cooperating</p>
+<p>or is it just this chaos that where nothing is known?</p>
+<p>So there&rsquo;s some things unknown.</p>
+<p>Can you give an example of a collusion type game</p>
+<p>or is it usually?</p>
+<p>So like bridge.</p>
+<p>So think about bridge.</p>
+<p>It&rsquo;s like when you and I are on a team,</p>
+<p>our payoffs are the same.</p>
+<p>The problem is that we can&rsquo;t talk.</p>
+<p>So when I get my cards, I can&rsquo;t whisper to you</p>
+<p>what my cards are.</p>
+<p>That would not be allowed.</p>
+<p>So we have to somehow coordinate our strategies</p>
+<p>ahead of time and only ahead of time.</p>
+<p>And then there&rsquo;s certain signals we can talk about,</p>
+<p>but they have to be such that the other team</p>
+<p>also understands them.</p>
+<p>So that&rsquo;s an example where the coordination</p>
+<p>is already built into the rules of the game.</p>
+<p>But in many other situations like auctions</p>
+<p>or negotiations or diplomatic relationships, poker,</p>
+<p>it&rsquo;s not really built in, but it still can be very helpful</p>
+<p>for the colluders.</p>
+<p>I&rsquo;ve read you write somewhere,</p>
+<p>the negotiations you come to the table with prior,</p>
+<p>like a strategy that you&rsquo;re willing to do</p>
+<p>and not willing to do those kinds of things.</p>
+<p>So how do you start to now moving away from poker,</p>
+<p>moving beyond poker into other applications</p>
+<p>like negotiations, how do you start applying this</p>
+<p>to other domains, even real world domains</p>
+<p>that you&rsquo;ve worked on?</p>
+<p>Yeah, I actually have two startup companies</p>
+<p>doing exactly that.</p>
+<p>One is called Strategic Machine,</p>
+<p>and that&rsquo;s for kind of business applications,</p>
+<p>gaming, sports, all sorts of things like that.</p>
+<p>Any applications of this to business and to sports</p>
+<p>and to gaming, to various types of things</p>
+<p>in finance, electricity markets and so on.</p>
+<p>And the other is called Strategy Robot,</p>
+<p>where we are taking these to military security,</p>
+<p>cyber security and intelligence applications.</p>
+<p>I think you worked a little bit in,</p>
+<p>how do you put it, advertisement,</p>
+<p>sort of suggesting ads kind of thing, auction.</p>
+<p>That&rsquo;s another company, optimized markets.</p>
+<p>But that&rsquo;s much more about a combinatorial market</p>
+<p>and optimization based technology.</p>
+<p>That&rsquo;s not using these game theoretic reasoning technologies.</p>
+<p>I see, okay, so what sort of high level</p>
+<p>do you think about our ability to use</p>
+<p>game theoretic concepts to model human behavior?</p>
+<p>Do you think human behavior is amenable</p>
+<p>to this kind of modeling outside of the poker games,</p>
+<p>and where have you seen it done successfully in your work?</p>
+<p>I&rsquo;m not sure the goal really is modeling humans.</p>
+<p>Like for example, if I&rsquo;m playing a zero sum game,</p>
+<p>I don&rsquo;t really care that the opponent</p>
+<p>is actually following my model of rational behavior,</p>
+<p>because if they&rsquo;re not, that&rsquo;s even better for me.</p>
+<p>Right, so see with the opponents in games,</p>
+<p>the prerequisite is that you formalize</p>
+<p>the interaction in some way</p>
+<p>that can be amenable to analysis.</p>
+<p>And you&rsquo;ve done this amazing work with mechanism design,</p>
+<p>designing games that have certain outcomes.</p>
+<p>But, so I&rsquo;ll tell you an example</p>
+<p>from my world of autonomous vehicles, right?</p>
+<p>We&rsquo;re studying pedestrians,</p>
+<p>and pedestrians and cars negotiate</p>
+<p>in this nonverbal communication.</p>
+<p>There&rsquo;s this weird game dance of tension</p>
+<p>where pedestrians are basically saying,</p>
+<p>I trust that you won&rsquo;t kill me,</p>
+<p>and so as a jaywalker, I will step onto the road</p>
+<p>even though I&rsquo;m breaking the law, and there&rsquo;s this tension.</p>
+<p>And the question is, we really don&rsquo;t know</p>
+<p>how to model that well in trying to model intent.</p>
+<p>And so people sometimes bring up ideas</p>
+<p>of game theory and so on.</p>
+<p>Do you think that aspect of human behavior</p>
+<p>can use these kinds of imperfect information approaches,</p>
+<p>modeling, how do you start to attack a problem like that</p>
+<p>when you don&rsquo;t even know how to design the game</p>
+<p>to describe the situation in order to solve it?</p>
+<p>Okay, so I haven&rsquo;t really thought about jaywalking,</p>
+<p>but one thing that I think could be a good application</p>
+<p>in autonomous vehicles is the following.</p>
+<p>So let&rsquo;s say that you have fleets of autonomous cars</p>
+<p>operating by different companies.</p>
+<p>So maybe here&rsquo;s the Waymo fleet and here&rsquo;s the Uber fleet.</p>
+<p>If you think about the rules of the road,</p>
+<p>they define certain legal rules,</p>
+<p>but that still leaves a huge strategy space open.</p>
+<p>Like as a simple example, when cars merge,</p>
+<p>how humans merge, they slow down and look at each other</p>
+<p>and try to merge.</p>
+<p>Wouldn&rsquo;t it be better if these situations</p>
+<p>would already be prenegotiated</p>
+<p>so we can actually merge at full speed</p>
+<p>and we know that this is the situation,</p>
+<p>this is how we do it, and it&rsquo;s all gonna be faster.</p>
+<p>But there are way too many situations to negotiate manually.</p>
+<p>So you could use automated negotiation,</p>
+<p>this is the idea at least,</p>
+<p>you could use automated negotiation</p>
+<p>to negotiate all of these situations</p>
+<p>or many of them in advance.</p>
+<p>And of course it might be that,</p>
+<p>hey, maybe you&rsquo;re not gonna always let me go first.</p>
+<p>Maybe you said, okay, well, in these situations,</p>
+<p>I&rsquo;ll let you go first, but in exchange,</p>
+<p>you&rsquo;re gonna give me too much,</p>
+<p>you&rsquo;re gonna let me go first in this situation.</p>
+<p>So it&rsquo;s this huge combinatorial negotiation.</p>
+<p>And do you think there&rsquo;s room in that example of merging</p>
+<p>to model this whole situation</p>
+<p>as an imperfect information game</p>
+<p>or do you really want to consider it to be a perfect?</p>
+<p>No, that&rsquo;s a good question, yeah.</p>
+<p>That&rsquo;s a good question.</p>
+<p>Do you pay the price of assuming</p>
+<p>that you don&rsquo;t know everything?</p>
+<p>Yeah, I don&rsquo;t know.</p>
+<p>It&rsquo;s certainly much easier.</p>
+<p>Games with perfect information are much easier.</p>
+<p>So if you can&rsquo;t get away with it, you should.</p>
+<p>But if the real situation is of imperfect information,</p>
+<p>then you&rsquo;re gonna have to deal with imperfect information.</p>
+<p>Great, so what lessons have you learned</p>
+<p>the Annual Computer Poker Competition?</p>
+<p>An incredible accomplishment of AI.</p>
+<p>You look at the history of Deep Blue, AlphaGo,</p>
+<p>these kind of moments when AI stepped up</p>
+<p>in an engineering effort and a scientific effort combined</p>
+<p>to beat the best of human players.</p>
+<p>So what do you take away from this whole experience?</p>
+<p>What have you learned about designing AI systems</p>
+<p>that play these kinds of games?</p>
+<p>And what does that mean for AI in general,</p>
+<p>for the future of AI development?</p>
+<p>Yeah, so that&rsquo;s a good question.</p>
+<p>So there&rsquo;s so much to say about it.</p>
+<p>I do like this type of performance oriented research.</p>
+<p>Although in my group, we go all the way from like idea</p>
+<p>to theory, to experiments, to big system building,</p>
+<p>to commercialization, so we span that spectrum.</p>
+<p>But I think that in a lot of situations in AI,</p>
+<p>you really have to build the big systems</p>
+<p>and evaluate them at scale</p>
+<p>before you know what works and doesn&rsquo;t.</p>
+<p>And we&rsquo;ve seen that in the computational</p>
+<p>game theory community, that there are a lot of techniques</p>
+<p>that look good in the small,</p>
+<p>but then they cease to look good in the large.</p>
+<p>And we&rsquo;ve also seen that there are a lot of techniques</p>
+<p>that look superior in theory.</p>
+<p>And I really mean in terms of convergence rates,</p>
+<p>like first order methods, better convergence rates,</p>
+<p>like the CFR based algorithms,</p>
+<p>yet the CFR based algorithms are the fastest in practice.</p>
+<p>So it really tells me that you have to test this in reality.</p>
+<p>The theory isn&rsquo;t tight enough, if you will,</p>
+<p>to tell you which algorithms are better than the others.</p>
+<p>And you have to look at these things in the large,</p>
+<p>because any sort of projections you do from the small</p>
+<p>can at least in this domain be very misleading.</p>
+<p>So that&rsquo;s kind of from a kind of a science</p>
+<p>and engineering perspective, from a personal perspective,</p>
+<p>it&rsquo;s been just a wild experience</p>
+<p>in that with the first poker competition,</p>
+<p>the first brains versus AI,</p>
+<p>man machine poker competition that we organized.</p>
+<p>There had been, by the way, for other poker games,</p>
+<p>there had been previous competitions,</p>
+<p>but this was for Heads Up No Limit, this was the first.</p>
+<p>And I probably became the most hated person</p>
+<p>in the world of poker.</p>
+<p>And I didn&rsquo;t mean to, I just saw.</p>
+<p>Why is that?</p>
+<p>For cracking the game, for something.</p>
+<p>Yeah, a lot of people felt that it was a real threat</p>
+<p>to the whole game, the whole existence of the game.</p>
+<p>If AI becomes better than humans,</p>
+<p>people would be scared to play poker</p>
+<p>because there are these superhuman AIs running around</p>
+<p>taking their money and all of that.</p>
+<p>So I just, it&rsquo;s just really aggressive.</p>
+<p>The comments were super aggressive.</p>
+<p>I got everything just short of death threats.</p>
+<p>Do you think the same was true for chess?</p>
+<p>Because right now they just completed</p>
+<p>the world championships in chess,</p>
+<p>and humans just started ignoring the fact</p>
+<p>that there&rsquo;s AI systems now that outperform humans</p>
+<p>and they still enjoy the game, it&rsquo;s still a beautiful game.</p>
+<p>That&rsquo;s what I think.</p>
+<p>And I think the same thing happens in poker.</p>
+<p>And so I didn&rsquo;t think of myself</p>
+<p>as somebody who was gonna kill the game,</p>
+<p>and I don&rsquo;t think I did.</p>
+<p>I&rsquo;ve really learned to love this game.</p>
+<p>I wasn&rsquo;t a poker player before,</p>
+<p>but learned so many nuances about it from these AIs,</p>
+<p>and they&rsquo;ve really changed how the game is played,</p>
+<p>by the way.</p>
+<p>So they have these very Martian ways of playing poker,</p>
+<p>and the top humans are now incorporating</p>
+<p>those types of strategies into their own play.</p>
+<p>So if anything, to me, our work has made poker</p>
+<p>a richer, more interesting game for humans to play,</p>
+<p>not something that is gonna steer humans</p>
+<p>away from it entirely.</p>
+<p>Just a quick comment on something you said,</p>
+<p>which is, if I may say so,</p>
+<p>in academia is a little bit rare sometimes.</p>
+<p>It&rsquo;s pretty brave to put your ideas to the test</p>
+<p>in the way you described,</p>
+<p>saying that sometimes good ideas don&rsquo;t work</p>
+<p>when you actually try to apply them at scale.</p>
+<p>So where does that come from?</p>
+<p>I mean, if you could do advice for people,</p>
+<p>what drives you in that sense?</p>
+<p>Were you always this way?</p>
+<p>I mean, it takes a brave person.</p>
+<p>I guess is what I&rsquo;m saying, to test their ideas</p>
+<p>and to see if this thing actually works</p>
+<p>against human top human players and so on.</p>
+<p>Yeah, I don&rsquo;t know about brave,</p>
+<p>but it takes a lot of work.</p>
+<p>It takes a lot of work and a lot of time</p>
+<p>to organize, to make something big</p>
+<p>and to organize an event and stuff like that.</p>
+<p>And what drives you in that effort?</p>
+<p>Because you could still, I would argue,</p>
+<p>get a best paper award at NIPS as you did in 17</p>
+<p>without doing this.</p>
+<p>That&rsquo;s right, yes.</p>
+<p>And so in general, I believe it&rsquo;s very important</p>
+<p>to do things in the real world and at scale.</p>
+<p>And that&rsquo;s really where the pudding, if you will,</p>
+<p>proof is in the pudding, that&rsquo;s where it is.</p>
+<p>In this particular case,</p>
+<p>it was kind of a competition between different groups</p>
+<p>and for many years as to who can be the first one</p>
+<p>to beat the top humans at Heads Up No Limit, Texas Holdem.</p>
+<p>So it became kind of like a competition who can get there.</p>
+<p>Yeah, so a little friendly competition</p>
+<p>could do wonders for progress.</p>
+<p>Yes, absolutely.</p>
+<p>So the topic of mechanism design,</p>
+<p>which is really interesting, also kind of new to me,</p>
+<p>except as an observer of, I don&rsquo;t know, politics and any,</p>
+<p>I&rsquo;m an observer of mechanisms,</p>
+<p>but you write in your paper an automated mechanism design</p>
+<p>that I quickly read.</p>
+<p>So mechanism design is designing the rules of the game</p>
+<p>so you get a certain desirable outcome.</p>
+<p>And you have this work on doing so in an automatic fashion</p>
+<p>as opposed to fine tuning it.</p>
+<p>So what have you learned from those efforts?</p>
+<p>If you look, say, I don&rsquo;t know,</p>
+<p>at complexes like our political system,</p>
+<p>can we design our political system</p>
+<p>to have, in an automated fashion,</p>
+<p>to have outcomes that we want?</p>
+<p>Can we design something like traffic lights to be smart</p>
+<p>where it gets outcomes that we want?</p>
+<p>So what are the lessons that you draw from that work?</p>
+<p>Yeah, so I still very much believe</p>
+<p>in the automated mechanism design direction.</p>
+<p>Yes.</p>
+<p>But it&rsquo;s not a panacea.</p>
+<p>There are impossibility results in mechanism design</p>
+<p>saying that there is no mechanism that accomplishes</p>
+<p>objective X in class C.</p>
+<p>So it&rsquo;s not going to,</p>
+<p>there&rsquo;s no way using any mechanism design tools,</p>
+<p>manual or automated,</p>
+<p>to do certain things in mechanism design.</p>
+<p>Can you describe that again?</p>
+<p>So meaning it&rsquo;s impossible to achieve that?</p>
+<p>Yeah, yeah.</p>
+<p>And it&rsquo;s unlikely.</p>
+<p>Impossible.</p>
+<p>So these are not statements about human ingenuity</p>
+<p>who might come up with something smart.</p>
+<p>These are proofs that if you want to accomplish</p>
+<p>properties X in class C,</p>
+<p>that is not doable with any mechanism.</p>
+<p>The good thing about automated mechanism design</p>
+<p>is that we&rsquo;re not really designing for a class.</p>
+<p>We&rsquo;re designing for specific settings at a time.</p>
+<p>So even if there&rsquo;s an impossibility result</p>
+<p>for the whole class,</p>
+<p>it just doesn&rsquo;t mean that all of the cases</p>
+<p>in the class are impossible.</p>
+<p>It just means that some of the cases are impossible.</p>
+<p>So we can actually carve these islands of possibility</p>
+<p>within these known impossible classes.</p>
+<p>And we&rsquo;ve actually done that.</p>
+<p>So one of the famous results in mechanism design</p>
+<p>is the Meyerson Satethweight theorem</p>
+<p>by Roger Meyerson and Mark Satethweight from 1983.</p>
+<p>It&rsquo;s an impossibility of efficient trade</p>
+<p>under imperfect information.</p>
+<p>We show that you can, in many settings,</p>
+<p>avoid that and get efficient trade anyway.</p>
+<p>Depending on how they design the game, okay.</p>
+<p>Depending how you design the game.</p>
+<p>And of course, it doesn&rsquo;t in any way</p>
+<p>contradict the impossibility result.</p>
+<p>The impossibility result is still there,</p>
+<p>but it just finds spots within this impossible class</p>
+<p>where in those spots, you don&rsquo;t have the impossibility.</p>
+<p>Sorry if I&rsquo;m going a bit philosophical,</p>
+<p>but what lessons do you draw towards,</p>
+<p>like I mentioned, politics or human interaction</p>
+<p>and designing mechanisms for outside of just</p>
+<p>these kinds of trading or auctioning</p>
+<p>or purely formal games or human interaction,</p>
+<p>like a political system?</p>
+<p>How, do you think it&rsquo;s applicable to, yeah, politics</p>
+<p>or to business, to negotiations, these kinds of things,</p>
+<p>designing rules that have certain outcomes?</p>
+<p>Yeah, yeah, I do think so.</p>
+<p>Have you seen that successfully done?</p>
+<p>They haven&rsquo;t really, oh, you mean mechanism design</p>
+<p>or automated mechanism design?</p>
+<p>Automated mechanism design.</p>
+<p>So mechanism design itself</p>
+<p>has had fairly limited success so far.</p>
+<p>There are certain cases,</p>
+<p>but most of the real world situations</p>
+<p>are actually not sound from a mechanism design perspective,</p>
+<p>even in those cases where they&rsquo;ve been designed</p>
+<p>by very knowledgeable mechanism design people,</p>
+<p>the people are typically just taking some insights</p>
+<p>from the theory and applying those insights</p>
+<p>into the real world,</p>
+<p>rather than applying the mechanisms directly.</p>
+<p>So one famous example of is the FCC spectrum auctions.</p>
+<p>So I&rsquo;ve also had a small role in that</p>
+<p>and very good economists have been working,</p>
+<p>excellent economists have been working on that</p>
+<p>with no game theory,</p>
+<p>yet the rules that are designed in practice there,</p>
+<p>they&rsquo;re such that bidding truthfully</p>
+<p>is not the best strategy.</p>
+<p>Usually mechanism design,</p>
+<p>we try to make things easy for the participants.</p>
+<p>So telling the truth is the best strategy,</p>
+<p>but even in those very high stakes auctions</p>
+<p>where you have tens of billions of dollars</p>
+<p>worth of spectrum being auctioned,</p>
+<p>truth telling is not the best strategy.</p>
+<p>And by the way,</p>
+<p>nobody knows even a single optimal bidding strategy</p>
+<p>for those auctions.</p>
+<p>What&rsquo;s the challenge of coming up with an optimal,</p>
+<p>because there&rsquo;s a lot of players and there&rsquo;s imperfect.</p>
+<p>It&rsquo;s not so much that a lot of players,</p>
+<p>but many items for sale,</p>
+<p>and these mechanisms are such that even with just two items</p>
+<p>or one item, bidding truthfully</p>
+<p>wouldn&rsquo;t be the best strategy.</p>
+<p>If you look at the history of AI,</p>
+<p>it&rsquo;s marked by seminal events.</p>
+<p>AlphaGo beating a world champion human Go player,</p>
+<p>I would put Liberatus winning the Heads Up No Limit Holdem</p>
+<p>as one of such event.</p>
+<p>Thank you.</p>
+<p>And what do you think is the next such event,</p>
+<p>whether it&rsquo;s in your life or in the broadly AI community</p>
+<p>that you think might be out there</p>
+<p>that would surprise the world?</p>
+<p>So that&rsquo;s a great question,</p>
+<p>and I don&rsquo;t really know the answer.</p>
+<p>In terms of game solving,</p>
+<p>Heads Up No Limit Texas Holdem</p>
+<p>really was the one remaining widely agreed upon benchmark.</p>
+<p>So that was the big milestone.</p>
+<p>Now, are there other things?</p>
+<p>Yeah, certainly there are,</p>
+<p>but there&rsquo;s not one that the community</p>
+<p>has kind of focused on.</p>
+<p>So what could be other things?</p>
+<p>There are groups working on StarCraft.</p>
+<p>There are groups working on Dota 2.</p>
+<p>These are video games.</p>
+<p>Or you could have like Diplomacy or Hanabi,</p>
+<p>things like that.</p>
+<p>These are like recreational games,</p>
+<p>but none of them are really acknowledged</p>
+<p>as kind of the main next challenge problem,</p>
+<p>like chess or Go or Heads Up No Limit Texas Holdem was.</p>
+<p>So I don&rsquo;t really know in the game solving space</p>
+<p>what is or what will be the next benchmark.</p>
+<p>I kind of hope that there will be a next benchmark</p>
+<p>because really the different groups</p>
+<p>working on the same problem</p>
+<p>really drove these application independent techniques</p>
+<p>forward very quickly over 10 years.</p>
+<p>Do you think there&rsquo;s an open problem</p>
+<p>that excites you that you start moving away</p>
+<p>from games into real world games,</p>
+<p>like say the stock market trading?</p>
+<p>Yeah, so that&rsquo;s kind of how I am.</p>
+<p>So I am probably not going to work</p>
+<p>as hard on these recreational benchmarks.</p>
+<p>I&rsquo;m doing two startups on game solving technology,</p>
+<p>Strategic Machine and Strategy Robot,</p>
+<p>and we&rsquo;re really interested</p>
+<p>in pushing this stuff into practice.</p>
+<p>What do you think would be really</p>
+<p>a powerful result that would be surprising</p>
+<p>that would be, if you can say,</p>
+<p>I mean, five years, 10 years from now,</p>
+<p>something that statistically you would say</p>
+<p>is not very likely,</p>
+<p>but if there&rsquo;s a breakthrough, would achieve?</p>
+<p>Yeah, so I think that overall,</p>
+<p>we&rsquo;re in a very different situation in game theory</p>
+<p>than we are in, let&rsquo;s say, machine learning.</p>
+<p>So in machine learning, it&rsquo;s a fairly mature technology</p>
+<p>and it&rsquo;s very broadly applied</p>
+<p>and proven success in the real world.</p>
+<p>In game solving, there are almost no applications yet.</p>
+<p>We have just become superhuman,</p>
+<p>which machine learning you could argue happened in the 90s,</p>
+<p>if not earlier,</p>
+<p>and at least on supervised learning,</p>
+<p>certain complex supervised learning applications.</p>
+<p>Now, I think the next challenge problem,</p>
+<p>I know you&rsquo;re not asking about it this way,</p>
+<p>you&rsquo;re asking about the technology breakthrough,</p>
+<p>but I think that big, big breakthrough</p>
+<p>is to be able to show that, hey,</p>
+<p>maybe most of, let&rsquo;s say, military planning</p>
+<p>or most of business strategy</p>
+<p>will actually be done strategically</p>
+<p>using computational game theory.</p>
+<p>That&rsquo;s what I would like to see</p>
+<p>as the next five or 10 year goal.</p>
+<p>Maybe you can explain to me again,</p>
+<p>forgive me if this is an obvious question,</p>
+<p>but machine learning methods,</p>
+<p>neural networks suffer from not being transparent,</p>
+<p>not being explainable.</p>
+<p>Game theoretic methods, Nash equilibria,</p>
+<p>do they generally, when you see the different solutions,</p>
+<p>are they, when you talk about military operations,</p>
+<p>are they, once you see the strategies,</p>
+<p>do they make sense, are they explainable,</p>
+<p>or do they suffer from the same problems</p>
+<p>as neural networks do?</p>
+<p>So that&rsquo;s a good question.</p>
+<p>I would say a little bit yes and no.</p>
+<p>And what I mean by that is that</p>
+<p>these game theoretic strategies,</p>
+<p>let&rsquo;s say, Nash equilibrium,</p>
+<p>it has provable properties.</p>
+<p>So it&rsquo;s unlike, let&rsquo;s say, deep learning</p>
+<p>where you kind of cross your fingers,</p>
+<p>hopefully it&rsquo;ll work.</p>
+<p>And then after the fact, when you have the weights,</p>
+<p>you&rsquo;re still crossing your fingers,</p>
+<p>and I hope it will work.</p>
+<p>Here, you know that the solution quality is there.</p>
+<p>There&rsquo;s provable solution quality guarantees.</p>
+<p>Now, that doesn&rsquo;t necessarily mean</p>
+<p>that the strategies are human understandable.</p>
+<p>That&rsquo;s a whole other problem.</p>
+<p>So I think that deep learning and computational game theory</p>
+<p>are in the same boat in that sense,</p>
+<p>that both are difficult to understand.</p>
+<p>But at least the game theoretic techniques,</p>
+<p>they have these guarantees of solution quality.</p>
+<p>So do you see business operations, strategic operations,</p>
+<p>or even military in the future being</p>
+<p>at least the strong candidates</p>
+<p>being proposed by automated systems?</p>
+<p>Do you see that?</p>
+<p>Yeah, I do, I do.</p>
+<p>But that&rsquo;s more of a belief than a substantiated fact.</p>
+<p>Depending on where you land in optimism or pessimism,</p>
+<p>that&rsquo;s a really, to me, that&rsquo;s an exciting future,</p>
+<p>especially if there&rsquo;s provable things</p>
+<p>in terms of optimality.</p>
+<p>So looking into the future,</p>
+<p>there&rsquo;s a few folks worried about the,</p>
+<p>especially you look at the game of poker,</p>
+<p>which is probably one of the last benchmarks</p>
+<p>in terms of games being solved.</p>
+<p>They worry about the future</p>
+<p>and the existential threats of artificial intelligence.</p>
+<p>So the negative impact in whatever form on society.</p>
+<p>Is that something that concerns you as much,</p>
+<p>or are you more optimistic about the positive impacts of AI?</p>
+<p>Oh, I am much more optimistic about the positive impacts.</p>
+<p>So just in my own work, what we&rsquo;ve done so far,</p>
+<p>we run the nationwide kidney exchange.</p>
+<p>Hundreds of people are walking around alive today,</p>
+<p>who would it be?</p>
+<p>And it&rsquo;s increased employment.</p>
+<p>You have a lot of people now running kidney exchanges</p>
+<p>and at the transplant centers,</p>
+<p>interacting with the kidney exchange.</p>
+<p>You have extra surgeons, nurses, anesthesiologists,</p>
+<p>hospitals, all of that.</p>
+<p>So employment is increasing from that</p>
+<p>and the world is becoming a better place.</p>
+<p>Another example is combinatorial sourcing auctions.</p>
+<p>We did 800 large scale combinatorial sourcing auctions</p>
+<p>from 2001 to 2010 in a previous startup of mine</p>
+<p>called CombineNet.</p>
+<p>And we increased the supply chain efficiency</p>
+<p>on that $60 billion of spend by 12.6%.</p>
+<p>So that&rsquo;s over $6 billion of efficiency improvement</p>
+<p>in the world.</p>
+<p>And this is not like shifting value</p>
+<p>from somebody to somebody else,</p>
+<p>just efficiency improvement, like in trucking,</p>
+<p>less empty driving, so there&rsquo;s less waste,</p>
+<p>less carbon footprint and so on.</p>
+<p>So a huge positive impact in the near term,</p>
+<p>but sort of to stay in it for a little longer,</p>
+<p>because I think game theory has a role to play here.</p>
+<p>Oh, let me actually come back on that as one thing.</p>
+<p>I think AI is also going to make the world much safer.</p>
+<p>So that&rsquo;s another aspect that often gets overlooked.</p>
+<p>Well, let me ask this question.</p>
+<p>Maybe you can speak to the safer.</p>
+<p>So I talked to Max Tegmark and Stuart Russell,</p>
+<p>who are very concerned about existential threats of AI.</p>
+<p>And often the concern is about value misalignment.</p>
+<p>So AI systems basically working,</p>
+<p>operating towards goals that are not the same</p>
+<p>as human civilization, human beings.</p>
+<p>So it seems like game theory has a role to play there</p>
+<p>to make sure the values are aligned with human beings.</p>
+<p>I don&rsquo;t know if that&rsquo;s how you think about it.</p>
+<p>If not, how do you think AI might help with this problem?</p>
+<p>How do you think AI might make the world safer?</p>
+<p>Yeah, I think this value misalignment</p>
+<p>is a fairly theoretical worry.</p>
+<p>And I haven&rsquo;t really seen it in,</p>
+<p>because I do a lot of real applications.</p>
+<p>I don&rsquo;t see it anywhere.</p>
+<p>The closest I&rsquo;ve seen it</p>
+<p>was the following type of mental exercise really,</p>
+<p>where I had this argument in the late eighties</p>
+<p>when we were building</p>
+<p>these transportation optimization systems.</p>
+<p>And somebody had heard that it&rsquo;s a good idea</p>
+<p>to have high utilization of assets.</p>
+<p>So they told me, hey, why don&rsquo;t you put that as objective?</p>
+<p>And we didn&rsquo;t even put it as an objective</p>
+<p>because I just showed him that,</p>
+<p>if you had that as your objective,</p>
+<p>the solution would be to load your trucks full</p>
+<p>and drive in circles.</p>
+<p>Nothing would ever get delivered.</p>
+<p>You&rsquo;d have a hundred percent utilization.</p>
+<p>So yeah, I know this phenomenon.</p>
+<p>I&rsquo;ve known this for over 30 years,</p>
+<p>but I&rsquo;ve never seen it actually be a problem in reality.</p>
+<p>And yes, if you have the wrong objective,</p>
+<p>the AI will optimize that to the hilt</p>
+<p>and it&rsquo;s gonna hurt more than some human</p>
+<p>who&rsquo;s kind of trying to solve it in a half baked way</p>
+<p>with some human insight too.</p>
+<p>But I just haven&rsquo;t seen that materialize in practice.</p>
+<p>There&rsquo;s this gap that you&rsquo;ve actually put your finger on</p>
+<p>very clearly just now between theory and reality.</p>
+<p>That&rsquo;s very difficult to put into words, I think.</p>
+<p>It&rsquo;s what you can theoretically imagine,</p>
+<p>the worst possible case or even, yeah, I mean bad cases.</p>
+<p>And what usually happens in reality.</p>
+<p>So for example, to me,</p>
+<p>maybe it&rsquo;s something you can comment on having grown up</p>
+<p>and I grew up in the Soviet Union.</p>
+<p>There&rsquo;s currently 10,000 nuclear weapons in the world.</p>
+<p>And for many decades,</p>
+<p>it&rsquo;s theoretically surprising to me</p>
+<p>that the nuclear war is not broken out.</p>
+<p>Do you think about this aspect</p>
+<p>from a game theoretic perspective in general,</p>
+<p>why is that true?</p>
+<p>Why in theory you could see</p>
+<p>how things would go terribly wrong</p>
+<p>and somehow yet they have not?</p>
+<p>Yeah, how do you think about it?</p>
+<p>So I do think about that a lot.</p>
+<p>I think the biggest two threats that we&rsquo;re facing as mankind,</p>
+<p>one is climate change and the other is nuclear war.</p>
+<p>So those are my main two worries that I worry about.</p>
+<p>And I&rsquo;ve tried to do something about climate,</p>
+<p>thought about trying to do something</p>
+<p>for climate change twice.</p>
+<p>Actually, for two of my startups,</p>
+<p>I&rsquo;ve actually commissioned studies</p>
+<p>of what we could do on those things.</p>
+<p>And we didn&rsquo;t really find a sweet spot,</p>
+<p>but I&rsquo;m still keeping an eye out on that.</p>
+<p>If there&rsquo;s something where we could actually</p>
+<p>provide a market solution or optimizations solution</p>
+<p>or some other technology solution to problems.</p>
+<p>Right now, like for example,</p>
+<p>pollution critic markets was what we were looking at then.</p>
+<p>And it was much more the lack of political will</p>
+<p>by those markets were not so successful</p>
+<p>rather than bad market design.</p>
+<p>So I could go in and make a better market design,</p>
+<p>but that wouldn&rsquo;t really move the needle</p>
+<p>on the world very much if there&rsquo;s no political will.</p>
+<p>And in the US, the market,</p>
+<p>at least the Chicago market was just shut down and so on.</p>
+<p>So then it doesn&rsquo;t really help</p>
+<p>how great your market design was.</p>
+<p>And then the nuclear side, it&rsquo;s more,</p>
+<p>so global warming is a more encroaching problem.</p>
+<p>Nuclear weapons have been here.</p>
+<p>It&rsquo;s an obvious problem that&rsquo;s just been sitting there.</p>
+<p>So how do you think about,</p>
+<p>what is the mechanism design there</p>
+<p>that just made everything seem stable?</p>
+<p>And are you still extremely worried?</p>
+<p>I am still extremely worried.</p>
+<p>So you probably know the simple game theory of mad.</p>
+<p>So this was a mutually assured destruction</p>
+<p>and it doesn&rsquo;t require any computation with small matrices.</p>
+<p>You can actually convince yourself</p>
+<p>that the game is such that nobody wants to initiate.</p>
+<p>Yeah, that&rsquo;s a very coarse grained analysis.</p>
+<p>And it really works in a situational way.</p>
+<p>You have two superpowers or small number of superpowers.</p>
+<p>Now things are very different.</p>
+<p>You have a smaller nuke.</p>
+<p>So the threshold of initiating is smaller</p>
+<p>and you have smaller countries and non nation actors</p>
+<p>who may get a nuke and so on.</p>
+<p>So I think it&rsquo;s riskier now than it was maybe ever before.</p>
+<p>And what idea, application of AI,</p>
+<p>you&rsquo;ve talked about a little bit,</p>
+<p>but what is the most exciting to you right now?</p>
+<p>I mean, you&rsquo;re here at NIPS, NeurIPS.</p>
+<p>Now you have a few excellent pieces of work,</p>
+<p>but what are you thinking into the future</p>
+<p>with several companies you&rsquo;re doing?</p>
+<p>What&rsquo;s the most exciting thing or one of the exciting things?</p>
+<p>The number one thing for me right now</p>
+<p>is coming up with these scalable techniques</p>
+<p>for game solving and applying them into the real world.</p>
+<p>I&rsquo;m still very interested in market design as well.</p>
+<p>And we&rsquo;re doing that in the optimized markets,</p>
+<p>but I&rsquo;m most interested if number one right now</p>
+<p>is strategic machine strategy robot,</p>
+<p>getting that technology out there</p>
+<p>and seeing as you were in the trenches doing applications,</p>
+<p>what needs to be actually filled,</p>
+<p>what technology gaps still need to be filled.</p>
+<p>So it&rsquo;s so hard to just put your feet on the table</p>
+<p>and imagine what needs to be done.</p>
+<p>But when you&rsquo;re actually doing real applications,</p>
+<p>the applications tell you what needs to be done.</p>
+<p>And I really enjoy that interaction.</p>
+<p>Is it a challenging process to apply</p>
+<p>some of the state of the art techniques you&rsquo;re working on</p>
+<p>and having the various players in industry</p>
+<p>or the military or people who could really benefit from it</p>
+<p>actually use it?</p>
+<p>What&rsquo;s that process like of,</p>
+<p>autonomous vehicles work with automotive companies</p>
+<p>and they&rsquo;re in many ways are a little bit old fashioned.</p>
+<p>It&rsquo;s difficult.</p>
+<p>They really want to use this technology.</p>
+<p>There&rsquo;s clearly will have a significant benefit,</p>
+<p>but the systems aren&rsquo;t quite in place</p>
+<p>to easily have them integrated in terms of data,</p>
+<p>in terms of compute, in terms of all these kinds of things.</p>
+<p>So is that one of the bigger challenges that you&rsquo;re facing</p>
+<p>and how do you tackle that challenge?</p>
+<p>Yeah, I think that&rsquo;s always a challenge.</p>
+<p>That&rsquo;s kind of slowness and inertia really</p>
+<p>of let&rsquo;s do things the way we&rsquo;ve always done it.</p>
+<p>You just have to find the internal champions</p>
+<p>at the customer who understand that,</p>
+<p>hey, things can&rsquo;t be the same way in the future.</p>
+<p>Otherwise bad things are going to happen.</p>
+<p>And it&rsquo;s in autonomous vehicles.</p>
+<p>It&rsquo;s actually very interesting</p>
+<p>that the car makers are doing that</p>
+<p>and they&rsquo;re very traditional,</p>
+<p>but at the same time you have tech companies</p>
+<p>who have nothing to do with cars or transportation</p>
+<p>like Google and Baidu really pushing on autonomous cars.</p>
+<p>I find that fascinating.</p>
+<p>Clearly you&rsquo;re super excited</p>
+<p>about actually these ideas having an impact in the world.</p>
+<p>In terms of the technology, in terms of ideas and research,</p>
+<p>are there directions that you&rsquo;re also excited about?</p>
+<p>Whether that&rsquo;s on some of the approaches you talked about</p>
+<p>for the imperfect information games,</p>
+<p>whether it&rsquo;s applying deep learning</p>
+<p>to some of these problems,</p>
+<p>is there something that you&rsquo;re excited</p>
+<p>in the research side of things?</p>
+<p>Yeah, yeah, lots of different things</p>
+<p>in the game solving.</p>
+<p>So solving even bigger games,</p>
+<p>games where you have more hidden action</p>
+<p>of the player actions as well.</p>
+<p>Poker is a game where really the chance actions are hidden</p>
+<p>or some of them are hidden,</p>
+<p>but the player actions are public.</p>
+<p>Multiplayer games of various sorts,</p>
+<p>collusion, opponent exploitation,</p>
+<p>all and even longer games.</p>
+<p>So games that basically go forever,</p>
+<p>but they&rsquo;re not repeated.</p>
+<p>So see extensive fun games that go forever.</p>
+<p>What would that even look like?</p>
+<p>How do you represent that?</p>
+<p>How do you solve that?</p>
+<p>What&rsquo;s an example of a game like that?</p>
+<p>Or is this some of the stochastic games</p>
+<p>that you mentioned?</p>
+<p>Let&rsquo;s say business strategy.</p>
+<p>So it&rsquo;s not just modeling like a particular interaction,</p>
+<p>but thinking about the business from here to eternity.</p>
+<p>Or let&rsquo;s say military strategy.</p>
+<p>So it&rsquo;s not like war is gonna go away.</p>
+<p>How do you think about military strategy</p>
+<p>that&rsquo;s gonna go forever?</p>
+<p>How do you even model that?</p>
+<p>How do you know whether a move was good</p>
+<p>that somebody made and so on?</p>
+<p>So that&rsquo;s kind of one direction.</p>
+<p>I&rsquo;m also very interested in learning</p>
+<p>much more scalable techniques for integer programming.</p>
+<p>So we had an ICML paper this summer on that.</p>
+<p>The first automated algorithm configuration paper</p>
+<p>that has theoretical generalization guarantees.</p>
+<p>So if I see this many training examples</p>
+<p>and I told my algorithm in this way,</p>
+<p>it&rsquo;s going to have good performance</p>
+<p>on the real distribution, which I&rsquo;ve not seen.</p>
+<p>So, which is kind of interesting</p>
+<p>that algorithm configuration has been going on now</p>
+<p>for at least 17 years seriously.</p>
+<p>And there has not been any generalization theory before.</p>
+<p>Well, this is really exciting</p>
+<p>and it&rsquo;s a huge honor to talk to you.</p>
+<p>Thank you so much, Tomas.</p>
+<p>Thank you for bringing Labradus to the world</p>
+<p>and all the great work you&rsquo;re doing.</p>
+<p>Well, thank you very much.</p>
+<p>It&rsquo;s been fun.</p>
+<p>No more questions.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

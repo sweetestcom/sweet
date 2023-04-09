@@ -1,0 +1,2474 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Donald Knuth,
+one of the greatest and most impactful computer scientists
+and mathematicians ever.
+He&amp;rsquo;s the recipient of the 1974 Turing Award,
+considered the Nobel Prize of Computing.
+He&amp;rsquo;s the author of the multi volume work,
+the Magnum Opus, The Art of Computer Programming.
+He made several key contributions
+to the rigorous analysis of computational complexity
+of algorithms, including the popularization
+of asymptotic notation, that we all affectionately'>
+<title>Lex Fridman Podcast - #62 - Donald Knuth: Algorithms, TeX, Life, and The Art of Computer Programming | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500062/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #62 - Donald Knuth: Algorithms, TeX, Life, and The Art of Computer Programming'>
+<meta property='og:description' content='The following is a conversation with Donald Knuth,
+one of the greatest and most impactful computer scientists
+and mathematicians ever.
+He&amp;rsquo;s the recipient of the 1974 Turing Award,
+considered the Nobel Prize of Computing.
+He&amp;rsquo;s the author of the multi volume work,
+the Magnum Opus, The Art of Computer Programming.
+He made several key contributions
+to the rigorous analysis of computational complexity
+of algorithms, including the popularization
+of asymptotic notation, that we all affectionately'>
+<meta property='og:url' content='https://swiest.com/en/1310500062/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-05-01T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-05-01T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #62 - Donald Knuth: Algorithms, TeX, Life, and The Art of Computer Programming">
+<meta name="twitter:description" content="The following is a conversation with Donald Knuth,
+one of the greatest and most impactful computer scientists
+and mathematicians ever.
+He&amp;rsquo;s the recipient of the 1974 Turing Award,
+considered the Nobel Prize of Computing.
+He&amp;rsquo;s the author of the multi volume work,
+the Magnum Opus, The Art of Computer Programming.
+He made several key contributions
+to the rigorous analysis of computational complexity
+of algorithms, including the popularization
+of asymptotic notation, that we all affectionately">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500062/">Lex Fridman Podcast - #62 - Donald Knuth: Algorithms, TeX, Life, and The Art of Computer Programming</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-05-01</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    68 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Donald Knuth,</p>
+<p>one of the greatest and most impactful computer scientists</p>
+<p>and mathematicians ever.</p>
+<p>He&rsquo;s the recipient of the 1974 Turing Award,</p>
+<p>considered the Nobel Prize of Computing.</p>
+<p>He&rsquo;s the author of the multi volume work,</p>
+<p>the Magnum Opus, The Art of Computer Programming.</p>
+<p>He made several key contributions</p>
+<p>to the rigorous analysis of computational complexity</p>
+<p>of algorithms, including the popularization</p>
+<p>of asymptotic notation, that we all affectionately</p>
+<p>know as the big O notation.</p>
+<p>He also created the tech typesetting system,</p>
+<p>which most computer scientists, physicists, mathematicians,</p>
+<p>and scientists and engineers in general</p>
+<p>use to write technical papers and make them look beautiful.</p>
+<p>I can imagine no better guest to end 2019 with than Don,</p>
+<p>one of the kindest, most brilliant people in our field.</p>
+<p>This podcast was recorded many months ago.</p>
+<p>It&rsquo;s one I avoided because perhaps counterintuitively,</p>
+<p>the conversation meant so much to me.</p>
+<p>If you can believe it, I knew even less</p>
+<p>about recording back then, so the camera angle is a bit off.</p>
+<p>I hope that&rsquo;s OK with you.</p>
+<p>The office space was a big cramp for filming,</p>
+<p>but it was a magical space where Don does most of his work.</p>
+<p>It meant a lot to me that he would welcome me into his home.</p>
+<p>It was quite a journey to get there.</p>
+<p>As many people know, he doesn&rsquo;t check email,</p>
+<p>so I had to get creative.</p>
+<p>The effort was worth it.</p>
+<p>I&rsquo;ve been doing this podcast on the side</p>
+<p>for just over a year.</p>
+<p>Sometimes I had to sacrifice a bit of sleep,</p>
+<p>but always happy to do it and to be</p>
+<p>part of an amazing community of curious minds.</p>
+<p>Thank you for your kind words of support</p>
+<p>and for the interesting discussions,</p>
+<p>and I look forward to many more of those in 2020.</p>
+<p>This is the Artificial Intelligence Podcast.</p>
+<p>If you enjoy it, subscribe on YouTube,</p>
+<p>give it five stars on Apple Podcast, follow on Spotify,</p>
+<p>support on Patreon, or simply connect with me on Twitter</p>
+<p>at Lex Friedman, spelled F R I D M A N.</p>
+<p>I recently started doing ads at the end of the introduction.</p>
+<p>I&rsquo;ll do one or two minutes after introducing the episode</p>
+<p>and never any ads in the middle that break</p>
+<p>the flow of the conversation.</p>
+<p>I hope that works for you</p>
+<p>and doesn&rsquo;t hurt the listening experience.</p>
+<p>I provide timestamps for the start of the conversation</p>
+<p>that you can skip to, but it helps</p>
+<p>if you listen to the ad and support this podcast</p>
+<p>by trying out the product or service being advertised.</p>
+<p>This show is presented by Cash App,</p>
+<p>the number one finance app in the App Store.</p>
+<p>I personally use Cash App to send money to friends,</p>
+<p>but you can also use it to buy, sell,</p>
+<p>and deposit Bitcoin in just seconds.</p>
+<p>Cash App also has a new investing feature.</p>
+<p>You can buy fractions of a stock, say $1 worth,</p>
+<p>no matter what the stock price is.</p>
+<p>Broker services are provided by Cash App Investing,</p>
+<p>a subsidiary of Square and member SIPC.</p>
+<p>I&rsquo;m excited to be working with Cash App</p>
+<p>to support one of my favorite organizations called First,</p>
+<p>best known for their first robotics and Lego competitions.</p>
+<p>They educate and inspire hundreds of thousands of students</p>
+<p>in over 110 countries and have a perfect rating</p>
+<p>on Charity Navigator, which means that donated money</p>
+<p>is used to maximum effectiveness.</p>
+<p>When you get Cash App from the App Store or Google Play</p>
+<p>and use code LexPodcast, you&rsquo;ll get $10</p>
+<p>and Cash App will also donate $10 to First,</p>
+<p>which again is an organization</p>
+<p>that I&rsquo;ve personally seen inspire girls and boys</p>
+<p>to dream of engineering a better world.</p>
+<p>And now here&rsquo;s my conversation with Donald Knuth.</p>
+<p>In 1957 at Case Tech, you were once allowed</p>
+<p>to spend several evenings with a IBM 650 computer</p>
+<p>as you&rsquo;ve talked about in the past</p>
+<p>and you fell in love with computing then.</p>
+<p>Can you take me back to that moment with the IBM 650?</p>
+<p>What was it that grabbed you about that computer?</p>
+<p>So the IBM 650 was this machine</p>
+<p>that, well, it didn&rsquo;t fill a room,</p>
+<p>but it was big and noisy.</p>
+<p>But when I first saw it, it was through a window</p>
+<p>and there were just a lot of lights flashing on it.</p>
+<p>And I was a freshman, I had a job with the statistics group</p>
+<p>and I was supposed to punch cards for data</p>
+<p>and then sort them on another machine,</p>
+<p>but then they got this new computer, came in</p>
+<p>and it had interesting lights, okay.</p>
+<p>So, well, but I had a key to the building</p>
+<p>so I could get in and look at it and got a manual for it.</p>
+<p>And my first experience was based on the fact</p>
+<p>that I could punch cards, basically,</p>
+<p>which is a big thing for the,</p>
+<p>but the IBM 650 was big in size,</p>
+<p>but incredibly small in power.</p>
+<p>In resources.</p>
+<p>In memory, it had 2,000 words of memory</p>
+<p>and a word of memory was 10 decimal digits plus a sign.</p>
+<p>And it would do, to add two numbers together,</p>
+<p>you could probably expect that would take,</p>
+<p>I&rsquo;ll say three milliseconds.</p>
+<p>So.</p>
+<p>It took pretty fast, the memory is the constraint,</p>
+<p>the memory is the problem.</p>
+<p>That was why it took three milliseconds,</p>
+<p>because it took five milliseconds for the drum to go around</p>
+<p>and you had to wait, I don&rsquo;t know, five cycle times.</p>
+<p>If you have an instruction, one position on the drum,</p>
+<p>then it would be ready to read the data for the instruction</p>
+<p>and go three notches.</p>
+<p>The drum is 50 cycles around and you go three cycles</p>
+<p>and you can get the data and then you can go</p>
+<p>another three cycles and get to your next instruction</p>
+<p>if the instruction is there, otherwise you spin</p>
+<p>until you get to the right place.</p>
+<p>And we had no random access memory whatsoever</p>
+<p>until my senior year.</p>
+<p>Senior year, we got 50 words of random access memory</p>
+<p>which were priceless and we would move stuff</p>
+<p>up to the random access memory in 60 word chunks</p>
+<p>and then we would start again.</p>
+<p>So subroutine wanted to go up there.</p>
+<p>Could you have predicted the future 60 years later</p>
+<p>of computing from then?</p>
+<p>You know, in fact, the hardest question I was ever asked</p>
+<p>was what could I have predicted?</p>
+<p>In other words, the interviewer asked me,</p>
+<p>she said, you know, what about computing has surprised you?</p>
+<p>And immediately I ran, I rattled off a couple dozen things</p>
+<p>and then she said, okay, so what didn&rsquo;t surprise?</p>
+<p>And I tried for five minutes to think of something</p>
+<p>that I would have predicted and I couldn&rsquo;t.</p>
+<p>But let me say that this machine, I didn&rsquo;t know,</p>
+<p>well, there wasn&rsquo;t much else in the world at that time.</p>
+<p>The 650 was the first machine that there were more</p>
+<p>than a thousand of ever.</p>
+<p>Before that there were, you know, each machine</p>
+<p>there might be a half a dozen examples,</p>
+<p>maybe a couple dozen.</p>
+<p>The first mass market, mass produced.</p>
+<p>The first one, yeah, done in quantity.</p>
+<p>And IBM didn&rsquo;t sell them, they rented them,</p>
+<p>but they rented them to universities that had a great deal.</p>
+<p>And so that&rsquo;s why a lot of students learned</p>
+<p>about computers at that time.</p>
+<p>So you refer to people, including yourself,</p>
+<p>who gravitate toward a kind of computational thinking</p>
+<p>as geeks, at least I&rsquo;ve heard you use that terminology.</p>
+<p>It&rsquo;s true that I think there&rsquo;s something</p>
+<p>that happened to me as I was growing up</p>
+<p>that made my brain structure in a certain way</p>
+<p>that resonates with computers.</p>
+<p>So there&rsquo;s this space of people, 2% of the population,</p>
+<p>you empirically estimate.</p>
+<p>That&rsquo;s been fairly constant over most of my career.</p>
+<p>However, it might be different now</p>
+<p>because kids have different experiences when they&rsquo;re young.</p>
+<p>Obviously.</p>
+<p>So what does the world look like to a geek?</p>
+<p>What is this aspect of thinking that is unique to,</p>
+<p>that makes a geek?</p>
+<p>This is a hugely important question.</p>
+<p>In the 50s, IBM noticed that there were geeks</p>
+<p>and nongeeks, and so they tried to hire geeks.</p>
+<p>And they put out ads with papers saying,</p>
+<p>if you play chess, come to Madison Avenue</p>
+<p>for an interview or something like this.</p>
+<p>They were trying for some things.</p>
+<p>So what is it that I find easy</p>
+<p>and other people tend to find harder?</p>
+<p>And I think there&rsquo;s two main things.</p>
+<p>One is this, is the ability to jump levels</p>
+<p>of abstraction.</p>
+<p>So you see something in the large</p>
+<p>and you see something in the small</p>
+<p>and you pass between those unconsciously.</p>
+<p>So you know that in order to solve some big problem,</p>
+<p>what you need to do is add one to a certain register</p>
+<p>and that gets you to another step.</p>
+<p>And below the, I don&rsquo;t go down to the electron level,</p>
+<p>but I knew what those milliseconds were,</p>
+<p>what the drum was like on the 650.</p>
+<p>I knew how I was gonna factor a number</p>
+<p>or find a root of an equation or something</p>
+<p>because of what was doing.</p>
+<p>And as I&rsquo;m debugging, I&rsquo;m going through,</p>
+<p>did I make a key punch error?</p>
+<p>Did I write the wrong instruction?</p>
+<p>Do I have the wrong thing in a register?</p>
+<p>And each level is different.</p>
+<p>And this idea of being able to see something</p>
+<p>at lots of levels and fluently go between them</p>
+<p>seems to me to be much more pronounced</p>
+<p>in the people that resonate with computers like I do.</p>
+<p>So in my books, I also don&rsquo;t stick just to the high level,</p>
+<p>but I mix low level stuff with high level</p>
+<p>and this means that some people think</p>
+<p>that I should write better books and it&rsquo;s probably true.</p>
+<p>But other people say, well, but that&rsquo;s,</p>
+<p>if you think like that, then that&rsquo;s the way</p>
+<p>to train yourself, keep mixing the levels</p>
+<p>and learn more and more how to jump between.</p>
+<p>So that&rsquo;s the one thing.</p>
+<p>The other thing is that it&rsquo;s more of a talent</p>
+<p>to be able to deal with non uniformity</p>
+<p>where there&rsquo;s case one, case two, case three,</p>
+<p>instead of having one or two rules that govern everything.</p>
+<p>So it doesn&rsquo;t bother me if I need,</p>
+<p>like an algorithm has 10 steps to it,</p>
+<p>each step does something else that doesn&rsquo;t bother me,</p>
+<p>but a lot of pure mathematics is based on one or two rules</p>
+<p>which are universal and so this means</p>
+<p>that people like me sometimes work with systems</p>
+<p>that are more complicated than necessary</p>
+<p>because it doesn&rsquo;t bother us that we didn&rsquo;t figure out</p>
+<p>the simple rule.</p>
+<p>And you mentioned that while Jacobi, Boole, Abel,</p>
+<p>all the mathematicians in the 19th century</p>
+<p>may have had symptoms of geek,</p>
+<p>the first 100% legit geek was Turing, Alan Turing.</p>
+<p>I think he had, yeah, a lot more of this quality</p>
+<p>than anybody, just from reading the kind of stuff he did.</p>
+<p>So how does Turing, what influence has Turing had on you</p>
+<p>in your way of thinking?</p>
+<p>I didn&rsquo;t know that aspect of him</p>
+<p>until after I graduated some years.</p>
+<p>As undergraduate we had a class that talked about</p>
+<p>computability theory and Turing machines</p>
+<p>and it was all, it sounded like a very specific kind</p>
+<p>of purely theoretical approach to stuff.</p>
+<p>So when, how old were they when I learned</p>
+<p>that he had a design machine and that he wrote a wonderful</p>
+<p>manual for Manchester machines and he invented</p>
+<p>all kinds of subroutines and he was a real hacker</p>
+<p>that he had his hands dirty.</p>
+<p>I thought for many years that he had only done</p>
+<p>purely formal work, as I started reading</p>
+<p>his own publications, I could feel this kinship</p>
+<p>and of course he had a lot of peculiarities,</p>
+<p>like he wrote numbers backwards because I mean,</p>
+<p>left to right instead of right to left</p>
+<p>because that&rsquo;s, it was easier for computers</p>
+<p>to process them that way.</p>
+<p>What do you mean left to right?</p>
+<p>He would write pi as 9, 5, 1, 4.3, I mean, okay.</p>
+<p>Right, got it.</p>
+<p>4, 1.3, on the blackboard.</p>
+<p>I mean, he had trained himself to do that</p>
+<p>because the computers he was working with</p>
+<p>worked that way inside.</p>
+<p>Trained himself to think like a computer.</p>
+<p>There you go, that&rsquo;s geek thinking.</p>
+<p>You&rsquo;ve practiced some of the most elegant</p>
+<p>formalism in computer science and yet you&rsquo;re</p>
+<p>the creator of a concept like literate programming</p>
+<p>which seems to move closer to natural language</p>
+<p>type of description of programming.</p>
+<p>Yeah, absolutely.</p>
+<p>How do you see those two as conflicting</p>
+<p>as the formalism of theory and the idea</p>
+<p>of literate programming?</p>
+<p>So there we are in a nonuniform system</p>
+<p>where I don&rsquo;t think one size fits all</p>
+<p>and I don&rsquo;t think all truth lies in one kind of expertise.</p>
+<p>And so somehow, in a way you&rsquo;d say my life</p>
+<p>is a convex combination of English and mathematics.</p>
+<p>And you&rsquo;re okay with that.</p>
+<p>And not only that, I think.</p>
+<p>Thrive in it.</p>
+<p>I wish, you know, I want my kids to be that way,</p>
+<p>I want, et cetera, you know, use left brain,</p>
+<p>right brain at the same time.</p>
+<p>You got a lot more done.</p>
+<p>That was part of the bargain.</p>
+<p>And I&rsquo;ve heard that you didn&rsquo;t really read</p>
+<p>for pleasure until into your 30s, you know, literature.</p>
+<p>That&rsquo;s true.</p>
+<p>You know more about me than I do</p>
+<p>but I&rsquo;ll try to be consistent with what you read.</p>
+<p>Yeah, no, just believe me.</p>
+<p>I just go with whatever story I tell you.</p>
+<p>It&rsquo;ll be easier that way.</p>
+<p>The conversation works.</p>
+<p>Right, yeah, no, that&rsquo;s true.</p>
+<p>So I&rsquo;ve heard mention of Philip Roth&rsquo;s American Pastoral,</p>
+<p>which I love as a book.</p>
+<p>I don&rsquo;t know if, it was mentioned as something,</p>
+<p>I think, that was meaningful to you as well.</p>
+<p>In either case, what literary books</p>
+<p>had a lasting impact on you?</p>
+<p>What literature, what poetry?</p>
+<p>Yeah, okay, good question.</p>
+<p>So I met Roth.</p>
+<p>Oh, really?</p>
+<p>Well, we both got doctors from Harvard on the same day,</p>
+<p>so we had lunch together and stuff like that.</p>
+<p>But he knew that, you know, computer books would never sell.</p>
+<p>Well, all right, so you say you were a teenager</p>
+<p>when you left Russia, so I have to say</p>
+<p>that Tolstoy was one of the big influences on me,</p>
+<p>especially like Anna Karnina,</p>
+<p>not because of particularly of the plot of the story,</p>
+<p>but because there&rsquo;s this character who,</p>
+<p>you know, the philosophical discussions,</p>
+<p>the whole way of life is worked out there</p>
+<p>among the characters,</p>
+<p>and so that I thought was especially beautiful.</p>
+<p>On the other hand, Dostoevsky, I didn&rsquo;t like at all</p>
+<p>because I felt that his genius was mostly</p>
+<p>because he kept forgetting what he had started out to do,</p>
+<p>and he was just sloppy.</p>
+<p>I didn&rsquo;t think that he polished his stuff at all,</p>
+<p>and I tend to admire somebody</p>
+<p>who dots the I&rsquo;s and crosses the T&rsquo;s.</p>
+<p>So the music of the pros is what you admire more than&hellip;</p>
+<p>I certainly do admire the music of the language,</p>
+<p>which I couldn&rsquo;t appreciate in the Russian original,</p>
+<p>but I can in Victor Hugo, because French is closer.</p>
+<p>But Tolstoy, I like the same reason.</p>
+<p>I like Herman Wouk as a novelist.</p>
+<p>I think like his book, Marjorie Morningstar,</p>
+<p>has a similar character in Hugo</p>
+<p>who developed his own personal philosophy,</p>
+<p>and it goes in the&hellip;</p>
+<p>What&rsquo;s consistent?</p>
+<p>Yeah, right, and it&rsquo;s worth pondering.</p>
+<p>So, yeah.</p>
+<p>So you don&rsquo;t like Nietzsche, and&hellip;</p>
+<p>Like what?</p>
+<p>You don&rsquo;t like Friedrich Nietzsche, or&hellip;</p>
+<p>Nietzsche, yeah, no, no, yeah, this has&hellip;</p>
+<p>I keep seeing quotations from Nietzsche,</p>
+<p>and he never tempt me to read any further.</p>
+<p>Well, he&rsquo;s full of contradictions,</p>
+<p>and you will certainly not appreciate him.</p>
+<p>But Schiller, I&rsquo;m trying to get across</p>
+<p>what I appreciate in literature,</p>
+<p>and part of it is, as you say,</p>
+<p>the music of the language, the way it flows,</p>
+<p>and take Raymond Chandler versus Dashiell Hammett.</p>
+<p>Dashiell Hammett&rsquo;s sentences are awful,</p>
+<p>and Raymond Chandler&rsquo;s are beautiful, they just flow.</p>
+<p>So I don&rsquo;t read literature</p>
+<p>because it&rsquo;s supposed to be good for me,</p>
+<p>or because somebody said it&rsquo;s great,</p>
+<p>but I find things that I like.</p>
+<p>I mean, you mentioned you were dressed like James Bond,</p>
+<p>so I love Ian Fleming.</p>
+<p>I think he had a really great gift for&hellip;</p>
+<p>If he has a golf game, or a game of bridge,</p>
+<p>or something and this comes into his story,</p>
+<p>it&rsquo;ll be the most exciting golf game,</p>
+<p>or the absolute best possible hands of bridge that exists,</p>
+<p>and he exploits it and tells it beautifully.</p>
+<p>So in connecting some things here,</p>
+<p>looking at literate programming</p>
+<p>and being able to convey in code algorithms</p>
+<p>to a computer in a way that mimics how humans speak,</p>
+<p>what do you think about natural language in general</p>
+<p>and the messiness of our human world,</p>
+<p>about trying to express difficult things?</p>
+<p>So the idea of literate programming</p>
+<p>is really to try to understand something better</p>
+<p>by seeing it from at least two perspectives,</p>
+<p>the formal and the informal.</p>
+<p>If we&rsquo;re trying to understand a complicated thing,</p>
+<p>if we can look at it in different ways.</p>
+<p>And so this is in fact the key to technical writing,</p>
+<p>a good technical writer trying not to be obvious about it,</p>
+<p>but says everything twice, formally and informally,</p>
+<p>or maybe three times, but you try to give the reader</p>
+<p>a way to put the concept into his own brain</p>
+<p>or her own brain.</p>
+<p>Is that better for the writer or the reader or both?</p>
+<p>Well, the writer just tries to understand the reader.</p>
+<p>That&rsquo;s the goal of a writer,</p>
+<p>is to have a good mental image of the reader</p>
+<p>and to say what the reader expects next</p>
+<p>and to impress the reader with what has impressed the writer</p>
+<p>why something is interesting.</p>
+<p>So when you have a computer program,</p>
+<p>we try to, instead of looking at it as something</p>
+<p>that we&rsquo;re just trying to give instruction to the computer,</p>
+<p>what we really wanna be is giving insight</p>
+<p>to the person who&rsquo;s gonna be maintaining this program</p>
+<p>or to the programmer himself when he&rsquo;s debugging it</p>
+<p>as to why this stuff is being done.</p>
+<p>And so all the techniques of exposition</p>
+<p>that a teacher uses or a book writer uses</p>
+<p>make you a better programmer</p>
+<p>if your program is gonna be not just a one shot deal.</p>
+<p>So how difficult is that?</p>
+<p>Do you see hope for the combination of informal and formal</p>
+<p>for the programming task?</p>
+<p>Yeah, I&rsquo;m the wrong person to ask, I guess,</p>
+<p>because I&rsquo;m a geek, but I think for a geek it&rsquo;s easy.</p>
+<p>Some people have difficulty writing</p>
+<p>and that might be because there&rsquo;s something</p>
+<p>in their brain structure that makes it hard</p>
+<p>for them to write or it might be something</p>
+<p>just that they haven&rsquo;t had enough practice.</p>
+<p>I&rsquo;m not the right one to judge,</p>
+<p>but I don&rsquo;t think you can teach any person</p>
+<p>any particular skill.</p>
+<p>I do think that writing is half of my life</p>
+<p>and so I put it together in a literate program.</p>
+<p>Even when I&rsquo;m writing a one shot program,</p>
+<p>I write it in a literate way</p>
+<p>because I get it right faster that way.</p>
+<p>Now does it get compiled automatically?</p>
+<p>Or?</p>
+<p>So I guess on the technical side, my question was</p>
+<p>how difficult is it to design a system</p>
+<p>where much of the programming is done informally?</p>
+<p>Informally?</p>
+<p>Yeah, informally.</p>
+<p>I think whatever works to make it understandable is good,</p>
+<p>but then you have to also understand how informal is.</p>
+<p>You have to know the limitations.</p>
+<p>So by putting the formal and informal together,</p>
+<p>this is where it gets locked into your brain.</p>
+<p>You can say informally, well,</p>
+<p>I&rsquo;m working on a problem right now, so.</p>
+<p>Let&rsquo;s go there.</p>
+<p>Can you give me an example of connecting</p>
+<p>the informal and the formal?</p>
+<p>Well, it&rsquo;s a little too complicated an example.</p>
+<p>There&rsquo;s a puzzle that&rsquo;s self referential.</p>
+<p>It&rsquo;s called a Japanese arrow puzzle.</p>
+<p>And you&rsquo;re given a bunch of boxes.</p>
+<p>Each one points north, east, south, or west.</p>
+<p>And at the end, you&rsquo;re supposed to fill in each box</p>
+<p>with the number of distinct numbers that it points to.</p>
+<p>So if I put a three in a box, that means that,</p>
+<p>and it&rsquo;s pointing to five other boxes,</p>
+<p>that means that there&rsquo;s gonna be three different numbers</p>
+<p>in those five boxes.</p>
+<p>And those boxes are pointing,</p>
+<p>one of them might be pointing to me,</p>
+<p>one of them might be pointing the other way.</p>
+<p>But anyway, I&rsquo;m supposed to find a set of numbers</p>
+<p>that obeys this complicated condition</p>
+<p>that each number counts how many distinct numbers</p>
+<p>it points to.</p>
+<p>And so a guy sent me his solution to this problem</p>
+<p>where he presents formal statements</p>
+<p>that say either this is true or this is true</p>
+<p>or this is true.</p>
+<p>And so I try to render that formal statement informally</p>
+<p>and I try to say, I contain a three</p>
+<p>and the guys I&rsquo;m pointing to contain the numbers one,</p>
+<p>two, and six.</p>
+<p>So by putting it informally and also I convert it</p>
+<p>into a dialogue statement,</p>
+<p>that helps me understand the logical statement</p>
+<p>that he&rsquo;s written down as a string of numbers</p>
+<p>in terms of some abstract variables that he had.</p>
+<p>That&rsquo;s really interesting.</p>
+<p>So maybe an extension of that,</p>
+<p>there has been a resurgence in computer science</p>
+<p>and machine learning and neural networks.</p>
+<p>So using data to construct algorithms.</p>
+<p>So it&rsquo;s another way to construct algorithms, really.</p>
+<p>Yes, exactly.</p>
+<p>If you can think of it that way.</p>
+<p>So as opposed to natural language to construct algorithms,</p>
+<p>use data to construct algorithms.</p>
+<p>So what&rsquo;s your view of this branch of computer science</p>
+<p>where data is almost more important</p>
+<p>than the mechanism of the algorithm?</p>
+<p>It seems to be suited to a certain kind of non geek,</p>
+<p>which is probably why it&rsquo;s taken off.</p>
+<p>It has its own community that really resonates with that.</p>
+<p>But it&rsquo;s hard to trust something like that</p>
+<p>because nobody, even the people who work with it,</p>
+<p>they have no idea what has been learned.</p>
+<p>That&rsquo;s a really interesting thought</p>
+<p>that it makes algorithms more accessible</p>
+<p>to a different community, a different type of brain.</p>
+<p>Yep.</p>
+<p>And that&rsquo;s really interesting</p>
+<p>because just like literate programming perhaps</p>
+<p>could make programming more accessible</p>
+<p>to a certain kind of brain.</p>
+<p>There are people who think it&rsquo;s just a matter of education</p>
+<p>and anybody can learn to be a great programmer.</p>
+<p>Anybody can learn to be a great skier.</p>
+<p>I wish that were true,</p>
+<p>but I know that there&rsquo;s a lot of things</p>
+<p>that I&rsquo;ve tried to do and I was well motivated</p>
+<p>and I kept trying to build myself up</p>
+<p>and I never got past a certain level.</p>
+<p>I can&rsquo;t view, for example,</p>
+<p>I can&rsquo;t view three dimensional objects in my head.</p>
+<p>I have to make a model and look at it</p>
+<p>and study it from all points of view</p>
+<p>and then I start to get some idea.</p>
+<p>But other people are good at four dimensions.</p>
+<p>Physicists.</p>
+<p>Yeah.</p>
+<p>So let&rsquo;s go to the art of computer programming.</p>
+<p>In 1962, you set the table of contents</p>
+<p>for this magnum opus, right?</p>
+<p>Yep.</p>
+<p>It was supposed to be a single book with 12 chapters.</p>
+<p>Now today, what is it, 57 years later,</p>
+<p>you&rsquo;re in the middle of volume four of seven?</p>
+<p>In the middle of volume four B is.</p>
+<p>Four B.</p>
+<p>More precisely.</p>
+<p>Can I ask you for an impossible task,</p>
+<p>which is try to summarize the book so far</p>
+<p>maybe by giving a little examples.</p>
+<p>So from the sorting and the search</p>
+<p>and the combinatorial algorithms,</p>
+<p>if you were to give a summary, a quick elevator summary.</p>
+<p>Elevator, that&rsquo;s great.</p>
+<p>Yeah, right.</p>
+<p>But depending how many floors there are in the building.</p>
+<p>Yeah.</p>
+<p>The first volume called Fundamental Algorithms</p>
+<p>talks about something that you can&rsquo;t,</p>
+<p>the stuff you can&rsquo;t do without.</p>
+<p>You have to know the basic concepts of what is a program,</p>
+<p>what is an algorithm.</p>
+<p>And it also talks about a low level machine</p>
+<p>so you can have some kind of an idea what&rsquo;s going on.</p>
+<p>And it has basic concepts of input and output</p>
+<p>and subroutines.</p>
+<p>Induction.</p>
+<p>Induction, right.</p>
+<p>Mathematical, preliminary.</p>
+<p>So the thing that makes my book different</p>
+<p>from a lot of others is that I try to,</p>
+<p>not only present the algorithm,</p>
+<p>but I try to analyze them,</p>
+<p>which means quantitatively I say,</p>
+<p>not only does it work, but it works this fast.</p>
+<p>Okay, and so I need math for that.</p>
+<p>And then there&rsquo;s the standard way to structure data inside</p>
+<p>and represent information in the computer.</p>
+<p>So that&rsquo;s all volume one.</p>
+<p>Volume two talks, it&rsquo;s called Seminumerical Algorithms.</p>
+<p>And here we&rsquo;re writing programs,</p>
+<p>but we&rsquo;re also dealing with numbers.</p>
+<p>Algorithms deal with any kinds of objects,</p>
+<p>but specific when there&rsquo;s objects or numbers,</p>
+<p>well then we have certain special paradigms</p>
+<p>that apply to things that involve numbers.</p>
+<p>And so there&rsquo;s arithmetic on numbers</p>
+<p>and there&rsquo;s matrices full of numbers,</p>
+<p>there&rsquo;s random numbers,</p>
+<p>and there&rsquo;s power series full of numbers.</p>
+<p>There&rsquo;s different algebraic concepts</p>
+<p>that have numbers in structured ways.</p>
+<p>And arithmetic in the way a computer</p>
+<p>would think about arithmetic, so floating point.</p>
+<p>Floating point arithmetic, high precision arithmetic,</p>
+<p>not only addition, subtraction, multiplication,</p>
+<p>but also comparison of numbers.</p>
+<p>So then volume three talks about.</p>
+<p>I like that one, sorting and search.</p>
+<p>Sorting and search. I love sorting.</p>
+<p>Right, so here we&rsquo;re not dealing necessarily with numbers</p>
+<p>because you sort letters and other objects</p>
+<p>and searching we&rsquo;re doing all the time with Google nowadays,</p>
+<p>but I mean, we have to find stuff.</p>
+<p>So again, algorithms that underlie</p>
+<p>all kinds of applications.</p>
+<p>None of these volumes is about a particular application,</p>
+<p>but the applications are examples</p>
+<p>of why people want to know about sorting,</p>
+<p>why people want to know about random numbers.</p>
+<p>So then volume four goes into combinatorial algorithm.</p>
+<p>This is where we have zillions of things to deal with</p>
+<p>and here we keep finding cases where one good idea</p>
+<p>can make something go more than a million times faster.</p>
+<p>And we&rsquo;re dealing with problems</p>
+<p>that are probably never gonna be solved efficiently,</p>
+<p>but that doesn&rsquo;t mean we give up on them</p>
+<p>and we have this chance to have good ideas</p>
+<p>and go much, much faster on them.</p>
+<p>So that&rsquo;s combinatorial algorithms</p>
+<p>and those are the ones that are,</p>
+<p>I mean, you said sorting is most fun for you.</p>
+<p>It&rsquo;s true, it&rsquo;s fun, but combinatorial algorithms</p>
+<p>are the ones that I always enjoyed the most</p>
+<p>because that&rsquo;s when my skillet programming had most payoff.</p>
+<p>The difference between an obvious algorithm</p>
+<p>that you think up first thing and an interesting,</p>
+<p>subtle algorithm that&rsquo;s not so obvious,</p>
+<p>but run circles around the other one,</p>
+<p>that&rsquo;s where computer science really comes in.</p>
+<p>And a lot of these combinatorial methods</p>
+<p>were found first in applications</p>
+<p>to artificial intelligence or cryptography.</p>
+<p>And in my case, I just liked them</p>
+<p>and it was associated more with puzzles.</p>
+<p>Do you like them most in the domain of graphs</p>
+<p>and graph theory?</p>
+<p>Graphs are great because they&rsquo;re terrific models</p>
+<p>of so many things in the real world</p>
+<p>and you throw numbers on a graph,</p>
+<p>you got a network and so there you have many more things.</p>
+<p>But combinatorial in general is any arrangement</p>
+<p>of objects that has some kind of higher structure,</p>
+<p>nonrandom structure and is it possible</p>
+<p>to put something together satisfying all these conditions?</p>
+<p>Like I mentioned arrows a minute ago,</p>
+<p>is there a way to put these numbers</p>
+<p>on a bunch of boxes that are pointing to each other?</p>
+<p>Is that gonna be possible at all?</p>
+<p>That&rsquo;s volume four.</p>
+<p>What does the future hold?</p>
+<p>Volume four A was part one.</p>
+<p>And what happened was in 1962,</p>
+<p>when I started writing down a table of contents,</p>
+<p>it wasn&rsquo;t gonna be a book</p>
+<p>about computer programming in general,</p>
+<p>it was gonna be a book about how to write compilers.</p>
+<p>And I was asked to write a book</p>
+<p>explaining how to write a compiler.</p>
+<p>And at that time, there were only a few dozen people</p>
+<p>in the world who had written compilers</p>
+<p>and I happened to be one of them.</p>
+<p>And I also had some experience writing</p>
+<p>for like the campus newspaper and things like that.</p>
+<p>So I said, okay, great.</p>
+<p>I&rsquo;m the only person I know who&rsquo;s written a compiler</p>
+<p>but hasn&rsquo;t invented any new techniques</p>
+<p>for writing compilers.</p>
+<p>And all the other people I knew had super ideas</p>
+<p>but I couldn&rsquo;t see that they would be able to write a book</p>
+<p>that would describe anybody else&rsquo;s ideas with their own.</p>
+<p>So I could be the journalist and I could explain</p>
+<p>what all these cool ideas about compiler writing were.</p>
+<p>And then I started putting down,</p>
+<p>well, yeah, you need to have a chapter</p>
+<p>about data structures.</p>
+<p>You need to have some introductory material.</p>
+<p>I wanna talk about searching</p>
+<p>because a compiler writer has to look up the variables</p>
+<p>in a symbol table and find out which,</p>
+<p>when you write the name of a variable in one place,</p>
+<p>it&rsquo;s supposed to be the same</p>
+<p>as the one you put somewhere else.</p>
+<p>So you need all these basic techniques</p>
+<p>and I kinda know some arithmetic and stuff.</p>
+<p>So I threw in these chapters</p>
+<p>and I threw in a chapter on combinatorics</p>
+<p>because that was what I really enjoyed programming the most</p>
+<p>but there weren&rsquo;t many algorithms known</p>
+<p>about combinatorial methods in 1962.</p>
+<p>So that was a kind of a short chapter</p>
+<p>but it was sort of thrown in just for fun.</p>
+<p>And chapter 12 was gonna be actual compilers,</p>
+<p>applying all the stuff in chapters one to 11</p>
+<p>to make compilers.</p>
+<p>Well, okay, so that was my table of contents from 1962.</p>
+<p>And during the 70s, the whole field of combinatorics</p>
+<p>went through a huge explosion.</p>
+<p>People talk about a combinatorial explosion</p>
+<p>and they usually mean by that that the number of cases</p>
+<p>goes up, you know, you change end to end plus one</p>
+<p>and all of a sudden your problem</p>
+<p>has gotten more than 10 times harder.</p>
+<p>But there was an explosion of ideas</p>
+<p>about combinatorics in the 70s to the point</p>
+<p>that like take 1975, I bet you more than half</p>
+<p>of all the journals of computer science</p>
+<p>were about combinatorial methods.</p>
+<p>What kind of problems were occupying people&rsquo;s minds?</p>
+<p>What kind of problems in combinatorics?</p>
+<p>Was it satisfiability, graph theory?</p>
+<p>Yeah, graph theory was quite dominant.</p>
+<p>I mean, but all of the NP hard problems</p>
+<p>that you have like Hamiltonian path.</p>
+<p>Travel salesman.</p>
+<p>Going beyond graphs, you had operation research</p>
+<p>whenever there was a small class of problems</p>
+<p>that had efficient solutions and they were usually</p>
+<p>associated with matron theory,</p>
+<p>special mathematical construction.</p>
+<p>But once we went to things that involve</p>
+<p>three things at a time instead of two,</p>
+<p>all of a sudden things got harder.</p>
+<p>So we had satisfiability problems where if you have clauses,</p>
+<p>every clause has two logical elements in it,</p>
+<p>then we can satisfy it in linear time.</p>
+<p>We can test for satisfiability in linear time,</p>
+<p>but if you allow yourself three variables in the clause,</p>
+<p>then nobody knows how to do it.</p>
+<p>So these articles were about trying to find better ways</p>
+<p>to solve cryptography problems and graph theory problems.</p>
+<p>We have lots of data, but we didn&rsquo;t know how to find</p>
+<p>the best subsets of the data.</p>
+<p>Like with sorting, we could get the answer.</p>
+<p>Didn&rsquo;t take long.</p>
+<p>So how did it continue to change from the 70s to today?</p>
+<p>Yeah, so now there may be half a dozen conferences</p>
+<p>whose topic is combinatorics, a different kind,</p>
+<p>but fortunately I don&rsquo;t have to rewrite my book every month</p>
+<p>like I had to in the 70s.</p>
+<p>But still there&rsquo;s huge amount of work being done</p>
+<p>and people getting better ideas on these problems</p>
+<p>that don&rsquo;t seem to have really efficient solutions,</p>
+<p>but we still do a lot more with them.</p>
+<p>And so this book that I&rsquo;m finishing now is,</p>
+<p>I&rsquo;ve got a whole bunch of brand new methods</p>
+<p>that as far as I know, there&rsquo;s no other book</p>
+<p>that covers this particular approach.</p>
+<p>And so I&rsquo;m trying to do my best of exploring</p>
+<p>the tip of the iceberg and I try out lots of things</p>
+<p>and keep rewriting as I find better method.</p>
+<p>So what&rsquo;s your writing process like?</p>
+<p>What&rsquo;s your thinking and writing process like every day?</p>
+<p>What&rsquo;s your routine even?</p>
+<p>Yeah, I guess it&rsquo;s actually the best question</p>
+<p>because I spend seven days a week doing it.</p>
+<p>You&rsquo;re the most prepared to answer it.</p>
+<p>Yeah, but okay.</p>
+<p>So the chair I&rsquo;m sitting in is where I do&hellip;</p>
+<p>It&rsquo;s where the magic happens.</p>
+<p>Well, reading and writing, the chair is usually</p>
+<p>sitting over there where I have other books,</p>
+<p>some reference books, but I found this chair</p>
+<p>which was designed by a Swedish guy anyway.</p>
+<p>It turns out this is the only chair I can really sit in</p>
+<p>for hours and hours and not know that I&rsquo;m in a chair.</p>
+<p>But then I have the standup desk right next to us</p>
+<p>and so after I write something with pencil and eraser,</p>
+<p>I get up and I type it and revise and rewrite.</p>
+<p>I&rsquo;m standing up.</p>
+<p>The kernel of the idea is first put on paper.</p>
+<p>Yeah.</p>
+<p>Right.</p>
+<p>And I&rsquo;ll write maybe five programs a week,</p>
+<p>of course, literate programming.</p>
+<p>And these are, before I describe something in my book,</p>
+<p>I always program it to see how it&rsquo;s working</p>
+<p>and I try it a lot.</p>
+<p>So for example, I learned at the end of January,</p>
+<p>I learned of a breakthrough by four Japanese people</p>
+<p>who had extended one of my methods in a new direction.</p>
+<p>And so I spent the next five days writing a program</p>
+<p>to implement what they did.</p>
+<p>And then they had only generalized part of what I had done</p>
+<p>so then I had to see if I could generalize more parts of it.</p>
+<p>And then I had to take their approach</p>
+<p>and I had to try it out on a couple of dozen</p>
+<p>of the other problems I had already worked out</p>
+<p>with my old methods.</p>
+<p>And so that took another couple of weeks.</p>
+<p>And then I started to see the light</p>
+<p>and I started writing the final draft</p>
+<p>and then I would type it up,</p>
+<p>involve some new mathematical questions.</p>
+<p>And so I wrote to my friends</p>
+<p>who might be good at solving those problems</p>
+<p>and they solved some of them.</p>
+<p>So I put that in as exercises.</p>
+<p>And so a month later, I had absorbed one new idea</p>
+<p>that I learned and I&rsquo;m glad I heard about it in time.</p>
+<p>Otherwise, I wouldn&rsquo;t put my book out</p>
+<p>before I&rsquo;d heard about the idea.</p>
+<p>On the other hand, this book was supposed to come in</p>
+<p>at 300 pages and I&rsquo;m up to 350 now.</p>
+<p>That added 10 pages to the book.</p>
+<p>But if I learn about another one,</p>
+<p>my publisher is gonna shoot me.</p>
+<p>Well, so in that process, in that one month process,</p>
+<p>Are some days harder than others?</p>
+<p>Well, yeah, my work is fun, but I also work hard</p>
+<p>and every big job has parts</p>
+<p>that are a lot more fun than others.</p>
+<p>And so many days I&rsquo;ll say,</p>
+<p>why do I have to have such high standards?</p>
+<p>Why couldn&rsquo;t I just be sloppy and not try this out</p>
+<p>and just report the answer?</p>
+<p>But I know that people are calling me to do this</p>
+<p>and so, okay, so, okay, Don, I&rsquo;ll grit my teeth and do it.</p>
+<p>And then the joy comes out when I see that actually,</p>
+<p>I&rsquo;m getting good results and I get even more</p>
+<p>when I see that somebody has actually read</p>
+<p>and understood what I wrote</p>
+<p>and told me how to make it even better.</p>
+<p>I did wanna mention something about the method.</p>
+<p>So I got this tablet here, where I do the first,</p>
+<p>the first writing of concepts, okay, so.</p>
+<p>And what language is that in?</p>
+<p>Right, so take a look at it, but you know,</p>
+<p>here, random say, explain how to draw</p>
+<p>such skewed pixel diagrams, okay, so.</p>
+<p>I got this paper about 40 years ago</p>
+<p>when I was visiting my sister in Canada</p>
+<p>and they make tablets of paper with this nice large size</p>
+<p>and just the right.</p>
+<p>A very small space between lines.</p>
+<p>Small spaces, yeah, yeah, take a look.</p>
+<p>Maybe also just show it.</p>
+<p>Yeah.</p>
+<p>Yeah.</p>
+<p>Wow.</p>
+<p>You know, I&rsquo;ve got these manuscripts</p>
+<p>going back to the 60s.</p>
+<p>And those are where I&rsquo;m getting my ideas on paper, okay.</p>
+<p>But I&rsquo;m a good typist.</p>
+<p>In fact, I went to typing school when I was in high school</p>
+<p>and so I can type faster than I think.</p>
+<p>So then when I do the editing, stand up and type,</p>
+<p>then I revise this and it comes out a lot different</p>
+<p>than what, you know, for style and rhythm</p>
+<p>and things like that come out at the typing stage.</p>
+<p>And you type in tech.</p>
+<p>And I type in tech.</p>
+<p>And can you think in tech?</p>
+<p>No.</p>
+<p>So.</p>
+<p>To a certain extent, I have only a small number of idioms</p>
+<p>that I use.</p>
+<p>Like, you know, I&rsquo;m beginning with theorem,</p>
+<p>I do something for displayed equation,</p>
+<p>I do something and so on.</p>
+<p>But I have to see it and.</p>
+<p>In the way that it&rsquo;s on paper here.</p>
+<p>Yeah, right.</p>
+<p>So for example, Turing wrote, what, The Other Direction.</p>
+<p>You don&rsquo;t write macros, you don&rsquo;t think in macros.</p>
+<p>Not particularly, but when I need a macro,</p>
+<p>I&rsquo;ll go ahead and do it.</p>
+<p>But the thing is, I also write to fit.</p>
+<p>I mean, I&rsquo;ll change something if I can save a line.</p>
+<p>You know, it&rsquo;s like haiku.</p>
+<p>I&rsquo;ll figure out a way to rewrite the sentence</p>
+<p>so that it&rsquo;ll look better on the page.</p>
+<p>And I shouldn&rsquo;t be wasting my time on that,</p>
+<p>but I can&rsquo;t resist because I know it&rsquo;s only another 3%</p>
+<p>of the time or something like that.</p>
+<p>And it could also be argued that</p>
+<p>that is what life is about.</p>
+<p>Ah, yes, in fact, that&rsquo;s true.</p>
+<p>Like, I work in the garden one day a week</p>
+<p>and that&rsquo;s kind of a description of my life</p>
+<p>is getting rid of weeds, you know,</p>
+<p>removing bugs for programs.</p>
+<p>So, you know, a lot of writers talk about,</p>
+<p>you know, basically suffering, the writing processes,</p>
+<p>having, you know, it&rsquo;s extremely difficult.</p>
+<p>And I think of programming, especially,</p>
+<p>or technical writing that you&rsquo;re doing can be like that.</p>
+<p>Do you find yourself, methodologically,</p>
+<p>how do you every day sit down to do the work?</p>
+<p>Is it a challenge?</p>
+<p>You kind of say it&rsquo;s, you know, it&rsquo;s fun.</p>
+<p>But it&rsquo;d be interesting to hear if there are non fun parts</p>
+<p>that you really struggle with.</p>
+<p>Yeah, so the fun comes when I&rsquo;m able to put together</p>
+<p>ideas of two people who didn&rsquo;t know about each other.</p>
+<p>And so I might be the first person</p>
+<p>that saw both of their ideas.</p>
+<p>And so then, you know, then I get to make the synthesis</p>
+<p>and that gives me a chance to be creative.</p>
+<p>But the dredge work is where I&rsquo;ve got to chase everything</p>
+<p>down to its root.</p>
+<p>This leads me into really interesting stuff.</p>
+<p>I mean, I learn about Sanskrit and I try to give credit</p>
+<p>to all the authors.</p>
+<p>And so I write to people who know the authors</p>
+<p>if they&rsquo;re dead or I communicate this way.</p>
+<p>And I got to get the math right.</p>
+<p>And I got to tackle all my programs,</p>
+<p>try to find holes in them.</p>
+<p>And I rewrite the programs after I get a better idea.</p>
+<p>Is there ever dead ends?</p>
+<p>Oh yeah, I throw stuff out, yeah.</p>
+<p>One of the things that I spend a lot of time preparing,</p>
+<p>a major example based on the game of baseball.</p>
+<p>And I know a lot of people for whom baseball</p>
+<p>is the most important thing in the world.</p>
+<p>But I also know a lot of people for whom cricket</p>
+<p>is the most important in the world or soccer or something.</p>
+<p>You know, and I realized that if I had a big example,</p>
+<p>I mean, it was gonna have a fold out illustration</p>
+<p>and everything.</p>
+<p>And I was saying, well, what am I really teaching</p>
+<p>about algorithms here where I had this baseball example?</p>
+<p>And if I was a person who knew only cricket,</p>
+<p>wouldn&rsquo;t they, what would they think about this?</p>
+<p>And so I&rsquo;ve ripped the whole thing out.</p>
+<p>But I had something that would have really appealed</p>
+<p>to people who grew up with baseball</p>
+<p>as a major theme in their life.</p>
+<p>Which is a lot of people, but still a minority.</p>
+<p>Small minority, I took out bowling too.</p>
+<p>Even a smaller minority.</p>
+<p>What&rsquo;s the art in the art of programming?</p>
+<p>Why is there, of the few words in the title,</p>
+<p>why is art one of them?</p>
+<p>Yeah, well, that&rsquo;s what I wrote my Turing lecture about.</p>
+<p>And so when people talk about art,</p>
+<p>it really, I mean, what the word means is</p>
+<p>something that&rsquo;s not in nature.</p>
+<p>So when you have artificial intelligence,</p>
+<p>art comes from the same root,</p>
+<p>saying that this is something</p>
+<p>that was created by human beings.</p>
+<p>And then it&rsquo;s gotten a further meaning often of fine art,</p>
+<p>which has this beauty to the mix.</p>
+<p>And so we have things that are artistically done,</p>
+<p>and this means not only done by humans,</p>
+<p>but also done in a way that&rsquo;s elegant and brings joy.</p>
+<p>And has, I guess,</p>
+<p>Tolstoy versus Dostoevsky going back.</p>
+<p>But anyway, it&rsquo;s that part that says</p>
+<p>that it&rsquo;s done well, as well as not only different</p>
+<p>from nature.</p>
+<p>In general, then, art is what human beings</p>
+<p>are specifically good at.</p>
+<p>And when they say artificial intelligence,</p>
+<p>well, they&rsquo;re trying to mimic human beings.</p>
+<p>But there&rsquo;s an element of fine art and beauty.</p>
+<p>You are one.</p>
+<p>That&rsquo;s what I try to also say,</p>
+<p>that you can write a program and make a work of art.</p>
+<p>So now, in terms of surprising,</p>
+<p>what ideas in writing from search</p>
+<p>to the combinatorial algorithms,</p>
+<p>what ideas have you come across</p>
+<p>that were particularly surprising to you</p>
+<p>that changed the way you see a space of problems?</p>
+<p>I get a surprise every time I have a bug</p>
+<p>in my program, obviously.</p>
+<p>But that isn&rsquo;t really what you&rsquo;re at.</p>
+<p>More transformational than surprising.</p>
+<p>For example, in volume 4A,</p>
+<p>I was especially surprised when I learned</p>
+<p>about data structure called BDD,</p>
+<p>Boolean Decision Diagram.</p>
+<p>Because I sort of had the feeling</p>
+<p>that as an old timer,</p>
+<p>and I&rsquo;ve been programming since the 50s,</p>
+<p>and BDDs weren&rsquo;t invented until 1986.</p>
+<p>And here comes a brand new idea that revolutionizes</p>
+<p>the way to represent a Boolean function.</p>
+<p>And Boolean functions are so basic</p>
+<p>to all kinds of things in,</p>
+<p>I mean, logic is, underlies it.</p>
+<p>Everything we can describe,</p>
+<p>all of what we know in terms of logic somehow,</p>
+<p>and propositional logic,</p>
+<p>I thought that was cut and dried</p>
+<p>and everything was known.</p>
+<p>But here comes</p>
+<p>Randy Bryant</p>
+<p>and discovers that BDDs are incredibly powerful.</p>
+<p>Then, so that means I have a whole new section</p>
+<p>to the book that I never would have thought of</p>
+<p>until 1986, not even until 1990s,</p>
+<p>when people started to use it</p>
+<p>for a billion dollar of applications.</p>
+<p>And it was the standard way to design computers</p>
+<p>for a long time,</p>
+<p>until SAT solvers came along in the year 2000.</p>
+<p>So that&rsquo;s another great big surprise.</p>
+<p>So a lot of these things have totally changed</p>
+<p>the structure of my book.</p>
+<p>And the middle third of volume 4B is about SAT solvers,</p>
+<p>and that&rsquo;s 300 plus pages,</p>
+<p>which is all about material,</p>
+<p>mostly about material that was discovered in this century.</p>
+<p>And I had to start from scratch</p>
+<p>and meet all the people in the field</p>
+<p>and write 15 different SAT solvers</p>
+<p>that I wrote while preparing that.</p>
+<p>Seven of them are described in the book.</p>
+<p>Others were from my own experience.</p>
+<p>So newly invented data structures</p>
+<p>or ways to represent?</p>
+<p>A whole new class of algorithm.</p>
+<p>Whole new class of algorithm.</p>
+<p>Yeah, and the interesting thing about the BDDs</p>
+<p>was that the theoreticians started looking at it</p>
+<p>and started to describe all the things</p>
+<p>you couldn&rsquo;t do with BDDs.</p>
+<p>And so they were getting a bad name</p>
+<p>because, okay, they were useful,</p>
+<p>but they didn&rsquo;t solve every problem.</p>
+<p>I&rsquo;m sure that the theoreticians are,</p>
+<p>in the next 10 years,</p>
+<p>are gonna show why machine learning</p>
+<p>doesn&rsquo;t solve everything.</p>
+<p>But I&rsquo;m not only worried about the worst case,</p>
+<p>I get a huge delight when I can actually solve a problem</p>
+<p>that I couldn&rsquo;t solve before.</p>
+<p>Even though I can&rsquo;t solve the problem</p>
+<p>that it suggests is a further problem,</p>
+<p>I know that I&rsquo;m way better than I was before.</p>
+<p>And so I found out that BDDs could do</p>
+<p>all kinds of miraculous things.</p>
+<p>And so I had to spend quite a few years</p>
+<p>learning about that territory.</p>
+<p>So in general, what brings you more pleasure?</p>
+<p>Proving or showing a worst case analysis of an algorithm</p>
+<p>or showing a good average case</p>
+<p>or just showing a good case?</p>
+<p>That something good,</p>
+<p>pragmatically can be done with this algorithm.</p>
+<p>Yeah, I like a good case</p>
+<p>that is maybe only a million times faster</p>
+<p>than I was able to do before.</p>
+<p>But, and not worry about the fact</p>
+<p>that it&rsquo;s still gonna take too long</p>
+<p>if I double the size of the problem.</p>
+<p>So that said, you popularized the asymptotic notation</p>
+<p>for describing running time,</p>
+<p>obviously in the analysis of algorithms.</p>
+<p>Worst case is such an important part.</p>
+<p>Do you see any aspects of that kind of analysis</p>
+<p>as lacking and notation too?</p>
+<p>Well, the main purpose should have notations</p>
+<p>that help us for the problems we wanna solve.</p>
+<p>And so they match our intuitions.</p>
+<p>And people who worked in number theory</p>
+<p>had used asymptotic notation in a certain way,</p>
+<p>but it was only known to a small group of people.</p>
+<p>And I realized that, in fact,</p>
+<p>it was very useful to be able to have a notation</p>
+<p>for something that we don&rsquo;t know exactly what it is,</p>
+<p>but we only know partial about it.</p>
+<p>And so instead, so for example,</p>
+<p>instead of big O notation,</p>
+<p>let&rsquo;s just take a much simpler notation</p>
+<p>where I&rsquo;d say zero or one, or zero, one or two.</p>
+<p>And suppose that when I had been in high school,</p>
+<p>we would be allowed to put in the middle of our formula,</p>
+<p>X plus zero, one or two equals Y, okay?</p>
+<p>And then we would learn how to multiply</p>
+<p>two such expressions together and deal with them.</p>
+<p>Well, the same thing big O notation says,</p>
+<p>here&rsquo;s something that&rsquo;s, I&rsquo;m not sure what it is,</p>
+<p>but I know it&rsquo;s not too big.</p>
+<p>I know it&rsquo;s not bigger than some constant times N squared</p>
+<p>or something like that.</p>
+<p>So I write big O of N squared.</p>
+<p>And now I learned how to add big O of N squared</p>
+<p>to big O of N cubed.</p>
+<p>And I know how to add big O of N squared to plus one</p>
+<p>and square that and how to take logarithmic exponentials</p>
+<p>where I have big O&rsquo;s in the middle of them.</p>
+<p>And that turned out to be hugely valuable</p>
+<p>in all of the work that I was trying to do</p>
+<p>as I&rsquo;m trying to figure out how good an algorithm is.</p>
+<p>So have there been algorithms in your journey</p>
+<p>that perform very differently in practice</p>
+<p>than they do in theory?</p>
+<p>Well, the worst case of a combinatorial algorithm</p>
+<p>is almost always horrible.</p>
+<p>But we have SAT solvers that are solving,</p>
+<p>where one of the last exercises in that part of my book</p>
+<p>was to figure out a problem that has 100 variables</p>
+<p>that&rsquo;s difficult for a SAT solver.</p>
+<p>But you would think that a problem</p>
+<p>with 100 billion variables has,</p>
+<p>requires you to do two to the 100th operations</p>
+<p>because that&rsquo;s the number of possibilities</p>
+<p>when you have 100 billion variables in two to the 100th.</p>
+<p>Two to the 100th is way bigger than we can handle.</p>
+<p>10 to the 17th is a lot.</p>
+<p>You&rsquo;ve mentioned over the past few years</p>
+<p>that you believe P may be equal to NP,</p>
+<p>but that it&rsquo;s not really,</p>
+<p>if somebody does prove that P equals NP,</p>
+<p>it will not directly lead to an actual algorithm</p>
+<p>to solve difficult problems.</p>
+<p>Can you explain your intuition here?</p>
+<p>Has it been changed?</p>
+<p>And in general, on the difference between</p>
+<p>easy and difficult problems of P and NP and so on?</p>
+<p>Yeah, so the popular idea is if an algorithm exists,</p>
+<p>then somebody will find it.</p>
+<p>And it&rsquo;s just a matter of writing it down.</p>
+<p>But many more algorithms exist</p>
+<p>than anybody can understand or ever make use of.</p>
+<p>Or discover, yeah.</p>
+<p>Because they&rsquo;re just way beyond human comprehension.</p>
+<p>The total number of algorithms is more than mind boggling.</p>
+<p>So we have situations now</p>
+<p>where we know that algorithms exist,</p>
+<p>but we don&rsquo;t have the farthest idea what the algorithms are.</p>
+<p>There are simple examples based on game playing</p>
+<p>where you have, where you say,</p>
+<p>well, there must be an algorithm that exists</p>
+<p>to win in the game of Hex because,</p>
+<p>for the first player to win in the game of Hex</p>
+<p>because Hex is always either a win</p>
+<p>for the first player or the second player.</p>
+<p>Well, what&rsquo;s the game of Hex?</p>
+<p>There&rsquo;s a game of Hex which is based</p>
+<p>on putting pebbles onto a hexagonal board</p>
+<p>and the white player tries to get a white path</p>
+<p>from left to right and the black player tries</p>
+<p>to get a black path from bottom to top.</p>
+<p>And how does capture occur?</p>
+<p>Just so I understand.</p>
+<p>And there&rsquo;s no capture.</p>
+<p>You just put pebbles down one at a time.</p>
+<p>But there&rsquo;s no draws because after all the white</p>
+<p>and black are played, there&rsquo;s either gonna be a white path</p>
+<p>across from east to west or a black path from bottom to top.</p>
+<p>So there&rsquo;s always, it&rsquo;s the perfect information game</p>
+<p>and people take turns like tic tac toe.</p>
+<p>And the hex board can be different sizes.</p>
+<p>But anyway, there&rsquo;s no possibility of a draw</p>
+<p>and players move one at a time.</p>
+<p>And so it&rsquo;s gotta be either a first player win</p>
+<p>or a second player win.</p>
+<p>Mathematically, you follow out all the trees</p>
+<p>and either there&rsquo;s always a win for the first player,</p>
+<p>second player, okay.</p>
+<p>And it&rsquo;s finite.</p>
+<p>The game is finite.</p>
+<p>So there&rsquo;s an algorithm that will decide.</p>
+<p>You can show it has to be one or the other</p>
+<p>because the second player could mimic the first player</p>
+<p>with kind of a pairing strategy.</p>
+<p>And so you can show that it has to be one way or the other.</p>
+<p>But we don&rsquo;t know any algorithm anyway.</p>
+<p>We don&rsquo;t know the third or the fourth.</p>
+<p>There are cases where you can prove the existence</p>
+<p>of a solution but nobody knows any way how to find it.</p>
+<p>But more like the algorithm question,</p>
+<p>there&rsquo;s a very powerful theorem in graph theory</p>
+<p>by Robinson and Seymour that says that every class</p>
+<p>of graphs that is closed under taking minors</p>
+<p>has a polynomial time algorithm to determine</p>
+<p>whether it&rsquo;s in this class or not.</p>
+<p>Now a class of graphs, for example, planar graphs.</p>
+<p>These are graphs that you can draw in a plane</p>
+<p>without crossing lines.</p>
+<p>And a planar graph, taking minors means</p>
+<p>that you can shrink an edge into a point</p>
+<p>or you can delete an edge.</p>
+<p>And so you start with a planar graph</p>
+<p>and shrink any edge to a point is still planar.</p>
+<p>Delete an edge is still planar.</p>
+<p>Okay, now, but there are millions of different ways</p>
+<p>to describe a family of graph that still remains</p>
+<p>the same under taking minor.</p>
+<p>And Robertson and Seymour proved that any such family</p>
+<p>of graphs, there&rsquo;s a finite number of minimum graphs</p>
+<p>that are obstructions so that if it&rsquo;s not in the family,</p>
+<p>then it has to contain, then there has to be a way</p>
+<p>to shrink it down until you get one</p>
+<p>of these bad minimum graphs that&rsquo;s not in the family.</p>
+<p>In the case of a planar graph, the minimum graph</p>
+<p>is a five pointed star where everything points to another</p>
+<p>and the minimum graph consisting of trying</p>
+<p>to connect three utilities to three houses</p>
+<p>without crossing lines.</p>
+<p>And so there are two bad graphs that are not planar</p>
+<p>and every non planar graph contains one</p>
+<p>of these two bad graphs by shrinking and removing edges.</p>
+<p>Sorry, can you say it again?</p>
+<p>So he proved that there&rsquo;s a finite number</p>
+<p>of these bad graphs.</p>
+<p>There&rsquo;s always a finite number.</p>
+<p>So somebody says, here&rsquo;s a family.</p>
+<p>It&rsquo;s hard to believe.</p>
+<p>And they present a sequence of 20 papers.</p>
+<p>I mean, it&rsquo;s deep work, but it&rsquo;s.</p>
+<p>Because that&rsquo;s for any arbitrary class.</p>
+<p>So for any arbitrary class that&rsquo;s closed</p>
+<p>under taking minors.</p>
+<p>That&rsquo;s closed under, maybe I&rsquo;m not understanding</p>
+<p>because it seems like a lot of them</p>
+<p>are closed under taking minors.</p>
+<p>Almost all the important classes of graphs are.</p>
+<p>There are tons of such graphs, but also hundreds</p>
+<p>of them that arise in applications.</p>
+<p>I have a book over here called classes of graphs</p>
+<p>and it&rsquo;s amazing how many different classes</p>
+<p>of graphs that people have looked at.</p>
+<p>So why do you bring up this theorem or this proof?</p>
+<p>So now there are lots of algorithms that are known</p>
+<p>for special class of graphs.</p>
+<p>For example, if I have a certain, if I have a chordal graph</p>
+<p>then I can color it efficiently.</p>
+<p>If I have some kind of graphs, it&rsquo;ll make a great network.</p>
+<p>So you&rsquo;d like to test, somebody gives you a graph</p>
+<p>and says, oh, is it in this family of graphs?</p>
+<p>If so, then I can go to the library</p>
+<p>and find an algorithm that&rsquo;s gonna solve my problem</p>
+<p>on that graph.</p>
+<p>Okay, so we wanna have a graph that says,</p>
+<p>an algorithm that says,</p>
+<p>you give me a graph, I&rsquo;ll tell you whether it&rsquo;s in this</p>
+<p>family or not, okay?</p>
+<p>And so all I have to do is test whether or not</p>
+<p>that does this given graph have a minor,</p>
+<p>that&rsquo;s one of the bad ones.</p>
+<p>A minor is everything you can get by shrinking</p>
+<p>and removing edges.</p>
+<p>And given any minor, there&rsquo;s a polynomial time algorithm</p>
+<p>saying, I can tell whether this is a minor of you.</p>
+<p>And there&rsquo;s a finite number of bad cases.</p>
+<p>So I just try, does it have this bad case?</p>
+<p>Polynomial time, I got the answer.</p>
+<p>Does it have this bad case?</p>
+<p>Polynomial time, I got the answer.</p>
+<p>Total polynomial time.</p>
+<p>And so I&rsquo;ve solved the problem.</p>
+<p>However, all we know is that the number of minors is finite.</p>
+<p>We don&rsquo;t know what, we might only know one or two</p>
+<p>of those minors, but we don&rsquo;t know if we&rsquo;ve got a,</p>
+<p>if we&rsquo;ve got 20 of them, we don&rsquo;t know,</p>
+<p>there might be 21, 25, there&rsquo;s just some,</p>
+<p>all we know is that it&rsquo;s finite.</p>
+<p>So here we have a polynomial time algorithm</p>
+<p>that we don&rsquo;t know.</p>
+<p>That&rsquo;s a really great example of what you worry about</p>
+<p>or why you think P equals NP won&rsquo;t be useful.</p>
+<p>But still, why do you hold the intuition that P equals NP?</p>
+<p>P equals NP because you have to rule out</p>
+<p>so many possible algorithms as being not working.</p>
+<p>You can take the graph and you can represent it</p>
+<p>as in terms of certain prime numbers,</p>
+<p>and then you can multiply those together,</p>
+<p>and then you can take the bitwise AND</p>
+<p>and construct some certain constant in polynomial time.</p>
+<p>And then that&rsquo;s perfectly valid algorithm.</p>
+<p>And there&rsquo;s so many algorithms of that kind.</p>
+<p>A lot of times we see random,</p>
+<p>take data and we get coincidences</p>
+<p>that some fairly random looking number actually is useful</p>
+<p>because it happens to solve a problem</p>
+<p>just because there&rsquo;s so many hairs on your head.</p>
+<p>But it seems like unlikely that two people</p>
+<p>are gonna have the same number of hairs on their head.</p>
+<p>But they&rsquo;re obvious, but you can count</p>
+<p>how many people there are and how many hairs on the head.</p>
+<p>There must be people walking around in the country</p>
+<p>that have the same number of hairs on their head.</p>
+<p>Well, that&rsquo;s a kind of a coincidence</p>
+<p>that you might say also this particular combination</p>
+<p>of operations just happens to prove</p>
+<p>that the graph has a Hamiltonian path.</p>
+<p>I see lots of cases where unexpected things happen</p>
+<p>when you have enough possibilities.</p>
+<p>So because the space of possibility is so huge,</p>
+<p>your intuition just says it&rsquo;s not.</p>
+<p>You have to rule them all out.</p>
+<p>And so that&rsquo;s the reason for my intuition.</p>
+<p>It&rsquo;s by no means a proof.</p>
+<p>I mean, some people say, well, P can&rsquo;t equal NP</p>
+<p>because you&rsquo;ve had all these smart people.</p>
+<p>The smartest designers of algorithms</p>
+<p>have been racking their brains for years and years</p>
+<p>and there&rsquo;s million dollar prizes out there</p>
+<p>and none of them, nobody has thought of the algorithm.</p>
+<p>So there must be no such algorithm.</p>
+<p>On the other hand, I can use exactly the same logic</p>
+<p>and I can say, well, P must be equal to NP</p>
+<p>because there&rsquo;s so many smart people out here</p>
+<p>have been trying to prove it unequal to NP</p>
+<p>and they&rsquo;ve all failed.</p>
+<p>This kind of reminds me of the discussion</p>
+<p>about the search for aliens.</p>
+<p>They&rsquo;ve been trying to look for them</p>
+<p>and we haven&rsquo;t found them yet, therefore they don&rsquo;t exist.</p>
+<p>But you can show that there&rsquo;s so many planets out there</p>
+<p>that they very possibly could exist.</p>
+<p>Yeah, right, and then there&rsquo;s also the possibility</p>
+<p>that they exist but they all discovered machine learning</p>
+<p>or something and then blew each other up.</p>
+<p>Well, on that small, quick tangent, let me ask,</p>
+<p>do you think there&rsquo;s intelligent life</p>
+<p>out there in the universe?</p>
+<p>I have no idea.</p>
+<p>Do you hope so?</p>
+<p>Do you think about it?</p>
+<p>I don&rsquo;t spend my time thinking about things</p>
+<p>that I could never know, really.</p>
+<p>And yet you do enjoy the fact that there&rsquo;s many things</p>
+<p>you don&rsquo;t know.</p>
+<p>You do enjoy the mystery of things.</p>
+<p>I enjoy the fact that I have limits, yeah.</p>
+<p>But I don&rsquo;t take time to answer unsolvable questions.</p>
+<p>Got it.</p>
+<p>Well, because you&rsquo;ve taken on some tough questions</p>
+<p>that may seem unsolvable.</p>
+<p>You have taken on some tough questions</p>
+<p>that may seem unsolvable, but they&rsquo;re in the space.</p>
+<p>It gives me a thrill when I can get further</p>
+<p>than I ever thought I could, yeah.</p>
+<p>But much like with religion, these.</p>
+<p>I&rsquo;m glad that there&rsquo;s no proof that God exists or not.</p>
+<p>I mean, I think.</p>
+<p>It would spoil the mystery.</p>
+<p>It would be too dull, yeah.</p>
+<p>So to quickly talk about the other art</p>
+<p>of artificial intelligence, what&rsquo;s your view?</p>
+<p>Artificial intelligence community has developed</p>
+<p>as part of computer science and in parallel</p>
+<p>with computer science since the 60s.</p>
+<p>What&rsquo;s your view of the AI community from the 60s to now?</p>
+<p>So all the way through, it was the people</p>
+<p>who were inspired by trying to mimic intelligence</p>
+<p>or to do things that were somehow</p>
+<p>the greatest achievements of intelligence</p>
+<p>that had been inspiration to people</p>
+<p>who have pushed the envelope of computer science</p>
+<p>maybe more than any other group of people.</p>
+<p>So all the way through, it&rsquo;s been a great source</p>
+<p>of good problems to sink teeth into.</p>
+<p>Sink teeth into and getting partial answers</p>
+<p>and then more and more successful answers over the years.</p>
+<p>So this has been the inspiration</p>
+<p>for lots of the great discoveries of computer science.</p>
+<p>Are you yourself captivated by the possibility</p>
+<p>of creating, of algorithms having echoes</p>
+<p>of intelligence in them?</p>
+<p>Not as much as most of the people in the field, I guess,</p>
+<p>I would say, but that&rsquo;s not to say that they&rsquo;re wrong</p>
+<p>or that it&rsquo;s just, you asked about my own personal</p>
+<p>preferences, but the thing that I worry about</p>
+<p>is when people start believing that they&rsquo;ve actually</p>
+<p>succeeded and because the, it seems to me,</p>
+<p>there&rsquo;s a huge gap between really understanding something</p>
+<p>and being able to pretend to understand something</p>
+<p>and give the illusion of understanding something.</p>
+<p>Do you think it&rsquo;s possible to create without understanding?</p>
+<p>Yeah.</p>
+<p>So to.</p>
+<p>Oh, I do that all the time too, I mean.</p>
+<p>So I use random numbers, but there&rsquo;s still this great gap.</p>
+<p>I don&rsquo;t assert that it&rsquo;s impossible,</p>
+<p>but I don&rsquo;t see anything coming any closer</p>
+<p>to really the kind of stuff</p>
+<p>that I would consider intelligence.</p>
+<p>So you&rsquo;ve mentioned something that,</p>
+<p>on that line of thinking, which I very much agree with,</p>
+<p>so The Art of Computer Programming as the book</p>
+<p>is focused on single processor algorithms,</p>
+<p>and for the most part, you mentioned.</p>
+<p>That&rsquo;s only because I set the table of contents in 1962,</p>
+<p>you have to remember.</p>
+<p>For sure, there&rsquo;s no.</p>
+<p>I&rsquo;m glad I didn&rsquo;t wait until 1965 or something.</p>
+<p>That&rsquo;s, one book, maybe we&rsquo;ll touch on the Bible,</p>
+<p>but one book can&rsquo;t always cover the entirety of everything.</p>
+<p>So I&rsquo;m glad the table of contents</p>
+<p>for The Art of Computer Programming is what it is.</p>
+<p>But you did mention that you thought</p>
+<p>that an understanding of the way ant colonies</p>
+<p>are able to perform incredibly organized tasks</p>
+<p>might well be the key to understanding human cognition.</p>
+<p>So these fundamentally distributed systems.</p>
+<p>So what do you think is the difference</p>
+<p>between the way Don Knuth would sort a list</p>
+<p>and an ant colony would sort a list</p>
+<p>or perform an algorithm?</p>
+<p>Sorting a list isn&rsquo;t the same as cognition, though,</p>
+<p>but I know what you&rsquo;re getting at is.</p>
+<p>Well, the advantage of ant colonies,</p>
+<p>at least we can see what they&rsquo;re doing.</p>
+<p>We know which ant has talked to which other ant,</p>
+<p>and it&rsquo;s much harder with the brains</p>
+<p>to know to what extent neurons are passing signal.</p>
+<p>So I&rsquo;m just saying that ant colony might be,</p>
+<p>if they have the secret of cognition,</p>
+<p>think of an ant colony as a cognitive single being</p>
+<p>rather than as a colony of lots of different ants.</p>
+<p>I mean, just like the cells of our brain</p>
+<p>and the microbiome and all that is interacting entities,</p>
+<p>but somehow I consider myself to be a single person.</p>
+<p>Well, an ant colony, you can say,</p>
+<p>might be cognitive somehow.</p>
+<p>It&rsquo;s some suggestion.</p>
+<p>Yeah, I mean, okay, I smash a certain ant</p>
+<p>and the organism&rsquo;s saying, hmm, that stung.</p>
+<p>What was that?</p>
+<p>But if we&rsquo;re going to crack the secret of cognition,</p>
+<p>it might be that we could do so</p>
+<p>by psyching out how ants do it</p>
+<p>because we have a better chance to measure</p>
+<p>their communicating by pheromones</p>
+<p>and by touching each other in sight,</p>
+<p>but not by much more subtle phenomenon</p>
+<p>like electric currents going through.</p>
+<p>But even a simpler version of that,</p>
+<p>what are your thoughts of maybe Conway&rsquo;s Game of Life?</p>
+<p>Okay, so Conway&rsquo;s Game of Life</p>
+<p>is able to simulate any computable process.</p>
+<p>And any deterministic process is&hellip;</p>
+<p>I like how you went there.</p>
+<p>I mean, that&rsquo;s not its most powerful thing, I would say.</p>
+<p>I mean, it can simulate it,</p>
+<p>but the magic is that the individual units</p>
+<p>are distributed and extremely simple.</p>
+<p>Yes, we understand exactly what the primitives are.</p>
+<p>The primitives, just like with the ant colony,</p>
+<p>even simpler, though.</p>
+<p>But still, it doesn&rsquo;t say that I understand life.</p>
+<p>I mean, it gives me a better insight</p>
+<p>into what does it mean to have a deterministic universe?</p>
+<p>What does it mean to have free choice, for example?</p>
+<p>Do you think God plays dice?</p>
+<p>Yes.</p>
+<p>I don&rsquo;t see any reason why God should be forbidden</p>
+<p>from using the most efficient ways to&hellip;</p>
+<p>I mean, we know that dice are extremely important</p>
+<p>in efficient algorithms.</p>
+<p>There are things that couldn&rsquo;t be done well without randomness.</p>
+<p>And so, I don&rsquo;t see any reason why God should be prohibited.</p>
+<p>When the algorithm requires it,</p>
+<p>you don&rsquo;t see why the physics should constrain it.</p>
+<p>So, in 2001, you gave a series of lectures at MIT</p>
+<p>about religion and science.</p>
+<p>No, that was in 1999.</p>
+<p>The book came out in 2001.</p>
+<p>So, in 1999, you spent a little bit of time in Boston</p>
+<p>enough to give those lectures.</p>
+<p>And I read the 2001 version, most of it.</p>
+<p>It&rsquo;s quite fascinating to read.</p>
+<p>I recommend people, it&rsquo;s a transcription of your lectures.</p>
+<p>So, what did you learn about how ideas get started</p>
+<p>and grow from studying the history of the Bible?</p>
+<p>So, you&rsquo;ve rigorously studied a very particular part</p>
+<p>of the Bible.</p>
+<p>What did you learn from this process</p>
+<p>about the way us human beings as a society</p>
+<p>develop and grow ideas, share ideas,</p>
+<p>and are defined by those ideas?</p>
+<p>Well, it&rsquo;s hard to summarize that.</p>
+<p>I wouldn&rsquo;t say that I learned a great deal</p>
+<p>of really definite things where I could make conclusions,</p>
+<p>but I learned more about what I don&rsquo;t know.</p>
+<p>You have a complex subject,</p>
+<p>which is really beyond human understanding.</p>
+<p>So, we give up on saying,</p>
+<p>I&rsquo;m never gonna get to the end of the road</p>
+<p>and I&rsquo;m never gonna understand it,</p>
+<p>but you say, but maybe it might be good for me</p>
+<p>to get closer and closer</p>
+<p>and learn more and more about something.</p>
+<p>And so, how can I do that efficiently?</p>
+<p>And the answer is, well, use randomness.</p>
+<p>And so, try a random subset</p>
+<p>of that is within my grasp</p>
+<p>and study that in detail,</p>
+<p>instead of just studying parts</p>
+<p>that somebody tells me to study,</p>
+<p>or instead of studying nothing because it&rsquo;s too hard.</p>
+<p>So, I decided, for my own amusement once,</p>
+<p>that I would take a subset</p>
+<p>of the verses of the Bible</p>
+<p>and I would try to find out</p>
+<p>what the best thinkers have said about that small subset.</p>
+<p>And I had about, let&rsquo;s say 60 verses out of 3,000,</p>
+<p>I think it&rsquo;s one out of 500 or something like this.</p>
+<p>And so, then I went to the libraries,</p>
+<p>which are well indexed.</p>
+<p>I spent, for example, at Boston Public Library,</p>
+<p>I would go once a week for a year</p>
+<p>and I went, I have done times to Hanover Harvard Library</p>
+<p>to look at this, that weren&rsquo;t in the Boston Public,</p>
+<p>where scholars had looked and you can go down the shelves</p>
+<p>and you can look in the index and say,</p>
+<p>oh, is this verse mentioned anywhere in this book?</p>
+<p>If so, look at page 105.</p>
+<p>So, in other words, I could learn not only about the Bible,</p>
+<p>but about the secondary literature about the Bible,</p>
+<p>the things that scholars have written about it.</p>
+<p>And so, that gave me a way to zoom in on parts of the thing,</p>
+<p>so that I could get more insight.</p>
+<p>And so, I look at it as a way of giving me some firm pegs,</p>
+<p>which I could hang pieces of information,</p>
+<p>but not as things where I would say,</p>
+<p>and therefore, this is true.</p>
+<p>In this random approach of sampling the Bible,</p>
+<p>what did you learn about the most central,</p>
+<p>one of the biggest accumulation of ideas in our history?</p>
+<p>It seemed to me that the main thrust was not the one</p>
+<p>that most people think of as saying,</p>
+<p>oh, don&rsquo;t have sex or something like this,</p>
+<p>but that the main thrust was to try to figure out</p>
+<p>how to live in harmony with God&rsquo;s wishes.</p>
+<p>I&rsquo;m assuming that God exists,</p>
+<p>and as I say, I&rsquo;m glad that there&rsquo;s no way to prove this,</p>
+<p>because I would run through the proof once,</p>
+<p>and then I&rsquo;d forget it,</p>
+<p>and I would never speculate about spiritual things</p>
+<p>and mysteries otherwise,</p>
+<p>and I think my life would be very incomplete.</p>
+<p>So, I&rsquo;m assuming that God exists,</p>
+<p>but a lot of the people say God doesn&rsquo;t exist,</p>
+<p>but that&rsquo;s still important to them.</p>
+<p>And so, in a way, that might still be,</p>
+<p>whether God is there or not,</p>
+<p>in some sense, God is important to them.</p>
+<p>One of the verses I studied, Doc,</p>
+<p>you can interpret it as saying that it&rsquo;s much better</p>
+<p>to be an atheist than not to care at all.</p>
+<p>So, I would say it&rsquo;s similar to the P equals NP discussion.</p>
+<p>You mentioned a mental exercise that I&rsquo;d love it</p>
+<p>if you could partake in yourself,</p>
+<p>a mental exercise of being God.</p>
+<p>So, if you were God, Doc Neuth,</p>
+<p>how would you present yourself to the people of Earth?</p>
+<p>You mentioned your love of literature,</p>
+<p>and there&rsquo;s this book that really I can recommend to you.</p>
+<p>Yeah, the title, I think, is Blasphemy.</p>
+<p>It talks about God revealing Himself</p>
+<p>through a computer in Los Alamos,</p>
+<p>and it&rsquo;s the only book that I&rsquo;ve ever read</p>
+<p>where the punchline was really the very last word of the book</p>
+<p>and explained the whole idea of the book.</p>
+<p>And so, I&rsquo;d only give that away,</p>
+<p>but it&rsquo;s really very much about this question that you raised.</p>
+<p>But suppose God said, okay,</p>
+<p>my previous means of communication with the world</p>
+<p>are not the best for the 21st century,</p>
+<p>so what should I do now?</p>
+<p>And it&rsquo;s conceivable that God would choose</p>
+<p>the way that&rsquo;s described in this book.</p>
+<p>Another way to look at this exercise</p>
+<p>is looking at the human mind,</p>
+<p>looking at the human spirit, the human life in a systematic way.</p>
+<p>I think mostly you want to learn humility.</p>
+<p>You want to realize that once we solve one problem,</p>
+<p>that doesn&rsquo;t mean that all of a sudden other problems are going to drop out.</p>
+<p>And we have to realize that there are things beyond our ability.</p>
+<p>I see hubris all around.</p>
+<p>Yeah, well said.</p>
+<p>If you were to run program analysis on your own life,</p>
+<p>how did you do in terms of correctness, running time, resource use,</p>
+<p>asymptotically speaking, of course?</p>
+<p>Okay, yeah, well, I would say</p>
+<p>that question has not been asked me before.</p>
+<p>And I started out with library subroutines</p>
+<p>and learning how to be an automaton that was obedient,</p>
+<p>and I had the great advantage that I didn&rsquo;t have anybody to blame for my failures.</p>
+<p>If I started not understanding something,</p>
+<p>I knew that I should stop playing ping pong,</p>
+<p>and it was my fault that I wasn&rsquo;t studying hard enough or something,</p>
+<p>rather than that somebody was discriminating against me in some way.</p>
+<p>And I don&rsquo;t know how to avoid the existence of biases in the world,</p>
+<p>but I know that that&rsquo;s an extra burden that I didn&rsquo;t have to suffer from.</p>
+<p>And then I found from parents,</p>
+<p>I learned the idea of service to other people</p>
+<p>as being more important than what I get out of stuff myself.</p>
+<p>I know that I need to be happy enough in order to be able to be of service,</p>
+<p>but I came to a philosophy finally that I phrase as,</p>
+<p>point eight is enough.</p>
+<p>There was a TV show once called Eight is Enough,</p>
+<p>which was about somebody had eight kids.</p>
+<p>But I say point eight is enough, which means if I can have a way of rating happiness,</p>
+<p>I think it&rsquo;s good design to have an organism that&rsquo;s happy about 80% of the time.</p>
+<p>And if it was 100% of the time, it would be like everybody&rsquo;s on drugs</p>
+<p>and everything collapses and nothing works because everybody&rsquo;s just too happy.</p>
+<p>Do you think you&rsquo;ve achieved that point eight optimal balance?</p>
+<p>There are times when I&rsquo;m down and I know that I&rsquo;ve actually been programmed</p>
+<p>to be depressed a certain amount of time.</p>
+<p>And if that gets out of kilter and I&rsquo;m more depressed than usual,</p>
+<p>sometimes I find myself trying to think, now, who should I be mad at today?</p>
+<p>There must be a reason why.</p>
+<p>But then I realize it&rsquo;s just my chemistry telling me that I&rsquo;m supposed to be mad at somebody,</p>
+<p>and so I trigger it up and say, okay, go to sleep and get better.</p>
+<p>But if I&rsquo;m not 100% happy, that doesn&rsquo;t mean that I should find somebody that&rsquo;s screwing me</p>
+<p>and try to silence them.</p>
+<p>But I&rsquo;m saying, okay, I&rsquo;m not 100% happy, but I&rsquo;m happy enough to be part of a sustainable situation.</p>
+<p>So that&rsquo;s kind of the numerical analysis I do.</p>
+<p>You&rsquo;ve converged towards the optimal, which for human life is a point eight.</p>
+<p>I hope it&rsquo;s okay to talk about, as you talked about previously,</p>
+<p>in 2006 you were diagnosed with prostate cancer.</p>
+<p>Has that encounter with mortality changed you in some way or the way you see the world?</p>
+<p>Yeah, it did. The first encounter with mortality was when my dad died,</p>
+<p>and I went through a month when I sort of came to be comfortable with the fact that I was going to die someday.</p>
+<p>And during that month, I don&rsquo;t know, I felt okay, but I couldn&rsquo;t sing.</p>
+<p>And I couldn&rsquo;t do original research either.</p>
+<p>I sort of remember after three or four weeks, the first time I started having a technical thought that made sense</p>
+<p>and was maybe slightly creative, I could sort of feel that something was starting to move again.</p>
+<p>So I felt very empty until I came to grips with it. I learned that this is sort of a standard grief process that people go through.</p>
+<p>Okay, so then now I&rsquo;m at a point in my life, even more so than in 2006,</p>
+<p>where all of my goals have been fulfilled except for finishing the art of computer programming.</p>
+<p>I had one major unfulfilled goal. I&rsquo;d wanted all my life to write a piece of music,</p>
+<p>and I had an idea for a certain kind of music that I thought ought to be written, at least somebody ought to try to do it.</p>
+<p>And I felt that it wasn&rsquo;t going to be easy, but I wanted proof of concept.</p>
+<p>I wanted to know if it was going to work or not, and so I spent a lot of time.</p>
+<p>And finally, I finished that piece, and we had the world premiere last year on my 80th birthday,</p>
+<p>and we had another premiere in Canada, and there&rsquo;s talk of concerts in Europe and various things.</p>
+<p>But that&rsquo;s done. It&rsquo;s part of the world&rsquo;s music now, and it&rsquo;s either good or bad, but I did what I was hoping to do.</p>
+<p>So the only thing that I have on my agenda is to try to do as well as I can with the art of computer programming until I go to CINA.</p>
+<p>Do you think there&rsquo;s an element of.8 that might apply there?</p>
+<p>.8? Well, I look at it more that I got actually to 1.0 when that concert was over with.</p>
+<p>So in 2006, I was at.8, so when I was diagnosed with prostate cancer, then I said, okay, well, I&rsquo;ve had all kinds of good luck all my life,</p>
+<p>and I have nothing to complain about, so I might die now, and we&rsquo;ll see what happens.</p>
+<p>And so quite seriously, I had no expectation that I deserved better.</p>
+<p>I didn&rsquo;t make any plans for the future. I came out of the surgery and spent some time learning how to walk again and so on.</p>
+<p>It was painful for a while, but I got home, and I realized I hadn&rsquo;t really thought about what to do next.</p>
+<p>I hadn&rsquo;t any expectation. I said, okay, hey, I&rsquo;m still alive. Okay, now I can write some more books.</p>
+<p>But I didn&rsquo;t come with the attitude that this was terribly unfair, and I just said, okay, I was accepting whatever turned out.</p>
+<p>I&rsquo;d gotten more than my share already, so why should I?</p>
+<p>When I got home, I realized that I had really not thought about the next step, what I would do after I would be able to work again.</p>
+<p>I was comfortable with the fact that it was at the end, but I was hoping that I would still be able to learn about satisfiability and also someday even write music.</p>
+<p>I didn&rsquo;t start seriously on the music project until 2012.</p>
+<p>So I&rsquo;m going to be in huge trouble if I don&rsquo;t talk to you about this.</p>
+<p>In the 70s, you&rsquo;ve created the tech typesetting system together with MetaFont language for font description and computer modern family of typefaces.</p>
+<p>That has basically defined the methodology and the aesthetic of countless research fields, math, physics, beyond computer science, so on.</p>
+<p>Okay, well, first of all, thank you.</p>
+<p>I think I speak for a lot of people in saying that.</p>
+<p>But question in terms of beauty.</p>
+<p>There&rsquo;s a beauty to typography that you&rsquo;ve created, and yet beauty is hard to quantify.</p>
+<p>How does one create beautiful letters and beautiful equations?</p>
+<p>Perhaps there&rsquo;s no words to be describing the process.</p>
+<p>So the great Harvard mathematician George D. Burkhoff wrote a book in the 30s called Aesthetic Measure where he would have pictures of vases and underneath would be a number.</p>
+<p>And this was how beautiful the vase was.</p>
+<p>And he had a formula for this.</p>
+<p>And he actually also wrote about music.</p>
+<p>So I thought maybe part of my musical composition I would try to program his algorithms so that I would write something that had the highest number by his score.</p>
+<p>Well, it wasn&rsquo;t quite rigorous enough for a computer to do.</p>
+<p>But anyway, people have tried to put numerical value on beauty, and he did probably the most serious attempt.</p>
+<p>And George Gershwin&rsquo;s teacher also wrote two volumes where he talked about his method of composing music.</p>
+<p>But you&rsquo;re talking about another kind of beauty and letters and letter phrases.</p>
+<p>Elegance and whatever that curvature is.</p>
+<p>Right. And so that&rsquo;s in the eye of the beholder, as they say.</p>
+<p>But striving for excellence in whatever definition you want to give to beauty, then you try to get as close to that as you can somehow.</p>
+<p>I guess I&rsquo;m trying to ask, and there may not be a good answer, what loose definitions were you operating under with the community of people that you were working under?</p>
+<p>Well, the loose definition, I wanted it to appeal to me.</p>
+<p>To you personally.</p>
+<p>Yeah.</p>
+<p>That&rsquo;s a good start, right?</p>
+<p>Yeah. No, and it failed that test when Volume Two came out with the new printing, and I was expecting it to be the happiest day of my life.</p>
+<p>And I felt like a burning, like how angry I was that I opened the book and it was in the same beige covers, but it didn&rsquo;t look right on the page.</p>
+<p>The number two was particularly ugly.</p>
+<p>I couldn&rsquo;t stand any page that had a two in its page number.</p>
+<p>And I was expecting that. I spent all this time making measurements and I had looked at stuff in different ways and I had great technology, but I wasn&rsquo;t done.</p>
+<p>I had to retune the whole thing after 1961.</p>
+<p>Has it ever made you happy, finally?</p>
+<p>Oh, yes.</p>
+<p>Or is it a 0.8?</p>
+<p>No, and so many books have come out that would never have been written without this.</p>
+<p>It&rsquo;s just a joy.</p>
+<p>But now, I mean, all these pages that are sitting up there, if I didn&rsquo;t like them, I would change them.</p>
+<p>Nobody else has this ability.</p>
+<p>They have to stick with what I gave them.</p>
+<p>Yeah. So, in terms of the other side of it, there&rsquo;s the typography, so the look of the type and the curves and the lines.</p>
+<p>What about the spacing?</p>
+<p>What about the?</p>
+<p>The spacing between the white space.</p>
+<p>Yeah.</p>
+<p>It seems like you could be a little bit more systematic about the layout or technical.</p>
+<p>Oh, yeah. You can always go further.</p>
+<p>I didn&rsquo;t stop at 0.8, but I stopped at about 0.98.</p>
+<p>It seems like you&rsquo;re not following your own rule for happiness.</p>
+<p>No, no, no.</p>
+<p>Of course, there&rsquo;s this, what is the Japanese word, wabi sabi or something, where the most beautiful works of art are those that have flaws because then the person who perceives them adds their own appreciation and that gives the viewer more satisfaction or so on.</p>
+<p>But no, no, with typography, I wanted it to look as good as I could in the vast majority of cases, and then when it doesn&rsquo;t, then I say, okay, that&rsquo;s 2% more work for the author.</p>
+<p>But I didn&rsquo;t want to say that my job was to get to 100% and take all the work away from the author.</p>
+<p>That&rsquo;s what I meant by that.</p>
+<p>So if you were to venture a guess, how much of the nature of reality do you think we humans understand?</p>
+<p>You mentioned you appreciate mystery.</p>
+<p>How much of the world about us is shrouded in mystery?</p>
+<p>If you were to put a number on it, what percent of it all do we understand?</p>
+<p>How many leading zeros, 0.00?</p>
+<p>I don&rsquo;t know.</p>
+<p>I think it&rsquo;s infinitesimal.</p>
+<p>How do we think about that and what do we do about that?</p>
+<p>Do we continue one step at a time?</p>
+<p>Yeah, we muddle through.</p>
+<p>I mean, we do our best.</p>
+<p>We realize that nobody&rsquo;s perfect and we try to keep advancing, but we don&rsquo;t spend time saying we&rsquo;re not there, we&rsquo;re not all the way to the end.</p>
+<p>Some mathematicians that would be in the office next to me when I was in the math department, they would never think about anything smaller than countable infinity.</p>
+<p>We intersected that countable infinity because I rarely got up to countable infinity.</p>
+<p>I was always talking about finite stuff.</p>
+<p>But even limiting to finite stuff, which the universe might be, there&rsquo;s no way to really know whether the universe isn&rsquo;t just made out of capital N, whatever units you want to call them, quarks or whatever, where capital N is some finite number.</p>
+<p>All of the numbers that are comprehensible are still way smaller than almost all finite numbers.</p>
+<p>I got this one paper called Supernatural Numbers where I guess you probably ran into something called Knuth arrow notation.</p>
+<p>Did you ever run into that?</p>
+<p>Anyway, so you take the number, I think it&rsquo;s like, and I called it Super K, I named it after myself, but arrow notation is something like 10 and then four arrows and a three or something like that.</p>
+<p>Now, the arrow notation, if you have no arrows, that means multiplication.</p>
+<p>X, Y means X times X times X times X, Y times.</p>
+<p>If you have one arrow, that means exponentiation.</p>
+<p>So X one arrow Y means X to the X to the X to the X Y times.</p>
+<p>So I found out, by the way, that this notation was invented by a guy in 1830 and he was one of the English nobility who spent his time thinking about stuff like this.</p>
+<p>And it was exactly the same concept that I used arrows and he used a slightly different notation.</p>
+<p>But anyway, and then this Ackermann&rsquo;s function is based on the same kind of ideas, but Ackermann was 1920s.</p>
+<p>But anyway, you&rsquo;ve got this number 10 quadruple arrow three. So that says, well, we take 10 to the 10 to the 10 to the 10 to the 10th and how many times do we do that?</p>
+<p>Oh, 10 double arrow two times or something. I mean, how tall is that stack?</p>
+<p>But then we do that again because that was only 10 quadruple arrow two.</p>
+<p>It gets to be a pretty large number.</p>
+<p>It gets way beyond comprehension.</p>
+<p>But it&rsquo;s so small compared to what finite numbers really are because I&rsquo;m only using four arrows and 10 and a three.</p>
+<p>I mean, let&rsquo;s have that many number arrows.</p>
+<p>The boundary between infinite and finite is incomprehensible for us humans anyway.</p>
+<p>Infinity is a useful way for us to think about extremely large things.</p>
+<p>And we can manipulate it, but we can never know that the universe is actually anywhere near that.</p>
+<p>So I realize how little we know.</p>
+<p>But we found an awful lot of things that are too hard for any one person to know, even in our small universe.</p>
+<p>Yeah, and we did pretty good.</p>
+<p>So when you go up to heaven and meet God and get to ask one question that would get answered, what question would you ask?</p>
+<p>What kind of browser do you have up here?</p>
+<p>No, actually, I don&rsquo;t think it&rsquo;s meaningful to ask this question, but I certainly hope we had good internet.</p>
+<p>Okay, on that note, that&rsquo;s beautiful actually.</p>
+<p>Don, thank you so much.</p>
+<p>It was a huge honor to talk to you.</p>
+<p>I really appreciate it.</p>
+<p>Well, thanks for the gamut of questions.</p>
+<p>Yeah, it was fun.</p>
+<p>Thanks for listening to this conversation with Donald Knuth, and thank you to our presenting sponsor, Cash App.</p>
+<p>Download it, use Code Lex Podcast, you&rsquo;ll get $10, and $10 will go to FIRST, a STEM education nonprofit that inspires hundreds of thousands of young minds to learn and to dream of engineering our future.</p>
+<p>If you enjoy this podcast, subscribe on YouTube, give it five stars on Apple Podcast, support it on Patreon, or connect with me on Twitter.</p>
+<p>And now, let me leave you with some words of wisdom from Donald Knuth.</p>
+<p>We should continually be striving to transform every art into a science, and in the process, we advance the art.</p>
+<p>Thank you for listening, and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

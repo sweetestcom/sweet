@@ -1,0 +1,3090 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Ariel Vinales.
+He&amp;rsquo;s a senior research scientist at Google DeepMind,
+and before that, he was at Google Brain and Berkeley.
+His research has been cited over 39,000 times.
+He&amp;rsquo;s truly one of the most brilliant and impactful minds
+in the field of deep learning.
+He&amp;rsquo;s behind some of the biggest papers and ideas in AI,
+including sequence to sequence learning,
+audio generation, image captioning,'>
+<title>Lex Fridman Podcast - #20 - Oriol Vinyals: DeepMind AlphaStar, StarCraft, Language, and Sequences | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500020/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #20 - Oriol Vinyals: DeepMind AlphaStar, StarCraft, Language, and Sequences'>
+<meta property='og:description' content='The following is a conversation with Ariel Vinales.
+He&amp;rsquo;s a senior research scientist at Google DeepMind,
+and before that, he was at Google Brain and Berkeley.
+His research has been cited over 39,000 times.
+He&amp;rsquo;s truly one of the most brilliant and impactful minds
+in the field of deep learning.
+He&amp;rsquo;s behind some of the biggest papers and ideas in AI,
+including sequence to sequence learning,
+audio generation, image captioning,'>
+<meta property='og:url' content='https://swiest.com/en/1310500020/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-03-20T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-20T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #20 - Oriol Vinyals: DeepMind AlphaStar, StarCraft, Language, and Sequences">
+<meta name="twitter:description" content="The following is a conversation with Ariel Vinales.
+He&amp;rsquo;s a senior research scientist at Google DeepMind,
+and before that, he was at Google Brain and Berkeley.
+His research has been cited over 39,000 times.
+He&amp;rsquo;s truly one of the most brilliant and impactful minds
+in the field of deep learning.
+He&amp;rsquo;s behind some of the biggest papers and ideas in AI,
+including sequence to sequence learning,
+audio generation, image captioning,">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500020/">Lex Fridman Podcast - #20 - Oriol Vinyals: DeepMind AlphaStar, StarCraft, Language, and Sequences</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-03-20</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    85 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Ariel Vinales.</p>
+<p>He&rsquo;s a senior research scientist at Google DeepMind,</p>
+<p>and before that, he was at Google Brain and Berkeley.</p>
+<p>His research has been cited over 39,000 times.</p>
+<p>He&rsquo;s truly one of the most brilliant and impactful minds</p>
+<p>in the field of deep learning.</p>
+<p>He&rsquo;s behind some of the biggest papers and ideas in AI,</p>
+<p>including sequence to sequence learning,</p>
+<p>audio generation, image captioning,</p>
+<p>neural machine translation,</p>
+<p>and, of course, reinforcement learning.</p>
+<p>He&rsquo;s a lead researcher of the AlphaStar project,</p>
+<p>creating an agent that defeated a top professional</p>
+<p>at the game of StarCraft.</p>
+<p>This conversation is part</p>
+<p>of the Artificial Intelligence podcast.</p>
+<p>If you enjoy it, subscribe on YouTube, iTunes,</p>
+<p>or simply connect with me on Twitter at Lex Friedman,</p>
+<p>spelled F R I D.</p>
+<p>And now, here&rsquo;s my conversation with Ariel Vinales.</p>
+<p>You spearheaded the DeepMind team behind AlphaStar</p>
+<p>that recently beat a top professional player at StarCraft.</p>
+<p>So you have an incredible wealth of work</p>
+<p>in deep learning and a bunch of fields,</p>
+<p>but let&rsquo;s talk about StarCraft first.</p>
+<p>Let&rsquo;s go back to the very beginning,</p>
+<p>even before AlphaStar, before DeepMind,</p>
+<p>before deep learning first.</p>
+<p>What came first for you,</p>
+<p>a love for programming or a love for video games?</p>
+<p>I think for me, it definitely came first</p>
+<p>the drive to play video games.</p>
+<p>I really liked computers.</p>
+<p>I didn&rsquo;t really code much, but what I would do is</p>
+<p>I would just mess with the computer, break it and fix it.</p>
+<p>That was the level of skills, I guess,</p>
+<p>that I gained in my very early days,</p>
+<p>I mean, when I was 10 or 11.</p>
+<p>And then I really got into video games,</p>
+<p>especially StarCraft, actually, the first version.</p>
+<p>I spent most of my time</p>
+<p>just playing kind of pseudo professionally,</p>
+<p>as professionally as you could play back in 98 in Europe,</p>
+<p>which was not a very main scene</p>
+<p>like what&rsquo;s called nowadays eSports.</p>
+<p>Right, of course, in the 90s.</p>
+<p>So how&rsquo;d you get into StarCraft?</p>
+<p>What was your favorite race?</p>
+<p>How did you develop your skill?</p>
+<p>What was your strategy?</p>
+<p>All that kind of thing.</p>
+<p>So as a player, I tended to try to play not many games,</p>
+<p>not to kind of disclose the strategies</p>
+<p>that I kind of developed.</p>
+<p>And I like to play random, actually,</p>
+<p>not in competitions, but just to&hellip;</p>
+<p>I think in StarCraft, there&rsquo;s three main races</p>
+<p>and I found it very useful to play with all of them.</p>
+<p>And so I would choose random many times,</p>
+<p>even sometimes in tournaments,</p>
+<p>to gain skill on the three races</p>
+<p>because it&rsquo;s not how you play against someone,</p>
+<p>but also if you understand the race because you played,</p>
+<p>you also understand what&rsquo;s annoying,</p>
+<p>then when you&rsquo;re on the other side,</p>
+<p>what to do to annoy that person,</p>
+<p>to try to gain advantages here and there and so on.</p>
+<p>So I actually played random,</p>
+<p>although I must say in terms of favorite race,</p>
+<p>I really liked Zerg.</p>
+<p>I was probably best at Zerg</p>
+<p>and that&rsquo;s probably what I tend to use</p>
+<p>towards the end of my career before starting university.</p>
+<p>So let&rsquo;s step back a little bit.</p>
+<p>Could you try to describe StarCraft</p>
+<p>to people that may never have played video games,</p>
+<p>especially the massively online variety like StarCraft?</p>
+<p>So StarCraft is a real time strategy game.</p>
+<p>And the way to think about StarCraft,</p>
+<p>perhaps if you understand a bit chess,</p>
+<p>is that there&rsquo;s a board which is called map</p>
+<p>or the map where people play against each other.</p>
+<p>There&rsquo;s obviously many ways you can play,</p>
+<p>but the most interesting one is the one versus one setup</p>
+<p>where you just play against someone else</p>
+<p>or even the built in AI, right?</p>
+<p>Blizzard put a system that can play the game</p>
+<p>reasonably well if you don&rsquo;t know how to play.</p>
+<p>And then in this board, you have again,</p>
+<p>pieces like in chess,</p>
+<p>but these pieces are not there initially</p>
+<p>like they are in chess.</p>
+<p>You actually need to decide to gather resources</p>
+<p>to decide which pieces to build.</p>
+<p>So in a way you&rsquo;re starting almost with no pieces.</p>
+<p>You start gathering resources in StarCraft.</p>
+<p>There&rsquo;s minerals and gas that you can gather.</p>
+<p>And then you must decide how much do you wanna focus</p>
+<p>for instance, on gathering more resources</p>
+<p>or starting to build units or pieces.</p>
+<p>And then once you have enough pieces</p>
+<p>or maybe like attack, a good attack composition,</p>
+<p>then you go and attack the other side of the map.</p>
+<p>And now the other main difference with chess</p>
+<p>is that you don&rsquo;t see the other side of the map.</p>
+<p>So you&rsquo;re not seeing the moves of the enemy.</p>
+<p>It&rsquo;s what we call partially observable.</p>
+<p>So as a result, you must not only decide</p>
+<p>trading off economy versus building your own units,</p>
+<p>but you also must decide whether you wanna scout</p>
+<p>to gather information, but also by scouting,</p>
+<p>you might be giving away some information</p>
+<p>that you might be hiding from the enemy.</p>
+<p>So there&rsquo;s a lot of complex decision making</p>
+<p>all in real time.</p>
+<p>There&rsquo;s also unlike chess, this is not a turn based game.</p>
+<p>You play basically all the time continuously</p>
+<p>and thus some skill in terms of speed</p>
+<p>and accuracy of clicking is also very important.</p>
+<p>And people that train for this really play this game</p>
+<p>at an amazing skill level.</p>
+<p>I&rsquo;ve seen many times these</p>
+<p>and if you can witness this life,</p>
+<p>it&rsquo;s really, really impressive.</p>
+<p>So in a way, it&rsquo;s kind of a chess</p>
+<p>where you don&rsquo;t see the other side of the board,</p>
+<p>you&rsquo;re building your own pieces</p>
+<p>and you also need to gather resources</p>
+<p>to basically get some money to build other buildings,</p>
+<p>pieces, technology and so on.</p>
+<p>From the perspective of a human player,</p>
+<p>the difference between that and chess</p>
+<p>or maybe that and a game like turn based strategy</p>
+<p>like Heroes of Might and Magic is that there&rsquo;s an anxiety</p>
+<p>because you have to make these decisions really quickly.</p>
+<p>And if you are not actually aware of what decisions work,</p>
+<p>it&rsquo;s a very stressful balance.</p>
+<p>Everything you describe is actually quite stressful,</p>
+<p>difficult to balance for an amateur human player.</p>
+<p>I don&rsquo;t know if it gets easier at the professional level,</p>
+<p>like if they&rsquo;re fully aware of what they have to do,</p>
+<p>but at the amateur level, there&rsquo;s this anxiety.</p>
+<p>Oh crap, I&rsquo;m being attacked.</p>
+<p>Oh crap, I have to build up resource.</p>
+<p>Oh, I have to probably expand.</p>
+<p>And all these, the time,</p>
+<p>the real time strategy aspect is really stressful</p>
+<p>and computationally I&rsquo;m sure difficult.</p>
+<p>We&rsquo;ll get into it.</p>
+<p>But for me, Battle.net,</p>
+<p>so StarCraft was released in 98, 20 years ago,</p>
+<p>which is hard to believe.</p>
+<p>And Blizzard Battle.net with Diablo in 96 came out.</p>
+<p>And to me, it might be a narrow perspective,</p>
+<p>but it changed online gaming and perhaps society forever.</p>
+<p>Yeah.</p>
+<p>But I may have made way too narrow viewpoint,</p>
+<p>but from your perspective,</p>
+<p>can you talk about the history of gaming</p>
+<p>over the past 20 years?</p>
+<p>Is this, how transformational,</p>
+<p>how important is this line of games?</p>
+<p>Right, so I think I kind of was an active gamer</p>
+<p>whilst this was developing, the internet, online gaming.</p>
+<p>So for me, the way it came was I played other games,</p>
+<p>strategy related, I played a bit of Common and Conquer,</p>
+<p>and then I played Warcraft II, which is from Blizzard.</p>
+<p>But at the time, I didn&rsquo;t know,</p>
+<p>I didn&rsquo;t understand about what Blizzard was or anything.</p>
+<p>Warcraft II was just a game,</p>
+<p>which was actually very similar to StarCraft in many ways.</p>
+<p>It&rsquo;s also real time strategy game</p>
+<p>where there&rsquo;s orcs and humans, so there&rsquo;s only two races.</p>
+<p>But it was offline.</p>
+<p>And it was offline, right?</p>
+<p>So I remember a friend of mine came to school,</p>
+<p>say, oh, there&rsquo;s this new cool game called StarCraft.</p>
+<p>And I just said, oh, this sounds like</p>
+<p>just a copy of Warcraft II, until I kind of installed it.</p>
+<p>And at the time, I am from Spain,</p>
+<p>so we didn&rsquo;t have very good internet, right?</p>
+<p>So there was, for us,</p>
+<p>StarCraft became first kind of an offline experience</p>
+<p>where you kind of start to play these missions, right?</p>
+<p>You play against some sort of scripted things</p>
+<p>to develop the story of the characters in the game.</p>
+<p>And then later on, I start playing against the built in AI,</p>
+<p>and I thought it was impossible to defeat it.</p>
+<p>Then eventually you defeat one</p>
+<p>and you can actually play against seven built in AIs</p>
+<p>at the same time, which also felt impossible.</p>
+<p>But actually, it&rsquo;s not that hard to beat</p>
+<p>seven built in AIs at once.</p>
+<p>So once we achieved that, also we discovered that</p>
+<p>we could play, as I said, internet wasn&rsquo;t that great,</p>
+<p>but we could play with the LAN, right?</p>
+<p>Like basically against each other</p>
+<p>if we were in the same place</p>
+<p>because you could just connect machines with like cables,</p>
+<p>right?</p>
+<p>So we started playing in LAN mode</p>
+<p>and as a group of friends,</p>
+<p>and it was really, really like much more entertaining</p>
+<p>than playing against AIs.</p>
+<p>And later on, as internet was starting to develop</p>
+<p>and being a bit faster and more reliable,</p>
+<p>then it&rsquo;s when I started experiencing Battle.net,</p>
+<p>which is this amazing universe,</p>
+<p>not only because of the fact</p>
+<p>that you can play the game against anyone in the world,</p>
+<p>but you can also get to know more people.</p>
+<p>You just get exposed to now like this vast variety of,</p>
+<p>it&rsquo;s kind of a bit when the chats came about, right?</p>
+<p>There was a chat system.</p>
+<p>You could play against people,</p>
+<p>but you could also chat with people,</p>
+<p>not only about Stalker, but about anything.</p>
+<p>And that became a way of life for kind of two years.</p>
+<p>And obviously then it became like kind of,</p>
+<p>it exploded in me in that I started to play more seriously,</p>
+<p>going to tournaments and so on and so forth.</p>
+<p>Do you have a sense on a societal, sociological level,</p>
+<p>what&rsquo;s this whole part of society</p>
+<p>that many of us are not aware of</p>
+<p>and it&rsquo;s a huge part of society, which is gamers.</p>
+<p>I mean, every time I come across that in YouTube</p>
+<p>or streaming sites, I mean,</p>
+<p>this is the huge number of people play games religiously.</p>
+<p>Do you have a sense of those folks,</p>
+<p>especially now that you&rsquo;ve returned to that realm</p>
+<p>a little bit on the AI side?</p>
+<p>Yeah, so in fact, even after Stalker,</p>
+<p>I actually played World of Warcraft,</p>
+<p>which is maybe the main sort of online worlds</p>
+<p>or in presence that you get to interact</p>
+<p>with lots of people.</p>
+<p>So I played that for a little bit.</p>
+<p>It was to me, it was a bit less stressful than StarCraft</p>
+<p>because winning was kind of a given.</p>
+<p>You just put in this world</p>
+<p>and you can always complete missions.</p>
+<p>But I think it was actually the social aspect</p>
+<p>of especially StarCraft first</p>
+<p>and then games like World of Warcraft</p>
+<p>really shaped me in a very interesting ways</p>
+<p>because what you get to experience</p>
+<p>is just people you wouldn&rsquo;t usually interact with, right?</p>
+<p>So even nowadays, I still have many Facebook friends</p>
+<p>from the area where I played online</p>
+<p>and their ways of thinking is even political.</p>
+<p>They just, we don&rsquo;t live in,</p>
+<p>like we don&rsquo;t interact in the real world,</p>
+<p>but we were connected by basically fiber.</p>
+<p>And that way I actually get to understand a bit better</p>
+<p>that we live in a diverse world.</p>
+<p>And these were just connections that were made by,</p>
+<p>because, you know, I happened to go in a city</p>
+<p>in a virtual city as a priest and I met this warrior</p>
+<p>and we became friends</p>
+<p>and then we start like playing together, right?</p>
+<p>So I think it&rsquo;s transformative</p>
+<p>and more and more and more people are more aware of it.</p>
+<p>I mean, it&rsquo;s becoming quite mainstream,</p>
+<p>but back in the day, as you were saying in 2000, 2005,</p>
+<p>even it was very, still very strange thing to do,</p>
+<p>especially in Europe.</p>
+<p>I think there were exceptions like Korea, for instance,</p>
+<p>it was amazing that everything happened so early</p>
+<p>in terms of cybercafes, like if you go to Seoul,</p>
+<p>it&rsquo;s a city that back in the day,</p>
+<p>StarCraft was kind of,</p>
+<p>you could be a celebrity by playing StarCraft,</p>
+<p>but this was like 99, 2000, right?</p>
+<p>It&rsquo;s not like recently.</p>
+<p>So yeah, it&rsquo;s quite interesting to look back</p>
+<p>and yeah, I think it&rsquo;s changing society.</p>
+<p>The same way, of course, like technology</p>
+<p>and social networks and so on are also transforming things.</p>
+<p>And a quick tangent, let me ask,</p>
+<p>you&rsquo;re also one of the most productive people</p>
+<p>in your particular chosen passion and path in life.</p>
+<p>And yet you&rsquo;re also appreciate and enjoy video games.</p>
+<p>Do you think it&rsquo;s possible to do,</p>
+<p>to enjoy video games in moderation?</p>
+<p>Someone told me that you could choose two out of three.</p>
+<p>When I was playing video games,</p>
+<p>you could choose having a girlfriend,</p>
+<p>playing video games or studying.</p>
+<p>And I think for the most part, it was relatively true.</p>
+<p>These things do take time.</p>
+<p>Games like StarCraft,</p>
+<p>if you take the game pretty seriously</p>
+<p>and you wanna study it,</p>
+<p>then you obviously will dedicate more time to it.</p>
+<p>And I definitely took gaming</p>
+<p>and obviously studying very seriously.</p>
+<p>I love learning science and et cetera.</p>
+<p>So to me, especially when I started university undergrad,</p>
+<p>I kind of step off StarCraft.</p>
+<p>I actually fully stopped playing.</p>
+<p>And then World of Warcraft was a bit more casual.</p>
+<p>You could just connect online.</p>
+<p>And I mean, it was fun.</p>
+<p>But as I said, that was not as much time investment</p>
+<p>as it was for me in StarCraft.</p>
+<p>Okay, so let&rsquo;s get into AlphaStar.</p>
+<p>What are the, you&rsquo;re behind the team.</p>
+<p>So DeepMind has been working on StarCraft</p>
+<p>and released a bunch of cool open source agents</p>
+<p>and so on the past few years.</p>
+<p>But AlphaStar really is the moment</p>
+<p>where the first time you beat a world class player.</p>
+<p>So what are the parameters of the challenge</p>
+<p>in the way that AlphaStar took it on</p>
+<p>and how did you and David</p>
+<p>and the rest of the DeepMind team get into it?</p>
+<p>Consider that you can even beat the best in the world</p>
+<p>or top players.</p>
+<p>I think it all started back in 2015.</p>
+<p>Actually, I&rsquo;m lying.</p>
+<p>I think it was 2014 when DeepMind was acquired by Google.</p>
+<p>And I at the time was at Google Brain,</p>
+<p>which was in California, is still in California.</p>
+<p>We had this summit where we got together, the two groups.</p>
+<p>So Google Brain and Google DeepMind got together</p>
+<p>and we gave a series of talks.</p>
+<p>And given that they were doing</p>
+<p>deep reinforcement learning for games,</p>
+<p>I decided to bring up part of my past,</p>
+<p>which I had developed at Berkeley,</p>
+<p>like this thing which we call Berkeley OverMind,</p>
+<p>which is really just a StarCraft one bot, right?</p>
+<p>So I talked about that.</p>
+<p>And I remember Demis just came to me and said,</p>
+<p>well, maybe not now, it&rsquo;s perhaps a bit too early,</p>
+<p>but you should just come to DeepMind</p>
+<p>and do this again with deep reinforcement learning, right?</p>
+<p>And at the time it sounded very science fiction</p>
+<p>for several reasons.</p>
+<p>But then in 2016, when I actually moved to London</p>
+<p>and joined DeepMind transferring from Brain,</p>
+<p>it became apparent that because of the AlphaGo moment</p>
+<p>and kind of Blizzard reaching out to us to say,</p>
+<p>wait, like, do you want the next challenge?</p>
+<p>And also me being full time at DeepMind,</p>
+<p>so sort of kind of all these came together.</p>
+<p>And then I went to Irvine in California,</p>
+<p>to the Blizzard headquarters to just chat with them</p>
+<p>and try to explain how would it all work</p>
+<p>before you do anything.</p>
+<p>And the approach has always been</p>
+<p>about the learning perspective, right?</p>
+<p>So in Berkeley, we did a lot of rule based conditioning</p>
+<p>and if you have more than three units, then go attack.</p>
+<p>And if the other has more units than me,</p>
+<p>I retreat and so on and so forth.</p>
+<p>And of course, the point of deep reinforcement learning,</p>
+<p>deep learning, machine learning in general</p>
+<p>is that all these should be learned behavior.</p>
+<p>So that kind of was the DNA of the project</p>
+<p>since its inception in 2016,</p>
+<p>where we just didn&rsquo;t even have an environment to work with.</p>
+<p>And so that&rsquo;s how it all started really.</p>
+<p>So if you go back to that conversation with Demis</p>
+<p>or even in your own head, how far away did you,</p>
+<p>because we&rsquo;re talking about Atari games,</p>
+<p>we&rsquo;re talking about Go, which is kind of,</p>
+<p>if you&rsquo;re honest about it, really far away from StarCraft.</p>
+<p>In, well, now that you&rsquo;ve beaten it,</p>
+<p>maybe you could say it&rsquo;s close,</p>
+<p>but it&rsquo;s much, it seems like StarCraft</p>
+<p>is way harder than Go philosophically</p>
+<p>and mathematically speaking.</p>
+<p>So how far away did you think you were?</p>
+<p>Do you think it&rsquo;s 2019 and 18</p>
+<p>you could be doing as well as you have?</p>
+<p>Yeah, when I kind of thought about,</p>
+<p>okay, I&rsquo;m gonna dedicate a lot of my time</p>
+<p>and focus on this.</p>
+<p>And obviously I do a lot of different research</p>
+<p>in deep learning.</p>
+<p>So spending time on it, I mean,</p>
+<p>I really had to kind of think</p>
+<p>there&rsquo;s gonna be something good happening out of this.</p>
+<p>So really I thought, well, this sounds impossible.</p>
+<p>And it probably is impossible to do the full thing,</p>
+<p>like the full game where you play one versus one</p>
+<p>and it&rsquo;s only a neural network playing and so on.</p>
+<p>So it really felt like,</p>
+<p>I just didn&rsquo;t even think it was possible.</p>
+<p>But on the other hand,</p>
+<p>I could see some stepping stones towards that goal.</p>
+<p>Clearly you could define sub problems in StarCraft</p>
+<p>and sort of dissect it a bit and say,</p>
+<p>okay, here is a part of the game, here&rsquo;s another part.</p>
+<p>And also obviously the fact,</p>
+<p>so this was really also critical to me,</p>
+<p>the fact that we could access human replays, right?</p>
+<p>So Blizzard was very kind.</p>
+<p>And in fact, they open source these for the whole community</p>
+<p>where you can just go</p>
+<p>and it&rsquo;s not every single StarCraft game ever played,</p>
+<p>but it&rsquo;s a lot of them you can just go and download.</p>
+<p>And every day they will,</p>
+<p>you can just query a data set and say,</p>
+<p>well, give me all the games that were played today.</p>
+<p>And given my kind of experience with language</p>
+<p>and sequences and supervised learning,</p>
+<p>I thought, well, that&rsquo;s definitely gonna be very helpful</p>
+<p>and something quite unique now,</p>
+<p>because ever before we had such a large data set of replays,</p>
+<p>of people playing the game at this scale</p>
+<p>of such a complex video game, right?</p>
+<p>So that to me was a precious resource.</p>
+<p>And as soon as I knew that Blizzard</p>
+<p>was able to kind of give this to the community,</p>
+<p>I started to feel positive</p>
+<p>about something non trivial happening.</p>
+<p>But I also thought the full thing, like really no rules,</p>
+<p>no single line of code that tries to say,</p>
+<p>well, I mean, if you see this unit, build a detector,</p>
+<p>all these, not having any of these specializations</p>
+<p>seemed really, really, really difficult to me.</p>
+<p>Intuitively.</p>
+<p>I do also like that Blizzard was teasing</p>
+<p>or even trolling you,</p>
+<p>sort of almost, yeah, pulling you in</p>
+<p>into this really difficult challenge.</p>
+<p>Do they have any awareness?</p>
+<p>What&rsquo;s the interest from the perspective of Blizzard,</p>
+<p>except just curiosity?</p>
+<p>Yeah, I think Blizzard has really understood</p>
+<p>and really bring forward this competitiveness</p>
+<p>of esports in games.</p>
+<p>The StarCraft really kind of sparked a lot of,</p>
+<p>like something that almost was never seen,</p>
+<p>especially as I was saying, back in Korea.</p>
+<p>So they just probably thought,</p>
+<p>well, this is such a pure one versus one setup</p>
+<p>that it would be great to see</p>
+<p>if something that can play Atari or Go</p>
+<p>and then later on chess could even tackle</p>
+<p>these kind of complex real time strategy game, right?</p>
+<p>So for them, they wanted to see first,</p>
+<p>obviously whether it was possible,</p>
+<p>if the game they created was in a way solvable</p>
+<p>to some extent.</p>
+<p>And I think on the other hand,</p>
+<p>they also are a pretty modern company that innovates a lot.</p>
+<p>So just starting to understand AI for them</p>
+<p>to how to bring AI into games</p>
+<p>is not AI for games, but games for AI, right?</p>
+<p>I mean, both ways I think can work.</p>
+<p>And we obviously at DeepMind use games for AI, right?</p>
+<p>To drive AI progress,</p>
+<p>but Blizzard might actually be able to do</p>
+<p>and many other companies to start to understand</p>
+<p>and do the opposite.</p>
+<p>So I think that is also something</p>
+<p>they can get out of these.</p>
+<p>And they definitely, we have brainstormed a lot</p>
+<p>about these, right?</p>
+<p>But one of the interesting things to me</p>
+<p>about StarCraft and Diablo</p>
+<p>and these games that Blizzard has created</p>
+<p>is the task of balancing classes, for example.</p>
+<p>Sort of making the game fair from the starting point</p>
+<p>and then let skill determine the outcome.</p>
+<p>Is there, I mean, can you first comment,</p>
+<p>there&rsquo;s three races, Zerg, Protoss and Terran.</p>
+<p>I don&rsquo;t know if I&rsquo;ve ever said that out loud.</p>
+<p>Is that how you pronounce it?</p>
+<p>Terran?</p>
+<p>Yeah, Terran.</p>
+<p>Yeah.</p>
+<p>Yeah, I don&rsquo;t think I&rsquo;ve ever in person interacted</p>
+<p>with anybody about StarCraft, that&rsquo;s funny.</p>
+<p>So they seem to be pretty balanced.</p>
+<p>I wonder if the AI, the work that you&rsquo;re doing</p>
+<p>with AlphaStar would help balance them even further.</p>
+<p>Is that something you think about?</p>
+<p>Is that something that Blizzard is thinking about?</p>
+<p>Right, so balancing when you add a new unit</p>
+<p>or a new spell type is obviously possible</p>
+<p>given that you can always train or pre train at scale</p>
+<p>some agent that might start using that in unintended ways.</p>
+<p>But I think actually, if you understand</p>
+<p>how StarCraft has kind of co evolved with players,</p>
+<p>in a way, I think it&rsquo;s actually very cool</p>
+<p>the ways that many of the things and strategies</p>
+<p>that people came up with, right?</p>
+<p>So I think we&rsquo;ve seen it over and over in StarCraft</p>
+<p>that Blizzard comes up with maybe a new unit</p>
+<p>and then some players get creative</p>
+<p>and do something kind of unintentional</p>
+<p>or something that Blizzard designers</p>
+<p>that just simply didn&rsquo;t test or think about.</p>
+<p>And then after that becomes kind of mainstream</p>
+<p>in the community, Blizzard patches the game</p>
+<p>and then they kind of maybe weaken that strategy</p>
+<p>or make it actually more interesting</p>
+<p>but a bit more balanced.</p>
+<p>So these kind of continual talk between players</p>
+<p>and Blizzard is kind of what has defined them actually</p>
+<p>in actually most games in StarCraft</p>
+<p>but also in World of Warcraft, they would do that.</p>
+<p>There are several classes and it would be not good</p>
+<p>that everyone plays absolutely the same race and so on, right?</p>
+<p>So I think they do care about balancing of course</p>
+<p>and they do a fair amount of testing</p>
+<p>but it&rsquo;s also beautiful to also see</p>
+<p>how players get creative anyways.</p>
+<p>And I mean, whether AI can be more creative at this point,</p>
+<p>I don&rsquo;t think so, right?</p>
+<p>I mean, it&rsquo;s just sometimes something so amazing happens.</p>
+<p>Like I remember back in the days,</p>
+<p>like you have these drop ships that could drop the rivers</p>
+<p>and that was actually not thought about</p>
+<p>that you could drop this unit</p>
+<p>that has this what&rsquo;s called splash damage</p>
+<p>that would basically eliminate</p>
+<p>all the enemies workers at once.</p>
+<p>No one thought that you could actually put them</p>
+<p>in really early game, do that kind of damage</p>
+<p>and then things change in the game.</p>
+<p>But I don&rsquo;t know, I think it&rsquo;s quite an amazing</p>
+<p>exploration process from both sides,</p>
+<p>players and Blizzard alike.</p>
+<p>Well, it&rsquo;s almost like a reinforcement learning exploration</p>
+<p>but the scale of humans that play Blizzard games</p>
+<p>is almost on the scale of a large scale</p>
+<p>deep mind RL experiment.</p>
+<p>I mean, if you look at the numbers,</p>
+<p>I mean, you&rsquo;re talking about, I don&rsquo;t know how many games</p>
+<p>but hundreds of thousands of games probably a month.</p>
+<p>Yeah.</p>
+<p>I mean, so it&rsquo;s almost the same as running RL agents.</p>
+<p>What aspect of the problem of Starcraft</p>
+<p>do you think is the hardest?</p>
+<p>Is it the, like you said, the imperfect information?</p>
+<p>Is it the fact they have to do longterm planning?</p>
+<p>Is it the real time aspects?</p>
+<p>We have to do stuff really quickly.</p>
+<p>Is it the fact that a large action space</p>
+<p>so you can do so many possible things?</p>
+<p>Or is it, you know, in the game theoretic sense</p>
+<p>there is no Nash equilibrium</p>
+<p>or at least you don&rsquo;t know what the optimal strategy is</p>
+<p>because there&rsquo;s way too many options.</p>
+<p>Right.</p>
+<p>Is there something that stands out as just like the hardest</p>
+<p>the most annoying thing?</p>
+<p>So when we sort of looked at the problem</p>
+<p>and start to define like the parameters of it, right?</p>
+<p>What are the observations?</p>
+<p>What are the actions?</p>
+<p>It became very apparent that, you know,</p>
+<p>the very first barrier that one would hit in Starcraft</p>
+<p>would be because of the action space being so large</p>
+<p>and as not being able to search like you could in chess</p>
+<p>or go even though the search space is vast.</p>
+<p>The main problem that we identified</p>
+<p>was that of exploration, right?</p>
+<p>So without any sort of human knowledge or human prior,</p>
+<p>if you think about Starcraft</p>
+<p>and you know how deep reinforcement learnings algorithm</p>
+<p>work which is essentially by issuing random actions</p>
+<p>and hoping that they will get some wins sometimes</p>
+<p>so they could learn.</p>
+<p>So if you think of the action space in Starcraft</p>
+<p>almost anything you can do in the early game is bad</p>
+<p>because any action involves taking workers</p>
+<p>which are mining minerals for free.</p>
+<p>That&rsquo;s something that the game does automatically</p>
+<p>sends them to mine.</p>
+<p>And you would immediately just take them out of mining</p>
+<p>and send them around.</p>
+<p>So just thinking how is it gonna be possible</p>
+<p>to get to understand these concepts</p>
+<p>but even more like expanding, right?</p>
+<p>There&rsquo;s these buildings you can place</p>
+<p>in other locations in the map to gather more resources</p>
+<p>but the location of the building is important</p>
+<p>and you have to select a worker,</p>
+<p>send it walking to that location, build the building,</p>
+<p>wait for the building to be built</p>
+<p>and then put extra workers there so they start mining.</p>
+<p>That feels like impossible if you just randomly click</p>
+<p>to produce that state, desirable state</p>
+<p>that then you could hope to learn from</p>
+<p>because eventually that may yield to an extra win, right?</p>
+<p>So for me, the exploration problem</p>
+<p>and due to the action space</p>
+<p>and the fact that there&rsquo;s not really turns,</p>
+<p>there&rsquo;s so many turns because the game essentially</p>
+<p>takes that 22 times per second.</p>
+<p>I mean, that&rsquo;s how they could discretize sort of time.</p>
+<p>Obviously you always have to discretize time</p>
+<p>but there&rsquo;s no such thing as real time</p>
+<p>but it&rsquo;s really a lot of time steps</p>
+<p>of things that could go wrong.</p>
+<p>And that definitely felt a priori like the hardest.</p>
+<p>You mentioned many good ones.</p>
+<p>I think partial observability</p>
+<p>and the fact that there is no perfect strategy</p>
+<p>because of the partial observability.</p>
+<p>Those are very interesting problems.</p>
+<p>We start seeing more and more now</p>
+<p>in terms of as we solve the previous ones</p>
+<p>but the core problem to me was exploration</p>
+<p>and solving it has been basically kind of the focus</p>
+<p>and how we saw the first breakthroughs.</p>
+<p>So exploration in a multi hierarchical way.</p>
+<p>So like 22 times a second exploration</p>
+<p>has a very different meaning than it does</p>
+<p>in terms of should I gather resources early</p>
+<p>or should I wait or so on.</p>
+<p>So how do you solve the longterm?</p>
+<p>Let&rsquo;s talk about the internals of AlphaStar.</p>
+<p>So first of all, how do you represent the state</p>
+<p>of the game as an input?</p>
+<p>How do you then do the longterm sequence modeling?</p>
+<p>How do you build a policy?</p>
+<p>What&rsquo;s the architecture like?</p>
+<p>So AlphaStar has obviously several components</p>
+<p>but everything passes through what we call the policy</p>
+<p>which is a neural network.</p>
+<p>And that&rsquo;s kind of the beauty of it.</p>
+<p>There is, I could just now give you a neural network</p>
+<p>and some weights.</p>
+<p>And if you fed the right observations</p>
+<p>and you understood the actions the same way we do</p>
+<p>you would have basically the agent playing the game.</p>
+<p>There&rsquo;s absolutely nothing else needed</p>
+<p>other than those weights that were trained.</p>
+<p>Now, the first step is observing the game</p>
+<p>and we&rsquo;ve experimented with a few alternatives.</p>
+<p>The one that we currently use mixes both spatial</p>
+<p>sort of images that you would process from the game</p>
+<p>that is the zoomed out version of the map</p>
+<p>and also a zoomed in version of the camera</p>
+<p>or the screen as we call it.</p>
+<p>But also we give to the agent the list of units</p>
+<p>that it sees more of as a set of objects</p>
+<p>that it can operate on.</p>
+<p>That is not necessarily required to use it.</p>
+<p>And we have versions of the game that play well</p>
+<p>without this set vision that is a bit not like</p>
+<p>how humans perceive the game.</p>
+<p>But it certainly helps a lot</p>
+<p>because it&rsquo;s a very natural way to encode the game</p>
+<p>is by just looking at all the units that there are.</p>
+<p>They have properties like health, position, type of unit</p>
+<p>whether it&rsquo;s my unit or the enemies.</p>
+<p>And that sort of is kind of the summary</p>
+<p>of the state of the game,</p>
+<p>that list of units or set of units</p>
+<p>that you see all the time.</p>
+<p>But that&rsquo;s pretty close to the way humans see the game.</p>
+<p>Why do you say it&rsquo;s not, isn&rsquo;t that,</p>
+<p>you&rsquo;re saying the exactness of it is not similar to humans?</p>
+<p>The exactness of it is perhaps not the problem.</p>
+<p>I guess maybe the problem if you look at it</p>
+<p>from how actually humans play the game</p>
+<p>is that they play with a mouse and a keyboard and a screen</p>
+<p>and they don&rsquo;t see sort of a structured object</p>
+<p>with all the units.</p>
+<p>What they see is what they see on the screen, right?</p>
+<p>So.</p>
+<p>Remember that there&rsquo;s a, sorry to interrupt,</p>
+<p>there&rsquo;s a plot that you showed with camera base</p>
+<p>where you do exactly that, right?</p>
+<p>You move around and that seems to converge</p>
+<p>to similar performance.</p>
+<p>Yeah, I think that&rsquo;s what I,</p>
+<p>we&rsquo;re kind of experimenting with what&rsquo;s necessary or not,</p>
+<p>but using the set.</p>
+<p>So, actually, if you look at research in computer vision,</p>
+<p>where it makes a lot of sense to treat images</p>
+<p>as two dimensional arrays,</p>
+<p>there&rsquo;s actually a very nice paper from Facebook.</p>
+<p>I think, I forgot who the authors are,</p>
+<p>but I think it&rsquo;s part of Caming&rsquo;s group.</p>
+<p>And what they do is they take an image,</p>
+<p>which is this two dimensional signal,</p>
+<p>and they actually take pixel by pixel</p>
+<p>and scramble the image as if it was just a list of pixels.</p>
+<p>Crucially, they encode the position of the pixels</p>
+<p>with the X, Y coordinates.</p>
+<p>And this is just kind of a new architecture,</p>
+<p>which we incidentally also use in StarCraft</p>
+<p>called the Transformer,</p>
+<p>which is a very popular paper from last year,</p>
+<p>which yielded very nice result in machine translation.</p>
+<p>And if you actually believe in this kind of,</p>
+<p>oh, it&rsquo;s actually a set of pixels,</p>
+<p>as long as you encode X, Y, it&rsquo;s okay,</p>
+<p>then you could argue that the list of units that we see</p>
+<p>is precisely that,</p>
+<p>because we have each unit as a kind of pixel, if you will,</p>
+<p>and then their X, Y coordinates.</p>
+<p>So in that perspective, we, without knowing it,</p>
+<p>we use the same architecture that was shown</p>
+<p>to work very well on Pascal and ImageNet and so on.</p>
+<p>So the interesting thing here is putting it in that way</p>
+<p>it starts to move it towards</p>
+<p>the way you usually work with language.</p>
+<p>So what, and especially with your expertise</p>
+<p>and work in language,</p>
+<p>it seems like there&rsquo;s echoes of a lot of</p>
+<p>the way you would work with natural language</p>
+<p>in the way you&rsquo;ve approached AlphaStar.</p>
+<p>Right.</p>
+<p>What&rsquo;s, does that help</p>
+<p>with the longterm sequence modeling there somehow?</p>
+<p>Exactly, so now that we understand</p>
+<p>what an observation for a given time step is,</p>
+<p>we need to move on to say,</p>
+<p>well, there&rsquo;s going to be a sequence of such observations</p>
+<p>and an agent will need to, given all that it&rsquo;s seen,</p>
+<p>not only the current time step, but all that it&rsquo;s seen, why?</p>
+<p>Because there is partial observability.</p>
+<p>We must remember whether we saw a worker going somewhere,</p>
+<p>for instance, right?</p>
+<p>Because then there might be an expansion</p>
+<p>on the top right of the map.</p>
+<p>So given that, what you must then think about is</p>
+<p>there is the problem of given all the observations,</p>
+<p>you have to predict the next action.</p>
+<p>And not only given all the observations,</p>
+<p>but given all the observations</p>
+<p>and given all the actions you&rsquo;ve taken,</p>
+<p>predict the next action.</p>
+<p>And that sounds exactly like machine translation where,</p>
+<p>and that&rsquo;s exactly how kind of I saw the problem,</p>
+<p>especially when you are given supervised data</p>
+<p>or replays from humans,</p>
+<p>because the problem is exactly the same.</p>
+<p>You&rsquo;re translating essentially a prefix of observations</p>
+<p>and actions onto what&rsquo;s going to happen next,</p>
+<p>which is exactly how you would train a model to translate</p>
+<p>or to generate language as well, right?</p>
+<p>Do you have a certain prefix?</p>
+<p>You must remember everything that comes in the past</p>
+<p>because otherwise you might start having noncoherent text.</p>
+<p>And the same architectures we&rsquo;re using LSTMs</p>
+<p>and transformers to operate on across time</p>
+<p>to kind of integrate all that&rsquo;s happened in the past.</p>
+<p>Those architectures that work so well in translation</p>
+<p>or language modeling are exactly the same</p>
+<p>than what the agent is using to issue actions in the game.</p>
+<p>And the way we train it, moreover, for imitation,</p>
+<p>which is step one of AlphaStar is,</p>
+<p>take all the human experience and try to imitate it,</p>
+<p>much like you try to imitate translators</p>
+<p>that translated many pairs of sentences</p>
+<p>from French to English say,</p>
+<p>that sort of principle applies exactly the same.</p>
+<p>It&rsquo;s almost the same code, except that instead of words,</p>
+<p>you have a slightly more complicated objects,</p>
+<p>which are the observations and the actions</p>
+<p>are also a bit more complicated than a word.</p>
+<p>Is there a self play component then too?</p>
+<p>So once you run out of imitation?</p>
+<p>Right, so indeed you can bootstrap from human replays,</p>
+<p>but then the agents you get are actually not as good</p>
+<p>as the humans you imitated, right?</p>
+<p>So how do we imitate?</p>
+<p>Well, we take humans from 3000 MMR and higher.</p>
+<p>3000 MMR is just a metric of human skill</p>
+<p>and 3000 MMR might be like 50% percentile, right?</p>
+<p>So it&rsquo;s just average human.</p>
+<p>What&rsquo;s that?</p>
+<p>So maybe quick pause, MMR is a ranking scale,</p>
+<p>the matchmaking rating for players.</p>
+<p>So it&rsquo;s 3000, I remember there&rsquo;s like a master</p>
+<p>and a grand master, what&rsquo;s 3000?</p>
+<p>So 3000 is pretty bad.</p>
+<p>I think it&rsquo;s kind of goals level.</p>
+<p>It just sounds really good relative to chess, I think.</p>
+<p>Oh yeah, yeah, no, the ratings,</p>
+<p>the best in the world are at 7,000 MMR.</p>
+<p>So 3000, it&rsquo;s a bit like Elo indeed, right?</p>
+<p>So 3,500 just allows us to not filter a lot of the data.</p>
+<p>So we like to have a lot of data in deep learning</p>
+<p>as you probably know.</p>
+<p>So we take these kind of 3,500 and above,</p>
+<p>but then we do a very interesting trick,</p>
+<p>which is we tell the neural network</p>
+<p>what level they are imitating.</p>
+<p>So we say, this replay you&rsquo;re gonna try to imitate</p>
+<p>to predict the next action for all the actions</p>
+<p>that you&rsquo;re gonna see is a 4,000 MMR replay.</p>
+<p>This one is a 6,000 MMR replay.</p>
+<p>And what&rsquo;s cool about this is then we take this policy</p>
+<p>that is being trained from human,</p>
+<p>and then we can ask it to play like a 3000 MMR player</p>
+<p>by setting a beat saying, well, okay,</p>
+<p>play like a 3000 MMR player</p>
+<p>or play like a 6,000 MMR player.</p>
+<p>And you actually see how the policy behaves differently.</p>
+<p>It gets worse economy if you play like a goal level player,</p>
+<p>it does less actions per minute,</p>
+<p>which is the number of clicks or number of actions</p>
+<p>that you will issue in a whole minute.</p>
+<p>And it&rsquo;s very interesting to see</p>
+<p>that it kind of imitates the skill level quite well.</p>
+<p>But if we ask it to play like a 6,000 MMR player,</p>
+<p>we tested, of course, these policies to see how well they do.</p>
+<p>They actually beat all the built in AIs</p>
+<p>that Blizzard put in the game,</p>
+<p>but they&rsquo;re nowhere near 6,000 MMR players, right?</p>
+<p>They might be maybe around goal level, platinum, perhaps.</p>
+<p>So there&rsquo;s still a lot of work to be done for the policy</p>
+<p>to truly understand what it means to win.</p>
+<p>So far, we only asked them, okay, here is the screen.</p>
+<p>And that&rsquo;s what&rsquo;s happened on the game until this point.</p>
+<p>What would the next action be if we ask a pro to now say,</p>
+<p>oh, you&rsquo;re gonna click here or here or there.</p>
+<p>And the point is experiencing wins and losses</p>
+<p>is very important to then start to refine.</p>
+<p>Otherwise the policy can get loose,</p>
+<p>can just go off policy as we call it.</p>
+<p>That&rsquo;s so interesting that you can at least hope eventually</p>
+<p>to be able to control a policy</p>
+<p>approximately to be at some MMR level.</p>
+<p>That&rsquo;s so interesting, especially given that you have</p>
+<p>ground truth for a lot of these cases.</p>
+<p>Can I ask you a personal question?</p>
+<p>What&rsquo;s your MMR?</p>
+<p>Well, I haven&rsquo;t played StarCraft II, so I am unranked,</p>
+<p>which is the kind of lowest league.</p>
+<p>So I used to play StarCraft, the first one.</p>
+<p>But you haven&rsquo;t seriously played StarCraft II.</p>
+<p>So the best player we have at DeepMind is about 5,000 MMR,</p>
+<p>which is high masters.</p>
+<p>It&rsquo;s not at grand master level.</p>
+<p>Grand master level will be the top 200 players</p>
+<p>in a certain region like Europe or America or Asia.</p>
+<p>But for me, it would be hard to say.</p>
+<p>I am very bad at the game.</p>
+<p>I actually played AlphaStar a bit too late and it beat me.</p>
+<p>I remember the whole team was, oh, Oreo, you should play.</p>
+<p>And I was, oh, it looks like it&rsquo;s not so good yet.</p>
+<p>And then I remember I kind of got busy</p>
+<p>and waited an extra week and I played</p>
+<p>and it really beat me very badly.</p>
+<p>Was that, I mean, how did that feel?</p>
+<p>Isn&rsquo;t that an amazing feeling?</p>
+<p>That&rsquo;s amazing, yeah.</p>
+<p>I mean, obviously I tried my best</p>
+<p>and I tried to also impress my,</p>
+<p>because I actually played the first game.</p>
+<p>So I&rsquo;m still pretty good at micromanagement.</p>
+<p>The problem is I just don&rsquo;t understand StarCraft II.</p>
+<p>I understand StarCraft.</p>
+<p>And when I played StarCraft,</p>
+<p>I probably was consistently like for a couple of years,</p>
+<p>top 32 in Europe.</p>
+<p>So I was decent, but at the time we didn&rsquo;t have</p>
+<p>this kind of MMR system as well established.</p>
+<p>So it would be hard to know what it was back then.</p>
+<p>So what&rsquo;s the difference in interface</p>
+<p>between AlphaStar and StarCraft</p>
+<p>and a human player in StarCraft?</p>
+<p>Is there any significant differences</p>
+<p>between the way they both see the game?</p>
+<p>I would say the way they see the game,</p>
+<p>there&rsquo;s a few things that are just very hard to simulate.</p>
+<p>The main one perhaps, which is obvious in hindsight</p>
+<p>is what&rsquo;s called cloaked units, which are invisible units.</p>
+<p>So in StarCraft, you can make some units</p>
+<p>that you need to have a particular kind of unit</p>
+<p>to detect it.</p>
+<p>So these units are invisible.</p>
+<p>If you cannot detect them, you cannot target them.</p>
+<p>So they would just destroy your buildings</p>
+<p>or kill your workers.</p>
+<p>But despite the fact you cannot target the unit,</p>
+<p>there&rsquo;s a shimmer that as a human you observe.</p>
+<p>I mean, you need to train a little bit,</p>
+<p>you need to pay attention,</p>
+<p>but you would see this kind of space time distortion</p>
+<p>and you would know, okay, there are, yeah.</p>
+<p>Yeah, there&rsquo;s like a wave thing.</p>
+<p>Yeah, it&rsquo;s called shimmer.</p>
+<p>Space time distortion, I like it.</p>
+<p>That&rsquo;s really like, the Blizzard term is shimmer.</p>
+<p>Shimmer, okay.</p>
+<p>And so these shimmer professional players</p>
+<p>actually can see it immediately.</p>
+<p>They understand it very well,</p>
+<p>but it&rsquo;s still something that requires</p>
+<p>certain amount of attention</p>
+<p>and it&rsquo;s kind of a bit annoying to deal with.</p>
+<p>Whereas for AlphaStar, in terms of vision,</p>
+<p>it&rsquo;s very hard for us to simulate sort of,</p>
+<p>oh, are you looking at this pixel in the screen and so on?</p>
+<p>So the only thing we can do is,</p>
+<p>there is a unit that&rsquo;s invisible over there.</p>
+<p>So AlphaStar would know that immediately.</p>
+<p>Obviously still obeys the rules.</p>
+<p>You cannot attack the unit.</p>
+<p>You must have a detector and so on,</p>
+<p>but it&rsquo;s kind of one of the main things</p>
+<p>that it just doesn&rsquo;t feel there&rsquo;s a very proper way.</p>
+<p>I mean, you could imagine, oh, you don&rsquo;t have hypers.</p>
+<p>Maybe you don&rsquo;t know exactly where it is,</p>
+<p>or sometimes you see it, sometimes you don&rsquo;t,</p>
+<p>but it&rsquo;s just really, really complicated to get it</p>
+<p>so that everyone would agree,</p>
+<p>oh, that&rsquo;s the best way to simulate this, right?</p>
+<p>It seems like a perception problem.</p>
+<p>It is a perception problem.</p>
+<p>So the only problem is people, you ask,</p>
+<p>oh, what&rsquo;s the difference between</p>
+<p>how humans perceive the game?</p>
+<p>I would say they wouldn&rsquo;t be able to tell a shimmer</p>
+<p>immediately as it appears on the screen,</p>
+<p>whereas AlphaStar in principle sees it very sharply, right?</p>
+<p>It sees that the bit turned from zero to one,</p>
+<p>meaning there&rsquo;s now a unit there,</p>
+<p>although you don&rsquo;t know the unit,</p>
+<p>or you know that you cannot attack it and so on.</p>
+<p>So that from a vision standpoint,</p>
+<p>that probably is the one that is kind of the most obvious one.</p>
+<p>Then there are things humans cannot do perfectly,</p>
+<p>even professionals, which is they might miss a detail,</p>
+<p>or they might have not seen a unit.</p>
+<p>And obviously as a computer,</p>
+<p>if there&rsquo;s a corner of the screen that turns green</p>
+<p>because a unit enters the field of view,</p>
+<p>that can go into the memory of the agent, the LSTM,</p>
+<p>and persist there for a while,</p>
+<p>and for however long is relevant, right?</p>
+<p>And in terms of action,</p>
+<p>it seems like the rate of action from AlphaStar</p>
+<p>is comparative, if not slower than professional players,</p>
+<p>but it&rsquo;s more precise is what I read.</p>
+<p>So that&rsquo;s really probably the one that is causing us</p>
+<p>more issues for a couple of reasons, right?</p>
+<p>The first one is StarCraft has been an AI environment</p>
+<p>for quite a few years.</p>
+<p>In fact, I mean, I was participating</p>
+<p>in the very first competition back in 2010.</p>
+<p>And there&rsquo;s really not been a kind of a very clear set</p>
+<p>of rules how the actions per minute,</p>
+<p>the rate of actions that you can issue is.</p>
+<p>And as a result, these agents or bots that people build</p>
+<p>in a kind of almost very cool way,</p>
+<p>they do like 20,000, 40,000 actions per minute.</p>
+<p>Now, to put this in perspective,</p>
+<p>a very good professional human</p>
+<p>might do 300 to 800 actions per minute.</p>
+<p>They might not be as precise.</p>
+<p>That&rsquo;s why the range is a bit tricky to identify exactly.</p>
+<p>I mean, 300 actions per minute precisely</p>
+<p>is probably realistic.</p>
+<p>800 is probably not, but you see humans doing a lot of actions</p>
+<p>because they warm up and they kind of select things</p>
+<p>and spam and so on just so that when they need,</p>
+<p>they have the accuracy.</p>
+<p>So we came into this by not having kind of a standard way</p>
+<p>to say, well, how do we measure whether an agent is</p>
+<p>at human level or not?</p>
+<p>On the other hand, we had a huge advantage,</p>
+<p>which is because we do imitation learning,</p>
+<p>agents turned out to act like humans</p>
+<p>in terms of rate of actions, even</p>
+<p>precisions and imprecisions of actions</p>
+<p>in the supervised policy.</p>
+<p>You could see all these.</p>
+<p>You could see how agents like to spam click, to move here.</p>
+<p>If you played especially Diablo, you wouldn&rsquo;t know what I mean.</p>
+<p>I mean, you just like spam, oh, move here, move here,</p>
+<p>move here.</p>
+<p>You&rsquo;re doing literally like maybe five actions</p>
+<p>in two seconds, but these actions are not</p>
+<p>very meaningful.</p>
+<p>One would have sufficed.</p>
+<p>So on the one hand, we start from this imitation policy</p>
+<p>that is at the ballpark of the actions per minutes of humans</p>
+<p>because it&rsquo;s actually statistically</p>
+<p>trying to imitate humans.</p>
+<p>So we see these very nicely in the curves</p>
+<p>that we showed in the blog post.</p>
+<p>There&rsquo;s these actions per minute,</p>
+<p>and the distribution looks very human like.</p>
+<p>But then, of course, as self play kicks in,</p>
+<p>and that&rsquo;s the part we haven&rsquo;t talked too much yet,</p>
+<p>but of course, the agent must play against itself to improve,</p>
+<p>then there&rsquo;s almost no guarantees</p>
+<p>that these actions will not become more precise</p>
+<p>or even the rate of actions is going to increase over time.</p>
+<p>So what we did, and this is probably</p>
+<p>the first attempt that we thought was reasonable,</p>
+<p>is we looked at the distribution of actions</p>
+<p>for humans for certain windows of time.</p>
+<p>And just to give a perspective, because I guess I mentioned</p>
+<p>that some of these agents that are programmatic,</p>
+<p>let&rsquo;s call them.</p>
+<p>They do 40,000 actions per minute.</p>
+<p>Professionals, as I said, do 300 to 800.</p>
+<p>So what we looked is we look at the distribution</p>
+<p>over professional gamers, and we took reasonably high actions</p>
+<p>per minute, but we kind of identify certain cutoffs</p>
+<p>after which, even if the agent wanted to act,</p>
+<p>these actions would be dropped.</p>
+<p>But the problem is this cutoff is probably set a bit too high.</p>
+<p>And what ends up happening, even though the games,</p>
+<p>and when we ask the professionals and the gamers,</p>
+<p>by and large, they feel like it&rsquo;s playing humanlike,</p>
+<p>there are some agents that developed maybe slightly</p>
+<p>too high APMs, which is actions per minute,</p>
+<p>combined with the precision, which</p>
+<p>made people start discussing a very interesting issue, which</p>
+<p>is, should we have limited these?</p>
+<p>Should we just let it lose and see what cool things</p>
+<p>it can come up with?</p>
+<p>Right?</p>
+<p>Interesting.</p>
+<p>So this is in itself an extremely interesting</p>
+<p>question, but the same way that modeling the shimmer</p>
+<p>would be so difficult, modeling absolutely all the details</p>
+<p>about muscles and precision and tiredness of humans</p>
+<p>would be quite difficult.</p>
+<p>So we&rsquo;re really here kind of innovating</p>
+<p>in this sense of, OK, what could be maybe</p>
+<p>the next iteration of putting more rules that</p>
+<p>makes the agents more humanlike in terms of restrictions?</p>
+<p>Yeah, putting constraints that.</p>
+<p>More constraints, yeah.</p>
+<p>That&rsquo;s really interesting.</p>
+<p>That&rsquo;s really innovative.</p>
+<p>So one of the constraints you put on yourself,</p>
+<p>or at least focused in, is on the Protoss race,</p>
+<p>as far as I understand.</p>
+<p>Can you tell me about the different races</p>
+<p>and how they, so Protoss, Terran, and Zerg,</p>
+<p>how do they compare?</p>
+<p>How do they interact?</p>
+<p>Why did you choose Protoss?</p>
+<p>Yeah, in the dynamics of the game seen</p>
+<p>from a strategic perspective.</p>
+<p>So Protoss, so in StarCraft there are three races.</p>
+<p>Indeed, in the demonstration, we saw only the Protoss race.</p>
+<p>So maybe let&rsquo;s start with that one.</p>
+<p>Protoss is kind of the most technologically advanced race.</p>
+<p>It has units that are expensive but powerful.</p>
+<p>So in general, you want to kind of conserve your units</p>
+<p>as you go attack.</p>
+<p>And then you want to utilize these tactical advantages</p>
+<p>of very fancy spells and so on and so forth.</p>
+<p>And at the same time, they&rsquo;re kind of,</p>
+<p>people say they&rsquo;re a bit easier to play perhaps.</p>
+<p>But that I actually didn&rsquo;t know.</p>
+<p>I mean, I just talked now a lot to the players</p>
+<p>that we work with, TLO and Mana, and they said, oh yeah,</p>
+<p>Protoss is actually, people think,</p>
+<p>is actually one of the easiest races.</p>
+<p>So perhaps the easier, that doesn&rsquo;t</p>
+<p>mean that it&rsquo;s obviously professional players</p>
+<p>excel at the three races.</p>
+<p>And there&rsquo;s never a race that dominates</p>
+<p>for a very long time anyway.</p>
+<p>So if you look at the top, I don&rsquo;t know, 100 in the world,</p>
+<p>is there one race that dominates that list?</p>
+<p>It would be hard to know because it depends on the regions.</p>
+<p>I think it&rsquo;s pretty equal in terms of distribution.</p>
+<p>And Blizzard wants it to be equal.</p>
+<p>They wouldn&rsquo;t want one race like Protoss</p>
+<p>to not be representative in the top place.</p>
+<p>So definitely, they tried it to be balanced.</p>
+<p>So then maybe the opposite race of Protoss is Zerg.</p>
+<p>Zerg is a race where you just kind of expand and take over</p>
+<p>as many resources as you can, and they</p>
+<p>have a very high capacity to regenerate their units.</p>
+<p>So if you have an army, it&rsquo;s not that valuable in terms</p>
+<p>of losing the whole army is not a big deal as Zerg</p>
+<p>because you can then rebuild it.</p>
+<p>And given that you generally accumulate</p>
+<p>a huge bank of resources, Zergs typically</p>
+<p>play by applying a lot of pressure,</p>
+<p>maybe losing their whole army, but then rebuilding it</p>
+<p>quickly.</p>
+<p>So although, of course, every race, I mean, there&rsquo;s never,</p>
+<p>I mean, they&rsquo;re pretty diverse.</p>
+<p>I mean, there are some units in Zerg that</p>
+<p>are technologically advanced, and they do</p>
+<p>some very interesting spells.</p>
+<p>And there&rsquo;s some units in Protoss that are less valuable,</p>
+<p>and you could lose a lot of them and rebuild them,</p>
+<p>and it wouldn&rsquo;t be a big deal.</p>
+<p>All right, so maybe I&rsquo;m missing out.</p>
+<p>Maybe I&rsquo;m going to say some dumb stuff, but summary</p>
+<p>of strategy.</p>
+<p>So first, there&rsquo;s collection of a lot of resources.</p>
+<p>That&rsquo;s one option.</p>
+<p>The other one is expanding, so building other bases.</p>
+<p>Then the other is obviously building units</p>
+<p>and attacking with those units.</p>
+<p>And then I don&rsquo;t know what else there is.</p>
+<p>Maybe there&rsquo;s the different timing of attacks,</p>
+<p>like do I attack early, attack late?</p>
+<p>What are the different strategies that emerged</p>
+<p>that you&rsquo;ve learned about?</p>
+<p>I&rsquo;ve read that a bunch of people are super happy</p>
+<p>that you guys have apparently, that Alpha Star apparently</p>
+<p>has discovered that it&rsquo;s really good to,</p>
+<p>what is it, saturate?</p>
+<p>Oh yeah, the mineral line.</p>
+<p>Yeah, the mineral line.</p>
+<p>Yeah, yeah.</p>
+<p>And that&rsquo;s for greedy amateur players like myself.</p>
+<p>That&rsquo;s always been a good strategy.</p>
+<p>You just build up a lot of money,</p>
+<p>and it just feels good to just accumulate and accumulate.</p>
+<p>So thank you for discovering that and validating all of us.</p>
+<p>But is there other strategies that you discovered</p>
+<p>that are interesting, unique to this game?</p>
+<p>Yeah, so if you look at the kind of,</p>
+<p>not being a StarCraft II player,</p>
+<p>but of course StarCraft and StarCraft II</p>
+<p>and real time strategy games in general are very similar.</p>
+<p>I would classify perhaps the openings of the game.</p>
+<p>They&rsquo;re very important.</p>
+<p>And generally I would say there&rsquo;s two kinds of openings.</p>
+<p>One that&rsquo;s a standard opening.</p>
+<p>That&rsquo;s generally how players find sort of a balance</p>
+<p>between risk and economy and building some units early on</p>
+<p>so that they could defend,</p>
+<p>but they&rsquo;re not too exposed basically,</p>
+<p>but also expanding quite quickly.</p>
+<p>So this would be kind of a standard opening.</p>
+<p>And within a standard opening,</p>
+<p>then what you do choose generally is</p>
+<p>what technology are you aiming towards?</p>
+<p>So there&rsquo;s a bit of rock, paper, scissors</p>
+<p>of you could go for spaceships</p>
+<p>or you could go for invisible units</p>
+<p>or you could go for, I don&rsquo;t know,</p>
+<p>like massive units that attack against certain kinds</p>
+<p>of units, but they&rsquo;re weak against others.</p>
+<p>So standard openings themselves have some choices</p>
+<p>like rock, paper, scissors style.</p>
+<p>Of course, if you scout and you&rsquo;re good</p>
+<p>at guessing what the opponent is doing,</p>
+<p>then you can play as an advantage</p>
+<p>because if you know you&rsquo;re gonna play rock,</p>
+<p>I mean, I&rsquo;m gonna play paper obviously.</p>
+<p>So you can imagine that normal standard games</p>
+<p>in StarCraft looks like a continuous rock, paper,</p>
+<p>scissors game where you guess what the distribution</p>
+<p>of rock, paper, and scissors is from the enemy</p>
+<p>and reacting accordingly to try to beat it</p>
+<p>or put the paper out before he kind of changes his mind</p>
+<p>from rock to scissors,</p>
+<p>and then you would be in a weak position.</p>
+<p>So, sorry to pause on that.</p>
+<p>I didn&rsquo;t realize this element</p>
+<p>because I know it&rsquo;s true with poker.</p>
+<p>I know I looked at Labratus.</p>
+<p>So you&rsquo;re also estimating trying to guess the distribution,</p>
+<p>trying to better and better estimate the distribution</p>
+<p>of what the opponent is likely to be doing.</p>
+<p>Yeah, I mean, as a player,</p>
+<p>you definitely wanna have a belief state</p>
+<p>over what&rsquo;s up on the other side of the map.</p>
+<p>And when your belief state becomes inaccurate,</p>
+<p>when you start having that serious doubts,</p>
+<p>whether he&rsquo;s gonna play something that you must know,</p>
+<p>that&rsquo;s when you scout.</p>
+<p>You wanna then gather information, right?</p>
+<p>Is improving the accuracy of the belief</p>
+<p>or improving the belief state part of the loss</p>
+<p>that you&rsquo;re trying to optimize?</p>
+<p>Or is it just a side effect?</p>
+<p>It&rsquo;s implicit, but you could explicitly model it,</p>
+<p>and it would be quite good at probably predicting</p>
+<p>what&rsquo;s on the other side of the map.</p>
+<p>But so far, it&rsquo;s all implicit.</p>
+<p>There&rsquo;s no additional reward for predicting the enemy.</p>
+<p>So there&rsquo;s these standard openings,</p>
+<p>and then there&rsquo;s what people call cheese,</p>
+<p>which is very interesting.</p>
+<p>And AlphaStar sometimes really likes this kind of cheese.</p>
+<p>These cheeses, what they are is kind of an all in strategy.</p>
+<p>You&rsquo;re gonna do something sneaky.</p>
+<p>You&rsquo;re gonna hide your own buildings</p>
+<p>close to the enemy base,</p>
+<p>or you&rsquo;re gonna go for hiding your technological buildings</p>
+<p>so that you do invisible units</p>
+<p>and the enemy just cannot react to detect it</p>
+<p>and thus lose the game.</p>
+<p>And there&rsquo;s quite a few of these cheeses</p>
+<p>and variants of them.</p>
+<p>And there it&rsquo;s where actually the belief state</p>
+<p>becomes even more important.</p>
+<p>Because if I scout your base and I see no buildings at all,</p>
+<p>any human player knows something&rsquo;s up.</p>
+<p>They might know, well,</p>
+<p>you&rsquo;re hiding something close to my base.</p>
+<p>Should I build suddenly a lot of units to defend?</p>
+<p>Should I actually block my ramp with workers</p>
+<p>so that you cannot come and destroy my base?</p>
+<p>So there&rsquo;s all this is happening</p>
+<p>and defending against cheeses is extremely important.</p>
+<p>And in the AlphaStar League,</p>
+<p>many agents actually develop some cheesy strategies.</p>
+<p>And in the games we saw against TLO and Mana,</p>
+<p>two out of the 10 agents</p>
+<p>were actually doing these kind of strategies</p>
+<p>which are cheesy strategies.</p>
+<p>And then there&rsquo;s a variant of cheesy strategy</p>
+<p>which is called all in.</p>
+<p>So an all in strategy is not perhaps as drastic as,</p>
+<p>oh, I&rsquo;m gonna build cannons on your base</p>
+<p>and then bring all my workers</p>
+<p>and try to just disrupt your base and game over,</p>
+<p>or GG as we say in StarCraft.</p>
+<p>There&rsquo;s these kind of very cool things</p>
+<p>that you can align precisely at a certain time mark.</p>
+<p>So for instance,</p>
+<p>you can generate exactly 10 unit composition</p>
+<p>that is perfect, like five of this type,</p>
+<p>five of this other type,</p>
+<p>and align the upgrade</p>
+<p>so that at four minutes and a half, let&rsquo;s say,</p>
+<p>you have these 10 units and the upgrade just finished.</p>
+<p>And at that point, that army is really scary.</p>
+<p>And unless the enemy really knows what&rsquo;s going on,</p>
+<p>if you push, you might then have an advantage</p>
+<p>because maybe the enemy is doing something more standard,</p>
+<p>it expanded too much, it developed too much economy,</p>
+<p>and it trade off badly against having defenses,</p>
+<p>and the enemy will lose.</p>
+<p>But it&rsquo;s called all in because if you don&rsquo;t win,</p>
+<p>then you&rsquo;re gonna lose.</p>
+<p>So you see players that do these kinds of strategies,</p>
+<p>if they don&rsquo;t succeed, game is not over.</p>
+<p>I mean, they still have a base</p>
+<p>and they still gathering minerals,</p>
+<p>but they will just GG out of the game</p>
+<p>because they know, well, game is over.</p>
+<p>I gambled and I failed.</p>
+<p>So if we start entering the game theoretic aspects</p>
+<p>of the game, it&rsquo;s really rich and it&rsquo;s really,</p>
+<p>that&rsquo;s why it also makes it quite entertaining to watch.</p>
+<p>Even if I don&rsquo;t play, I still enjoy watching the game.</p>
+<p>But the agents are trying to do this mostly implicitly.</p>
+<p>But one element that we improved in self play</p>
+<p>is creating the Alpha Star League.</p>
+<p>And the Alpha Star League is not pure self play.</p>
+<p>It&rsquo;s trying to create a different personalities of agents</p>
+<p>so that some of them will become cheesy agents.</p>
+<p>Some of them might become very economical, very greedy,</p>
+<p>like getting all the resources,</p>
+<p>but then being maybe early on, they&rsquo;re gonna be weak,</p>
+<p>but later on, they&rsquo;re gonna be very strong.</p>
+<p>And by creating this personality of agents,</p>
+<p>which sometimes it just happens naturally</p>
+<p>that you can see kind of an evolution of agents</p>
+<p>that given the previous generation,</p>
+<p>they train against all of them</p>
+<p>and then they generate kind of the perfect counter</p>
+<p>to that distribution.</p>
+<p>But these agents, you must have them in the populations</p>
+<p>because if you don&rsquo;t have them,</p>
+<p>you&rsquo;re not covered against these things.</p>
+<p>You wanna create all sorts of the opponents</p>
+<p>that you will find in the wild.</p>
+<p>So you can be exposed to these cheeses, early aggression,</p>
+<p>later aggression, more expansions,</p>
+<p>dropping units in your base from the side, all these things.</p>
+<p>And pure self play is getting a bit stuck</p>
+<p>at finding some subset of these, but not all of these.</p>
+<p>So the Alpha Star League is a way</p>
+<p>to kind of do an ensemble of agents</p>
+<p>that they&rsquo;re all playing in a league,</p>
+<p>much like people play on Battle.net, right?</p>
+<p>They play, you play against someone</p>
+<p>who does a new cool strategy and you immediately,</p>
+<p>oh my God, I wanna try it, I wanna play again.</p>
+<p>And this to me was another critical part of the problem,</p>
+<p>which was, can we create a Battle.net for agents?</p>
+<p>And that&rsquo;s kind of what the Alpha Star League really is.</p>
+<p>That&rsquo;s fascinating.</p>
+<p>And where they stick to their different strategies.</p>
+<p>Yeah, wow, that&rsquo;s really, really interesting.</p>
+<p>But that said, you were fortunate enough</p>
+<p>or just skilled enough to win five, zero.</p>
+<p>And so how hard is it to win?</p>
+<p>I mean, that&rsquo;s not the goal.</p>
+<p>I guess, I don&rsquo;t know what the goal is.</p>
+<p>The goal should be to win majority, not five, zero,</p>
+<p>but how hard is it in general to win all matchups</p>
+<p>on a one V one?</p>
+<p>So that&rsquo;s a very interesting question</p>
+<p>because once you see Alpha Star and superficially</p>
+<p>you think, well, okay, it won.</p>
+<p>Let&rsquo;s, if you sum all the games like 10 to one, right?</p>
+<p>It lost the game that it played with the camera interface.</p>
+<p>You might think, well, that&rsquo;s done, right?</p>
+<p>It&rsquo;s superhuman at the game.</p>
+<p>And that&rsquo;s not really the claim we really can make actually.</p>
+<p>The claim is we beat a professional gamer</p>
+<p>for the first time.</p>
+<p>StarCraft has really been a thing</p>
+<p>that has been going on for a few years,</p>
+<p>but a moment like this had not occurred before yet.</p>
+<p>But are these agents impossible to beat?</p>
+<p>Absolutely not, right?</p>
+<p>So that&rsquo;s a bit what&rsquo;s kind of the difference is</p>
+<p>the agents play at grandmaster level.</p>
+<p>They definitely understand the game enough</p>
+<p>to play extremely well, but are they unbeatable?</p>
+<p>Do they play perfect?</p>
+<p>No, and actually in StarCraft,</p>
+<p>because of these sneaky strategies,</p>
+<p>it&rsquo;s always possible that you might take a huge risk</p>
+<p>sometimes, but you might get wins, right?</p>
+<p>Out of this.</p>
+<p>So I think that as a domain,</p>
+<p>it still has a lot of opportunities,</p>
+<p>not only because of course we wanna learn</p>
+<p>with less experience, we would like to,</p>
+<p>I mean, if I learned to play Protoss,</p>
+<p>I can play Terran and learn it much quicker</p>
+<p>than Alpha Star can, right?</p>
+<p>So there are obvious interesting research challenges</p>
+<p>as well, but even as the raw performance goes,</p>
+<p>really the claim here can be we are at pro level</p>
+<p>or at high grandmaster level,</p>
+<p>but obviously the players also did not know what to expect,</p>
+<p>right?</p>
+<p>Their prior distribution was a bit off</p>
+<p>because they played this kind of new like alien brain</p>
+<p>as they like to say it, right?</p>
+<p>And that&rsquo;s what makes it exciting for them.</p>
+<p>But also I think if you look at the games closely,</p>
+<p>you see there were weaknesses in some points,</p>
+<p>maybe Alpha Star did not scout,</p>
+<p>or if it had invisible units going against</p>
+<p>at certain points, it wouldn&rsquo;t have known</p>
+<p>and it would have been bad.</p>
+<p>So there&rsquo;s still quite a lot of work to do,</p>
+<p>but it&rsquo;s really a very exciting moment for us</p>
+<p>to be seeing, wow, a single neural net on a GPU</p>
+<p>is actually playing against these guys</p>
+<p>who are amazing.</p>
+<p>I mean, you have to see them play in life.</p>
+<p>They&rsquo;re really, really amazing players.</p>
+<p>Yeah, I&rsquo;m sure there must be a guy in Poland</p>
+<p>somewhere right now training his butt off</p>
+<p>to make sure that this never happens again with Alpha Star.</p>
+<p>So that&rsquo;s really exciting in terms of Alpha Star</p>
+<p>having some holes to exploit, which is great.</p>
+<p>And then we build on top of each other</p>
+<p>and it feels like StarCraft on let go,</p>
+<p>even if you win, it&rsquo;s still not,</p>
+<p>there&rsquo;s so many different dimensions</p>
+<p>in which you can explore.</p>
+<p>So that&rsquo;s really, really interesting.</p>
+<p>Do you think there&rsquo;s a ceiling to Alpha Star?</p>
+<p>You&rsquo;ve said that it hasn&rsquo;t reached,</p>
+<p>you know, this is a big,</p>
+<p>wait, let me actually just pause for a second.</p>
+<p>How did it feel to come here to this point,</p>
+<p>to beat a top professional player?</p>
+<p>Like that night, I mean, you know,</p>
+<p>Olympic athletes have their gold medal, right?</p>
+<p>This is your gold medal in a sense.</p>
+<p>Sure, you&rsquo;re cited a lot,</p>
+<p>you&rsquo;ve published a lot of prestigious papers, whatever,</p>
+<p>but this is like a win.</p>
+<p>How did it feel?</p>
+<p>I mean, it was, for me, it was unbelievable</p>
+<p>because first the win itself,</p>
+<p>I mean, it was so exciting.</p>
+<p>I mean, so looking back to those last days of 2018 really,</p>
+<p>that&rsquo;s when the games were played.</p>
+<p>I&rsquo;m sure I look back at that moment, I&rsquo;ll say,</p>
+<p>oh my God, I want to be in a project like that.</p>
+<p>It&rsquo;s like, I already feel the nostalgia of like,</p>
+<p>yeah, that was huge in terms of the energy</p>
+<p>and the team effort that went into it.</p>
+<p>And so in that sense, as soon as it happened,</p>
+<p>I already knew it was kind of,</p>
+<p>I was losing it a little bit.</p>
+<p>So it is almost like sad that it happened and oh my God,</p>
+<p>but on the other hand, it also verifies the approach.</p>
+<p>But to me also, there&rsquo;s so many challenges</p>
+<p>and interesting aspects of intelligence</p>
+<p>that even though we can train a neural network</p>
+<p>to play at the level of the best humans,</p>
+<p>there&rsquo;s still so many challenges.</p>
+<p>So for me, it&rsquo;s also like, well,</p>
+<p>this is really an amazing achievement,</p>
+<p>but I already was also thinking about next steps.</p>
+<p>I mean, as I said, these Asians play Protoss versus Protoss,</p>
+<p>but they should be able to play a different race</p>
+<p>much quicker, right?</p>
+<p>So that would be an amazing achievement.</p>
+<p>Some people call this meta reinforcement learning,</p>
+<p>meta learning and so on, right?</p>
+<p>So there&rsquo;s so many possibilities after that moment,</p>
+<p>but the moment itself, it really felt great.</p>
+<p>We had this bet, so I&rsquo;m kind of a pessimist in general.</p>
+<p>So I kind of send an email to the team.</p>
+<p>I said, okay, let&rsquo;s against TLO first, right?</p>
+<p>Like what&rsquo;s gonna be the result?</p>
+<p>And I really thought we would lose like five zero, right?</p>
+<p>We had some calibration made against the 5,000 MMR player.</p>
+<p>TLO was much stronger than that player,</p>
+<p>even if he played Protoss, which is his off race.</p>
+<p>But yeah, I was not imagining we would win.</p>
+<p>So for me, that was just kind of a test run or something.</p>
+<p>And then it really kind of, he was really surprised.</p>
+<p>And unbelievably, we went to this bar to celebrate</p>
+<p>and Dave tells me, well, why don&rsquo;t we invite someone</p>
+<p>who is a thousand MMR stronger in Protoss,</p>
+<p>like actual Protoss player,</p>
+<p>like that it turned up being Mana, right?</p>
+<p>And we had some drinks and I said, sure, why not?</p>
+<p>But then I thought, well,</p>
+<p>that&rsquo;s really gonna be impossible to beat.</p>
+<p>I mean, even because it&rsquo;s so much ahead,</p>
+<p>a thousand MMR is really like 99% probability</p>
+<p>that Mana would beat TLO as Protoss versus Protoss, right?</p>
+<p>So we did that.</p>
+<p>And to me, the second game was much more important,</p>
+<p>even though a lot of uncertainty kind of disappeared</p>
+<p>after we kind of beat TLO.</p>
+<p>I mean, he is a professional player.</p>
+<p>So that was kind of, oh,</p>
+<p>but that&rsquo;s really a very nice achievement.</p>
+<p>But Mana really was at the top</p>
+<p>and you could see he played much better,</p>
+<p>but our agents got much better too.</p>
+<p>So it&rsquo;s like, ah, and then after the first game,</p>
+<p>I said, if we take a single game,</p>
+<p>at least we can say we beat a game.</p>
+<p>I mean, even if we don&rsquo;t beat the series,</p>
+<p>for me, that was a huge relief.</p>
+<p>And I mean, I remember the hugging demis.</p>
+<p>And I mean, it was really like,</p>
+<p>this moment for me will resonate forever as a researcher.</p>
+<p>And I mean, as a person,</p>
+<p>and yeah, it&rsquo;s a really like great accomplishment.</p>
+<p>And it was great also to be there with the team in the room.</p>
+<p>I don&rsquo;t know if you saw like this.</p>
+<p>So it was really like.</p>
+<p>I mean, from my perspective,</p>
+<p>the other interesting thing is just like watching Kasparov,</p>
+<p>watching Mana was also interesting</p>
+<p>because he didn&rsquo;t, he has kind of a loss of words.</p>
+<p>I mean, whenever you lose, I&rsquo;ve done a lot of sports.</p>
+<p>You sometimes say excuses, you look for reasons.</p>
+<p>And he couldn&rsquo;t really come up with reasons.</p>
+<p>I mean, so with the off race for Protoss,</p>
+<p>you could say, well, it felt awkward, it wasn&rsquo;t,</p>
+<p>but here it was just beaten.</p>
+<p>And it was beautiful to look at a human being</p>
+<p>being superseded by an AI system.</p>
+<p>I mean, it&rsquo;s a beautiful moment for researchers, so.</p>
+<p>Yeah, for sure it was.</p>
+<p>I mean, probably the highlight of my career so far</p>
+<p>because of its uniqueness and coolness.</p>
+<p>And I don&rsquo;t know, I mean, it&rsquo;s obviously, as you said,</p>
+<p>you can look at papers, citations and so on,</p>
+<p>but these really is like a testament</p>
+<p>of the whole machine learning approach</p>
+<p>and using games to advance technology.</p>
+<p>I mean, it really was,</p>
+<p>everything came together at that moment.</p>
+<p>That&rsquo;s really the summary.</p>
+<p>Also on the other side, it&rsquo;s a popularization of AI too,</p>
+<p>because it&rsquo;s just like traveling to the moon and so on.</p>
+<p>I mean, this is where a very large community of people</p>
+<p>that don&rsquo;t really know AI,</p>
+<p>they get to really interact with it.</p>
+<p>Which is very important.</p>
+<p>I mean, we must, you know,</p>
+<p>writing papers helps our peers, researchers,</p>
+<p>to understand what we&rsquo;re doing.</p>
+<p>But I think AI is becoming mature enough</p>
+<p>that we must sort of try to explain what it is.</p>
+<p>And perhaps through games is an obvious way</p>
+<p>because these games always had built in AI.</p>
+<p>So it may be everyone experience an AI playing a video game,</p>
+<p>even if they don&rsquo;t know,</p>
+<p>because there&rsquo;s always some scripted element</p>
+<p>and some people might even call that AI already, right?</p>
+<p>So what are other applications</p>
+<p>of the approaches underlying AlphaStar</p>
+<p>that you see happening?</p>
+<p>There&rsquo;s a lot of echoes of, you said,</p>
+<p>transformer of language modeling and so on.</p>
+<p>Have you already started thinking</p>
+<p>where the breakthroughs in AlphaStar</p>
+<p>get expanded to other applications?</p>
+<p>Right, so I thought about a few things</p>
+<p>for like kind of next month, next years.</p>
+<p>The main thing I&rsquo;m thinking about actually is what&rsquo;s next</p>
+<p>as a kind of a grand challenge.</p>
+<p>Because for me, like we&rsquo;ve seen Atari</p>
+<p>and then there&rsquo;s like the sort of three dimensional walls</p>
+<p>that we&rsquo;ve seen also like pretty good performance</p>
+<p>from these capture the flag agents</p>
+<p>that also some people at DeepMind and elsewhere</p>
+<p>are working on.</p>
+<p>We&rsquo;ve also seen some amazing results on like,</p>
+<p>for instance, Dota 2, which is also a very complicated game.</p>
+<p>So for me, like the main thing I&rsquo;m thinking about</p>
+<p>is what&rsquo;s next in terms of challenge.</p>
+<p>So as a researcher, I see sort of two tensions</p>
+<p>between research and then applications or areas</p>
+<p>or domains where you apply them.</p>
+<p>So on the one hand, we&rsquo;ve done,</p>
+<p>thanks to the application of StarCraft is very hard.</p>
+<p>We developed some techniques, some new research</p>
+<p>that now we could look at elsewhere.</p>
+<p>Like are there other applications where we can apply these?</p>
+<p>And the obvious ones, absolutely.</p>
+<p>You can think of feeding back to sort of the community</p>
+<p>we took from, which was mostly sequence modeling</p>
+<p>or natural language processing.</p>
+<p>So we&rsquo;ve developed and extended things from the transformer</p>
+<p>and we use pointer networks.</p>
+<p>We combine LSTM and transformers in interesting ways.</p>
+<p>So that&rsquo;s perhaps the kind of lowest hanging fruit</p>
+<p>of feeding back to now a different field</p>
+<p>of machine learning that&rsquo;s not playing video games.</p>
+<p>Let me go old school and jump to Mr. Alan Turing.</p>
+<p>So the Turing test is a natural language test,</p>
+<p>a conversational test.</p>
+<p>What&rsquo;s your thought of it as a test for intelligence?</p>
+<p>Do you think it is a grand challenge</p>
+<p>that&rsquo;s worthy of undertaking?</p>
+<p>Maybe if it is, would you reformulate it or phrase it</p>
+<p>somehow differently?</p>
+<p>Right, so I really love the Turing test</p>
+<p>because I also like sequences and language understanding.</p>
+<p>And in fact, some of the early work</p>
+<p>we did in machine translation, we</p>
+<p>tried to apply to kind of a neural chatbot, which obviously</p>
+<p>would never pass the Turing test because it was very limited.</p>
+<p>But it is a very fascinating idea</p>
+<p>that you could really have an AI that</p>
+<p>would be indistinguishable from humans in terms of asking</p>
+<p>or conversing with it.</p>
+<p>So I think the test itself seems very nice.</p>
+<p>And it&rsquo;s kind of well defined, actually,</p>
+<p>like the passing it or not.</p>
+<p>I think there&rsquo;s quite a few rules</p>
+<p>that feel pretty simple.</p>
+<p>And I think they have these competitions every year.</p>
+<p>Yes, there&rsquo;s the Lebner Prize.</p>
+<p>But I don&rsquo;t know if you&rsquo;ve seen the kind of bots</p>
+<p>that emerge from that competition.</p>
+<p>They&rsquo;re not quite as what you would.</p>
+<p>So it feels like that there&rsquo;s weaknesses with the way Turing</p>
+<p>formulated it.</p>
+<p>It needs to be that the definition</p>
+<p>of a genuine, rich, fulfilling human conversation,</p>
+<p>it needs to be something else.</p>
+<p>Like the Alexa Prize, which I&rsquo;m not as well familiar with,</p>
+<p>has tried to define that more, I think,</p>
+<p>by saying you have to continue keeping</p>
+<p>a conversation for 30 minutes, something like that.</p>
+<p>So basically forcing the agent not to just fool,</p>
+<p>but to have an engaging conversation kind of thing.</p>
+<p>Have you thought about this problem richly?</p>
+<p>And if you have in general, how far away are we from?</p>
+<p>You worked a lot on language understanding,</p>
+<p>language generation, but the full dialogue,</p>
+<p>the conversation, just sitting at the bar</p>
+<p>having a couple of beers for an hour,</p>
+<p>that kind of conversation.</p>
+<p>Have you thought about it?</p>
+<p>Yeah, so I think you touched here</p>
+<p>on the critical point, which is feasibility.</p>
+<p>So there&rsquo;s a great essay by Hamming,</p>
+<p>which describes sort of grand challenges of physics.</p>
+<p>And he argues that, well, OK, for instance,</p>
+<p>teleportation or time travel are great grand challenges</p>
+<p>of physics, but there&rsquo;s no attacks.</p>
+<p>We really don&rsquo;t know or cannot kind of make any progress.</p>
+<p>So that&rsquo;s why most physicists and so on,</p>
+<p>they don&rsquo;t work on these in their PhDs</p>
+<p>and as part of their careers.</p>
+<p>So I see the Turing test, in the full Turing test,</p>
+<p>as a bit still too early.</p>
+<p>Like I think we&rsquo;re, especially with the current trend</p>
+<p>of deep learning language models,</p>
+<p>we&rsquo;ve seen some amazing examples.</p>
+<p>I think GPT2 being the most recent one, which</p>
+<p>is very impressive.</p>
+<p>But to understand to fully solve passing or fooling a human</p>
+<p>to think that there&rsquo;s a human on the other side,</p>
+<p>I think we&rsquo;re quite far.</p>
+<p>So as a result, I don&rsquo;t see myself</p>
+<p>and I probably would not recommend people doing a PhD</p>
+<p>on solving the Turing test because it just</p>
+<p>feels it&rsquo;s kind of too early or too hard of a problem.</p>
+<p>Yeah, but that said, you said the exact same thing</p>
+<p>about StarCraft about a few years ago.</p>
+<p>Indeed.</p>
+<p>To Demis.</p>
+<p>So you&rsquo;ll probably also be the person who passes</p>
+<p>the Turing test in three years.</p>
+<p>I mean, I think that, yeah.</p>
+<p>So we have this on record.</p>
+<p>This is nice.</p>
+<p>It&rsquo;s true.</p>
+<p>I mean, it&rsquo;s true that progress sometimes</p>
+<p>is a bit unpredictable.</p>
+<p>I really wouldn&rsquo;t have not.</p>
+<p>Even six months ago, I would not have predicted the level</p>
+<p>that we see that these agents can deliver at grandmaster</p>
+<p>level.</p>
+<p>But I have worked on language enough.</p>
+<p>And basically, my concern is not that something could happen,</p>
+<p>a breakthrough could happen that would bring us to solving</p>
+<p>or passing the Turing test, is that I just</p>
+<p>think the statistical approach to it is not going to cut it.</p>
+<p>So we need a breakthrough, which is great for the community.</p>
+<p>But given that, I think there&rsquo;s quite more uncertainty.</p>
+<p>Whereas for StarCraft, I knew what the steps would</p>
+<p>be to get us there.</p>
+<p>I think it was clear that using the imitation learning part</p>
+<p>and then using this battle net for agents</p>
+<p>were going to be key.</p>
+<p>And it turned out that this was the case.</p>
+<p>And a little more was needed, but not much more.</p>
+<p>For Turing test, I just don&rsquo;t know</p>
+<p>what the plan or execution plan would look like.</p>
+<p>So that&rsquo;s why I myself working on it as a grand challenge</p>
+<p>is hard.</p>
+<p>But there are quite a few sub challenges</p>
+<p>that are related that you could say,</p>
+<p>well, I mean, what if you create a great assistant</p>
+<p>like Google already has, like the Google Assistant.</p>
+<p>So can we make it better?</p>
+<p>And can we make it fully neural and so on?</p>
+<p>That I start to believe maybe we&rsquo;re</p>
+<p>reaching a point where we should attempt these challenges.</p>
+<p>I like this conversation so much because it echoes very much</p>
+<p>the StarCraft conversation.</p>
+<p>It&rsquo;s exactly how you approach StarCraft.</p>
+<p>Let&rsquo;s break it down into small pieces and solve those.</p>
+<p>And you end up solving the whole game.</p>
+<p>Great.</p>
+<p>But that said, you&rsquo;re behind some</p>
+<p>of the biggest pieces of work in deep learning</p>
+<p>in the last several years.</p>
+<p>So you mentioned some limits.</p>
+<p>What do you think of the current limits of deep learning?</p>
+<p>And how do we overcome those limits?</p>
+<p>So if I had to actually use a single word</p>
+<p>to define the main challenge in deep learning,</p>
+<p>it&rsquo;s a challenge that probably has</p>
+<p>been the challenge for many years.</p>
+<p>And it&rsquo;s that of generalization.</p>
+<p>So what that means is that all that we&rsquo;re doing</p>
+<p>is fitting functions to data.</p>
+<p>And when the data we see is not from the same distribution,</p>
+<p>or even if there are some times that it</p>
+<p>is very close to distribution, but because</p>
+<p>of the way we train it with limited samples,</p>
+<p>we then get to this stage where we just</p>
+<p>don&rsquo;t see generalization as much as we can generalize.</p>
+<p>And I think adversarial examples are a clear example of this.</p>
+<p>But if you study machine learning and literature,</p>
+<p>and the reason why SVMs came very popular</p>
+<p>were because they were dealing and they</p>
+<p>had some guarantees about generalization, which</p>
+<p>is unseen data or out of distribution,</p>
+<p>or even within distribution where you take an image adding</p>
+<p>a bit of noise, these models fail.</p>
+<p>So I think, really, I don&rsquo;t see a lot of progress</p>
+<p>on generalization in the strong generalization</p>
+<p>sense of the word.</p>
+<p>I think our neural networks, you can always</p>
+<p>find design examples that will make their outputs arbitrary,</p>
+<p>which is not good because we humans would never</p>
+<p>be fooled by these kind of images</p>
+<p>or manipulation of the image.</p>
+<p>And if you look at the mathematics,</p>
+<p>you kind of understand this is a bunch of matrices</p>
+<p>multiplied together.</p>
+<p>There&rsquo;s probably numerics and instability</p>
+<p>that you can just find corner cases.</p>
+<p>So I think that&rsquo;s really the underlying topic many times</p>
+<p>we see when even at the grand stage of Turing test</p>
+<p>generalization, if you start passing the Turing test,</p>
+<p>should it be in English or should it be in any language?</p>
+<p>As a human, if you ask something in a different language,</p>
+<p>you actually will go and do some research</p>
+<p>and try to translate it and so on.</p>
+<p>Should the Turing test include that?</p>
+<p>And it&rsquo;s really a difficult problem</p>
+<p>and very fascinating and very mysterious, actually.</p>
+<p>Yeah, absolutely.</p>
+<p>But do you think if you were to try to solve it,</p>
+<p>can you not grow the size of data intelligently</p>
+<p>in such a way that the distribution of your training</p>
+<p>set does include the entirety of the testing set?</p>
+<p>Is that one path?</p>
+<p>The other path is totally a new methodology.</p>
+<p>It&rsquo;s not statistical.</p>
+<p>So a path that has worked well, and it worked well</p>
+<p>in StarCraft and in machine translation and in languages,</p>
+<p>scaling up the data and the model.</p>
+<p>And that&rsquo;s kind of been maybe the only single formula that</p>
+<p>still delivers today in deep learning, right?</p>
+<p>It&rsquo;s that data scale and model scale really</p>
+<p>do more and more of the things that we thought,</p>
+<p>oh, there&rsquo;s no way it can generalize to these,</p>
+<p>or there&rsquo;s no way it can generalize to that.</p>
+<p>But I don&rsquo;t think fundamentally it will be solved with this.</p>
+<p>And for instance, I&rsquo;m really liking some style or approach</p>
+<p>that would not only have neural networks,</p>
+<p>but it would have programs or some discrete decision making,</p>
+<p>because there is where I feel there&rsquo;s a bit more.</p>
+<p>I mean, the best example, I think, for understanding this</p>
+<p>is I also worked a bit on, oh, we</p>
+<p>can learn an algorithm with a neural network, right?</p>
+<p>So you give it many examples, and it&rsquo;s</p>
+<p>going to sort the input numbers or something like that.</p>
+<p>But really strong generalization is you give me some numbers</p>
+<p>or you ask me to create an algorithm that sorts numbers.</p>
+<p>And instead of creating a neural net, which will be fragile</p>
+<p>because it&rsquo;s going to go out of range at some point,</p>
+<p>you&rsquo;re going to give it numbers that are too large, too small,</p>
+<p>and whatnot, if you just create a piece of code that</p>
+<p>sorts the numbers, then you can prove</p>
+<p>that that will generalize to absolutely all the possible</p>
+<p>input you could give.</p>
+<p>So I think the problem comes with some exciting prospects.</p>
+<p>I mean, scale is a bit more boring, but it really works.</p>
+<p>And then maybe programs and discrete abstractions</p>
+<p>are a bit less developed.</p>
+<p>But clearly, I think they&rsquo;re quite exciting in terms</p>
+<p>of future for the field.</p>
+<p>Do you draw any insight wisdom from the 80s and expert</p>
+<p>systems and symbolic systems, symbolic computing?</p>
+<p>Do you ever go back to those reasoning, that kind of logic?</p>
+<p>Do you think that might make a comeback?</p>
+<p>You&rsquo;ll have to dust off those books?</p>
+<p>Yeah, I actually love actually adding more inductive biases.</p>
+<p>To me, the problem really is, what are you trying to solve?</p>
+<p>If what you&rsquo;re trying to solve is so important that try</p>
+<p>to solve it no matter what, then absolutely use rules,</p>
+<p>use domain knowledge, and then use</p>
+<p>a bit of the magic of machine learning</p>
+<p>to empower to make the system as the best system that</p>
+<p>will detect cancer or detect weather patterns, right?</p>
+<p>Or in terms of StarCraft, it also was a very big challenge.</p>
+<p>So I was definitely happy that if we</p>
+<p>had to cut a corner here and there,</p>
+<p>it could have been interesting to do.</p>
+<p>And in fact, in StarCraft, we start</p>
+<p>thinking about expert systems because it&rsquo;s a very,</p>
+<p>you know, you can define.</p>
+<p>I mean, people actually build StarCraft bots by thinking</p>
+<p>about those principles, like state machines and rule based.</p>
+<p>And then you could think of combining</p>
+<p>a bit of a rule based system, but that has also</p>
+<p>neural networks incorporated to make it generalize a bit</p>
+<p>better.</p>
+<p>So absolutely, I mean, we should definitely</p>
+<p>go back to those ideas.</p>
+<p>And anything that makes the problem simpler,</p>
+<p>as long as your problem is important, that&rsquo;s OK.</p>
+<p>And that&rsquo;s research driving a very important problem.</p>
+<p>And on the other hand, if you want to really focus</p>
+<p>on the limits of reinforcement learning,</p>
+<p>then of course, you must try not to look at imitation data</p>
+<p>or to look for some rules of the domain that would help a lot</p>
+<p>or even feature engineering, right?</p>
+<p>So this is a tension that depending on what you do,</p>
+<p>I think both ways are definitely fine.</p>
+<p>And I would never not do one or the other</p>
+<p>as long as what you&rsquo;re doing is important</p>
+<p>and needs to be solved, right?</p>
+<p>Right, so there&rsquo;s a bunch of different ideas</p>
+<p>that you developed that I really enjoy.</p>
+<p>But one is translating from image captioning,</p>
+<p>translating from image to text, just another beautiful idea,</p>
+<p>I think, that resonates throughout your work, actually.</p>
+<p>So the underlying nature of reality</p>
+<p>being language always, somehow.</p>
+<p>So what&rsquo;s the connection between images and text,</p>
+<p>or rather the visual world and the world</p>
+<p>of language in your view?</p>
+<p>Right, so I think a piece of research that&rsquo;s been central</p>
+<p>to, I would say, even extending into StarGraph</p>
+<p>is this idea of sequence to sequence learning,</p>
+<p>which what we really meant by that</p>
+<p>is that you can now really input anything</p>
+<p>to a neural network as the input x.</p>
+<p>And then the neural network will learn a function f</p>
+<p>that will take x as an input and produce any output y.</p>
+<p>And these x and y&rsquo;s don&rsquo;t need to be static or features,</p>
+<p>like fixed vectors or anything like that.</p>
+<p>It could be really sequences and now beyond data structures.</p>
+<p>So that paradigm was tested in a very interesting way</p>
+<p>when we moved from translating French to English</p>
+<p>to translating an image to its caption.</p>
+<p>But the beauty of it is that, really,</p>
+<p>and that&rsquo;s actually how it happened.</p>
+<p>I changed a line of code in this thing that</p>
+<p>was doing machine translation.</p>
+<p>And I came the next day, and I saw</p>
+<p>how it was producing captions that seemed like, oh my god,</p>
+<p>this is really, really working.</p>
+<p>And the principle is the same.</p>
+<p>So I think I don&rsquo;t see text, vision, speech, waveforms</p>
+<p>as something different as long as you basically</p>
+<p>learn a function that will vectorize these into.</p>
+<p>And then after we vectorize it, we</p>
+<p>can then use transformers, LSTMs, whatever</p>
+<p>the flavor of the month of the model is.</p>
+<p>And then as long as we have enough supervised data,</p>
+<p>really, this formula will work and will keep working,</p>
+<p>I believe, to some extent.</p>
+<p>Modulo these generalization issues that I mentioned before.</p>
+<p>But the task there is to vectorize,</p>
+<p>so to form a representation that&rsquo;s meaningful.</p>
+<p>And your intuition now, having worked with all this media,</p>
+<p>is that once you are able to form that representation,</p>
+<p>you could basically take any things, any sequence.</p>
+<p>Going back to StarCraft, is there</p>
+<p>limits on the length so that we didn&rsquo;t really</p>
+<p>touch on the long term aspect?</p>
+<p>How did you overcome the whole really long term</p>
+<p>aspect of things here?</p>
+<p>Is there some tricks?</p>
+<p>So the main trick, so StarCraft, if you</p>
+<p>look at absolutely every frame, you</p>
+<p>might think it&rsquo;s quite a long game.</p>
+<p>So we would have to multiply 22 times 60 seconds per minute</p>
+<p>times maybe at least 10 minutes per game on average.</p>
+<p>So there are quite a few frames.</p>
+<p>But the trick really was to only observe, in fact,</p>
+<p>which might be seen as a limitation,</p>
+<p>but it is also a computational advantage.</p>
+<p>Only observe when you act.</p>
+<p>And then what the neural network decides</p>
+<p>is what is the gap going to be until the next action.</p>
+<p>And if you look at most StarCraft games</p>
+<p>that we have in the data set that Blizzard provided,</p>
+<p>it turns out that most games are actually only,</p>
+<p>I mean, it is still a long sequence,</p>
+<p>but it&rsquo;s maybe like 1,000 to 1,500 actions,</p>
+<p>which if you start looking at LSTMs, large LSTMs,</p>
+<p>transformers, it&rsquo;s not that difficult, especially</p>
+<p>if you have supervised learning.</p>
+<p>If you had to do it with reinforcement learning,</p>
+<p>the credit assignment problem, what</p>
+<p>is it in this game that made you win?</p>
+<p>That would be really difficult.</p>
+<p>But thankfully, because of imitation learning,</p>
+<p>we didn&rsquo;t have to deal with these directly.</p>
+<p>Although if we had to, we tried it.</p>
+<p>And what happened is you just take all your workers</p>
+<p>and attack with them.</p>
+<p>And that is kind of obvious in retrospect</p>
+<p>because you start trying random actions.</p>
+<p>One of the actions will be a worker</p>
+<p>that goes to the enemy base.</p>
+<p>And because it&rsquo;s self play, it&rsquo;s not</p>
+<p>going to know how to defend because it basically</p>
+<p>doesn&rsquo;t know almost anything.</p>
+<p>And eventually, what you develop is this take all workers</p>
+<p>and attack because the credit assignment issue in a rally</p>
+<p>is really, really hard.</p>
+<p>I do believe we could do better.</p>
+<p>And that&rsquo;s maybe a research challenge for the future.</p>
+<p>But yeah, even in StarCraft, the sequences</p>
+<p>are maybe 1,000, which I believe is</p>
+<p>within the realm of what transformers can do.</p>
+<p>Yeah, I guess the difference between StarCraft and Go</p>
+<p>is in Go and Chess, stuff starts happening right away.</p>
+<p>So there&rsquo;s not, yeah, it&rsquo;s pretty easy to self play.</p>
+<p>Not easy, but to self play, it&rsquo;s possible to develop</p>
+<p>reasonable strategies quickly as opposed to StarCraft.</p>
+<p>I mean, in Go, there&rsquo;s only 400 actions.</p>
+<p>But one action is what people would call the God action.</p>
+<p>That would be if you had expanded the whole search</p>
+<p>tree, that&rsquo;s the best action if you did minimax</p>
+<p>or whatever algorithm you would do if you</p>
+<p>had the computational capacity.</p>
+<p>But in StarCraft, 400 is minuscule.</p>
+<p>Like in 400, you couldn&rsquo;t even click</p>
+<p>on the pixels around a unit.</p>
+<p>So I think the problem there is in terms of action space size</p>
+<p>is way harder.</p>
+<p>And that search is impossible.</p>
+<p>So there&rsquo;s quite a few challenges indeed</p>
+<p>that make this kind of a step up in terms of machine learning.</p>
+<p>For humans, maybe playing StarCraft</p>
+<p>seems more intuitive because it looks real.</p>
+<p>I mean, the graphics and everything moves smoothly,</p>
+<p>whereas I don&rsquo;t know how to.</p>
+<p>I mean, Go is a game that I would really need to study.</p>
+<p>It feels quite complicated.</p>
+<p>But for machines, kind of maybe it&rsquo;s the reverse, yes.</p>
+<p>Which shows you the gap actually between deep learning</p>
+<p>and however the heck our brains work.</p>
+<p>So you developed a lot of really interesting ideas.</p>
+<p>It&rsquo;s interesting to just ask, what&rsquo;s</p>
+<p>your process of developing new ideas?</p>
+<p>Do you like brainstorming with others?</p>
+<p>Do you like thinking alone?</p>
+<p>Do you like, what was it, Ian Goodfellow said</p>
+<p>he came up with GANs after a few beers.</p>
+<p>He thinks beers are essential for coming up with new ideas.</p>
+<p>We had beers to decide to play another game of StarCraft</p>
+<p>after a week.</p>
+<p>So it&rsquo;s really similar to that story.</p>
+<p>Actually, I explained this in a DeepMind retreat.</p>
+<p>And I said, this is the same as the GAN story.</p>
+<p>I mean, we were in a bar.</p>
+<p>And we decided, let&rsquo;s play a GAN next week.</p>
+<p>And that&rsquo;s what happened.</p>
+<p>I feel like we&rsquo;re giving the wrong message</p>
+<p>to young undergrads.</p>
+<p>Yeah, I know.</p>
+<p>But in general, do you like brainstorming?</p>
+<p>Do you like thinking alone, working stuff out?</p>
+<p>So I think throughout the years, also, things changed.</p>
+<p>So initially, I was very fortunate to be</p>
+<p>with great minds like Jeff Hinton, Jeff Dean,</p>
+<p>Ilya Sutskever.</p>
+<p>I was really fortunate to join Brain at a very good time.</p>
+<p>So at that point, ideas, I was just</p>
+<p>brainstorming with my colleagues and learned a lot.</p>
+<p>And keep learning is actually something</p>
+<p>you should never stop doing.</p>
+<p>So learning implies reading papers and also</p>
+<p>discussing ideas with others.</p>
+<p>It&rsquo;s very hard at some point to not communicate</p>
+<p>that being reading a paper from someone</p>
+<p>or actually discussing.</p>
+<p>So definitely, that communication aspect</p>
+<p>needs to be there, whether it&rsquo;s written or oral.</p>
+<p>Nowadays, I&rsquo;m also trying to be a bit more strategic</p>
+<p>about what research to do.</p>
+<p>So I was describing a little bit this tension</p>
+<p>between research for the sake of research,</p>
+<p>and then you have, on the other hand,</p>
+<p>applications that can drive the research.</p>
+<p>And honestly, the formula that has worked best for me</p>
+<p>is just find a hard problem and then</p>
+<p>try to see how research fits into it,</p>
+<p>how it doesn&rsquo;t fit into it, and then you must innovate.</p>
+<p>So I think machine translation drove sequence to sequence.</p>
+<p>Then maybe learning algorithms that had to,</p>
+<p>combinatorial algorithms led to pointer networks.</p>
+<p>StarCraft led to really scaling up imitation learning</p>
+<p>and the AlphaStarLeague.</p>
+<p>So that&rsquo;s been a formula that I personally like.</p>
+<p>But the other one is also valid.</p>
+<p>And I&rsquo;ve seen it succeed a lot of the times</p>
+<p>where you just want to investigate model based</p>
+<p>RL as a research topic.</p>
+<p>And then you must then start to think, well,</p>
+<p>how are the tests?</p>
+<p>How are you going to test these ideas?</p>
+<p>You need a minimal environment to try things.</p>
+<p>You need to read a lot of papers and so on.</p>
+<p>And that&rsquo;s also very fun to do and something</p>
+<p>I&rsquo;ve also done quite a few times,</p>
+<p>both at Brain, at DeepMind, and obviously as a PhD.</p>
+<p>So I think besides the ideas and discussions,</p>
+<p>I think it&rsquo;s important also because you start</p>
+<p>sort of guiding not only your own goals,</p>
+<p>but other people&rsquo;s goals to the next breakthrough.</p>
+<p>So you must really kind of understand this feasibility</p>
+<p>also, as we were discussing before,</p>
+<p>whether this domain is ready to be tackled or not.</p>
+<p>And you don&rsquo;t want to be too early.</p>
+<p>You obviously don&rsquo;t want to be too late.</p>
+<p>So it&rsquo;s really interesting, this strategic component</p>
+<p>of research, which I think as a grad student,</p>
+<p>I just had no idea.</p>
+<p>I just read papers and discussed ideas.</p>
+<p>And I think this has been maybe the major change.</p>
+<p>And I recommend people kind of feed forward</p>
+<p>to success how it looks like and try to backtrack,</p>
+<p>other than just kind of looking, oh, this looks cool.</p>
+<p>This looks cool.</p>
+<p>And then you do a bit of random work,</p>
+<p>which sometimes you stumble upon some interesting things.</p>
+<p>But in general, it&rsquo;s also good to plan a bit.</p>
+<p>Yeah, I like it.</p>
+<p>Especially like your approach of taking a really hard problem,</p>
+<p>stepping right in, and then being</p>
+<p>super skeptical about being able to solve the problem.</p>
+<p>I mean, there&rsquo;s a balance of both, right?</p>
+<p>There&rsquo;s a silly optimism and a critical sort of skepticism</p>
+<p>that&rsquo;s good to balance, which is why</p>
+<p>it&rsquo;s good to have a team of people that balance that.</p>
+<p>You don&rsquo;t do that on your own.</p>
+<p>You have both mentors that have seen,</p>
+<p>or you obviously want to chat and discuss</p>
+<p>whether it&rsquo;s the right time.</p>
+<p>I mean, Demis came in 2014.</p>
+<p>And he said, maybe in a bit we&rsquo;ll do StarCraft.</p>
+<p>And maybe he knew.</p>
+<p>And I&rsquo;m just following his lead, which is great,</p>
+<p>because he&rsquo;s brilliant, right?</p>
+<p>So these things are obviously quite important,</p>
+<p>that you want to be surrounded by people who are diverse.</p>
+<p>They have their knowledge.</p>
+<p>There&rsquo;s also important to, I mean,</p>
+<p>I&rsquo;ve learned a lot from people who actually have an idea</p>
+<p>that I might not think it&rsquo;s good.</p>
+<p>But if I give them the space to try it,</p>
+<p>I&rsquo;ve been proven wrong many, many times as well.</p>
+<p>So that&rsquo;s great.</p>
+<p>I think your colleagues are more important than yourself,</p>
+<p>I think.</p>
+<p>Sure.</p>
+<p>Now let&rsquo;s real quick talk about another impossible problem,</p>
+<p>AGI.</p>
+<p>Right.</p>
+<p>What do you think it takes to build a system that&rsquo;s</p>
+<p>human level intelligence?</p>
+<p>We talked a little bit about the Turing test, StarCraft.</p>
+<p>All of these have echoes of general intelligence.</p>
+<p>But if you think about just something</p>
+<p>that you would sit back and say, wow,</p>
+<p>this is really something that resembles</p>
+<p>human level intelligence.</p>
+<p>What do you think it takes to build that?</p>
+<p>So I find that AGI oftentimes is maybe not very well defined.</p>
+<p>So what I&rsquo;m trying to then come up with for myself</p>
+<p>is what would be a result look like that you would start</p>
+<p>to believe that you would have agents or neural nets that</p>
+<p>no longer overfeed to a single task,</p>
+<p>but actually learn the skill of learning, so to speak.</p>
+<p>And that actually is a field that I</p>
+<p>am fascinated by, which is the learning to learn,</p>
+<p>or meta learning, which is about no longer learning</p>
+<p>about a single domain.</p>
+<p>So you can think about the learning algorithm</p>
+<p>itself is general.</p>
+<p>So the same formula we applied for AlphaStar or StarCraft,</p>
+<p>we can now apply to almost any video game,</p>
+<p>or you could apply to many other problems and domains.</p>
+<p>But the algorithm is what&rsquo;s generalizing.</p>
+<p>But the neural network, those weights</p>
+<p>are useless even to play another race.</p>
+<p>I train a network to play very well at Protos versus Protos.</p>
+<p>I need to throw away those weights.</p>
+<p>If I want to play now Terran versus Terran,</p>
+<p>I would need to retrain a network from scratch</p>
+<p>with the same algorithm.</p>
+<p>That&rsquo;s beautiful.</p>
+<p>But the network itself will not be useful.</p>
+<p>So I think if I see an approach that</p>
+<p>can absorb or start solving new problems without the need</p>
+<p>to kind of restart the process, I</p>
+<p>think that, to me, would be a nice way</p>
+<p>to define some form of AGI.</p>
+<p>Again, I don&rsquo;t know the grandiose like age.</p>
+<p>I mean, should Turing tests be solved before AGI?</p>
+<p>I mean, I don&rsquo;t know.</p>
+<p>I think concretely, I would like to see clearly</p>
+<p>that meta learning happen, meaning</p>
+<p>that there is an architecture or a network that</p>
+<p>as it sees new problem or new data, it solves it.</p>
+<p>And to make it kind of a benchmark,</p>
+<p>it should solve it at the same speed</p>
+<p>that we do solve new problems.</p>
+<p>When I define you a new object and you</p>
+<p>have to recognize it, when you start playing a new game,</p>
+<p>you played all the Atari games.</p>
+<p>But now you play a new Atari game.</p>
+<p>Well, you&rsquo;re going to be pretty quickly pretty good</p>
+<p>at the game.</p>
+<p>So that&rsquo;s perhaps what&rsquo;s the domain</p>
+<p>and what&rsquo;s the exact benchmark is a bit difficult.</p>
+<p>I think as a community, we might need</p>
+<p>to do some work to define it.</p>
+<p>But I think this first step, I could</p>
+<p>see it happen relatively soon.</p>
+<p>But then the whole what AGI means and so on,</p>
+<p>I am a bit more confused about what</p>
+<p>I think people mean different things.</p>
+<p>There&rsquo;s an emotional, psychological level</p>
+<p>that like even the Turing test, passing the Turing test</p>
+<p>is something that we just pass judgment on as human beings</p>
+<p>what it means to be as a dog in AGI system.</p>
+<p>Yeah.</p>
+<p>What level, what does it mean, what does it mean?</p>
+<p>But I like the generalization.</p>
+<p>And maybe as a community, we converge</p>
+<p>towards a group of domains that are sufficiently far away.</p>
+<p>That would be really damn impressive</p>
+<p>if it was able to generalize.</p>
+<p>So perhaps not as close as Protoss and Zerg,</p>
+<p>but like Wikipedia.</p>
+<p>That would be a step.</p>
+<p>Yeah, that would be a good step and then a really good step.</p>
+<p>But then like from StarCraft to Wikipedia and back.</p>
+<p>Yeah, that kind of thing.</p>
+<p>And that feels also quite hard and far.</p>
+<p>But I think as long as you put the benchmark out,</p>
+<p>as we discovered, for instance, with ImageNet,</p>
+<p>then tremendous progress can be had.</p>
+<p>So I think maybe there&rsquo;s a lack of benchmark,</p>
+<p>but I&rsquo;m sure we&rsquo;ll find one and the community will then</p>
+<p>work towards that.</p>
+<p>And then beyond what AGI might mean or would imply,</p>
+<p>I really am hopeful to see basically machine learning</p>
+<p>or AI just scaling up and helping people</p>
+<p>that might not have the resources to hire an assistant</p>
+<p>or that they might not even know what the weather is like.</p>
+<p>So I think in terms of the positive impact of AI,</p>
+<p>I think that&rsquo;s maybe what we should also not lose focus.</p>
+<p>The research community building AGI,</p>
+<p>I mean, that&rsquo;s a real nice goal.</p>
+<p>But I think the way that DeepMind puts it is,</p>
+<p>and then use it to solve everything else.</p>
+<p>So I think we should paralyze.</p>
+<p>Yeah, we shouldn&rsquo;t forget about all the positive things</p>
+<p>that are actually coming out of AI already</p>
+<p>and are going to be coming out.</p>
+<p>Right.</p>
+<p>But on that note, let me ask relative</p>
+<p>to popular perception, do you have</p>
+<p>any worry about the existential threat</p>
+<p>of artificial intelligence in the near or far future</p>
+<p>that some people have?</p>
+<p>I think in the near future, I&rsquo;m skeptical.</p>
+<p>So I hope I&rsquo;m not wrong.</p>
+<p>But I&rsquo;m not concerned, but I appreciate efforts,</p>
+<p>ongoing efforts, and even like whole research</p>
+<p>field on AI safety emerging and in conferences and so on.</p>
+<p>I think that&rsquo;s great.</p>
+<p>In the long term, I really hope we just</p>
+<p>can simply have the benefits outweigh</p>
+<p>the potential dangers.</p>
+<p>I am hopeful for that.</p>
+<p>But also, we must remain vigilant to monitor and assess</p>
+<p>whether the tradeoffs are there and we have enough also lead</p>
+<p>time to prevent or to redirect our efforts if need be.</p>
+<p>But I&rsquo;m quite optimistic about the technology</p>
+<p>and definitely more fearful of other threats</p>
+<p>in terms of planetary level at this point.</p>
+<p>But obviously, that&rsquo;s the one I have more power on.</p>
+<p>So clearly, I do start thinking more and more about this.</p>
+<p>And it&rsquo;s grown in me actually to start reading more</p>
+<p>about AI safety, which is a field that so far I have not</p>
+<p>really contributed to.</p>
+<p>But maybe there&rsquo;s something to be done there as well.</p>
+<p>I think it&rsquo;s really important.</p>
+<p>I talk about this with a few folks.</p>
+<p>But it&rsquo;s important to ask you and shove it in your head</p>
+<p>because you&rsquo;re at the leading edge of actually what</p>
+<p>people are excited about in AI.</p>
+<p>The work with AlphaStar, it&rsquo;s arguably</p>
+<p>at the very cutting edge of the kind of thing</p>
+<p>that people are afraid of.</p>
+<p>And so you speaking to that fact and that we&rsquo;re actually</p>
+<p>quite far away to the kind of thing</p>
+<p>that people might be afraid of.</p>
+<p>But it&rsquo;s still worthwhile to think about.</p>
+<p>And it&rsquo;s also good that you&rsquo;re not as worried</p>
+<p>and you&rsquo;re also open to thinking about it.</p>
+<p>There&rsquo;s two aspects.</p>
+<p>I mean, me not being worried.</p>
+<p>But obviously, we should prepare for things</p>
+<p>that could go wrong, misuse of the technologies</p>
+<p>as with any technologies.</p>
+<p>So I think there&rsquo;s always trade offs.</p>
+<p>And as a society, we&rsquo;ve kind of solved this to some extent</p>
+<p>in the past.</p>
+<p>So I&rsquo;m hoping that by having the researchers</p>
+<p>and the whole community brainstorm and come up</p>
+<p>with interesting solutions to the new things that</p>
+<p>will happen in the future, that we can still also push</p>
+<p>the research to the avenue that I think</p>
+<p>is kind of the greatest avenue, which is</p>
+<p>to understand intelligence.</p>
+<p>How are we doing what we&rsquo;re doing?</p>
+<p>And obviously, from a scientific standpoint,</p>
+<p>that is kind of my personal drive of all the time</p>
+<p>that I spend doing what I&rsquo;m doing, really.</p>
+<p>Where do you see the deep learning as a field heading?</p>
+<p>Where do you think the next big breakthrough might be?</p>
+<p>So I think deep learning, I discussed a little of this</p>
+<p>before.</p>
+<p>Deep learning has to be combined with some form</p>
+<p>of discretization, program synthesis.</p>
+<p>I think that&rsquo;s kind of as a research in itself</p>
+<p>is an interesting topic to expand and start</p>
+<p>doing more research.</p>
+<p>And then as kind of what will deep learning</p>
+<p>enable to do in the future?</p>
+<p>I don&rsquo;t think that&rsquo;s going to be what&rsquo;s going to happen this year.</p>
+<p>But also this idea of starting not to throw away all the weights,</p>
+<p>that this idea of learning to learn</p>
+<p>and really having these agents not having</p>
+<p>to restart their weights.</p>
+<p>And you can have an agent that is kind of solving or classifying</p>
+<p>images on ImageNet, but also generating speech</p>
+<p>if you ask it to generate some speech.</p>
+<p>And it should really be kind of almost the same network,</p>
+<p>but it might not be a neural network.</p>
+<p>It might be a neural network with an optimization</p>
+<p>algorithm attached to it.</p>
+<p>But I think this idea of generalization to new task</p>
+<p>is something that we first must define good benchmarks.</p>
+<p>But then I think that&rsquo;s going to be exciting.</p>
+<p>And I&rsquo;m not sure how close we are.</p>
+<p>But I think if you have a very limited domain,</p>
+<p>I think we can start doing some progress.</p>
+<p>And much like how we did a lot of programs in computer vision,</p>
+<p>we should start thinking.</p>
+<p>I really like a talk that Leon Buto gave at ICML</p>
+<p>a few years ago, which is this train test paradigm should</p>
+<p>be broken.</p>
+<p>We should stop thinking about a training set and a test set.</p>
+<p>And these are closed things that are untouchable.</p>
+<p>I think we should go beyond these.</p>
+<p>And in meta learning, we call these the meta training</p>
+<p>set and the meta test set, which is really thinking about,</p>
+<p>if I know about ImageNet, why would that network not</p>
+<p>work on MNIST, which is a much simpler problem?</p>
+<p>But right now, it really doesn&rsquo;t.</p>
+<p>But it just feels wrong.</p>
+<p>So I think that&rsquo;s kind of the, on the application</p>
+<p>or the benchmark sites, we probably</p>
+<p>will see quite a few more interest and progress</p>
+<p>and hopefully people defining new and exciting challenges</p>
+<p>really.</p>
+<p>Do you have any hope or interest in knowledge graphs</p>
+<p>within this context?</p>
+<p>So this kind of constructing graph.</p>
+<p>So going back to graphs.</p>
+<p>Well, neural networks and graphs.</p>
+<p>But I mean, a different kind of knowledge graph,</p>
+<p>sort of like semantic graphs or those concepts.</p>
+<p>Yeah.</p>
+<p>So I think the idea of graphs is,</p>
+<p>so I&rsquo;ve been quite interested in sequences first and then</p>
+<p>more interesting or different data structures like graphs.</p>
+<p>And I&rsquo;ve studied graph neural networks in the last three</p>
+<p>years or so.</p>
+<p>I found these models just very interesting</p>
+<p>from deep learning sites standpoint.</p>
+<p>But then why do we want these models</p>
+<p>and why would we use them?</p>
+<p>What&rsquo;s the application?</p>
+<p>What&rsquo;s kind of the killer application of graphs?</p>
+<p>And perhaps if we could extract a knowledge graph</p>
+<p>from Wikipedia automatically, that</p>
+<p>would be interesting because then these graphs have</p>
+<p>this very interesting structure that also is a bit more</p>
+<p>compatible with this idea of programs and deep learning</p>
+<p>kind of working together, jumping neighborhoods</p>
+<p>and so on.</p>
+<p>You could imagine defining some primitives</p>
+<p>to go around graphs, right?</p>
+<p>So I think I really like the idea of a knowledge graph.</p>
+<p>And in fact, when we started or as part of the research</p>
+<p>we did for StarCraft, I thought, wouldn&rsquo;t it</p>
+<p>be cool to give the graph of all these buildings that</p>
+<p>depend on each other and units that have prerequisites</p>
+<p>of being built by that.</p>
+<p>And so this is information that the network</p>
+<p>can learn and extract.</p>
+<p>But it would have been great to see</p>
+<p>or to think of really StarCraft as a giant graph that even</p>
+<p>also as the game evolves, you start taking branches</p>
+<p>and so on.</p>
+<p>And we did a bit of research on these,</p>
+<p>nothing too relevant, but I really like the idea.</p>
+<p>And it has elements that are something</p>
+<p>you also worked with in terms of visualizing your networks.</p>
+<p>It has elements of having human interpretable,</p>
+<p>being able to generate knowledge representations that</p>
+<p>are human interpretable that maybe human experts can then</p>
+<p>tweak or at least understand.</p>
+<p>So there&rsquo;s a lot of interesting aspect there.</p>
+<p>And for me personally, I&rsquo;m just a huge fan of Wikipedia.</p>
+<p>And it&rsquo;s a shame that our neural networks aren&rsquo;t</p>
+<p>taking advantage of all the structured knowledge that&rsquo;s</p>
+<p>on the web.</p>
+<p>What&rsquo;s next for you?</p>
+<p>What&rsquo;s next for DeepMind?</p>
+<p>What are you excited about for AlphaStar?</p>
+<p>Yeah, so I think the obvious next steps</p>
+<p>would be to apply AlphaStar to other races.</p>
+<p>I mean, that sort of shows that the algorithm works</p>
+<p>because we wouldn&rsquo;t want to have created by mistake something</p>
+<p>in the architecture that happens to work for Protoss</p>
+<p>but not for other races.</p>
+<p>So as verification, I think that&rsquo;s an obvious next step</p>
+<p>that we are working on.</p>
+<p>And then I would like to see so agents and players can</p>
+<p>specialize on different skill sets that</p>
+<p>allow them to be very good.</p>
+<p>I think we&rsquo;ve seen AlphaStar understanding very well</p>
+<p>when to take battles and when to not to do that.</p>
+<p>Also very good at micromanagement</p>
+<p>and moving the units around and so on.</p>
+<p>And also very good at producing nonstop and trading off</p>
+<p>economy with building units.</p>
+<p>But I have not perhaps seen as much</p>
+<p>as I would like this idea of the poker idea</p>
+<p>that you mentioned, right?</p>
+<p>I&rsquo;m not sure StarCraft or AlphaStar</p>
+<p>rather has developed a very deep understanding of what</p>
+<p>the opponent is doing and reacting to that</p>
+<p>and sort of trying to trick the player to do something else</p>
+<p>or that.</p>
+<p>So this kind of reasoning, I would like to see more.</p>
+<p>So I think purely from a research standpoint,</p>
+<p>there&rsquo;s perhaps also quite a few things</p>
+<p>to be done there in the domain of StarCraft.</p>
+<p>Yeah, in the domain of games, I&rsquo;ve</p>
+<p>seen some interesting work in even auctions,</p>
+<p>manipulating other players, sort of forming a belief state</p>
+<p>and just messing with people.</p>
+<p>Yeah, it&rsquo;s called theory of mind, I guess.</p>
+<p>Theory of mind, yeah.</p>
+<p>So it&rsquo;s a fascinating.</p>
+<p>Theory of mind on StarCraft is kind of they&rsquo;re</p>
+<p>really made for each other.</p>
+<p>So that would be very exciting to see those techniques apply</p>
+<p>to StarCraft or perhaps StarCraft</p>
+<p>driving new techniques, right?</p>
+<p>As I said, this is always the tension between the two.</p>
+<p>Well, Orel, thank you so much for talking today.</p>
+<p>Awesome.</p>
+<p>It was great to be here.</p>
+<p>Thanks.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

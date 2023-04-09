@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Judea Pearl,
+professor at UCLA and a winner of the Turing Award
+that&amp;rsquo;s generally recognized as the Nobel Prize of Computing.
+He&amp;rsquo;s one of the seminal figures
+in the field of artificial intelligence,
+computer science, and statistics.
+He has developed and championed probabilistic approaches
+to AI, including Beijing networks,
+and profound ideas in causality in general.
+These ideas are important not just to AI,'>
+<title>Lex Fridman Podcast - #56 - Judea Pearl: Causal Reasoning, Counterfactuals, Bayesian Networks, and the Path to AGI | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500056/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #56 - Judea Pearl: Causal Reasoning, Counterfactuals, Bayesian Networks, and the Path to AGI'>
+<meta property='og:description' content='The following is a conversation with Judea Pearl,
+professor at UCLA and a winner of the Turing Award
+that&amp;rsquo;s generally recognized as the Nobel Prize of Computing.
+He&amp;rsquo;s one of the seminal figures
+in the field of artificial intelligence,
+computer science, and statistics.
+He has developed and championed probabilistic approaches
+to AI, including Beijing networks,
+and profound ideas in causality in general.
+These ideas are important not just to AI,'>
+<meta property='og:url' content='https://swiest.com/en/1310500056/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-04-25T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-04-25T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #56 - Judea Pearl: Causal Reasoning, Counterfactuals, Bayesian Networks, and the Path to AGI">
+<meta name="twitter:description" content="The following is a conversation with Judea Pearl,
+professor at UCLA and a winner of the Turing Award
+that&amp;rsquo;s generally recognized as the Nobel Prize of Computing.
+He&amp;rsquo;s one of the seminal figures
+in the field of artificial intelligence,
+computer science, and statistics.
+He has developed and championed probabilistic approaches
+to AI, including Beijing networks,
+and profound ideas in causality in general.
+These ideas are important not just to AI,">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500056/">Lex Fridman Podcast - #56 - Judea Pearl: Causal Reasoning, Counterfactuals, Bayesian Networks, and the Path to AGI</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-04-25</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    50 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Judea Pearl,</p>
+<p>professor at UCLA and a winner of the Turing Award</p>
+<p>that&rsquo;s generally recognized as the Nobel Prize of Computing.</p>
+<p>He&rsquo;s one of the seminal figures</p>
+<p>in the field of artificial intelligence,</p>
+<p>computer science, and statistics.</p>
+<p>He has developed and championed probabilistic approaches</p>
+<p>to AI, including Beijing networks,</p>
+<p>and profound ideas in causality in general.</p>
+<p>These ideas are important not just to AI,</p>
+<p>but to our understanding and practice of science.</p>
+<p>But in the field of AI, the idea of causality,</p>
+<p>cause and effect, to many, lie at the core</p>
+<p>of what is currently missing and what must be developed</p>
+<p>in order to build truly intelligent systems.</p>
+<p>For this reason, and many others,</p>
+<p>his work is worth returning to often.</p>
+<p>I recommend his most recent book called Book of Why</p>
+<p>that presents key ideas from a lifetime of work</p>
+<p>in a way that is accessible to the general public.</p>
+<p>This is the Artificial Intelligence Podcast.</p>
+<p>If you enjoy it, subscribe on YouTube,</p>
+<p>give it five stars on Apple Podcast,</p>
+<p>support it on Patreon, or simply connect with me on Twitter</p>
+<p>at Lex Friedman, spelled F R I D M A N.</p>
+<p>If you leave a review on Apple Podcasts especially,</p>
+<p>but also a cast box or comment on YouTube,</p>
+<p>consider mentioning topics, people, ideas, questions,</p>
+<p>quotes, and science, tech, and philosophy</p>
+<p>you find interesting, and I&rsquo;ll read them on this podcast.</p>
+<p>I won&rsquo;t call out names, but I love comments</p>
+<p>with kindness and thoughtfulness in them,</p>
+<p>so I thought I&rsquo;d share them with you.</p>
+<p>Someone on YouTube highlighted a quote</p>
+<p>from the conversation with Noam Chomsky,</p>
+<p>where he said that the significance of your life</p>
+<p>is something you create.</p>
+<p>I like this line as well.</p>
+<p>On most days, the existentialist approach to life</p>
+<p>is one I find liberating and fulfilling.</p>
+<p>I recently started doing ads</p>
+<p>at the end of the introduction.</p>
+<p>I&rsquo;ll do one or two minutes after introducing the episode,</p>
+<p>and never any ads in the middle</p>
+<p>that break the flow of the conversation.</p>
+<p>I hope that works for you</p>
+<p>and doesn&rsquo;t hurt the listening experience.</p>
+<p>This show is presented by Cash App,</p>
+<p>the number one finance app in the App Store.</p>
+<p>I personally use Cash App to send money to friends,</p>
+<p>but you can also use it to buy, sell,</p>
+<p>and deposit Bitcoin in just seconds.</p>
+<p>Cash App also has a new investing feature.</p>
+<p>You can buy fractions of a stock, say $1 worth,</p>
+<p>no matter what the stock price is.</p>
+<p>Broker services are provided by Cash App Investing,</p>
+<p>a subsidiary of Square, a member of SIPC.</p>
+<p>I&rsquo;m excited to be working with Cash App</p>
+<p>to support one of my favorite organizations called First,</p>
+<p>best known for their first robotics and Lego competitions.</p>
+<p>They educate and inspire hundreds of thousands of students</p>
+<p>in over 110 countries,</p>
+<p>and have a perfect rating on Charity Navigator,</p>
+<p>which means the donated money</p>
+<p>is used to the maximum effectiveness.</p>
+<p>When you get Cash App from the App Store or Google Play,</p>
+<p>and use the code LEXPODCAST, you&rsquo;ll get $10,</p>
+<p>and Cash App will also donate $10 to First,</p>
+<p>which again, is an organization</p>
+<p>that I&rsquo;ve personally seen inspire girls and boys</p>
+<p>to dream of engineering a better world.</p>
+<p>And now, here&rsquo;s my conversation with Judea Pearl.</p>
+<p>You mentioned in an interview</p>
+<p>that science is not a collection of facts,</p>
+<p>but a constant human struggle</p>
+<p>with the mysteries of nature.</p>
+<p>What was the first mystery that you can recall</p>
+<p>that hooked you, that kept you in the creaset?</p>
+<p>Oh, the first mystery, that&rsquo;s a good one.</p>
+<p>Yeah, I remember that.</p>
+<p>I had a fever for three days.</p>
+<p>And when I learned about Descartes, analytic geometry,</p>
+<p>and I found out that you can do all the construction</p>
+<p>in geometry using algebra.</p>
+<p>And I couldn&rsquo;t get over it.</p>
+<p>I simply couldn&rsquo;t get out of bed.</p>
+<p>So what kind of world does analytic geometry unlock?</p>
+<p>Well, it connects algebra with geometry.</p>
+<p>Okay, so Descartes had the idea</p>
+<p>that geometrical construction and geometrical theorems</p>
+<p>and assumptions can be articulated</p>
+<p>in the language of algebra,</p>
+<p>which means that all the proof that we did in high school,</p>
+<p>and trying to prove that the three bisectors</p>
+<p>meet at one point, and that, okay,</p>
+<p>all this can be proven by just shuffling around notation.</p>
+<p>Yeah, that was a traumatic experience.</p>
+<p>That was a traumatic experience.</p>
+<p>For me, it was, I&rsquo;m telling you.</p>
+<p>So it&rsquo;s the connection</p>
+<p>between the different mathematical disciplines,</p>
+<p>that they all.</p>
+<p>Not in between two different languages.</p>
+<p>Languages.</p>
+<p>Yeah.</p>
+<p>So which mathematic discipline is most beautiful?</p>
+<p>Is geometry it for you?</p>
+<p>Both are beautiful.</p>
+<p>They have almost the same power.</p>
+<p>But there&rsquo;s a visual element to geometry, being a.</p>
+<p>Visually, it&rsquo;s more transparent.</p>
+<p>But once you get over to algebra,</p>
+<p>then the linear equation is a straight line.</p>
+<p>This translation is easily absorbed, okay?</p>
+<p>And to pass a tangent to a circle,</p>
+<p>you know, you have the basic theorems,</p>
+<p>and you can do it with algebra.</p>
+<p>So but the transition from one to another was really,</p>
+<p>I thought that Descartes was the greatest mathematician</p>
+<p>of all times.</p>
+<p>So you have been at the, if you think of engineering</p>
+<p>and mathematics as a spectrum.</p>
+<p>Yes.</p>
+<p>You have been, you have walked casually along this spectrum</p>
+<p>throughout your life.</p>
+<p>You know, a little bit of engineering,</p>
+<p>and then, you know,</p>
+<p>you&rsquo;ve done a little bit of mathematics here and there.</p>
+<p>Not a little bit.</p>
+<p>I mean, we got a very solid background in mathematics,</p>
+<p>because our teachers were geniuses.</p>
+<p>Our teachers came from Germany in the 1930s,</p>
+<p>running away from Hitler.</p>
+<p>They left their careers in Heidelberg and Berlin,</p>
+<p>and came to teach high school in Israel.</p>
+<p>And we were the beneficiary of that experiment.</p>
+<p>So I, and they taught us math the good way.</p>
+<p>What&rsquo;s the good way to teach math?</p>
+<p>Chronologically.</p>
+<p>The people.</p>
+<p>The people behind the theorems, yeah.</p>
+<p>Their cousins, and their nieces, and their faces.</p>
+<p>And how they jumped from the bathtub when they scream,</p>
+<p>Eureka!</p>
+<p>And ran naked in town.</p>
+<p>So you&rsquo;re almost educated as a historian of math.</p>
+<p>No, we just got a glimpse of that history</p>
+<p>together with a theorem,</p>
+<p>so every exercise in math was connected with a person.</p>
+<p>And the time of the person.</p>
+<p>The period.</p>
+<p>The period, also mathematically speaking.</p>
+<p>Mathematically speaking, yes.</p>
+<p>Not the politics, no.</p>
+<p>So, and then in university,</p>
+<p>you have gone on to do engineering.</p>
+<p>Yeah.</p>
+<p>I get a B.S. in engineering and a technical, right?</p>
+<p>And then I moved here for graduate work,</p>
+<p>and I got, I did engineering in addition to physics</p>
+<p>in Rutgers, and it combined very nicely with my thesis,</p>
+<p>which I did in RCA Laboratories in superconductivity.</p>
+<p>And then somehow thought to switch</p>
+<p>to almost computer science, software,</p>
+<p>even, not switch, but long to become,</p>
+<p>to get into software engineering a little bit.</p>
+<p>Yes.</p>
+<p>And programming, if you can call it that in the 70s.</p>
+<p>So there&rsquo;s all these disciplines.</p>
+<p>Yeah.</p>
+<p>So to pick a favorite, in terms of engineering</p>
+<p>and mathematics, which path do you think has more beauty?</p>
+<p>Which path has more power?</p>
+<p>It&rsquo;s hard to choose, no.</p>
+<p>I enjoy doing physics, and even have a vortex</p>
+<p>named on my name.</p>
+<p>So I have investment in immortality.</p>
+<p>So what is a vortex?</p>
+<p>Vortex is in superconductivity.</p>
+<p>In the superconductivity, yeah.</p>
+<p>You have permanent current swirling around.</p>
+<p>One way or the other, you can have a store one or zero</p>
+<p>for a computer.</p>
+<p>That&rsquo;s what we worked on in the 1960 in RCA.</p>
+<p>And I discovered a few nice phenomena with the vortices.</p>
+<p>You push current and they move.</p>
+<p>So that&rsquo;s a pearl vortex.</p>
+<p>Pearl vortex, right, you can Google it, right?</p>
+<p>I didn&rsquo;t know about it, but the physicists,</p>
+<p>they picked up on my thesis, on my PhD thesis,</p>
+<p>and it becomes popular when thin film superconductors</p>
+<p>became important for high temperature superconductors.</p>
+<p>So they called it pearl vortex without my knowledge.</p>
+<p>I discovered it only about 15 years ago.</p>
+<p>You have footprints in all of the sciences.</p>
+<p>So let&rsquo;s talk about the universe a little bit.</p>
+<p>Is the universe at the lowest level deterministic</p>
+<p>or stochastic in your amateur philosophy view?</p>
+<p>Put another way, does God play dice?</p>
+<p>We know it is stochastic, right?</p>
+<p>Today, today we think it is stochastic.</p>
+<p>Yes.</p>
+<p>We think because we have the Heisenberg uncertainty principle</p>
+<p>and we have some experiments to confirm that.</p>
+<p>All we have is experiments to confirm it.</p>
+<p>We don&rsquo;t understand why.</p>
+<p>Why is already?</p>
+<p>You wrote a book about why.</p>
+<p>Yeah, it&rsquo;s a puzzle.</p>
+<p>It&rsquo;s a puzzle that you have the dice flipping machine,</p>
+<p>oh God, and the result of the flipping</p>
+<p>propagate with the speed faster than the speed of light.</p>
+<p>We can&rsquo;t explain it, okay?</p>
+<p>So, but it only governs microscopic phenomena.</p>
+<p>Microscopic phenomena.</p>
+<p>So you don&rsquo;t think of quantum mechanics</p>
+<p>as useful for understanding the nature of reality?</p>
+<p>No, diversionary.</p>
+<p>So in your thinking, the world might</p>
+<p>as well be deterministic.</p>
+<p>The world is deterministic,</p>
+<p>and as far as the neuron firing is concerned,</p>
+<p>it is deterministic to first approximation.</p>
+<p>What about free will?</p>
+<p>Free will is also a nice exercise.</p>
+<p>Free will is an illusion that we AI people are gonna solve.</p>
+<p>So what do you think once we solve it,</p>
+<p>that solution will look like?</p>
+<p>Once we put it in the page.</p>
+<p>The solution will look like,</p>
+<p>first of all, it will look like a machine.</p>
+<p>A machine that act as though it has free will.</p>
+<p>It communicates with other machines</p>
+<p>as though they have free will,</p>
+<p>and you wouldn&rsquo;t be able to tell the difference</p>
+<p>between a machine that does</p>
+<p>and a machine that doesn&rsquo;t have free will, okay?</p>
+<p>So the illusion, it propagates the illusion</p>
+<p>of free will amongst the other machines.</p>
+<p>And faking it is having it, okay?</p>
+<p>That&rsquo;s what Turing test is all about.</p>
+<p>Faking intelligence is intelligent</p>
+<p>because it&rsquo;s not easy to fake.</p>
+<p>It&rsquo;s very hard to fake,</p>
+<p>and you can only fake if you have it.</p>
+<p>So that&rsquo;s such a beautiful statement.</p>
+<p>Yeah, you can&rsquo;t fake it if you don&rsquo;t have it, yeah.</p>
+<p>So let&rsquo;s begin at the beginning with probability,</p>
+<p>both philosophically and mathematically.</p>
+<p>What does it mean to say the probability</p>
+<p>of something happening is 50%?</p>
+<p>What is probability?</p>
+<p>It&rsquo;s a degree of uncertainty</p>
+<p>that an agent has about the world.</p>
+<p>You&rsquo;re still expressing some knowledge in that statement.</p>
+<p>Of course.</p>
+<p>If the probability is 90%,</p>
+<p>it&rsquo;s absolutely a different kind of knowledge</p>
+<p>than if it is 10%.</p>
+<p>But it&rsquo;s still not solid knowledge, it&rsquo;s&hellip;</p>
+<p>It is solid knowledge, but hey,</p>
+<p>if you tell me that 90% assurance smoking</p>
+<p>will give you lung cancer in five years versus 10%,</p>
+<p>it&rsquo;s a piece of useful knowledge.</p>
+<p>So the statistical view of the universe,</p>
+<p>why is it useful?</p>
+<p>So we&rsquo;re swimming in complete uncertainty,</p>
+<p>most of everything around us.</p>
+<p>It allows you to predict things with a certain probability,</p>
+<p>and computing those probabilities are very useful.</p>
+<p>That&rsquo;s the whole idea of prediction.</p>
+<p>And you need prediction to be able to survive.</p>
+<p>If you can&rsquo;t predict the future,</p>
+<p>then you&rsquo;re just crossing the street,</p>
+<p>will be extremely fearful.</p>
+<p>And so you&rsquo;ve done a lot of work in causation,</p>
+<p>and so let&rsquo;s think about correlation.</p>
+<p>I started with probability.</p>
+<p>You started with probability.</p>
+<p>You&rsquo;ve invented the Bayesian networks.</p>
+<p>Yeah.</p>
+<p>And so we&rsquo;ll dance back and forth</p>
+<p>between these levels of uncertainty.</p>
+<p>But what is correlation?</p>
+<p>What is it?</p>
+<p>So probability of something happening is something,</p>
+<p>but then there&rsquo;s a bunch of things happening.</p>
+<p>And sometimes they happen together,</p>
+<p>sometimes not, they&rsquo;re independent or not.</p>
+<p>So how do you think about correlation of things?</p>
+<p>Correlation occurs when two things vary together</p>
+<p>over a very long time is one way of measuring it.</p>
+<p>Or when you have a bunch of variables</p>
+<p>that they all vary cohesively,</p>
+<p>then because we have a correlation here.</p>
+<p>And usually when we think about correlation,</p>
+<p>we really think causally.</p>
+<p>Things cannot be correlated unless there is a reason</p>
+<p>for them to vary together.</p>
+<p>Why should they vary together?</p>
+<p>If they don&rsquo;t see each other, why should they vary together?</p>
+<p>So underlying it somewhere is causation.</p>
+<p>Yes.</p>
+<p>Hidden in our intuition, there is a notion of causation</p>
+<p>because we cannot grasp any other logic except causation.</p>
+<p>And how does conditional probability differ from causation?</p>
+<p>So what is conditional probability?</p>
+<p>Conditional probability, how things vary</p>
+<p>when one of them stays the same.</p>
+<p>Now staying the same means that I have chosen</p>
+<p>to look only at those incidents</p>
+<p>where the guy has the same value as previous one.</p>
+<p>It&rsquo;s my choice as an experimenter.</p>
+<p>So things that are not correlated before</p>
+<p>could become correlated.</p>
+<p>Like for instance, if I have two coins</p>
+<p>which are uncorrelated, okay,</p>
+<p>and I choose only those flippings, experiments</p>
+<p>in which a bell rings, and the bell rings</p>
+<p>when at least one of them is a tail, okay,</p>
+<p>then suddenly I see correlation between the two coins</p>
+<p>because I only look at the cases where the bell rang.</p>
+<p>You see, it&rsquo;s my design, with my ignorance essentially,</p>
+<p>with my audacity to ignore certain incidents,</p>
+<p>I suddenly create a correlation</p>
+<p>where it doesn&rsquo;t exist physically.</p>
+<p>Right, so that&rsquo;s, you just outlined one of the flaws</p>
+<p>of observing the world and trying to infer something</p>
+<p>from the math about the world</p>
+<p>from looking at the correlation.</p>
+<p>I don&rsquo;t look at it as a flaw, the world works like that.</p>
+<p>But the flaws comes if we try to impose</p>
+<p>causal logic on correlation, it doesn&rsquo;t work too well.</p>
+<p>I mean, but that&rsquo;s exactly what we do.</p>
+<p>That&rsquo;s what, that has been the majority of science.</p>
+<p>The majority of naive science, the decisions know it.</p>
+<p>The decisions know that if you condition</p>
+<p>on a third variable, then you can destroy</p>
+<p>or create correlations among two other variables.</p>
+<p>They know it, it&rsquo;s in their data.</p>
+<p>It&rsquo;s nothing surprising, that&rsquo;s why they all dismiss</p>
+<p>the Simpson Paradox, ah, we know it.</p>
+<p>They don&rsquo;t know anything about it.</p>
+<p>Well, there&rsquo;s disciplines like psychology</p>
+<p>where all the variables are hard to account for.</p>
+<p>And so oftentimes there&rsquo;s a leap</p>
+<p>between correlation to causation.</p>
+<p>You&rsquo;re imposing.</p>
+<p>You&rsquo;re implying a leap.</p>
+<p>Who is trying to get causation from correlation?</p>
+<p>You&rsquo;re not proving causation,</p>
+<p>but you&rsquo;re sort of discussing it,</p>
+<p>implying, sort of hypothesizing with our ability to prove.</p>
+<p>Which discipline you have in mind?</p>
+<p>I&rsquo;ll tell you if they are obsolete,</p>
+<p>or if they are outdated, or they are about to get outdated.</p>
+<p>Yes, yes.</p>
+<p>Tell me which one you have in mind.</p>
+<p>Oh, psychology, you know.</p>
+<p>Psychology, what, is it SEM, structural equation?</p>
+<p>No, no, I was thinking of applied psychology studying.</p>
+<p>For example, we work with human behavior</p>
+<p>in semi autonomous vehicles, how people behave.</p>
+<p>And you have to conduct these studies</p>
+<p>of people driving cars.</p>
+<p>Everything starts with the question.</p>
+<p>What is the research question?</p>
+<p>The research question, do people fall asleep</p>
+<p>when the car is driving itself?</p>
+<p>Do they fall asleep, or do they tend to fall asleep</p>
+<p>more frequently?</p>
+<p>More frequently.</p>
+<p>Than the car not driving itself.</p>
+<p>Not driving itself.</p>
+<p>That&rsquo;s a good question, okay.</p>
+<p>And so you measure, you put people in the car</p>
+<p>because it&rsquo;s real world.</p>
+<p>You can&rsquo;t conduct an experiment</p>
+<p>where you control everything.</p>
+<p>Why can&rsquo;t you control?</p>
+<p>You could.</p>
+<p>Why can&rsquo;t you control the automatic module on and off?</p>
+<p>Because it&rsquo;s on road, public.</p>
+<p>I mean, there&rsquo;s aspects to it that&rsquo;s unethical.</p>
+<p>Because it&rsquo;s testing on public roads.</p>
+<p>So you can only use vehicle.</p>
+<p>They have to, the people, the drivers themselves</p>
+<p>have to make that choice themselves.</p>
+<p>And so they regulate that.</p>
+<p>And so you just observe when they drive autonomously</p>
+<p>and when they don&rsquo;t.</p>
+<p>And then.</p>
+<p>But maybe they turn it off when they were very tired.</p>
+<p>Yeah, that kind of thing.</p>
+<p>But you don&rsquo;t know those variables.</p>
+<p>Okay, so that you have now uncontrolled experiment.</p>
+<p>Uncontrolled experiment.</p>
+<p>We call it observational study.</p>
+<p>And we form the correlation detected.</p>
+<p>We have to infer causal relationship.</p>
+<p>Whether it was the automatic piece</p>
+<p>has caused them to fall asleep, or.</p>
+<p>So that is an issue that is about 120 years old.</p>
+<p>I should only go 100 years old, okay.</p>
+<p>Well, maybe it&rsquo;s not.</p>
+<p>Actually I should say it&rsquo;s 2,000 years old.</p>
+<p>Because we have this experiment by Daniel.</p>
+<p>But the Babylonian king that wanted the exiled,</p>
+<p>the people from Israel that were taken in exile</p>
+<p>to Babylon to serve the king.</p>
+<p>He wanted to serve them king&rsquo;s food, which was meat.</p>
+<p>And Daniel as a good Jew couldn&rsquo;t eat non kosher food.</p>
+<p>So he asked them to eat vegetarian food.</p>
+<p>But the king overseer says, I&rsquo;m sorry,</p>
+<p>but if the king sees that your performance falls below</p>
+<p>that of other kids, he&rsquo;s going to kill me.</p>
+<p>Daniel said, let&rsquo;s make an experiment.</p>
+<p>Let&rsquo;s take four of us from Jerusalem, okay.</p>
+<p>Give us vegetarian food.</p>
+<p>Let&rsquo;s take the other guys to eat the king&rsquo;s food.</p>
+<p>And in about a week&rsquo;s time, we&rsquo;ll test our performance.</p>
+<p>And you know the answer.</p>
+<p>Of course he did the experiment.</p>
+<p>And they were so much better than the others.</p>
+<p>And the kings nominated them to super position in his king.</p>
+<p>So it was a first experiment, yes.</p>
+<p>So there was a very simple,</p>
+<p>it&rsquo;s also the same research questions.</p>
+<p>We want to know if vegetarian food</p>
+<p>assist or obstruct your mental ability.</p>
+<p>And okay, so the question is very old one.</p>
+<p>Even Democritus said, if I could discover one cause</p>
+<p>of things, I would rather discover one cause</p>
+<p>and be a king of Persia, okay.</p>
+<p>The task of discovering causes was in the mind</p>
+<p>of ancient people from many, many years ago.</p>
+<p>But the mathematics of doing that was only developed</p>
+<p>in the 1920s.</p>
+<p>So science has left us orphan, okay.</p>
+<p>Science has not provided us with the mathematics</p>
+<p>to capture the idea of X causes Y</p>
+<p>and Y does not cause X.</p>
+<p>Because all the question of physics are symmetrical,</p>
+<p>algebraic, the equality sign goes both ways.</p>
+<p>Okay, let&rsquo;s look at machine learning.</p>
+<p>Machine learning today, if you look at deep neural networks,</p>
+<p>you can think of it as kind of conditional probability</p>
+<p>estimators.</p>
+<p>Correct, beautiful.</p>
+<p>So where did you say that?</p>
+<p>Conditional probability estimators.</p>
+<p>None of the machine learning people clevered you?</p>
+<p>Attacked you?</p>
+<p>Listen, most people, and this is why today&rsquo;s conversation</p>
+<p>I think is interesting, is most people would agree with you.</p>
+<p>There&rsquo;s certain aspects that are just effective today,</p>
+<p>but we&rsquo;re going to hit a wall and there&rsquo;s a lot of ideas.</p>
+<p>I think you&rsquo;re very right that we&rsquo;re gonna have to return to</p>
+<p>about causality and it would be, let&rsquo;s try to explore it.</p>
+<p>Let&rsquo;s even take a step back.</p>
+<p>You&rsquo;ve invented Bayesian networks that look awfully a lot</p>
+<p>like they express something like causation,</p>
+<p>but they don&rsquo;t, not necessarily.</p>
+<p>So how do we turn Bayesian networks</p>
+<p>into expressing causation?</p>
+<p>How do we build causal networks?</p>
+<p>This A causes B, B causes C,</p>
+<p>how do we start to infer that kind of thing?</p>
+<p>We start asking ourselves question,</p>
+<p>what are the factors that would determine</p>
+<p>the value of X?</p>
+<p>X could be blood pressure, death, hunger.</p>
+<p>But these are hypotheses that we propose for ourselves.</p>
+<p>Hypothesis, everything which has to do with causality</p>
+<p>comes from a theory.</p>
+<p>The difference is only how you interrogate</p>
+<p>the theory that you have in your mind.</p>
+<p>So it still needs the human expert to propose.</p>
+<p>You need the human expert to specify the initial model.</p>
+<p>Initial model could be very qualitative.</p>
+<p>Just who listens to whom?</p>
+<p>By whom listen to, I mean one variable listen to the other.</p>
+<p>So I say, okay, the tide is listening to the moon.</p>
+<p>And not to the rooster crow.</p>
+<p>And so forth.</p>
+<p>This is our understanding of the world in which we live.</p>
+<p>Scientific understanding of reality.</p>
+<p>We have to start there.</p>
+<p>Because if we don&rsquo;t know how to handle</p>
+<p>cause and effect relationship,</p>
+<p>when we do have a model,</p>
+<p>and we certainly do not know how to handle it</p>
+<p>when we don&rsquo;t have a model.</p>
+<p>So let&rsquo;s start first.</p>
+<p>In AI, slogan is representation first, discovery second.</p>
+<p>But if I give you all the information that you need,</p>
+<p>can you do anything useful with it?</p>
+<p>That is the first, representation.</p>
+<p>How do you represent it?</p>
+<p>I give you all the knowledge in the world.</p>
+<p>How do you represent it?</p>
+<p>When you represent it, I ask you,</p>
+<p>can you infer X or Y or Z?</p>
+<p>Can you answer certain queries?</p>
+<p>Is it complex?</p>
+<p>Is it polynomial?</p>
+<p>All the computer science exercises we do,</p>
+<p>once you give me a representation for my knowledge,</p>
+<p>then you can ask me,</p>
+<p>now I understand how to represent things.</p>
+<p>How do I discover them?</p>
+<p>It&rsquo;s a secondary thing.</p>
+<p>So first of all, I should echo the statement</p>
+<p>that mathematics and the current,</p>
+<p>much of the machine learning world has not considered</p>
+<p>causation that A causes B, just in anything.</p>
+<p>So that seems like a non obvious thing</p>
+<p>that you think we would have really acknowledged it,</p>
+<p>but we haven&rsquo;t.</p>
+<p>So we have to put that on the table.</p>
+<p>So knowledge, how hard is it to create a knowledge</p>
+<p>from which to work?</p>
+<p>In certain area, it&rsquo;s easy,</p>
+<p>because we have only four or five major variables,</p>
+<p>and an epidemiologist or an economist can put them down,</p>
+<p>what, minimum wage, unemployment, policy, X, Y, Z,</p>
+<p>and start collecting data,</p>
+<p>and quantify the parameters that were left unquantified</p>
+<p>with the initial knowledge.</p>
+<p>That&rsquo;s the routine work that you find</p>
+<p>in experimental psychology, in economics, everywhere.</p>
+<p>In the health science, that&rsquo;s a routine thing.</p>
+<p>But I should emphasize,</p>
+<p>you should start with the research question.</p>
+<p>What do you want to estimate?</p>
+<p>Once you have that, you have to have a language</p>
+<p>of expressing what you want to estimate.</p>
+<p>You think it&rsquo;s easy?</p>
+<p>No.</p>
+<p>So we can talk about two things, I think.</p>
+<p>One is how the science of causation is very useful</p>
+<p>for answering certain questions.</p>
+<p>And then the other is, how do we create intelligent systems</p>
+<p>that need to reason with causation?</p>
+<p>So if my research question is,</p>
+<p>how do I pick up this water bottle from the table?</p>
+<p>All of the knowledge that is required</p>
+<p>to be able to do that,</p>
+<p>how do we construct that knowledge base?</p>
+<p>Do we return back to the problem</p>
+<p>that we didn&rsquo;t solve in the 80s with expert systems?</p>
+<p>Do we have to solve that problem</p>
+<p>of automated construction of knowledge?</p>
+<p>You&rsquo;re talking about the task</p>
+<p>of eliciting knowledge from an expert.</p>
+<p>Task of eliciting knowledge from an expert,</p>
+<p>or the self discovery of more knowledge,</p>
+<p>more and more knowledge.</p>
+<p>So automating the building of knowledge as much as possible.</p>
+<p>It&rsquo;s a different game in the causal domain,</p>
+<p>because it&rsquo;s essentially the same thing.</p>
+<p>You have to start with some knowledge,</p>
+<p>and you&rsquo;re trying to enrich it.</p>
+<p>But you don&rsquo;t enrich it by asking for more rules.</p>
+<p>You enrich it by asking for the data,</p>
+<p>to look at the data and quantifying,</p>
+<p>and ask queries that you couldn&rsquo;t answer when you started.</p>
+<p>You couldn&rsquo;t because the question is quite complex,</p>
+<p>and it&rsquo;s not within the capability</p>
+<p>of ordinary cognition, of ordinary person,</p>
+<p>or ordinary expert even, to answer.</p>
+<p>So what kind of questions do you think</p>
+<p>we can start to answer?</p>
+<p>Even a simple one.</p>
+<p>Suppose, yeah, I&rsquo;ll start with easy one.</p>
+<p>Let&rsquo;s do it.</p>
+<p>Okay, what&rsquo;s the effect of a drug on recovery?</p>
+<p>What is the aspirin that caused my headache</p>
+<p>to be cured, or what did the television program,</p>
+<p>or the good news I received?</p>
+<p>This is already, you see, it&rsquo;s a difficult question,</p>
+<p>because it&rsquo;s find the cause from effect.</p>
+<p>The easy one is find the effect from cause.</p>
+<p>That&rsquo;s right.</p>
+<p>So first you construct a model,</p>
+<p>saying that this is an important research question.</p>
+<p>This is an important question.</p>
+<p>Then you do.</p>
+<p>I didn&rsquo;t construct a model yet.</p>
+<p>I just said it&rsquo;s an important question.</p>
+<p>And the first exercise is express it mathematically.</p>
+<p>What do you want to do?</p>
+<p>Like, if I tell you what will be the effect</p>
+<p>of taking this drug, you have to say that in mathematics.</p>
+<p>How do you say that?</p>
+<p>Yes.</p>
+<p>Can you write down the question, not the answer?</p>
+<p>I want to find the effect of the drug on my headache.</p>
+<p>Right.</p>
+<p>Write down, write it down.</p>
+<p>That&rsquo;s where the do calculus comes in.</p>
+<p>Yes.</p>
+<p>The do operator, what is the do operator?</p>
+<p>Do operator, yeah.</p>
+<p>Which is nice.</p>
+<p>It&rsquo;s the difference in association and intervention.</p>
+<p>Very beautifully sort of constructed.</p>
+<p>Yeah, so we have a do operator.</p>
+<p>So the do calculus connected on the do operator itself</p>
+<p>connects the operation of doing</p>
+<p>to something that we can see.</p>
+<p>Right.</p>
+<p>So as opposed to the purely observing,</p>
+<p>you&rsquo;re making the choice to change a variable.</p>
+<p>That&rsquo;s what it expresses.</p>
+<p>And then the way that we interpret it,</p>
+<p>the mechanism by which we take your query</p>
+<p>and we translate it into something that we can work with</p>
+<p>is by giving it semantics,</p>
+<p>saying that you have a model of the world</p>
+<p>and you cut off all the incoming error into X</p>
+<p>and you&rsquo;re looking now in the modified mutilated model,</p>
+<p>you ask for the probability of Y.</p>
+<p>That is interpretation of doing X</p>
+<p>because by doing things, you&rsquo;ve liberated them</p>
+<p>from all influences that acted upon them earlier</p>
+<p>and you subject them to the tyranny of your muscles.</p>
+<p>So you remove all the questions about causality</p>
+<p>by doing them.</p>
+<p>So you&rsquo;re now.</p>
+<p>There&rsquo;s one level of questions.</p>
+<p>Yeah.</p>
+<p>Answer questions about what will happen if you do things.</p>
+<p>If you do, if you drink the coffee,</p>
+<p>if you take the aspirin.</p>
+<p>Right.</p>
+<p>So how do we get the doing data?</p>
+<p>Now the question is, if we cannot run experiments,</p>
+<p>then we have to rely on observational study.</p>
+<p>So first we could, sorry to interrupt,</p>
+<p>we could run an experiment where we do something,</p>
+<p>where we drink the coffee and this,</p>
+<p>the do operator allows you to sort of be systematic</p>
+<p>about expressing.</p>
+<p>So imagine how the experiment will look like</p>
+<p>even though we cannot physically</p>
+<p>and technologically conduct it.</p>
+<p>I&rsquo;ll give you an example.</p>
+<p>What is the effect of blood pressure on mortality?</p>
+<p>I cannot go down into your vein</p>
+<p>and change your blood pressure,</p>
+<p>but I can ask the question,</p>
+<p>which means I can even have a model of your body.</p>
+<p>I can imagine the effect of your,</p>
+<p>how the blood pressure change will affect your mortality.</p>
+<p>How?</p>
+<p>I go into the model and I conduct this surgery</p>
+<p>about the blood pressure,</p>
+<p>even though physically I can do, I cannot do it.</p>
+<p>Let me ask the quantum mechanics question.</p>
+<p>Does the doing change the observation?</p>
+<p>Meaning the surgery of changing the blood pressure is,</p>
+<p>I mean.</p>
+<p>No, the surgery is,</p>
+<p>I call the very delicate.</p>
+<p>It&rsquo;s very delicate, infinitely delicate.</p>
+<p>Incisive and delicate, which means,</p>
+<p>do means, do X means,</p>
+<p>I&rsquo;m gonna touch only X.</p>
+<p>Only X.</p>
+<p>Directly into X.</p>
+<p>So that means that I change only things</p>
+<p>which depends on X by virtue of X changing,</p>
+<p>but I don&rsquo;t depend things which are not depend on X.</p>
+<p>Like I wouldn&rsquo;t change your sex or your age,</p>
+<p>I just change your blood pressure.</p>
+<p>So in the case of blood pressure,</p>
+<p>it may be difficult or impossible</p>
+<p>to construct such an experiment.</p>
+<p>No, physically yes, but hypothetically no.</p>
+<p>Hypothetically no.</p>
+<p>If we have a model, that is what the model is for.</p>
+<p>So you conduct surgeries on a model,</p>
+<p>you take it apart, put it back,</p>
+<p>that&rsquo;s the idea of a model.</p>
+<p>It&rsquo;s the idea of thinking counterfactually, imagining,</p>
+<p>and that&rsquo;s the idea of creativity.</p>
+<p>So by constructing that model,</p>
+<p>you can start to infer if the higher the blood pressure</p>
+<p>leads to mortality, which increases or decreases by.</p>
+<p>I construct the model, I still cannot answer it.</p>
+<p>I have to see if I have enough information in the model</p>
+<p>that would allow me to find out the effects of intervention</p>
+<p>from a noninterventional study, hence of study.</p>
+<p>So what&rsquo;s needed?</p>
+<p>You need to have assumptions about who affects whom.</p>
+<p>If the graph had a certain property,</p>
+<p>the answer is yes, you can get it from observational study.</p>
+<p>If the graph is too mushy, bushy, bushy,</p>
+<p>the answer is no, you cannot.</p>
+<p>Then you need to find either different kind of observation</p>
+<p>that you haven&rsquo;t considered, or one experiment.</p>
+<p>So basically, that puts a lot of pressure on you</p>
+<p>to encode wisdom into that graph.</p>
+<p>Correct.</p>
+<p>But you don&rsquo;t have to encode more than what you know.</p>
+<p>God forbid, if you put the,</p>
+<p>like economists are doing this,</p>
+<p>they call identifying assumption.</p>
+<p>They put assumptions, even if they don&rsquo;t prevail</p>
+<p>in the world, they put assumptions</p>
+<p>so they can identify things.</p>
+<p>But the problem is, yes, beautifully put,</p>
+<p>but the problem is you don&rsquo;t know what you don&rsquo;t know.</p>
+<p>So.</p>
+<p>You know what you don&rsquo;t know.</p>
+<p>Because if you don&rsquo;t know, you say it&rsquo;s possible.</p>
+<p>It&rsquo;s possible that X affect the traffic tomorrow.</p>
+<p>It&rsquo;s possible.</p>
+<p>You put down an arrow which says it&rsquo;s possible.</p>
+<p>Every arrow in the graph says it&rsquo;s possible.</p>
+<p>So there&rsquo;s not a significant cost to adding arrows that.</p>
+<p>The more arrow you add, the less likely you are</p>
+<p>to identify things from purely observational data.</p>
+<p>So if the whole world is bushy,</p>
+<p>and everybody affect everybody else,</p>
+<p>the answer is, you can answer it ahead of time.</p>
+<p>I cannot answer my query from observational data.</p>
+<p>I have to go to experiments.</p>
+<p>So you talk about machine learning</p>
+<p>is essentially learning by association,</p>
+<p>or reasoning by association,</p>
+<p>and this do calculus is allowing for intervention.</p>
+<p>I like that word.</p>
+<p>Action.</p>
+<p>So you also talk about counterfactuals.</p>
+<p>Yeah.</p>
+<p>And trying to sort of understand the difference</p>
+<p>between counterfactuals and intervention.</p>
+<p>First of all, what is counterfactuals,</p>
+<p>and why are they useful?</p>
+<p>Why are they especially useful,</p>
+<p>as opposed to just reasoning what effect actions have?</p>
+<p>Well, counterfactual contains</p>
+<p>what we normally call explanations.</p>
+<p>Can you give an example of a counterfactual?</p>
+<p>If I tell you that acting one way affects something else,</p>
+<p>I didn&rsquo;t explain anything yet.</p>
+<p>But if I ask you, was it the aspirin that cured my headache?</p>
+<p>I&rsquo;m asking for explanation, what cured my headache?</p>
+<p>And putting a finger on aspirin provide an explanation.</p>
+<p>It was aspirin that was responsible</p>
+<p>for your headache going away.</p>
+<p>If you didn&rsquo;t take the aspirin,</p>
+<p>you would still have a headache.</p>
+<p>So by saying if I didn&rsquo;t take aspirin,</p>
+<p>I would have a headache, you&rsquo;re thereby saying</p>
+<p>that aspirin is the thing that removes the headache.</p>
+<p>But you have to have another important information.</p>
+<p>I took the aspirin, and my headache is gone.</p>
+<p>It&rsquo;s very important information.</p>
+<p>Now I&rsquo;m reasoning backward,</p>
+<p>and I said, was it the aspirin?</p>
+<p>Yeah.</p>
+<p>By considering what would have happened</p>
+<p>if everything else is the same, but I didn&rsquo;t take aspirin.</p>
+<p>That&rsquo;s right.</p>
+<p>So you know that things took place.</p>
+<p>Joe killed Schmoe, and Schmoe would be alive</p>
+<p>had John not used his gun.</p>
+<p>Okay, so that is the counterfactual.</p>
+<p>It had the conflict here, or clash,</p>
+<p>between observed fact,</p>
+<p>but he did shoot, okay?</p>
+<p>And the hypothetical predicate,</p>
+<p>which says had he not shot,</p>
+<p>you have a logical clash.</p>
+<p>They cannot exist together.</p>
+<p>That&rsquo;s the counterfactual.</p>
+<p>And that is the source of our explanation</p>
+<p>of the idea of responsibility, regret, and free will.</p>
+<p>Yeah, so it certainly seems</p>
+<p>that&rsquo;s the highest level of reasoning, right?</p>
+<p>Yeah, and physicists do it all the time.</p>
+<p>Who does it all the time?</p>
+<p>Physicists.</p>
+<p>In every equation of physics,</p>
+<p>let&rsquo;s say you have a Hooke&rsquo;s law,</p>
+<p>and you put one kilogram on the spring,</p>
+<p>and the spring is one meter,</p>
+<p>and you say, had this weight been two kilogram,</p>
+<p>the spring would have been twice as long.</p>
+<p>It&rsquo;s no problem for physicists to say that,</p>
+<p>except that mathematics is only in the form of equation,</p>
+<p>okay, equating the weight,</p>
+<p>proportionality constant, and the length of the string.</p>
+<p>So you don&rsquo;t have the asymmetry</p>
+<p>in the equation of physics,</p>
+<p>although every physicist thinks counterfactually.</p>
+<p>Ask the high school kids,</p>
+<p>had the weight been three kilograms,</p>
+<p>what would be the length of the spring?</p>
+<p>They can answer it immediately,</p>
+<p>because they do the counterfactual processing in their mind,</p>
+<p>and then they put it into equation,</p>
+<p>algebraic equation, and they solve it, okay?</p>
+<p>But a robot cannot do that.</p>
+<p>How do you make a robot learn these relationships?</p>
+<p>Well, why you would learn?</p>
+<p>Suppose you tell him, can you do it?</p>
+<p>So before you go learning,</p>
+<p>you have to ask yourself,</p>
+<p>suppose I give you all the information, okay?</p>
+<p>Can the robot perform the task that I ask him to perform?</p>
+<p>Can he reason and say, no, it wasn&rsquo;t the aspirin.</p>
+<p>It was the good news you received on the phone.</p>
+<p>Right, because, well, unless the robot had a model,</p>
+<p>a causal model of the world.</p>
+<p>Right, right.</p>
+<p>I&rsquo;m sorry I have to linger on this.</p>
+<p>But now we have to linger and we have to say,</p>
+<p>how do we do it?</p>
+<p>How do we build it?</p>
+<p>Yes.</p>
+<p>How do we build a causal model</p>
+<p>without a team of human experts running around?</p>
+<p>Why don&rsquo;t you go to learning right away?</p>
+<p>You&rsquo;re too much involved with learning.</p>
+<p>Because I like babies.</p>
+<p>Babies learn fast.</p>
+<p>I&rsquo;m trying to figure out how they do it.</p>
+<p>Good.</p>
+<p>So that&rsquo;s another question.</p>
+<p>How do the babies come out with a counterfactual</p>
+<p>model of the world?</p>
+<p>And babies do that.</p>
+<p>They know how to play in the crib.</p>
+<p>They know which balls hit another one.</p>
+<p>And they learn it by playful manipulation of the world.</p>
+<p>Yes.</p>
+<p>The simple world involves only toys and balls and chimes.</p>
+<p>But if you think about it, it&rsquo;s a complex world.</p>
+<p>We take for granted how complicated.</p>
+<p>And kids do it by playful manipulation</p>
+<p>plus parents guidance, peer wisdom, and hearsay.</p>
+<p>They meet each other and they say,</p>
+<p>you shouldn&rsquo;t have taken my toy.</p>
+<p>Right.</p>
+<p>And these multiple sources of information,</p>
+<p>they&rsquo;re able to integrate.</p>
+<p>So the challenge is about how to integrate,</p>
+<p>how to form these causal relationships</p>
+<p>from different sources of data.</p>
+<p>Correct.</p>
+<p>So how much information is it to play,</p>
+<p>how much causal information is required</p>
+<p>to be able to play in the crib with different objects?</p>
+<p>I don&rsquo;t know.</p>
+<p>I haven&rsquo;t experimented with the crib.</p>
+<p>Okay, not a crib.</p>
+<p>Picking up, manipulating physical objects</p>
+<p>on this very, opening the pages of a book,</p>
+<p>all the tasks, the physical manipulation tasks.</p>
+<p>Do you have a sense?</p>
+<p>Because my sense is the world is extremely complicated.</p>
+<p>It&rsquo;s extremely complicated.</p>
+<p>I agree, and I don&rsquo;t know how to organize it</p>
+<p>because I&rsquo;ve been spoiled by easy problems</p>
+<p>such as cancer and death, okay?</p>
+<p>And I&rsquo;m a, but she&rsquo;s a.</p>
+<p>First we have to start trying to.</p>
+<p>No, but it&rsquo;s easy.</p>
+<p>There is in a sense that you have only 20 variables.</p>
+<p>And they are just variables and not mechanics.</p>
+<p>Okay, it&rsquo;s easy.</p>
+<p>You just put them on the graph and they speak to you.</p>
+<p>Yeah, and you&rsquo;re providing a methodology</p>
+<p>for letting them speak.</p>
+<p>Yeah.</p>
+<p>I&rsquo;m working only in the abstract.</p>
+<p>The abstract was knowledge in, knowledge out,</p>
+<p>data in between.</p>
+<p>Now, can we take a leap to trying to learn</p>
+<p>in this very, when it&rsquo;s not 20 variables,</p>
+<p>but 20 million variables, trying to learn causation</p>
+<p>in this world?</p>
+<p>Not learn, but somehow construct models.</p>
+<p>I mean, it seems like you would only have to be able</p>
+<p>to learn because constructing it manually</p>
+<p>would be too difficult.</p>
+<p>Do you have ideas of?</p>
+<p>I think it&rsquo;s a matter of combining simple models</p>
+<p>from many, many sources, from many, many disciplines,</p>
+<p>and many metaphors.</p>
+<p>Metaphors are the basics of human intelligence, basis.</p>
+<p>Yeah, so how do you think of about a metaphor</p>
+<p>in terms of its use in human intelligence?</p>
+<p>Metaphors is an expert system.</p>
+<p>An expert, it&rsquo;s mapping problem</p>
+<p>from a problem with which you are not familiar</p>
+<p>to a problem with which you are familiar.</p>
+<p>Like, I&rsquo;ll give you a good example.</p>
+<p>The Greek believed that the sky is an opaque shell.</p>
+<p>It&rsquo;s not really infinite space.</p>
+<p>It&rsquo;s an opaque shell, and the stars are holes</p>
+<p>poked in the shells through which you see</p>
+<p>the eternal light.</p>
+<p>That was a metaphor.</p>
+<p>Why?</p>
+<p>Because they understand how you poke holes in the shells.</p>
+<p>They were not familiar with infinite space.</p>
+<p>And we are walking on a shell of a turtle,</p>
+<p>and if you get too close to the edge,</p>
+<p>you&rsquo;re gonna fall down to Hades or wherever.</p>
+<p>That&rsquo;s a metaphor.</p>
+<p>It&rsquo;s not true.</p>
+<p>But this kind of metaphor enabled Aristoteles</p>
+<p>to measure the radius of the Earth,</p>
+<p>because he said, Kamal, if we are walking on a turtle shell,</p>
+<p>then the ray of light coming to this place</p>
+<p>will be a different angle than coming to this place.</p>
+<p>I know the distance, I&rsquo;ll measure the two angles,</p>
+<p>and then I have the radius of the shell of the turtle.</p>
+<p>And he did, and he found his measurement</p>
+<p>very close to the measurements we have today,</p>
+<p>through the, what, 6,700 kilometers of the Earth.</p>
+<p>That&rsquo;s something that would not occur</p>
+<p>to Babylonian astronomer,</p>
+<p>even though the Babylonian experiment</p>
+<p>were the machine learning people of the time.</p>
+<p>They fit curves, and they could predict</p>
+<p>the eclipse of the moon much more accurately</p>
+<p>than the Greek, because they fit curve.</p>
+<p>That&rsquo;s a different metaphor.</p>
+<p>Something that you&rsquo;re familiar with,</p>
+<p>a game, a turtle shell.</p>
+<p>Okay?</p>
+<p>What does it mean if you are familiar?</p>
+<p>Familiar means that answers to certain questions</p>
+<p>are explicit.</p>
+<p>You don&rsquo;t have to derive them.</p>
+<p>And they were made explicit because somewhere in the past</p>
+<p>you&rsquo;ve constructed a model of that.</p>
+<p>Yeah, you&rsquo;re familiar with,</p>
+<p>so the child is familiar with billiard balls.</p>
+<p>So the child could predict that if you let loose</p>
+<p>of one ball, the other one will bounce off.</p>
+<p>You obtain that by familiarity.</p>
+<p>Familiarity is answering questions,</p>
+<p>and you store the answer explicitly.</p>
+<p>You don&rsquo;t have to derive them.</p>
+<p>So this is the idea of a metaphor.</p>
+<p>All our life, all our intelligence</p>
+<p>is built around metaphors,</p>
+<p>mapping from the unfamiliar to the familiar.</p>
+<p>But the marriage between the two is a tough thing,</p>
+<p>which we haven&rsquo;t yet been able to algorithmatize.</p>
+<p>So you think of that process of using metaphor</p>
+<p>to leap from one place to another,</p>
+<p>we can call it reasoning?</p>
+<p>Is it a kind of reasoning?</p>
+<p>It is reasoning by metaphor, metaphorical reasoning.</p>
+<p>Do you think of that as learning?</p>
+<p>So learning is a popular terminology today</p>
+<p>in a narrow sense.</p>
+<p>It is, it is, it is definitely a form.</p>
+<p>So you may not, okay, right.</p>
+<p>It&rsquo;s one of the most important learnings,</p>
+<p>taking something which theoretically is derivable</p>
+<p>and store it in accessible format.</p>
+<p>I&rsquo;ll give you an example, chess, okay?</p>
+<p>Finding the winning starting move in chess is hard.</p>
+<p>It is hard, but there is an answer.</p>
+<p>Either there is a winning move for white</p>
+<p>or there isn&rsquo;t, or there is a draw, okay?</p>
+<p>So it is, the answer to that</p>
+<p>is available through the rule of the games.</p>
+<p>But we don&rsquo;t know the answer.</p>
+<p>So what does a chess master have that we don&rsquo;t have?</p>
+<p>He has stored explicitly an evaluation</p>
+<p>of certain complex pattern of the board.</p>
+<p>We don&rsquo;t have it.</p>
+<p>Ordinary people like me, I don&rsquo;t know about you,</p>
+<p>I&rsquo;m not a chess master.</p>
+<p>So for me, I have to derive things that for him is explicit.</p>
+<p>He has seen it before, or he has seen the pattern before,</p>
+<p>or similar pattern, you see metaphor, yeah?</p>
+<p>And he generalize and said, don&rsquo;t move, it&rsquo;s a dangerous move.</p>
+<p>It&rsquo;s just that not in the game of chess,</p>
+<p>but in the game of billiard balls,</p>
+<p>we humans are able to initially derive very effectively</p>
+<p>and then reason by metaphor very effectively</p>
+<p>and make it look so easy that it makes one wonder</p>
+<p>how hard is it to build it in a machine.</p>
+<p>So in your sense, how far away are we</p>
+<p>to be able to construct?</p>
+<p>I don&rsquo;t know, I&rsquo;m not a futurist.</p>
+<p>All I can tell you is that we are making tremendous progress</p>
+<p>in the causal reasoning domain.</p>
+<p>Something that I even dare to call it revolution,</p>
+<p>the code of revolution, because what we have achieved</p>
+<p>in the past three decades is something that dwarf</p>
+<p>everything that was derived in the entire history.</p>
+<p>So there&rsquo;s an excitement about</p>
+<p>current machine learning methodologies,</p>
+<p>and there&rsquo;s really important good work you&rsquo;re doing</p>
+<p>in causal inference.</p>
+<p>Where does the future, where do these worlds collide</p>
+<p>and what does that look like?</p>
+<p>First, they&rsquo;re gonna work without collision.</p>
+<p>It&rsquo;s gonna work in harmony.</p>
+<p>Harmony, it&rsquo;s not collision.</p>
+<p>The human is going to jumpstart the exercise</p>
+<p>by providing qualitative, noncommitting models</p>
+<p>of how the universe works, how in reality</p>
+<p>the domain of discourse works.</p>
+<p>The machine is gonna take over from that point of view</p>
+<p>and derive whatever the calculus says can be derived.</p>
+<p>Namely, quantitative answer to our questions.</p>
+<p>Now, these are complex questions.</p>
+<p>I&rsquo;ll give you some example of complex questions</p>
+<p>that will bug your mind if you think about it.</p>
+<p>You take result of studies in diverse population</p>
+<p>under diverse condition, and you infer the cause effect</p>
+<p>of a new population which doesn&rsquo;t even resemble</p>
+<p>any of the ones studied, and you do that by do calculus.</p>
+<p>You do that by generalizing from one study to another.</p>
+<p>See, what&rsquo;s common with Berto?</p>
+<p>What is different?</p>
+<p>Let&rsquo;s ignore the differences and pull out the commonality,</p>
+<p>and you do it over maybe 100 hospitals around the world.</p>
+<p>From that, you can get really mileage from big data.</p>
+<p>It&rsquo;s not only that you have many samples,</p>
+<p>you have many sources of data.</p>
+<p>So that&rsquo;s a really powerful thing, I think,</p>
+<p>especially for medical applications.</p>
+<p>I mean, cure cancer, right?</p>
+<p>That&rsquo;s how from data you can cure cancer.</p>
+<p>So we&rsquo;re talking about causation,</p>
+<p>which is the temporal relationships between things.</p>
+<p>Not only temporal, it&rsquo;s both structural and temporal.</p>
+<p>Temporal enough, temporal precedence by itself</p>
+<p>cannot replace causation.</p>
+<p>Is temporal precedence the arrow of time in physics?</p>
+<p>It&rsquo;s important, necessary.</p>
+<p>It&rsquo;s important.</p>
+<p>It&rsquo;s efficient, yes.</p>
+<p>Is it?</p>
+<p>Yes, I never seen cause propagate backward.</p>
+<p>But if we use the word cause,</p>
+<p>but there&rsquo;s relationships that are timeless.</p>
+<p>I suppose that&rsquo;s still forward in the arrow of time.</p>
+<p>But are there relationships, logical relationships,</p>
+<p>that fit into the structure?</p>
+<p>Sure, the whole do calculus is logical relationship.</p>
+<p>That doesn&rsquo;t require a temporal.</p>
+<p>It has just the condition that</p>
+<p>you&rsquo;re not traveling back in time.</p>
+<p>Yes, correct.</p>
+<p>So it&rsquo;s really a generalization of,</p>
+<p>a powerful generalization of what?</p>
+<p>Of Boolean logic.</p>
+<p>Yeah, Boolean logic.</p>
+<p>Yes.</p>
+<p>That is sort of simply put,</p>
+<p>and allows us to reason about the order of events,</p>
+<p>the source, the.</p>
+<p>Not about, between, we&rsquo;re not deriving the order of events.</p>
+<p>We are given cause effects relationship, okay?</p>
+<p>They ought to be obeying the time presidents relationship.</p>
+<p>We are given it.</p>
+<p>And now that we ask questions about</p>
+<p>other causes of relationship,</p>
+<p>that could be derived from the initial ones,</p>
+<p>but were not given to us explicitly.</p>
+<p>Like the case of the firing squad I gave you</p>
+<p>in the first chapter.</p>
+<p>And I ask, what if rifleman A declined to shoot?</p>
+<p>Would the prisoner still be dead?</p>
+<p>To decline to shoot, it means that he disobey order.</p>
+<p>And the rule of the games were that he is a</p>
+<p>obedient marksman, okay?</p>
+<p>That&rsquo;s how you start.</p>
+<p>That&rsquo;s the initial order.</p>
+<p>But now you ask question about breaking the rules.</p>
+<p>What if he decided not to pull the trigger?</p>
+<p>He just became a pacifist.</p>
+<p>And you and I can answer that.</p>
+<p>The other rifleman would have killed him, okay?</p>
+<p>I want the machine to do that.</p>
+<p>Is it so hard to ask a machine to do that?</p>
+<p>It&rsquo;s such a simple task.</p>
+<p>You have to have a calculus for that.</p>
+<p>Yes, yeah.</p>
+<p>But the curiosity, the natural curiosity for me is</p>
+<p>that yes, you&rsquo;re absolutely correct and important.</p>
+<p>And it&rsquo;s hard to believe that we haven&rsquo;t done this</p>
+<p>seriously extensively already a long time ago.</p>
+<p>So this is really important work.</p>
+<p>But I also wanna know, maybe you can philosophize</p>
+<p>about how hard is it to learn.</p>
+<p>Okay, let&rsquo;s assume we&rsquo;re learning.</p>
+<p>We wanna learn it, okay?</p>
+<p>We wanna learn.</p>
+<p>So what do we do?</p>
+<p>We put a learning machine that watches execution trials</p>
+<p>in many countries and many locations, okay?</p>
+<p>All the machine can learn is to see shut or not shut.</p>
+<p>Dead, not dead.</p>
+<p>A court issued an order or didn&rsquo;t, okay?</p>
+<p>Just the facts.</p>
+<p>For the fact you don&rsquo;t know who listens to whom.</p>
+<p>You don&rsquo;t know that the condemned person</p>
+<p>listened to the bullets,</p>
+<p>that the bullets are listening to the captain, okay?</p>
+<p>All we hear is one command, two shots, dead, okay?</p>
+<p>A triple of variable.</p>
+<p>Yes, no, yes, no.</p>
+<p>Okay, that you can learn who listens to whom</p>
+<p>and you can answer the question, no.</p>
+<p>Definitively no.</p>
+<p>But don&rsquo;t you think you can start proposing ideas</p>
+<p>for humans to review?</p>
+<p>You want machine to learn, you want a robot.</p>
+<p>So robot is watching trials like that, 200 trials,</p>
+<p>and then he has to answer the question,</p>
+<p>what if rifleman A refrain from shooting?</p>
+<p>Yeah.</p>
+<p>How do I do that?</p>
+<p>That&rsquo;s exactly my point.</p>
+<p>It&rsquo;s looking at the facts,</p>
+<p>don&rsquo;t give you the strings behind the facts.</p>
+<p>Absolutely, but do you think of machine learning</p>
+<p>as it&rsquo;s currently defined as only something</p>
+<p>that looks at the facts and tries to do?</p>
+<p>Right now, they only look at the facts, yeah.</p>
+<p>So is there a way to modify, in your sense?</p>
+<p>Playful manipulation.</p>
+<p>Yes, once in a while.</p>
+<p>Doing the interventionist kind of thing, intervention.</p>
+<p>But it could be at random.</p>
+<p>For instance, the rifleman is sick that day</p>
+<p>or he just vomits or whatever.</p>
+<p>So machine can observe this unexpected event</p>
+<p>which introduce noise.</p>
+<p>The noise still have to be random</p>
+<p>to be able to relate it to randomized experiment.</p>
+<p>And then you have observational studies</p>
+<p>from which to infer the strings behind the facts.</p>
+<p>It&rsquo;s doable to a certain extent.</p>
+<p>But now that we are expert in what you can do</p>
+<p>once you have a model, we can reason back and say,</p>
+<p>what kind of data you need to build a model.</p>
+<p>Got it, so I know you&rsquo;re not a futurist,</p>
+<p>but are you excited?</p>
+<p>Have you, when you look back at your life,</p>
+<p>longed for the idea of creating</p>
+<p>a human level intelligence system?</p>
+<p>Yeah, I&rsquo;m driven by that.</p>
+<p>All my life, I&rsquo;m driven just by one thing.</p>
+<p>But I go slowly.</p>
+<p>I go from what I know to the next step incrementally.</p>
+<p>So without imagining what the end goal looks like.</p>
+<p>Do you imagine what an eight?</p>
+<p>The end goal is gonna be a machine</p>
+<p>that can answer sophisticated questions,</p>
+<p>counterfactuals of regret, compassion,</p>
+<p>responsibility, and free will.</p>
+<p>So what is a good test?</p>
+<p>Is a Turing test a reasonable test?</p>
+<p>A test of free will doesn&rsquo;t exist yet.</p>
+<p>How would you test free will?</p>
+<p>So far, we know only one thing.</p>
+<p>If robots can communicate with reward and punishment</p>
+<p>among themselves and hitting each other on the wrist</p>
+<p>and say, you shouldn&rsquo;t have done that, okay?</p>
+<p>Playing better soccer because they can do that.</p>
+<p>What do you mean, because they can do that?</p>
+<p>Because they can communicate among themselves.</p>
+<p>Because of the communication they can do.</p>
+<p>Because they communicate like us.</p>
+<p>Reward and punishment, yes.</p>
+<p>You didn&rsquo;t pass the ball at the right time,</p>
+<p>and so therefore you&rsquo;re gonna sit on the bench</p>
+<p>for the next two.</p>
+<p>If they start communicating like that,</p>
+<p>the question is, will they play better soccer?</p>
+<p>As opposed to what?</p>
+<p>As opposed to what they do now?</p>
+<p>Without this ability to reason about reward and punishment.</p>
+<p>Responsibility.</p>
+<p>And?</p>
+<p>Artifactions.</p>
+<p>So far, I can only think about communication.</p>
+<p>Communication is, and not necessarily natural language,</p>
+<p>but just communication.</p>
+<p>Just communication.</p>
+<p>And that&rsquo;s important to have a quick and effective means</p>
+<p>of communicating knowledge.</p>
+<p>If the coach tells you you should have passed the ball,</p>
+<p>pink, he conveys so much knowledge to you</p>
+<p>as opposed to what?</p>
+<p>Go down and change your software.</p>
+<p>That&rsquo;s the alternative.</p>
+<p>But the coach doesn&rsquo;t know your software.</p>
+<p>So how can the coach tell you</p>
+<p>you should have passed the ball?</p>
+<p>But our language is very effective.</p>
+<p>You should have passed the ball.</p>
+<p>You know your software.</p>
+<p>You tweak the right module, and next time you don&rsquo;t do it.</p>
+<p>Now that&rsquo;s for playing soccer,</p>
+<p>the rules are well defined.</p>
+<p>No, no, no, no, they&rsquo;re not well defined.</p>
+<p>When you should pass the ball.</p>
+<p>Is not well defined.</p>
+<p>No, it&rsquo;s very soft, very noisy.</p>
+<p>Yes, you have to do it under pressure.</p>
+<p>It&rsquo;s art.</p>
+<p>But in terms of aligning values</p>
+<p>between computers and humans,</p>
+<p>do you think this cause and effect type of thinking</p>
+<p>is important to align the values,</p>
+<p>values, morals, ethics under which the machines</p>
+<p>make decisions, is the cause effect</p>
+<p>where the two can come together?</p>
+<p>Cause and effect is necessary component</p>
+<p>to build an ethical machine.</p>
+<p>Because the machine has to empathize</p>
+<p>to understand what&rsquo;s good for you,</p>
+<p>to build a model of you as a recipient,</p>
+<p>which should be very much, what is compassion?</p>
+<p>They imagine that you suffer pain as much as me.</p>
+<p>As much as me.</p>
+<p>I do have already a model of myself, right?</p>
+<p>So it&rsquo;s very easy for me to map you to mine.</p>
+<p>I don&rsquo;t have to rebuild the model.</p>
+<p>It&rsquo;s much easier to say, oh, you&rsquo;re like me.</p>
+<p>Okay, therefore I would not hate you.</p>
+<p>And the machine has to imagine,</p>
+<p>has to try to fake to be human essentially</p>
+<p>so you can imagine that you&rsquo;re like me, right?</p>
+<p>And moreover, who is me?</p>
+<p>That&rsquo;s the first, that&rsquo;s consciousness.</p>
+<p>They have a model of yourself.</p>
+<p>Where do you get this model?</p>
+<p>You look at yourself as if you are a part</p>
+<p>of the environment.</p>
+<p>If you build a model of yourself</p>
+<p>versus the environment, then you can say,</p>
+<p>I need to have a model of myself.</p>
+<p>I have abilities, I have desires and so forth, okay?</p>
+<p>I have a blueprint of myself though.</p>
+<p>Not the full detail because I cannot</p>
+<p>get the whole thing problem.</p>
+<p>But I have a blueprint.</p>
+<p>So on that level of a blueprint, I can modify things.</p>
+<p>I can look at myself in the mirror and say,</p>
+<p>hmm, if I change this model, tweak this model,</p>
+<p>I&rsquo;m gonna perform differently.</p>
+<p>That is what we mean by free will.</p>
+<p>And consciousness.</p>
+<p>What do you think is consciousness?</p>
+<p>Is it simply self awareness?</p>
+<p>So including yourself into the model of the world?</p>
+<p>That&rsquo;s right.</p>
+<p>Some people tell me, no, this is only part of consciousness.</p>
+<p>And then they start telling me what they really mean</p>
+<p>by consciousness, and I lose them.</p>
+<p>For me, consciousness is having a blueprint</p>
+<p>of your software.</p>
+<p>Do you have concerns about the future of AI?</p>
+<p>All the different trajectories of all of our research?</p>
+<p>Yes.</p>
+<p>Where&rsquo;s your hope, where the movement has,</p>
+<p>where are your concerns?</p>
+<p>I&rsquo;m concerned, because I know we are building a new species</p>
+<p>that has a capability of exceeding our, exceeding us,</p>
+<p>exceeding our capabilities, and can breed itself</p>
+<p>and take over the world.</p>
+<p>Absolutely.</p>
+<p>It&rsquo;s a new species that is uncontrolled.</p>
+<p>We don&rsquo;t know the degree to which we control it.</p>
+<p>We don&rsquo;t even understand what it means</p>
+<p>to be able to control this new species.</p>
+<p>So I&rsquo;m concerned.</p>
+<p>I don&rsquo;t have anything to add to that,</p>
+<p>because it&rsquo;s such a gray area, it&rsquo;s unknown.</p>
+<p>It never happened in history.</p>
+<p>The only time it happened in history</p>
+<p>was evolution with human beings.</p>
+<p>It wasn&rsquo;t very successful, was it?</p>
+<p>Some people say it was a great success.</p>
+<p>For us it was, but a few people along the way,</p>
+<p>a few creatures along the way would not agree.</p>
+<p>So it&rsquo;s just because it&rsquo;s such a gray area,</p>
+<p>there&rsquo;s nothing else to say.</p>
+<p>We have a sample of one.</p>
+<p>Sample of one.</p>
+<p>It&rsquo;s us.</p>
+<p>But some people would look at you and say,</p>
+<p>yeah, but we were looking to you to help us</p>
+<p>make sure that the sample two works out okay.</p>
+<p>We have more than a sample of one.</p>
+<p>We have theories, and that&rsquo;s a good.</p>
+<p>We don&rsquo;t need to be statisticians.</p>
+<p>So sample of one doesn&rsquo;t mean poverty of knowledge.</p>
+<p>It&rsquo;s not.</p>
+<p>Sample of one plus theory, conjectural theory,</p>
+<p>of what could happen.</p>
+<p>That we do have.</p>
+<p>But I really feel helpless in contributing</p>
+<p>to this argument, because I know so little,</p>
+<p>and my imagination is limited,</p>
+<p>and I know how much I don&rsquo;t know,</p>
+<p>and I, but I&rsquo;m concerned.</p>
+<p>You were born and raised in Israel.</p>
+<p>Born and raised in Israel, yes.</p>
+<p>And later served in Israel military,</p>
+<p>defense forces.</p>
+<p>In the Israel Defense Force.</p>
+<p>Yeah.</p>
+<p>What did you learn from that experience?</p>
+<p>From this experience?</p>
+<p>There&rsquo;s a kibbutz in there as well.</p>
+<p>Yes, because I was in the nachal,</p>
+<p>which is a combination of agricultural work</p>
+<p>and military service.</p>
+<p>We were supposed, I was really idealist.</p>
+<p>I wanted to be a member of the kibbutz throughout my life,</p>
+<p>and to live a communal life,</p>
+<p>and so I prepared myself for that.</p>
+<p>Slowly, slowly, I wanted a greater challenge.</p>
+<p>So that&rsquo;s a far world away, both.</p>
+<p>What I learned from that, what I can add,</p>
+<p>it was a miracle.</p>
+<p>It was a miracle that I served in the 1950s.</p>
+<p>I don&rsquo;t know how we survived.</p>
+<p>The country was under austerity.</p>
+<p>It tripled its population from 600,000 to a million point eight</p>
+<p>when I finished college.</p>
+<p>No one went hungry.</p>
+<p>And austerity, yes.</p>
+<p>When you wanted to make an omelet in a restaurant,</p>
+<p>you had to bring your own egg.</p>
+<p>And they imprisoned people from bringing the food</p>
+<p>from farming here, from the villages, to the city.</p>
+<p>But no one went hungry.</p>
+<p>And I always add to it,</p>
+<p>and higher education did not suffer any budget cut.</p>
+<p>They still invested in me, in my wife, in our generation</p>
+<p>to get the best education that they could, okay?</p>
+<p>So I&rsquo;m really grateful for the opportunity,</p>
+<p>and I&rsquo;m trying to pay back now, okay?</p>
+<p>It&rsquo;s a miracle that we survived the war of 1948.</p>
+<p>We were so close to a second genocide.</p>
+<p>It was all planned.</p>
+<p>But we survived it by miracle,</p>
+<p>and then the second miracle</p>
+<p>that not many people talk about, the next phase.</p>
+<p>How no one went hungry,</p>
+<p>and the country managed to triple its population.</p>
+<p>You know what it means to triple?</p>
+<p>Imagine United States going from what, 350 million</p>
+<p>to a trillion, unbelievable.</p>
+<p>So it&rsquo;s a really tense part of the world.</p>
+<p>It&rsquo;s a complicated part of the world,</p>
+<p>Israel and all around.</p>
+<p>Religion is at the core of that complexity.</p>
+<p>One of the components.</p>
+<p>Religion is a strong motivating cause</p>
+<p>to many, many people in the Middle East, yes.</p>
+<p>In your view, looking back, is religion good for society?</p>
+<p>That&rsquo;s a good question for robotic, you know?</p>
+<p>There&rsquo;s echoes of that question.</p>
+<p>Equip robot with religious belief.</p>
+<p>Suppose we find out, or we agree</p>
+<p>that religion is good to you, to keep you in line, okay?</p>
+<p>Should we give the robot the metaphor of a god?</p>
+<p>As a matter of fact, the robot will get it without us also.</p>
+<p>Why?</p>
+<p>The robot will reason by metaphor.</p>
+<p>And what is the most primitive metaphor</p>
+<p>a child grows with?</p>
+<p>Mother smile, father teaching,</p>
+<p>father image and mother image, that&rsquo;s god.</p>
+<p>So, whether you want it or not,</p>
+<p>the robot will, well, assuming that the robot</p>
+<p>is gonna have a mother and a father,</p>
+<p>it may only have a programmer,</p>
+<p>which doesn&rsquo;t supply warmth and discipline.</p>
+<p>Well, discipline it does.</p>
+<p>So the robot will have a model of the trainer,</p>
+<p>and everything that happens in the world,</p>
+<p>cosmology and so on, is going to be mapped</p>
+<p>into the programmer, it&rsquo;s god.</p>
+<p>Man, the thing that represents the origin</p>
+<p>of everything for that robot.</p>
+<p>It&rsquo;s the most primitive relationship.</p>
+<p>So it&rsquo;s gonna arrive there by metaphor.</p>
+<p>And so the question is if overall</p>
+<p>that metaphor has served us well as humans.</p>
+<p>I really don&rsquo;t know.</p>
+<p>I think it did, but as long as you keep</p>
+<p>in mind it&rsquo;s only a metaphor.</p>
+<p>So, if you think we can, can we talk about your son?</p>
+<p>Yes, yes.</p>
+<p>Can you tell his story?</p>
+<p>His story?</p>
+<p>Daniel?</p>
+<p>His story is known, he was abducted</p>
+<p>in Pakistan by Al Qaeda driven sect,</p>
+<p>and under various pretenses.</p>
+<p>I don&rsquo;t even pay attention to what the pretence was.</p>
+<p>Originally they wanted to have the United States</p>
+<p>deliver some promised airplanes.</p>
+<p>It was all made up, and all these demands were bogus.</p>
+<p>Bogus, I don&rsquo;t know really, but eventually</p>
+<p>he was executed in front of a camera.</p>
+<p>At the core of that is hate and intolerance.</p>
+<p>At the core, yes, absolutely, yes.</p>
+<p>We don&rsquo;t really appreciate the depth of the hate</p>
+<p>at which billions of peoples are educated.</p>
+<p>We don&rsquo;t understand it.</p>
+<p>I just listened recently to what they teach you</p>
+<p>in Mogadishu.</p>
+<p>Okay, okay, when the water stopped in the tap,</p>
+<p>we knew exactly who did it, the Jews.</p>
+<p>The Jews.</p>
+<p>We didn&rsquo;t know how, but we knew who did it.</p>
+<p>We don&rsquo;t appreciate what it means to us.</p>
+<p>The depth is unbelievable.</p>
+<p>Do you think all of us are capable of evil?</p>
+<p>And the education, the indoctrination</p>
+<p>is really what creates evil.</p>
+<p>Absolutely we are capable of evil.</p>
+<p>If you&rsquo;re indoctrinated sufficiently long and in depth,</p>
+<p>you&rsquo;re capable of ISIS, you&rsquo;re capable of Nazism.</p>
+<p>Yes, we are, but the question is whether we,</p>
+<p>after we have gone through some Western education</p>
+<p>and we learn that everything is really relative.</p>
+<p>It is not absolute God.</p>
+<p>It&rsquo;s only a belief in God.</p>
+<p>Whether we are capable now of being transformed</p>
+<p>under certain circumstances to become brutal.</p>
+<p>Yeah.</p>
+<p>I&rsquo;m worried about it because some people say yes,</p>
+<p>given the right circumstances,</p>
+<p>given bad economical crisis,</p>
+<p>you are capable of doing it too.</p>
+<p>That worries me.</p>
+<p>I want to believe it, I&rsquo;m not capable.</p>
+<p>So seven years after Daniel&rsquo;s death,</p>
+<p>you wrote an article at the Wall Street Journal</p>
+<p>titled Daniel Pearl and the Normalization of Evil.</p>
+<p>Yes.</p>
+<p>What was your message back then</p>
+<p>and how did it change today over the years?</p>
+<p>I lost.</p>
+<p>What was the message?</p>
+<p>The message was that we are not treating terrorism</p>
+<p>as a taboo.</p>
+<p>We are treating it as a bargaining device that is accepted.</p>
+<p>People have grievance and they go and bomb restaurants.</p>
+<p>It&rsquo;s normal.</p>
+<p>Look, you&rsquo;re even not surprised when I tell you that.</p>
+<p>20 years ago you say, what?</p>
+<p>For grievance you go and blow a restaurant?</p>
+<p>Today it&rsquo;s becoming normalized.</p>
+<p>The banalization of evil.</p>
+<p>And we have created that to ourselves by normalizing,</p>
+<p>by making it part of political life.</p>
+<p>It&rsquo;s a political debate.</p>
+<p>Every terrorist yesterday becomes a freedom fighter today</p>
+<p>and tomorrow it becomes terrorist again.</p>
+<p>It&rsquo;s switchable.</p>
+<p>Right, and so we should call out evil when there&rsquo;s evil.</p>
+<p>If we don&rsquo;t want to be part of it.</p>
+<p>Becoming.</p>
+<p>Yeah, if we want to separate good from evil,</p>
+<p>that&rsquo;s one of the first things that,</p>
+<p>what was it, in the Garden of Eden,</p>
+<p>remember the first thing that God told him was,</p>
+<p>hey, you want some knowledge, here&rsquo;s a tree of good and evil.</p>
+<p>Yeah, so this evil touched your life personally.</p>
+<p>Does your heart have anger, sadness, or is it hope?</p>
+<p>Look, I see some beautiful people coming from Pakistan.</p>
+<p>I see beautiful people everywhere.</p>
+<p>But I see horrible propagation of evil in this country too.</p>
+<p>It shows you how populistic slogans</p>
+<p>can catch the mind of the best intellectuals.</p>
+<p>Today is Father&rsquo;s Day.</p>
+<p>I didn&rsquo;t know that.</p>
+<p>Yeah, what&rsquo;s a fond memory you have of Daniel?</p>
+<p>What&rsquo;s a fond memory you have of Daniel?</p>
+<p>Oh, very good memories, immense.</p>
+<p>He was my mentor.</p>
+<p>He had a sense of balance that I didn&rsquo;t have.</p>
+<p>He saw the beauty in every person.</p>
+<p>He was not as emotional as I am,</p>
+<p>the more looking things in perspective.</p>
+<p>He really liked every person.</p>
+<p>He really grew up with the idea that a foreigner</p>
+<p>is a reason for curiosity, not for fear.</p>
+<p>That one time we went in Berkeley,</p>
+<p>and a homeless came out from some dark alley,</p>
+<p>and said, hey, man, can you spare a dime?</p>
+<p>I retreated back, two feet back,</p>
+<p>and then I just hugged him and say,</p>
+<p>here&rsquo;s a dime, enjoy yourself.</p>
+<p>Maybe you want some money to take a bus or whatever.</p>
+<p>Where did you get it?</p>
+<p>Not from me.</p>
+<p>Do you have advice for young minds today,</p>
+<p>dreaming about creating as you have dreamt,</p>
+<p>creating intelligent systems?</p>
+<p>What is the best way to arrive at new breakthrough ideas</p>
+<p>and carry them through the fire of criticism</p>
+<p>and past conventional ideas?</p>
+<p>Ask your questions freely.</p>
+<p>Your questions are never dumb.</p>
+<p>And solve them your own way.</p>
+<p>And don&rsquo;t take no for an answer.</p>
+<p>Look, if they are really dumb,</p>
+<p>you will find out quickly by trying an arrow</p>
+<p>to see that they&rsquo;re not leading any place.</p>
+<p>But follow them and try to understand things your way.</p>
+<p>That is my advice.</p>
+<p>I don&rsquo;t know if it&rsquo;s gonna help anyone.</p>
+<p>Not as brilliantly.</p>
+<p>There is a lot of inertia in science, in academia.</p>
+<p>It is slowing down science.</p>
+<p>Yeah, those two words, your way, that&rsquo;s a powerful thing.</p>
+<p>It&rsquo;s against inertia, potentially, against the flow.</p>
+<p>Against your professor.</p>
+<p>I wrote the Book of Why in order to democratize</p>
+<p>common sense.</p>
+<p>In order to instill rebellious spirit in students</p>
+<p>so they wouldn&rsquo;t wait until the professor get things right.</p>
+<p>So you wrote the manifesto of the rebellion</p>
+<p>against the professor.</p>
+<p>Against the professor, yes.</p>
+<p>So looking back at your life of research,</p>
+<p>what ideas do you hope ripple through the next many decades?</p>
+<p>What do you hope your legacy will be?</p>
+<p>I already have a tombstone carved.</p>
+<p>Oh, boy.</p>
+<p>The fundamental law of counterfactuals.</p>
+<p>That&rsquo;s what, it&rsquo;s a simple equation.</p>
+<p>Counterfactual in terms of a model surgery.</p>
+<p>That&rsquo;s it, because everything follows from that.</p>
+<p>If you get that, all the rest, I can die in peace.</p>
+<p>And my student can derive all my knowledge</p>
+<p>by mathematical means.</p>
+<p>The rest follows.</p>
+<p>Yeah.</p>
+<p>Thank you so much for talking today.</p>
+<p>I really appreciate it.</p>
+<p>Thank you for being so attentive and instigating.</p>
+<p>We did it.</p>
+<p>The coffee helped.</p>
+<p>Thanks for listening to this conversation with Judea Pearl.</p>
+<p>And thank you to our presenting sponsor, Cash App.</p>
+<p>Download it, use code LexPodcast, you&rsquo;ll get $10,</p>
+<p>and $10 will go to FIRST, a STEM education nonprofit</p>
+<p>that inspires hundreds of thousands of young minds</p>
+<p>to learn and to dream of engineering our future.</p>
+<p>If you enjoy this podcast, subscribe on YouTube,</p>
+<p>give it five stars on Apple Podcast,</p>
+<p>support on Patreon, or simply connect with me on Twitter.</p>
+<p>And now, let me leave you with some words of wisdom</p>
+<p>from Judea Pearl.</p>
+<p>You cannot answer a question that you cannot ask,</p>
+<p>and you cannot ask a question that you have no words for.</p>
+<p>Thank you for listening, and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

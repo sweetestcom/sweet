@@ -1,0 +1,2990 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with David Silver,
+who leads the Reinforcement Learning Research Group
+at DeepMind, and was the lead researcher
+on AlphaGo, AlphaZero, and co led the AlphaStar
+and MuZero efforts, and a lot of important work
+in reinforcement learning in general.
+I believe AlphaZero is one of the most important
+accomplishments in the history of artificial intelligence.
+And David is one of the key humans who brought AlphaZero'>
+<title>Lex Fridman Podcast - #86 - David Silver: AlphaGo, AlphaZero, and Deep Reinforcement Learning | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500086/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #86 - David Silver: AlphaGo, AlphaZero, and Deep Reinforcement Learning'>
+<meta property='og:description' content='The following is a conversation with David Silver,
+who leads the Reinforcement Learning Research Group
+at DeepMind, and was the lead researcher
+on AlphaGo, AlphaZero, and co led the AlphaStar
+and MuZero efforts, and a lot of important work
+in reinforcement learning in general.
+I believe AlphaZero is one of the most important
+accomplishments in the history of artificial intelligence.
+And David is one of the key humans who brought AlphaZero'>
+<meta property='og:url' content='https://swiest.com/en/1310500086/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-05-25T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-05-25T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #86 - David Silver: AlphaGo, AlphaZero, and Deep Reinforcement Learning">
+<meta name="twitter:description" content="The following is a conversation with David Silver,
+who leads the Reinforcement Learning Research Group
+at DeepMind, and was the lead researcher
+on AlphaGo, AlphaZero, and co led the AlphaStar
+and MuZero efforts, and a lot of important work
+in reinforcement learning in general.
+I believe AlphaZero is one of the most important
+accomplishments in the history of artificial intelligence.
+And David is one of the key humans who brought AlphaZero">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500086/">Lex Fridman Podcast - #86 - David Silver: AlphaGo, AlphaZero, and Deep Reinforcement Learning</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-05-25</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    83 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with David Silver,</p>
+<p>who leads the Reinforcement Learning Research Group</p>
+<p>at DeepMind, and was the lead researcher</p>
+<p>on AlphaGo, AlphaZero, and co led the AlphaStar</p>
+<p>and MuZero efforts, and a lot of important work</p>
+<p>in reinforcement learning in general.</p>
+<p>I believe AlphaZero is one of the most important</p>
+<p>accomplishments in the history of artificial intelligence.</p>
+<p>And David is one of the key humans who brought AlphaZero</p>
+<p>to life together with a lot of other great researchers</p>
+<p>at DeepMind.</p>
+<p>He&rsquo;s humble, kind, and brilliant.</p>
+<p>We were both jet lagged, but didn&rsquo;t care and made it happen.</p>
+<p>It was a pleasure and truly an honor to talk with David.</p>
+<p>This conversation was recorded before the outbreak</p>
+<p>of the pandemic.</p>
+<p>For everyone feeling the medical, psychological,</p>
+<p>and financial burden of this crisis,</p>
+<p>I&rsquo;m sending love your way.</p>
+<p>Stay strong, we&rsquo;re in this together, we&rsquo;ll beat this thing.</p>
+<p>This is the Artificial Intelligence Podcast.</p>
+<p>If you enjoy it, subscribe on YouTube,</p>
+<p>review it with five stars on Apple Podcast,</p>
+<p>support on Patreon, or simply connect with me on Twitter</p>
+<p>at Lex Friedman, spelled F R I D M A N.</p>
+<p>As usual, I&rsquo;ll do a few minutes of ads now</p>
+<p>and never any ads in the middle</p>
+<p>that can break the flow of the conversation.</p>
+<p>I hope that works for you</p>
+<p>and doesn&rsquo;t hurt the listening experience.</p>
+<p>Quick summary of the ads.</p>
+<p>Two sponsors, Masterclass and Cash App.</p>
+<p>Please consider supporting the podcast</p>
+<p>by signing up to Masterclass and masterclass.com slash Lex</p>
+<p>and downloading Cash App and using code LexPodcast.</p>
+<p>This show is presented by Cash App,</p>
+<p>the number one finance app in the app store.</p>
+<p>When you get it, use code LexPodcast.</p>
+<p>Cash App lets you send money to friends, buy Bitcoin,</p>
+<p>and invest in the stock market with as little as $1.</p>
+<p>Since Cash App allows you to buy Bitcoin,</p>
+<p>let me mention that cryptocurrency</p>
+<p>in the context of the history of money is fascinating.</p>
+<p>I recommend Ascent of Money as a great book on this history.</p>
+<p>Debits and credits on Ledger started around 30,000 years ago.</p>
+<p>The US dollar created over 200 years ago,</p>
+<p>and Bitcoin, the first decentralized cryptocurrency,</p>
+<p>released just over 10 years ago.</p>
+<p>So given that history, cryptocurrency is still very much</p>
+<p>in its early days of development,</p>
+<p>but it&rsquo;s still aiming to and just might</p>
+<p>redefine the nature of money.</p>
+<p>So again, if you get Cash App from the app store or Google Play</p>
+<p>and use the code LexPodcast, you get $10,</p>
+<p>and Cash App will also donate $10 to FIRST,</p>
+<p>an organization that is helping to advance robotics</p>
+<p>and STEM education for young people around the world.</p>
+<p>This show is sponsored by Masterclass.</p>
+<p>Sign up at masterclass.com slash Lex</p>
+<p>to get a discount and to support this podcast.</p>
+<p>In fact, for a limited time now,</p>
+<p>if you sign up for an all access pass for a year,</p>
+<p>you get to get another all access pass</p>
+<p>to share with a friend.</p>
+<p>Buy one, get one free.</p>
+<p>When I first heard about Masterclass,</p>
+<p>I thought it was too good to be true.</p>
+<p>For $180 a year, you get an all access pass</p>
+<p>to watch courses from to list some of my favorites.</p>
+<p>Chris Hadfield on space exploration,</p>
+<p>Neil deGrasse Tyson on scientific thinking communication,</p>
+<p>Will Wright, the creator of SimCity and Sims on game design,</p>
+<p>Jane Goodall on conservation,</p>
+<p>Carlos Santana on guitar.</p>
+<p>His song Europa could be the most beautiful</p>
+<p>guitar song ever written.</p>
+<p>Gary Kasparov on chess, Daniel Negrano on poker,</p>
+<p>and many, many more.</p>
+<p>Chris Hadfield explaining how rockets work</p>
+<p>and the experience of being launched into space alone</p>
+<p>is worth the money.</p>
+<p>For me, the key is to not be overwhelmed</p>
+<p>by the abundance of choice.</p>
+<p>Pick three courses you want to complete,</p>
+<p>watch each of them all the way through.</p>
+<p>It&rsquo;s not that long, but it&rsquo;s an experience</p>
+<p>that will stick with you for a long time, I promise.</p>
+<p>It&rsquo;s easily worth the money.</p>
+<p>You can watch it on basically any device.</p>
+<p>Once again, sign up on masterclass.com slash Lex</p>
+<p>to get a discount and to support this podcast.</p>
+<p>And now, here&rsquo;s my conversation with David Silver.</p>
+<p>What was the first program you&rsquo;ve ever written?</p>
+<p>And what programming language?</p>
+<p>Do you remember?</p>
+<p>I remember very clearly, yeah.</p>
+<p>My parents brought home this BBC Model B microcomputer.</p>
+<p>It was just this fascinating thing to me.</p>
+<p>I was about seven years old and couldn&rsquo;t resist</p>
+<p>just playing around with it.</p>
+<p>So I think first program ever was writing my name out</p>
+<p>in different colors and getting it to loop and repeat that.</p>
+<p>And there was something magical about that,</p>
+<p>which just led to more and more.</p>
+<p>How did you think about computers back then?</p>
+<p>Like the magical aspect of it, that you can write a program</p>
+<p>and there&rsquo;s this thing that you just gave birth to</p>
+<p>that&rsquo;s able to create sort of visual elements</p>
+<p>and live in its own.</p>
+<p>Or did you not think of it in those romantic notions?</p>
+<p>Was it more like, oh, that&rsquo;s cool.</p>
+<p>I can solve some puzzles.</p>
+<p>It was always more than solving puzzles.</p>
+<p>It was something where, you know,</p>
+<p>there was this limitless possibilities.</p>
+<p>Once you have a computer in front of you,</p>
+<p>you can do anything with it.</p>
+<p>I used to play with Lego with the same feeling.</p>
+<p>You can make anything you want out of Lego,</p>
+<p>but even more so with a computer, you know,</p>
+<p>you&rsquo;re not constrained by the amount of kit you&rsquo;ve got.</p>
+<p>And so I was fascinated by it and started pulling out</p>
+<p>the user guide and the advanced user guide</p>
+<p>and then learning.</p>
+<p>So I started in basic and then later 6502.</p>
+<p>My father also became interested in this machine</p>
+<p>and gave up his career to go back to school</p>
+<p>and study for a master&rsquo;s degree</p>
+<p>in artificial intelligence, funnily enough,</p>
+<p>at Essex University when I was seven.</p>
+<p>So I was exposed to those things at an early age.</p>
+<p>He showed me how to program in prologue</p>
+<p>and do things like querying your family tree.</p>
+<p>And those are some of my earliest memories</p>
+<p>of trying to figure things out on a computer.</p>
+<p>Those are the early steps in computer science programming,</p>
+<p>but when did you first fall in love</p>
+<p>with artificial intelligence or with the ideas,</p>
+<p>the dreams of AI?</p>
+<p>I think it was really when I went to study at university.</p>
+<p>So I was an undergrad at Cambridge</p>
+<p>and studying computer science.</p>
+<p>And I really started to question,</p>
+<p>you know, what really are the goals?</p>
+<p>What&rsquo;s the goal?</p>
+<p>Where do we want to go with computer science?</p>
+<p>And it seemed to me that the only step</p>
+<p>of major significance to take was to try</p>
+<p>and recreate something akin to human intelligence.</p>
+<p>If we could do that, that would be a major leap forward.</p>
+<p>And that idea, I certainly wasn&rsquo;t the first to have it,</p>
+<p>but it, you know, nestled within me somewhere</p>
+<p>and became like a bug.</p>
+<p>You know, I really wanted to crack that problem.</p>
+<p>So you thought it was, like you had a notion</p>
+<p>that this is something that human beings can do,</p>
+<p>that it is possible to create an intelligent machine.</p>
+<p>Well, I mean, unless you believe in something metaphysical,</p>
+<p>then what are our brains doing?</p>
+<p>Well, at some level they&rsquo;re information processing systems,</p>
+<p>which are able to take whatever information is in there,</p>
+<p>transform it through some form of program</p>
+<p>and produce some kind of output,</p>
+<p>which enables that human being to do all the amazing things</p>
+<p>that they can do in this incredible world.</p>
+<p>So then do you remember the first time</p>
+<p>you&rsquo;ve written a program that,</p>
+<p>because you also had an interest in games.</p>
+<p>Do you remember the first time you were in a program</p>
+<p>that beat you in a game?</p>
+<p>That more beat you at anything?</p>
+<p>Sort of achieved super David Silver level performance?</p>
+<p>So I used to work in the games industry.</p>
+<p>So for five years I programmed games for my first job.</p>
+<p>So it was an amazing opportunity</p>
+<p>to get involved in a startup company.</p>
+<p>And so I was involved in building AI at that time.</p>
+<p>And so for sure there was a sense of building handcrafted,</p>
+<p>what people used to call AI in the games industry,</p>
+<p>which I think is not really what we might think of as AI</p>
+<p>in its fullest sense,</p>
+<p>but something which is able to take actions</p>
+<p>and in a way which makes things interesting</p>
+<p>and challenging for the human player.</p>
+<p>And at that time I was able to build</p>
+<p>these handcrafted agents,</p>
+<p>which in certain limited cases could do things</p>
+<p>which were able to do better than me,</p>
+<p>but mostly in these kind of Twitch like scenarios</p>
+<p>where they were able to do things faster</p>
+<p>or because they had some pattern</p>
+<p>which was able to exploit repeatedly.</p>
+<p>I think if we&rsquo;re talking about real AI,</p>
+<p>the first experience for me came after that</p>
+<p>when I realized that this path I was on</p>
+<p>wasn&rsquo;t taking me towards,</p>
+<p>it wasn&rsquo;t dealing with that bug which I still had inside me</p>
+<p>to really understand intelligence and try and solve it.</p>
+<p>That everything people were doing in games</p>
+<p>was short term fixes rather than long term vision.</p>
+<p>And so I went back to study for my PhD,</p>
+<p>which was funny enough trying to apply reinforcement learning</p>
+<p>to the game of Go.</p>
+<p>And I built my first Go program using reinforcement learning,</p>
+<p>a system which would by trial and error play against itself</p>
+<p>and was able to learn which patterns were actually helpful</p>
+<p>to predict whether it was gonna win or lose the game</p>
+<p>and then choose the moves that led</p>
+<p>to the combination of patterns</p>
+<p>that would mean that you&rsquo;re more likely to win.</p>
+<p>And that system, that system beat me.</p>
+<p>And how did that make you feel?</p>
+<p>Made me feel good.</p>
+<p>I mean, was there sort of the, yeah,</p>
+<p>it&rsquo;s a mix of a sort of excitement</p>
+<p>and was there a tinge of sort of like,</p>
+<p>almost like a fearful awe?</p>
+<p>You know, it&rsquo;s like in space, 2001 Space Odyssey</p>
+<p>kind of realizing that you&rsquo;ve created something that,</p>
+<p>you know, that&rsquo;s achieved human level intelligence</p>
+<p>in this one particular little task.</p>
+<p>And in that case, I suppose neural networks</p>
+<p>weren&rsquo;t involved.</p>
+<p>There were no neural networks in those days.</p>
+<p>This was pre deep learning revolution.</p>
+<p>But it was a principled self learning system</p>
+<p>based on a lot of the principles which people</p>
+<p>are still using in deep reinforcement learning.</p>
+<p>How did I feel?</p>
+<p>I think I found it immensely satisfying</p>
+<p>that a system which was able to learn</p>
+<p>from first principles for itself</p>
+<p>was able to reach the point</p>
+<p>that it was understanding this domain</p>
+<p>better than I could and able to outwit me.</p>
+<p>I don&rsquo;t think it was a sense of awe.</p>
+<p>It was a sense that satisfaction,</p>
+<p>that something I felt should work had worked.</p>
+<p>So to me, AlphaGo, and I don&rsquo;t know how else to put it,</p>
+<p>but to me, AlphaGo and AlphaGo Zero,</p>
+<p>mastering the game of Go is again, to me,</p>
+<p>the most profound and inspiring moment</p>
+<p>in the history of artificial intelligence.</p>
+<p>So you&rsquo;re one of the key people behind this achievement</p>
+<p>and I&rsquo;m Russian.</p>
+<p>So I really felt the first sort of seminal achievement</p>
+<p>when Deep Blue beat Garry Kasparov in 1987.</p>
+<p>So as far as I know, the AI community at that point</p>
+<p>largely saw the game of Go as unbeatable in AI</p>
+<p>using the sort of the state of the art</p>
+<p>brute force methods, search methods.</p>
+<p>Even if you consider, at least the way I saw it,</p>
+<p>even if you consider arbitrary exponential scaling</p>
+<p>of compute, Go would still not be solvable,</p>
+<p>hence why it was thought to be impossible.</p>
+<p>So given that the game of Go was impossible to master,</p>
+<p>what was the dream for you?</p>
+<p>You just mentioned your PhD thesis</p>
+<p>of building the system that plays Go.</p>
+<p>What was the dream for you that you could actually</p>
+<p>build a computer program that achieves world class,</p>
+<p>not necessarily beats the world champion,</p>
+<p>but achieves that kind of level of playing Go?</p>
+<p>First of all, thank you, that&rsquo;s very kind words.</p>
+<p>And funnily enough, I just came from a panel</p>
+<p>where I was actually in a conversation</p>
+<p>with Garry Kasparov and Murray Campbell,</p>
+<p>who was the author of Deep Blue.</p>
+<p>And it was their first meeting together since the match.</p>
+<p>So that just occurred yesterday.</p>
+<p>So I&rsquo;m literally fresh from that experience.</p>
+<p>So these are amazing moments when they happen,</p>
+<p>but where did it all start?</p>
+<p>Well, for me, it started when I became fascinated</p>
+<p>in the game of Go.</p>
+<p>So Go for me, I&rsquo;ve grown up playing games.</p>
+<p>I&rsquo;ve always had a fascination in board games.</p>
+<p>I played chess as a kid, I played Scrabble as a kid.</p>
+<p>When I was at university, I discovered the game of Go.</p>
+<p>And to me, it just blew all of those other games</p>
+<p>out of the water.</p>
+<p>It was just so deep and profound in its complexity</p>
+<p>with endless levels to it.</p>
+<p>What I discovered was that I could devote</p>
+<p>endless hours to this game.</p>
+<p>And I knew in my heart of hearts</p>
+<p>that no matter how many hours I would devote to it,</p>
+<p>I would never become a grandmaster,</p>
+<p>or there was another path.</p>
+<p>And the other path was to try and understand</p>
+<p>how you could get some other intelligence</p>
+<p>to play this game better than I would be able to.</p>
+<p>And so even in those days, I had this idea that,</p>
+<p>what if, what if it was possible to build a program</p>
+<p>that could crack this?</p>
+<p>And as I started to explore the domain,</p>
+<p>I discovered that this was really the domain</p>
+<p>where people felt deeply that if progress</p>
+<p>could be made in Go,</p>
+<p>it would really mean a giant leap forward for AI.</p>
+<p>It was the challenge where all other approaches had failed.</p>
+<p>This is coming out of the era you mentioned,</p>
+<p>which was in some sense, the golden era</p>
+<p>for the classical methods of AI, like heuristic search.</p>
+<p>In the 90s, they all fell one after another,</p>
+<p>not just chess with deep blue, but checkers,</p>
+<p>backgammon, Othello.</p>
+<p>There were numerous cases where systems</p>
+<p>built on top of heuristic search methods</p>
+<p>with these high performance systems</p>
+<p>had been able to defeat the human world champion</p>
+<p>in each of those domains.</p>
+<p>And yet in that same time period,</p>
+<p>there was a million dollar prize available</p>
+<p>for the game of Go, for the first system</p>
+<p>to be a human professional player.</p>
+<p>And at the end of that time period,</p>
+<p>in year 2000 when the prize expired,</p>
+<p>the strongest Go program in the world</p>
+<p>was defeated by a nine year old child</p>
+<p>when that nine year old child was giving nine free moves</p>
+<p>to the computer at the start of the game</p>
+<p>to try and even things up.</p>
+<p>And computer Go expert beat that same strongest program</p>
+<p>with 29 handicapped stones, 29 free moves.</p>
+<p>So that&rsquo;s what the state of affairs was</p>
+<p>when I became interested in this problem</p>
+<p>in around 2003 when I started working on computer Go.</p>
+<p>There was nothing, there was very, very little</p>
+<p>in the way of progress towards meaningful performance,</p>
+<p>again, anything approaching human level.</p>
+<p>And so people, it wasn&rsquo;t through lack of effort,</p>
+<p>people had tried many, many things.</p>
+<p>And so there was a strong sense</p>
+<p>that something different would be required for Go</p>
+<p>than had been needed for all of these other domains</p>
+<p>where AI had been successful.</p>
+<p>And maybe the single clearest example</p>
+<p>is that Go, unlike those other domains,</p>
+<p>had this kind of intuitive property</p>
+<p>that a Go player would look at a position</p>
+<p>and say, hey, here&rsquo;s this mess of black and white stones.</p>
+<p>But from this mess, oh, I can predict</p>
+<p>that this part of the board has become my territory,</p>
+<p>this part of the board has become your territory,</p>
+<p>and I&rsquo;ve got this overall sense that I&rsquo;m gonna win</p>
+<p>and that this is about the right move to play.</p>
+<p>And that intuitive sense of judgment,</p>
+<p>of being able to evaluate what&rsquo;s going on in a position,</p>
+<p>it was pivotal to humans being able to play this game</p>
+<p>and something that people had no idea</p>
+<p>how to put into computers.</p>
+<p>So this question of how to evaluate a position,</p>
+<p>how to come up with these intuitive judgments</p>
+<p>was the key reason why Go was so hard</p>
+<p>in addition to its enormous search space,</p>
+<p>and the reason why methods</p>
+<p>which had succeeded so well elsewhere failed in Go.</p>
+<p>And so people really felt deep down that in order to crack Go</p>
+<p>we would need to get something akin to human intuition.</p>
+<p>And if we got something akin to human intuition,</p>
+<p>we&rsquo;d be able to solve many, many more problems in AI.</p>
+<p>So for me, that was the moment where it&rsquo;s like,</p>
+<p>okay, this is not just about playing the game of Go,</p>
+<p>this is about something profound.</p>
+<p>And it was back to that bug</p>
+<p>which had been itching me all those years.</p>
+<p>This is the opportunity to do something meaningful</p>
+<p>and transformative, and I guess a dream was born.</p>
+<p>That&rsquo;s a really interesting way to put it.</p>
+<p>So almost this realization that you need to find,</p>
+<p>formulate Go as a kind of a prediction problem</p>
+<p>versus a search problem was the intuition.</p>
+<p>I mean, maybe that&rsquo;s the wrong crude term,</p>
+<p>but to give it the ability to kind of intuit things</p>
+<p>about positional structure of the board.</p>
+<p>Now, okay, but what about the learning part of it?</p>
+<p>Did you have a sense that you have to,</p>
+<p>that learning has to be part of the system?</p>
+<p>Again, something that hasn&rsquo;t really as far as I think,</p>
+<p>except with TD Gammon in the 90s with RL a little bit,</p>
+<p>hasn&rsquo;t been part of those state of the art game playing</p>
+<p>systems.</p>
+<p>So I strongly felt that learning would be necessary.</p>
+<p>And that&rsquo;s why my PhD topic back then was trying</p>
+<p>to apply reinforcement learning to the game of Go</p>
+<p>and not just learning of any type,</p>
+<p>but I felt that the only way to really have a system</p>
+<p>to progress beyond human levels of performance</p>
+<p>wouldn&rsquo;t just be to mimic how humans do it,</p>
+<p>but to understand for themselves.</p>
+<p>And how else can a machine hope to understand</p>
+<p>what&rsquo;s going on except through learning?</p>
+<p>If you&rsquo;re not learning, what else are you doing?</p>
+<p>Well, you&rsquo;re putting all the knowledge into the system.</p>
+<p>And that just feels like something which decades of AI</p>
+<p>have told us is maybe not a dead end,</p>
+<p>but certainly has a ceiling to the capabilities.</p>
+<p>It&rsquo;s known as the knowledge acquisition bottleneck,</p>
+<p>that the more you try to put into something,</p>
+<p>the more brittle the system becomes.</p>
+<p>And so you just have to have learning.</p>
+<p>You have to have learning.</p>
+<p>That&rsquo;s the only way you&rsquo;re going to be able to get a system</p>
+<p>which has sufficient knowledge in it,</p>
+<p>millions and millions of pieces of knowledge,</p>
+<p>billions, trillions of a form</p>
+<p>that it can actually apply for itself</p>
+<p>and understand how those billions and trillions</p>
+<p>of pieces of knowledge can be leveraged in a way</p>
+<p>which will actually lead it towards its goal</p>
+<p>without conflict or other issues.</p>
+<p>Yeah, I mean, if I put myself back in that time,</p>
+<p>I just wouldn&rsquo;t think like that.</p>
+<p>Without a good demonstration of RL,</p>
+<p>I would think more in the symbolic AI,</p>
+<p>like not learning, but sort of a simulation</p>
+<p>of knowledge base, like a growing knowledge base,</p>
+<p>but it would still be sort of pattern based,</p>
+<p>like basically have little rules</p>
+<p>that you kind of assemble together</p>
+<p>into a large knowledge base.</p>
+<p>Well, in a sense, that was the state of the art back then.</p>
+<p>So if you look at the Go programs,</p>
+<p>which had been competing for this prize I mentioned,</p>
+<p>they were an assembly of different specialized systems,</p>
+<p>some of which used huge amounts of human knowledge</p>
+<p>to describe how you should play the opening,</p>
+<p>how you should, all the different patterns</p>
+<p>that were required to play well in the game of Go,</p>
+<p>end game theory, combinatorial game theory,</p>
+<p>and combined with more principled search based methods,</p>
+<p>which were trying to solve for particular sub parts</p>
+<p>of the game, like life and death,</p>
+<p>connecting groups together,</p>
+<p>all these amazing sub problems</p>
+<p>that just emerge in the game of Go,</p>
+<p>there were different pieces all put together</p>
+<p>into this like collage,</p>
+<p>which together would try and play against a human.</p>
+<p>And although not all of the pieces were handcrafted,</p>
+<p>the overall effect was nevertheless still brittle,</p>
+<p>and it was hard to make all these pieces work well together.</p>
+<p>And so really, what I was pressing for</p>
+<p>and the main innovation of the approach I took</p>
+<p>was to go back to first principles and say,</p>
+<p>well, let&rsquo;s back off that</p>
+<p>and try and find a principled approach</p>
+<p>where the system can learn for itself,</p>
+<p>just from the outcome, like learn for itself.</p>
+<p>If you try something, did that help or did it not help?</p>
+<p>And only through that procedure can you arrive at knowledge,</p>
+<p>which is verified.</p>
+<p>The system has to verify it for itself,</p>
+<p>not relying on any other third party</p>
+<p>to say this is right or this is wrong.</p>
+<p>And so that principle was already very important</p>
+<p>in those days, but unfortunately,</p>
+<p>we were missing some important pieces back then.</p>
+<p>So before we dive into maybe</p>
+<p>discussing the beauty of reinforcement learning,</p>
+<p>let&rsquo;s take a step back, we kind of skipped it a bit,</p>
+<p>but the rules of the game of Go,</p>
+<p>what the elements of it perhaps contrasting to chess</p>
+<p>that sort of you really enjoyed as a human being,</p>
+<p>and also that make it really difficult</p>
+<p>as a AI machine learning problem.</p>
+<p>So the game of Go has remarkably simple rules.</p>
+<p>In fact, so simple that people have speculated</p>
+<p>that if we were to meet alien life at some point,</p>
+<p>that we wouldn&rsquo;t be able to communicate with them,</p>
+<p>but we would be able to play Go with them.</p>
+<p>Probably have discovered the same rule set.</p>
+<p>So the game is played on a 19 by 19 grid,</p>
+<p>and you play on the intersections of the grid</p>
+<p>and the players take turns.</p>
+<p>And the aim of the game is very simple.</p>
+<p>It&rsquo;s to surround as much territory as you can,</p>
+<p>as many of these intersections with your stones</p>
+<p>and to surround more than your opponent does.</p>
+<p>And the only nuance to the game is that</p>
+<p>if you fully surround your opponent&rsquo;s piece,</p>
+<p>then you get to capture it and remove it from the board</p>
+<p>and it counts as your own territory.</p>
+<p>Now from those very simple rules, immense complexity arises.</p>
+<p>There&rsquo;s kind of profound strategies</p>
+<p>in how to surround territory,</p>
+<p>how to kind of trade off between</p>
+<p>making solid territory yourself now</p>
+<p>compared to building up influence</p>
+<p>that will help you acquire territory later in the game,</p>
+<p>how to connect groups together,</p>
+<p>how to keep your own groups alive,</p>
+<p>which patterns of stones are most useful</p>
+<p>compared to others.</p>
+<p>There&rsquo;s just immense knowledge.</p>
+<p>And human Go players have played this game for,</p>
+<p>it was discovered thousands of years ago,</p>
+<p>and human Go players have built up</p>
+<p>this immense knowledge base over the years.</p>
+<p>It&rsquo;s studied very deeply and played by</p>
+<p>something like 50 million players across the world,</p>
+<p>mostly in China, Japan, and Korea,</p>
+<p>where it&rsquo;s an important part of the culture,</p>
+<p>so much so that it&rsquo;s considered one of the</p>
+<p>four ancient arts that was required by Chinese scholars.</p>
+<p>So there&rsquo;s a deep history there.</p>
+<p>But there&rsquo;s interesting qualities.</p>
+<p>So if I sort of compare to chess,</p>
+<p>chess is in the same way as it is in Chinese culture for Go,</p>
+<p>and chess in Russia is also considered</p>
+<p>one of the sacred arts.</p>
+<p>So if we contrast sort of Go with chess,</p>
+<p>there&rsquo;s interesting qualities about Go.</p>
+<p>Maybe you can correct me if I&rsquo;m wrong,</p>
+<p>but the evaluation of a particular static board</p>
+<p>is not as reliable.</p>
+<p>Like you can&rsquo;t, in chess you can kind of assign points</p>
+<p>to the different units,</p>
+<p>and it&rsquo;s kind of a pretty good measure</p>
+<p>of who&rsquo;s winning, who&rsquo;s losing.</p>
+<p>It&rsquo;s not so clear.</p>
+<p>Yeah, so in the game of Go,</p>
+<p>you find yourself in a situation where</p>
+<p>both players have played the same number of stones.</p>
+<p>Actually, captures at a strong level of play</p>
+<p>happen very rarely, which means that</p>
+<p>at any moment in the game,</p>
+<p>you&rsquo;ve got the same number of white stones and black stones.</p>
+<p>And the only thing which differentiates</p>
+<p>how well you&rsquo;re doing is this intuitive sense</p>
+<p>of where are the territories ultimately</p>
+<p>going to form on this board?</p>
+<p>And if you look at the complexity of a real Go position,</p>
+<p>it&rsquo;s mind boggling that kind of question</p>
+<p>of what will happen in 300 moves from now</p>
+<p>when you see just a scattering of 20 white</p>
+<p>and black stones intermingled.</p>
+<p>And so that challenge is the reason</p>
+<p>why position evaluation is so hard in Go</p>
+<p>compared to other games.</p>
+<p>In addition to that, it has an enormous search space.</p>
+<p>So there&rsquo;s around 10 to the 170 positions</p>
+<p>in the game of Go.</p>
+<p>That&rsquo;s an astronomical number.</p>
+<p>And that search space is so great</p>
+<p>that traditional heuristic search methods</p>
+<p>that were so successful in things like Deep Blue</p>
+<p>and chess programs just kind of fall over in Go.</p>
+<p>So at which point did reinforcement learning</p>
+<p>enter your life, your research life, your way of thinking?</p>
+<p>We just talked about learning,</p>
+<p>but reinforcement learning is a very particular</p>
+<p>kind of learning.</p>
+<p>One that&rsquo;s both philosophically sort of profound,</p>
+<p>but also one that&rsquo;s pretty difficult to get to work</p>
+<p>as if we look back in the early days.</p>
+<p>So when did that enter your life</p>
+<p>and how did that work progress?</p>
+<p>So I had just finished working in the games industry</p>
+<p>at this startup company.</p>
+<p>And I took a year out to discover for myself</p>
+<p>exactly which path I wanted to take.</p>
+<p>I knew I wanted to study intelligence,</p>
+<p>but I wasn&rsquo;t sure what that meant at that stage.</p>
+<p>I really didn&rsquo;t feel I had the tools</p>
+<p>to decide on exactly which path I wanted to follow.</p>
+<p>So during that year, I read a lot.</p>
+<p>And one of the things I read was Saturn and Barto,</p>
+<p>the sort of seminal textbook</p>
+<p>on an introduction to reinforcement learning.</p>
+<p>And when I read that textbook,</p>
+<p>I just had this resonating feeling</p>
+<p>that this is what I understood intelligence to be.</p>
+<p>And this was the path that I felt would be necessary</p>
+<p>to go down to make progress in AI.</p>
+<p>So I got in touch with Rich Saturn</p>
+<p>and asked him if he would be interested</p>
+<p>in supervising me on a PhD thesis in computer go.</p>
+<p>And he basically said</p>
+<p>that if he&rsquo;s still alive, he&rsquo;d be happy to.</p>
+<p>But unfortunately, he&rsquo;d been struggling</p>
+<p>with very serious cancer for some years.</p>
+<p>And he really wasn&rsquo;t confident at that stage</p>
+<p>that he&rsquo;d even be around to see the end event.</p>
+<p>But fortunately, that part of the story</p>
+<p>worked out very happily.</p>
+<p>And I found myself out there in Alberta.</p>
+<p>They&rsquo;ve got a great games group out there</p>
+<p>with a history of fantastic work in board games as well,</p>
+<p>as Rich Saturn, the father of RL.</p>
+<p>So it was the natural place for me to go in some sense</p>
+<p>to study this question.</p>
+<p>And the more I looked into it,</p>
+<p>the more strongly I felt that this</p>
+<p>wasn&rsquo;t just the path to progress in computer go.</p>
+<p>But really, this was the thing I&rsquo;d been looking for.</p>
+<p>This was really an opportunity</p>
+<p>to frame what intelligence means.</p>
+<p>Like what are the goals of AI in a clear,</p>
+<p>single clear problem definition,</p>
+<p>such that if we&rsquo;re able to solve</p>
+<p>that clear single problem definition,</p>
+<p>in some sense, we&rsquo;ve cracked the problem of AI.</p>
+<p>So to you, reinforcement learning ideas,</p>
+<p>at least sort of echoes of it,</p>
+<p>would be at the core of intelligence.</p>
+<p>It is at the core of intelligence.</p>
+<p>And if we ever create a human level intelligence system,</p>
+<p>it would be at the core of that kind of system.</p>
+<p>Let me say it this way, that I think it&rsquo;s helpful</p>
+<p>to separate out the problem from the solution.</p>
+<p>So I see the problem of intelligence,</p>
+<p>I would say it can be formalized</p>
+<p>as the reinforcement learning problem,</p>
+<p>and that that formalization is enough</p>
+<p>to capture most, if not all of the things</p>
+<p>that we mean by intelligence,</p>
+<p>that they can all be brought within this framework</p>
+<p>and gives us a way to access them in a meaningful way</p>
+<p>that allows us as scientists to understand intelligence</p>
+<p>and us as computer scientists to build them.</p>
+<p>And so in that sense, I feel that it gives us a path,</p>
+<p>maybe not the only path, but a path towards AI.</p>
+<p>And so do I think that any system in the future</p>
+<p>that&rsquo;s solved AI would have to have RL within it?</p>
+<p>Well, I think if you ask that,</p>
+<p>you&rsquo;re asking about the solution methods.</p>
+<p>I would say that if we have such a thing,</p>
+<p>it would be a solution to the RL problem.</p>
+<p>Now, what particular methods have been used to get there?</p>
+<p>Well, we should keep an open mind</p>
+<p>about the best approaches to actually solve any problem.</p>
+<p>And the things we have right now for reinforcement learning,</p>
+<p>maybe I believe they&rsquo;ve got a lot of legs,</p>
+<p>but maybe we&rsquo;re missing some things.</p>
+<p>Maybe there&rsquo;s gonna be better ideas.</p>
+<p>I think we should keep, let&rsquo;s remain modest</p>
+<p>and we&rsquo;re at the early days of this field</p>
+<p>and there are many amazing discoveries ahead of us.</p>
+<p>For sure, the specifics,</p>
+<p>especially of the different kinds of RL approaches currently,</p>
+<p>there could be other things that fall</p>
+<p>into the very large umbrella of RL.</p>
+<p>But if it&rsquo;s okay, can we take a step back</p>
+<p>and kind of ask the basic question</p>
+<p>of what is to you reinforcement learning?</p>
+<p>So reinforcement learning is the study</p>
+<p>and the science and the problem of intelligence</p>
+<p>in the form of an agent that interacts with an environment.</p>
+<p>So the problem you&rsquo;re trying to solve</p>
+<p>is represented by some environment,</p>
+<p>like the world in which that agent is situated.</p>
+<p>And the goal of RL is clear</p>
+<p>that the agent gets to take actions.</p>
+<p>Those actions have some effect on the environment</p>
+<p>and the environment gives back an observation</p>
+<p>to the agent saying, this is what you see or sense.</p>
+<p>And one special thing which it gives back</p>
+<p>is called the reward signal,</p>
+<p>how well it&rsquo;s doing in the environment.</p>
+<p>And the reinforcement learning problem</p>
+<p>is to simply take actions over time</p>
+<p>so as to maximize that reward signal.</p>
+<p>So a couple of basic questions.</p>
+<p>What types of RL approaches are there?</p>
+<p>So I don&rsquo;t know if there&rsquo;s a nice brief inwards way</p>
+<p>to paint the picture of sort of value based,</p>
+<p>model based, policy based reinforcement learning.</p>
+<p>Yeah, so now if we think about,</p>
+<p>okay, so there&rsquo;s this ambitious problem definition of RL.</p>
+<p>It&rsquo;s really, it&rsquo;s truly ambitious.</p>
+<p>It&rsquo;s trying to capture and encircle</p>
+<p>all of the things in which an agent interacts</p>
+<p>with an environment and say, well,</p>
+<p>how can we formalize and understand</p>
+<p>what it means to crack that?</p>
+<p>Now let&rsquo;s think about the solution method.</p>
+<p>Well, how do you solve a really hard problem like that?</p>
+<p>Well, one approach you can take</p>
+<p>is to decompose that very hard problem</p>
+<p>into pieces that work together to solve that hard problem.</p>
+<p>And so you can kind of look at the decomposition</p>
+<p>that&rsquo;s inside the agent&rsquo;s head, if you like,</p>
+<p>and ask, well, what form does that decomposition take?</p>
+<p>And some of the most common pieces that people use</p>
+<p>when they&rsquo;re kind of putting</p>
+<p>the solution method together,</p>
+<p>some of the most common pieces that people use</p>
+<p>are whether or not that solution has a value function.</p>
+<p>That means, is it trying to predict,</p>
+<p>explicitly trying to predict how much reward</p>
+<p>it will get in the future?</p>
+<p>Does it have a representation of a policy?</p>
+<p>That means something which is deciding how to pick actions.</p>
+<p>Is that decision making process explicitly represented?</p>
+<p>And is there a model in the system?</p>
+<p>Is there something which is explicitly trying to predict</p>
+<p>what will happen in the environment?</p>
+<p>And so those three pieces are, to me,</p>
+<p>some of the most common building blocks.</p>
+<p>And I understand the different choices in RL</p>
+<p>as choices of whether or not to use those building blocks</p>
+<p>when you&rsquo;re trying to decompose the solution.</p>
+<p>Should I have a value function represented?</p>
+<p>Should I have a policy represented?</p>
+<p>Should I have a model represented?</p>
+<p>And there are combinations of those pieces</p>
+<p>and, of course, other things that you could</p>
+<p>add into the picture as well.</p>
+<p>But those three fundamental choices</p>
+<p>give rise to some of the branches of RL</p>
+<p>with which we&rsquo;re very familiar.</p>
+<p>And so those, as you mentioned,</p>
+<p>there is a choice of what&rsquo;s specified</p>
+<p>or modeled explicitly.</p>
+<p>And the idea is that all of these</p>
+<p>are somehow implicitly learned within the system.</p>
+<p>So it&rsquo;s almost a choice of how you approach a problem.</p>
+<p>Do you see those as fundamental differences</p>
+<p>or are these almost like small specifics,</p>
+<p>like the details of how you solve a problem</p>
+<p>but they&rsquo;re not fundamentally different from each other?</p>
+<p>I think the fundamental idea is maybe at the higher level.</p>
+<p>The fundamental idea is the first step</p>
+<p>of the decomposition is really to say,</p>
+<p>well, how are we really gonna solve any kind of problem</p>
+<p>where you&rsquo;re trying to figure out how to take actions</p>
+<p>and just from this stream of observations,</p>
+<p>you&rsquo;ve got some agent situated in its sensory motor stream</p>
+<p>and getting all these observations in,</p>
+<p>getting to take these actions, and what should it do?</p>
+<p>How can you even broach that problem?</p>
+<p>You know, maybe the complexity of the world is so great</p>
+<p>that you can&rsquo;t even imagine how to build a system</p>
+<p>that would understand how to deal with that.</p>
+<p>And so the first step of this decomposition is to say,</p>
+<p>well, you have to learn.</p>
+<p>The system has to learn for itself.</p>
+<p>And so note that the reinforcement learning problem</p>
+<p>doesn&rsquo;t actually stipulate that you have to learn.</p>
+<p>Like you could maximize your rewards without learning.</p>
+<p>It would just, wouldn&rsquo;t do a very good job of it.</p>
+<p>So learning is required</p>
+<p>because it&rsquo;s the only way to achieve good performance</p>
+<p>in any sufficiently large and complex environment.</p>
+<p>So that&rsquo;s the first step.</p>
+<p>And so that step gives commonality</p>
+<p>to all of the other pieces,</p>
+<p>because now you might ask, well, what should you be learning?</p>
+<p>What does learning even mean?</p>
+<p>You know, in this sense, you know, learning might mean,</p>
+<p>well, you&rsquo;re trying to update the parameters</p>
+<p>of some system, which is then the thing</p>
+<p>that actually picks the actions.</p>
+<p>And those parameters could be representing anything.</p>
+<p>They could be parameterizing a value function or a model</p>
+<p>or a policy.</p>
+<p>And so in that sense, there&rsquo;s a lot of commonality</p>
+<p>in that whatever is being represented there</p>
+<p>is the thing which is being learned,</p>
+<p>and it&rsquo;s being learned with the ultimate goal</p>
+<p>of maximizing rewards.</p>
+<p>But the way in which you decompose the problem</p>
+<p>is really what gives the semantics to the whole system.</p>
+<p>Like, are you trying to learn something to predict well,</p>
+<p>like a value function or a model?</p>
+<p>Are you learning something to perform well, like a policy?</p>
+<p>And the form of that objective</p>
+<p>is kind of giving the semantics to the system.</p>
+<p>And so it really is, at the next level down,</p>
+<p>a fundamental choice,</p>
+<p>and we have to make those fundamental choices</p>
+<p>as system designers or enable our algorithms</p>
+<p>to be able to learn how to make those choices for themselves.</p>
+<p>So then the next step you mentioned,</p>
+<p>the very first thing you have to deal with is,</p>
+<p>can you even take in this huge stream of observations</p>
+<p>and do anything with it?</p>
+<p>So the natural next basic question is,</p>
+<p>what is deep reinforcement learning?</p>
+<p>And what is this idea of using neural networks</p>
+<p>to deal with this huge incoming stream?</p>
+<p>So amongst all the approaches for reinforcement learning,</p>
+<p>deep reinforcement learning</p>
+<p>is one family of solution methods</p>
+<p>that tries to utilize powerful representations</p>
+<p>that are offered by neural networks</p>
+<p>to represent any of these different components</p>
+<p>of the solution, of the agent,</p>
+<p>like whether it&rsquo;s the value function</p>
+<p>or the model or the policy.</p>
+<p>The idea of deep learning is to say,</p>
+<p>well, here&rsquo;s a powerful toolkit that&rsquo;s so powerful</p>
+<p>that it&rsquo;s universal in the sense</p>
+<p>that it can represent any function</p>
+<p>and it can learn any function.</p>
+<p>And so if we can leverage that universality,</p>
+<p>that means that whatever we need to represent</p>
+<p>for our policy or for our value function or for a model,</p>
+<p>deep learning can do it.</p>
+<p>So that deep learning is one approach</p>
+<p>that offers us a toolkit</p>
+<p>that has no ceiling to its performance,</p>
+<p>that as we start to put more resources into the system,</p>
+<p>more memory and more computation and more data,</p>
+<p>more experience, more interactions with the environment,</p>
+<p>that these are systems that can just get better</p>
+<p>and better and better at doing whatever the job is</p>
+<p>they&rsquo;ve asked them to do,</p>
+<p>whatever we&rsquo;ve asked that function to represent,</p>
+<p>it can learn a function that does a better and better job</p>
+<p>of representing that knowledge,</p>
+<p>whether that knowledge be estimating</p>
+<p>how well you&rsquo;re gonna do in the world,</p>
+<p>the value function,</p>
+<p>whether it&rsquo;s gonna be choosing what to do in the world,</p>
+<p>the policy,</p>
+<p>or whether it&rsquo;s understanding the world itself,</p>
+<p>what&rsquo;s gonna happen next, the model.</p>
+<p>Nevertheless, the fact that neural networks</p>
+<p>are able to learn incredibly complex representations</p>
+<p>that allow you to do the policy, the model</p>
+<p>or the value function is, at least to my mind,</p>
+<p>exceptionally beautiful and surprising.</p>
+<p>Like, was it surprising to you?</p>
+<p>Can you still believe it works as well as it does?</p>
+<p>Do you have good intuition about why it works at all</p>
+<p>and works as well as it does?</p>
+<p>I think, let me take two parts to that question.</p>
+<p>I think it&rsquo;s not surprising to me</p>
+<p>that the idea of reinforcement learning works</p>
+<p>because in some sense, I think it&rsquo;s the,</p>
+<p>I feel it&rsquo;s the only thing which can ultimately.</p>
+<p>And so I feel we have to address it</p>
+<p>and there must be success as possible</p>
+<p>because we have examples of intelligence.</p>
+<p>And it must at some level be able to,</p>
+<p>possible to acquire experience</p>
+<p>and use that experience to do better</p>
+<p>in a way which is meaningful to environments</p>
+<p>of the complexity that humans can deal with.</p>
+<p>It must be.</p>
+<p>Am I surprised that our current systems</p>
+<p>can do as well as they can do?</p>
+<p>I think one of the big surprises for me</p>
+<p>and a lot of the community</p>
+<p>is really the fact that deep learning</p>
+<p>can continue to perform so well</p>
+<p>despite the fact that these neural networks</p>
+<p>that they&rsquo;re representing</p>
+<p>have these incredibly nonlinear kind of bumpy surfaces</p>
+<p>which to our kind of low dimensional intuitions</p>
+<p>make it feel like surely you&rsquo;re just gonna get stuck</p>
+<p>and learning will get stuck</p>
+<p>because you won&rsquo;t be able to make any further progress.</p>
+<p>And yet the big surprise is that learning continues</p>
+<p>and these what appear to be local optima</p>
+<p>turn out not to be because in high dimensions</p>
+<p>when we make really big neural nets,</p>
+<p>there&rsquo;s always a way out</p>
+<p>and there&rsquo;s a way to go even lower</p>
+<p>and then you&rsquo;re still not in a local optima</p>
+<p>because there&rsquo;s some other pathway</p>
+<p>that will take you out and take you lower still.</p>
+<p>And so no matter where you are,</p>
+<p>learning can proceed and do better and better and better</p>
+<p>without bound.</p>
+<p>And so that is a surprising</p>
+<p>and beautiful property of neural nets</p>
+<p>which I find elegant and beautiful</p>
+<p>and somewhat shocking that it turns out to be the case.</p>
+<p>As you said, which I really like</p>
+<p>to our low dimensional intuitions, that&rsquo;s surprising.</p>
+<p>Yeah, we&rsquo;re very tuned to working</p>
+<p>within a three dimensional environment.</p>
+<p>And so to start to visualize</p>
+<p>what a billion dimensional neural network surface</p>
+<p>that you&rsquo;re trying to optimize over,</p>
+<p>what that even looks like is very hard for us.</p>
+<p>And so I think that really,</p>
+<p>if you try to account for the,</p>
+<p>essentially the AI winter</p>
+<p>where people gave up on neural networks,</p>
+<p>I think it&rsquo;s really down to that lack of ability</p>
+<p>to generalize from low dimensions to high dimensions</p>
+<p>because back then we were in the low dimensional case.</p>
+<p>People could only build neural nets</p>
+<p>with 50 nodes in them or something.</p>
+<p>And to imagine that it might be possible</p>
+<p>to build a billion dimensional neural net</p>
+<p>and it might have a completely different,</p>
+<p>qualitatively different property was very hard to anticipate.</p>
+<p>And I think even now we&rsquo;re starting to build the theory</p>
+<p>to support that.</p>
+<p>And it&rsquo;s incomplete at the moment,</p>
+<p>but all of the theory seems to be pointing in the direction</p>
+<p>that indeed this is an approach which truly is universal</p>
+<p>both in its representational capacity, which was known,</p>
+<p>but also in its learning ability, which is surprising.</p>
+<p>And it makes one wonder what else we&rsquo;re missing</p>
+<p>due to our low dimensional intuitions</p>
+<p>that will seem obvious once it&rsquo;s discovered.</p>
+<p>I often wonder, when we one day do have AIs</p>
+<p>which are superhuman in their abilities</p>
+<p>to understand the world,</p>
+<p>what will they think of the algorithms</p>
+<p>that we developed back now?</p>
+<p>Will it be looking back at these days</p>
+<p>and thinking that, will we look back and feel</p>
+<p>that these algorithms were naive first steps</p>
+<p>or will they still be the fundamental ideas</p>
+<p>which are used even in 100,000, 10,000 years?</p>
+<p>It&rsquo;s hard to know.</p>
+<p>They&rsquo;ll watch back to this conversation</p>
+<p>and with a smile, maybe a little bit of a laugh.</p>
+<p>I mean, my sense is, I think just like when we used</p>
+<p>to think that the sun revolved around the earth,</p>
+<p>they&rsquo;ll see our systems of today, reinforcement learning</p>
+<p>as too complicated, that the answer was simple all along.</p>
+<p>There&rsquo;s something, just like you said in the game of Go,</p>
+<p>I mean, I love the systems of like cellular automata,</p>
+<p>that there&rsquo;s simple rules from which incredible complexity</p>
+<p>emerges, so it feels like there might be</p>
+<p>some really simple approaches,</p>
+<p>just like Rich Sutton says, right?</p>
+<p>These simple methods with compute over time</p>
+<p>seem to prove to be the most effective.</p>
+<p>I 100% agree.</p>
+<p>I think that if we try to anticipate</p>
+<p>what will generalize well into the future,</p>
+<p>I think it&rsquo;s likely to be the case</p>
+<p>that it&rsquo;s the simple, clear ideas</p>
+<p>which will have the longest legs</p>
+<p>and which will carry us furthest into the future.</p>
+<p>Nevertheless, we&rsquo;re in a situation</p>
+<p>where we need to make things work today,</p>
+<p>and sometimes that requires putting together</p>
+<p>more complex systems where we don&rsquo;t have</p>
+<p>the full answers yet as to what</p>
+<p>those minimal ingredients might be.</p>
+<p>So speaking of which, if we could take a step back to Go,</p>
+<p>what was MoGo and what was the key idea behind the system?</p>
+<p>So back during my PhD on Computer Go,</p>
+<p>around about that time, there was a major new development</p>
+<p>which actually happened in the context of Computer Go,</p>
+<p>and it was really a revolution in the way</p>
+<p>that heuristic search was done,</p>
+<p>and the idea was essentially that</p>
+<p>a position could be evaluated or a state in general</p>
+<p>could be evaluated not by humans saying</p>
+<p>whether that position is good or not,</p>
+<p>or even humans providing rules</p>
+<p>as to how you might evaluate it,</p>
+<p>but instead by allowing the system</p>
+<p>to randomly play out the game until the end multiple times</p>
+<p>and taking the average of those outcomes</p>
+<p>as the prediction of what will happen.</p>
+<p>So for example, if you&rsquo;re in the game of Go,</p>
+<p>the intuition is that you take a position</p>
+<p>and you get the system to kind of play random moves</p>
+<p>against itself all the way to the end of the game</p>
+<p>and you see who wins.</p>
+<p>And if black ends up winning</p>
+<p>more of those random games than white,</p>
+<p>well, you say, hey, this is a position that favors white.</p>
+<p>And if white ends up winning more of those random games</p>
+<p>than black, then it favors white.</p>
+<p>So that idea was known as Monte Carlo search,</p>
+<p>and a particular form of Monte Carlo search</p>
+<p>that became very effective and was developed in computer Go</p>
+<p>first by Remy Coulomb in 2006,</p>
+<p>and then taken further by others</p>
+<p>was something called Monte Carlo tree search,</p>
+<p>which basically takes that same idea</p>
+<p>and uses that insight to evaluate every node of a search tree</p>
+<p>is evaluated by the average of the random play outs</p>
+<p>from that node onwards.</p>
+<p>And this idea, when you think about it,</p>
+<p>and this idea was very powerful</p>
+<p>and suddenly led to huge leaps forward</p>
+<p>in the strength of computer Go playing programs.</p>
+<p>And among those, the strongest of the Go playing programs</p>
+<p>in those days was a program called MoGo,</p>
+<p>which was the first program to actually reach</p>
+<p>human master level on small boards, nine by nine boards.</p>
+<p>And so this was a program by someone called Sylvain Gelli,</p>
+<p>who&rsquo;s a good colleague of mine,</p>
+<p>but I worked with him a little bit in those days,</p>
+<p>part of my PhD thesis.</p>
+<p>And MoGo was a first step towards the latest successes</p>
+<p>we saw in computer Go,</p>
+<p>but it was still missing a key ingredient.</p>
+<p>MoGo was evaluating purely by random rollouts against itself.</p>
+<p>And in a way, it&rsquo;s truly remarkable</p>
+<p>that random play should give you anything at all.</p>
+<p>Why in this perfectly deterministic game</p>
+<p>that&rsquo;s very precise and involves these very exact sequences,</p>
+<p>why is it that randomization is helpful?</p>
+<p>And so the intuition is that randomization</p>
+<p>captures something about the nature of the search tree,</p>
+<p>from a position that you&rsquo;re understanding</p>
+<p>the nature of the search tree from that node onwards</p>
+<p>by using randomization.</p>
+<p>And this was a very powerful idea.</p>
+<p>And I&rsquo;ve seen this in other spaces,</p>
+<p>talked to Richard Karp and so on,</p>
+<p>randomized algorithms somehow magically</p>
+<p>are able to do exceptionally well</p>
+<p>and simplifying the problem somehow.</p>
+<p>Makes you wonder about the fundamental nature</p>
+<p>of randomness in our universe.</p>
+<p>It seems to be a useful thing.</p>
+<p>But so from that moment,</p>
+<p>can you maybe tell the origin story</p>
+<p>and the journey of AlphaGo?</p>
+<p>Yeah, so programs based on Monte Carlo tree search</p>
+<p>were a first revolution</p>
+<p>in the sense that they led to suddenly programs</p>
+<p>that could play the game to any reasonable level,</p>
+<p>but they plateaued.</p>
+<p>It seemed that no matter how much effort</p>
+<p>people put into these techniques,</p>
+<p>they couldn&rsquo;t exceed the level</p>
+<p>of amateur Dan level Go players.</p>
+<p>So strong players,</p>
+<p>but not anywhere near the level of professionals,</p>
+<p>nevermind the world champion.</p>
+<p>And so that brings us to the birth of AlphaGo,</p>
+<p>which happened in the context of a startup company</p>
+<p>known as DeepMind.</p>
+<p>I heard of them.</p>
+<p>Where a project was born.</p>
+<p>And the project was really a scientific investigation</p>
+<p>where myself and Adger Huang</p>
+<p>and an intern, Chris Madison,</p>
+<p>were exploring a scientific question.</p>
+<p>And that scientific question was really,</p>
+<p>is there another fundamentally different approach</p>
+<p>to this key question of Go,</p>
+<p>the key challenge of how can you build that intuition</p>
+<p>and how can you just have a system</p>
+<p>that could look at a position</p>
+<p>and understand what move to play</p>
+<p>or how well you&rsquo;re doing in that position,</p>
+<p>who&rsquo;s gonna win?</p>
+<p>And so the deep learning revolution had just begun.</p>
+<p>That systems like ImageNet had suddenly been won</p>
+<p>by deep learning techniques back in 2012.</p>
+<p>And following that, it was natural to ask,</p>
+<p>well, if deep learning is able to scale up so effectively</p>
+<p>with images to understand them enough to classify them,</p>
+<p>well, why not go?</p>
+<p>Why not take the black and white stones of the Go board</p>
+<p>and build a system which can understand for itself</p>
+<p>what that means in terms of what move to pick</p>
+<p>or who&rsquo;s gonna win the game, black or white?</p>
+<p>And so that was our scientific question</p>
+<p>which we were probing and trying to understand.</p>
+<p>And as we started to look at it,</p>
+<p>we discovered that we could build a system.</p>
+<p>So in fact, our very first paper on AlphaGo</p>
+<p>was actually a pure deep learning system</p>
+<p>which was trying to answer this question.</p>
+<p>And we showed that actually a pure deep learning system</p>
+<p>with no search at all was actually able</p>
+<p>to reach human band level, master level</p>
+<p>at the full game of Go, 19 by 19 boards.</p>
+<p>And so without any search at all,</p>
+<p>suddenly we had systems which were playing</p>
+<p>at the level of the best Monte Carlo tree search systems,</p>
+<p>the ones with randomized rollouts.</p>
+<p>So first of all, sorry to interrupt,</p>
+<p>but that&rsquo;s kind of a groundbreaking notion.</p>
+<p>That&rsquo;s like basically a definitive step away</p>
+<p>from a couple of decades</p>
+<p>of essentially search dominating AI.</p>
+<p>So how did that make you feel?</p>
+<p>Was it surprising from a scientific perspective in general,</p>
+<p>how to make you feel?</p>
+<p>I found this to be profoundly surprising.</p>
+<p>In fact, it was so surprising that we had a bet back then.</p>
+<p>And like many good projects, bets are quite motivating.</p>
+<p>And the bet was whether it was possible</p>
+<p>for a system based purely on deep learning,</p>
+<p>with no search at all to beat a down level human player.</p>
+<p>And so we had someone who joined our team</p>
+<p>who was a down level player.</p>
+<p>He came in and we had this first match against him and&hellip;</p>
+<p>Which side of the bed were you on, by the way?</p>
+<p>The losing or the winning side?</p>
+<p>I tend to be an optimist with the power</p>
+<p>of deep learning and reinforcement learning.</p>
+<p>So the system won,</p>
+<p>and we were able to beat this human down level player.</p>
+<p>And for me, that was the moment where it was like,</p>
+<p>okay, something special is afoot here.</p>
+<p>We have a system which without search</p>
+<p>is able to already just look at this position</p>
+<p>and understand things as well as a strong human player.</p>
+<p>And from that point onwards,</p>
+<p>I really felt that reaching the top levels of human play,</p>
+<p>professional level, world champion level,</p>
+<p>I felt it was actually an inevitability.</p>
+<p>And if it was an inevitable outcome,</p>
+<p>I was rather keen that it would be us that achieved it.</p>
+<p>So we scaled up.</p>
+<p>This was something where,</p>
+<p>so I had lots of conversations back then</p>
+<p>with Demis Sassabis, the head of DeepMind,</p>
+<p>who was extremely excited.</p>
+<p>And we made the decision to scale up the project,</p>
+<p>brought more people on board.</p>
+<p>And so AlphaGo became something where we had a clear goal,</p>
+<p>which was to try and crack this outstanding challenge of AI</p>
+<p>to see if we could beat the world&rsquo;s best players.</p>
+<p>And this led within the space of not so many months</p>
+<p>to playing against the European champion Fan Hui</p>
+<p>in a match which became memorable in history</p>
+<p>as the first time a Go program</p>
+<p>had ever beaten a professional player.</p>
+<p>And at that time we had to make a judgment</p>
+<p>as to when and whether we should go</p>
+<p>and challenge the world champion.</p>
+<p>And this was a difficult decision to make.</p>
+<p>Again, we were basing our predictions on our own progress</p>
+<p>and had to estimate based on the rapidity</p>
+<p>of our own progress when we thought we would exceed</p>
+<p>the level of the human world champion.</p>
+<p>And we tried to make an estimate and set up a match</p>
+<p>and that became the AlphaGo versus Lee Sedol match in 2016.</p>
+<p>And we should say, spoiler alert,</p>
+<p>that AlphaGo was able to defeat Lee Sedol.</p>
+<p>That&rsquo;s right, yeah.</p>
+<p>So maybe we could take even a broader view.</p>
+<p>AlphaGo involves both learning from expert games</p>
+<p>and as far as I remember, a self play component</p>
+<p>to where it learns by playing against itself.</p>
+<p>But in your sense, what was the role of learning</p>
+<p>from expert games there?</p>
+<p>And in terms of your self evaluation,</p>
+<p>whether you can take on the world champion,</p>
+<p>what was the thing that you&rsquo;re trying to do more of?</p>
+<p>Sort of train more on expert games</p>
+<p>or was there&rsquo;s now another,</p>
+<p>I&rsquo;m asking so many poorly phrased questions,</p>
+<p>but did you have a hope or dream that self play</p>
+<p>would be the key component at that moment yet?</p>
+<p>So in the early days of AlphaGo,</p>
+<p>we used human data to explore the science</p>
+<p>of what deep learning can achieve.</p>
+<p>And so when we had our first paper that showed</p>
+<p>that it was possible to predict the winner of the game,</p>
+<p>that it was possible to suggest moves,</p>
+<p>that was done using human data.</p>
+<p>A solely human data.</p>
+<p>Yeah, and so the reason that we did it that way</p>
+<p>was at that time we were exploring separately</p>
+<p>the deep learning aspect</p>
+<p>from the reinforcement learning aspect.</p>
+<p>That was the part which was new and unknown</p>
+<p>to me at that time was how far could that be stretched?</p>
+<p>Once we had that, it then became natural</p>
+<p>to try and use that same representation</p>
+<p>and see if we could learn for ourselves</p>
+<p>using that same representation.</p>
+<p>And so right from the beginning,</p>
+<p>actually our goal had been to build a system</p>
+<p>using self play.</p>
+<p>And to us, the human data right from the beginning</p>
+<p>was an expedient step to help us for pragmatic reasons</p>
+<p>to go faster towards the goals of the project</p>
+<p>than we might be able to starting solely from self play.</p>
+<p>And so in those days, we were very aware</p>
+<p>that we were choosing to use human data</p>
+<p>and that might not be the longterm holy grail of AI,</p>
+<p>but that it was something which was extremely useful to us.</p>
+<p>It helped us to understand the system.</p>
+<p>It helped us to build deep learning representations</p>
+<p>which were clear and simple and easy to use.</p>
+<p>And so really I would say it served a purpose</p>
+<p>not just as part of the algorithm,</p>
+<p>but something which I continue to use in our research today,</p>
+<p>which is trying to break down a very hard challenge</p>
+<p>into pieces which are easier to understand for us</p>
+<p>as researchers and develop.</p>
+<p>So if you use a component based on human data,</p>
+<p>it can help you to understand the system</p>
+<p>such that then you can build</p>
+<p>the more principled version later that does it for itself.</p>
+<p>So as I said, the AlphaGo victory,</p>
+<p>and I don&rsquo;t think I&rsquo;m being sort of romanticizing this notion.</p>
+<p>I think it&rsquo;s one of the greatest moments</p>
+<p>in the history of AI.</p>
+<p>So were you cognizant of this magnitude</p>
+<p>of the accomplishment at the time?</p>
+<p>I mean, are you cognizant of it even now?</p>
+<p>Because to me, I feel like it&rsquo;s something that would,</p>
+<p>we mentioned what the AGI systems of the future</p>
+<p>will look back.</p>
+<p>I think they&rsquo;ll look back at the AlphaGo victory</p>
+<p>as like, holy crap, they figured it out.</p>
+<p>This is where it started.</p>
+<p>Well, thank you again.</p>
+<p>I mean, it&rsquo;s funny because I guess I&rsquo;ve been working on,</p>
+<p>I&rsquo;ve been working on ComputerGo for a long time.</p>
+<p>So I&rsquo;d been working at the time of the AlphaGo match</p>
+<p>on ComputerGo for more than a decade.</p>
+<p>And throughout that decade, I&rsquo;d had this dream</p>
+<p>of what would it be like to, what would it be like really</p>
+<p>to actually be able to build a system</p>
+<p>that could play against the world champion.</p>
+<p>And I imagined that that would be an interesting moment</p>
+<p>that maybe some people might care about that</p>
+<p>and that this might be a nice achievement.</p>
+<p>But I think when I arrived in Seoul</p>
+<p>and discovered the legions of journalists</p>
+<p>that were following us around and the 100 million people</p>
+<p>that were watching the match online live,</p>
+<p>I realized that I&rsquo;d been off in my estimation</p>
+<p>of how significant this moment was</p>
+<p>by several orders of magnitude.</p>
+<p>And so there was definitely an adjustment process</p>
+<p>to realize that this was something</p>
+<p>which the world really cared about</p>
+<p>and which was a watershed moment.</p>
+<p>And I think there was that moment of realization.</p>
+<p>But it&rsquo;s also a little bit scary</p>
+<p>because if you go into something thinking</p>
+<p>it&rsquo;s gonna be maybe of interest</p>
+<p>and then discover that 100 million people are watching,</p>
+<p>it suddenly makes you worry about</p>
+<p>whether some of the decisions you&rsquo;d made</p>
+<p>were really the best ones or the wisest,</p>
+<p>or were going to lead to the best outcome.</p>
+<p>And we knew for sure that there were still imperfections</p>
+<p>in AlphaGo, which were gonna be exposed</p>
+<p>to the whole world watching.</p>
+<p>And so, yeah, it was I think a great experience</p>
+<p>and I feel privileged to have been part of it,</p>
+<p>privileged to have led that amazing team.</p>
+<p>I feel privileged to have been in a moment of history</p>
+<p>like you say, but also lucky that in a sense</p>
+<p>I was insulated from the knowledge of,</p>
+<p>I think it would have been harder to focus on the research</p>
+<p>if the full kind of reality of what was gonna come to pass</p>
+<p>had been known to me and the team.</p>
+<p>I think it was, we were in our bubble</p>
+<p>and we were working on research</p>
+<p>and we were trying to answer the scientific questions</p>
+<p>and then bam, the public sees it.</p>
+<p>And I think it was better that way in retrospect.</p>
+<p>Were you confident that, I guess,</p>
+<p>what were the chances that you could get the win?</p>
+<p>So just like you said, I&rsquo;m a little bit more familiar</p>
+<p>with another accomplishment</p>
+<p>that we may not even get a chance to talk to.</p>
+<p>I talked to Oriel Venialis about Alpha Star</p>
+<p>which is another incredible accomplishment,</p>
+<p>but here with Alpha Star and beating the StarCraft,</p>
+<p>there was already a track record with AlphaGo.</p>
+<p>This is the really first time</p>
+<p>you get to see reinforcement learning</p>
+<p>face the best human in the world.</p>
+<p>So what was your confidence like, what was the odds?</p>
+<p>Well, we actually. Was there a bet?</p>
+<p>Funnily enough, there was.</p>
+<p>So just before the match,</p>
+<p>we weren&rsquo;t betting on anything concrete,</p>
+<p>but we all held out a hand.</p>
+<p>Everyone in the team held out a hand</p>
+<p>at the beginning of the match.</p>
+<p>And the number of fingers that they had out on their hand</p>
+<p>was supposed to represent how many games</p>
+<p>they thought we would win against Lee Sedol.</p>
+<p>And there was an amazing spread in the team&rsquo;s predictions.</p>
+<p>But I have to say, I predicted four, one.</p>
+<p>And the reason was based purely on data.</p>
+<p>So I&rsquo;m a scientist first and foremost.</p>
+<p>And one of the things which we had established</p>
+<p>was that AlphaGo in around one in five games</p>
+<p>would develop something which we called a delusion,</p>
+<p>which was a kind of in a hole in its knowledge</p>
+<p>where it wasn&rsquo;t able to fully understand</p>
+<p>everything about the position.</p>
+<p>And that hole in its knowledge would persist</p>
+<p>for tens of moves throughout the game.</p>
+<p>And we knew two things.</p>
+<p>We knew that if there were no delusions,</p>
+<p>that AlphaGo seemed to be playing at a level</p>
+<p>that was far beyond any human capabilities.</p>
+<p>But we also knew that if there were delusions,</p>
+<p>the opposite was true.</p>
+<p>And in fact, that&rsquo;s what came to pass.</p>
+<p>We saw all of those outcomes.</p>
+<p>And Lee Sedol in one of the games</p>
+<p>played a really beautiful sequence</p>
+<p>that AlphaGo just hadn&rsquo;t predicted.</p>
+<p>And after that, it led it into this situation</p>
+<p>where it was unable to really understand the position fully</p>
+<p>and found itself in one of these delusions.</p>
+<p>So indeed, yeah, 4.1 was the outcome.</p>
+<p>So yeah, and can you maybe speak to it a little bit more?</p>
+<p>What were the five games?</p>
+<p>What happened?</p>
+<p>Is there interesting things that come to memory</p>
+<p>in terms of the play of the human or the machine?</p>
+<p>So I remember all of these games vividly, of course.</p>
+<p>Moments like these don&rsquo;t come too often</p>
+<p>in the lifetime of a scientist.</p>
+<p>And the first game was magical because it was the first time</p>
+<p>that a computer program had defeated a world</p>
+<p>champion in this grand challenge of Go.</p>
+<p>And there was a moment where AlphaGo invaded Lee Sedol&rsquo;s</p>
+<p>territory towards the end of the game.</p>
+<p>And that&rsquo;s quite an audacious thing to do.</p>
+<p>It&rsquo;s like saying, hey, you thought</p>
+<p>this was going to be your territory in the game,</p>
+<p>but I&rsquo;m going to stick a stone right in the middle of it</p>
+<p>and prove to you that I can break it up.</p>
+<p>And Lee Sedol&rsquo;s face just dropped.</p>
+<p>He wasn&rsquo;t expecting a computer to do something that audacious.</p>
+<p>The second game became famous for a move known as move 37.</p>
+<p>This was a move that was played by AlphaGo that broke</p>
+<p>all of the conventions of Go, that the Go players were</p>
+<p>so shocked by this.</p>
+<p>They thought that maybe the operator had made a mistake.</p>
+<p>They thought that there was something crazy going on.</p>
+<p>And it just broke every rule that Go players</p>
+<p>are taught from a very young age.</p>
+<p>They&rsquo;re just taught this kind of move called a shoulder hit.</p>
+<p>You can only play it on the third line or the fourth line,</p>
+<p>and AlphaGo played it on the fifth line.</p>
+<p>And it turned out to be a brilliant move</p>
+<p>and made this beautiful pattern in the middle of the board that</p>
+<p>ended up winning the game.</p>
+<p>And so this really was a clear instance</p>
+<p>where we could say computers exhibited creativity,</p>
+<p>that this was really a move that was something</p>
+<p>humans hadn&rsquo;t known about, hadn&rsquo;t anticipated.</p>
+<p>And computers discovered this idea.</p>
+<p>They were the ones to say, actually, here&rsquo;s</p>
+<p>a new idea, something new, not in the domains</p>
+<p>of human knowledge of the game.</p>
+<p>And now the humans think this is a reasonable thing to do.</p>
+<p>And it&rsquo;s part of Go knowledge now.</p>
+<p>The third game, something special</p>
+<p>happens when you play against a human world champion, which,</p>
+<p>again, I hadn&rsquo;t anticipated before going there,</p>
+<p>which is these players are amazing.</p>
+<p>Lee Sedol was a true champion, 18 time world champion,</p>
+<p>and had this amazing ability to probe AlphaGo</p>
+<p>for weaknesses of any kind.</p>
+<p>And in the third game, he was losing,</p>
+<p>and we felt we were sailing comfortably to victory.</p>
+<p>But he managed to, from nothing, stir up this fight</p>
+<p>and build what&rsquo;s called a double co,</p>
+<p>these kind of repetitive positions.</p>
+<p>And he knew that historically, no computer Go program had ever</p>
+<p>been able to deal correctly with double co positions.</p>
+<p>And he managed to summon one out of nothing.</p>
+<p>And so for us, this was a real challenge.</p>
+<p>Would AlphaGo be able to deal with this,</p>
+<p>or would it just kind of crumble in the face of this situation?</p>
+<p>And fortunately, it dealt with it perfectly.</p>
+<p>The fourth game was amazing in that Lee Sedol</p>
+<p>appeared to be losing this game.</p>
+<p>AlphaGo thought it was winning.</p>
+<p>And then Lee Sedol did something,</p>
+<p>which I think only a true world champion can do,</p>
+<p>which is he found a brilliant sequence</p>
+<p>in the middle of the game, a brilliant sequence</p>
+<p>that led him to really just transform the position.</p>
+<p>He kind of found just a piece of genius, really.</p>
+<p>And after that, AlphaGo, its evaluation just tumbled.</p>
+<p>It thought it was winning this game.</p>
+<p>And all of a sudden, it tumbled and said, oh, now</p>
+<p>I&rsquo;ve got no chance.</p>
+<p>And it started to behave rather oddly at that point.</p>
+<p>In the final game, for some reason, we as a team</p>
+<p>were convinced, having seen AlphaGo in the previous game,</p>
+<p>suffer from delusions.</p>
+<p>We as a team were convinced that it</p>
+<p>was suffering from another delusion.</p>
+<p>We were convinced that it was misevaluating the position</p>
+<p>and that something was going terribly wrong.</p>
+<p>And it was only in the last few moves of the game</p>
+<p>that we realized that actually, although it</p>
+<p>had been predicting it was going to win all the way through,</p>
+<p>it really was.</p>
+<p>And so somehow, it just taught us yet again</p>
+<p>that you have to have faith in your systems.</p>
+<p>When they exceed your own level of ability</p>
+<p>and your own judgment, you have to trust in them</p>
+<p>to know better than you, the designer, once you&rsquo;ve</p>
+<p>bestowed in them the ability to judge better than you can,</p>
+<p>then trust the system to do so.</p>
+<p>So just like in the case of Deep Blue beating Gary Kasparov,</p>
+<p>so Gary was, I think, the first time he&rsquo;s ever lost, actually,</p>
+<p>to anybody.</p>
+<p>And I mean, there&rsquo;s a similar situation with Lee Sedol.</p>
+<p>It&rsquo;s a tragic loss for humans, but a beautiful one,</p>
+<p>I think, that&rsquo;s kind of, from the tragedy,</p>
+<p>sort of emerges over time, emerges</p>
+<p>a kind of inspiring story.</p>
+<p>But Lee Sedol recently announced his retirement.</p>
+<p>I don&rsquo;t know if we can look too deeply into it,</p>
+<p>but he did say that even if I become number one,</p>
+<p>there&rsquo;s an entity that cannot be defeated.</p>
+<p>So what do you think about these words?</p>
+<p>What do you think about his retirement from the game ago?</p>
+<p>Well, let me take you back, first of all,</p>
+<p>to the first part of your comment about Gary Kasparov,</p>
+<p>because actually, at the panel yesterday,</p>
+<p>he specifically said that when he first lost to Deep Blue,</p>
+<p>he viewed it as a failure.</p>
+<p>He viewed that this had been a failure of his.</p>
+<p>But later on in his career, he said</p>
+<p>he&rsquo;d come to realize that actually, it was a success.</p>
+<p>It was a success for everyone, because this marked</p>
+<p>transformational moment for AI.</p>
+<p>And so even for Gary Kasparov, he</p>
+<p>came to realize that that moment was pivotal</p>
+<p>and actually meant something much more</p>
+<p>than his personal loss in that moment.</p>
+<p>Lee Sedol, I think, was much more cognizant of that,</p>
+<p>even at the time.</p>
+<p>And so in his closing remarks to the match,</p>
+<p>he really felt very strongly that what</p>
+<p>had happened in the AlphaGo match</p>
+<p>was not only meaningful for AI, but for humans as well.</p>
+<p>And he felt as a Go player that it had opened his horizons</p>
+<p>and meant that he could start exploring new things.</p>
+<p>It brought his joy back for the game of Go,</p>
+<p>because it had broken all of the conventions and barriers</p>
+<p>and meant that suddenly, anything was possible again.</p>
+<p>So I was sad to hear that he&rsquo;d retired,</p>
+<p>but he&rsquo;s been a great world champion over many, many years.</p>
+<p>And I think he&rsquo;ll be remembered for that ever more.</p>
+<p>He&rsquo;ll be remembered as the last person to beat AlphaGo.</p>
+<p>I mean, after that, we increased the power of the system.</p>
+<p>And the next version of AlphaGo beats the other strong human</p>
+<p>player 60 games to nil.</p>
+<p>So what a great moment for him and something</p>
+<p>to be remembered for.</p>
+<p>It&rsquo;s interesting that you spent time at AAAI on a panel</p>
+<p>with Garry Kasparov.</p>
+<p>What, I mean, it&rsquo;s almost, I&rsquo;m just</p>
+<p>curious to learn the conversations you&rsquo;ve</p>
+<p>had with Garry, because he&rsquo;s also now,</p>
+<p>he&rsquo;s written a book about artificial intelligence.</p>
+<p>He&rsquo;s thinking about AI.</p>
+<p>He has kind of a view of it.</p>
+<p>And he talks about AlphaGo a lot.</p>
+<p>What&rsquo;s your sense?</p>
+<p>Arguably, I&rsquo;m not just being Russian,</p>
+<p>but I think Garry is the greatest chess player</p>
+<p>of all time, probably one of the greatest game</p>
+<p>players of all time.</p>
+<p>And you sort of at the center of creating</p>
+<p>a system that beats one of the greatest players of all time.</p>
+<p>So what is that conversation like?</p>
+<p>Is there anything, any interesting digs, any bets,</p>
+<p>any funny things, any profound things?</p>
+<p>So Garry Kasparov has an incredible respect</p>
+<p>for what we did with AlphaGo.</p>
+<p>And it&rsquo;s an amazing tribute coming from him of all people</p>
+<p>that he really appreciates and respects what we&rsquo;ve done.</p>
+<p>And I think he feels that the progress which has happened</p>
+<p>in computer chess, which later after AlphaGo,</p>
+<p>we built the AlphaZero system, which</p>
+<p>defeated the world&rsquo;s strongest chess programs.</p>
+<p>And to Garry Kasparov, that moment in computer chess</p>
+<p>was more profound than Deep Blue.</p>
+<p>And the reason he believes it mattered more</p>
+<p>was because it was done with learning</p>
+<p>and a system which was able to discover for itself</p>
+<p>new principles, new ideas, which were</p>
+<p>able to play the game in a way which he hadn&rsquo;t always</p>
+<p>known about or anyone.</p>
+<p>And in fact, one of the things I discovered at this panel</p>
+<p>was that the current world champion, Magnus Carlsen,</p>
+<p>apparently recently commented on his improvement</p>
+<p>in performance.</p>
+<p>And he attributed it to AlphaZero,</p>
+<p>that he&rsquo;s been studying the games of AlphaZero.</p>
+<p>And he&rsquo;s changed his style to play more like AlphaZero.</p>
+<p>And it&rsquo;s led to him actually increasing his rating</p>
+<p>to a new peak.</p>
+<p>Yeah, I guess to me, just like to Garry,</p>
+<p>the inspiring thing is that, and just like you said,</p>
+<p>with reinforcement learning, reinforcement learning</p>
+<p>and deep learning, machine learning</p>
+<p>feels like what intelligence is.</p>
+<p>And you could attribute it to a bitter viewpoint</p>
+<p>from Garry&rsquo;s perspective, from us humans perspective,</p>
+<p>saying that pure search that IBM Deep Blue was doing</p>
+<p>is not really intelligence, but somehow it didn&rsquo;t feel like it.</p>
+<p>And so that&rsquo;s the magical.</p>
+<p>I&rsquo;m not sure what it is about learning that</p>
+<p>feels like intelligence, but it does.</p>
+<p>So I think we should not demean the achievements of what</p>
+<p>was done in previous eras of AI.</p>
+<p>I think that Deep Blue was an amazing achievement in itself.</p>
+<p>And that heuristic search of the kind that was used by Deep</p>
+<p>Blue had some powerful ideas that were in there,</p>
+<p>but it also missed some things.</p>
+<p>So the fact that the evaluation function, the way</p>
+<p>that the chess position was understood,</p>
+<p>was created by humans and not by the machine</p>
+<p>is a limitation, which means that there&rsquo;s</p>
+<p>a ceiling on how well it can do.</p>
+<p>But maybe more importantly, it means</p>
+<p>that the same idea cannot be applied in other domains</p>
+<p>where we don&rsquo;t have access to the human grandmasters</p>
+<p>and that ability to encode exactly their knowledge</p>
+<p>into an evaluation function.</p>
+<p>And the reality is that the story of AI</p>
+<p>is that most domains turn out to be of the second type</p>
+<p>where knowledge is messy, it&rsquo;s hard to extract from experts,</p>
+<p>or it isn&rsquo;t even available.</p>
+<p>And so we need to solve problems in a different way.</p>
+<p>And I think AlphaGo is a step towards solving things</p>
+<p>in a way which puts learning as a first class citizen</p>
+<p>and says systems need to understand for themselves</p>
+<p>how to understand the world, how to judge the value of any action</p>
+<p>that they might take within that world</p>
+<p>and any state they might find themselves in.</p>
+<p>And in order to do that, we make progress towards AI.</p>
+<p>Yeah, so one of the nice things about taking a learning</p>
+<p>approach to the game of Go or game playing</p>
+<p>is that the things you learn, the things you figure out,</p>
+<p>are actually going to be applicable to other problems</p>
+<p>that are real world problems.</p>
+<p>That&rsquo;s ultimately, I mean, there&rsquo;s</p>
+<p>two really interesting things about AlphaGo.</p>
+<p>One is the science of it, just the science of learning,</p>
+<p>the science of intelligence.</p>
+<p>And then the other is while you&rsquo;re actually</p>
+<p>learning to figuring out how to build systems that</p>
+<p>would be potentially applicable in other applications,</p>
+<p>medical, autonomous vehicles, robotics,</p>
+<p>I mean, it&rsquo;s just open the door to all kinds of applications.</p>
+<p>So the next incredible step, really the profound step</p>
+<p>is probably AlphaGo Zero.</p>
+<p>I mean, it&rsquo;s arguable.</p>
+<p>I kind of see them all as the same place.</p>
+<p>But really, and perhaps you were already</p>
+<p>thinking that AlphaGo Zero is the natural.</p>
+<p>It was always going to be the next step.</p>
+<p>But it&rsquo;s removing the reliance on human expert games</p>
+<p>for pre training, as you mentioned.</p>
+<p>So how big of an intellectual leap</p>
+<p>was this that self play could achieve superhuman level</p>
+<p>performance in its own?</p>
+<p>And maybe could you also say, what is self play?</p>
+<p>Kind of mention it a few times.</p>
+<p>So let me start with self play.</p>
+<p>So the idea of self play is something</p>
+<p>which is really about systems learning for themselves,</p>
+<p>but in the situation where there&rsquo;s more than one agent.</p>
+<p>And so if you&rsquo;re in a game, and the game</p>
+<p>is played between two players, then self play</p>
+<p>is really about understanding that game just</p>
+<p>by playing games against yourself</p>
+<p>rather than against any actual real opponent.</p>
+<p>And so it&rsquo;s a way to kind of discover strategies</p>
+<p>without having to actually need to go out and play</p>
+<p>against any particular human player, for example.</p>
+<p>The main idea of Alpha Zero was really</p>
+<p>to try and step back from any of the knowledge</p>
+<p>that we put into the system and ask the question,</p>
+<p>is it possible to come up with a single elegant principle</p>
+<p>by which a system can learn for itself all of the knowledge</p>
+<p>which it requires to play a game such as Go?</p>
+<p>Importantly, by taking knowledge out,</p>
+<p>you not only make the system less brittle in the sense</p>
+<p>that perhaps the knowledge you were putting in</p>
+<p>was just getting in the way and maybe stopping the system</p>
+<p>learning for itself, but also you make it more general.</p>
+<p>The more knowledge you put in, the harder</p>
+<p>it is for a system to actually be placed,</p>
+<p>taken out of the system in which it&rsquo;s kind of been designed,</p>
+<p>and placed in some other system that maybe would need</p>
+<p>a completely different knowledge base to understand</p>
+<p>and perform well.</p>
+<p>And so the real goal here is to strip out all of the knowledge</p>
+<p>that we put in to the point that we can just plug it</p>
+<p>into something totally different.</p>
+<p>And that, to me, is really the promise of AI</p>
+<p>is that we can have systems such as that which,</p>
+<p>no matter what the goal is, no matter what goal</p>
+<p>we set to the system, we can come up</p>
+<p>with an algorithm which can be placed into that world,</p>
+<p>into that environment, and can succeed</p>
+<p>in achieving that goal.</p>
+<p>And then that, to me, is almost the essence of intelligence</p>
+<p>if we can achieve that.</p>
+<p>And so AlphaZero is a step towards that.</p>
+<p>And it&rsquo;s a step that was taken in the context of two player</p>
+<p>perfect information games like Go and chess.</p>
+<p>We also applied it to Japanese chess.</p>
+<p>So just to clarify, the first step</p>
+<p>was AlphaGo Zero.</p>
+<p>The first step was to try and take all of the knowledge out</p>
+<p>of AlphaGo in such a way that it could</p>
+<p>play in a fully self discovered way, purely from self play.</p>
+<p>And to me, the motivation for that</p>
+<p>was always that we could then plug it into other domains.</p>
+<p>But we saved that until later.</p>
+<p>Well, in fact, I mean, just for fun,</p>
+<p>I could tell you exactly the moment</p>
+<p>where the idea for AlphaZero occurred to me.</p>
+<p>Because I think there&rsquo;s maybe a lesson there for researchers</p>
+<p>who are too deeply embedded in their research</p>
+<p>and working 24 sevens to try and come up with the next idea,</p>
+<p>which is it actually occurred to me on honeymoon.</p>
+<p>And I was at my most fully relaxed state,</p>
+<p>really enjoying myself, and just bing,</p>
+<p>the algorithm for AlphaZero just appeared in its full form.</p>
+<p>And this was actually before we played against Lisa Dahl.</p>
+<p>But we just didn&rsquo;t.</p>
+<p>I think we were so busy trying to make sure</p>
+<p>we could beat the world champion that it was only later</p>
+<p>that we had the opportunity to step back and start</p>
+<p>examining that sort of deeper scientific question of whether</p>
+<p>this could really work.</p>
+<p>So nevertheless, so self play is probably</p>
+<p>one of the most profound ideas that represents, to me at least,</p>
+<p>artificial intelligence.</p>
+<p>But the fact that you could use that kind of mechanism</p>
+<p>to, again, beat world class players,</p>
+<p>that&rsquo;s very surprising.</p>
+<p>So to me, it feels like you have to train</p>
+<p>in a large number of expert games.</p>
+<p>So was it surprising to you?</p>
+<p>What was the intuition?</p>
+<p>Can you sort of think, not necessarily at that time,</p>
+<p>even now, what&rsquo;s your intuition?</p>
+<p>Why this thing works so well?</p>
+<p>Why it&rsquo;s able to learn from scratch?</p>
+<p>Well, let me first say why we tried it.</p>
+<p>So we tried it both because I feel</p>
+<p>that it was the deeper scientific question</p>
+<p>to be asking to make progress towards AI,</p>
+<p>and also because, in general, in my research,</p>
+<p>I don&rsquo;t like to do research on questions for which we already</p>
+<p>know the likely outcome.</p>
+<p>I don&rsquo;t see much value in running an experiment where</p>
+<p>you&rsquo;re 95% confident that you will succeed.</p>
+<p>And so we could have tried maybe to take AlphaGo and do</p>
+<p>something which we knew for sure it would succeed on.</p>
+<p>But much more interesting to me was to try it on the things</p>
+<p>which we weren&rsquo;t sure about.</p>
+<p>And one of the big questions on our minds</p>
+<p>back then was, could you really do this with self play alone?</p>
+<p>How far could that go?</p>
+<p>Would it be as strong?</p>
+<p>And honestly, we weren&rsquo;t sure.</p>
+<p>It was 50, 50, I think.</p>
+<p>If you&rsquo;d asked me, I wasn&rsquo;t confident</p>
+<p>that it could reach the same level as these systems,</p>
+<p>but it felt like the right question to ask.</p>
+<p>And even if it had not achieved the same level,</p>
+<p>I felt that that was an important direction</p>
+<p>to be studying.</p>
+<p>And so then, lo and behold, it actually</p>
+<p>ended up outperforming the previous version of AlphaGo</p>
+<p>and indeed was able to beat it by 100 games to zero.</p>
+<p>So what&rsquo;s the intuition as to why?</p>
+<p>I think the intuition to me is clear,</p>
+<p>that whenever you have errors in a system, as we did in AlphaGo,</p>
+<p>AlphaGo suffered from these delusions.</p>
+<p>Occasionally, it would misunderstand</p>
+<p>what was going on in a position and miss evaluate it.</p>
+<p>How can you remove all of these errors?</p>
+<p>Errors arise from many sources.</p>
+<p>For us, they were arising both starting from the human data,</p>
+<p>but also from the nature of the search</p>
+<p>and the nature of the algorithm itself.</p>
+<p>But the only way to address them in any complex system</p>
+<p>is to give the system the ability</p>
+<p>to correct its own errors.</p>
+<p>It must be able to correct them.</p>
+<p>It must be able to learn for itself</p>
+<p>when it&rsquo;s doing something wrong and correct for it.</p>
+<p>And so it seemed to me that the way to correct delusions</p>
+<p>was indeed to have more iterations of reinforcement</p>
+<p>learning, that no matter where you start,</p>
+<p>you should be able to correct those errors</p>
+<p>until it gets to play that out and understand,</p>
+<p>oh, well, I thought that I was going to win in this situation,</p>
+<p>but then I ended up losing.</p>
+<p>That suggests that I was miss evaluating something.</p>
+<p>There&rsquo;s a hole in my knowledge, and now the system</p>
+<p>can correct for itself and understand how to do better.</p>
+<p>Now, if you take that same idea and trace it back</p>
+<p>all the way to the beginning, it should</p>
+<p>be able to take you from no knowledge,</p>
+<p>from completely random starting point,</p>
+<p>all the way to the highest levels of knowledge</p>
+<p>that you can achieve in a domain.</p>
+<p>And the principle is the same, that if you bestow a system</p>
+<p>with the ability to correct its own errors,</p>
+<p>then it can take you from random to something slightly</p>
+<p>better than random because it sees the stupid things</p>
+<p>that the random is doing, and it can correct them.</p>
+<p>And then it can take you from that slightly better system</p>
+<p>and understand, well, what&rsquo;s that doing wrong?</p>
+<p>And it takes you on to the next level and the next level.</p>
+<p>And this progress can go on indefinitely.</p>
+<p>And indeed, what would have happened</p>
+<p>if we&rsquo;d carried on training AlphaGo Zero for longer?</p>
+<p>We saw no sign of it slowing down its improvements,</p>
+<p>or at least it was certainly carrying on to improve.</p>
+<p>And presumably, if you had the computational resources,</p>
+<p>this could lead to better and better systems</p>
+<p>that discover more and more.</p>
+<p>So your intuition is fundamentally</p>
+<p>there&rsquo;s not a ceiling to this process.</p>
+<p>One of the surprising things, just like you said,</p>
+<p>is the process of patching errors.</p>
+<p>It intuitively makes sense that this is,</p>
+<p>that reinforcement learning should be part of that process.</p>
+<p>But what is surprising is in the process</p>
+<p>of patching your own lack of knowledge,</p>
+<p>you don&rsquo;t open up other patches.</p>
+<p>You keep sort of, like there&rsquo;s a monotonic decrease</p>
+<p>of your weaknesses.</p>
+<p>Well, let me back this up.</p>
+<p>I think science always should make falsifiable hypotheses.</p>
+<p>So let me back up this claim with a falsifiable hypothesis,</p>
+<p>which is that if someone was to, in the future,</p>
+<p>take Alpha Zero as an algorithm</p>
+<p>and run it on with greater computational resources</p>
+<p>that we had available today,</p>
+<p>then I would predict that they would be able</p>
+<p>to beat the previous system 100 games to zero.</p>
+<p>And that if they were then to do the same thing</p>
+<p>a couple of years later,</p>
+<p>that that would beat that previous system 100 games to zero,</p>
+<p>and that that process would continue indefinitely</p>
+<p>throughout at least my human lifetime.</p>
+<p>Presumably the game of Go would set the ceiling.</p>
+<p>I mean.</p>
+<p>The game of Go would set the ceiling,</p>
+<p>but the game of Go has 10 to the 170 states in it.</p>
+<p>So the ceiling is unreachable by any computational device</p>
+<p>that can be built out of the 10 to the 80 atoms</p>
+<p>in the universe.</p>
+<p>You asked a really good question,</p>
+<p>which is, do you not open up other errors</p>
+<p>when you correct your previous ones?</p>
+<p>And the answer is yes, you do.</p>
+<p>And so it&rsquo;s a remarkable fact</p>
+<p>about this class of two player game</p>
+<p>and also true of single agent games</p>
+<p>that essentially progress will always lead you to,</p>
+<p>if you have sufficient representational resource,</p>
+<p>like imagine you had,</p>
+<p>could represent every state in a big table of the game,</p>
+<p>then we know for sure that a progress of self improvement</p>
+<p>will lead all the way in the single agent case</p>
+<p>to the optimal possible behavior,</p>
+<p>and in the two player case to the minimax optimal behavior.</p>
+<p>And that is the best way that I can play</p>
+<p>knowing that you&rsquo;re playing perfectly against me.</p>
+<p>And so for those cases,</p>
+<p>we know that even if you do open up some new error,</p>
+<p>that in some sense you&rsquo;ve made progress.</p>
+<p>You&rsquo;re progressing towards the best that can be done.</p>
+<p>So AlphaGo was initially trained on expert games</p>
+<p>with some self play.</p>
+<p>AlphaGo Zero removed the need to be trained on expert games.</p>
+<p>And then another incredible step for me,</p>
+<p>because I just love chess,</p>
+<p>is to generalize that further to be in AlphaZero</p>
+<p>to be able to play the game of Go,</p>
+<p>beating AlphaGo Zero and AlphaGo,</p>
+<p>and then also being able to play the game of chess</p>
+<p>and others.</p>
+<p>So what was that step like?</p>
+<p>What&rsquo;s the interesting aspects there</p>
+<p>that required to make that happen?</p>
+<p>I think the remarkable observation,</p>
+<p>which we saw with AlphaZero,</p>
+<p>was that actually without modifying the algorithm at all,</p>
+<p>it was able to play and crack</p>
+<p>some of AI&rsquo;s greatest previous challenges.</p>
+<p>In particular, we dropped it into the game of chess.</p>
+<p>And unlike the previous systems like Deep Blue,</p>
+<p>which had been worked on for years and years,</p>
+<p>and we were able to beat</p>
+<p>the world&rsquo;s strongest computer chess program convincingly</p>
+<p>using a system that was fully discovered</p>
+<p>from scratch with its own principles.</p>
+<p>And in fact, one of the nice things that we found</p>
+<p>was that in fact, we also achieved the same result</p>
+<p>in Japanese chess, a variant of chess</p>
+<p>where you get to capture pieces</p>
+<p>and then place them back down on your own side</p>
+<p>as an extra piece.</p>
+<p>So a much more complicated variant of chess.</p>
+<p>And we also beat the world&rsquo;s strongest programs</p>
+<p>and reached superhuman performance in that game too.</p>
+<p>And it was the very first time that we&rsquo;d ever run the system</p>
+<p>on that particular game,</p>
+<p>was the version that we published</p>
+<p>in the paper on AlphaZero.</p>
+<p>It just worked out of the box, literally, no touching it.</p>
+<p>We didn&rsquo;t have to do anything.</p>
+<p>And there it was, superhuman performance,</p>
+<p>no tweaking, no twiddling.</p>
+<p>And so I think there&rsquo;s something beautiful</p>
+<p>about that principle that you can take an algorithm</p>
+<p>and without twiddling anything, it just works.</p>
+<p>Now, to go beyond AlphaZero, what&rsquo;s required?</p>
+<p>AlphaZero is just a step.</p>
+<p>And there&rsquo;s a long way to go beyond that</p>
+<p>to really crack the deep problems of AI.</p>
+<p>But one of the important steps is to acknowledge</p>
+<p>that the world is a really messy place.</p>
+<p>It&rsquo;s this rich, complex, beautiful,</p>
+<p>but messy environment that we live in.</p>
+<p>And no one gives us the rules.</p>
+<p>Like no one knows the rules of the world.</p>
+<p>At least maybe we understand that it operates</p>
+<p>according to Newtonian or quantum mechanics</p>
+<p>at the micro level or according to relativity</p>
+<p>at the macro level.</p>
+<p>But that&rsquo;s not a model that&rsquo;s useful for us as people</p>
+<p>to operate in it.</p>
+<p>Somehow the agent needs to understand the world for itself</p>
+<p>in a way where no one tells it the rules of the game.</p>
+<p>And yet it can still figure out what to do in that world,</p>
+<p>deal with this stream of observations coming in,</p>
+<p>rich sensory input coming in,</p>
+<p>actions going out in a way that allows it to reason</p>
+<p>in the way that AlphaGo or AlphaZero can reason</p>
+<p>in the way that these go and chess playing programs</p>
+<p>can reason.</p>
+<p>But in a way that allows it to take actions</p>
+<p>in that messy world to achieve its goals.</p>
+<p>And so this led us to the most recent step</p>
+<p>in the story of AlphaGo,</p>
+<p>which was a system called MuZero.</p>
+<p>And MuZero is a system which learns for itself</p>
+<p>even when the rules are not given to it.</p>
+<p>It actually can be dropped into a system</p>
+<p>with messy perceptual inputs.</p>
+<p>We actually tried it in some Atari games,</p>
+<p>the canonical domains of Atari</p>
+<p>that have been used for reinforcement learning.</p>
+<p>And this system learned to build a model</p>
+<p>of these Atari games that was sufficiently rich</p>
+<p>and useful enough for it to be able to plan successfully.</p>
+<p>And in fact, that system not only went on</p>
+<p>to beat the state of the art in Atari,</p>
+<p>but the same system without modification</p>
+<p>was able to reach the same level of superhuman performance</p>
+<p>in go, chess, and shogi that we&rsquo;d seen in AlphaZero,</p>
+<p>showing that even without the rules,</p>
+<p>the system can learn for itself just by trial and error,</p>
+<p>just by playing this game of go.</p>
+<p>And no one tells you what the rules are,</p>
+<p>but you just get to the end and someone says win or loss.</p>
+<p>You play this game of chess and someone says win or loss,</p>
+<p>or you play a game of breakout in Atari</p>
+<p>and someone just tells you your score at the end.</p>
+<p>And the system for itself figures out</p>
+<p>essentially the rules of the system,</p>
+<p>the dynamics of the world, how the world works.</p>
+<p>And not in any explicit way, but just implicitly,</p>
+<p>enough understanding for it to be able to plan</p>
+<p>in that system in order to achieve its goals.</p>
+<p>And that&rsquo;s the fundamental process</p>
+<p>that you have to go through when you&rsquo;re facing</p>
+<p>in any uncertain kind of environment</p>
+<p>that you would in the real world,</p>
+<p>is figuring out the sort of the rules,</p>
+<p>the basic rules of the game.</p>
+<p>That&rsquo;s right.</p>
+<p>So that allows it to be applicable</p>
+<p>to basically any domain that could be digitized</p>
+<p>in the way that it needs to in order to be consumable,</p>
+<p>sort of in order for the reinforcement learning framework</p>
+<p>to be able to sense the environment,</p>
+<p>to be able to act in the environment and so on.</p>
+<p>The full reinforcement learning problem</p>
+<p>needs to deal with worlds that are unknown and complex</p>
+<p>and the agent needs to learn for itself</p>
+<p>how to deal with that.</p>
+<p>And so MuZero is a further step in that direction.</p>
+<p>One of the things that inspired the general public</p>
+<p>and just in conversations I have like with my parents</p>
+<p>or something with my mom that just loves what was done</p>
+<p>is kind of at least the notion</p>
+<p>that there was some display of creativity,</p>
+<p>some new strategies, new behaviors that were created.</p>
+<p>That again has echoes of intelligence.</p>
+<p>So is there something that stands out?</p>
+<p>Do you see it the same way that there&rsquo;s creativity</p>
+<p>and there&rsquo;s some behaviors, patterns that you saw</p>
+<p>that AlphaZero was able to display that are truly creative?</p>
+<p>So let me start by saying that I think we should ask</p>
+<p>what creativity really means.</p>
+<p>So to me, creativity means discovering something</p>
+<p>which wasn&rsquo;t known before, something unexpected,</p>
+<p>something outside of our norms.</p>
+<p>And so in that sense, the process of reinforcement learning</p>
+<p>or the self play approach that was used by AlphaZero</p>
+<p>is the essence of creativity.</p>
+<p>It&rsquo;s really saying at every stage,</p>
+<p>you&rsquo;re playing according to your current norms</p>
+<p>and you try something and if it works out,</p>
+<p>you say, hey, here&rsquo;s something great,</p>
+<p>I&rsquo;m gonna start using that.</p>
+<p>And then that process, it&rsquo;s like a micro discovery</p>
+<p>that happens millions and millions of times</p>
+<p>over the course of the algorithm&rsquo;s life</p>
+<p>where it just discovers some new idea,</p>
+<p>oh, this pattern, this pattern&rsquo;s working really well for me,</p>
+<p>I&rsquo;m gonna start using that.</p>
+<p>And now, oh, here&rsquo;s this other thing I can do,</p>
+<p>I can start to connect these stones together in this way</p>
+<p>or I can start to sacrifice stones or give up on pieces</p>
+<p>or play shoulder hits on the fifth line or whatever it is.</p>
+<p>The system&rsquo;s discovering things like this for itself</p>
+<p>continually, repeatedly, all the time.</p>
+<p>And so it should come as no surprise to us then</p>
+<p>when if you leave these systems going,</p>
+<p>that they discover things that are not known to humans,</p>
+<p>that to the human norms are considered creative.</p>
+<p>And we&rsquo;ve seen this several times.</p>
+<p>In fact, in AlphaGo Zero,</p>
+<p>we saw this beautiful timeline of discovery</p>
+<p>where what we saw was that there are these opening patterns</p>
+<p>that humans play called joseki,</p>
+<p>these are like the patterns that humans learn</p>
+<p>to play in the corners and they&rsquo;ve been developed</p>
+<p>and refined over literally thousands of years</p>
+<p>in the game of Go.</p>
+<p>And what we saw was in the course of the training,</p>
+<p>AlphaGo Zero, over the course of the 40 days</p>
+<p>that we trained this system,</p>
+<p>it starts to discover exactly these patterns</p>
+<p>that human players play.</p>
+<p>And over time, we found that all of the joseki</p>
+<p>that humans played were discovered by the system</p>
+<p>through this process of self play</p>
+<p>and this sort of essential notion of creativity.</p>
+<p>But what was really interesting was that over time,</p>
+<p>it then starts to discard some of these</p>
+<p>in favor of its own joseki that humans didn&rsquo;t know about.</p>
+<p>And it starts to say, oh, well,</p>
+<p>you thought that the Knights move pincer joseki</p>
+<p>was a great idea,</p>
+<p>but here&rsquo;s something different you can do there</p>
+<p>which makes some new variation</p>
+<p>that humans didn&rsquo;t know about.</p>
+<p>And actually now the human Go players</p>
+<p>study the joseki that AlphaGo played</p>
+<p>and they become the new norms</p>
+<p>that are used in today&rsquo;s top level Go competitions.</p>
+<p>That never gets old.</p>
+<p>Even just the first to me,</p>
+<p>maybe just makes me feel good as a human being</p>
+<p>that a self play mechanism that knows nothing about us humans</p>
+<p>discovers patterns that we humans do.</p>
+<p>That&rsquo;s just like an affirmation</p>
+<p>that we&rsquo;re doing okay as humans.</p>
+<p>Yeah.</p>
+<p>We&rsquo;ve, in this domain and other domains,</p>
+<p>we figured out it&rsquo;s like the Churchill quote</p>
+<p>about democracy.</p>
+<p>It&rsquo;s the, you know, it sucks,</p>
+<p>but it&rsquo;s the best one we&rsquo;ve tried.</p>
+<p>So in general, taking a step outside of Go</p>
+<p>and you&rsquo;ve like a million accomplishment</p>
+<p>that I have no time to talk about</p>
+<p>with AlphaStar and so on and the current work.</p>
+<p>But in general, this self play mechanism</p>
+<p>that you&rsquo;ve inspired the world with</p>
+<p>by beating the world champion Go player.</p>
+<p>Do you see that as,</p>
+<p>do you see it being applied in other domains?</p>
+<p>Do you have sort of dreams and hopes</p>
+<p>that it&rsquo;s applied in both the simulated environments</p>
+<p>and the constrained environments of games?</p>
+<p>Constrained, I mean, AlphaStar really demonstrates</p>
+<p>that you can remove a lot of the constraints,</p>
+<p>but nevertheless, it&rsquo;s in a digital simulated environment.</p>
+<p>Do you have a hope, a dream that it starts being applied</p>
+<p>in the robotics environment?</p>
+<p>And maybe even in domains that are safety critical</p>
+<p>and so on and have, you know,</p>
+<p>have a real impact in the real world,</p>
+<p>like autonomous vehicles, for example,</p>
+<p>which seems like a very far out dream at this point.</p>
+<p>So I absolutely do hope and imagine</p>
+<p>that we will get to the point where ideas</p>
+<p>just like these are used in all kinds of different domains.</p>
+<p>In fact, one of the most satisfying things</p>
+<p>as a researcher is when you start to see other people</p>
+<p>use your algorithms in unexpected ways.</p>
+<p>So in the last couple of years, there have been,</p>
+<p>you know, a couple of nature papers</p>
+<p>where different teams, unbeknownst to us,</p>
+<p>took AlphaZero and applied exactly those same algorithms</p>
+<p>and ideas to real world problems of huge meaning to society.</p>
+<p>So one of them was the problem of chemical synthesis,</p>
+<p>and they were able to beat the state of the art</p>
+<p>in finding pathways of how to actually synthesize chemicals,</p>
+<p>retrochemical synthesis.</p>
+<p>And the second paper actually just came out</p>
+<p>a couple of weeks ago in Nature,</p>
+<p>showed that in quantum computation,</p>
+<p>you know, one of the big questions is how to understand</p>
+<p>the nature of the function in quantum computation</p>
+<p>and a system based on AlphaZero beat the state of the art</p>
+<p>by quite some distance there again.</p>
+<p>So these are just examples.</p>
+<p>And I think, you know, the lesson,</p>
+<p>which we&rsquo;ve seen elsewhere in machine learning</p>
+<p>time and time again, is that if you make something general,</p>
+<p>it will be used in all kinds of ways.</p>
+<p>You know, you provide a really powerful tool to society,</p>
+<p>and those tools can be used in amazing ways.</p>
+<p>And so I think we&rsquo;re just at the beginning,</p>
+<p>and for sure, I hope that we see all kinds of outcomes.</p>
+<p>So the other side of the question of reinforcement</p>
+<p>learning framework is, you know,</p>
+<p>you usually want to specify a reward function</p>
+<p>and an objective function.</p>
+<p>What do you think about sort of ideas of intrinsic rewards</p>
+<p>of when we&rsquo;re not really sure about, you know,</p>
+<p>if we take, you know, human beings as existence proof</p>
+<p>that we don&rsquo;t seem to be operating</p>
+<p>according to a single reward,</p>
+<p>do you think that there&rsquo;s interesting ideas</p>
+<p>for when you don&rsquo;t know how to truly specify the reward,</p>
+<p>you know, that there&rsquo;s some flexibility</p>
+<p>for discovering it intrinsically or so on</p>
+<p>in the context of reinforcement learning?</p>
+<p>So I think, you know, when we think about intelligence,</p>
+<p>it&rsquo;s really important to be clear</p>
+<p>about the problem of intelligence.</p>
+<p>And I think it&rsquo;s clearest to understand that problem</p>
+<p>in terms of some ultimate goal</p>
+<p>that we want the system to try and solve for.</p>
+<p>And after all, if we don&rsquo;t understand the ultimate purpose</p>
+<p>of the system, do we really even have</p>
+<p>a clearly defined problem that we&rsquo;re solving at all?</p>
+<p>Now, within that, as with your example for humans,</p>
+<p>the system may choose to create its own motivations</p>
+<p>and subgoals that help the system</p>
+<p>to achieve its ultimate goal.</p>
+<p>And that may indeed be a hugely important mechanism</p>
+<p>to achieve those ultimate goals,</p>
+<p>but there is still some ultimate goal</p>
+<p>I think the system needs to be measurable</p>
+<p>and evaluated against.</p>
+<p>And even for humans, I mean, humans,</p>
+<p>we&rsquo;re incredibly flexible.</p>
+<p>We feel that we can, you know, any goal that we&rsquo;re given,</p>
+<p>we feel we can master to some degree.</p>
+<p>But if we think of those goals, really, you know,</p>
+<p>like the goal of being able to pick up an object</p>
+<p>or the goal of being able to communicate</p>
+<p>or influence people to do things in a particular way</p>
+<p>or whatever those goals are, really, they&rsquo;re subgoals,</p>
+<p>really, that we set ourselves.</p>
+<p>You know, we choose to pick up the object.</p>
+<p>We choose to communicate.</p>
+<p>We choose to influence someone else.</p>
+<p>And we choose those because we think it will lead us</p>
+<p>to something later on.</p>
+<p>We think that&rsquo;s helpful to us to achieve some ultimate goal.</p>
+<p>Now, I don&rsquo;t want to speculate whether or not humans</p>
+<p>as a system necessarily have a singular overall goal</p>
+<p>of survival or whatever it is.</p>
+<p>But I think the principle for understanding</p>
+<p>and implementing intelligence is, has to be,</p>
+<p>that if we&rsquo;re trying to understand intelligence</p>
+<p>or implement our own,</p>
+<p>there has to be a well defined problem.</p>
+<p>Otherwise, if it&rsquo;s not, I think it&rsquo;s like an admission</p>
+<p>of defeat, that for there to be hope for understanding</p>
+<p>or implementing intelligence, we have to know what we&rsquo;re doing.</p>
+<p>We have to know what we&rsquo;re asking the system to do.</p>
+<p>Otherwise, if you don&rsquo;t have a clearly defined purpose,</p>
+<p>you&rsquo;re not going to get a clearly defined answer.</p>
+<p>The ridiculous big question that has to naturally follow,</p>
+<p>because I have to pin you down on this thing,</p>
+<p>that nevertheless, one of the big silly</p>
+<p>or big real questions before humans is the meaning of life,</p>
+<p>is us trying to figure out our own reward function.</p>
+<p>And you just kind of mentioned that if you want to build</p>
+<p>intelligent systems and you know what you&rsquo;re doing,</p>
+<p>you should be at least cognizant to some degree</p>
+<p>of what the reward function is.</p>
+<p>So the natural question is what do you think</p>
+<p>is the reward function of human life,</p>
+<p>the meaning of life for us humans,</p>
+<p>the meaning of our existence?</p>
+<p>I think I&rsquo;d be speculating beyond my own expertise,</p>
+<p>but just for fun, let me do that.</p>
+<p>Yes, please.</p>
+<p>And say, I think that there are many levels</p>
+<p>at which you can understand a system</p>
+<p>and you can understand something as optimizing</p>
+<p>for a goal at many levels.</p>
+<p>And so you can understand the,</p>
+<p>let&rsquo;s start with the universe.</p>
+<p>Does the universe have a purpose?</p>
+<p>Well, it feels like it&rsquo;s just at one level</p>
+<p>just following certain mechanical laws of physics</p>
+<p>and that that&rsquo;s led to the development of the universe.</p>
+<p>But at another level, you can view it as actually,</p>
+<p>there&rsquo;s the second law of thermodynamics that says</p>
+<p>that this is increasing in entropy over time forever.</p>
+<p>And now there&rsquo;s a view that&rsquo;s been developed</p>
+<p>by certain people at MIT that this,</p>
+<p>you can think of this as almost like a goal of the universe,</p>
+<p>that the purpose of the universe is to maximize entropy.</p>
+<p>So there are multiple levels</p>
+<p>at which you can understand a system.</p>
+<p>The next level down, you might say,</p>
+<p>well, if the goal is to maximize entropy,</p>
+<p>well, how can that be done by a particular system?</p>
+<p>And maybe evolution is something that the universe</p>
+<p>discovered in order to kind of dissipate energy</p>
+<p>as efficiently as possible.</p>
+<p>And by the way, I&rsquo;m borrowing from Max Tegmark</p>
+<p>for some of these metaphors, the physicist.</p>
+<p>But if you can think of evolution</p>
+<p>as a mechanism for dispersing energy,</p>
+<p>then evolution, you might say, then becomes a goal,</p>
+<p>which is if evolution disperses energy</p>
+<p>by reproducing as efficiently as possible,</p>
+<p>what&rsquo;s evolution then?</p>
+<p>Well, it&rsquo;s now got its own goal within that,</p>
+<p>which is to actually reproduce as effectively as possible.</p>
+<p>And now how does reproduction,</p>
+<p>how is that made as effective as possible?</p>
+<p>Well, you need entities within that</p>
+<p>that can survive and reproduce as effectively as possible.</p>
+<p>And so it&rsquo;s natural that in order to achieve</p>
+<p>that high level goal, those individual organisms</p>
+<p>discover brains, intelligences,</p>
+<p>which enable them to support the goals of evolution.</p>
+<p>And those brains, what do they do?</p>
+<p>Well, perhaps the early brains,</p>
+<p>maybe they were controlling things at some direct level.</p>
+<p>Maybe they were the equivalent of preprogrammed systems,</p>
+<p>which were directly controlling what was going on</p>
+<p>and setting certain things in order</p>
+<p>to achieve these particular goals.</p>
+<p>But that led to another level of discovery,</p>
+<p>which was learning systems.</p>
+<p>There are parts of the brain</p>
+<p>which are able to learn for themselves</p>
+<p>and learn how to program themselves to achieve any goal.</p>
+<p>And presumably there are parts of the brain</p>
+<p>where goals are set to parts of that system</p>
+<p>and provides this very flexible notion of intelligence</p>
+<p>that we as humans presumably have,</p>
+<p>which is the ability to kind of,</p>
+<p>the reason we feel that we can achieve any goal.</p>
+<p>So it&rsquo;s a very long winded answer to say that,</p>
+<p>I think there are many perspectives</p>
+<p>and many levels at which intelligence can be understood.</p>
+<p>And at each of those levels,</p>
+<p>you can take multiple perspectives.</p>
+<p>You can view the system as something</p>
+<p>which is optimizing for a goal,</p>
+<p>which is understanding it at a level</p>
+<p>by which we can maybe implement it</p>
+<p>and understand it as AI researchers or computer scientists,</p>
+<p>or you can understand it at the level</p>
+<p>of the mechanistic thing which is going on</p>
+<p>that there are these atoms bouncing around in the brain</p>
+<p>and they lead to the outcome of that system</p>
+<p>is not in contradiction with the fact</p>
+<p>that it&rsquo;s also a decision making system</p>
+<p>that&rsquo;s optimizing for some goal and purpose.</p>
+<p>I&rsquo;ve never heard the description of the meaning of life</p>
+<p>structured so beautifully in layers,</p>
+<p>but you did miss one layer, which is the next step,</p>
+<p>which you&rsquo;re responsible for,</p>
+<p>which is creating the artificial intelligence layer</p>
+<p>on top of that.</p>
+<p>And I can&rsquo;t wait to see, well, I may not be around,</p>
+<p>but I can&rsquo;t wait to see what the next layer beyond that be.</p>
+<p>Well, let&rsquo;s just take that argument</p>
+<p>and pursue it to its natural conclusion.</p>
+<p>So the next level indeed is for how can our learning brain</p>
+<p>achieve its goals most effectively?</p>
+<p>Well, maybe it does so by us as learning beings</p>
+<p>building a system which is able to solve for those goals</p>
+<p>more effectively than we can.</p>
+<p>And so when we build a system to play the game of Go,</p>
+<p>when I said that I wanted to build a system</p>
+<p>that can play Go better than I can,</p>
+<p>I&rsquo;ve enabled myself to achieve that goal of playing Go</p>
+<p>better than I could by directly playing it</p>
+<p>and learning it myself.</p>
+<p>And so now a new layer has been created,</p>
+<p>which is systems which are able to achieve goals</p>
+<p>for themselves.</p>
+<p>And ultimately there may be layers beyond that</p>
+<p>where they set sub goals to parts of their own system</p>
+<p>in order to achieve those and so forth.</p>
+<p>So the story of intelligence, I think,</p>
+<p>is a multi layered one and a multi perspective one.</p>
+<p>We live in an incredible universe.</p>
+<p>David, thank you so much, first of all,</p>
+<p>for dreaming of using learning to solve Go</p>
+<p>and building intelligent systems</p>
+<p>and for actually making it happen</p>
+<p>and for inspiring millions of people in the process.</p>
+<p>It&rsquo;s truly an honor.</p>
+<p>Thank you so much for talking today.</p>
+<p>Okay, thank you.</p>
+<p>Thanks for listening to this conversation</p>
+<p>with David Silver and thank you to our sponsors,</p>
+<p>Masterclass and Cash App.</p>
+<p>Please consider supporting the podcast</p>
+<p>by signing up to Masterclass at masterclass.com slash Lex</p>
+<p>and downloading Cash App and using code LexPodcast.</p>
+<p>If you enjoy this podcast, subscribe on YouTube,</p>
+<p>review it with five stars on Apple Podcast,</p>
+<p>support it on Patreon,</p>
+<p>or simply connect with me on Twitter at LexFriedman.</p>
+<p>And now let me leave you with some words from David Silver.</p>
+<p>My personal belief is that we&rsquo;ve seen something</p>
+<p>of a turning point where we&rsquo;re starting to understand</p>
+<p>that many abilities like intuition and creativity</p>
+<p>that we&rsquo;ve previously thought were in the domain only</p>
+<p>of the human mind are actually accessible</p>
+<p>to machine intelligence as well.</p>
+<p>And I think that&rsquo;s a really exciting moment in history.</p>
+<p>Thank you for listening and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

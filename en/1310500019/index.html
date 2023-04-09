@@ -1,0 +1,2354 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Ian Goodfellow.
+He&amp;rsquo;s the author of the popular textbook on deep learning
+simply titled Deep Learning.
+He coined the term of Generative Adversarial Networks,
+otherwise known as GANs,
+and with his 2014 paper is responsible
+for launching the incredible growth
+of research and innovation in this subfield
+of deep learning.
+He got his BS and MS at Stanford,
+his PhD at University of Montreal'>
+<title>Lex Fridman Podcast - #19 - Ian Goodfellow: Generative Adversarial Networks (GANs) | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500019/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #19 - Ian Goodfellow: Generative Adversarial Networks (GANs)'>
+<meta property='og:description' content='The following is a conversation with Ian Goodfellow.
+He&amp;rsquo;s the author of the popular textbook on deep learning
+simply titled Deep Learning.
+He coined the term of Generative Adversarial Networks,
+otherwise known as GANs,
+and with his 2014 paper is responsible
+for launching the incredible growth
+of research and innovation in this subfield
+of deep learning.
+He got his BS and MS at Stanford,
+his PhD at University of Montreal'>
+<meta property='og:url' content='https://swiest.com/en/1310500019/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-03-19T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-19T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #19 - Ian Goodfellow: Generative Adversarial Networks (GANs)">
+<meta name="twitter:description" content="The following is a conversation with Ian Goodfellow.
+He&amp;rsquo;s the author of the popular textbook on deep learning
+simply titled Deep Learning.
+He coined the term of Generative Adversarial Networks,
+otherwise known as GANs,
+and with his 2014 paper is responsible
+for launching the incredible growth
+of research and innovation in this subfield
+of deep learning.
+He got his BS and MS at Stanford,
+his PhD at University of Montreal">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500019/">Lex Fridman Podcast - #19 - Ian Goodfellow: Generative Adversarial Networks (GANs)</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-03-19</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    55 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Ian Goodfellow.</p>
+<p>He&rsquo;s the author of the popular textbook on deep learning</p>
+<p>simply titled Deep Learning.</p>
+<p>He coined the term of Generative Adversarial Networks,</p>
+<p>otherwise known as GANs,</p>
+<p>and with his 2014 paper is responsible</p>
+<p>for launching the incredible growth</p>
+<p>of research and innovation in this subfield</p>
+<p>of deep learning.</p>
+<p>He got his BS and MS at Stanford,</p>
+<p>his PhD at University of Montreal</p>
+<p>with Yoshua Bengio and Aaron Kerrville.</p>
+<p>He held several research positions</p>
+<p>including at OpenAI, Google Brain,</p>
+<p>and now at Apple as the Director of Machine Learning.</p>
+<p>This recording happened while Ian was still at Google Brain,</p>
+<p>but we don&rsquo;t talk about anything specific to Google</p>
+<p>or any other organization.</p>
+<p>This conversation is part</p>
+<p>of the Artificial Intelligence Podcast.</p>
+<p>If you enjoy it, subscribe on YouTube, iTunes,</p>
+<p>or simply connect with me on Twitter at Lex Friedman,</p>
+<p>spelled F R I D.</p>
+<p>And now here&rsquo;s my conversation with Ian Goodfellow.</p>
+<p>You open your popular deep learning book</p>
+<p>with a Russian doll type diagram</p>
+<p>that shows deep learning is a subset</p>
+<p>of representation learning,</p>
+<p>which in turn is a subset of machine learning</p>
+<p>and finally a subset of AI.</p>
+<p>So this kind of implies that there may be limits</p>
+<p>to deep learning in the context of AI.</p>
+<p>So what do you think is the current limits of deep learning</p>
+<p>and are those limits something</p>
+<p>that we can overcome with time?</p>
+<p>Yeah, I think one of the biggest limitations</p>
+<p>of deep learning is that right now it requires</p>
+<p>really a lot of data, especially labeled data.</p>
+<p>There are some unsupervised</p>
+<p>and semi supervised learning algorithms</p>
+<p>that can reduce the amount of labeled data you need,</p>
+<p>but they still require a lot of unlabeled data,</p>
+<p>reinforcement learning algorithms.</p>
+<p>They don&rsquo;t need labels,</p>
+<p>but they need really a lot of experiences.</p>
+<p>As human beings, we don&rsquo;t learn to play Pong</p>
+<p>by failing at Pong 2 million times.</p>
+<p>So just getting the generalization ability better</p>
+<p>is one of the most important bottlenecks</p>
+<p>in the capability of the technology today.</p>
+<p>And then I guess I&rsquo;d also say deep learning</p>
+<p>is like a component of a bigger system.</p>
+<p>So far, nobody is really proposing to have</p>
+<p>only what you&rsquo;d call deep learning</p>
+<p>as the entire ingredient of intelligence.</p>
+<p>You use deep learning as sub modules of other systems,</p>
+<p>like AlphaGo has a deep learning model</p>
+<p>that estimates the value function.</p>
+<p>Most reinforcement learning algorithms</p>
+<p>have a deep learning module</p>
+<p>that estimates which action to take next,</p>
+<p>but you might have other components.</p>
+<p>So you&rsquo;re basically building a function estimator.</p>
+<p>Do you think it&rsquo;s possible,</p>
+<p>you said nobody&rsquo;s kind of been thinking about this so far,</p>
+<p>but do you think neural networks could be made to reason</p>
+<p>in the way symbolic systems did in the 80s and 90s</p>
+<p>to do more, create more like programs</p>
+<p>as opposed to functions?</p>
+<p>Yeah, I think we already see that a little bit.</p>
+<p>I already kind of think of neural nets</p>
+<p>as a kind of program.</p>
+<p>I think of deep learning as basically learning programs</p>
+<p>that have more than one step.</p>
+<p>So if you draw a flow chart</p>
+<p>or if you draw a TensorFlow graph</p>
+<p>describing your machine learning model,</p>
+<p>I think of the depth of that graph</p>
+<p>as describing the number of steps that run in sequence.</p>
+<p>And then the width of that graph</p>
+<p>is the number of steps that run in parallel.</p>
+<p>Now it&rsquo;s been long enough</p>
+<p>that we&rsquo;ve had deep learning working</p>
+<p>that it&rsquo;s a little bit silly</p>
+<p>to even discuss shallow learning anymore.</p>
+<p>But back when I first got involved in AI,</p>
+<p>when we used machine learning,</p>
+<p>we were usually learning things like support vector machines.</p>
+<p>You could have a lot of input features to the model</p>
+<p>and you could multiply each feature by a different weight.</p>
+<p>All those multiplications were done</p>
+<p>in parallel to each other.</p>
+<p>There wasn&rsquo;t a lot done in series.</p>
+<p>I think what we got with deep learning</p>
+<p>was really the ability to have steps of a program</p>
+<p>that run in sequence.</p>
+<p>And I think that we&rsquo;ve actually started to see</p>
+<p>that what&rsquo;s important with deep learning</p>
+<p>is more the fact that we have a multi step program</p>
+<p>rather than the fact that we&rsquo;ve learned a representation.</p>
+<p>If you look at things like resonance, for example,</p>
+<p>they take one particular kind of representation</p>
+<p>and they update it several times.</p>
+<p>Back when deep learning first really took off</p>
+<p>in the academic world in 2006,</p>
+<p>when Jeff Hinton showed that you could train</p>
+<p>deep belief networks,</p>
+<p>everybody who was interested in the idea</p>
+<p>thought of it as each layer</p>
+<p>learns a different level of abstraction.</p>
+<p>That the first layer trained on images</p>
+<p>learns something like edges</p>
+<p>and the second layer learns corners.</p>
+<p>And eventually you get these kind of grandmother cell units</p>
+<p>that recognize specific objects.</p>
+<p>Today I think most people think of it more</p>
+<p>as a computer program where as you add more layers</p>
+<p>you can do more updates before you output your final number.</p>
+<p>But I don&rsquo;t think anybody believes that</p>
+<p>layer 150 of the ResNet is a grandmother cell</p>
+<p>and layer 100 is contours or something like that.</p>
+<p>Okay, so you&rsquo;re not thinking of it</p>
+<p>as a singular representation that keeps building.</p>
+<p>You think of it as a program,</p>
+<p>sort of almost like a state.</p>
+<p>Representation is a state of understanding.</p>
+<p>Yeah, I think of it as a program</p>
+<p>that makes several updates</p>
+<p>and arrives at better and better understandings,</p>
+<p>but it&rsquo;s not replacing the representation at each step.</p>
+<p>It&rsquo;s refining it.</p>
+<p>And in some sense, that&rsquo;s a little bit like reasoning.</p>
+<p>It&rsquo;s not reasoning in the form of deduction,</p>
+<p>but it&rsquo;s reasoning in the form of taking a thought</p>
+<p>and refining it and refining it carefully</p>
+<p>until it&rsquo;s good enough to use.</p>
+<p>So do you think, and I hope you don&rsquo;t mind,</p>
+<p>we&rsquo;ll jump philosophical every once in a while.</p>
+<p>Do you think of cognition, human cognition,</p>
+<p>or even consciousness as simply a result</p>
+<p>of this kind of sequential representation learning?</p>
+<p>Do you think that can emerge?</p>
+<p>Cognition, yes, I think so.</p>
+<p>Consciousness, it&rsquo;s really hard to even define</p>
+<p>what we mean by that.</p>
+<p>I guess there&rsquo;s, consciousness is often defined</p>
+<p>as things like having self awareness,</p>
+<p>and that&rsquo;s relatively easy to turn into something actionable</p>
+<p>for a computer scientist to reason about.</p>
+<p>People also define consciousness</p>
+<p>in terms of having qualitative states of experience,</p>
+<p>like qualia, and there&rsquo;s all these philosophical problems,</p>
+<p>like could you imagine a zombie</p>
+<p>who does all the same information processing as a human,</p>
+<p>but doesn&rsquo;t really have the qualitative experiences</p>
+<p>that we have?</p>
+<p>That sort of thing, I have no idea how to formalize</p>
+<p>or turn it into a scientific question.</p>
+<p>I don&rsquo;t know how you could run an experiment</p>
+<p>to tell whether a person is a zombie or not.</p>
+<p>And similarly, I don&rsquo;t know how you could run</p>
+<p>an experiment to tell whether an advanced AI system</p>
+<p>had become conscious in the sense of qualia or not.</p>
+<p>But in the more practical sense,</p>
+<p>like almost like self attention,</p>
+<p>you think consciousness and cognition can,</p>
+<p>in an impressive way, emerge from current types</p>
+<p>of architectures that we think of as learning.</p>
+<p>Or if you think of consciousness</p>
+<p>in terms of self awareness and just making plans</p>
+<p>based on the fact that the agent itself exists in the world,</p>
+<p>reinforcement learning algorithms</p>
+<p>are already more or less forced</p>
+<p>to model the agent&rsquo;s effect on the environment.</p>
+<p>So that more limited version of consciousness</p>
+<p>is already something that we get limited versions of</p>
+<p>with reinforcement learning algorithms</p>
+<p>if they&rsquo;re trained well.</p>
+<p>But you say limited, so the big question really</p>
+<p>is how you jump from limited to human level, right?</p>
+<p>And whether it&rsquo;s possible,</p>
+<p>even just building common sense reasoning</p>
+<p>seems to be exceptionally difficult.</p>
+<p>So if we scale things up,</p>
+<p>if we get much better on supervised learning,</p>
+<p>if we get better at labeling,</p>
+<p>if we get bigger data sets, more compute,</p>
+<p>do you think we&rsquo;ll start to see really impressive things</p>
+<p>that go from limited to something,</p>
+<p>echoes of human level cognition?</p>
+<p>I think so, yeah.</p>
+<p>I&rsquo;m optimistic about what can happen</p>
+<p>just with more computation and more data.</p>
+<p>I do think it&rsquo;ll be important</p>
+<p>to get the right kind of data.</p>
+<p>Today, most of the machine learning systems we train</p>
+<p>are mostly trained on one type of data for each model.</p>
+<p>But the human brain, we get all of our different senses</p>
+<p>and we have many different experiences</p>
+<p>like riding a bike, driving a car,</p>
+<p>talking to people, reading.</p>
+<p>I think when we get that kind of integrated data set,</p>
+<p>working with a machine learning model</p>
+<p>that can actually close the loop and interact,</p>
+<p>we may find that algorithms not so different</p>
+<p>from what we have today learn really interesting things</p>
+<p>when you scale them up a lot</p>
+<p>and train them on a large amount of multimodal data.</p>
+<p>So multimodal is really interesting,</p>
+<p>but within, like you&rsquo;re working adversarial examples.</p>
+<p>So selecting within modal, within one mode of data,</p>
+<p>selecting better at what are the difficult cases</p>
+<p>from which you&rsquo;re most useful to learn from.</p>
+<p>Oh yeah, like could we get a whole lot of mileage</p>
+<p>out of designing a model that&rsquo;s resistant</p>
+<p>to adversarial examples or something like that?</p>
+<p>Right, that&rsquo;s the question.</p>
+<p>My thinking on that has evolved a lot</p>
+<p>over the last few years.</p>
+<p>When I first started to really invest</p>
+<p>in studying adversarial examples,</p>
+<p>I was thinking of it mostly as adversarial examples</p>
+<p>reveal a big problem with machine learning</p>
+<p>and we would like to close the gap</p>
+<p>between how machine learning models respond</p>
+<p>to adversarial examples and how humans respond.</p>
+<p>After studying the problem more,</p>
+<p>I still think that adversarial examples are important.</p>
+<p>I think of them now more of as a security liability</p>
+<p>than as an issue that necessarily shows</p>
+<p>there&rsquo;s something uniquely wrong</p>
+<p>with machine learning as opposed to humans.</p>
+<p>Also, do you see them as a tool</p>
+<p>to improve the performance of the system?</p>
+<p>Not on the security side, but literally just accuracy.</p>
+<p>I do see them as a kind of tool on that side,</p>
+<p>but maybe not quite as much as I used to think.</p>
+<p>We&rsquo;ve started to find that there&rsquo;s a trade off</p>
+<p>between accuracy on adversarial examples</p>
+<p>and accuracy on clean examples.</p>
+<p>Back in 2014, when I did the first</p>
+<p>adversarily trained classifier that showed resistance</p>
+<p>to some kinds of adversarial examples,</p>
+<p>it also got better at the clean data on MNIST.</p>
+<p>And that&rsquo;s something we&rsquo;ve replicated several times</p>
+<p>on MNIST, that when we train</p>
+<p>against weak adversarial examples,</p>
+<p>MNIST classifiers get more accurate.</p>
+<p>So far that hasn&rsquo;t really held up on other data sets</p>
+<p>and hasn&rsquo;t held up when we train</p>
+<p>against stronger adversaries.</p>
+<p>It seems like when you confront</p>
+<p>a really strong adversary,</p>
+<p>you tend to have to give something up.</p>
+<p>Interesting.</p>
+<p>But it&rsquo;s such a compelling idea</p>
+<p>because it feels like that&rsquo;s how us humans learn</p>
+<p>is through the difficult cases.</p>
+<p>We try to think of what would we screw up</p>
+<p>and then we make sure we fix that.</p>
+<p>It&rsquo;s also in a lot of branches of engineering,</p>
+<p>you do a worst case analysis</p>
+<p>and make sure that your system will work in the worst case.</p>
+<p>And then that guarantees that it&rsquo;ll work</p>
+<p>in all of the messy average cases that happen</p>
+<p>when you go out into a really randomized world.</p>
+<p>Yeah, with driving with autonomous vehicles,</p>
+<p>there seems to be a desire to just look for,</p>
+<p>think adversarially,</p>
+<p>try to figure out how to mess up the system.</p>
+<p>And if you can be robust to all those difficult cases,</p>
+<p>then you can, it&rsquo;s a hand wavy empirical way</p>
+<p>to show your system is safe.</p>
+<p>Today, most adversarial example research</p>
+<p>isn&rsquo;t really focused on a particular use case,</p>
+<p>but there are a lot of different use cases</p>
+<p>where you&rsquo;d like to make sure that the adversary</p>
+<p>can&rsquo;t interfere with the operation of your system.</p>
+<p>Like in finance,</p>
+<p>if you have an algorithm making trades for you,</p>
+<p>people go to a lot of an effort</p>
+<p>to obfuscate their algorithm.</p>
+<p>That&rsquo;s both to protect their IP</p>
+<p>because you don&rsquo;t want to research</p>
+<p>and develop a profitable trading algorithm</p>
+<p>then have somebody else capture the gains.</p>
+<p>But it&rsquo;s at least partly</p>
+<p>because you don&rsquo;t want people to make adversarial examples</p>
+<p>that fool your algorithm into making bad trades.</p>
+<p>Or I guess one area that&rsquo;s been popular</p>
+<p>in the academic literature is speech recognition.</p>
+<p>If you use speech recognition to hear an audio wave form</p>
+<p>and then turn that into a command</p>
+<p>that a phone executes for you,</p>
+<p>you don&rsquo;t want a malicious adversary</p>
+<p>to be able to produce audio</p>
+<p>that gets interpreted as malicious commands,</p>
+<p>especially if a human in the room doesn&rsquo;t realize</p>
+<p>that something like that is happening.</p>
+<p>And speech recognition,</p>
+<p>has there been much success</p>
+<p>in being able to create adversarial examples</p>
+<p>that fool the system?</p>
+<p>Yeah, actually.</p>
+<p>I guess the first work that I&rsquo;m aware of</p>
+<p>is a paper called Hidden Voice Commands</p>
+<p>that came out in 2016, I believe.</p>
+<p>And they were able to show that they could make sounds</p>
+<p>that are not understandable by a human</p>
+<p>but are recognized as the target phrase</p>
+<p>that the attacker wants the phone to recognize it as.</p>
+<p>Since then, things have gotten a little bit better</p>
+<p>on the attacker&rsquo;s side</p>
+<p>when worse on the defender&rsquo;s side.</p>
+<p>It&rsquo;s become possible to make sounds</p>
+<p>that sound like normal speech</p>
+<p>but are actually interpreted as a different sentence</p>
+<p>than the human hears.</p>
+<p>The level of perceptibility</p>
+<p>of the adversarial perturbation is still kind of high.</p>
+<p>When you listen to the recording,</p>
+<p>it sounds like there&rsquo;s some noise in the background,</p>
+<p>just like rustling sounds.</p>
+<p>But those rustling sounds</p>
+<p>are actually the adversarial perturbation</p>
+<p>that makes the phone hear a completely different sentence.</p>
+<p>Yeah, that&rsquo;s so fascinating.</p>
+<p>Peter Norvig mentioned</p>
+<p>that you&rsquo;re writing the deep learning chapter</p>
+<p>for the fourth edition</p>
+<p>of the Artificial Intelligence, A Modern Approach book.</p>
+<p>So how do you even begin summarizing</p>
+<p>the field of deep learning in a chapter?</p>
+<p>Well, in my case, I waited like a year</p>
+<p>before I actually wrote anything.</p>
+<p>Even having written a full length textbook before,</p>
+<p>it&rsquo;s still pretty intimidating</p>
+<p>to try to start writing just one chapter</p>
+<p>that covers everything.</p>
+<p>One thing that helped me make that plan</p>
+<p>was actually the experience</p>
+<p>of having written the full book before</p>
+<p>and then watching how the field changed</p>
+<p>after the book came out.</p>
+<p>I&rsquo;ve realized there&rsquo;s a lot of topics</p>
+<p>that were maybe extraneous in the first book</p>
+<p>and just seeing what stood the test</p>
+<p>of a few years of being published</p>
+<p>and what seems a little bit less important</p>
+<p>to have included now helped me pare down the topics</p>
+<p>I wanted to cover for the book.</p>
+<p>It&rsquo;s also really nice now</p>
+<p>that the field is kind of stabilized</p>
+<p>to the point where some core ideas from the 1980s</p>
+<p>are still used today.</p>
+<p>When I first started studying machine learning,</p>
+<p>almost everything from the 1980s had been rejected</p>
+<p>and now some of it has come back.</p>
+<p>So that stuff that&rsquo;s really stood the test of time</p>
+<p>is what I focused on putting into the book.</p>
+<p>There&rsquo;s also, I guess, two different philosophies</p>
+<p>about how you might write a book.</p>
+<p>One philosophy is you try to write a reference</p>
+<p>that covers everything.</p>
+<p>The other philosophy is you try to provide</p>
+<p>a high level summary that gives people the language</p>
+<p>to understand a field</p>
+<p>and tells them what the most important concepts are.</p>
+<p>The first deep learning book that I wrote</p>
+<p>with Joshua and Aaron was somewhere</p>
+<p>between the two philosophies,</p>
+<p>that it&rsquo;s trying to be both a reference</p>
+<p>and an introductory guide.</p>
+<p>Writing this chapter for Russell Norvig&rsquo;s book,</p>
+<p>I was able to focus more on just a concise introduction</p>
+<p>of the key concepts and the language</p>
+<p>you need to read about them more.</p>
+<p>In a lot of cases, I actually just wrote paragraphs</p>
+<p>that said, here&rsquo;s a rapidly evolving area</p>
+<p>that you should pay attention to.</p>
+<p>It&rsquo;s pointless to try to tell you what the latest</p>
+<p>and best version of a learn to learn model is.</p>
+<p>I can point you to a paper that&rsquo;s recent right now,</p>
+<p>but there isn&rsquo;t a whole lot of a reason to delve</p>
+<p>into exactly what&rsquo;s going on</p>
+<p>with the latest learning to learn approach</p>
+<p>or the latest module produced</p>
+<p>by a learning to learn algorithm.</p>
+<p>You should know that learning to learn is a thing</p>
+<p>and that it may very well be the source of the latest</p>
+<p>and greatest convolutional net or recurrent net module</p>
+<p>that you would want to use in your latest project.</p>
+<p>But there isn&rsquo;t a lot of point in trying to summarize</p>
+<p>exactly which architecture and which learning approach</p>
+<p>got to which level of performance.</p>
+<p>So you maybe focus more on the basics of the methodology.</p>
+<p>So from back propagation to feed forward</p>
+<p>to recurrent neural networks, convolutional,</p>
+<p>that kind of thing?</p>
+<p>Yeah, yeah.</p>
+<p>So if I were to ask you, I remember I took algorithms</p>
+<p>and data structures algorithms course.</p>
+<p>I remember the professor asked, what is an algorithm?</p>
+<p>And yelled at everybody in a good way</p>
+<p>that nobody was answering it correctly.</p>
+<p>Everybody knew what the algorithm, it was graduate course.</p>
+<p>Everybody knew what an algorithm was,</p>
+<p>but they weren&rsquo;t able to answer it well.</p>
+<p>So let me ask you in that same spirit,</p>
+<p>what is deep learning?</p>
+<p>I would say deep learning is any kind of machine learning</p>
+<p>that involves learning parameters of more than one</p>
+<p>consecutive step.</p>
+<p>So that, I mean, shallow learning is things</p>
+<p>where you learn a lot of operations that happen in parallel.</p>
+<p>You might have a system that makes multiple steps.</p>
+<p>Like you might have hand designed feature extractors,</p>
+<p>but really only one step is learned.</p>
+<p>Deep learning is anything where you have multiple operations</p>
+<p>in sequence, and that includes the things</p>
+<p>that are really popular today,</p>
+<p>like convolutional networks and recurrent networks.</p>
+<p>But it also includes some of the things that have died out</p>
+<p>like Bolton machines,</p>
+<p>where we weren&rsquo;t using back propagation.</p>
+<p>Today, I hear a lot of people define deep learning</p>
+<p>as gradient descent applied</p>
+<p>to these differentiable functions.</p>
+<p>And I think that&rsquo;s a legitimate usage of the term.</p>
+<p>It&rsquo;s just different from the way that I use the term myself.</p>
+<p>So what&rsquo;s an example of deep learning</p>
+<p>that is not gradient descent and differentiable functions?</p>
+<p>In your, I mean, not specifically perhaps,</p>
+<p>but more even looking into the future,</p>
+<p>what&rsquo;s your thought about that space of approaches?</p>
+<p>Yeah, so I tend to think of machine learning algorithms</p>
+<p>as decomposed into really three different pieces.</p>
+<p>There&rsquo;s the model, which can be something like a neural net</p>
+<p>or a Bolton machine or a recurrent model.</p>
+<p>And that basically just describes how do you take data</p>
+<p>and how do you take parameters?</p>
+<p>And what function do you use to make a prediction</p>
+<p>given the data and the parameters?</p>
+<p>Another piece of the learning algorithm</p>
+<p>is the optimization algorithm.</p>
+<p>Or not every algorithm can be really described</p>
+<p>in terms of optimization,</p>
+<p>but what&rsquo;s the algorithm for updating the parameters</p>
+<p>or updating whatever the state of the network is?</p>
+<p>And then the last part is the data set,</p>
+<p>like how do you actually represent the world</p>
+<p>as it comes into your machine learning system?</p>
+<p>So I think of deep learning as telling us something about</p>
+<p>what does the model look like?</p>
+<p>And basically to qualify as deep,</p>
+<p>I say that it just has to have multiple layers.</p>
+<p>That can be multiple steps</p>
+<p>in a feed forward differentiable computation.</p>
+<p>That can be multiple layers in a graphical model.</p>
+<p>There&rsquo;s a lot of ways that you could satisfy me</p>
+<p>that something has multiple steps</p>
+<p>that are each parameterized separately.</p>
+<p>I think of gradient descent</p>
+<p>as being all about that other piece,</p>
+<p>the how do you actually update the parameters piece?</p>
+<p>So you could imagine having a deep model</p>
+<p>like a convolutional net</p>
+<p>and training it with something like evolution</p>
+<p>or a genetic algorithm.</p>
+<p>And I would say that still qualifies as deep learning.</p>
+<p>And then in terms of models</p>
+<p>that aren&rsquo;t necessarily differentiable,</p>
+<p>I guess Bolton machines are probably</p>
+<p>the main example of something</p>
+<p>where you can&rsquo;t really take a derivative</p>
+<p>and use that for the learning process.</p>
+<p>But you can still argue that the model</p>
+<p>has many steps of processing that it applies</p>
+<p>when you run inference in the model.</p>
+<p>So it&rsquo;s the steps of processing that&rsquo;s key.</p>
+<p>So Jeff Hinton suggests that we need to throw away</p>
+<p>back propagation and start all over.</p>
+<p>What do you think about that?</p>
+<p>What could an alternative direction</p>
+<p>of training neural networks look like?</p>
+<p>I don&rsquo;t know that back propagation</p>
+<p>is gonna go away entirely.</p>
+<p>Most of the time when we decide</p>
+<p>that a machine learning algorithm</p>
+<p>isn&rsquo;t on the critical path to research for improving AI,</p>
+<p>the algorithm doesn&rsquo;t die.</p>
+<p>It just becomes used for some specialized set of things.</p>
+<p>A lot of algorithms like logistic regression</p>
+<p>don&rsquo;t seem that exciting to AI researchers</p>
+<p>who are working on things like speech recognition</p>
+<p>or autonomous cars today.</p>
+<p>But there&rsquo;s still a lot of use for logistic regression</p>
+<p>and things like analyzing really noisy data</p>
+<p>in medicine and finance</p>
+<p>or making really rapid predictions</p>
+<p>in really time limited contexts.</p>
+<p>So I think back propagation and gradient descent</p>
+<p>are around to stay, but they may not end up being</p>
+<p>everything that we need to get to real human level</p>
+<p>or super human AI.</p>
+<p>Are you optimistic about us discovering</p>
+<p>back propagation has been around for a few decades?</p>
+<p>So are you optimistic about us as a community</p>
+<p>being able to discover something better?</p>
+<p>Yeah, I am.</p>
+<p>I think we likely will find something that works better.</p>
+<p>You could imagine things like having stacks of models</p>
+<p>where some of the lower level models</p>
+<p>predict parameters of the higher level models.</p>
+<p>And so at the top level,</p>
+<p>you&rsquo;re not learning in terms of literally</p>
+<p>calculating gradients,</p>
+<p>but just predicting how different values will perform.</p>
+<p>You can kind of see that already in some areas</p>
+<p>like Bayesian optimization,</p>
+<p>where you have a Gaussian process</p>
+<p>that predicts how well different parameter values</p>
+<p>will perform.</p>
+<p>We already use those kinds of algorithms</p>
+<p>for things like hyper parameter optimization.</p>
+<p>And in general, we know a lot of things other than back prop</p>
+<p>that work really well for specific problems.</p>
+<p>The main thing we haven&rsquo;t found is</p>
+<p>a way of taking one of these other</p>
+<p>non back prop based algorithms</p>
+<p>and having it really advanced the state of the art</p>
+<p>on an AI level problem.</p>
+<p>Right.</p>
+<p>But I wouldn&rsquo;t be surprised if eventually</p>
+<p>we find that some of these algorithms</p>
+<p>that even the ones that already exist,</p>
+<p>not even necessarily new one,</p>
+<p>we might find some way of customizing</p>
+<p>one of these algorithms to do something really interesting</p>
+<p>at the level of cognition or the level of,</p>
+<p>I think one system that we really don&rsquo;t have working</p>
+<p>quite right yet is like short term memory.</p>
+<p>We have things like LSTMs,</p>
+<p>they&rsquo;re called long short term memory.</p>
+<p>They still don&rsquo;t do quite what a human does</p>
+<p>with short term memory.</p>
+<p>Like gradient descent to learn a specific fact</p>
+<p>has to do multiple steps on that fact.</p>
+<p>Like if I tell you the meeting today is at 3 p.m.,</p>
+<p>I don&rsquo;t need to say over and over again,</p>
+<p>it&rsquo;s at 3 p.m., it&rsquo;s at 3 p.m., it&rsquo;s at 3 p.m.,</p>
+<p>it&rsquo;s at 3 p.m.</p>
+<p>for you to do a gradient step on each one.</p>
+<p>You just hear it once and you remember it.</p>
+<p>There&rsquo;s been some work on things like self attention</p>
+<p>and attention like mechanisms,</p>
+<p>like the neural Turing machine</p>
+<p>that can write to memory cells</p>
+<p>and update themselves with facts like that right away.</p>
+<p>But I don&rsquo;t think we&rsquo;ve really nailed it yet.</p>
+<p>And that&rsquo;s one area where I&rsquo;d imagine</p>
+<p>that new optimization algorithms</p>
+<p>or different ways of applying</p>
+<p>existing optimization algorithms</p>
+<p>could give us a way of just lightning fast</p>
+<p>updating the state of a machine learning system</p>
+<p>to contain a specific fact like that</p>
+<p>without needing to have it presented</p>
+<p>over and over and over again.</p>
+<p>So some of the success of symbolic systems in the 80s</p>
+<p>is they were able to assemble these kinds of facts better.</p>
+<p>But there&rsquo;s a lot of expert input required</p>
+<p>and it&rsquo;s very limited in that sense.</p>
+<p>Do you ever look back to that</p>
+<p>as something that we&rsquo;ll have to return to eventually?</p>
+<p>Sort of dust off the book from the shelf</p>
+<p>and think about how we build knowledge,</p>
+<p>representation, knowledge base.</p>
+<p>Like will we have to use graph searches?</p>
+<p>Graph searches, right.</p>
+<p>And like first order logic and entailment</p>
+<p>and things like that.</p>
+<p>That kind of thing, yeah, exactly.</p>
+<p>In my particular line of work,</p>
+<p>which has mostly been machine learning security</p>
+<p>and also generative modeling,</p>
+<p>I haven&rsquo;t usually found myself moving in that direction.</p>
+<p>For generative models, I could see a little bit of,</p>
+<p>it could be useful if you had something</p>
+<p>like a differentiable knowledge base</p>
+<p>or some other kind of knowledge base</p>
+<p>where it&rsquo;s possible for some of our</p>
+<p>fuzzier machine learning algorithms</p>
+<p>to interact with a knowledge base.</p>
+<p>I mean, your network is kind of like that.</p>
+<p>It&rsquo;s a differentiable knowledge base of sorts.</p>
+<p>Yeah.</p>
+<p>But.</p>
+<p>If we had a really easy way of giving feedback</p>
+<p>to machine learning models,</p>
+<p>that would clearly help a lot with generative models.</p>
+<p>And so you could imagine one way of getting there</p>
+<p>would be get a lot better at natural language processing.</p>
+<p>But another way of getting there would be</p>
+<p>take some kind of knowledge base</p>
+<p>and figure out a way for it to actually</p>
+<p>interact with a neural network.</p>
+<p>Being able to have a chat with a neural network.</p>
+<p>Yeah.</p>
+<p>So like one thing in generative models we see a lot today</p>
+<p>is you&rsquo;ll get things like faces that are not symmetrical,</p>
+<p>like people that have two eyes that are different colors.</p>
+<p>I mean, there are people with eyes</p>
+<p>that are different colors in real life,</p>
+<p>but not nearly as many of them as you tend to see</p>
+<p>in the machine learning generated data.</p>
+<p>So if you had either a knowledge base</p>
+<p>that could contain the fact,</p>
+<p>people&rsquo;s faces are generally approximately symmetric</p>
+<p>and eye color is especially likely</p>
+<p>to be the same on both sides.</p>
+<p>Being able to just inject that hint</p>
+<p>into the machine learning model</p>
+<p>without it having to discover that itself</p>
+<p>after studying a lot of data</p>
+<p>would be a really useful feature.</p>
+<p>I could see a lot of ways of getting there</p>
+<p>without bringing back some of the 1980s technology,</p>
+<p>but I also see some ways that you could imagine</p>
+<p>extending the 1980s technology to play nice with neural nets</p>
+<p>and have it help get there.</p>
+<p>Awesome.</p>
+<p>So you talked about the story of you coming up</p>
+<p>with the idea of GANs at a bar with some friends.</p>
+<p>You were arguing that this, you know, GANs would work,</p>
+<p>generative adversarial networks,</p>
+<p>and the others didn&rsquo;t think so.</p>
+<p>Then you went home at midnight, coded it up, and it worked.</p>
+<p>So if I was a friend of yours at the bar,</p>
+<p>I would also have doubts.</p>
+<p>It&rsquo;s a really nice idea,</p>
+<p>but I&rsquo;m very skeptical that it would work.</p>
+<p>What was the basis of their skepticism?</p>
+<p>What was the basis of your intuition why it should work?</p>
+<p>I don&rsquo;t want to be someone who goes around</p>
+<p>promoting alcohol for the purposes of science,</p>
+<p>but in this case,</p>
+<p>I do actually think that drinking helped a little bit.</p>
+<p>When your inhibitions are lowered,</p>
+<p>you&rsquo;re more willing to try out things</p>
+<p>that you wouldn&rsquo;t try out otherwise.</p>
+<p>So I have noticed in general</p>
+<p>that I&rsquo;m less prone to shooting down some of my own ideas</p>
+<p>when I have had a little bit to drink.</p>
+<p>I think if I had had that idea at lunchtime,</p>
+<p>I probably would have thought,</p>
+<p>it&rsquo;s hard enough to train one neural net,</p>
+<p>you can&rsquo;t train a second neural net</p>
+<p>in the inner loop of the outer neural net.</p>
+<p>That was basically my friend&rsquo;s objection,</p>
+<p>was that trying to train two neural nets at the same time</p>
+<p>would be too hard.</p>
+<p>So it was more about the training process,</p>
+<p>unless, so my skepticism would be,</p>
+<p>you know, I&rsquo;m sure you could train it,</p>
+<p>but the thing it would converge to</p>
+<p>would not be able to generate anything reasonable,</p>
+<p>any kind of reasonable realism.</p>
+<p>Yeah, so part of what all of us were thinking about</p>
+<p>when we had this conversation was deep Bolton machines,</p>
+<p>which a lot of us in the lab, including me,</p>
+<p>were a big fan of deep Bolton machines at the time.</p>
+<p>They involved two separate processes</p>
+<p>running at the same time.</p>
+<p>One of them is called the positive phase,</p>
+<p>where you load data into the model</p>
+<p>and tell the model to make the data more likely.</p>
+<p>The other one is called the negative phase,</p>
+<p>where you draw samples from the model</p>
+<p>and tell the model to make those samples less likely.</p>
+<p>In a deep Bolton machine,</p>
+<p>it&rsquo;s not trivial to generate a sample.</p>
+<p>You have to actually run an iterative process</p>
+<p>that gets better and better samples</p>
+<p>coming closer and closer to the distribution</p>
+<p>the model represents.</p>
+<p>So during the training process,</p>
+<p>you&rsquo;re always running these two systems at the same time,</p>
+<p>one that&rsquo;s updating the parameters of the model</p>
+<p>and another one that&rsquo;s trying to generate samples</p>
+<p>from the model.</p>
+<p>And they worked really well in things like MNIST,</p>
+<p>but a lot of us in the lab, including me,</p>
+<p>had tried to get deep Bolton machines</p>
+<p>to scale past MNIST to things like generating color photos,</p>
+<p>and we just couldn&rsquo;t get the two processes</p>
+<p>to stay synchronized.</p>
+<p>So when I had the idea for GANs,</p>
+<p>a lot of people thought that the discriminator</p>
+<p>would have more or less the same problem</p>
+<p>as the negative phase in the Bolton machine,</p>
+<p>that trying to train the discriminator in the inner loop,</p>
+<p>you just couldn&rsquo;t get it to keep up</p>
+<p>with the generator in the outer loop,</p>
+<p>and that would prevent it from converging</p>
+<p>to anything useful.</p>
+<p>Yeah, I share that intuition.</p>
+<p>Yeah.</p>
+<p>But turns out to not be the case.</p>
+<p>A lot of the time with machine learning algorithms,</p>
+<p>it&rsquo;s really hard to predict ahead of time</p>
+<p>how well they&rsquo;ll actually perform.</p>
+<p>You have to just run the experiment and see what happens.</p>
+<p>And I would say I still today don&rsquo;t have</p>
+<p>like one factor I can put my finger on and say,</p>
+<p>this is why GANs worked for photo generation</p>
+<p>and deep Bolton machines don&rsquo;t.</p>
+<p>There are a lot of theory papers</p>
+<p>showing that under some theoretical settings,</p>
+<p>the GAN algorithm does actually converge,</p>
+<p>but those settings are restricted enough</p>
+<p>that they don&rsquo;t necessarily explain the whole picture</p>
+<p>in terms of all the results that we see in practice.</p>
+<p>So taking a step back,</p>
+<p>can you, in the same way as we talked about deep learning,</p>
+<p>can you tell me what generative adversarial networks are?</p>
+<p>Yeah, so generative adversarial networks</p>
+<p>are a particular kind of generative model.</p>
+<p>A generative model is a machine learning model</p>
+<p>that can train on some set of data.</p>
+<p>Like, so you have a collection of photos of cats</p>
+<p>and you want to generate more photos of cats,</p>
+<p>or you want to estimate a probability distribution over cats.</p>
+<p>So you can ask how likely it is</p>
+<p>that some new image is a photo of a cat.</p>
+<p>GANs are one way of doing this.</p>
+<p>Some generative models are good at creating new data.</p>
+<p>Other generative models are good at estimating</p>
+<p>that density function and telling you how likely</p>
+<p>particular pieces of data are to come</p>
+<p>from the same distribution as the training data.</p>
+<p>GANs are more focused on generating samples</p>
+<p>rather than estimating the density function.</p>
+<p>There are some kinds of GANs like FlowGAN that can do both,</p>
+<p>but mostly GANs are about generating samples,</p>
+<p>generating new photos of cats that look realistic.</p>
+<p>And they do that completely from scratch.</p>
+<p>It&rsquo;s analogous to human imagination.</p>
+<p>When a GAN creates a new image of a cat,</p>
+<p>it&rsquo;s using a neural network to produce a cat</p>
+<p>that has not existed before.</p>
+<p>It isn&rsquo;t doing something like compositing photos together.</p>
+<p>You&rsquo;re not literally taking the eye off of one cat</p>
+<p>and the ear off of another cat.</p>
+<p>It&rsquo;s more of this digestive process</p>
+<p>where the neural net trains in a lot of data</p>
+<p>and comes up with some representation</p>
+<p>of the probability distribution</p>
+<p>and generates entirely new cats.</p>
+<p>There are a lot of different ways</p>
+<p>of building a generative model.</p>
+<p>What&rsquo;s specific to GANs is that we have a two player game</p>
+<p>in the game theoretic sense.</p>
+<p>And as the players in this game compete,</p>
+<p>one of them becomes able to generate realistic data.</p>
+<p>The first player is called the generator.</p>
+<p>It produces output data such as just images, for example.</p>
+<p>And at the start of the learning process,</p>
+<p>it&rsquo;ll just produce completely random images.</p>
+<p>The other player is called the discriminator.</p>
+<p>The discriminator takes images as input</p>
+<p>and guesses whether they&rsquo;re real or fake.</p>
+<p>You train it both on real data,</p>
+<p>so photos that come from your training set,</p>
+<p>actual photos of cats,</p>
+<p>and you train it to say that those are real.</p>
+<p>You also train it on images</p>
+<p>that come from the generator network</p>
+<p>and you train it to say that those are fake.</p>
+<p>As the two players compete in this game,</p>
+<p>the discriminator tries to become better</p>
+<p>at recognizing whether images are real or fake.</p>
+<p>And the generator becomes better</p>
+<p>at fooling the discriminator into thinking</p>
+<p>that its outputs are real.</p>
+<p>And you can analyze this through the language of game theory</p>
+<p>and find that there&rsquo;s a Nash equilibrium</p>
+<p>where the generator has captured</p>
+<p>the correct probability distribution.</p>
+<p>So in the cat example,</p>
+<p>it makes perfectly realistic cat photos.</p>
+<p>And the discriminator is unable to do better</p>
+<p>than random guessing</p>
+<p>because all the samples coming from both the data</p>
+<p>and the generator look equally likely</p>
+<p>to have come from either source.</p>
+<p>So do you ever sit back</p>
+<p>and does it just blow your mind that this thing works?</p>
+<p>So from very,</p>
+<p>so it&rsquo;s able to estimate that density function</p>
+<p>enough to generate realistic images.</p>
+<p>I mean, does it, yeah.</p>
+<p>Do you ever sit back and think how does this even,</p>
+<p>why, this is quite incredible,</p>
+<p>especially where GANs have gone in terms of realism.</p>
+<p>Yeah, and not just to flatter my own work,</p>
+<p>but generative models,</p>
+<p>all of them have this property that</p>
+<p>if they really did what we ask them to do,</p>
+<p>they would do nothing but memorize the training data.</p>
+<p>Right, exactly.</p>
+<p>Models that are based on maximizing the likelihood,</p>
+<p>the way that you obtain the maximum likelihood</p>
+<p>for a specific training set</p>
+<p>is you assign all of your probability mass</p>
+<p>to the training examples and nowhere else.</p>
+<p>For GANs, the game is played using a training set.</p>
+<p>So the way that you become unbeatable in the game</p>
+<p>is you literally memorize training examples.</p>
+<p>One of my former interns wrote a paper,</p>
+<p>his name is Vaishnav Nagarajan,</p>
+<p>and he showed that it&rsquo;s actually hard for the generator</p>
+<p>to memorize the training data,</p>
+<p>hard in a statistical learning theory sense,</p>
+<p>that you can actually create reasons</p>
+<p>for why it would require quite a lot of learning steps</p>
+<p>and a lot of observations of different latent variables</p>
+<p>before you could memorize the training data.</p>
+<p>That still doesn&rsquo;t really explain why</p>
+<p>when you produce samples that are new,</p>
+<p>why do you get compelling images</p>
+<p>rather than just garbage</p>
+<p>that&rsquo;s different from the training set.</p>
+<p>And I don&rsquo;t think we really have a good answer for that,</p>
+<p>especially if you think about</p>
+<p>how many possible images are out there</p>
+<p>and how few images the generative model sees</p>
+<p>during training.</p>
+<p>It seems just unreasonable</p>
+<p>that generative models create new images as well as they do,</p>
+<p>especially considering that we&rsquo;re basically</p>
+<p>training them to memorize rather than generalize.</p>
+<p>I think part of the answer is</p>
+<p>there&rsquo;s a paper called Deep Image Prior</p>
+<p>where they show that you can take a convolutional net</p>
+<p>and you don&rsquo;t even need to learn</p>
+<p>the parameters of it at all,</p>
+<p>you just use the model architecture.</p>
+<p>And it&rsquo;s already useful for things like inpainting images.</p>
+<p>I think that shows us</p>
+<p>that the convolutional network architecture</p>
+<p>captures something really important</p>
+<p>about the structure of images.</p>
+<p>And we don&rsquo;t need to actually use the learning</p>
+<p>to capture all the information</p>
+<p>coming out of the convolutional net.</p>
+<p>That would imply that it would be much harder</p>
+<p>to make generative models in other domains.</p>
+<p>So far, we&rsquo;re able to make reasonable speech models</p>
+<p>and things like that.</p>
+<p>But to be honest, we haven&rsquo;t actually explored</p>
+<p>a whole lot of different data sets all that much.</p>
+<p>We don&rsquo;t, for example, see a lot of deep learning models</p>
+<p>of like biology data sets</p>
+<p>where you have lots of microarrays measuring</p>
+<p>the amount of different enzymes and things like that.</p>
+<p>So we may find that some of the progress</p>
+<p>that we&rsquo;ve seen for images and speech</p>
+<p>turns out to really rely heavily on the model architecture.</p>
+<p>And we were able to do what we did for vision</p>
+<p>by trying to reverse engineer the human visual system.</p>
+<p>And maybe it&rsquo;ll turn out that we can&rsquo;t just use</p>
+<p>that same trick for arbitrary kinds of data.</p>
+<p>Right, so there&rsquo;s aspect to the human vision system,</p>
+<p>the hardware of it, that makes it without learning,</p>
+<p>without cognition, just makes it really effective</p>
+<p>at detecting the patterns we see in the visual world.</p>
+<p>Yeah.</p>
+<p>Yeah, that&rsquo;s really interesting.</p>
+<p>What, in a big, quick overview,</p>
+<p>in your view, what types of GANs are there</p>
+<p>and what other generative models besides GANs are there?</p>
+<p>Yeah, so it&rsquo;s maybe a little bit easier to start</p>
+<p>with what kinds of generative models are there</p>
+<p>other than GANs.</p>
+<p>So most generative models are likelihood based</p>
+<p>where to train them, you have a model that tells you</p>
+<p>how much probability it assigns to a particular example</p>
+<p>and you just maximize the probability assigned</p>
+<p>to all the training examples.</p>
+<p>It turns out that it&rsquo;s hard to design a model</p>
+<p>that can create really complicated images</p>
+<p>or really complicated audio waveforms</p>
+<p>and still have it be possible to estimate</p>
+<p>the likelihood function from a computational point of view.</p>
+<p>Most interesting models that you would just write down</p>
+<p>intuitively, it turns out that it&rsquo;s almost impossible</p>
+<p>to calculate the amount of probability they assign</p>
+<p>to a particular point.</p>
+<p>So there&rsquo;s a few different schools of generative models</p>
+<p>in the likelihood family.</p>
+<p>One approach is to very carefully design the model</p>
+<p>so that it is computationally tractable</p>
+<p>to measure the density it assigns to a particular point.</p>
+<p>So there are things like autoregressive models,</p>
+<p>like PixelCNN, those basically break down</p>
+<p>the probability distribution into a product</p>
+<p>over every single feature.</p>
+<p>So for an image, you estimate the probability</p>
+<p>of each pixel given all of the pixels that came before it.</p>
+<p>There&rsquo;s tricks where if you want to measure</p>
+<p>the density function, you can actually calculate</p>
+<p>the density for all these pixels more or less in parallel.</p>
+<p>Generating the image still tends to require you</p>
+<p>to go one pixel at a time, and that can be very slow.</p>
+<p>But there are, again, tricks for doing this</p>
+<p>in a hierarchical pattern where you can keep</p>
+<p>the runtime under control.</p>
+<p>Are the quality of the images it generates,</p>
+<p>putting runtime aside, pretty good?</p>
+<p>They&rsquo;re reasonable, yeah.</p>
+<p>I would say a lot of the best results</p>
+<p>are from GANs these days, but it can be hard to tell</p>
+<p>how much of that is based on who&rsquo;s studying</p>
+<p>which type of algorithm, if that makes sense.</p>
+<p>The amount of effort invested in a particular.</p>
+<p>Yeah, or like the kind of expertise.</p>
+<p>So a lot of people who&rsquo;ve traditionally been excited</p>
+<p>about graphics or art and things like that</p>
+<p>have gotten interested in GANs.</p>
+<p>And to some extent, it&rsquo;s hard to tell</p>
+<p>are GANs doing better because they have a lot</p>
+<p>of graphics and art experts behind them,</p>
+<p>or are GANs doing better because they&rsquo;re more</p>
+<p>computationally efficient, or are GANs doing better</p>
+<p>because they prioritize the realism of samples</p>
+<p>over the accuracy of the density function.</p>
+<p>I think all of those are potentially valid explanations,</p>
+<p>and it&rsquo;s hard to tell.</p>
+<p>So can you give a brief history of GANs from 2014?</p>
+<p>Were you paper 13?</p>
+<p>Yeah, so a few highlights.</p>
+<p>In the first paper, we just showed</p>
+<p>that GANs basically work.</p>
+<p>If you look back at the samples we had now,</p>
+<p>they look terrible.</p>
+<p>On the CIFAR 10 data set,</p>
+<p>you can&rsquo;t even recognize objects in them.</p>
+<p>Your paper, sorry, you used CIFAR 10?</p>
+<p>We used MNIST, which is little handwritten digits.</p>
+<p>We used the Toronto Face database,</p>
+<p>which is small grayscale photos of faces.</p>
+<p>We did have recognizable faces.</p>
+<p>My colleague Bing Xu put together</p>
+<p>the first GAN face model for that paper.</p>
+<p>We also had the CIFAR 10 data set,</p>
+<p>which is things like very small 32 by 32 pixels</p>
+<p>of cars and cats and dogs.</p>
+<p>For that, we didn&rsquo;t get recognizable objects,</p>
+<p>but all the deep learning people back then</p>
+<p>were really used to looking at these failed samples</p>
+<p>and kind of reading them like tea leaves.</p>
+<p>And people who are used to reading the tea leaves</p>
+<p>recognize that our tea leaves at least look different.</p>
+<p>Maybe not necessarily better,</p>
+<p>but there was something unusual about them.</p>
+<p>And that got a lot of us excited.</p>
+<p>One of the next really big steps was LAPGAN</p>
+<p>by Emily Denton and Sumit Chintala at Facebook AI Research,</p>
+<p>where they actually got really good high resolution photos</p>
+<p>working with GANs for the first time.</p>
+<p>They had a complicated system</p>
+<p>where they generated the image starting at low res</p>
+<p>and then scaling up to high res,</p>
+<p>but they were able to get it to work.</p>
+<p>And then in 2015, I believe later that same year,</p>
+<p>Alec Radford and Sumit Chintala and Luke Metz</p>
+<p>published the DCGAN paper,</p>
+<p>which it stands for deep convolutional GAN.</p>
+<p>It&rsquo;s kind of a non unique name</p>
+<p>because these days basically all GANs</p>
+<p>and even some before that were deep and convolutional,</p>
+<p>but they just kind of picked a name</p>
+<p>for a really great recipe</p>
+<p>where they were able to actually using only one model</p>
+<p>instead of a multi step process,</p>
+<p>actually generate realistic images of faces</p>
+<p>and things like that.</p>
+<p>That was sort of like the beginning</p>
+<p>of the Cambrian explosion of GANs.</p>
+<p>Like once you had animals that had a backbone,</p>
+<p>you suddenly got lots of different versions of fish</p>
+<p>and four legged animals and things like that.</p>
+<p>So DCGAN became kind of the backbone</p>
+<p>for many different models that came out.</p>
+<p>It&rsquo;s used as a baseline even still.</p>
+<p>Yeah, yeah.</p>
+<p>And so from there,</p>
+<p>I would say some interesting things we&rsquo;ve seen</p>
+<p>are there&rsquo;s a lot you can say</p>
+<p>about how just the quality</p>
+<p>of standard image generation GANs has increased,</p>
+<p>but what&rsquo;s also maybe more interesting</p>
+<p>on an intellectual level</p>
+<p>is how the things you can use GANs for has also changed.</p>
+<p>One thing is that you can use them to learn classifiers</p>
+<p>without having to have class labels</p>
+<p>for every example in your training set.</p>
+<p>So that&rsquo;s called semi supervised learning.</p>
+<p>My colleague at OpenAI, Tim Solomons,</p>
+<p>who&rsquo;s at Brain now,</p>
+<p>wrote a paper called Improve Techniques for Training GANs.</p>
+<p>I&rsquo;m a coauthor on this paper,</p>
+<p>but I can&rsquo;t claim any credit for this particular part.</p>
+<p>One thing he showed in the paper</p>
+<p>is that you can take the GAN discriminator</p>
+<p>and use it as a classifier that actually tells you,</p>
+<p>this image is a cat, this image is a dog,</p>
+<p>this image is a car, this image is a truck, and so on.</p>
+<p>Not just to say whether the image is real or fake,</p>
+<p>but if it is real to say specifically</p>
+<p>what kind of object it is.</p>
+<p>And he found that you can train these classifiers</p>
+<p>with far fewer labeled examples</p>
+<p>than traditional classifiers.</p>
+<p>So if you supervise based on also</p>
+<p>not just your discrimination ability,</p>
+<p>but your ability to classify,</p>
+<p>you&rsquo;re going to do much,</p>
+<p>you&rsquo;re going to converge much faster</p>
+<p>to being effective at being a discriminator.</p>
+<p>Yeah.</p>
+<p>So for example, for the MNIST dataset,</p>
+<p>you want to look at an image of a handwritten digit</p>
+<p>and say whether it&rsquo;s a zero, a one, or a two, and so on.</p>
+<p>To get down to less than 1% accuracy</p>
+<p>required around 60,000 examples</p>
+<p>until maybe about 2014 or so.</p>
+<p>In 2016 with this semi supervised GAN project,</p>
+<p>Tim was able to get below 1% error</p>
+<p>using only 100 labeled examples.</p>
+<p>So that was about a 600X decrease</p>
+<p>in the amount of labels that he needed.</p>
+<p>He&rsquo;s still using more images than that,</p>
+<p>but he doesn&rsquo;t need to have each of them labeled</p>
+<p>as this one&rsquo;s a one, this one&rsquo;s a two,</p>
+<p>this one&rsquo;s a zero, and so on.</p>
+<p>Then to be able to,</p>
+<p>for GANs to be able to generate recognizable objects,</p>
+<p>so objects from a particular class,</p>
+<p>you still need labeled data</p>
+<p>because you need to know what it means</p>
+<p>to be a particular class cat, dog.</p>
+<p>How do you think we can move away from that?</p>
+<p>Yeah, some researchers at Brain Zurich</p>
+<p>actually just released a really great paper</p>
+<p>on semi supervised GANs</p>
+<p>where their goal isn&rsquo;t to classify,</p>
+<p>it&rsquo;s to make recognizable objects</p>
+<p>despite not having a lot of labeled data.</p>
+<p>They were working off of DeepMind&rsquo;s BigGAN project</p>
+<p>and they showed that they can match the performance</p>
+<p>of BigGAN using only 10%, I believe,</p>
+<p>of the labels.</p>
+<p>BigGAN was trained on the ImageNet data set,</p>
+<p>which is about 1.2 million images</p>
+<p>and had all of them labeled.</p>
+<p>This latest project from Brain Zurich</p>
+<p>shows that they&rsquo;re able to get away</p>
+<p>with only having about 10% of the images labeled.</p>
+<p>And they do that essentially using a clustering algorithm</p>
+<p>where the discriminator learns</p>
+<p>to assign the objects to groups</p>
+<p>and then this understanding that objects can be grouped</p>
+<p>into similar types helps it to form more realistic ideas</p>
+<p>of what should be appearing in the image</p>
+<p>because it knows that every image it creates</p>
+<p>has to come from one of these archetypal groups</p>
+<p>rather than just being some arbitrary image.</p>
+<p>If you train a GAN with no class labels,</p>
+<p>you tend to get things that look sort of like grass</p>
+<p>or water or brick or dirt,</p>
+<p>but without necessarily a lot going on in them.</p>
+<p>And I think that&rsquo;s partly because</p>
+<p>if you look at a large ImageNet image,</p>
+<p>the object doesn&rsquo;t necessarily occupy the whole image.</p>
+<p>And so you learn to create realistic sets of pixels,</p>
+<p>but you don&rsquo;t necessarily learn</p>
+<p>that the object is the star of the show</p>
+<p>and you want it to be in every image you make.</p>
+<p>Yeah, I&rsquo;ve heard you talk about the horse,</p>
+<p>the zebra cycle GAN mapping</p>
+<p>and how it turns out, again, thought provoking</p>
+<p>that horses are usually on grass</p>
+<p>and zebras are usually on drier terrain.</p>
+<p>So when you&rsquo;re doing that kind of generation,</p>
+<p>you&rsquo;re going to end up generating greener horses</p>
+<p>or whatever, so those are connected together.</p>
+<p>It&rsquo;s not just, you&rsquo;re not able to segment,</p>
+<p>be able to generate in a segment away.</p>
+<p>So are there other types of games you come across</p>
+<p>in your mind that neural networks can play</p>
+<p>with each other to be able to solve problems?</p>
+<p>Yeah, the one that I spend most of my time on</p>
+<p>is in security.</p>
+<p>You can model most interactions as a game</p>
+<p>where there&rsquo;s attackers trying to break your system</p>
+<p>and you&rsquo;re the defender trying to build a resilient system.</p>
+<p>There&rsquo;s also domain adversarial learning,</p>
+<p>which is an approach to domain adaptation</p>
+<p>that looks really a lot like GANs.</p>
+<p>The authors had the idea before the GAN paper came out,</p>
+<p>their paper came out a little bit later</p>
+<p>and they&rsquo;re very nice and cited the GAN paper,</p>
+<p>but I know that they actually had the idea</p>
+<p>before it came out.</p>
+<p>Domain adaptation is when you want to train</p>
+<p>a machine learning model in one setting called a domain</p>
+<p>and then deploy it in another domain later.</p>
+<p>And you would like it to perform well in the new domain,</p>
+<p>even though the new domain is different</p>
+<p>from how it was trained.</p>
+<p>So for example, you might want to train</p>
+<p>on a really clean image data set like ImageNet,</p>
+<p>but then deploy on users phones</p>
+<p>where the user is taking pictures in the dark</p>
+<p>and pictures while moving quickly</p>
+<p>and just pictures that aren&rsquo;t really centered</p>
+<p>or composed all that well.</p>
+<p>When you take a normal machine learning model,</p>
+<p>it often degrades really badly</p>
+<p>when you move to the new domain</p>
+<p>because it looks so different</p>
+<p>from what the model was trained on.</p>
+<p>Domain adaptation algorithms try to smooth out that gap</p>
+<p>and the domain adversarial approach</p>
+<p>is based on training a feature extractor</p>
+<p>where the features have the same statistics</p>
+<p>regardless of which domain you extracted them on.</p>
+<p>So in the domain adversarial game,</p>
+<p>you have one player that&rsquo;s a feature extractor</p>
+<p>and another player that&rsquo;s a domain recognizer.</p>
+<p>The domain recognizer wants to look at the output</p>
+<p>of the feature extractor</p>
+<p>and guess which of the two domains the features came from.</p>
+<p>So it&rsquo;s a lot like the real versus fake discriminator</p>
+<p>in GANs and then the feature extractor,</p>
+<p>you can think of as loosely analogous</p>
+<p>to the generator in GANs,</p>
+<p>except what it&rsquo;s trying to do here</p>
+<p>is both fool the domain recognizer</p>
+<p>into not knowing which domain the data came from</p>
+<p>and also extract features that are good for classification.</p>
+<p>So at the end of the day,</p>
+<p>in the cases where it works out,</p>
+<p>you can actually get features</p>
+<p>that work about the same in both domains.</p>
+<p>Sometimes this has a drawback</p>
+<p>where in order to make things work the same in both domains,</p>
+<p>it just gets worse at the first one.</p>
+<p>But there are a lot of cases</p>
+<p>where it actually works out well on both.</p>
+<p>So do you think of GANs being useful</p>
+<p>in the context of data augmentation?</p>
+<p>Yeah, one thing you could hope for with GANs</p>
+<p>is you could imagine I&rsquo;ve got a limited training set</p>
+<p>and I&rsquo;d like to make more training data</p>
+<p>to train something else like a classifier.</p>
+<p>You could train the GAN on the training set</p>
+<p>and then create more data</p>
+<p>and then maybe the classifier</p>
+<p>would perform better on the test set</p>
+<p>after training on this bigger GAN generated data set.</p>
+<p>So that&rsquo;s the simplest version</p>
+<p>of something you might hope would work.</p>
+<p>I&rsquo;ve never heard of that particular approach working,</p>
+<p>but I think there&rsquo;s some closely related things</p>
+<p>that I think could work in the future</p>
+<p>and some that actually already have worked.</p>
+<p>So if we think a little bit about what we&rsquo;d be hoping for</p>
+<p>if we use the GAN to make more training data,</p>
+<p>we&rsquo;re hoping that the GAN will generalize to new examples</p>
+<p>better than the classifier would have generalized</p>
+<p>if it was trained on the same data.</p>
+<p>And I don&rsquo;t know of any reason to believe</p>
+<p>that the GAN would generalize better</p>
+<p>than the classifier would,</p>
+<p>but what we might hope for</p>
+<p>is that the GAN could generalize differently</p>
+<p>from a specific classifier.</p>
+<p>So one thing I think is worth trying</p>
+<p>that I haven&rsquo;t personally tried but someone could try is</p>
+<p>what if you trained a whole lot of different</p>
+<p>generative models on the same training set,</p>
+<p>create samples from all of them</p>
+<p>and then train a classifier on that?</p>
+<p>Because each of the generative models</p>
+<p>might generalize in a slightly different way.</p>
+<p>They might capture many different axes of variation</p>
+<p>that one individual model wouldn&rsquo;t</p>
+<p>and then the classifier can capture all of those ideas</p>
+<p>by training in all of their data.</p>
+<p>So it&rsquo;d be a little bit like making</p>
+<p>an ensemble of classifiers.</p>
+<p>And I think that&hellip;</p>
+<p>Ensemble of GANs in a way.</p>
+<p>I think that could generalize better.</p>
+<p>The other thing that GANs are really good for</p>
+<p>is not necessarily generating new data</p>
+<p>that&rsquo;s exactly like what you already have,</p>
+<p>but by generating new data that has different properties</p>
+<p>from the data you already had.</p>
+<p>One thing that you can do is you can create</p>
+<p>differentially private data.</p>
+<p>So suppose that you have something like medical records</p>
+<p>and you don&rsquo;t want to train a classifier</p>
+<p>on the medical records and then publish the classifier</p>
+<p>because someone might be able to reverse engineer</p>
+<p>some of the medical records you trained on.</p>
+<p>There&rsquo;s a paper from Casey Green&rsquo;s lab</p>
+<p>that shows how you can train a GAN</p>
+<p>using differential privacy.</p>
+<p>And then the samples from the GAN</p>
+<p>still have the same differential privacy guarantees</p>
+<p>as the parameters of the GAN.</p>
+<p>So you can make fake patient data</p>
+<p>for other researchers to use.</p>
+<p>And they can do almost anything they want with that data</p>
+<p>because it doesn&rsquo;t come from real people.</p>
+<p>And the differential privacy mechanism</p>
+<p>gives you clear guarantees</p>
+<p>on how much the original people&rsquo;s data has been protected.</p>
+<p>That&rsquo;s really interesting, actually.</p>
+<p>I haven&rsquo;t heard you talk about that before.</p>
+<p>In terms of fairness, I&rsquo;ve seen from AAAI,</p>
+<p>your talk, how can adversarial machine learning</p>
+<p>help models be more fair with respect to sensitive variables?</p>
+<p>Yeah, so there&rsquo;s a paper from Amos Starkey&rsquo;s lab</p>
+<p>about how to learn machine learning models</p>
+<p>that are incapable of using specific variables.</p>
+<p>So say, for example, you wanted to make predictions</p>
+<p>that are not affected by gender.</p>
+<p>It isn&rsquo;t enough to just leave gender</p>
+<p>out of the input to the model.</p>
+<p>You can often infer gender</p>
+<p>from a lot of other characteristics.</p>
+<p>Like say that you have the person&rsquo;s name,</p>
+<p>but you&rsquo;re not told their gender.</p>
+<p>Well, if their name is Ian, they&rsquo;re kind of obviously a man.</p>
+<p>So what you&rsquo;d like to do is make a machine learning model</p>
+<p>that can still take in a lot of different attributes</p>
+<p>and make a really accurate informed prediction,</p>
+<p>but be confident that it isn&rsquo;t reverse engineering gender</p>
+<p>or another sensitive variable internally.</p>
+<p>You can do that using something very similar</p>
+<p>to the domain adversarial approach,</p>
+<p>where you have one player that&rsquo;s a feature extractor</p>
+<p>and another player that&rsquo;s a feature analyzer.</p>
+<p>And you want to make sure that the feature analyzer</p>
+<p>is not able to guess the value of the sensitive variable</p>
+<p>that you&rsquo;re trying to keep private.</p>
+<p>Right, that&rsquo;s, yeah, I love this approach.</p>
+<p>So yeah, with the feature,</p>
+<p>you&rsquo;re not able to infer the sensitive variables.</p>
+<p>Brilliant, that&rsquo;s quite brilliant and simple actually.</p>
+<p>Another way I think that GANs in particular</p>
+<p>could be used for fairness</p>
+<p>would be to make something like a CycleGAN,</p>
+<p>where you can take data from one domain</p>
+<p>and convert it into another.</p>
+<p>We&rsquo;ve seen CycleGAN turning horses into zebras.</p>
+<p>We&rsquo;ve seen other unsupervised GANs made by Mingyu Liu</p>
+<p>doing things like turning day photos into night photos.</p>
+<p>I think for fairness,</p>
+<p>you could imagine taking records for people in one group</p>
+<p>and transforming them into analogous people in another group</p>
+<p>and testing to see if they&rsquo;re treated equitably</p>
+<p>across those two groups.</p>
+<p>There&rsquo;s a lot of things that&rsquo;d be hard to get right</p>
+<p>to make sure that the conversion process itself is fair.</p>
+<p>And I don&rsquo;t think it&rsquo;s anywhere near</p>
+<p>something that we could actually use yet,</p>
+<p>but if you could design that conversion process</p>
+<p>very carefully, it might give you a way of doing audits</p>
+<p>where you say, what if we took people from this group,</p>
+<p>converted them into equivalent people in another group,</p>
+<p>does the system actually treat them how it ought to?</p>
+<p>That&rsquo;s also really interesting.</p>
+<p>You know, in popular press and in general,</p>
+<p>in our imagination, you think,</p>
+<p>well, GANs are able to generate data</p>
+<p>and you start to think about deep fakes</p>
+<p>or being able to sort of maliciously generate data</p>
+<p>that fakes the identity of other people.</p>
+<p>Is this something of a concern to you?</p>
+<p>Is this something, if you look 10, 20 years into the future,</p>
+<p>is that something that pops up in your work,</p>
+<p>in the work of the community</p>
+<p>that&rsquo;s working on generating models?</p>
+<p>I&rsquo;m a lot less concerned about 20 years from now</p>
+<p>than the next few years.</p>
+<p>I think there&rsquo;ll be a kind of bumpy cultural transition</p>
+<p>as people encounter this idea</p>
+<p>that there can be very realistic videos</p>
+<p>and audio that aren&rsquo;t real.</p>
+<p>I think 20 years from now,</p>
+<p>people will mostly understand</p>
+<p>that you shouldn&rsquo;t believe something is real</p>
+<p>just because you saw a video of it.</p>
+<p>People will expect to see</p>
+<p>that it&rsquo;s been cryptographically signed</p>
+<p>or have some other mechanism to make them believe</p>
+<p>that the content is real.</p>
+<p>There&rsquo;s already people working on this.</p>
+<p>Like there&rsquo;s a startup called Truepick</p>
+<p>that provides a lot of mechanisms</p>
+<p>for authenticating that an image is real.</p>
+<p>They&rsquo;re maybe not quite up to having a state actor</p>
+<p>try to evade their verification techniques,</p>
+<p>but it&rsquo;s something that people are already working on</p>
+<p>and I think we&rsquo;ll get right eventually.</p>
+<p>So you think authentication will eventually win out.</p>
+<p>So being able to authenticate that this is real</p>
+<p>and this is not.</p>
+<p>Yeah.</p>
+<p>As opposed to GANs just getting better and better</p>
+<p>or generative models being able to get better and better</p>
+<p>to where the nature of what is real is normal.</p>
+<p>I don&rsquo;t think we&rsquo;ll ever be able</p>
+<p>to look at the pixels of a photo</p>
+<p>and tell you for sure that it&rsquo;s real or not real.</p>
+<p>And I think it would actually be somewhat dangerous</p>
+<p>to rely on that approach too much.</p>
+<p>If you make a really good fake detector</p>
+<p>and then someone&rsquo;s able to fool your fake detector</p>
+<p>and your fake detector says this image is not fake,</p>
+<p>then it&rsquo;s even more credible</p>
+<p>than if you&rsquo;ve never made a fake detector</p>
+<p>in the first place.</p>
+<p>What I do think we&rsquo;ll get to is systems</p>
+<p>that we can kind of use behind the scenes</p>
+<p>to make estimates of what&rsquo;s going on</p>
+<p>and maybe not like use them in court</p>
+<p>for a definitive analysis.</p>
+<p>I also think we will likely get better authentication systems</p>
+<p>where, imagine that every phone cryptographically signs</p>
+<p>everything that comes out of it.</p>
+<p>You wouldn&rsquo;t be able to conclusively tell</p>
+<p>that an image was real,</p>
+<p>but you would be able to tell somebody</p>
+<p>who knew the appropriate private key for this phone</p>
+<p>was actually able to sign this image</p>
+<p>and upload it to this server at this timestamp.</p>
+<p>Okay, so you could imagine maybe you make phones</p>
+<p>that have the private keys hardware embedded in them.</p>
+<p>If like a state security agency</p>
+<p>really wants to infiltrate the company,</p>
+<p>they could probably plant a private key of their choice</p>
+<p>or break open the chip and learn the private key</p>
+<p>or something like that.</p>
+<p>But it would make it a lot harder</p>
+<p>for an adversary with fewer resources to fake things.</p>
+<p>For most of us it would be okay.</p>
+<p>So you mentioned the beer and the bar and the new ideas.</p>
+<p>You were able to implement this</p>
+<p>or come up with this new idea pretty quickly</p>
+<p>and implement it pretty quickly.</p>
+<p>Do you think there&rsquo;s still many such groundbreaking ideas</p>
+<p>in deep learning that could be developed so quickly?</p>
+<p>Yeah, I do think that there are a lot of ideas</p>
+<p>that can be developed really quickly.</p>
+<p>GANs were probably a little bit of an outlier</p>
+<p>on the whole like one hour timescale.</p>
+<p>But just in terms of like low resource ideas</p>
+<p>where you do something really different</p>
+<p>on the algorithm scale and get a big payback.</p>
+<p>I think it&rsquo;s not as likely that you&rsquo;ll see that</p>
+<p>in terms of things like core machine learning technologies</p>
+<p>like a better classifier</p>
+<p>or a better reinforcement learning algorithm</p>
+<p>or a better generative model.</p>
+<p>If I had the GAN idea today,</p>
+<p>it would be a lot harder to prove that it was useful</p>
+<p>than it was back in 2014</p>
+<p>because I would need to get it running</p>
+<p>on something like ImageNet or Celeb A at high resolution.</p>
+<p>You know, those take a while to train.</p>
+<p>You couldn&rsquo;t train it in an hour</p>
+<p>and know that it was something really new and exciting.</p>
+<p>Back in 2014, training on MNIST was enough.</p>
+<p>But there are other areas of machine learning</p>
+<p>where I think a new idea</p>
+<p>could actually be developed really quickly</p>
+<p>with low resources.</p>
+<p>What&rsquo;s your intuition about what areas</p>
+<p>of machine learning are ripe for this?</p>
+<p>Yeah, so I think fairness and interpretability</p>
+<p>are areas where we just really don&rsquo;t have any idea</p>
+<p>how anything should be done yet.</p>
+<p>Like for interpretability,</p>
+<p>I don&rsquo;t think we even have the right definitions.</p>
+<p>And even just defining a really useful concept,</p>
+<p>you don&rsquo;t even need to run any experiments,</p>
+<p>could have a huge impact on the field.</p>
+<p>We&rsquo;ve seen that, for example, in differential privacy</p>
+<p>that Cynthia Dwork and her collaborators</p>
+<p>made this technical definition of privacy</p>
+<p>where before a lot of things were really mushy.</p>
+<p>And then with that definition,</p>
+<p>you could actually design randomized algorithms</p>
+<p>for accessing databases and guarantee</p>
+<p>that they preserved individual people&rsquo;s privacy</p>
+<p>in like a mathematical quantitative sense.</p>
+<p>Right now, we all talk a lot about</p>
+<p>how interpretable different machine learning algorithms are,</p>
+<p>but it&rsquo;s really just people&rsquo;s opinion.</p>
+<p>And everybody probably has a different idea</p>
+<p>of what interpretability means in their head.</p>
+<p>If we could define some concept related to interpretability</p>
+<p>that&rsquo;s actually measurable,</p>
+<p>that would be a huge leap forward</p>
+<p>even without a new algorithm that increases that quantity.</p>
+<p>And also once we had the definition of differential privacy,</p>
+<p>it was fast to get the algorithms that guaranteed it.</p>
+<p>So you could imagine once we have definitions</p>
+<p>of good concepts and interpretability,</p>
+<p>we might be able to provide the algorithms</p>
+<p>that have the interpretability guarantees quickly too.</p>
+<p>So what do you think it takes to build a system</p>
+<p>with human level intelligence</p>
+<p>as we quickly venture into the philosophical?</p>
+<p>So artificial general intelligence, what do you think it takes?</p>
+<p>I think that it definitely takes better environments</p>
+<p>than we currently have for training agents</p>
+<p>that we want them to have</p>
+<p>a really wide diversity of experiences.</p>
+<p>I also think it&rsquo;s gonna take really a lot of computation.</p>
+<p>It&rsquo;s hard to imagine exactly how much.</p>
+<p>So you&rsquo;re optimistic about simulation,</p>
+<p>simulating a variety of environments as the path forward?</p>
+<p>I think it&rsquo;s a necessary ingredient.</p>
+<p>Yeah, I don&rsquo;t think that we&rsquo;re going to get</p>
+<p>to artificial general intelligence</p>
+<p>by training on fixed data sets</p>
+<p>or by thinking really hard about the problem.</p>
+<p>I think that the agent really needs to interact</p>
+<p>and have a variety of experiences within the same lifespan.</p>
+<p>And today we have many different models</p>
+<p>that can each do one thing.</p>
+<p>And we tend to train them on one data set</p>
+<p>or one RL environment.</p>
+<p>Sometimes there are actually papers</p>
+<p>about getting one set of parameters to perform well</p>
+<p>in many different RL environments.</p>
+<p>But we don&rsquo;t really have anything like an agent</p>
+<p>that goes seamlessly from one type of experience to another</p>
+<p>and really integrates all the different things</p>
+<p>that it does over the course of its life.</p>
+<p>When we do see multi agent environments,</p>
+<p>they tend to be,</p>
+<p>or so many multi environment agents,</p>
+<p>they tend to be similar environments.</p>
+<p>Like all of them are playing like an action based video game.</p>
+<p>We don&rsquo;t really have an agent that goes from</p>
+<p>playing a video game to like reading the Wall Street Journal</p>
+<p>to predicting how effective a molecule will be as a drug</p>
+<p>or something like that.</p>
+<p>What do you think is a good test for intelligence</p>
+<p>in your view?</p>
+<p>There&rsquo;s been a lot of benchmarks started with the,</p>
+<p>with Alan Turing,</p>
+<p>natural conversation being a good benchmark for intelligence.</p>
+<p>What would Ian Goodfellow sit back</p>
+<p>and be really damn impressed</p>
+<p>if a system was able to accomplish?</p>
+<p>Something that doesn&rsquo;t take a lot of glue</p>
+<p>from human engineers.</p>
+<p>So imagine that instead of having to</p>
+<p>go to the CIFAR website and download CIFAR 10</p>
+<p>and then write a Python script to parse it and all that,</p>
+<p>you could just point an agent at the CIFAR 10 problem</p>
+<p>and it downloads and extracts the data</p>
+<p>and trains a model and starts giving you predictions.</p>
+<p>I feel like something that doesn&rsquo;t need to have</p>
+<p>every step of the pipeline assembled for it,</p>
+<p>definitely understands what it&rsquo;s doing.</p>
+<p>Is AutoML moving into that direction</p>
+<p>or are you thinking way even bigger?</p>
+<p>AutoML has mostly been moving toward,</p>
+<p>once we&rsquo;ve built all the glue,</p>
+<p>can the machine learning system</p>
+<p>design the architecture really well?</p>
+<p>And so I&rsquo;m more of saying like,</p>
+<p>if something knows how to pre process the data</p>
+<p>so that it successfully accomplishes the task,</p>
+<p>then it would be very hard to argue</p>
+<p>that it doesn&rsquo;t truly understand the task</p>
+<p>in some fundamental sense.</p>
+<p>And I don&rsquo;t necessarily know that that&rsquo;s like</p>
+<p>the philosophical definition of intelligence,</p>
+<p>but that&rsquo;s something that would be really cool to build</p>
+<p>that would be really useful and would impress me</p>
+<p>and would convince me that we&rsquo;ve made a step forward</p>
+<p>in real AI.</p>
+<p>So you give it like the URL for Wikipedia</p>
+<p>and then next day expect it to be able to solve CIFAR 10.</p>
+<p>Or like you type in a paragraph</p>
+<p>explaining what you want it to do</p>
+<p>and it figures out what web searches it should run</p>
+<p>and downloads all the necessary ingredients.</p>
+<p>So you have a very clear, calm way of speaking,</p>
+<p>no ums, easy to edit.</p>
+<p>I&rsquo;ve seen comments for both you and I</p>
+<p>have been identified as both potentially being robots.</p>
+<p>If you have to prove to the world that you are indeed human,</p>
+<p>how would you do it?</p>
+<p>I can understand thinking that I&rsquo;m a robot.</p>
+<p>It&rsquo;s the flip side of the Turing test, I think.</p>
+<p>Yeah, yeah, the prove your human test.</p>
+<p>Intellectually, so you have to&hellip;</p>
+<p>Is there something that&rsquo;s truly unique in your mind?</p>
+<p>Does it go back to just natural language again?</p>
+<p>Just being able to talk the way out of it.</p>
+<p>Proving that I&rsquo;m not a robot with today&rsquo;s technology.</p>
+<p>Yeah, that&rsquo;s pretty straightforward.</p>
+<p>Like my conversation today hasn&rsquo;t veered off</p>
+<p>into talking about the stock market or something</p>
+<p>because of my training data.</p>
+<p>But I guess more generally trying to prove</p>
+<p>that something is real from the content alone</p>
+<p>is incredibly hard.</p>
+<p>That&rsquo;s one of the main things I&rsquo;ve gotten</p>
+<p>out of my GAN research,</p>
+<p>that you can simulate almost anything.</p>
+<p>And so you have to really step back to a separate channel</p>
+<p>to prove that something is real.</p>
+<p>So like, I guess I should have had myself</p>
+<p>stamped on a blockchain when I was born or something,</p>
+<p>but I didn&rsquo;t do that.</p>
+<p>So according to my own research methodology,</p>
+<p>there&rsquo;s just no way to know at this point.</p>
+<p>So what, last question, problem stands out for you</p>
+<p>that you&rsquo;re really excited about challenging</p>
+<p>in the near future?</p>
+<p>So I think resistance to adversarial examples,</p>
+<p>figuring out how to make machine learning secure</p>
+<p>against an adversary who wants to interfere</p>
+<p>and control it, that is one of the most important things</p>
+<p>researchers today could solve.</p>
+<p>In all domains, image, language, driving, and everything.</p>
+<p>I guess I&rsquo;m most concerned about domains</p>
+<p>we haven&rsquo;t really encountered yet.</p>
+<p>Like imagine 20 years from now,</p>
+<p>when we&rsquo;re using advanced AIs to do things</p>
+<p>we haven&rsquo;t even thought of yet.</p>
+<p>Like if you ask people,</p>
+<p>what are the important problems in security of phones</p>
+<p>in like 2002?</p>
+<p>I don&rsquo;t think we would have anticipated</p>
+<p>that we&rsquo;re using them for nearly as many things</p>
+<p>as we&rsquo;re using them for today.</p>
+<p>I think it&rsquo;s gonna be like that with AI</p>
+<p>that you can kind of try to speculate</p>
+<p>about where it&rsquo;s going,</p>
+<p>but really the business opportunities</p>
+<p>that end up taking off would be hard</p>
+<p>to predict ahead of time.</p>
+<p>What you can predict ahead of time</p>
+<p>is that almost anything you can do with machine learning,</p>
+<p>you would like to make sure</p>
+<p>that people can&rsquo;t get it to do what they want</p>
+<p>rather than what you want,</p>
+<p>just by showing it a funny QR code</p>
+<p>or a funny input pattern.</p>
+<p>And you think that the set of methodology to do that</p>
+<p>can be bigger than any one domain?</p>
+<p>I think so, yeah.</p>
+<p>Yeah, like one methodology that I think is,</p>
+<p>not a specific methodology,</p>
+<p>but like a category of solutions</p>
+<p>that I&rsquo;m excited about today is making dynamic models</p>
+<p>that change every time they make a prediction.</p>
+<p>So right now we tend to train models</p>
+<p>and then after they&rsquo;re trained, we freeze them</p>
+<p>and we just use the same rule</p>
+<p>to classify everything that comes in from then on.</p>
+<p>That&rsquo;s really a sitting duck from a security point of view.</p>
+<p>If you always output the same answer for the same input,</p>
+<p>then people can just run inputs through</p>
+<p>until they find a mistake that benefits them.</p>
+<p>And then they use the same mistake</p>
+<p>over and over and over again.</p>
+<p>I think having a model that updates its predictions</p>
+<p>so that it&rsquo;s harder to predict what you&rsquo;re gonna get</p>
+<p>will make it harder for an adversary</p>
+<p>to really take control of the system</p>
+<p>and make it do what they want it to do.</p>
+<p>Yeah, models that maintain a bit of a sense of mystery</p>
+<p>about them, because they always keep changing.</p>
+<p>Ian, thanks so much for talking today, it was awesome.</p>
+<p>Thank you for coming in, it&rsquo;s great to see you.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

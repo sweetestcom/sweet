@@ -1,0 +1,2894 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Anca Drogon,
+a professor at Berkeley working on human robot interaction,
+algorithms that look beyond the robot&amp;rsquo;s function
+in isolation and generate robot behavior
+that accounts for interaction
+and coordination with human beings.
+She also consults at Waymo, the autonomous vehicle company,
+but in this conversation,
+she is 100% wearing her Berkeley hat.
+She is one of the most brilliant and fun roboticists
+in the world to talk with.'>
+<title>Lex Fridman Podcast - #81 – Anca Dragan: Human-Robot Interaction and Reward Engineering | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500081/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #81 – Anca Dragan: Human-Robot Interaction and Reward Engineering'>
+<meta property='og:description' content='The following is a conversation with Anca Drogon,
+a professor at Berkeley working on human robot interaction,
+algorithms that look beyond the robot&amp;rsquo;s function
+in isolation and generate robot behavior
+that accounts for interaction
+and coordination with human beings.
+She also consults at Waymo, the autonomous vehicle company,
+but in this conversation,
+she is 100% wearing her Berkeley hat.
+She is one of the most brilliant and fun roboticists
+in the world to talk with.'>
+<meta property='og:url' content='https://swiest.com/en/1310500081/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-05-20T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-05-20T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #81 – Anca Dragan: Human-Robot Interaction and Reward Engineering">
+<meta name="twitter:description" content="The following is a conversation with Anca Drogon,
+a professor at Berkeley working on human robot interaction,
+algorithms that look beyond the robot&amp;rsquo;s function
+in isolation and generate robot behavior
+that accounts for interaction
+and coordination with human beings.
+She also consults at Waymo, the autonomous vehicle company,
+but in this conversation,
+she is 100% wearing her Berkeley hat.
+She is one of the most brilliant and fun roboticists
+in the world to talk with.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500081/">Lex Fridman Podcast - #81 – Anca Dragan: Human-Robot Interaction and Reward Engineering</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-05-20</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    78 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Anca Drogon,</p>
+<p>a professor at Berkeley working on human robot interaction,</p>
+<p>algorithms that look beyond the robot&rsquo;s function</p>
+<p>in isolation and generate robot behavior</p>
+<p>that accounts for interaction</p>
+<p>and coordination with human beings.</p>
+<p>She also consults at Waymo, the autonomous vehicle company,</p>
+<p>but in this conversation,</p>
+<p>she is 100% wearing her Berkeley hat.</p>
+<p>She is one of the most brilliant and fun roboticists</p>
+<p>in the world to talk with.</p>
+<p>I had a tough and crazy day leading up to this conversation,</p>
+<p>so I was a bit tired, even more so than usual,</p>
+<p>but almost immediately as she walked in,</p>
+<p>her energy, passion, and excitement</p>
+<p>for human robot interaction was contagious.</p>
+<p>So I had a lot of fun and really enjoyed this conversation.</p>
+<p>This is the Artificial Intelligence Podcast.</p>
+<p>If you enjoy it, subscribe on YouTube,</p>
+<p>review it with five stars on Apple Podcast,</p>
+<p>support it on Patreon,</p>
+<p>or simply connect with me on Twitter at Lex Friedman,</p>
+<p>spelled F R I D M A N.</p>
+<p>As usual, I&rsquo;ll do one or two minutes of ads now</p>
+<p>and never any ads in the middle</p>
+<p>that can break the flow of the conversation.</p>
+<p>I hope that works for you</p>
+<p>and doesn&rsquo;t hurt the listening experience.</p>
+<p>This show is presented by Cash App,</p>
+<p>the number one finance app in the App Store.</p>
+<p>When you get it, use code LEXPODCAST.</p>
+<p>Cash App lets you send money to friends,</p>
+<p>buy Bitcoin, and invest in the stock market</p>
+<p>with as little as one dollar.</p>
+<p>Since Cash App does fractional share trading,</p>
+<p>let me mention that the order execution algorithm</p>
+<p>that works behind the scenes</p>
+<p>to create the abstraction of fractional orders</p>
+<p>is an algorithmic marvel.</p>
+<p>So big props to the Cash App engineers</p>
+<p>for solving a hard problem that in the end</p>
+<p>provides an easy interface that takes a step up</p>
+<p>to the next layer of abstraction over the stock market,</p>
+<p>making trading more accessible for new investors</p>
+<p>and diversification much easier.</p>
+<p>So again, if you get Cash App from the App Store</p>
+<p>or Google Play and use the code LEXPODCAST,</p>
+<p>you get $10 and Cash App will also donate $10 to FIRST,</p>
+<p>an organization that is helping to advance robotics</p>
+<p>and STEM education for young people around the world.</p>
+<p>And now, here&rsquo;s my conversation with Anca Drogon.</p>
+<p>When did you first fall in love with robotics?</p>
+<p>I think it was a very gradual process</p>
+<p>and it was somewhat accidental actually</p>
+<p>because I first started getting into programming</p>
+<p>when I was a kid and then into math</p>
+<p>and then I decided computer science</p>
+<p>was the thing I was gonna do</p>
+<p>and then in college I got into AI</p>
+<p>and then I applied to the Robotics Institute</p>
+<p>at Carnegie Mellon and I was coming from this little school</p>
+<p>in Germany that nobody had heard of</p>
+<p>but I had spent an exchange semester at Carnegie Mellon</p>
+<p>so I had letters from Carnegie Mellon.</p>
+<p>So that was the only, you know, MIT said no,</p>
+<p>Berkeley said no, Stanford said no.</p>
+<p>That was the only place I got into</p>
+<p>so I went there to the Robotics Institute</p>
+<p>and I thought that robotics is a really cool way</p>
+<p>to actually apply the stuff that I knew and loved</p>
+<p>to like optimization so that&rsquo;s how I got into robotics.</p>
+<p>I have a better story how I got into cars</p>
+<p>which is I used to do mostly manipulation in my PhD</p>
+<p>but now I do kind of a bit of everything application wise</p>
+<p>including cars and I got into cars</p>
+<p>because I was here in Berkeley</p>
+<p>while I was a PhD student still for RSS 2014,</p>
+<p>Peter Bill organized it and he arranged for,</p>
+<p>it was Google at the time to give us rides</p>
+<p>in self driving cars and I was in a robot</p>
+<p>and it was just making decision after decision,</p>
+<p>the right call and it was so amazing.</p>
+<p>So it was a whole different experience, right?</p>
+<p>Just I mean manipulation is so hard you can&rsquo;t do anything</p>
+<p>and there it was.</p>
+<p>Was it the most magical robot you&rsquo;ve ever met?</p>
+<p>So like for me to meet a Google self driving car</p>
+<p>for the first time was like a transformative moment.</p>
+<p>Like I had two moments like that,</p>
+<p>that and Spot Mini, I don&rsquo;t know if you met Spot Mini</p>
+<p>from Boston Dynamics.</p>
+<p>I felt like I fell in love or something</p>
+<p>like it, cause I know how a Spot Mini works, right?</p>
+<p>It&rsquo;s just, I mean there&rsquo;s nothing truly special,</p>
+<p>it&rsquo;s great engineering work but the anthropomorphism</p>
+<p>that went on into my brain that came to life</p>
+<p>like it had a little arm and it looked at me,</p>
+<p>he, she looked at me, I don&rsquo;t know,</p>
+<p>there&rsquo;s a magical connection there</p>
+<p>and it made me realize, wow, robots can be so much more</p>
+<p>than things that manipulate objects.</p>
+<p>They can be things that have a human connection.</p>
+<p>Do you have, was the self driving car the moment like,</p>
+<p>was there a robot that truly sort of inspired you?</p>
+<p>That was, I remember that experience very viscerally,</p>
+<p>riding in that car and being just wowed.</p>
+<p>I had the, they gave us a sticker that said,</p>
+<p>I rode in a self driving car</p>
+<p>and it had this cute little firefly on and,</p>
+<p>or logo or something like that.</p>
+<p>Oh, that was like the smaller one, like the firefly.</p>
+<p>Yeah, the really cute one, yeah.</p>
+<p>And I put it on my laptop and I had that for years</p>
+<p>until I finally changed my laptop out and you know.</p>
+<p>What about if we walk back, you mentioned optimization,</p>
+<p>like what beautiful ideas inspired you in math,</p>
+<p>computer science early on?</p>
+<p>Like why get into this field?</p>
+<p>It seems like a cold and boring field of math.</p>
+<p>Like what was exciting to you about it?</p>
+<p>The thing is I liked math from very early on,</p>
+<p>from fifth grade is when I got into the math Olympiad</p>
+<p>and all of that.</p>
+<p>Oh, you competed too?</p>
+<p>Yeah, this, it Romania is like our national sport too,</p>
+<p>you gotta understand.</p>
+<p>So I got into that fairly early</p>
+<p>and it was a little, maybe too just theory</p>
+<p>with no kind of, I didn&rsquo;t kind of had a,</p>
+<p>didn&rsquo;t really have a goal.</p>
+<p>And other than understanding, which was cool,</p>
+<p>I always liked learning and understanding,</p>
+<p>but there was no, okay,</p>
+<p>what am I applying this understanding to?</p>
+<p>And so I think that&rsquo;s how I got into,</p>
+<p>more heavily into computer science</p>
+<p>because it was kind of math meets something</p>
+<p>you can do tangibly in the world.</p>
+<p>Do you remember like the first program you&rsquo;ve written?</p>
+<p>Okay, the first program I&rsquo;ve written with,</p>
+<p>I kind of do, it was in Cubasic in fourth grade.</p>
+<p>Wow.</p>
+<p>And it was drawing like a circle.</p>
+<p>Graphics.</p>
+<p>Yeah, that was, I don&rsquo;t know how to do that anymore,</p>
+<p>but in fourth grade,</p>
+<p>that&rsquo;s the first thing that they taught me.</p>
+<p>I was like, you could take a special,</p>
+<p>I wouldn&rsquo;t say it was an extracurricular,</p>
+<p>it&rsquo;s in the sense an extracurricular,</p>
+<p>so you could sign up for dance or music or programming.</p>
+<p>And I did the programming thing</p>
+<p>and my mom was like, what, why?</p>
+<p>Did you compete in programming?</p>
+<p>Like these days, Romania probably,</p>
+<p>that&rsquo;s like a big thing.</p>
+<p>There&rsquo;s a programming competition.</p>
+<p>Was that, did that touch you at all?</p>
+<p>I did a little bit of the computer science Olympian,</p>
+<p>but not as seriously as I did the math Olympian.</p>
+<p>So it was programming.</p>
+<p>Yeah, it&rsquo;s basically,</p>
+<p>here&rsquo;s a hard math problem,</p>
+<p>solve it with a computer is kind of the deal.</p>
+<p>Yeah, it&rsquo;s more like algorithm.</p>
+<p>Exactly, it&rsquo;s always algorithmic.</p>
+<p>So again, you kind of mentioned the Google self driving car,</p>
+<p>but outside of that,</p>
+<p>what&rsquo;s like who or what is your favorite robot,</p>
+<p>real or fictional that like captivated</p>
+<p>your imagination throughout?</p>
+<p>I mean, I guess you kind of alluded</p>
+<p>to the Google self drive,</p>
+<p>the Firefly was a magical moment,</p>
+<p>but is there something else?</p>
+<p>It wasn&rsquo;t the Firefly there,</p>
+<p>I think there was the Lexus by the way.</p>
+<p>This was back then.</p>
+<p>But yeah, so good question.</p>
+<p>Okay, my favorite fictional robot is WALLI.</p>
+<p>And I love how amazingly expressive it is.</p>
+<p>I&rsquo;m personally thinks a little bit</p>
+<p>about expressive motion kinds of things you&rsquo;re saying with,</p>
+<p>you can do this and it&rsquo;s a head and it&rsquo;s the manipulator</p>
+<p>and what does it all mean?</p>
+<p>I like to think about that stuff.</p>
+<p>I love Pixar, I love animation.</p>
+<p>WALLI has two big eyes, I think, or no?</p>
+<p>Yeah, it has these cameras and they move.</p>
+<p>So yeah, it goes and then it&rsquo;s super cute.</p>
+<p>Yeah, the way it moves is just so expressive,</p>
+<p>the timing of that motion,</p>
+<p>what it&rsquo;s doing with its arms</p>
+<p>and what it&rsquo;s doing with these lenses is amazing.</p>
+<p>And so I&rsquo;ve really liked that from the start.</p>
+<p>And then on top of that, sometimes I share this,</p>
+<p>it&rsquo;s a personal story I share with people</p>
+<p>or when I teach about AI or whatnot.</p>
+<p>My husband proposed to me by building a WALLI</p>
+<p>and he actuated it.</p>
+<p>So it&rsquo;s seven degrees of freedom, including the lens thing.</p>
+<p>And it kind of came in and it had the,</p>
+<p>he made it have like the belly box opening thing.</p>
+<p>So it just did that.</p>
+<p>And then it spewed out this box made out of Legos</p>
+<p>that open slowly and then bam, yeah.</p>
+<p>Yeah, it was quite, it set a bar.</p>
+<p>That could be like the most impressive thing I&rsquo;ve ever heard.</p>
+<p>Okay.</p>
+<p>That was special connection to WALLI, long story short.</p>
+<p>I like WALLI because I like animation and I like robots</p>
+<p>and I like the fact that this was,</p>
+<p>we still have this robot to this day.</p>
+<p>How hard is that problem,</p>
+<p>do you think of the expressivity of robots?</p>
+<p>Like with the Boston Dynamics, I never talked to those folks</p>
+<p>about this particular element.</p>
+<p>I&rsquo;ve talked to them a lot,</p>
+<p>but it seems to be like almost an accidental side effect</p>
+<p>for them that they weren&rsquo;t,</p>
+<p>I don&rsquo;t know if they&rsquo;re faking it.</p>
+<p>They weren&rsquo;t trying to, okay.</p>
+<p>They do say that the gripper,</p>
+<p>it was not intended to be a face.</p>
+<p>I don&rsquo;t know if that&rsquo;s a honest statement,</p>
+<p>but I think they&rsquo;re legitimate.</p>
+<p>Probably yes. And so do we automatically just</p>
+<p>anthropomorphize anything we can see about a robot?</p>
+<p>So like the question is,</p>
+<p>how hard is it to create a WALLI type robot</p>
+<p>that connects so deeply with us humans?</p>
+<p>What do you think?</p>
+<p>It&rsquo;s really hard, right?</p>
+<p>So it depends on what setting.</p>
+<p>So if you wanna do it in this very particular narrow setting</p>
+<p>where it does only one thing and it&rsquo;s expressive,</p>
+<p>then you can get an animator, you know,</p>
+<p>you can have Pixar on call come in,</p>
+<p>design some trajectories.</p>
+<p>There was a, Anki had a robot called Cosmo</p>
+<p>where they put in some of these animations.</p>
+<p>That part is easy, right?</p>
+<p>The hard part is doing it not via these</p>
+<p>kind of handcrafted behaviors,</p>
+<p>but doing it generally autonomously.</p>
+<p>Like I want robots, I don&rsquo;t work on,</p>
+<p>just to clarify, I don&rsquo;t, I used to work a lot on this.</p>
+<p>I don&rsquo;t work on that quite as much these days,</p>
+<p>but the notion of having robots that, you know,</p>
+<p>when they pick something up and put it in a place,</p>
+<p>they can do that with various forms of style,</p>
+<p>or you can say, well, this robot is, you know,</p>
+<p>succeeding at this task and is confident</p>
+<p>versus it&rsquo;s hesitant versus, you know,</p>
+<p>maybe it&rsquo;s happy or it&rsquo;s, you know,</p>
+<p>disappointed about something, some failure that it had.</p>
+<p>I think that when robots move,</p>
+<p>they can communicate so much about internal states</p>
+<p>or perceived internal states that they have.</p>
+<p>And I think that&rsquo;s really useful</p>
+<p>and an element that we&rsquo;ll want in the future</p>
+<p>because I was reading this article</p>
+<p>about how kids are,</p>
+<p>kids are being rude to Alexa</p>
+<p>because they can be rude to it</p>
+<p>and it doesn&rsquo;t really get angry, right?</p>
+<p>It doesn&rsquo;t reply in any way, it just says the same thing.</p>
+<p>So I think there&rsquo;s, at least for that,</p>
+<p>for the correct development of children,</p>
+<p>it&rsquo;s important that these things,</p>
+<p>you kind of react differently.</p>
+<p>I also think, you know, you walk in your home</p>
+<p>and you have a personal robot and if you&rsquo;re really pissed,</p>
+<p>presumably the robot should kind of behave</p>
+<p>slightly differently than when you&rsquo;re super happy</p>
+<p>and excited, but it&rsquo;s really hard because it&rsquo;s,</p>
+<p>I don&rsquo;t know, you know, the way I would think about it</p>
+<p>and the way I thought about it when it came to</p>
+<p>expressing goals or intentions for robots,</p>
+<p>it&rsquo;s, well, what&rsquo;s really happening is that</p>
+<p>instead of doing robotics where you have your state</p>
+<p>and you have your action space and you have your space,</p>
+<p>the reward function that you&rsquo;re trying to optimize,</p>
+<p>now you kind of have to expand the notion of state</p>
+<p>to include this human internal state.</p>
+<p>What is the person actually perceiving?</p>
+<p>What do they think about the robots?</p>
+<p>Something or rather,</p>
+<p>and then you have to optimize in that system.</p>
+<p>And so that means that you have to understand</p>
+<p>how your motion, your actions end up sort of influencing</p>
+<p>the observer&rsquo;s kind of perception of you.</p>
+<p>And it&rsquo;s very hard to write math about that.</p>
+<p>Right, so when you start to think about</p>
+<p>incorporating the human into the state model,</p>
+<p>apologize for the philosophical question,</p>
+<p>but how complicated are human beings, do you think?</p>
+<p>Like, can they be reduced to a kind of</p>
+<p>almost like an object that moves</p>
+<p>and maybe has some basic intents?</p>
+<p>Or is there something, do we have to model things like mood</p>
+<p>and general aggressiveness and time?</p>
+<p>I mean, all these kinds of human qualities</p>
+<p>or like game theoretic qualities, like what&rsquo;s your sense?</p>
+<p>How complicated is&hellip;</p>
+<p>How hard is the problem of human robot interaction?</p>
+<p>Yeah, should we talk about</p>
+<p>what the problem of human robot interaction is?</p>
+<p>Yeah, what is human robot interaction?</p>
+<p>And then talk about how that, yeah.</p>
+<p>So, and by the way, I&rsquo;m gonna talk about</p>
+<p>this very particular view of human robot interaction, right?</p>
+<p>Which is not so much on the social side</p>
+<p>or on the side of how do you have a good conversation</p>
+<p>with the robot, what should the robot&rsquo;s appearance be?</p>
+<p>It turns out that if you make robots taller versus shorter,</p>
+<p>this has an effect on how people act with them.</p>
+<p>So I&rsquo;m not talking about that.</p>
+<p>But I&rsquo;m talking about this very kind of narrow thing,</p>
+<p>which is you take, if you wanna take a task</p>
+<p>that a robot can do in isolation,</p>
+<p>in a lab out there in the world, but in isolation,</p>
+<p>and now you&rsquo;re asking what does it mean for the robot</p>
+<p>to be able to do this task for,</p>
+<p>presumably what its actually end goal is,</p>
+<p>which is to help some person.</p>
+<p>That ends up changing the problem in two ways.</p>
+<p>The first way it changes the problem is that</p>
+<p>the robot is no longer the single agent acting.</p>
+<p>That you have humans who also take actions</p>
+<p>in that same space.</p>
+<p>Cars navigating around people, robots around an office,</p>
+<p>navigating around the people in that office.</p>
+<p>If I send the robot over there in the cafeteria</p>
+<p>to get me a coffee, then there&rsquo;s probably other people</p>
+<p>reaching for stuff in the same space.</p>
+<p>And so now you have your robot and you&rsquo;re in charge</p>
+<p>of the actions that the robot is taking.</p>
+<p>Then you have these people who are also making decisions</p>
+<p>and taking actions in that same space.</p>
+<p>And even if, you know, the robot knows what it should do</p>
+<p>and all of that, just coexisting with these people, right?</p>
+<p>Kind of getting the actions to gel well,</p>
+<p>to mesh well together.</p>
+<p>That&rsquo;s sort of the kind of problem number one.</p>
+<p>And then there&rsquo;s problem number two,</p>
+<p>which is, goes back to this notion of if I&rsquo;m a programmer,</p>
+<p>I can specify some objective for the robot</p>
+<p>to go off and optimize and specify the task.</p>
+<p>But if I put the robot in your home,</p>
+<p>presumably you might have your own opinions about,</p>
+<p>well, okay, I want my house clean,</p>
+<p>but how do I want it cleaned?</p>
+<p>And how should robot move, how close to me it should come</p>
+<p>and all of that.</p>
+<p>And so I think those are the two differences that you have.</p>
+<p>You&rsquo;re acting around people and what you should be</p>
+<p>optimizing for should satisfy the preferences</p>
+<p>of that end user, not of your programmer who programmed you.</p>
+<p>Yeah, and the preferences thing is tricky.</p>
+<p>So figuring out those preferences,</p>
+<p>be able to interactively adjust</p>
+<p>to understand what the human is doing.</p>
+<p>So really it boils down to understand the humans</p>
+<p>in order to interact with them and in order to please them.</p>
+<p>Right.</p>
+<p>So why is this hard?</p>
+<p>Yeah, why is understanding humans hard?</p>
+<p>So I think there&rsquo;s two tasks about understanding humans</p>
+<p>that in my mind are very, very similar,</p>
+<p>but not everyone agrees.</p>
+<p>So there&rsquo;s the task of being able to just anticipate</p>
+<p>what people will do.</p>
+<p>We all know that cars need to do this, right?</p>
+<p>We all know that, well, if I navigate around some people,</p>
+<p>the robot has to get some notion of,</p>
+<p>okay, where is this person gonna be?</p>
+<p>So that&rsquo;s kind of the prediction side.</p>
+<p>And then there&rsquo;s what you were saying,</p>
+<p>satisfying the preferences, right?</p>
+<p>So adapting to the person&rsquo;s preferences,</p>
+<p>knowing what to optimize for,</p>
+<p>which is more this inference side,</p>
+<p>this what does this person want?</p>
+<p>What is their intent? What are their preferences?</p>
+<p>And to me, those kind of go together</p>
+<p>because I think that at the very least,</p>
+<p>if you can understand, if you can look at human behavior</p>
+<p>and understand what it is that they want,</p>
+<p>then that&rsquo;s sort of the key enabler</p>
+<p>to being able to anticipate what they&rsquo;ll do in the future.</p>
+<p>Because I think that we&rsquo;re not arbitrary.</p>
+<p>We make these decisions that we make,</p>
+<p>we act in the way we do</p>
+<p>because we&rsquo;re trying to achieve certain things.</p>
+<p>And so I think that&rsquo;s the relationship between them.</p>
+<p>Now, how complicated do these models need to be</p>
+<p>in order to be able to understand what people want?</p>
+<p>So we&rsquo;ve gotten a long way in robotics</p>
+<p>with something called inverse reinforcement learning,</p>
+<p>which is the notion of if someone acts,</p>
+<p>demonstrates how they want the thing done.</p>
+<p>What is inverse reinforcement learning?</p>
+<p>You just briefly said it.</p>
+<p>Right, so it&rsquo;s the problem of take human behavior</p>
+<p>and infer reward function from this.</p>
+<p>So figure out what it is</p>
+<p>that that behavior is optimal with respect to.</p>
+<p>And it&rsquo;s a great way to think</p>
+<p>about learning human preferences</p>
+<p>in the sense of you have a car and the person can drive it</p>
+<p>and then you can say, well, okay,</p>
+<p>I can actually learn what the person is optimizing for.</p>
+<p>I can learn their driving style,</p>
+<p>or you can have people demonstrate</p>
+<p>how they want the house clean.</p>
+<p>And then you can say, okay, this is,</p>
+<p>I&rsquo;m getting the trade offs that they&rsquo;re making.</p>
+<p>I&rsquo;m getting the preferences that they want out of this.</p>
+<p>And so we&rsquo;ve been successful in robotics somewhat with this.</p>
+<p>And it&rsquo;s based on a very simple model of human behavior.</p>
+<p>It was remarkably simple,</p>
+<p>which is that human behavior is optimal</p>
+<p>with respect to whatever it is that people want, right?</p>
+<p>So you make that assumption</p>
+<p>and now you can kind of inverse through.</p>
+<p>That&rsquo;s why it&rsquo;s called inverse,</p>
+<p>well, really optimal control,</p>
+<p>but also inverse reinforcement learning.</p>
+<p>So this is based on utility maximization in economics.</p>
+<p>Back in the forties, von Neumann and Morgenstern</p>
+<p>were like, okay, people are making choices</p>
+<p>by maximizing utility, go.</p>
+<p>And then in the late fifties,</p>
+<p>we had Luce and Shepherd come in and say,</p>
+<p>people are a little bit noisy and approximate in that process.</p>
+<p>So they might choose something kind of stochastically</p>
+<p>with probability proportional to</p>
+<p>how much utility something has.</p>
+<p>So there&rsquo;s a bit of noise in there.</p>
+<p>This has translated into robotics</p>
+<p>and something that we call Boltzmann rationality.</p>
+<p>So it&rsquo;s a kind of an evolution</p>
+<p>of inverse reinforcement learning</p>
+<p>that accounts for human noise.</p>
+<p>And we&rsquo;ve had some success with that too,</p>
+<p>for these tasks where it turns out</p>
+<p>people act noisily enough that you can&rsquo;t just do vanilla,</p>
+<p>the vanilla version.</p>
+<p>You can account for noise</p>
+<p>and still infer what they seem to want based on this.</p>
+<p>Then now we&rsquo;re hitting tasks where that&rsquo;s not enough.</p>
+<p>And because&hellip;</p>
+<p>What are examples of spatial tasks?</p>
+<p>So imagine you&rsquo;re trying to control some robot,</p>
+<p>that&rsquo;s fairly complicated.</p>
+<p>You&rsquo;re trying to control a robot arm</p>
+<p>because maybe you&rsquo;re a patient with a motor impairment</p>
+<p>and you have this wheelchair mounted arm</p>
+<p>and you&rsquo;re trying to control it around.</p>
+<p>Or one task that we&rsquo;ve looked at with Sergei is,</p>
+<p>and our students did, is a lunar lander.</p>
+<p>So I don&rsquo;t know if you know this Atari game,</p>
+<p>it&rsquo;s called Lunar Lander.</p>
+<p>It&rsquo;s really hard.</p>
+<p>People really suck at landing the thing.</p>
+<p>Mostly they just crash it left and right.</p>
+<p>Okay, so this is the kind of task we imagine</p>
+<p>you&rsquo;re trying to provide some assistance</p>
+<p>to a person operating such a robot</p>
+<p>where you want the kind of the autonomy to kick in,</p>
+<p>figure out what it is that you&rsquo;re trying to do</p>
+<p>and help you do it.</p>
+<p>It&rsquo;s really hard to do that for, say, Lunar Lander</p>
+<p>because people are all over the place.</p>
+<p>And so they seem much more noisy than really irrational.</p>
+<p>That&rsquo;s an example of a task</p>
+<p>where these models are kind of failing us.</p>
+<p>And it&rsquo;s not surprising because</p>
+<p>we&rsquo;re talking about the 40s, utility, late 50s,</p>
+<p>sort of noisy.</p>
+<p>Then the 70s came and behavioral economics</p>
+<p>started being a thing where people were like,</p>
+<p>no, no, no, no, no, people are not rational.</p>
+<p>People are messy and emotional and irrational</p>
+<p>and have all sorts of heuristics</p>
+<p>that might be domain specific.</p>
+<p>And they&rsquo;re just a mess.</p>
+<p>The mess.</p>
+<p>So what does my robot do to understand</p>
+<p>what you want?</p>
+<p>And it&rsquo;s a very, it&rsquo;s very, that&rsquo;s why it&rsquo;s complicated.</p>
+<p>It&rsquo;s, you know, for the most part,</p>
+<p>we get away with pretty simple models until we don&rsquo;t.</p>
+<p>And then the question is, what do you do then?</p>
+<p>And I had days when I wanted to, you know,</p>
+<p>pack my bags and go home and switch jobs</p>
+<p>because it&rsquo;s just, it feels really daunting</p>
+<p>to make sense of human behavior enough</p>
+<p>that you can reliably understand what people want,</p>
+<p>especially as, you know,</p>
+<p>robot capabilities will continue to get developed.</p>
+<p>You&rsquo;ll get these systems that are more and more capable</p>
+<p>of all sorts of things.</p>
+<p>And then you really want to make sure</p>
+<p>that you&rsquo;re telling them the right thing to do.</p>
+<p>What is that thing?</p>
+<p>Well, read it in human behavior.</p>
+<p>So if I just sat here quietly</p>
+<p>and tried to understand something about you</p>
+<p>by listening to you talk,</p>
+<p>it would be harder than if I got to say something</p>
+<p>and ask you and interact and control.</p>
+<p>Can you, can the robot help its understanding of the human</p>
+<p>by influencing the behavior by actually acting?</p>
+<p>Yeah, absolutely.</p>
+<p>So one of the things that&rsquo;s been exciting to me lately</p>
+<p>is this notion that when you try to,</p>
+<p>that when you try to think of the robotics problem as,</p>
+<p>okay, I have a robot and it needs to optimize</p>
+<p>for whatever it is that a person wants it to optimize</p>
+<p>as opposed to maybe what a programmer said.</p>
+<p>That problem we think of as a human robot</p>
+<p>collaboration problem in which both agents get to act</p>
+<p>in which the robot knows less than the human</p>
+<p>because the human actually has access to,</p>
+<p>you know, at least implicitly to what it is that they want.</p>
+<p>They can&rsquo;t write it down, but they can talk about it.</p>
+<p>They can give all sorts of signals.</p>
+<p>They can demonstrate and,</p>
+<p>but the robot doesn&rsquo;t need to sit there</p>
+<p>and passively observe human behavior</p>
+<p>and try to make sense of it.</p>
+<p>The robot can act too.</p>
+<p>And so there&rsquo;s these information gathering actions</p>
+<p>that the robot can take to sort of solicit responses</p>
+<p>that are actually informative.</p>
+<p>So for instance, this is not for the purpose</p>
+<p>of assisting people, but with kind of back to coordinating</p>
+<p>with people in cars and all of that.</p>
+<p>One thing that Dorsa did was,</p>
+<p>so we were looking at cars being able to navigate</p>
+<p>around people and you might not know exactly</p>
+<p>the driving style of a particular individual</p>
+<p>that&rsquo;s next to you,</p>
+<p>but you wanna change lanes in front of them.</p>
+<p>Navigating around other humans inside cars.</p>
+<p>Yeah, good, good clarification question.</p>
+<p>So you have an autonomous car and it&rsquo;s trying to navigate</p>
+<p>the road around human driven vehicles.</p>
+<p>Similar things ideas apply to pedestrians as well,</p>
+<p>but let&rsquo;s just take human driven vehicles.</p>
+<p>So now you&rsquo;re trying to change a lane.</p>
+<p>Well, you could be trying to infer the driving style</p>
+<p>of this person next to you.</p>
+<p>You&rsquo;d like to know if they&rsquo;re in particular,</p>
+<p>if they&rsquo;re sort of aggressive or defensive,</p>
+<p>if they&rsquo;re gonna let you kind of go in</p>
+<p>or if they&rsquo;re gonna not.</p>
+<p>And it&rsquo;s very difficult to just,</p>
+<p>if you think that if you wanna hedge your bets</p>
+<p>and say, ah, maybe they&rsquo;re actually pretty aggressive,</p>
+<p>I shouldn&rsquo;t try this.</p>
+<p>You kind of end up driving next to them</p>
+<p>and driving next to them, right?</p>
+<p>And then you don&rsquo;t know</p>
+<p>because you&rsquo;re not actually getting the observations</p>
+<p>that you&rsquo;re getting away.</p>
+<p>Someone drives when they&rsquo;re next to you</p>
+<p>and they just need to go straight.</p>
+<p>It&rsquo;s kind of the same</p>
+<p>regardless if they&rsquo;re aggressive or defensive.</p>
+<p>And so you need to enable the robot</p>
+<p>to reason about how it might actually be able</p>
+<p>to gather information by changing the actions</p>
+<p>that it&rsquo;s taking.</p>
+<p>And then the robot comes up with these cool things</p>
+<p>where it kind of nudges towards you</p>
+<p>and then sees if you&rsquo;re gonna slow down or not.</p>
+<p>Then if you slow down,</p>
+<p>it sort of updates its model of you</p>
+<p>and says, oh, okay, you&rsquo;re more on the defensive side.</p>
+<p>So now I can actually like.</p>
+<p>That&rsquo;s a fascinating dance.</p>
+<p>That&rsquo;s so cool that you could use your own actions</p>
+<p>to gather information.</p>
+<p>That feels like a totally open,</p>
+<p>exciting new world of robotics.</p>
+<p>I mean, how many people are even thinking</p>
+<p>about that kind of thing?</p>
+<p>A handful of us, I&rsquo;d say.</p>
+<p>It&rsquo;s rare because it&rsquo;s actually leveraging human.</p>
+<p>I mean, most roboticists,</p>
+<p>I&rsquo;ve talked to a lot of colleagues and so on,</p>
+<p>are kind of, being honest, kind of afraid of humans.</p>
+<p>Because they&rsquo;re messy and complicated, right?</p>
+<p>I understand.</p>
+<p>Going back to what we were talking about earlier,</p>
+<p>right now we&rsquo;re kind of in this dilemma of, okay,</p>
+<p>there are tasks that we can just assume</p>
+<p>people are approximately rational for</p>
+<p>and we can figure out what they want.</p>
+<p>We can figure out their goals.</p>
+<p>We can figure out their driving styles, whatever.</p>
+<p>Cool.</p>
+<p>There are these tasks that we can&rsquo;t.</p>
+<p>So what do we do, right?</p>
+<p>Do we pack our bags and go home?</p>
+<p>And this one, I&rsquo;ve had a little bit of hope recently.</p>
+<p>And I&rsquo;m kind of doubting myself</p>
+<p>because what do I know that, you know,</p>
+<p>50 years of behavioral economics hasn&rsquo;t figured out.</p>
+<p>But maybe it&rsquo;s not really in contradiction</p>
+<p>with the way that field is headed.</p>
+<p>But basically one thing that we&rsquo;ve been thinking about is,</p>
+<p>instead of kind of giving up and saying</p>
+<p>people are too crazy and irrational</p>
+<p>for us to make sense of them,</p>
+<p>maybe we can give them a bit the benefit of the doubt.</p>
+<p>And maybe we can think of them</p>
+<p>as actually being relatively rational,</p>
+<p>but just under different assumptions about the world,</p>
+<p>about how the world works, about, you know,</p>
+<p>they don&rsquo;t have, when we think about rationality,</p>
+<p>implicit assumption is, oh, they&rsquo;re rational,</p>
+<p>and they&rsquo;re all the same assumptions and constraints</p>
+<p>as the robot, right?</p>
+<p>What, if this is the state of the world,</p>
+<p>that&rsquo;s what they know.</p>
+<p>This is the transition function, that&rsquo;s what they know.</p>
+<p>This is the horizon, that&rsquo;s what they know.</p>
+<p>But maybe the kind of this difference,</p>
+<p>the way, the reason they can seem a little messy</p>
+<p>and hectic, especially to robots,</p>
+<p>is that perhaps they just make different assumptions</p>
+<p>or have different beliefs.</p>
+<p>Yeah, I mean, that&rsquo;s another fascinating idea</p>
+<p>that this, our kind of anecdotal desire</p>
+<p>to say that humans are irrational,</p>
+<p>perhaps grounded in behavioral economics,</p>
+<p>is that we just don&rsquo;t understand the constraints</p>
+<p>and the rewards under which they operate.</p>
+<p>And so our goal shouldn&rsquo;t be to throw our hands up</p>
+<p>and say they&rsquo;re irrational,</p>
+<p>it&rsquo;s to say, let&rsquo;s try to understand</p>
+<p>what are the constraints.</p>
+<p>What it is that they must be assuming</p>
+<p>that makes this behavior make sense.</p>
+<p>Good life lesson, right?</p>
+<p>Good life lesson.</p>
+<p>That&rsquo;s true, it&rsquo;s just outside of robotics.</p>
+<p>That&rsquo;s just good to, that&rsquo;s communicating with humans.</p>
+<p>That&rsquo;s just a good assume</p>
+<p>that you just don&rsquo;t, sort of empathy, right?</p>
+<p>It&rsquo;s a&hellip;</p>
+<p>This is maybe there&rsquo;s something you&rsquo;re missing</p>
+<p>and it&rsquo;s, you know, it especially happens to robots</p>
+<p>cause they&rsquo;re kind of dumb and they don&rsquo;t know things.</p>
+<p>And oftentimes people are sort of supra rational</p>
+<p>and that they actually know a lot of things</p>
+<p>that robots don&rsquo;t.</p>
+<p>Sometimes like with the lunar lander,</p>
+<p>the robot, you know, knows much more.</p>
+<p>So it turns out that if you try to say,</p>
+<p>look, maybe people are operating this thing</p>
+<p>but assuming a much more simplified physics model</p>
+<p>cause they don&rsquo;t get the complexity of this kind of craft</p>
+<p>or the robot arm with seven degrees of freedom</p>
+<p>with these inertias and whatever.</p>
+<p>So maybe they have this intuitive physics model</p>
+<p>which is not, you know, this notion of intuitive physics</p>
+<p>is something that you studied actually in cognitive science</p>
+<p>was like Josh Denenbaum, Tom Griffith&rsquo;s work on this stuff.</p>
+<p>And what we found is that you can actually try</p>
+<p>to figure out what physics model</p>
+<p>kind of best explains human actions.</p>
+<p>And then you can use that to sort of correct what it is</p>
+<p>that they&rsquo;re commanding the craft to do.</p>
+<p>So they might, you know, be sending the craft somewhere</p>
+<p>but instead of executing that action,</p>
+<p>you can sort of take a step back and say,</p>
+<p>according to their intuitive,</p>
+<p>if the world worked according to their intuitive physics</p>
+<p>model, where do they think that the craft is going?</p>
+<p>Where are they trying to send it to?</p>
+<p>And then you can use the real physics, right?</p>
+<p>The inverse of that to actually figure out</p>
+<p>what you should do so that you do that</p>
+<p>instead of where they were actually sending you</p>
+<p>in the real world.</p>
+<p>And I kid you not at work people land the damn thing</p>
+<p>and you know, in between the two flags and all that.</p>
+<p>So it&rsquo;s not conclusive in any way</p>
+<p>but I&rsquo;d say it&rsquo;s evidence that yeah,</p>
+<p>maybe we&rsquo;re kind of underestimating humans in some ways</p>
+<p>when we&rsquo;re giving up and saying,</p>
+<p>yeah, they&rsquo;re just crazy noisy.</p>
+<p>So then you try to explicitly try to model</p>
+<p>the kind of worldview that they have.</p>
+<p>That they have, that&rsquo;s right.</p>
+<p>That&rsquo;s right.</p>
+<p>And it&rsquo;s not too, I mean,</p>
+<p>there&rsquo;s things in behavior economics too</p>
+<p>that for instance have touched upon the planning horizon.</p>
+<p>So there&rsquo;s this idea that there&rsquo;s bounded rationality</p>
+<p>essentially and the idea that, well,</p>
+<p>maybe we work under computational constraints.</p>
+<p>And I think kind of our view recently has been</p>
+<p>take the Bellman update in AI</p>
+<p>and just break it in all sorts of ways by saying state,</p>
+<p>no, no, no, the person doesn&rsquo;t get to see the real state.</p>
+<p>Maybe they&rsquo;re estimating somehow.</p>
+<p>Transition function, no, no, no, no, no.</p>
+<p>Even the actual reward evaluation,</p>
+<p>maybe they&rsquo;re still learning</p>
+<p>about what it is that they want.</p>
+<p>Like, you know, when you watch Netflix</p>
+<p>and you know, you have all the things</p>
+<p>and then you have to pick something,</p>
+<p>imagine that, you know, the AI system interpreted</p>
+<p>that choice as this is the thing you prefer to see.</p>
+<p>Like, how are you going to know?</p>
+<p>You&rsquo;re still trying to figure out what you like,</p>
+<p>what you don&rsquo;t like, et cetera.</p>
+<p>So I think it&rsquo;s important to also account for that.</p>
+<p>So it&rsquo;s not irrationality,</p>
+<p>because they&rsquo;re doing the right thing</p>
+<p>under the things that they know.</p>
+<p>Yeah, that&rsquo;s brilliant.</p>
+<p>You mentioned recommender systems.</p>
+<p>What kind of, and we were talking</p>
+<p>about human robot interaction,</p>
+<p>what kind of problem spaces are you thinking about?</p>
+<p>So is it robots, like wheeled robots</p>
+<p>with autonomous vehicles?</p>
+<p>Is it object manipulation?</p>
+<p>Like when you think</p>
+<p>about human robot interaction in your mind,</p>
+<p>and maybe I&rsquo;m sure you can speak</p>
+<p>for the entire community of human robot interaction.</p>
+<p>But like, what are the problems of interest here?</p>
+<p>And does it, you know, I kind of think</p>
+<p>of open domain dialogue as human robot interaction,</p>
+<p>and that happens not in the physical space,</p>
+<p>but it could just happen in the virtual space.</p>
+<p>So where&rsquo;s the boundaries of this field for you</p>
+<p>when you&rsquo;re thinking about the things</p>
+<p>we&rsquo;ve been talking about?</p>
+<p>Yeah, so I try to find kind of underlying,</p>
+<p>I don&rsquo;t know what to even call them.</p>
+<p>I try to work on, you know, I might call what I do,</p>
+<p>the kind of working on the foundations</p>
+<p>of algorithmic human robot interaction</p>
+<p>and trying to make contributions there.</p>
+<p>And it&rsquo;s important to me that whatever we do</p>
+<p>is actually somewhat domain agnostic when it comes to,</p>
+<p>is it about, you know, autonomous cars</p>
+<p>or is it about quadrotors or is it about,</p>
+<p>is this sort of the same underlying principles apply?</p>
+<p>Of course, when you&rsquo;re trying to get</p>
+<p>a particular domain to work,</p>
+<p>you usually have to do some extra work</p>
+<p>to adapt that to that particular domain.</p>
+<p>But these things that we were talking about around,</p>
+<p>well, you know, how do you model humans?</p>
+<p>It turns out that a lot of systems need</p>
+<p>to core benefit from a better understanding</p>
+<p>of how human behavior relates to what people want</p>
+<p>and need to predict human behavior,</p>
+<p>physical robots of all sorts and beyond that.</p>
+<p>And so I used to do manipulation.</p>
+<p>I used to be, you know, picking up stuff</p>
+<p>and then I was picking up stuff with people around.</p>
+<p>And now it&rsquo;s sort of very broad</p>
+<p>when it comes to the application level,</p>
+<p>but in a sense, very focused on, okay,</p>
+<p>how does the problem need to change?</p>
+<p>How do the algorithms need to change</p>
+<p>when we&rsquo;re not doing a robot by itself?</p>
+<p>You know, emptying the dishwasher,</p>
+<p>but we&rsquo;re stepping outside of that.</p>
+<p>I thought that popped into my head just now.</p>
+<p>On the game theoretic side,</p>
+<p>I think you said this really interesting idea</p>
+<p>of using actions to gain more information.</p>
+<p>But if we think of sort of game theory,</p>
+<p>the humans that are interacting with you,</p>
+<p>with you, the robot?</p>
+<p>Wow, I&rsquo;m thinking the identity of the robot.</p>
+<p>Yeah, I do that all the time.</p>
+<p>Yeah, is they also have a world model of you</p>
+<p>and you can manipulate that.</p>
+<p>I mean, if we look at autonomous vehicles,</p>
+<p>people have a certain viewpoint.</p>
+<p>You said with the kids, people see Alexa in a certain way.</p>
+<p>Is there some value in trying to also optimize</p>
+<p>how people see you as a robot?</p>
+<p>Or is that a little too far away from the specifics</p>
+<p>of what we can solve right now?</p>
+<p>So, well, both, right?</p>
+<p>So it&rsquo;s really interesting.</p>
+<p>And we&rsquo;ve seen a little bit of progress on this problem,</p>
+<p>on pieces of this problem.</p>
+<p>So you can, again, it kind of comes down</p>
+<p>to how complicated does the human model need to be?</p>
+<p>But in one piece of work that we were looking at,</p>
+<p>we just said, okay, there&rsquo;s these parameters</p>
+<p>that are internal to the robot</p>
+<p>and what the robot is about to do,</p>
+<p>or maybe what objective,</p>
+<p>what driving style the robot has or something like that.</p>
+<p>And what we&rsquo;re gonna do is we&rsquo;re gonna set up a system</p>
+<p>where part of the state is the person&rsquo;s belief</p>
+<p>over those parameters.</p>
+<p>And now when the robot acts,</p>
+<p>that the person gets new evidence</p>
+<p>about this robot internal state.</p>
+<p>And so they&rsquo;re updating their mental model of the robot.</p>
+<p>So if they see a car that sort of cuts someone off,</p>
+<p>they&rsquo;re like, oh, that&rsquo;s an aggressive car.</p>
+<p>They know more.</p>
+<p>If they see sort of a robot head towards a particular door,</p>
+<p>they&rsquo;re like, oh yeah, the robot&rsquo;s trying to get</p>
+<p>to that door.</p>
+<p>So this thing that we have to do with humans</p>
+<p>to try and understand their goals and intentions,</p>
+<p>humans are inevitably gonna do that to robots.</p>
+<p>And then that raises this interesting question</p>
+<p>that you asked, which is, can we do something about that?</p>
+<p>This is gonna happen inevitably,</p>
+<p>but we can sort of be more confusing</p>
+<p>or less confusing to people.</p>
+<p>And it turns out you can optimize</p>
+<p>for being more informative and less confusing</p>
+<p>if you have an understanding of how your actions</p>
+<p>are being interpreted by the human,</p>
+<p>and how they&rsquo;re using these actions to update their belief.</p>
+<p>And honestly, all we did is just Bayes rule.</p>
+<p>Basically, okay, the person has a belief,</p>
+<p>they see an action, they make some assumptions</p>
+<p>about how the robot generates its actions,</p>
+<p>presumably as being rational,</p>
+<p>because robots are rational.</p>
+<p>It&rsquo;s reasonable to assume that about them.</p>
+<p>And then they incorporate that new piece of evidence</p>
+<p>in the Bayesian sense in their belief,</p>
+<p>and they obtain a posterior.</p>
+<p>And now the robot is trying to figure out</p>
+<p>what actions to take such that it steers</p>
+<p>the person&rsquo;s belief to put as much probability mass</p>
+<p>as possible on the correct parameters.</p>
+<p>So that&rsquo;s kind of a mathematical formalization of that.</p>
+<p>But my worry, and I don&rsquo;t know if you wanna go there</p>
+<p>with me, but I talk about this quite a bit.</p>
+<p>The kids talking to Alexa disrespectfully worries me.</p>
+<p>I worry in general about human nature.</p>
+<p>Like I said, I grew up in Soviet Union, World War II,</p>
+<p>I&rsquo;m a Jew too, so with the Holocaust and everything.</p>
+<p>I just worry about how we humans sometimes treat the other,</p>
+<p>the group that we call the other, whatever it is.</p>
+<p>Through human history, the group that&rsquo;s the other</p>
+<p>has been changed faces.</p>
+<p>But it seems like the robot will be the other, the other,</p>
+<p>the next other.</p>
+<p>And one thing is it feels to me</p>
+<p>that robots don&rsquo;t get no respect.</p>
+<p>They get shoved around.</p>
+<p>Shoved around, and is there, one, at the shallow level,</p>
+<p>for a better experience, it seems that robots</p>
+<p>need to talk back a little bit.</p>
+<p>Like my intuition says, I mean, most companies</p>
+<p>from sort of Roomba, autonomous vehicle companies</p>
+<p>might not be so happy with the idea that a robot</p>
+<p>has a little bit of an attitude.</p>
+<p>But I feel, it feels to me that that&rsquo;s necessary</p>
+<p>to create a compelling experience.</p>
+<p>Like we humans don&rsquo;t seem to respect anything</p>
+<p>that doesn&rsquo;t give us some attitude.</p>
+<p>That, or like a mix of mystery and attitude and anger</p>
+<p>and that threatens us subtly, maybe passive aggressively.</p>
+<p>I don&rsquo;t know.</p>
+<p>It seems like we humans, yeah, need that.</p>
+<p>Do you, what are your, is there something,</p>
+<p>you have thoughts on this?</p>
+<p>All right, I&rsquo;ll give you two thoughts on this.</p>
+<p>Okay, sure.</p>
+<p>One is, one is, it&rsquo;s, we respond to, you know,</p>
+<p>someone being assertive, but we also respond</p>
+<p>to someone being vulnerable.</p>
+<p>So I think robots, my first thought is that</p>
+<p>robots get shoved around and bullied a lot</p>
+<p>because they&rsquo;re sort of, you know, tempting</p>
+<p>and they&rsquo;re sort of showing off</p>
+<p>or they appear to be showing off.</p>
+<p>And so I think going back to these things</p>
+<p>we were talking about in the beginning</p>
+<p>of making robots a little more, a little more expressive,</p>
+<p>a little bit more like, eh, that wasn&rsquo;t cool to do.</p>
+<p>And now I&rsquo;m bummed, right?</p>
+<p>I think that that can actually help</p>
+<p>because people can&rsquo;t help but anthropomorphize</p>
+<p>and respond to that.</p>
+<p>Even that though, the emotion being communicated</p>
+<p>is not in any way a real thing.</p>
+<p>And people know that it&rsquo;s not a real thing</p>
+<p>because they know it&rsquo;s just a machine.</p>
+<p>We&rsquo;re still interpreting, you know, we watch,</p>
+<p>there&rsquo;s this famous psychology experiment</p>
+<p>with little triangles and kind of dots on a screen</p>
+<p>and a triangle is chasing the square</p>
+<p>and you get really angry at the darn triangle</p>
+<p>because why is it not leaving the square alone?</p>
+<p>So that&rsquo;s, yeah, we can&rsquo;t help.</p>
+<p>So that was the first thought.</p>
+<p>The vulnerability, that&rsquo;s really interesting that,</p>
+<p>I think of like being, pushing back, being assertive</p>
+<p>as the only mechanism of getting,</p>
+<p>of forming a connection, of getting respect,</p>
+<p>but perhaps vulnerability,</p>
+<p>perhaps there&rsquo;s other mechanisms that are less threatening.</p>
+<p>Yeah.</p>
+<p>Is there?</p>
+<p>Well, I think, well, a little bit, yes,</p>
+<p>but then this other thing that we can think about is,</p>
+<p>it goes back to what you were saying,</p>
+<p>that interaction is really game theoretic, right?</p>
+<p>So the moment you&rsquo;re taking actions in a space,</p>
+<p>the humans are taking actions in that same space,</p>
+<p>but you have your own objective, which is, you know,</p>
+<p>you&rsquo;re a car, you need to get your passenger</p>
+<p>to the destination.</p>
+<p>And then the human nearby has their own objective,</p>
+<p>which somewhat overlaps with you, but not entirely.</p>
+<p>You&rsquo;re not interested in getting into an accident</p>
+<p>with each other, but you have different destinations</p>
+<p>and you wanna get home faster</p>
+<p>and they wanna get home faster.</p>
+<p>And that&rsquo;s a general sum game at that point.</p>
+<p>And so that&rsquo;s, I think that&rsquo;s what,</p>
+<p>treating it as such is kind of a way we can step outside</p>
+<p>of this kind of mode that,</p>
+<p>where you try to anticipate what people do</p>
+<p>and you don&rsquo;t realize you have any influence over it</p>
+<p>while still protecting yourself</p>
+<p>because you&rsquo;re understanding that people also understand</p>
+<p>that they can influence you.</p>
+<p>And it&rsquo;s just kind of back and forth is this negotiation,</p>
+<p>which is really talking about different equilibria</p>
+<p>of a game.</p>
+<p>The very basic way to solve coordination</p>
+<p>is to just make predictions about what people will do</p>
+<p>and then stay out of their way.</p>
+<p>And that&rsquo;s hard for the reasons we talked about,</p>
+<p>which is how you have to understand people&rsquo;s intentions</p>
+<p>implicitly, explicitly, who knows,</p>
+<p>but somehow you have to get enough of an understanding</p>
+<p>of that to be able to anticipate what happens next.</p>
+<p>And so that&rsquo;s challenging.</p>
+<p>But then it&rsquo;s further challenged by the fact</p>
+<p>that people change what they do based on what you do</p>
+<p>because they don&rsquo;t plan in isolation either, right?</p>
+<p>So when you see cars trying to merge on a highway</p>
+<p>and not succeeding, one of the reasons this can be</p>
+<p>is because they look at traffic that keeps coming,</p>
+<p>they predict what these people are planning on doing,</p>
+<p>which is to just keep going,</p>
+<p>and then they stay out of the way</p>
+<p>because there&rsquo;s no feasible plan, right?</p>
+<p>Any plan would actually intersect</p>
+<p>with one of these other people.</p>
+<p>So that&rsquo;s bad, so you get stuck there.</p>
+<p>So now kind of if you start thinking about it as no, no, no,</p>
+<p>actually these people change what they do</p>
+<p>depending on what the car does.</p>
+<p>Like if the car actually tries to kind of inch itself forward,</p>
+<p>they might actually slow down and let the car in.</p>
+<p>And now taking advantage of that,</p>
+<p>well, that&rsquo;s kind of the next level.</p>
+<p>We call this like this underactuated system idea</p>
+<p>where it&rsquo;s kind of underactuated system robotics,</p>
+<p>but it&rsquo;s kind of, you&rsquo;re influenced</p>
+<p>these other degrees of freedom,</p>
+<p>but you don&rsquo;t get to decide what they do.</p>
+<p>I&rsquo;ve somewhere seen you mention it,</p>
+<p>the human element in this picture as underactuated.</p>
+<p>So you understand underactuated robotics</p>
+<p>is that you can&rsquo;t fully control the system.</p>
+<p>You can&rsquo;t go in arbitrary directions</p>
+<p>in the configuration space.</p>
+<p>Under your control.</p>
+<p>Yeah, it&rsquo;s a very simple way of underactuation</p>
+<p>where basically there&rsquo;s literally these degrees of freedom</p>
+<p>that you can control,</p>
+<p>and these degrees of freedom that you can&rsquo;t,</p>
+<p>but you influence them.</p>
+<p>And I think that&rsquo;s the important part</p>
+<p>is that they don&rsquo;t do whatever, regardless of what you do,</p>
+<p>that what you do influences what they end up doing.</p>
+<p>I just also like the poetry of calling human robot</p>
+<p>interaction an underactuated robotics problem.</p>
+<p>And you also mentioned sort of nudging.</p>
+<p>It seems that they&rsquo;re, I don&rsquo;t know.</p>
+<p>I think about this a lot in the case of pedestrians</p>
+<p>I&rsquo;ve collected hundreds of hours of videos.</p>
+<p>I like to just watch pedestrians.</p>
+<p>And it seems that.</p>
+<p>It&rsquo;s a funny hobby.</p>
+<p>Yeah, it&rsquo;s weird.</p>
+<p>Cause I learn a lot.</p>
+<p>I learned a lot about myself,</p>
+<p>about our human behavior, from watching pedestrians,</p>
+<p>watching people in their environment.</p>
+<p>Basically crossing the street</p>
+<p>is like you&rsquo;re putting your life on the line.</p>
+<p>I don&rsquo;t know, tens of millions of time in America every day</p>
+<p>is people are just like playing this weird game of chicken</p>
+<p>when they cross the street,</p>
+<p>especially when there&rsquo;s some ambiguity</p>
+<p>about the right of way.</p>
+<p>That has to do either with the rules of the road</p>
+<p>or with the general personality of the intersection</p>
+<p>based on the time of day and so on.</p>
+<p>And this nudging idea,</p>
+<p>it seems that people don&rsquo;t even nudge.</p>
+<p>They just aggressively take, make a decision.</p>
+<p>Somebody, there&rsquo;s a runner that gave me this advice.</p>
+<p>I sometimes run in the street,</p>
+<p>not in the street, on the sidewalk.</p>
+<p>And he said that if you don&rsquo;t make eye contact with people</p>
+<p>when you&rsquo;re running, they will all move out of your way.</p>
+<p>It&rsquo;s called civil inattention.</p>
+<p>Civil inattention, that&rsquo;s a thing.</p>
+<p>Oh wow, I need to look this up, but it works.</p>
+<p>What is that?</p>
+<p>My sense was if you communicate like confidence</p>
+<p>in your actions that you&rsquo;re unlikely to deviate</p>
+<p>from the action that you&rsquo;re following,</p>
+<p>that&rsquo;s a really powerful signal to others</p>
+<p>that they need to plan around your actions.</p>
+<p>As opposed to nudging where you&rsquo;re sort of hesitantly,</p>
+<p>then the hesitation might communicate</p>
+<p>that you&rsquo;re still in the dance and the game</p>
+<p>that they can influence with their own actions.</p>
+<p>I&rsquo;ve recently had a conversation with Jim Keller,</p>
+<p>who&rsquo;s a sort of this legendary chip architect,</p>
+<p>but he also led the autopilot team for a while.</p>
+<p>And his intuition that driving is fundamentally</p>
+<p>still like a ballistics problem.</p>
+<p>Like you can ignore the human element</p>
+<p>that is just not hitting things.</p>
+<p>And you can kind of learn the right dynamics</p>
+<p>required to do the merger and all those kinds of things.</p>
+<p>And then my sense is, and I don&rsquo;t know if I can provide</p>
+<p>sort of definitive proof of this,</p>
+<p>but my sense is like an order of magnitude</p>
+<p>are more difficult when humans are involved.</p>
+<p>Like it&rsquo;s not simply object collision avoidance problem.</p>
+<p>Where does your intuition,</p>
+<p>of course, nobody knows the right answer here,</p>
+<p>but where does your intuition fall on the difficulty,</p>
+<p>fundamental difficulty of the driving problem</p>
+<p>when humans are involved?</p>
+<p>Yeah, good question.</p>
+<p>I have many opinions on this.</p>
+<p>Imagine downtown San Francisco.</p>
+<p>Yeah, it&rsquo;s crazy, busy, everything.</p>
+<p>Okay, now take all the humans out.</p>
+<p>No pedestrians, no human driven vehicles,</p>
+<p>no cyclists, no people on little electric scooters</p>
+<p>zipping around, nothing.</p>
+<p>I think we&rsquo;re done.</p>
+<p>I think driving at that point is done.</p>
+<p>We&rsquo;re done.</p>
+<p>There&rsquo;s nothing really that still needs</p>
+<p>to be solved about that.</p>
+<p>Well, let&rsquo;s pause there.</p>
+<p>I think I agree with you and I think a lot of people</p>
+<p>that will hear will agree with that,</p>
+<p>but we need to sort of internalize that idea.</p>
+<p>So what&rsquo;s the problem there?</p>
+<p>Cause we might not quite yet be done with that.</p>
+<p>Cause a lot of people kind of focus</p>
+<p>on the perception problem.</p>
+<p>A lot of people kind of map autonomous driving</p>
+<p>into how close are we to solving,</p>
+<p>being able to detect all the, you know,</p>
+<p>the drivable area, the objects in the scene.</p>
+<p>Do you see that as a, how hard is that problem?</p>
+<p>So your intuition there behind your statement</p>
+<p>was we might have not solved it yet,</p>
+<p>but we&rsquo;re close to solving basically the perception problem.</p>
+<p>I think the perception problem, I mean,</p>
+<p>and by the way, a bunch of years ago,</p>
+<p>this would not have been true.</p>
+<p>And a lot of issues in the space were coming</p>
+<p>from the fact that, oh, we don&rsquo;t really, you know,</p>
+<p>we don&rsquo;t know what&rsquo;s where.</p>
+<p>But I think it&rsquo;s fairly safe to say that at this point,</p>
+<p>although you could always improve on things</p>
+<p>and all of that, you can drive through downtown San Francisco</p>
+<p>if there are no people around.</p>
+<p>There&rsquo;s no really perception issues</p>
+<p>standing in your way there.</p>
+<p>I think perception is hard, but yeah, it&rsquo;s, we&rsquo;ve made</p>
+<p>a lot of progress on the perception,</p>
+<p>so I had to undermine the difficulty of the problem.</p>
+<p>I think everything about robotics is really difficult,</p>
+<p>of course, I think that, you know, the planning problem,</p>
+<p>the control problem, all very difficult,</p>
+<p>but I think what&rsquo;s, what makes it really kind of, yeah.</p>
+<p>It might be, I mean, you know,</p>
+<p>and I picked downtown San Francisco,</p>
+<p>it&rsquo;s adapting to, well, now it&rsquo;s snowing,</p>
+<p>now it&rsquo;s no longer snowing, now it&rsquo;s slippery in this way,</p>
+<p>now it&rsquo;s the dynamics part could,</p>
+<p>I could imagine being still somewhat challenging, but.</p>
+<p>No, the thing that I think worries us,</p>
+<p>and our intuition&rsquo;s not good there,</p>
+<p>is the perception problem at the edge cases.</p>
+<p>Sort of downtown San Francisco, the nice thing,</p>
+<p>it&rsquo;s not actually, it may not be a good example because.</p>
+<p>Because you know what you&rsquo;re getting from,</p>
+<p>well, there&rsquo;s like crazy construction zones</p>
+<p>and all of that. Yeah, but the thing is,</p>
+<p>you&rsquo;re traveling at slow speeds,</p>
+<p>so like it doesn&rsquo;t feel dangerous.</p>
+<p>To me, what feels dangerous is highway speeds,</p>
+<p>when everything is, to us humans, super clear.</p>
+<p>Yeah, I&rsquo;m assuming LiDAR here, by the way.</p>
+<p>I think it&rsquo;s kind of irresponsible to not use LiDAR.</p>
+<p>That&rsquo;s just my personal opinion.</p>
+<p>That&rsquo;s, I mean, depending on your use case,</p>
+<p>but I think like, you know, if you have the opportunity</p>
+<p>to use LiDAR, in a lot of cases, you might not.</p>
+<p>Good, your intuition makes more sense now.</p>
+<p>So you don&rsquo;t think vision.</p>
+<p>I really just don&rsquo;t know enough to say,</p>
+<p>well, vision alone, what, you know, what&rsquo;s like,</p>
+<p>there&rsquo;s a lot of, how many cameras do you have?</p>
+<p>Is it, how are you using them?</p>
+<p>I don&rsquo;t know. There&rsquo;s details.</p>
+<p>There&rsquo;s all, there&rsquo;s all sorts of details.</p>
+<p>I imagine there&rsquo;s stuff that&rsquo;s really hard</p>
+<p>to actually see, you know, how do you deal with glare,</p>
+<p>exactly what you were saying,</p>
+<p>stuff that people would see that you don&rsquo;t.</p>
+<p>I think I have, more of my intuition comes from systems</p>
+<p>that can actually use LiDAR as well.</p>
+<p>Yeah, and until we know for sure,</p>
+<p>it makes sense to be using LiDAR.</p>
+<p>That&rsquo;s kind of the safety focus.</p>
+<p>But then the sort of the,</p>
+<p>I also sympathize with the Elon Musk statement</p>
+<p>of LiDAR is a crutch.</p>
+<p>It&rsquo;s a fun notion to think that the things that work today</p>
+<p>is a crutch for the invention of the things</p>
+<p>that will work tomorrow, right?</p>
+<p>Like it, it&rsquo;s kind of true in the sense that if,</p>
+<p>you know, we want to stick to the comfort zone,</p>
+<p>you see this in academic and research settings</p>
+<p>all the time, the things that work force you</p>
+<p>to not explore outside, think outside the box.</p>
+<p>I mean, that happens all the time.</p>
+<p>The problem is in the safety critical systems,</p>
+<p>you kind of want to stick with the things that work.</p>
+<p>So it&rsquo;s an interesting and difficult trade off</p>
+<p>in the case of real world sort of safety critical</p>
+<p>robotic systems, but so your intuition is,</p>
+<p>just to clarify, how, I mean,</p>
+<p>how hard is this human element for,</p>
+<p>like how hard is driving</p>
+<p>when this human element is involved?</p>
+<p>Are we years, decades away from solving it?</p>
+<p>But perhaps actually the year isn&rsquo;t the thing I&rsquo;m asking.</p>
+<p>It doesn&rsquo;t matter what the timeline is,</p>
+<p>but do you think we&rsquo;re, how many breakthroughs</p>
+<p>are we away from in solving</p>
+<p>the human robotic interaction problem</p>
+<p>to get this, to get this right?</p>
+<p>I think it, in a sense, it really depends.</p>
+<p>I think that, you know, we were talking about how,</p>
+<p>well, look, it&rsquo;s really hard</p>
+<p>because anticipate what people do is hard.</p>
+<p>And on top of that, playing the game is hard.</p>
+<p>But I think we sort of have the fundamental,</p>
+<p>some of the fundamental understanding for that.</p>
+<p>And then you already see that these systems</p>
+<p>are being deployed in the real world,</p>
+<p>you know, even driverless.</p>
+<p>Like there&rsquo;s, I think now a few companies</p>
+<p>that don&rsquo;t have a driver in the car in some small areas.</p>
+<p>I got a chance to, I went to Phoenix and I,</p>
+<p>I shot a video with Waymo and I needed to get</p>
+<p>that video out.</p>
+<p>People have been giving me slack,</p>
+<p>but there&rsquo;s incredible engineering work being done there.</p>
+<p>And it&rsquo;s one of those other seminal moments</p>
+<p>for me in my life to be able to, it sounds silly,</p>
+<p>but to be able to drive without a ride, sorry,</p>
+<p>without a driver in the seat.</p>
+<p>I mean, that was an incredible robotics.</p>
+<p>I was driven by a robot without being able to take over,</p>
+<p>without being able to take the steering wheel.</p>
+<p>That&rsquo;s a magical, that&rsquo;s a magical moment.</p>
+<p>So in that regard, in those domains,</p>
+<p>at least for like Waymo, they&rsquo;re solving that human,</p>
+<p>there&rsquo;s, I mean, they&rsquo;re going, I mean, it felt fast</p>
+<p>because you&rsquo;re like freaking out at first.</p>
+<p>That was, this is my first experience,</p>
+<p>but it&rsquo;s going like the speed limit, right?</p>
+<p>30, 40, whatever it is.</p>
+<p>And there&rsquo;s humans and it deals with them quite well.</p>
+<p>It detects them, it negotiates the intersections,</p>
+<p>the left turns and all of that.</p>
+<p>So at least in those domains, it&rsquo;s solving them.</p>
+<p>The open question for me is like, how quickly can we expand?</p>
+<p>You know, that&rsquo;s the, you know,</p>
+<p>outside of the weather conditions,</p>
+<p>all of those kinds of things,</p>
+<p>how quickly can we expand to like cities like San Francisco?</p>
+<p>Yeah, and I wouldn&rsquo;t say that it&rsquo;s just, you know,</p>
+<p>now it&rsquo;s just pure engineering and it&rsquo;s probably the,</p>
+<p>I mean, and by the way,</p>
+<p>I&rsquo;m speaking kind of very generally here as hypothesizing,</p>
+<p>but I think that there are successes</p>
+<p>and yet no one is everywhere out there.</p>
+<p>So that seems to suggest that things can be expanded</p>
+<p>and can be scaled and we know how to do a lot of things,</p>
+<p>but there&rsquo;s still probably, you know,</p>
+<p>new algorithms or modified algorithms</p>
+<p>that you still need to put in there</p>
+<p>as you learn more and more about new challenges</p>
+<p>that you get faced with.</p>
+<p>How much of this problem do you think can be learned</p>
+<p>through end to end?</p>
+<p>Is it the success of machine learning</p>
+<p>and reinforcement learning?</p>
+<p>How much of it can be learned from sort of data</p>
+<p>from scratch and how much,</p>
+<p>which most of the success of autonomous vehicle systems</p>
+<p>have a lot of heuristics and rule based stuff on top,</p>
+<p>like human expertise injected forced into the system</p>
+<p>to make it work.</p>
+<p>What&rsquo;s your sense?</p>
+<p>How much, what will be the role of learning</p>
+<p>in the near term and long term?</p>
+<p>I think on the one hand that learning is inevitable here,</p>
+<p>right?</p>
+<p>I think on the other hand that when people characterize</p>
+<p>the problem as it&rsquo;s a bunch of rules</p>
+<p>that some people wrote down,</p>
+<p>versus it&rsquo;s an end to end RL system or imitation learning,</p>
+<p>then maybe there&rsquo;s kind of something missing</p>
+<p>from maybe that&rsquo;s more.</p>
+<p>So for instance, I think a very, very useful tool</p>
+<p>in this sort of problem,</p>
+<p>both in how to generate the car&rsquo;s behavior</p>
+<p>and robots in general and how to model human beings</p>
+<p>is actually planning, search optimization, right?</p>
+<p>So robotics is the sequential decision making problem.</p>
+<p>And when a robot can figure out on its own</p>
+<p>how to achieve its goal without hitting stuff</p>
+<p>and all that stuff, right?</p>
+<p>All the good stuff for motion planning 101,</p>
+<p>I think of that as very much AI,</p>
+<p>not this is some rule or something.</p>
+<p>There&rsquo;s nothing rule based around that, right?</p>
+<p>It&rsquo;s just you&rsquo;re searching through a space</p>
+<p>and figuring out are you optimizing through a space</p>
+<p>and figure out what seems to be the right thing to do.</p>
+<p>And I think it&rsquo;s hard to just do that</p>
+<p>because you need to learn models of the world.</p>
+<p>And I think it&rsquo;s hard to just do the learning part</p>
+<p>where you don&rsquo;t bother with any of that,</p>
+<p>because then you&rsquo;re saying, well, I could do imitation,</p>
+<p>but then when I go off distribution, I&rsquo;m really screwed.</p>
+<p>Or you can say, I can do reinforcement learning,</p>
+<p>which adds a lot of robustness,</p>
+<p>but then you have to do either reinforcement learning</p>
+<p>in the real world, which sounds a little challenging</p>
+<p>or that trial and error, you know,</p>
+<p>or you have to do reinforcement learning in simulation.</p>
+<p>And then that means, well, guess what?</p>
+<p>You need to model things, at least to model people,</p>
+<p>model the world enough that whatever policy you get of that</p>
+<p>is actually fine to roll out in the world</p>
+<p>and do some additional learning there.</p>
+<p>So. Do you think simulation, by the way, just a quick tangent</p>
+<p>has a role in the human robot interaction space?</p>
+<p>Like, is it useful?</p>
+<p>It seems like humans, everything we&rsquo;ve been talking about</p>
+<p>are difficult to model and simulate.</p>
+<p>Do you think simulation has a role in this space?</p>
+<p>I do.</p>
+<p>I think so because you can take models</p>
+<p>and train with them ahead of time, for instance.</p>
+<p>You can.</p>
+<p>But the models, sorry to interrupt,</p>
+<p>the models are sort of human constructed or learned?</p>
+<p>I think they have to be a combination</p>
+<p>because if you get some human data and then you say,</p>
+<p>this is how, this is gonna be my model of the person.</p>
+<p>What are for simulation and training</p>
+<p>or for just deployment time?</p>
+<p>And that&rsquo;s what I&rsquo;m planning with</p>
+<p>as my model of how people work.</p>
+<p>Regardless, if you take some data</p>
+<p>and you don&rsquo;t assume anything else and you just say,</p>
+<p>okay, this is some data that I&rsquo;ve collected.</p>
+<p>Let me fit a policy to how people work based on that.</p>
+<p>What tends to happen is you collected some data</p>
+<p>and some distribution, and then now your robot</p>
+<p>sort of computes a best response to that, right?</p>
+<p>It&rsquo;s sort of like, what should I do</p>
+<p>if this is how people work?</p>
+<p>And easily goes off of distribution</p>
+<p>where that model that you&rsquo;ve built of the human</p>
+<p>completely sucks because out of distribution,</p>
+<p>you have no idea, right?</p>
+<p>If you think of all the possible policies</p>
+<p>and then you take only the ones that are consistent</p>
+<p>with the human data that you&rsquo;ve observed,</p>
+<p>that still leads a lot of, a lot of things could happen</p>
+<p>outside of that distribution where you&rsquo;re confident</p>
+<p>then you know what&rsquo;s going on.</p>
+<p>By the way, that&rsquo;s, I mean, I&rsquo;ve gotten used</p>
+<p>to this terminology of not a distribution,</p>
+<p>but it&rsquo;s such a machine learning terminology</p>
+<p>because it kind of assumes,</p>
+<p>so distribution is referring to the data</p>
+<p>that you&rsquo;ve seen.</p>
+<p>The set of states that you encounter</p>
+<p>at training time. They&rsquo;ve encountered so far</p>
+<p>at training time. Yeah.</p>
+<p>But it kind of also implies that there&rsquo;s a nice</p>
+<p>like statistical model that represents that data.</p>
+<p>So out of distribution feels like, I don&rsquo;t know,</p>
+<p>it raises to me philosophical questions</p>
+<p>of how we humans reason out of distribution,</p>
+<p>reason about things that are completely,</p>
+<p>we haven&rsquo;t seen before.</p>
+<p>And so, and what we&rsquo;re talking about here is</p>
+<p>how do we reason about what other people do</p>
+<p>in situations where we haven&rsquo;t seen them?</p>
+<p>And somehow we just magically navigate that.</p>
+<p>I can anticipate what will happen in situations</p>
+<p>that are even novel in many ways.</p>
+<p>And I have a pretty good intuition for,</p>
+<p>I don&rsquo;t always get it right, but you know,</p>
+<p>and I might be a little uncertain and so on.</p>
+<p>But I think it&rsquo;s this that if you just rely on data,</p>
+<p>you know, there&rsquo;s just too many possibilities,</p>
+<p>there&rsquo;s too many policies out there that fit the data.</p>
+<p>And by the way, it&rsquo;s not just state,</p>
+<p>it&rsquo;s really kind of history of state,</p>
+<p>cause to really be able to anticipate</p>
+<p>what the person will do,</p>
+<p>it kind of depends on what they&rsquo;ve been doing so far,</p>
+<p>cause that&rsquo;s the information you need to kind of,</p>
+<p>at least implicitly sort of say,</p>
+<p>oh, this is the kind of person that this is,</p>
+<p>this is probably what they&rsquo;re trying to do.</p>
+<p>So anyway, it&rsquo;s like you&rsquo;re trying to map history of states</p>
+<p>to actions, there&rsquo;s many mappings.</p>
+<p>And history meaning like the last few seconds</p>
+<p>or the last few minutes or the last few months.</p>
+<p>Who knows, who knows how much you need, right?</p>
+<p>In terms of if your state is really like the positions</p>
+<p>of everything or whatnot and velocities,</p>
+<p>who knows how much you need.</p>
+<p>And then there&rsquo;s so many mappings.</p>
+<p>And so now you&rsquo;re talking about</p>
+<p>how do you regularize that space?</p>
+<p>What priors do you impose or what&rsquo;s the inductive bias?</p>
+<p>So, you know, there&rsquo;s all very related things</p>
+<p>to think about it.</p>
+<p>Basically, what are assumptions that we should be making</p>
+<p>such that these models actually generalize</p>
+<p>outside of the data that we&rsquo;ve seen?</p>
+<p>And now you&rsquo;re talking about, well, I don&rsquo;t know,</p>
+<p>what can you assume?</p>
+<p>Maybe you can assume that people like actually</p>
+<p>have intentions and that&rsquo;s what drives their actions.</p>
+<p>Maybe that&rsquo;s, you know, the right thing to do</p>
+<p>when you haven&rsquo;t seen data very nearby</p>
+<p>that tells you otherwise.</p>
+<p>I don&rsquo;t know, it&rsquo;s a very open question.</p>
+<p>Do you think sort of that one of the dreams</p>
+<p>of artificial intelligence was to solve</p>
+<p>common sense reasoning, whatever the heck that means.</p>
+<p>Do you think something like common sense reasoning</p>
+<p>has to be solved in part to be able to solve this dance</p>
+<p>of human robot interaction, the driving space</p>
+<p>or human robot interaction in general?</p>
+<p>Do you have to be able to reason about these kinds</p>
+<p>of common sense concepts of physics,</p>
+<p>of, you know, all the things we&rsquo;ve been talking about</p>
+<p>humans, I don&rsquo;t even know how to express them with words,</p>
+<p>but the basics of human behavior, a fear of death.</p>
+<p>So like, to me, it&rsquo;s really important to encode</p>
+<p>in some kind of sense, maybe not, maybe it&rsquo;s implicit,</p>
+<p>but it feels that it&rsquo;s important to explicitly encode</p>
+<p>the fear of death, that people don&rsquo;t wanna die.</p>
+<p>Because it seems silly, but like the game of chicken</p>
+<p>that involves with the pedestrian crossing the street</p>
+<p>is playing with the idea of mortality.</p>
+<p>Like we really don&rsquo;t wanna die.</p>
+<p>It&rsquo;s not just like a negative reward.</p>
+<p>I don&rsquo;t know, it just feels like all these human concepts</p>
+<p>have to be encoded.</p>
+<p>Do you share that sense or is this a lot simpler</p>
+<p>than I&rsquo;m making out to be?</p>
+<p>I think it might be simpler.</p>
+<p>And I&rsquo;m the person who likes to complicate things.</p>
+<p>I think it might be simpler than that.</p>
+<p>Because it turns out, for instance,</p>
+<p>if you say model people in the very,</p>
+<p>I&rsquo;ll call it traditional, I don&rsquo;t know if it&rsquo;s fair</p>
+<p>to look at it as a traditional way,</p>
+<p>but you know, calling people as,</p>
+<p>okay, they&rsquo;re rational somehow,</p>
+<p>the utilitarian perspective.</p>
+<p>Well, in that, once you say that,</p>
+<p>you automatically capture that they have an incentive</p>
+<p>to keep on being.</p>
+<p>You know, Stuart likes to say,</p>
+<p>you can&rsquo;t fetch the coffee if you&rsquo;re dead.</p>
+<p>Stuart Russell, by the way.</p>
+<p>That&rsquo;s a good line.</p>
+<p>So when you&rsquo;re sort of treating agents</p>
+<p>as having these objectives, these incentives,</p>
+<p>humans or artificial, you&rsquo;re kind of implicitly modeling</p>
+<p>that they&rsquo;d like to stick around</p>
+<p>so that they can accomplish those goals.</p>
+<p>So I think in a sense,</p>
+<p>maybe that&rsquo;s what draws me so much</p>
+<p>to the rationality framework,</p>
+<p>even though it&rsquo;s so broken,</p>
+<p>we&rsquo;ve been able to, it&rsquo;s been such a useful perspective.</p>
+<p>And like we were talking about earlier,</p>
+<p>what&rsquo;s the alternative?</p>
+<p>I give up and go home or, you know,</p>
+<p>I just use complete black boxes,</p>
+<p>but then I don&rsquo;t know what to assume out of distribution</p>
+<p>that come back to this.</p>
+<p>It&rsquo;s just, it&rsquo;s been a very fruitful way</p>
+<p>to think about the problem</p>
+<p>in a very more positive way, right?</p>
+<p>People aren&rsquo;t just crazy.</p>
+<p>Maybe they make more sense than we think.</p>
+<p>But I think we also have to somehow be ready for it</p>
+<p>to be wrong, be able to detect</p>
+<p>when these assumptions aren&rsquo;t holding,</p>
+<p>be all of that stuff.</p>
+<p>Let me ask sort of another small side of this</p>
+<p>that we&rsquo;ve been talking about</p>
+<p>the pure autonomous driving problem,</p>
+<p>but there&rsquo;s also relatively successful systems</p>
+<p>already deployed out there in what you may call</p>
+<p>like level two autonomy or semi autonomous vehicles,</p>
+<p>whether that&rsquo;s Tesla Autopilot,</p>
+<p>work quite a bit with Cadillac SuperGuru system,</p>
+<p>which has a driver facing camera that detects your state.</p>
+<p>There&rsquo;s a bunch of basically lane centering systems.</p>
+<p>What&rsquo;s your sense about this kind of way of dealing</p>
+<p>with the human robot interaction problem</p>
+<p>by having a really dumb robot</p>
+<p>and relying on the human to help the robot out</p>
+<p>to keep them both alive?</p>
+<p>Is that from the research perspective,</p>
+<p>how difficult is that problem?</p>
+<p>And from a practical deployment perspective,</p>
+<p>is that a fruitful way to approach</p>
+<p>this human robot interaction problem?</p>
+<p>I think what we have to be careful about there</p>
+<p>is to not, it seems like some of these systems,</p>
+<p>not all are making this underlying assumption</p>
+<p>that if, so I&rsquo;m a driver and I&rsquo;m now really not driving,</p>
+<p>but supervising and my job is to intervene, right?</p>
+<p>And so we have to be careful with this assumption</p>
+<p>that when I&rsquo;m, if I&rsquo;m supervising,</p>
+<p>I will be just as safe as when I&rsquo;m driving.</p>
+<p>That I will, if I wouldn&rsquo;t get into some kind of accident,</p>
+<p>if I&rsquo;m driving, I will be able to avoid that accident</p>
+<p>when I&rsquo;m supervising too.</p>
+<p>And I think I&rsquo;m concerned about this assumption</p>
+<p>from a few perspectives.</p>
+<p>So from a technical perspective,</p>
+<p>it&rsquo;s that when you let something kind of take control</p>
+<p>and do its thing, and it depends on what that thing is,</p>
+<p>obviously, and how much it&rsquo;s taking control</p>
+<p>and how, what things are you trusting it to do.</p>
+<p>But if you let it do its thing and take control,</p>
+<p>it will go to what we might call off policy</p>
+<p>from the person&rsquo;s perspective state.</p>
+<p>So states that the person wouldn&rsquo;t actually</p>
+<p>find themselves in if they were the ones driving.</p>
+<p>And the assumption that the person functions</p>
+<p>just as well there as they function in the states</p>
+<p>that they would normally encounter</p>
+<p>is a little questionable.</p>
+<p>Now, another part is the kind of the human factor side</p>
+<p>of this, which is that I don&rsquo;t know about you,</p>
+<p>but I think I definitely feel like I&rsquo;m experiencing things</p>
+<p>very differently when I&rsquo;m actively engaged in the task</p>
+<p>versus when I&rsquo;m a passive observer.</p>
+<p>Like even if I try to stay engaged, right?</p>
+<p>It&rsquo;s very different than when I&rsquo;m actually</p>
+<p>actively making decisions.</p>
+<p>And you see this in life in general.</p>
+<p>Like you see students who are actively trying</p>
+<p>to come up with the answer, learn this thing better</p>
+<p>than when they&rsquo;re passively told the answer.</p>
+<p>I think that&rsquo;s somewhat related.</p>
+<p>And I think people have studied this in human factors</p>
+<p>for airplanes.</p>
+<p>And I think it&rsquo;s actually fairly established</p>
+<p>that these two are not the same.</p>
+<p>So.</p>
+<p>On that point, because I&rsquo;ve gotten a huge amount</p>
+<p>of heat on this and I stand by it.</p>
+<p>Okay.</p>
+<p>Because I know the human factors community well</p>
+<p>and the work here is really strong.</p>
+<p>And there&rsquo;s many decades of work showing exactly</p>
+<p>what you&rsquo;re saying.</p>
+<p>Nevertheless, I&rsquo;ve been continuously surprised</p>
+<p>that much of the predictions of that work has been wrong</p>
+<p>in what I&rsquo;ve seen.</p>
+<p>So what we have to do,</p>
+<p>I still agree with everything you said,</p>
+<p>but we have to be a little bit more open minded.</p>
+<p>So the, I&rsquo;ll tell you, there&rsquo;s a few surprising things</p>
+<p>that supervise, like everything you said to the word</p>
+<p>is actually exactly correct.</p>
+<p>But it doesn&rsquo;t say, what you didn&rsquo;t say</p>
+<p>is that these systems are,</p>
+<p>you said you can&rsquo;t assume a bunch of things,</p>
+<p>but we don&rsquo;t know if these systems are fundamentally unsafe.</p>
+<p>That&rsquo;s still unknown.</p>
+<p>There&rsquo;s a lot of interesting things,</p>
+<p>like I&rsquo;m surprised by the fact, not the fact,</p>
+<p>that what seems to be anecdotally from,</p>
+<p>well, from large data collection that we&rsquo;ve done,</p>
+<p>but also from just talking to a lot of people,</p>
+<p>when in the supervisory role of semi autonomous systems</p>
+<p>that are sufficiently dumb, at least,</p>
+<p>which is, that might be the key element,</p>
+<p>is the systems have to be dumb.</p>
+<p>The people are actually more energized as observers.</p>
+<p>So they&rsquo;re actually better,</p>
+<p>they&rsquo;re better at observing the situation.</p>
+<p>So there might be cases in systems,</p>
+<p>if you get the interaction right,</p>
+<p>where you, as a supervisor,</p>
+<p>will do a better job with the system together.</p>
+<p>I agree, I think that is actually really possible.</p>
+<p>I guess mainly I&rsquo;m pointing out that if you do it naively,</p>
+<p>you&rsquo;re implicitly assuming something,</p>
+<p>that assumption might actually really be wrong.</p>
+<p>But I do think that if you explicitly think about</p>
+<p>what the agent should do</p>
+<p>so that the person still stays engaged.</p>
+<p>What the, so that you essentially empower the person</p>
+<p>to do more than they could,</p>
+<p>that&rsquo;s really the goal, right?</p>
+<p>Is you still have a driver,</p>
+<p>so you wanna empower them to be so much better</p>
+<p>than they would be by themselves.</p>
+<p>And that&rsquo;s different, it&rsquo;s a very different mindset</p>
+<p>than I want them to basically not drive, right?</p>
+<p>And, but be ready to sort of take over.</p>
+<p>So one of the interesting things we&rsquo;ve been talking about</p>
+<p>is the rewards, that they seem to be fundamental too,</p>
+<p>the way robots behaves.</p>
+<p>So broadly speaking,</p>
+<p>we&rsquo;ve been talking about utility functions and so on,</p>
+<p>but could you comment on how do we approach</p>
+<p>the design of reward functions?</p>
+<p>Like, how do we come up with good reward functions?</p>
+<p>Well, really good question,</p>
+<p>because the answer is we don&rsquo;t.</p>
+<p>This was, you know, I used to think,</p>
+<p>I used to think about how,</p>
+<p>well, it&rsquo;s actually really hard to specify rewards</p>
+<p>for interaction because it&rsquo;s really supposed to be</p>
+<p>what the people want, and then you really, you know,</p>
+<p>we talked about how you have to customize</p>
+<p>what you wanna do to the end user.</p>
+<p>But I kind of realized that even if you take</p>
+<p>the interactive component away,</p>
+<p>it&rsquo;s still really hard to design reward functions.</p>
+<p>So what do I mean by that?</p>
+<p>I mean, if we assume this sort of AI paradigm</p>
+<p>in which there&rsquo;s an agent and his job is to optimize</p>
+<p>some objectives, some reward, utility, loss, whatever, cost,</p>
+<p>if you write it out, maybe it&rsquo;s a set,</p>
+<p>depending on the situation or whatever it is,</p>
+<p>if you write that out and then you deploy the agent,</p>
+<p>you&rsquo;d wanna make sure that whatever you specified</p>
+<p>incentivizes the behavior you want from the agent</p>
+<p>in any situation that the agent will be faced with, right?</p>
+<p>So I do motion planning on my robot arm,</p>
+<p>I specify some cost function like, you know,</p>
+<p>this is how far away you should try to stay,</p>
+<p>so much it matters to stay away from people,</p>
+<p>and this is how much it matters to be able to be efficient</p>
+<p>and blah, blah, blah, right?</p>
+<p>I need to make sure that whatever I specified,</p>
+<p>those constraints or trade offs or whatever they are,</p>
+<p>that when the robot goes and solves that problem</p>
+<p>in every new situation,</p>
+<p>that behavior is the behavior that I wanna see.</p>
+<p>And what I&rsquo;ve been finding is</p>
+<p>that we have no idea how to do that.</p>
+<p>Basically, what I can do is I can sample,</p>
+<p>I can think of some situations</p>
+<p>that I think are representative of what the robot will face,</p>
+<p>and I can tune and add and tune some reward function</p>
+<p>until the optimal behavior is what I want</p>
+<p>on those situations,</p>
+<p>which first of all is super frustrating</p>
+<p>because, you know, through the miracle of AI,</p>
+<p>we&rsquo;ve taken, we don&rsquo;t have to specify rules</p>
+<p>for behavior anymore, right?</p>
+<p>The, who were saying before,</p>
+<p>the robot comes up with the right thing to do,</p>
+<p>you plug in this situation,</p>
+<p>it optimizes right in that situation, it optimizes,</p>
+<p>but you have to spend still a lot of time</p>
+<p>on actually defining what it is</p>
+<p>that that criteria should be,</p>
+<p>making sure you didn&rsquo;t forget</p>
+<p>about 50 bazillion things that are important</p>
+<p>and how they all should be combining together</p>
+<p>to tell the robot what&rsquo;s good and what&rsquo;s bad</p>
+<p>and how good and how bad.</p>
+<p>And so I think this is a lesson that I don&rsquo;t know,</p>
+<p>kind of, I guess I close my eyes to it for a while</p>
+<p>cause I&rsquo;ve been, you know,</p>
+<p>tuning cost functions for 10 years now,</p>
+<p>but it&rsquo;s really strikes me that,</p>
+<p>yeah, we&rsquo;ve moved the tuning</p>
+<p>and the like designing of features or whatever</p>
+<p>from the behavior side into the reward side.</p>
+<p>And yes, I agree that there&rsquo;s way less of it,</p>
+<p>but it still seems really hard</p>
+<p>to anticipate any possible situation</p>
+<p>and make sure you specify a reward function</p>
+<p>that when optimized will work well</p>
+<p>in every possible situation.</p>
+<p>So you&rsquo;re kind of referring to unintended consequences</p>
+<p>or just in general, any kind of suboptimal behavior</p>
+<p>that emerges outside of the things you said,</p>
+<p>out of distribution.</p>
+<p>Suboptimal behavior that is, you know, actually optimal.</p>
+<p>I mean, this, I guess the idea of unintended consequences,</p>
+<p>you know, it&rsquo;s optimal respect to what you specified,</p>
+<p>but it&rsquo;s not what you want.</p>
+<p>And there&rsquo;s a difference between those.</p>
+<p>But that&rsquo;s not fundamentally a robotics problem, right?</p>
+<p>That&rsquo;s a human problem.</p>
+<p>So like. That&rsquo;s the thing, right?</p>
+<p>So there&rsquo;s this thing called Goodhart&rsquo;s law,</p>
+<p>which is you set a metric for an organization</p>
+<p>and the moment it becomes a target</p>
+<p>that people actually optimize for,</p>
+<p>it&rsquo;s no longer a good metric.</p>
+<p>What&rsquo;s it called?</p>
+<p>Goodhart&rsquo;s law.</p>
+<p>So the moment you specify a metric,</p>
+<p>it stops doing its job.</p>
+<p>Yeah, it stops doing its job.</p>
+<p>So there&rsquo;s, yeah, there&rsquo;s such a thing</p>
+<p>as optimizing for things and, you know,</p>
+<p>failing to think ahead of time</p>
+<p>of all the possible things that might be important.</p>
+<p>And so that&rsquo;s, so that&rsquo;s interesting</p>
+<p>because Historia works a lot on reward learning</p>
+<p>from the perspective of customizing to the end user,</p>
+<p>but it really seems like it&rsquo;s not just the interaction</p>
+<p>with the end user that&rsquo;s a problem of the human</p>
+<p>and the robot collaborating</p>
+<p>so that the robot can do what the human wants, right?</p>
+<p>This kind of back and forth, the robot probing,</p>
+<p>the person being informative, all of that stuff</p>
+<p>might be actually just as applicable</p>
+<p>to this kind of maybe new form of human robot interaction,</p>
+<p>which is the interaction between the robot</p>
+<p>and the expert programmer, roboticist designer</p>
+<p>in charge of actually specifying</p>
+<p>what the heck the robot should do,</p>
+<p>specifying the task for the robot.</p>
+<p>That&rsquo;s fascinating.</p>
+<p>That&rsquo;s so cool, like collaborating on the reward design.</p>
+<p>Right, collaborating on the reward design.</p>
+<p>And so what does it mean, right?</p>
+<p>What does it, when we think about the problem,</p>
+<p>not as someone specifies all of your job is to optimize,</p>
+<p>and we start thinking about you&rsquo;re in this interaction</p>
+<p>and this collaboration.</p>
+<p>And the first thing that comes up is</p>
+<p>when the person specifies a reward, it&rsquo;s not, you know,</p>
+<p>gospel, it&rsquo;s not like the letter of the law.</p>
+<p>It&rsquo;s not the definition of the reward function</p>
+<p>you should be optimizing,</p>
+<p>because they&rsquo;re doing their best,</p>
+<p>but they&rsquo;re not some magic perfect oracle.</p>
+<p>And the sooner we start understanding that,</p>
+<p>I think the sooner we&rsquo;ll get to more robust robots</p>
+<p>that function better in different situations.</p>
+<p>And then you have kind of say, okay, well,</p>
+<p>it&rsquo;s almost like robots are over learning,</p>
+<p>over putting too much weight on the reward specified</p>
+<p>by definition, and maybe leaving a lot of other information</p>
+<p>on the table, like what are other things we could do</p>
+<p>to actually communicate to the robot</p>
+<p>about what we want them to do besides attempting</p>
+<p>to specify a reward function.</p>
+<p>Yeah, you have this awesome,</p>
+<p>and again, I love the poetry of it, of leaked information.</p>
+<p>So you mentioned humans leak information</p>
+<p>about what they want, you know,</p>
+<p>leak reward signal for the robot.</p>
+<p>So how do we detect these leaks?</p>
+<p>What is that?</p>
+<p>Yeah, what are these leaks?</p>
+<p>Whether it just, I don&rsquo;t know,</p>
+<p>those were just recently saw it, read it,</p>
+<p>I don&rsquo;t know where from you,</p>
+<p>and it&rsquo;s gonna stick with me for a while for some reason,</p>
+<p>because it&rsquo;s not explicitly expressed.</p>
+<p>It kind of leaks indirectly from our behavior.</p>
+<p>From what we do, yeah, absolutely.</p>
+<p>So I think maybe some surprising bits, right?</p>
+<p>So we were talking before about, I&rsquo;m a robot arm,</p>
+<p>it needs to move around people, carry stuff,</p>
+<p>put stuff away, all of that.</p>
+<p>And now imagine that, you know,</p>
+<p>the robot has some initial objective</p>
+<p>that the programmer gave it</p>
+<p>so they can do all these things functionally.</p>
+<p>It&rsquo;s capable of doing that.</p>
+<p>And now I noticed that it&rsquo;s doing something</p>
+<p>and maybe it&rsquo;s coming too close to me, right?</p>
+<p>And maybe I&rsquo;m the designer,</p>
+<p>maybe I&rsquo;m the end user and this robot is now in my home.</p>
+<p>And I push it away.</p>
+<p>So I push away because, you know,</p>
+<p>it&rsquo;s a reaction to what the robot is currently doing.</p>
+<p>And this is what we call physical human robot interaction.</p>
+<p>And now there&rsquo;s a lot of interesting work</p>
+<p>on how the heck do you respond to physical human</p>
+<p>robot interaction?</p>
+<p>What should the robot do if such an event occurs?</p>
+<p>And there&rsquo;s sort of different schools of thought.</p>
+<p>Well, you know, you can sort of treat it</p>
+<p>the control theoretic way and say,</p>
+<p>this is a disturbance that you must reject.</p>
+<p>You can sort of treat it more kind of heuristically</p>
+<p>and say, I&rsquo;m gonna go into some like gravity compensation</p>
+<p>mode so that I&rsquo;m easily maneuverable around.</p>
+<p>I&rsquo;m gonna go in the direction that the person pushed me.</p>
+<p>And to us, part of realization has been</p>
+<p>that that is signal that communicates about the reward.</p>
+<p>Because if my robot was moving in an optimal way</p>
+<p>and I intervened, that means that I disagree</p>
+<p>with his notion of optimality, right?</p>
+<p>Whatever it thinks is optimal is not actually optimal.</p>
+<p>And sort of optimization problems aside,</p>
+<p>that means that the cost function,</p>
+<p>the reward function is incorrect,</p>
+<p>or at least is not what I want it to be.</p>
+<p>How difficult is that signal to interpret</p>
+<p>and make actionable?</p>
+<p>So like, cause this connects</p>
+<p>to our autonomous vehicle discussion</p>
+<p>where they&rsquo;re in the semi autonomous vehicle</p>
+<p>or autonomous vehicle when a safety driver</p>
+<p>disengages the car, like,</p>
+<p>but they could have disengaged it for a million reasons.</p>
+<p>Yeah, so that&rsquo;s true.</p>
+<p>Again, it comes back to, can you structure a little bit</p>
+<p>your assumptions about how human behavior</p>
+<p>relates to what they want?</p>
+<p>And you can, one thing that we&rsquo;ve done is</p>
+<p>literally just treated this external torque</p>
+<p>that they applied as, when you take that</p>
+<p>and you add it with what the torque</p>
+<p>the robot was already applying,</p>
+<p>that overall action is probably relatively optimal</p>
+<p>in respect to whatever it is that the person wants.</p>
+<p>And then that gives you information</p>
+<p>about what it is that they want.</p>
+<p>So you can learn that people want you</p>
+<p>to stay further away from them.</p>
+<p>Now you&rsquo;re right that there might be many things</p>
+<p>that explain just that one signal</p>
+<p>and that you might need much more data than that</p>
+<p>for the person to be able to shape</p>
+<p>your reward function over time.</p>
+<p>You can also do this info gathering stuff</p>
+<p>that we were talking about.</p>
+<p>Not that we&rsquo;ve done that in that context,</p>
+<p>just to clarify, but it&rsquo;s definitely something</p>
+<p>we thought about where you can have the robot</p>
+<p>start acting in a way, like if there&rsquo;s</p>
+<p>a bunch of different explanations, right?</p>
+<p>It moves in a way where it sees if you correct it</p>
+<p>in some other way or not,</p>
+<p>and then kind of actually plans its motion</p>
+<p>so that it can disambiguate</p>
+<p>and collect information about what you want.</p>
+<p>Anyway, so that&rsquo;s one way,</p>
+<p>that&rsquo;s kind of sort of leaked information,</p>
+<p>maybe even more subtle leaked information</p>
+<p>is if I just press the E stop, right?</p>
+<p>I just, I&rsquo;m doing it out of panic</p>
+<p>because the robot is about to do something bad.</p>
+<p>There&rsquo;s again, information there, right?</p>
+<p>Okay, the robot should definitely stop,</p>
+<p>but it should also figure out</p>
+<p>that whatever it was about to do was not good.</p>
+<p>And in fact, it was so not good</p>
+<p>that stopping and remaining stopped for a while</p>
+<p>was a better trajectory for it</p>
+<p>than whatever it is that it was about to do.</p>
+<p>And that again is information about</p>
+<p>what are my preferences, what do I want?</p>
+<p>Speaking of E stops, what are your expert opinions</p>
+<p>on the three laws of robotics from Isaac Asimov</p>
+<p>that don&rsquo;t harm humans, obey orders, protect yourself?</p>
+<p>I mean, it&rsquo;s such a silly notion,</p>
+<p>but I speak to so many people these days,</p>
+<p>just regular folks, just, I don&rsquo;t know,</p>
+<p>my parents and so on about robotics.</p>
+<p>And they kind of operate in that space of,</p>
+<p>you know, imagining our future with robots</p>
+<p>and thinking what are the ethical,</p>
+<p>how do we get that dance right?</p>
+<p>I know the three laws might be a silly notion,</p>
+<p>but do you think about like</p>
+<p>what universal reward functions that might be</p>
+<p>that we should enforce on the robots of the future?</p>
+<p>Or is that a little too far out and it doesn&rsquo;t,</p>
+<p>or is the mechanism that you just described,</p>
+<p>it shouldn&rsquo;t be three laws,</p>
+<p>it should be constantly adjusting kind of thing.</p>
+<p>I think it should constantly be adjusting kind of thing.</p>
+<p>You know, the issue with the laws is,</p>
+<p>I don&rsquo;t even, you know, they&rsquo;re words</p>
+<p>and I have to write math</p>
+<p>and have to translate them into math.</p>
+<p>What does it mean to?</p>
+<p>What does harm mean?</p>
+<p>What is, it&rsquo;s not math.</p>
+<p>Obey what, right?</p>
+<p>Cause we just talked about how</p>
+<p>you try to say what you want,</p>
+<p>but you don&rsquo;t always get it right.</p>
+<p>And you want these machines to do what you want,</p>
+<p>not necessarily exactly what you literally,</p>
+<p>so you don&rsquo;t want them to take you literally.</p>
+<p>You wanna take what you say and interpret it in context.</p>
+<p>And that&rsquo;s what we do with the specified rewards.</p>
+<p>We don&rsquo;t take them literally anymore from the designer.</p>
+<p>We, not we as a community, we as, you know,</p>
+<p>some members of my group, we,</p>
+<p>and some of our collaborators like Peter Beal</p>
+<p>and Stuart Russell, we sort of say,</p>
+<p>okay, the designer specified this thing,</p>
+<p>but I&rsquo;m gonna interpret it not as,</p>
+<p>this is the universal reward function</p>
+<p>that I shall always optimize always and forever,</p>
+<p>but as this is good evidence about what the person wants.</p>
+<p>And I should interpret that evidence</p>
+<p>in the context of these situations that it was specified for.</p>
+<p>Cause ultimately that&rsquo;s what the designer thought about.</p>
+<p>That&rsquo;s what they had in mind.</p>
+<p>And really them specifying reward function</p>
+<p>that works for me in all these situations</p>
+<p>is really kind of telling me that whatever behavior</p>
+<p>that incentivizes must be good behavior</p>
+<p>with respect to the thing</p>
+<p>that I should actually be optimizing for.</p>
+<p>And so now the robot kind of has uncertainty</p>
+<p>about what it is that it should be,</p>
+<p>what its reward function is.</p>
+<p>And then there&rsquo;s all these additional signals</p>
+<p>that we&rsquo;ve been finding that it can kind of continually</p>
+<p>learn from and adapt its understanding of what people want.</p>
+<p>Every time the person corrects it, maybe they demonstrate,</p>
+<p>maybe they stop, hopefully not, right?</p>
+<p>One really, really crazy one is the environment itself.</p>
+<p>Like our world, you don&rsquo;t, it&rsquo;s not, you know,</p>
+<p>you observe our world and the state of it.</p>
+<p>And it&rsquo;s not that you&rsquo;re seeing behavior</p>
+<p>and you&rsquo;re saying, oh, people are making decisions</p>
+<p>that are rational, blah, blah, blah.</p>
+<p>It&rsquo;s, but our world is something that we&rsquo;ve been acting with</p>
+<p>according to our preferences.</p>
+<p>So I have this example where like,</p>
+<p>the robot walks into my home and my shoes are laid down</p>
+<p>on the floor kind of in a line, right?</p>
+<p>It took effort to do that.</p>
+<p>So even though the robot doesn&rsquo;t see me doing this,</p>
+<p>you know, actually aligning the shoes,</p>
+<p>it should still be able to figure out</p>
+<p>that I want the shoes aligned</p>
+<p>because there&rsquo;s no way for them to have magically,</p>
+<p>you know, be instantiated themselves in that way.</p>
+<p>Someone must have actually taken the time to do that.</p>
+<p>So it must be important.</p>
+<p>So the environment actually tells, the environment is.</p>
+<p>Leaks information.</p>
+<p>It leaks information.</p>
+<p>I mean, the environment is the way it is</p>
+<p>because humans somehow manipulated it.</p>
+<p>So you have to kind of reverse engineer the narrative</p>
+<p>that happened to create the environment as it is</p>
+<p>and that leaks the preference information.</p>
+<p>Yeah, and you have to be careful, right?</p>
+<p>Because people don&rsquo;t have the bandwidth to do everything.</p>
+<p>So just because, you know, my house is messy</p>
+<p>doesn&rsquo;t mean that I want it to be messy, right?</p>
+<p>But that just, you know, I didn&rsquo;t put the effort into that.</p>
+<p>I put the effort into something else.</p>
+<p>So the robot should figure out,</p>
+<p>well, that something else was more important,</p>
+<p>but it doesn&rsquo;t mean that, you know,</p>
+<p>the house being messy is not.</p>
+<p>So it&rsquo;s a little subtle, but yeah, we really think of it.</p>
+<p>The state itself is kind of like a choice</p>
+<p>that people implicitly made about how they want their world.</p>
+<p>What book or books, technical or fiction or philosophical,</p>
+<p>when you like look back, you know, life had a big impact,</p>
+<p>maybe it was a turning point, it was inspiring in some way.</p>
+<p>Maybe we&rsquo;re talking about some silly book</p>
+<p>that nobody in their right mind would want to read.</p>
+<p>Or maybe it&rsquo;s a book that you would recommend</p>
+<p>to others to read.</p>
+<p>Or maybe those could be two different recommendations</p>
+<p>of books that could be useful for people on their journey.</p>
+<p>When I was in, it&rsquo;s kind of a personal story.</p>
+<p>When I was in 12th grade,</p>
+<p>I got my hands on a PDF copy in Romania</p>
+<p>of Russell Norvig, AI modern approach.</p>
+<p>I didn&rsquo;t know anything about AI at that point.</p>
+<p>I was, you know, I had watched the movie,</p>
+<p>The Matrix was my exposure.</p>
+<p>And so I started going through this thing</p>
+<p>and, you know, you were asking in the beginning,</p>
+<p>what are, you know, it&rsquo;s math and it&rsquo;s algorithms,</p>
+<p>what&rsquo;s interesting.</p>
+<p>It was so captivating.</p>
+<p>This notion that you could just have a goal</p>
+<p>and figure out your way through</p>
+<p>kind of a messy, complicated situation.</p>
+<p>So what sequence of decisions you should make</p>
+<p>to autonomously to achieve that goal.</p>
+<p>That was so cool.</p>
+<p>I&rsquo;m, you know, I&rsquo;m biased, but that&rsquo;s a cool book to look at.</p>
+<p>You can convert, you know, the goal of intelligence,</p>
+<p>the process of intelligence and mechanize it.</p>
+<p>I had the same experience.</p>
+<p>I was really interested in psychiatry</p>
+<p>and trying to understand human behavior.</p>
+<p>And then AI modern approach is like, wait,</p>
+<p>you can just reduce it all to.</p>
+<p>You can write math about human behavior, right?</p>
+<p>Yeah.</p>
+<p>So that&rsquo;s, and I think that stuck with me</p>
+<p>because, you know, a lot of what I do, a lot of what we do</p>
+<p>in my lab is write math about human behavior,</p>
+<p>combine it with data and learning, put it all together,</p>
+<p>give it to robots to plan with, and, you know,</p>
+<p>hope that instead of writing rules for the robots,</p>
+<p>writing heuristics, designing behavior,</p>
+<p>they can actually autonomously come up with the right thing</p>
+<p>to do around people.</p>
+<p>That&rsquo;s kind of our, you know, that&rsquo;s our signature move.</p>
+<p>We wrote some math and then instead of kind of hand crafting</p>
+<p>this and that and that and the robot figuring stuff out</p>
+<p>and isn&rsquo;t that cool.</p>
+<p>And I think that is the same enthusiasm that I got from</p>
+<p>the robot figured out how to reach that goal in that graph.</p>
+<p>Isn&rsquo;t that cool?</p>
+<p>So apologize for the romanticized questions,</p>
+<p>but, and the silly ones,</p>
+<p>if a doctor gave you five years to live,</p>
+<p>sort of emphasizing the finiteness of our existence,</p>
+<p>what would you try to accomplish?</p>
+<p>It&rsquo;s like my biggest nightmare, by the way.</p>
+<p>I really like living.</p>
+<p>So I&rsquo;m actually, I really don&rsquo;t like the idea of being told</p>
+<p>that I&rsquo;m going to die.</p>
+<p>Sorry to linger on that for a second.</p>
+<p>Do you, I mean, do you meditate or ponder on your mortality</p>
+<p>or human, the fact that this thing ends,</p>
+<p>it seems to be a fundamental feature.</p>
+<p>Do you think of it as a feature or a bug too?</p>
+<p>Is it, you said you don&rsquo;t like the idea of dying,</p>
+<p>but if I were to give you a choice of living forever,</p>
+<p>like you&rsquo;re not allowed to die.</p>
+<p>Now I&rsquo;ll say that I want to live forever,</p>
+<p>but I watched this show.</p>
+<p>It&rsquo;s very silly.</p>
+<p>It&rsquo;s called The Good Place and they reflect a lot on this.</p>
+<p>And you know, the,</p>
+<p>the moral of the story is that you have to make the afterlife</p>
+<p>be a finite too.</p>
+<p>Cause otherwise people just kind of, it&rsquo;s like Wally.</p>
+<p>It&rsquo;s like, ah, whatever.</p>
+<p>So, so I think the finiteness helps, but,</p>
+<p>but yeah, it&rsquo;s just, you know, I don&rsquo;t, I don&rsquo;t,</p>
+<p>I&rsquo;m not a religious person.</p>
+<p>I don&rsquo;t think that there&rsquo;s something after.</p>
+<p>And so I think it just ends and you stop existing.</p>
+<p>And I really like existing.</p>
+<p>It&rsquo;s just, it&rsquo;s such a great privilege to exist that,</p>
+<p>that yeah, it&rsquo;s just, I think that&rsquo;s the scary part.</p>
+<p>I still think that we like existing so much because it ends.</p>
+<p>And that&rsquo;s so sad.</p>
+<p>Like it&rsquo;s so sad to me every time.</p>
+<p>Like I find almost everything about this life beautiful.</p>
+<p>Like the silliest, most mundane things are just beautiful.</p>
+<p>And I think I&rsquo;m cognizant of the fact that I find it beautiful</p>
+<p>because it ends like it.</p>
+<p>And it&rsquo;s so, I don&rsquo;t know.</p>
+<p>I don&rsquo;t know how to feel about that.</p>
+<p>I also feel like there&rsquo;s a lesson in there for robotics</p>
+<p>and AI that is not like the finiteness of things seems</p>
+<p>to be a fundamental nature of human existence.</p>
+<p>I think some people sort of accuse me of just being Russian</p>
+<p>and melancholic and romantic or something,</p>
+<p>but that seems to be a fundamental nature of our existence</p>
+<p>that should be incorporated in our reward functions.</p>
+<p>But anyway, if you were speaking of reward functions,</p>
+<p>if you only had five years, what would you try to accomplish?</p>
+<p>This is the thing.</p>
+<p>I&rsquo;m thinking about this question and have a pretty joyous moment</p>
+<p>because I don&rsquo;t know that I would change much.</p>
+<p>I&rsquo;m trying to make some contributions to how we understand</p>
+<p>human AI interaction.</p>
+<p>I don&rsquo;t think I would change that.</p>
+<p>Maybe I&rsquo;ll take more trips to the Caribbean or something,</p>
+<p>but I tried some of that already from time to time.</p>
+<p>So, yeah, I try to do the things that bring me joy</p>
+<p>and thinking about these things bring me joy is the Marie Kondo thing.</p>
+<p>Don&rsquo;t do stuff that doesn&rsquo;t spark joy.</p>
+<p>For the most part, I do things that spark joy.</p>
+<p>Maybe I&rsquo;ll do less service in the department or something.</p>
+<p>I&rsquo;m not dealing with admissions anymore.</p>
+<p>But no, I think I have amazing colleagues and amazing students</p>
+<p>and amazing family and friends and spending time in some balance</p>
+<p>with all of them is what I do and that&rsquo;s what I&rsquo;m doing already.</p>
+<p>So, I don&rsquo;t know that I would really change anything.</p>
+<p>So, on the spirit of positiveness, what small act of kindness,</p>
+<p>if one pops to mind, were you once shown that you will never forget?</p>
+<p>When I was in high school, my friends, my classmates did some tutoring.</p>
+<p>We were gearing up for our baccalaureate exam</p>
+<p>and they did some tutoring on, well, some on math, some on whatever.</p>
+<p>I was comfortable enough with some of those subjects,</p>
+<p>but physics was something that I hadn&rsquo;t focused on in a while.</p>
+<p>And so, they were all working with this one teacher</p>
+<p>and I started working with that teacher.</p>
+<p>Her name is Nicole Beccano.</p>
+<p>And she was the one who kind of opened up this whole world for me</p>
+<p>because she sort of told me that I should take the SATs</p>
+<p>and apply to go to college abroad and do better on my English and all of that.</p>
+<p>And when it came to, well, financially I couldn&rsquo;t,</p>
+<p>my parents couldn&rsquo;t really afford to do all these things,</p>
+<p>she started tutoring me on physics for free</p>
+<p>and on top of that sitting down with me to kind of train me for SATs</p>
+<p>and all that jazz that she had experience with.</p>
+<p>Wow. And obviously that has taken you to be here today,</p>
+<p>sort of one of the world experts in robotics.</p>
+<p>It&rsquo;s funny those little&hellip; For no reason really.</p>
+<p>Just out of karma.</p>
+<p>Wanting to support someone, yeah.</p>
+<p>Yeah. So, we talked a ton about reward functions.</p>
+<p>Let me talk about the most ridiculous big question.</p>
+<p>What is the meaning of life?</p>
+<p>What&rsquo;s the reward function under which we humans operate?</p>
+<p>Like what, maybe to your life, maybe broader to human life in general,</p>
+<p>what do you think&hellip;</p>
+<p>What gives life fulfillment, purpose, happiness, meaning?</p>
+<p>You can&rsquo;t even ask that question with a straight face.</p>
+<p>That&rsquo;s how ridiculous this is.</p>
+<p>I can&rsquo;t, I can&rsquo;t.</p>
+<p>Okay. So, you know&hellip;</p>
+<p>You&rsquo;re going to try to answer it anyway, aren&rsquo;t you?</p>
+<p>So, I was in a planetarium once.</p>
+<p>Yes.</p>
+<p>And, you know, they show you the thing and then they zoom out and zoom out</p>
+<p>and this whole, like, you&rsquo;re a speck of dust kind of thing.</p>
+<p>I think I was conceptualizing that we&rsquo;re kind of, you know, what are humans?</p>
+<p>We&rsquo;re just on this little planet, whatever.</p>
+<p>We don&rsquo;t matter much in the grand scheme of things.</p>
+<p>And then my mind got really blown because they talked about this multiverse theory</p>
+<p>where they kind of zoomed out and were like, this is our universe.</p>
+<p>And then, like, there&rsquo;s a bazillion other ones and they just pop in and out of existence.</p>
+<p>So, like, our whole thing that we can&rsquo;t even fathom how big it is was like a blimp that went in and out.</p>
+<p>And at that point, I was like, okay, like, I&rsquo;m done.</p>
+<p>This is not, there is no meaning.</p>
+<p>And clearly what we should be doing is try to impact whatever local thing we can impact,</p>
+<p>our communities, leave a little bit behind there, our friends, our family, our local communities,</p>
+<p>and just try to be there for other humans because I just, everything beyond that seems ridiculous.</p>
+<p>I mean, are you, like, how do you make sense of these multiverses?</p>
+<p>Like, are you inspired by the immensity of it?</p>
+<p>Do you, I mean, is there, like, is it amazing to you or is it almost paralyzing in the mystery of it?</p>
+<p>It&rsquo;s frustrating.</p>
+<p>I&rsquo;m frustrated by my inability to comprehend.</p>
+<p>It just feels very frustrating.</p>
+<p>It&rsquo;s like there&rsquo;s some stuff that, you know, we should time, blah, blah, blah, that we should really be understanding.</p>
+<p>And I definitely don&rsquo;t understand it.</p>
+<p>But, you know, the amazing physicists of the world have a much better understanding than me.</p>
+<p>But it still seems epsilon in the grand scheme of things.</p>
+<p>So, it&rsquo;s very frustrating.</p>
+<p>It just, it sort of feels like our brain don&rsquo;t have some fundamental capacity yet, well, yet or ever.</p>
+<p>I don&rsquo;t know.</p>
+<p>Well, that&rsquo;s one of the dreams of artificial intelligence is to create systems that will aid,</p>
+<p>expand our cognitive capacity in order to understand, build the theory of everything with the physics</p>
+<p>and understand what the heck these multiverses are.</p>
+<p>So, I think there&rsquo;s no better way to end it than talking about the meaning of life and the fundamental nature of the universe and the multiverses.</p>
+<p>And the multiverse.</p>
+<p>So, Anca, it is a huge honor.</p>
+<p>One of my favorite conversations I&rsquo;ve had.</p>
+<p>I really, really appreciate your time.</p>
+<p>Thank you for talking today.</p>
+<p>Thank you for coming.</p>
+<p>Come back again.</p>
+<p>Thanks for listening to this conversation with Anca Dragan.</p>
+<p>And thank you to our presenting sponsor, Cash App.</p>
+<p>Please consider supporting the podcast by downloading Cash App and using code LexPodcast.</p>
+<p>If you enjoy this podcast, subscribe on YouTube, review it with 5 stars on Apple Podcast,</p>
+<p>support it on Patreon, or simply connect with me on Twitter at LexFriedman.</p>
+<p>And now, let me leave you with some words from Isaac Asimov.</p>
+<p>Your assumptions are your windows in the world.</p>
+<p>Scrub them off every once in a while or the light won&rsquo;t come in.</p>
+<p>Thank you for listening and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Scott Aaronson, his second time on the podcast.
+He is a professor at UT Austin, director of the Quantum Information Center,
+and previously a professor at MIT. Last time we talked about quantum computing. This time
+we talk about computation complexity, consciousness, and theories of everything.
+I&amp;rsquo;m recording this intro, as you may be able to tell, in a very strange room in the middle of the'>
+<title>Lex Fridman Podcast - #130 - Scott Aaronson: Computational Complexity and Consciousness | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500133/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #130 - Scott Aaronson: Computational Complexity and Consciousness'>
+<meta property='og:description' content='The following is a conversation with Scott Aaronson, his second time on the podcast.
+He is a professor at UT Austin, director of the Quantum Information Center,
+and previously a professor at MIT. Last time we talked about quantum computing. This time
+we talk about computation complexity, consciousness, and theories of everything.
+I&amp;rsquo;m recording this intro, as you may be able to tell, in a very strange room in the middle of the'>
+<meta property='og:url' content='https://swiest.com/en/1310500133/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-07-11T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-07-11T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #130 - Scott Aaronson: Computational Complexity and Consciousness">
+<meta name="twitter:description" content="The following is a conversation with Scott Aaronson, his second time on the podcast.
+He is a professor at UT Austin, director of the Quantum Information Center,
+and previously a professor at MIT. Last time we talked about quantum computing. This time
+we talk about computation complexity, consciousness, and theories of everything.
+I&amp;rsquo;m recording this intro, as you may be able to tell, in a very strange room in the middle of the">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500133/">Lex Fridman Podcast - #130 - Scott Aaronson: Computational Complexity and Consciousness</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-07-11</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    89 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Scott Aaronson, his second time on the podcast.</p>
+<p>He is a professor at UT Austin, director of the Quantum Information Center,</p>
+<p>and previously a professor at MIT. Last time we talked about quantum computing. This time</p>
+<p>we talk about computation complexity, consciousness, and theories of everything.</p>
+<p>I&rsquo;m recording this intro, as you may be able to tell, in a very strange room in the middle of the</p>
+<p>night. I&rsquo;m not really sure how I got here or how I&rsquo;m going to get out, but Hunter S. Thompson</p>
+<p>saying I think applies to today and the last few days and actually the last couple of weeks.</p>
+<p>Life should not be a journey to the grave with the intention of arriving safely in a pretty and well</p>
+<p>preserved body, but rather to skid in broadside in a cloud of smoke, thoroughly used up, totally</p>
+<p>worn out, and loudly proclaiming, wow, what a ride. So I figured whatever I&rsquo;m up to here,</p>
+<p>and yes, lots of wine is involved, I&rsquo;m going to have to improvise, have to improvise,</p>
+<p>have to improvise, hence this recording. Okay, quick mention of each sponsor,</p>
+<p>followed by some thoughts related to the episode. First sponsor is SimpliSafe, a home security</p>
+<p>company I use to monitor and protect my apartment, though of course I&rsquo;m always prepared with a fall</p>
+<p>back plan, as a man in this world must always be. Second sponsor is 8sleep, a mattress that cools</p>
+<p>itself, measures heart rate variability, has a nap, and has given me yet another reason to look</p>
+<p>forward to sleep, including the all important power nap. Third sponsor is ExpressVPN, the VPN</p>
+<p>I&rsquo;ve used for many years to protect my privacy on the internet. Finally, the fourth sponsor is Better</p>
+<p>Help, online therapy when you want to face your demons with a licensed professional, not just</p>
+<p>by doing David Goggins like physical challenges like I seem to do on occasion. Please check out</p>
+<p>these sponsors in the description to get a discount and to support the podcast.</p>
+<p>As a side note, let me say that this is the second time I&rsquo;ve recorded a conversation outdoors.</p>
+<p>The first one was with Steven Wolfram when it was actually sunny out, in this case it was raining,</p>
+<p>which is why I found a covered outdoor patio. But I learned a valuable lesson, which is that</p>
+<p>raindrops can be quite loud on the hard metal surface of a patio cover. I did my best with</p>
+<p>the audio, I hope it still sounds okay to you. I&rsquo;m learning, always improving. In fact, as Scott says,</p>
+<p>if you always win, then you&rsquo;re probably doing something wrong. To be honest, I get pretty upset</p>
+<p>with myself when I fail, small or big, but I&rsquo;ve learned that this feeling is priceless. It can be</p>
+<p>fuel, when channeled into concrete plans of how to improve. So if you enjoy this thing, subscribe</p>
+<p>on YouTube, review the Five Stars in Apple podcast, follow on Spotify, support on Patreon,</p>
+<p>or connect with me on Twitter at Lex Friedman. And now, here&rsquo;s my conversation with Scott Aaronson.</p>
+<p>Let&rsquo;s start with the most absurd question, but I&rsquo;ve read you write some fascinating stuff about</p>
+<p>it, so let&rsquo;s go there. Are we living in a simulation? What difference does it make,</p>
+<p>Lex? I mean, I&rsquo;m serious. What difference? Because if we are living in a simulation,</p>
+<p>it raises the question, how real does something have to be in simulation for it to be sufficiently</p>
+<p>immersive for us humans? But I mean, even in principle, how could we ever know if we were in</p>
+<p>one, right? A perfect simulation, by definition, is something that&rsquo;s indistinguishable from the</p>
+<p>real thing. Well, we didn&rsquo;t say anything about perfect. No, no, that&rsquo;s right. Well, if it was</p>
+<p>an imperfect simulation, if we could hack it, find a bug in it, then that would be one thing,</p>
+<p>right? If this was like The Matrix and there was a way for me to do flying kung fu moves or</p>
+<p>something by hacking the simulation, well then we would have to cross that bridge when we came to</p>
+<p>it, wouldn&rsquo;t we? At that point, it&rsquo;s hard to see the difference between that and just what people</p>
+<p>would ordinarily refer to as a world with miracles. What about from a different perspective, thinking</p>
+<p>about the universe as a computation, like a program running on a computer? That&rsquo;s kind of</p>
+<p>a neighboring concept. It is. It is an interesting and reasonably well defined question to ask,</p>
+<p>is the world computable? Does the world satisfy what we would call in CS the church touring</p>
+<p>thesis? That is, could we take any physical system and simulate it to any desired precision by a</p>
+<p>touring machine, given the appropriate input data, right? And so far, I think the indications are</p>
+<p>pretty strong that our world does seem to satisfy the church touring thesis. At least if it doesn&rsquo;t,</p>
+<p>then we haven&rsquo;t yet discovered why not. But now, does that mean that our universe is a simulation?</p>
+<p>Well, that word seems to suggest that there is some other larger universe in which it is running.</p>
+<p>And the problem there is that if the simulation is perfect, then we&rsquo;re never going to be able to get</p>
+<p>any direct evidence about that other universe. We will only be able to see the effects of the</p>
+<p>computation that is running in this universe. Well, let&rsquo;s imagine an analogy. Let&rsquo;s imagine</p>
+<p>a PC, a personal computer, a computer. Is it possible with the advent of artificial intelligence</p>
+<p>for the computer to look outside of itself to see, to understand its creator? I mean,</p>
+<p>that&rsquo;s a simple, is that a ridiculous analogy? Well, I mean, with the computers that we actually</p>
+<p>have, I mean, first of all, we all know that humans have done an imperfect job of enforcing</p>
+<p>the abstraction boundaries of computers, right? Like you may try to confine some program to a</p>
+<p>playpen, but as soon as there&rsquo;s one memory allocation error in the C program, then the</p>
+<p>program has gotten out of that playpen and it can do whatever it wants, right? This is how most hacks</p>
+<p>work, you know, viruses and worms and exploits. And, you know, you would have to imagine that an</p>
+<p>AI would be able to discover something like that. Now, you know, of course, if we could actually</p>
+<p>discover some exploit of reality itself, then, you know, then this whole, I mean, then in some</p>
+<p>sense we wouldn&rsquo;t have to philosophize about this, right? This would no longer be a metaphysical</p>
+<p>conversation. But the question is, what would that hack look like? Yeah, well, I have no idea. I mean,</p>
+<p>Peter Shor, you know, the very famous person in quantum computing, of course, has joked that</p>
+<p>maybe the reason why we haven&rsquo;t yet, you know, integrated general relativity in quantum mechanics</p>
+<p>is that, you know, the part of the universe that depends on both of them was actually left</p>
+<p>unspecified. And if we ever tried to do an experiment involving the singularity of a black</p>
+<p>hole or something like that, then, you know, the universe would just generate an overflow error or</p>
+<p>something, right? Yeah, we would just crash the universe. Now, you know, the universe, you know,</p>
+<p>has seemed to hold up pretty well for, you know, 14 billion years, right? So, you know, my, you know,</p>
+<p>a Occam&rsquo;s razor kind of guess has to be that, you know, it will continue to hold up, you know,</p>
+<p>that the fact that we don&rsquo;t know the laws of physics governing some phenomenon is not a strong</p>
+<p>sign that probing that phenomenon is going to crash the universe, right? But, you know, of course,</p>
+<p>I could be wrong. But do you think on the physics side of things, you know, there&rsquo;s been recently a</p>
+<p>few folks, Eric Weinstein and Stephen Wolfram that came out with a theory of everything. I think</p>
+<p>there&rsquo;s a history of physicists dreaming and working on the unification of all the laws of</p>
+<p>physics. Do you think it&rsquo;s possible that once we understand more physics, not necessarily the</p>
+<p>unification of the laws, but just understand physics more deeply at the fundamental level,</p>
+<p>we&rsquo;ll be able to start, you know, I mean, part of this is humorous, but looking to see if there&rsquo;s</p>
+<p>any bugs in the universe that could be exploited for, you know, traveling at not just speed of</p>
+<p>light, but just traveling faster than our current spaceships can travel, all that kind of stuff.</p>
+<p>Well, I mean, to travel faster than our current spaceships could travel, you wouldn&rsquo;t need to</p>
+<p>find any bug in the universe, right? The known laws of physics, you know, let us go much faster</p>
+<p>up to the speed of light, right? And, you know, when people want to go faster than the speed of</p>
+<p>light, well, we actually know something about what that would entail, namely that, you know,</p>
+<p>according to relativity, that seems to entail communication backwards in time. Okay, so then</p>
+<p>you have to worry about closed time like curves and all of that stuff. So, you know, in some sense,</p>
+<p>we sort of know the price that you have to pay for these things, right?</p>
+<p>But under the current understanding of physics.</p>
+<p>That&rsquo;s right. That&rsquo;s right. We can&rsquo;t, you know, say that they&rsquo;re impossible, but we, you know,</p>
+<p>we know that sort of a lot else in physics breaks, right? So, now regarding Eric Weinstein</p>
+<p>and Stephen Wolfram, like, I wouldn&rsquo;t say that either of them has a theory of everything. I</p>
+<p>would say that they have ideas that they hope, you know, could someday lead to a theory of everything.</p>
+<p>Is that a worthy pursuit?</p>
+<p>Well, I mean, certainly, let&rsquo;s say by theory of everything, you know, we don&rsquo;t literally mean a</p>
+<p>theory of cats and of baseball and, you know, but we just mean it in the more limited sense of</p>
+<p>everything, a fundamental theory of physics, right? Of all of the fundamental interactions of</p>
+<p>physics, of course, such a theory, even after we had it, you know, would leave the entire question</p>
+<p>of all the emergent behavior, right? You know, to be explored. So, it&rsquo;s only everything for a</p>
+<p>specific definition of everything. Okay, but in that sense, I would say, of course, that&rsquo;s worth</p>
+<p>pursuing. I mean, that is the entire program of fundamental physics, right? All of my friends who</p>
+<p>do quantum gravity, who do string theory, who do anything like that, that is what&rsquo;s motivating them.</p>
+<p>Yeah, it&rsquo;s funny, though, but, I mean, Eric Weinstein talks about this. It is, I don&rsquo;t know</p>
+<p>much about the physics world, but I know about the AI world, and it is a little, it is a little bit</p>
+<p>taboo to talk about AGI, for example, on the AI side. So, really, to talk about the big dream of</p>
+<p>the community, I would say, because it seems so far away, it&rsquo;s almost taboo to bring it up, because,</p>
+<p>you know, it&rsquo;s seen as the kind of people that dream about creating a truly superhuman level</p>
+<p>intelligence. That&rsquo;s really far out there, people, because we&rsquo;re not even close to that. And it feels</p>
+<p>like the same thing is true for the physics community. I mean, Stephen Hawking certainly</p>
+<p>talked constantly about theory of everything, right? You know, I mean, people, you know,</p>
+<p>use those terms who were, you know, some of the most respected people in the whole world of</p>
+<p>physics, right? But, I mean, I think that the distinction that I would make is that people</p>
+<p>might react badly if you use the term in a way that suggests that you, you know, thinking about</p>
+<p>it for five minutes, have come up with this major new insight about it, right? It&rsquo;s difficult. Stephen</p>
+<p>Hawking is not a great example, because I think you can do whatever the heck you want when you</p>
+<p>get to that level. And I certainly see, like, senior faculty, you know, that, you know, at that</p>
+<p>point, that&rsquo;s one of the nice things about getting older is you stop giving a damn. But</p>
+<p>community as a whole, they tend to roll their eyes very quickly at stuff that&rsquo;s outside the</p>
+<p>quote unquote mainstream. Well, let me put it this way. I mean, if you asked, you know,</p>
+<p>Ed Witten, let&rsquo;s say, who is, you know, you might consider the leader of the string community,</p>
+<p>and thus, you know, very, very mainstream, in a certain sense, but he would have no hesitation</p>
+<p>in saying, you know, of course, you know, they&rsquo;re looking for a, you know, you know, a unified</p>
+<p>description of nature of, you know, of general relativity of quantum mechanics of all the</p>
+<p>fundamental interactions of nature, right? Now, you know, whether people would call that a theory</p>
+<p>of everything, whether they would use that term, that might vary. You know, Lenny Susskind would</p>
+<p>definitely have no problem telling you that, you know, if that&rsquo;s what we want, right?</p>
+<p>TK For me, who loves human beings and psychology,</p>
+<p>it&rsquo;s kind of ridiculous to say a theory that unifies the laws of physics gets you to understand</p>
+<p>everything. I would say you&rsquo;re not even close to understanding everything.</p>
+<p>TK Yeah, right. I mean, the word everything is a little ambiguous here. And then people will get</p>
+<p>into debates about, you know, reductionism versus emergentism and blah, blah, blah. And so in not</p>
+<p>wanting to say theory of everything, people might just be trying to short circuit that debate and</p>
+<p>say, you know, look, you know, yes, we want a fundamental theory of, you know, the particles</p>
+<p>and interactions of nature.</p>
+<p>TK Let me bring up the next topic that people don&rsquo;t want to mention, although they&rsquo;re getting</p>
+<p>more comfortable with it, is consciousness. You mentioned that you have a talk on consciousness</p>
+<p>that I watched five minutes of, but the internet connection was really bad.</p>
+<p>TK Was this my talk about, you know, refuting the integrated information theory?</p>
+<p>TK Yes.</p>
+<p>TK Which was a particular account of consciousness that, yeah, I think one can just show it doesn&rsquo;t</p>
+<p>work. Much harder to say what does work.</p>
+<p>TK Let me ask, maybe it&rsquo;d be nice to comment on, you talk about also like the semi hard problem</p>
+<p>of consciousness or like almost hard problem or kind of hard.</p>
+<p>TK Pretty hard problem, I think I call it.</p>
+<p>TK So maybe can you talk about that, their idea of the approach to modeling consciousness and</p>
+<p>why you don&rsquo;t find it convincing? What is it, first of all?</p>
+<p>TK Okay, well, so what I called the pretty hard problem of consciousness, this is my term,</p>
+<p>although many other people have said something equivalent to this, okay? But it&rsquo;s just, you know,</p>
+<p>the problem of, you know, giving an account of just which physical systems are conscious and</p>
+<p>which are not. Or, you know, if there are degrees of consciousness, then quantifying how conscious</p>
+<p>a given system is.</p>
+<p>TK Oh, awesome. So that&rsquo;s the pretty hard problem.</p>
+<p>TK Yeah, that&rsquo;s what I mean.</p>
+<p>TK That&rsquo;s it. I&rsquo;m adopting it. I love it. That&rsquo;s a good ring to it.</p>
+<p>TK And so, you know, the infamous hard problem of consciousness is to explain how something</p>
+<p>like consciousness could arise at all, you know, in a material universe, right? Or, you know,</p>
+<p>why does it ever feel like anything to experience anything, right? And, you know, so I&rsquo;m trying to</p>
+<p>distinguish from that problem, right? And say, you know, no, okay, I would merely settle for an</p>
+<p>account that could say, you know, is a fetus conscious? You know, if so, at which trimester?</p>
+<p>You know, is a dog conscious? You know, what about a frog, right?</p>
+<p>TK Or even as a precondition, you take that both these things are conscious,</p>
+<p>tell me which is more conscious.</p>
+<p>TK Yeah, for example, yes. Yeah, yeah. I mean, if consciousness is some multidimensional vector,</p>
+<p>well, just tell me in which respects these things are conscious and in which respect they aren&rsquo;t,</p>
+<p>right? And, you know, and have some principled way to do it where you&rsquo;re not, you know,</p>
+<p>carving out exceptions for things that you like or don&rsquo;t like, but could somehow take a description</p>
+<p>of an arbitrary physical system, and then just based on the physical properties of that system,</p>
+<p>or the informational properties, or how it&rsquo;s connected, or something like that,</p>
+<p>just in principle, calculate, you know, its degree of consciousness, right? I mean, this,</p>
+<p>this would be the kind of thing that we would need, you know, if we wanted to address questions,</p>
+<p>like, you know, what does it take for a machine to be conscious, right? Or when are, you know,</p>
+<p>when should we regard AIs as being conscious? So now this IIT, this integrated information theory,</p>
+<p>which has been put forward by Giulio Tinoni and a bunch of his</p>
+<p>collaborators over the last decade or two, this is noteworthy, I guess, as a direct attempt to</p>
+<p>answer that question, to, you know, answer the, to address the pretty hard problem,</p>
+<p>right? And they give a, a criterion that&rsquo;s just based on how a system is connected. So you,</p>
+<p>so it&rsquo;s up to you to sort of abstract the system, like a brain or a microchip, as a collection of</p>
+<p>components that are connected to each other by some pattern of connections, you know, and,</p>
+<p>and to specify how the components can influence each other, you know, like where the inputs go,</p>
+<p>you know, where they affect the outputs. But then once you&rsquo;ve specified that,</p>
+<p>then they give this quantity that they call phi, you know, the Greek letter phi.</p>
+<p>And the definition of phi has actually changed over time. It changes from one paper to another,</p>
+<p>but in all of the variations, it involves something about what we in computer science</p>
+<p>would call graph expansion. So basically what this means is that they want, in order to get a</p>
+<p>large value of phi, it should not be possible to take your system and partition it into two</p>
+<p>components that are only weakly connected to each other. Okay. So whenever we take our system and</p>
+<p>sort of try to split it up into two, then there should be lots and lots of connections going</p>
+<p>between the two components. Okay. Well, I understand what that means on a graph.</p>
+<p>Do they formalize what, how to construct such a graph or data structure, whatever,</p>
+<p>or is this one of the criticism I&rsquo;ve heard you kind of say is that a lot of the very interesting</p>
+<p>specifics are usually communicated through like natural language, like through words.</p>
+<p>So it&rsquo;s like the details aren&rsquo;t always clear. Well, it&rsquo;s true. I mean, they have nothing even</p>
+<p>resembling a derivation of this phi. Okay. So what they do is they state a whole bunch of postulates,</p>
+<p>you know, axioms that they think that consciousness should satisfy. And then there&rsquo;s some verbal</p>
+<p>discussion. And then at some point, phi appears. Right. Right. And this, this was what the first</p>
+<p>thing that really made the hair stand on my neck, to be honest, because they are acting as if there</p>
+<p>is a derivation. They&rsquo;re acting as if, you know, you&rsquo;re supposed to think that this is a derivation</p>
+<p>and there&rsquo;s nothing even remotely resembling a derivate. They just pull the phi out of a hat</p>
+<p>completely. Is one of the key criticisms to you is that details are missing or is there something</p>
+<p>more fundamental? That&rsquo;s not even the key criticism. That&rsquo;s just, that&rsquo;s just a side point.</p>
+<p>Okay. The, the core of it is that I think that the, you know, that they want to say that a system</p>
+<p>is more conscious the larger its value of phi. And I think that that is obvious nonsense. Okay. As</p>
+<p>soon as you think about it for like a minute, as soon as you think about it in terms of, could I</p>
+<p>construct a system that had an enormous value of phi, like, you know, even larger than the brain</p>
+<p>has, but that is just implementing an error correcting code, you know, doing nothing that we</p>
+<p>would associate with, you know, intelligence or consciousness or any of it. The answer is yes,</p>
+<p>it is easy to do that. Right. And so I wrote blog posts, just making this point that, yeah, it&rsquo;s</p>
+<p>easy to do that. Now, you know, Tinoni&rsquo;s response to that was actually kind of incredible, right?</p>
+<p>I mean, I, I, I admired it in a way because instead of disputing any of it, he just bit the</p>
+<p>bullet in the sense, you know, he was one of the, the, uh, the most, uh, uh, audacious bullet</p>
+<p>bitings I&rsquo;ve ever seen in my career. Okay. He said, okay, then fine. You know, this system that</p>
+<p>just applies this error correcting code it&rsquo;s conscious, you know, and if it has a much larger</p>
+<p>value of phi than you or me, it&rsquo;s much more conscious than you and me. You know, you,</p>
+<p>we just have to accept what the theory says because, you know, science is not about confirming</p>
+<p>our intuitions. It&rsquo;s about challenging them. And, you know, this is what my theory predicts that</p>
+<p>this thing is conscious and, you know, or super duper conscious. And how are you going to prove</p>
+<p>me wrong? So the way I would argue against your blog posts is I would say, yes, sure. You&rsquo;re</p>
+<p>right in general, but for naturally arising systems developed through the process of evolution on</p>
+<p>earth, the, this rule of the larger fee being associated, being associated with more consciousness</p>
+<p>is correct. Yeah. So that&rsquo;s not what he said at all. Right. Right. Because he wants this to be</p>
+<p>completely general. So we can apply to even computers. Yeah. I mean, I mean, the, the whole</p>
+<p>interest of the theory is the, you know, the hope that it could be completely general apply to aliens,</p>
+<p>to computers, to animals, coma patients, to any of it. Right. And so, so, so he just said, well,</p>
+<p>you know, Scott is relying on his intuition, but, you know, I&rsquo;m relying on this theory and,</p>
+<p>you know, to me it was almost like, you know, are we being serious here? Like, like, like,</p>
+<p>you know, like, like, okay, yes, in science we try to learn highly nonintuitive things,</p>
+<p>but what we do is we first test the theory on cases where we already know the answer. Right.</p>
+<p>Like if we, if someone had a new theory of temperature, right, then, you know, maybe we</p>
+<p>could check that it says that boiling water is hotter than ice. And then if it says that the sun</p>
+<p>is hotter than anything, you know, you&rsquo;ve ever experienced, then maybe we, we trust that</p>
+<p>extrapolation. Right. But like this, this theory, like if, if, you know, it&rsquo;s now saying that, you</p>
+<p>know, a, a gigantic grit, like regular grid of exclusive or gates can be way more conscious than,</p>
+<p>you know, a person or than, than any animal can be, you know, even if it, you know, is, you know,</p>
+<p>is, is, is, is so uniform that it might as well just be a blank wall. Right. And, and so now the</p>
+<p>point is if, if this theory is sort of getting wrong, the question is a blank wall, you know,</p>
+<p>more conscious than a person, then I would say, what is, what is there for it to get right?</p>
+<p>So your, your sense is a blank wall is not more conscious than a human being.</p>
+<p>Yeah. I mean, I mean, I mean, you could say that I am taking that as one of my axioms.</p>
+<p>I&rsquo;m saying, I&rsquo;m saying that if, if a theory of consciousness is, is getting that wrong,</p>
+<p>then whatever it is talking about at that point, I, I, I&rsquo;m not going to call it consciousness.</p>
+<p>I&rsquo;m going to use a different word.</p>
+<p>You have to use a different word. I mean, it&rsquo;s also, it&rsquo;s possible just like with intelligence</p>
+<p>that us humans conveniently define these very difficult to understand concepts</p>
+<p>in a very human centric way. Just like the Turing test really seems to define intelligence as a</p>
+<p>thing that&rsquo;s human like. Right. But I would say that with any, uh, concept, you know, there&rsquo;s,</p>
+<p>uh, uh, uh, you know, like we, we, we, we first need to define it. Right. And a definition is</p>
+<p>only a good definition if it matches what we thought we were talking about prior to having</p>
+<p>a definition. Right. And I would say that, you know, uh, fee as a definition of consciousness</p>
+<p>fails that test. That is my argument. So, okay. So let&rsquo;s take a further step. So you mentioned</p>
+<p>that the universe might be a Turing machine. So like it might be computations or simulatable</p>
+<p>by one anyway, simulated by one. So what&rsquo;s your sense about consciousness? Do you think</p>
+<p>consciousness is computation that we don&rsquo;t need to go to any place outside of the computable universe</p>
+<p>to, uh, you know, to, to understand consciousness, to build consciousness, to measure consciousness,</p>
+<p>all those kinds of things? I don&rsquo;t know. These are what, uh, you know, have been called the,</p>
+<p>the vertiginous questions, right? There&rsquo;s the questions like, like, uh, you know,</p>
+<p>you get a feeling of vertigo and thinking about them. Right. I mean, I certainly feel like, uh,</p>
+<p>I am conscious in a way that is not reducible to computation, but why should you believe me?</p>
+<p>Right. I mean, and, and, and if you said the same to me, then why should I believe you?</p>
+<p>But as computer scientists, I feel like a computer could be, could achieve human level intelligence,</p>
+<p>but, and that&rsquo;s actually a feeling and a hope. That&rsquo;s not a scientific belief. It&rsquo;s just,</p>
+<p>we&rsquo;ve built up enough intuition, the same kind of intuition you use in your blog.</p>
+<p>You know, that&rsquo;s what scientists do. They, I mean, some of it is a scientific method,</p>
+<p>but some of it is just damn good intuition. I don&rsquo;t have a good intuition about consciousness.</p>
+<p>Yeah. I&rsquo;m not sure that anyone does or has in the, you know,</p>
+<p>2,500 years that these things have been discussed, Lex.</p>
+<p>But do you think we will? Like one of the, I&rsquo;ve gotten a chance to attend,</p>
+<p>can&rsquo;t wait to hear your opinion on this, but attend the Neuralink event.</p>
+<p>And, uh, one of the dreams there is to, uh, you know, basically push neuroscience forward.</p>
+<p>And the hope with neuroscience is that, uh, we can inspect the machinery from which all this</p>
+<p>fun stuff emerges and see, we&rsquo;re going to notice something special, some special sauce from which</p>
+<p>something like consciousness or cognition emerges. Yeah. Well, it&rsquo;s clear that we&rsquo;ve learned an</p>
+<p>enormous amount about neuroscience. We&rsquo;ve learned an enormous amount about computation, you know,</p>
+<p>about machine learning, about AI, how to get it to work. We&rsquo;ve learned, uh, an enormous amount about</p>
+<p>the underpinnings of the physical world, you know, and, you know, from one point of view,</p>
+<p>that&rsquo;s like, uh, an enormous distance that we&rsquo;ve traveled along the road to understanding</p>
+<p>consciousness. From another point of view, you know, the distance still to be traveled on the</p>
+<p>road, you know, maybe seems no shorter than it was at the beginning. Right? So it&rsquo;s very hard to say.</p>
+<p>I mean, you know, these are questions like, like in, in, in sort of trying to have a theory</p>
+<p>of consciousness, there&rsquo;s sort of a problem where it feels like it&rsquo;s not just that we don&rsquo;t know</p>
+<p>how to make progress. It&rsquo;s that it&rsquo;s hard to specify what could even count as progress,</p>
+<p>right? Because no matter what scientific theory someone proposed, someone else could come along</p>
+<p>and say, well, you&rsquo;ve just talked about the mechanism. You haven&rsquo;t said anything about</p>
+<p>what breathes fire into the mechanism, what really makes there something that it&rsquo;s like to be it.</p>
+<p>Right. And that seems like an objection that you could always raise no matter,</p>
+<p>you know, how much someone elucidated the details of how the brain works.</p>
+<p>Okay. Let&rsquo;s go to the Turing test and the Lobner Prize. I have this intuition, call me crazy,</p>
+<p>but we, that a machine to pass the Turing test and it&rsquo;s full, whatever the spirit of it is,</p>
+<p>we can talk about how to formulate the perfect Turing test, that that machine has to be conscious.</p>
+<p>We at least have to, I have a very low bar of what consciousness is. I tend to, I tend to think that</p>
+<p>the emulation of consciousness is as good as consciousness. So the consciousness is just a</p>
+<p>dance, a social, a social, a shortcut, like a nice, useful tool, but I tend to connect intelligence</p>
+<p>consciousness together. So by, by that, do you, maybe just to ask what, what role does consciousness</p>
+<p>play? Do you think it passed in the Turing test? Well, look, I mean, it&rsquo;s almost tautologically</p>
+<p>true that if we had a machine that passed the Turing test, then it would be emulating consciousness.</p>
+<p>Right? So if your position is that, you know, emulation of consciousness is consciousness,</p>
+<p>then so, you know, by, by definition, any machine that passed the Turing test would be conscious.</p>
+<p>But it&rsquo;s, but I mean, we know that you could say that, you know, that, that is just a way to</p>
+<p>rephrase the original question, you know, is an emulation of consciousness, you know, necessarily</p>
+<p>conscious. Right. And you can, can, you know, I hear, I&rsquo;m not saying anything new that hasn&rsquo;t been</p>
+<p>debated ad nauseum in the literature. Okay. But, you know, you could imagine some very hard cases,</p>
+<p>like imagine a machine that passed the Turing test, but that did so just by an enormous</p>
+<p>cosmological sized lookup table that just cashed every possible conversation that could be had.</p>
+<p>The old Chinese room.</p>
+<p>Well, well, yeah, yeah. But, but this is, I mean, I mean, the Chinese room actually would be doing</p>
+<p>some computation, at least in Searle&rsquo;s version. Right. Here, I&rsquo;m just talking about a table lookup.</p>
+<p>Okay. Now it&rsquo;s true that for conversations of a reasonable length, this, you know, lookup table</p>
+<p>would be so enormous that wouldn&rsquo;t even fit in the observable universe. Okay. But supposing that</p>
+<p>you could build a big enough lookup table and then just, you know, pass the Turing test just</p>
+<p>by looking up what the person said. Right. Are you going to regard that as conscious?</p>
+<p>Okay. Let me try to make this formal and then you can shut it down. I think that the emulation of</p>
+<p>something is that something, if there exists in that system, a black box that&rsquo;s full of mystery.</p>
+<p>So like, full of mystery to whom?</p>
+<p>To human specters.</p>
+<p>So does that mean that consciousness is relative to the observer? Like,</p>
+<p>could something be conscious for us, but not conscious for an alien that understood better</p>
+<p>what was happening inside the black box? Yes. So that if inside the black box is just a lookup</p>
+<p>table, the alien that saw that would say this is not conscious. To us, another way to phrase the</p>
+<p>black box is layers of abstraction, which make it very difficult to see to the actually underlying</p>
+<p>functionality of the system. And then we observe just the abstraction. And so it looks like magic</p>
+<p>to us. But once we understand the inner machinery, it stops being magic. And so like, that&rsquo;s a</p>
+<p>prerequisite is that you can&rsquo;t know how it works, or some part of it, because then there has to be</p>
+<p>in our human mind, entry point for the magic. So that&rsquo;s a formal definition of the system.</p>
+<p>Yeah, well, look, I mean, I explored a view in this essay I wrote called The Ghost in the Quantum</p>
+<p>Touring Machine seven years ago that is related to that, except that I did not want to have</p>
+<p>consciousness be relative to the observer, right? Because I think that if consciousness means</p>
+<p>anything, it is something that is experienced by the entity that is conscious, right? Like,</p>
+<p>I don&rsquo;t need you to tell me that I&rsquo;m conscious, nor do you need me to tell you that you are,</p>
+<p>right? But basically, what I explored there is are there aspects of a system like a brain that just</p>
+<p>could not be predicted even with arbitrarily advanced future technologies? It&rsquo;s because of</p>
+<p>chaos combined with quantum mechanical uncertainty and things like that. I mean, that actually could</p>
+<p>be a property of the brain, you know, if true, that would distinguish it in a principled way,</p>
+<p>at least from any currently existing computer. Not from any possible computer, but yeah, yeah.</p>
+<p>This is a thought experiment. So if I gave you information that the entire history of your life,</p>
+<p>basically explain away free will with a lookup table, say that this was all predetermined,</p>
+<p>that everything you experienced has already been predetermined, wouldn&rsquo;t that take away</p>
+<p>your consciousness? Wouldn&rsquo;t you, yourself, wouldn&rsquo;t the experience of the world change for</p>
+<p>you in a way that you can&rsquo;t take back? Well, let me put it this way. If you could</p>
+<p>do like in a Greek tragedy where, you know, you would just write down a prediction for what I&rsquo;m</p>
+<p>going to do and then maybe you put the prediction in a sealed box and maybe, you know, you open it</p>
+<p>later and you show that you knew everything I was going to do or, you know, of course,</p>
+<p>the even creepier version would be you tell me the prediction and then I try to falsify it,</p>
+<p>my very effort to falsify it makes it come true, right? Let&rsquo;s even forget that, you know,</p>
+<p>that version as convenient as it is for fiction writers, right? Let&rsquo;s just do the version where</p>
+<p>you put the prediction into a sealed envelope, okay? But if you could reliably predict everything</p>
+<p>that I was going to do, I&rsquo;m not sure that that would destroy my sense of being conscious,</p>
+<p>but I think it really would destroy my sense of having free will, you know, and much, much more</p>
+<p>than any philosophical conversation could possibly do that, right? And so I think it becomes extremely</p>
+<p>interesting to ask, you know, could such predictions be done, you know, even in principle,</p>
+<p>is it consistent with the laws of physics to make such predictions, to get enough data about someone</p>
+<p>that you could actually generate such predictions without having to kill them in the process to,</p>
+<p>you know, slice their brain up into little slivers or something.</p>
+<p>I mean, it&rsquo;s theoretically possible, right?</p>
+<p>Well, I don&rsquo;t know. I mean, it might be possible, but only at the cost of destroying the person,</p>
+<p>right? I mean, it depends on how low you have to go in sort of the substrate. Like if there was</p>
+<p>a nice digital abstraction layer, if you could think of each neuron as a kind of transistor</p>
+<p>computing a digital function, then you could imagine some nanorobots that would go in and</p>
+<p>would just scan the state of each transistor, you know, of each neuron and then, you know, make a</p>
+<p>good enough copy, right? But if it was actually important to get down to the molecular or the</p>
+<p>atomic level, then, you know, eventually you would be up against quantum effects.</p>
+<p>You would be up against the unclonability of quantum states. So I think it&rsquo;s a question of</p>
+<p>how good of a replica, how good does the replica have to be before you&rsquo;re going to count it as</p>
+<p>actually a copy of you or as being able to predict your actions.</p>
+<p>That&rsquo;s a totally open question.</p>
+<p>Yeah, yeah, yeah. And especially once we say that, well, look, maybe there&rsquo;s no way to,</p>
+<p>you know, to make a deterministic prediction because, you know, we know that there&rsquo;s noise</p>
+<p>buffeting the brain around, presumably even quantum mechanical uncertainty,</p>
+<p>you know, affecting the sodium ion channels, for example, whether they open or they close.</p>
+<p>You know, there&rsquo;s no reason why over a certain time scale that shouldn&rsquo;t be amplified, just like</p>
+<p>we imagine happens with the weather or with any other, you know, chaotic system. So if that stuff</p>
+<p>is important, right, then we would say, well, you know, you can&rsquo;t, you know, you&rsquo;re never going to</p>
+<p>be able to make an accurate enough copy. But now the hard part is, well, what if someone can make</p>
+<p>a copy that sort of no one else can tell apart from you, right? It says the same kinds of things</p>
+<p>that you would have said, maybe not exactly the same things because we agree that there&rsquo;s noise,</p>
+<p>but it says the same kinds of things. And maybe you alone would say, no, I know that that&rsquo;s not</p>
+<p>me, you know, it&rsquo;s, it doesn&rsquo;t share my, I haven&rsquo;t felt my consciousness leap over to that other</p>
+<p>thing. I still feel it localized in this version, right? And then why should anyone else believe</p>
+<p>you? What are your thoughts? I&rsquo;d be curious, you&rsquo;re a really good person to ask, which is</p>
+<p>Penrose&rsquo;s, Roger Penrose&rsquo;s work on consciousness, saying that there, you know, there is some,</p>
+<p>there&rsquo;s some, with axons and so on, there might be some biological places where quantum mechanics</p>
+<p>can come into play and through that create consciousness somehow.</p>
+<p>Yeah. Okay. Well, um, uh, of course, you know, I read Penrose&rsquo;s books as a teenager. They had</p>
+<p>a huge impact on me. Uh, uh, five or six years ago, I had the privilege to actually talk these</p>
+<p>things over with Penrose, you know, at some length at a conference in Minnesota. And, uh, you know,</p>
+<p>he is, uh, uh, you know, an amazing, uh, personality. I admire the fact that he was</p>
+<p>even raising such, uh, audacious questions at all. Uh, but you know, to, to, to answer your</p>
+<p>question, I think the first thing we need to get clear on is that he is not merely saying that</p>
+<p>quantum mechanics is relevant to consciousness, right? That would be like, um, you know, that would</p>
+<p>be tame compared to what he is saying, right? He is saying that, you know, even quantum mechanics</p>
+<p>is not good enough, right? If, because if, if supposing for example, that the brain were a</p>
+<p>quantum computer, I know that&rsquo;s still a computer, you know, in fact, a quantum computer can be</p>
+<p>simulated by an ordinary computer. It might merely need exponentially more time in order to do so,</p>
+<p>right? So that&rsquo;s simply not good enough for him. Okay. So what he wants is for the brain to be a</p>
+<p>quantum gravitational computer or, or, uh, uh, he wants the brain to be exploiting as yet unknown</p>
+<p>laws of quantum gravity. Okay. Which would, which would be uncomputable. That&rsquo;s the key point. Okay.</p>
+<p>Yes. Yes. That would be literally uncomputable. And I&rsquo;ve asked him, you know, to clarify this,</p>
+<p>but uncomputable, even if you had an Oracle for the halting problem or, you know, and, and, or,</p>
+<p>you know, as high up as you want to go and the sort of high, the usual hierarchy of uncomputability,</p>
+<p>he wants to go beyond all of that. Okay. So, so, you know, just, just to be clear, like, you know,</p>
+<p>if we&rsquo;re keeping count of how many speculations, you know, there&rsquo;s probably like at least five or</p>
+<p>six of them, right? There&rsquo;s first of all, that there is some quantum gravity theory that would</p>
+<p>involve this kind of uncomputability, right? Most people who study quantum gravity would not agree</p>
+<p>with that. They would say that what we&rsquo;ve learned, you know, what little we know about quantum</p>
+<p>gravity from the, this ADS CFT correspondence, for example, has been very much consistent with</p>
+<p>the broad idea of nature being computable, right? But, but all right, but, but supposing that he&rsquo;s</p>
+<p>right about that, then, you know, what most physicists would say is that whatever new</p>
+<p>phenomena there are in quantum gravity, you know, they might be relevant at the singularities of</p>
+<p>black holes. They might be relevant at the big bang. They are plainly not relevant to something</p>
+<p>like the brain, you know, that is operating at ordinary temperatures, you know, with ordinary</p>
+<p>chemistry and, you know, the, the, the physics underlying the brain, they, they would say that</p>
+<p>we have, you know, the fundamental physics of the brain, they would say that we&rsquo;ve pretty much</p>
+<p>completely known for, for generations now, right? Because, you know, quantum field theory lets us</p>
+<p>sort of parameterize our ignorance, right? I mean, Sean Carroll has made this case and,</p>
+<p>you know, in great detail, right? That sort of whatever new effects are coming from quantum</p>
+<p>gravity, you know, they are sort of screened off by quantum field theory, right? And this is,</p>
+<p>this brings, you know, brings us to the whole idea of effective theories, right? But the,</p>
+<p>like we have, you know, the, in like in the standard model of elementary particles, right?</p>
+<p>We have a quantum field theory that seems totally adequate for all of the terrestrial phenomena,</p>
+<p>right? The only things that it doesn&rsquo;t, you know, explain are, well, first of all, you know,</p>
+<p>the details of gravity, if you were to probe it, like at, at, you know, extremes of, you know,</p>
+<p>curvature or like incredibly small distances, it doesn&rsquo;t explain dark matter. It doesn&rsquo;t explain</p>
+<p>black hole singularities, right? But these are all very exotic things, very, you know, far removed</p>
+<p>from our life on earth, right? So for Penrose to be right, he needs, you know, these phenomena to</p>
+<p>somehow affect the brain. He needs the brain to contain antennae that are sensitive to this as</p>
+<p>yet unknown physics, right? And then he needs a modification of quantum mechanics, okay? So he</p>
+<p>needs quantum mechanics to actually be wrong, okay? He needs, what he wants is what he calls</p>
+<p>an objective reduction mechanism or an objective collapse. So this is the idea that once quantum</p>
+<p>states get large enough, then they somehow spontaneously collapse, right? That, you know,</p>
+<p>and this is an idea that lots of people have explored. You know, there&rsquo;s something called the</p>
+<p>GRW proposal that tries to, you know, say something along those lines, you know, and these are</p>
+<p>theories that actually make testable predictions, right? Which is a nice feature that they have.</p>
+<p>But, you know, the very fact that they&rsquo;re testable may mean that in the, you know, in the coming</p>
+<p>decades, we may well be able to test these theories and show that they&rsquo;re wrong, right? You know, we</p>
+<p>may be able to test some of Penrose&rsquo;s ideas. If not, not his ideas about consciousness, but at</p>
+<p>least his ideas about an objective collapse of quantum states, right? And people have actually,</p>
+<p>like Dick Balmeister, have actually been working to try to do these experiments. They haven&rsquo;t been</p>
+<p>able to do it yet to test Penrose&rsquo;s proposal, okay? But Penrose would need more than just</p>
+<p>an objective collapse of quantum states, which would already be the biggest development in</p>
+<p>physics for a century since quantum mechanics itself, okay? He would need for consciousness</p>
+<p>to somehow be able to influence the direction of the collapse so that it wouldn&rsquo;t be completely</p>
+<p>random, but that, you know, your dispositions would somehow influence the quantum state</p>
+<p>to collapse more likely this way or that way, okay? Finally, Penrose, you know, says that all</p>
+<p>of this has to be true because of an argument that he makes based on Gödel&rsquo;s incompleteness theorem,</p>
+<p>okay? Now, like I would say the overwhelming majority of computer scientists and mathematicians</p>
+<p>who have thought about this, I don&rsquo;t think that Gödel&rsquo;s incompleteness theorem can do what he</p>
+<p>needs it to do here, right? I don&rsquo;t think that that argument is sound, okay? But that is, you know,</p>
+<p>that is sort of the tower that you have to ascend to if you&rsquo;re going to go where Penrose goes.</p>
+<p>And the intuition he uses with the incompleteness theorem is that basically</p>
+<p>that there&rsquo;s important stuff that&rsquo;s not computable? Is that where he takes it?</p>
+<p>It&rsquo;s not just that because, I mean, everyone agrees that there are problems that are uncomputable,</p>
+<p>right? That&rsquo;s a mathematical theorem, right? But what Penrose wants to say is that, you know,</p>
+<p>for example, there are statements, you know, given any formal system, you know, for doing math,</p>
+<p>right? There will be true statements of arithmetic that that formal system, you know,</p>
+<p>if it&rsquo;s adequate for math at all, if it&rsquo;s consistent and so on, will not be able to prove.</p>
+<p>A famous example being the statement that that system itself is consistent,</p>
+<p>right? No, you know, good formal system can actually prove its own consistency.</p>
+<p>That can only be done from a stronger formal system, which then can&rsquo;t prove its own consistency</p>
+<p>and so on forever, okay? That&rsquo;s Gödel&rsquo;s theorem. But now, why is that relevant to consciousness,</p>
+<p>right? Well, you know, I mean, the idea that it might have something to do with consciousness</p>
+<p>as an old one, Gödel himself apparently thought that it did. You know, Lucas thought so, I think,</p>
+<p>in the 60s. And Penrose is really just, you know, sort of updating what they and others had said.</p>
+<p>I mean, you know, the idea that Gödel&rsquo;s theorem could have something to do with consciousness was,</p>
+<p>you know, in 1950, when Alan Turing wrote his article about the Turing test, he already, you</p>
+<p>know, was writing about that as like an old and well known idea and as a wrong one that he wanted</p>
+<p>to dispense with. Okay, but the basic problem with this idea is, you know, Penrose wants to say</p>
+<p>that and all of his predecessors here, you know, want to say that, you know, even though, you know,</p>
+<p>this given formal system cannot prove its own consistency, we as humans sort of looking at it</p>
+<p>from the outside can just somehow see its consistency, right? And the, you know, the rejoinder</p>
+<p>to that, you know, from the very beginning has been, well, can we really? I mean, maybe, you</p>
+<p>know, maybe he, Penrose can, but, you know, can the rest of us, right? And, you know, I noticed</p>
+<p>that, you know, I mean, it is perfectly plausible to imagine a computer that could say, you know,</p>
+<p>it would not be limited to working within a single formal system, right? They could say,</p>
+<p>I am now going to adopt the hypothesis that my formal system is consistent, right? And I&rsquo;m now</p>
+<p>going to see what can be done from that stronger vantage point and so on. And, you know, and I&rsquo;m</p>
+<p>going to add new axioms to my system. Totally plausible. There&rsquo;s absolutely, Gödel&rsquo;s theorem</p>
+<p>has nothing to say about against an AI that could repeatedly add new axioms. All it says is that</p>
+<p>there is no absolute guarantee that when the AI adds new axioms that it will always be right.</p>
+<p>Okay. And, you know, and that&rsquo;s, of course, the point that Penrose pounces on,</p>
+<p>but the reply is obvious. And, you know, it&rsquo;s one that Alan Turing made 70 years ago. Namely,</p>
+<p>we don&rsquo;t have an absolute guarantee that we&rsquo;re right when we add a new axiom. We never have,</p>
+<p>and plausibly we never will. So on Alan Turing, you took part in the Lubna Prize?</p>
+<p>Not really. No, I didn&rsquo;t. I mean, there was this kind of ridiculous claim that was made</p>
+<p>some almost a decade ago about a chat bot called Eugene Goostman.</p>
+<p>I guess you didn&rsquo;t participate as a judge in the Lubna Prize.</p>
+<p>I didn&rsquo;t.</p>
+<p>But you participated as a judge in that, I guess it was an exhibition event or something like that,</p>
+<p>or with Eugene&hellip;</p>
+<p>Eugene Goostman, that was just me writing a blog post because some journalist called me to ask</p>
+<p>about it.</p>
+<p>Did you ever chat with him? I thought that&hellip;</p>
+<p>I did chat with Eugene Goostman. I mean, it was available on the web.</p>
+<p>Oh, interesting. I didn&rsquo;t know that.</p>
+<p>So yeah. So all that happened was that a bunch of journalists started writing breathless articles</p>
+<p>about a first chat bot that passes the Turing test. And it was this thing called Eugene Goostman</p>
+<p>that was supposed to simulate a 13 year old boy. And apparently someone had done some test where</p>
+<p>people were less than perfect, let&rsquo;s say, distinguishing it from a human. And they said,</p>
+<p>well, if you look at Turing&rsquo;s paper and you look at the percentages that he talked about,</p>
+<p>then it seemed like we&rsquo;re past that threshold.</p>
+<p>And I had a different way to look at it instead of the legalistic way, like let&rsquo;s just try the</p>
+<p>actual thing out and let&rsquo;s see what it can do with questions like, is Mount Everest bigger</p>
+<p>than a shoebox? Or just like the most obvious questions. And the answer is, well, it just kind</p>
+<p>of parries you because it doesn&rsquo;t know what you&rsquo;re talking about.</p>
+<p>So just to clarify exactly in which way they&rsquo;re obvious. They&rsquo;re obvious in the sense that</p>
+<p>you convert the sentences into the meaning of the objects they represent and then do some basic</p>
+<p>obvious common sense reasoning with the objects that the sentences represent.</p>
+<p>Right. It was not able to answer or even intelligently respond to basic common sense</p>
+<p>questions. But let me say something stronger than that. There was a famous chatbot in the 60s</p>
+<p>called Eliza that managed to actually fool a lot of people. Or people would pour their hearts out</p>
+<p>into this Eliza because it simulated a therapist. And most of what it would do is it would just</p>
+<p>throw back at you whatever you said. And this turned out to be incredibly effective.</p>
+<p>Maybe therapists know this. This is one of their tricks. But it really had some people convinced.</p>
+<p>But this thing was just like, I think it was literally just a few hundred lines of Lisp code.</p>
+<p>It was not only was it not intelligent, it wasn&rsquo;t especially sophisticated. It was</p>
+<p>like a simple little hobbyist program. And Eugene Goostman, from what I could see,</p>
+<p>was not a significant advance compared to Eliza. And that was really the point I was making.</p>
+<p>In some sense, you didn&rsquo;t need a computer science professor to sort of say this. Anyone who was</p>
+<p>looking at it and who just had an ounce of sense could have said the same thing.</p>
+<p>But because these journalists were calling me, the first thing I said was,</p>
+<p>well, I&rsquo;m a quantum computing person. I&rsquo;m not an AI person. You shouldn&rsquo;t ask me. Then they said,</p>
+<p>look, you can go here and you can try it out. I said, all right. All right. So I&rsquo;ll try it out.</p>
+<p>This whole discussion, it got a whole lot more interesting in just the last few months.</p>
+<p>Yeah. I&rsquo;d love to hear your thoughts about GPT3. In the last few months, the world has now seen</p>
+<p>a chat engine or a text engine, I should say, called GPT3. I think it still does not pass</p>
+<p>a Turing test. There are no real claims that it passes the Turing test. This comes out of the</p>
+<p>group at OpenAI, and they&rsquo;ve been relatively careful in what they&rsquo;ve claimed about the system.</p>
+<p>But I think as clearly as Eugene Goostman was not in advance over Eliza, it is equally clear that</p>
+<p>this is a major advance over Eliza or really over anything that the world has seen before.</p>
+<p>This is a text engine that can come up with kind of on topic, reasonable sounding completions to</p>
+<p>just about anything that you ask. You can ask it to write a poem about topic X in the style of poet</p>
+<p>Y and it will have a go at that. And it will do not a great job, not an amazing job, but a passable</p>
+<p>job. Definitely as good as, in many cases, I would say better than I would have done.</p>
+<p>You can ask it to write an essay, like a student essay, about pretty much any topic and it will</p>
+<p>get something that I am pretty sure would get at least a B minus in the most high school or</p>
+<p>even college classes. And in some sense, the way that it did this, the way that it achieves this,</p>
+<p>Scott Alexander of the much mourned blog, Slate Star Codex, had a wonderful way of putting it.</p>
+<p>He said that they basically just ground up the entire internet into a slurry.</p>
+<p>And to tell you the truth, I had wondered for a while why nobody had tried that. Why not write</p>
+<p>a chat bot by just doing deep learning over a corpus consisting of the entire web? And so</p>
+<p>now they finally have done that. And the results are very impressive. It&rsquo;s not clear that people</p>
+<p>can argue about whether this is truly a step toward general AI or not, but this is an amazing</p>
+<p>capability that we didn&rsquo;t have a few years ago. A few years ago, if you had told me that we would</p>
+<p>have it now, that would have surprised me. And I think that anyone who denies that is just not</p>
+<p>engaging with what&rsquo;s there. So their model, it takes a large part of the internet and compresses</p>
+<p>it in a small number of parameters relative to the size of the internet and is able to, without</p>
+<p>fine tuning, do a basic kind of a querying mechanism, just like you described where you</p>
+<p>specify a kind of poet and then you want to write a poem. And it somehow is able to do basically a</p>
+<p>lookup on the internet of relevant things. How else do you explain it?</p>
+<p>Well, okay. The training involved massive amounts of data from the internet and actually took</p>
+<p>lots and lots of computer power, lots of electricity. There are some very prosaic</p>
+<p>reasons why this wasn&rsquo;t done earlier. But it costs some tens of millions of dollars, I think.</p>
+<p>Less, but approximately like a few million dollars.</p>
+<p>Oh, okay. Oh, really? Okay.</p>
+<p>It&rsquo;s more like four or five.</p>
+<p>Oh, all right. All right. Thank you. I mean, as they scale it up, it will&hellip;</p>
+<p>It&rsquo;ll cost, but then the hope is cost comes down and all that kind of stuff.</p>
+<p>But basically, it is a neural net or what&rsquo;s now called a deep net,</p>
+<p>but they&rsquo;re basically the same thing. So it&rsquo;s a form of algorithm that people</p>
+<p>have known about for decades. But it is constantly trying to solve the problem,</p>
+<p>predict the next word. So it&rsquo;s just trying to predict what comes next. It&rsquo;s not trying to</p>
+<p>decide what it should say, what ought to be true. It&rsquo;s trying to predict what someone who had said</p>
+<p>all of the words up to the preceding one would say next.</p>
+<p>Although to push back on that, that&rsquo;s how it&rsquo;s trained.</p>
+<p>That&rsquo;s right. No, of course.</p>
+<p>It&rsquo;s arguable that our very cognition could be a mechanism as that simple.</p>
+<p>Oh, of course. Of course. I never said that it wasn&rsquo;t.</p>
+<p>Right. But&hellip;</p>
+<p>Yeah. I mean, and sometimes that is&hellip; If there is a deep philosophical question that&rsquo;s</p>
+<p>raised by GPT3, then that is it, right? Are we doing anything other than this predictive</p>
+<p>processing, just trying to constantly trying to fill in a blank of what would come next</p>
+<p>after what we just said up to this point? Is that what I&rsquo;m doing right now?</p>
+<p>It&rsquo;s impossible. So the intuition that a lot of people have, well, look,</p>
+<p>this thing is not going to be able to reason, the Mountain Everest question.</p>
+<p>Do you think it&rsquo;s possible that GPT5, 6, and 7 would be able to, with this exact same process,</p>
+<p>begin to do something that looks like&hellip; Is indistinguishable to us humans from reasoning?</p>
+<p>I mean, the truth is that we don&rsquo;t really know what the limits are, right?</p>
+<p>Right. Exactly.</p>
+<p>Because what we&rsquo;ve seen so far is that GPT3 was basically the same thing as GPT2,</p>
+<p>but just with a much larger network, more training time, bigger training corpus,</p>
+<p>right? And it was very noticeably better than its immediate predecessor.</p>
+<p>So we don&rsquo;t know where you hit the ceiling here, right? I mean, that&rsquo;s the amazing part and maybe</p>
+<p>also the scary part, right? Now, my guess would be that at some point, there has to be diminishing</p>
+<p>returns. It can&rsquo;t be that simple, can it? Right? But I wish that I had more to base that guess on.</p>
+<p>Right. Yeah. I mean, some people say that there will be a limitation on the&hellip;</p>
+<p>We&rsquo;re going to hit a limit on the amount of data that&rsquo;s on the internet.</p>
+<p>Yes. Yeah. So sure. So there&rsquo;s certainly that limit. I mean, there&rsquo;s also&hellip;</p>
+<p>If you are looking for questions that will stump GPT3, you can come up with some without&hellip;</p>
+<p>Even getting it to learn how to balance parentheses, right? It doesn&rsquo;t do such a great job,</p>
+<p>right? And its failures are ironic, right? Like basic arithmetic, right?</p>
+<p>And you think, isn&rsquo;t that what computers are supposed to be best at? Isn&rsquo;t that where</p>
+<p>computers already had us beat a century ago? Right? And yet that&rsquo;s where GPT3 struggles,</p>
+<p>right? But it&rsquo;s amazing that it&rsquo;s almost like a young child in that way, right? But somehow,</p>
+<p>because it is just trying to predict what comes next, it doesn&rsquo;t know when it should stop doing</p>
+<p>that and start doing something very different, like some more exact logical reasoning, right?</p>
+<p>And so one is naturally led to guess that our brain sort of has some element of predictive</p>
+<p>processing, but that it&rsquo;s coupled to other mechanisms, right? That it&rsquo;s coupled to,</p>
+<p>first of all, visual reasoning, which GPT3 also doesn&rsquo;t have any of, right?</p>
+<p>Although there&rsquo;s some demonstration that there&rsquo;s a lot of promise there using&hellip;</p>
+<p>Oh yeah, it can complete images. That&rsquo;s right.</p>
+<p>And using exact same kind of transformer mechanisms to like watch videos on YouTube.</p>
+<p>And so the same self supervised mechanism to be able to look,</p>
+<p>it&rsquo;d be fascinating to think what kind of completions you could do.</p>
+<p>Oh yeah, no, absolutely. Although like if we ask it to like, you know,</p>
+<p>a word problem that involve reasoning about the locations of things in space,</p>
+<p>I don&rsquo;t think it does such a great job on those, right? To take an example. And so</p>
+<p>the guess would be, well, you know, humans have a lot of predictive processing,</p>
+<p>a lot of just filling in the blanks, but we also have these other mechanisms that we can</p>
+<p>couple to, or that we can sort of call as subroutines when we need to.</p>
+<p>And that maybe, you know, to go further, that one would want to integrate other forms of reasoning.</p>
+<p>Let me go on another topic that is amazing, which is complexity.</p>
+<p>And then start with the most absurdly romantic question of what&rsquo;s the most beautiful idea in</p>
+<p>computer science or theoretical computer science to you? Like what just early on in your life,</p>
+<p>or in general, have captivated you and just grabbed you?</p>
+<p>I think I&rsquo;m going to have to go with the idea of universality. You know,</p>
+<p>if you&rsquo;re really asking for the most beautiful. I mean, so universality is the idea that, you know,</p>
+<p>you put together a few simple operations, like in the case of Boolean logic, that might be the AND</p>
+<p>gate, the OR gate, the NOT gate, right? And then your first guess is, okay, this is a good start,</p>
+<p>but obviously, as I want to do more complicated things, I&rsquo;m going to need more complicated building</p>
+<p>blocks to express that, right? And that was actually my guess when I first learned what</p>
+<p>programming was. I mean, when I was, you know, an adolescent and someone showed me Apple basic,</p>
+<p>and then, you know, GW basic, if anyone listening remembers that. Okay. But, you know,</p>
+<p>I thought, okay, well, now, you know, I mean, I thought I felt like this is a revelation. You know,</p>
+<p>it&rsquo;s like finding out where babies come from. It&rsquo;s like that level of, you know, why didn&rsquo;t</p>
+<p>anyone tell me this before, right? But I thought, okay, this is just the beginning. Now I know how</p>
+<p>to write a basic program, but, you know, really write an interesting program, like, you know,</p>
+<p>a video game, which had always been my dream as a kid to, you know, create my own Nintendo games,</p>
+<p>right? You know, but, you know, obviously I&rsquo;m going to need to learn some way more complicated</p>
+<p>form of programming than that. Okay. But, you know, eventually I learned this incredible idea</p>
+<p>of universality. And that says that, no, you throw in a few rules and then you already have</p>
+<p>enough to express everything. Okay. So for example, the AND, the OR and the NOT gate can all,</p>
+<p>or in fact, even just the AND and the NOT gate, or even just the NAND gate, for example,</p>
+<p>is already enough to express any Boolean function on any number of bits. You just have to string</p>
+<p>together enough of them. You can build a universe with NAND gates. You can build the universe out of</p>
+<p>NAND gates. Yeah. You know, the simple instructions of BASIC are already enough, at least in principle,</p>
+<p>you know, if we ignore details like how much memory can be accessed and stuff like that,</p>
+<p>that is enough to express what could be expressed by any programming language whatsoever.</p>
+<p>And the way to prove that is very simple. We simply need to show that in BASIC or whatever,</p>
+<p>we could write an interpreter or a compiler for whatever other programming language we care about,</p>
+<p>like C or Java or whatever. And as soon as we had done that, then ipso facto, anything that&rsquo;s</p>
+<p>expressible in C or Java is also expressible in BASIC. Okay. And so this idea of universality,</p>
+<p>you know, goes back at least to Alan Turing in the 1930s when, you know, he</p>
+<p>wrote down this incredibly simple pared down model of a computer, the Turing machine, right,</p>
+<p>which, you know, he pared down the instruction set to just read a symbol, you know, write a symbol,</p>
+<p>move to the left, move to the right, halt, change your internal state, right? That&rsquo;s it. Okay.</p>
+<p>And anybody proved that, you know, this could simulate all kinds of other things, you know,</p>
+<p>and so in fact, today we would say, well, we would call it a Turing universal model of computation</p>
+<p>that is, you know, just as it has just the same expressive power that BASIC or Java or C++ or any</p>
+<p>of those other languages have because anything in those other languages could be compiled down</p>
+<p>to Turing machine. Now, Turing also proved a different related thing, which is that there is</p>
+<p>a single Turing machine that can simulate any other Turing machine if you just describe that</p>
+<p>other machine on its tape, right? And likewise, there is a single Turing machine that will run</p>
+<p>any C program, you know, if you just put it on its tape. That&rsquo;s a second meaning of universality.</p>
+<p>First of all, he couldn&rsquo;t visualize it and that was in the 30s.</p>
+<p>Yeah, the 30s. That&rsquo;s right.</p>
+<p>That&rsquo;s before computers really, I mean, I don&rsquo;t know how, I wonder what that felt like,</p>
+<p>you know, learning that there&rsquo;s no Santa Claus or something. Because I don&rsquo;t know if that&rsquo;s</p>
+<p>empowering or paralyzing because it doesn&rsquo;t give you any, it&rsquo;s like you can&rsquo;t write a software</p>
+<p>engineering book and make that the first chapter and say we&rsquo;re done.</p>
+<p>Well, I mean, right. I mean, in one sense, it was this enormous flattening of the universe.</p>
+<p>Yes.</p>
+<p>I had imagined that there was going to be some infinite hierarchy of more and more powerful</p>
+<p>programming languages, you know, and then I kicked myself for having such a stupid idea.</p>
+<p>But apparently, Gödel had had the same conjecture in the 30s.</p>
+<p>Oh, good. You&rsquo;re in good company.</p>
+<p>Yeah. And then Gödel read Turing&rsquo;s paper and he kicked himself and he said, yeah, I was completely</p>
+<p>wrong about that. But I had thought that maybe where I can contribute will be to invent a new</p>
+<p>more powerful programming language that lets you express things that could never be expressed in</p>
+<p>BASIC. And how would you do that? Obviously, you couldn&rsquo;t do it itself in BASIC. But there</p>
+<p>is this incredible flattening that happens once you learn what is universality. But then it&rsquo;s also</p>
+<p>an opportunity because it means once you know these rules, then the sky is the limit, right?</p>
+<p>Then you have kind of the same weapons at your disposal that the world&rsquo;s greatest programmer has.</p>
+<p>It&rsquo;s now all just a question of how you wield them.</p>
+<p>Right. Exactly. So every problem is solvable, but some problems are harder than others.</p>
+<p>Well, yeah, there&rsquo;s the question of how much time, you know, of how hard is it to write a program?</p>
+<p>And then there&rsquo;s also the questions of what resources does the program need? You know,</p>
+<p>how much time, how much memory? Those are much more complicated questions. Of course,</p>
+<p>ones that we&rsquo;re still struggling with today.</p>
+<p>Exactly. So you&rsquo;ve, I don&rsquo;t know if you created Complexity Zoo or&hellip;</p>
+<p>I did create the Complexity Zoo.</p>
+<p>What is it? What&rsquo;s complexity?</p>
+<p>Oh, all right, all right, all right. Complexity theory is the study of sort of the</p>
+<p>inherent resources needed to solve computational problems, okay? So it&rsquo;s easiest to give an example.</p>
+<p>Like, let&rsquo;s say we want to add two numbers, right? If I want to add them, you know, if the numbers</p>
+<p>are twice as long, then it only, it will take me twice as long to add them, but only twice as long,</p>
+<p>right? It&rsquo;s no worse than that.</p>
+<p>Or a computer.</p>
+<p>For a computer or for a person. We&rsquo;re using pencil and paper, for that matter.</p>
+<p>If you have a good algorithm.</p>
+<p>Yeah, that&rsquo;s right. I mean, even if you just use the elementary school algorithm of just carrying,</p>
+<p>you know, then it takes time that is linear in the length of the numbers, right? Now,</p>
+<p>multiplication, if you use the elementary school algorithm, is harder because you have to multiply</p>
+<p>each digit of the first number by each digit of the second one. And then deal with all the</p>
+<p>carries. So that&rsquo;s what we call a quadratic time algorithm, right? If the numbers become twice as</p>
+<p>long, now you need four times as much time, okay? So now, as it turns out, people discovered much</p>
+<p>faster ways to multiply numbers using computers. And today we know how to multiply two numbers</p>
+<p>that are n digits long using a number of steps that&rsquo;s nearly linear in n. These are questions you</p>
+<p>can ask. But now, let&rsquo;s think about a different thing that people, you know, they&rsquo;ve encountered</p>
+<p>in elementary school, factoring a number. Okay? Take a number and find its prime factors, right?</p>
+<p>And here, you know, if I give you a number with ten digits, I ask you for its prime factors.</p>
+<p>Well, maybe it&rsquo;s even, so you know that two is a factor. You know, maybe it ends in zero,</p>
+<p>so you know that ten is a factor, right? But, you know, other than a few obvious things like that,</p>
+<p>you know, if the prime factors are all very large, then it&rsquo;s not clear how you even get started,</p>
+<p>right? You know, it seems like you have to do an exhaustive search among an enormous number of</p>
+<p>factors. Now, and as many people might know, for better or worse, the security, you know,</p>
+<p>of most of the encryption that we currently use to protect the internet is based on the belief,</p>
+<p>and this is not a theorem, it&rsquo;s a belief, that factoring is an inherently hard problem</p>
+<p>for our computers. We do know algorithms that are better than just trial division, than just trying</p>
+<p>all the possible divisors, but they are still basically exponential. And exponential is hard.</p>
+<p>Yeah, exactly. So the fastest algorithms that anyone has discovered, at least publicly</p>
+<p>discovered, you know, I&rsquo;m assuming that the NSA doesn&rsquo;t know something better,</p>
+<p>okay? But they take time that basically grows exponentially with the cube root of the size of</p>
+<p>the number that you&rsquo;re factoring, right? So that cube root, that&rsquo;s the part that takes all the</p>
+<p>cleverness, okay? But there&rsquo;s still an exponential. There&rsquo;s still an exponentiality there. But what</p>
+<p>that means is that, like, when people use a thousand bit keys for their cryptography,</p>
+<p>that can probably be broken using the resources of the NSA or the world&rsquo;s other intelligence</p>
+<p>agencies. You know, people have done analyses that say, you know, with a few hundred million</p>
+<p>dollars of computer power, they could totally do this. And if you look at the documents that Snowden</p>
+<p>released, you know, it looks a lot like they are doing that or something like that. It would kind</p>
+<p>of be surprising if they weren&rsquo;t, okay? But, you know, if that&rsquo;s true, then in some ways that&rsquo;s</p>
+<p>reassuring. Because if that&rsquo;s the best that they can do, then that would say that they can&rsquo;t break</p>
+<p>2,000 bit numbers, right? Then 2,000 bit numbers would be beyond what even they could do.</p>
+<p>They haven&rsquo;t found an efficient algorithm. That&rsquo;s where all the worries and the concerns of quantum</p>
+<p>computing came in, that there could be some kind of shortcut around that.</p>
+<p>Right. So complexity theory is a huge part of, let&rsquo;s say, the theoretical core of computer</p>
+<p>science. You know, it started in the 60s and 70s as, you know, sort of an autonomous field. So it</p>
+<p>was, you know, already, you know, I mean, you know, it was well developed even by the time that</p>
+<p>I was born, okay? But in 2002, I made a website called the Complexity Zoo, to answer your question,</p>
+<p>where I just tried to catalog the different complexity classes, which are classes of problems</p>
+<p>that are solvable with different kinds of resources, okay? So these are kind of, you know,</p>
+<p>you could think of complexity classes as like being almost to theoretical computer science,</p>
+<p>like what the elements are to chemistry, right? They&rsquo;re sort of, you know, there are our most</p>
+<p>basic objects in a certain way. I feel like the elements</p>
+<p>have a characteristic to them where you can&rsquo;t just add an infinite number.</p>
+<p>Well, you could, but beyond a certain point, they become unstable, right? Right. So it&rsquo;s like,</p>
+<p>you know, in theory, you can have atoms with, you know, and look, look, I mean, I mean,</p>
+<p>a neutron star, you know, is a nucleus with, you know, uncalled billions of neutrons in it,</p>
+<p>of hadrons in it, okay? But, you know, for sort of normal atoms, right, probably you can&rsquo;t get</p>
+<p>much above a hundred atomic weight, 150 or so, or sorry, sorry, I mean, beyond 150 or so protons</p>
+<p>without it, you know, very quickly fissioning. With complexity classes, well, yeah, you can have</p>
+<p>an infinity of complexity classes, but, you know, maybe there&rsquo;s only a finite number of them that</p>
+<p>are particularly interesting, right? Just like with anything else, you know, you care about</p>
+<p>some more than about others. So what kind of interesting classes are there? I mean,</p>
+<p>you could have just, maybe say, what are the, if you take any kind of computer science class,</p>
+<p>what are the classes you learn? Good. Let me tell you sort of the biggest ones,</p>
+<p>the ones that you would learn first. So, you know, first of all, there is P, that&rsquo;s what it&rsquo;s called,</p>
+<p>okay? It stands for polynomial time. And this is just the class of all of the problems that you</p>
+<p>could solve with a conventional computer, like your iPhone or your laptop, you know,</p>
+<p>by a completely deterministic algorithm, right? Using a number of steps that grows only like the</p>
+<p>size of the input raised to some fixed power, okay? So, if your algorithm is linear time,</p>
+<p>like, you know, for adding numbers, okay, that problem is in P. If you have an algorithm that&rsquo;s</p>
+<p>quadratic time, like the elementary school algorithm for multiplying two numbers, that&rsquo;s also</p>
+<p>in P, even if it was the size of the input to the 10th power or to the 50th power, well, that wouldn&rsquo;t</p>
+<p>be very good in practice. But, you know, formally, we would still count that, that would still be in</p>
+<p>P, okay? But if your algorithm takes exponential time, meaning like if every time I add one more</p>
+<p>data point to your input, if the time needed by the algorithm doubles, if you need time like two</p>
+<p>to the power of the amount of input data, then that we call an exponential time algorithm, okay?</p>
+<p>And that is not polynomial, okay? So, P is all of the problems that have some polynomial time</p>
+<p>algorithm, okay? So, that includes most of what we do with our computers on a day to day basis,</p>
+<p>you know, all the, you know, sorting, basic arithmetic, you know, whatever is going on in</p>
+<p>your email reader or in Angry Birds, okay? It&rsquo;s all in P. Then the next super important class</p>
+<p>is called NP. That stands for non deterministic polynomial, okay? It does not stand for not</p>
+<p>polynomial, which is a common confusion. But NP was basically all of the problems</p>
+<p>where if there is a solution, then it is easy to check the solution if someone shows it to you,</p>
+<p>okay? So, actually a perfect example of a problem in NP is factoring, the one I told you about</p>
+<p>before. Like if I gave you a number with thousands of digits and I told you that, you know, I asked</p>
+<p>you, does this have at least three non trivial divisors, right? That might be a super hard problem</p>
+<p>to solve, right? It might take you millions of years using any algorithm that&rsquo;s known, at least</p>
+<p>running on our existing computers, okay? But if I simply showed you the divisors, I said,</p>
+<p>here are three divisors of this number, then it would be very easy for you to ask your computer</p>
+<p>to just check each one and see if it works. Just divide it in, see if there&rsquo;s any remainder,</p>
+<p>right? And if they all go in, then you&rsquo;ve checked. Well, I guess there were, right? So any problem</p>
+<p>where, you know, wherever there&rsquo;s a solution, there is a short witness that can be easily,</p>
+<p>like a polynomial size witness that can be checked in polynomial time, that we call an NP problem,</p>
+<p>okay? And yeah, so every problem that&rsquo;s in P is also in NP, right? Because, you know, you could</p>
+<p>always just ignore the witness and just, you know, if a problem is in P, you can just solve it</p>
+<p>yourself, okay? But now, in some sense, the central, you know, mystery of theoretical computer science</p>
+<p>is every NP problem in P. So if you can easily check the answer to a computational problem,</p>
+<p>does that mean that you can also easily find the answer?</p>
+<p>Even though there&rsquo;s all these problems that appear to be very difficult to find the answer,</p>
+<p>it&rsquo;s still an open question whether a good answer exists.</p>
+<p>Because no one has proven that there&rsquo;s no way to do it.</p>
+<p>It&rsquo;s arguably the most, I don&rsquo;t know, the most famous, the most maybe interesting,</p>
+<p>maybe you disagree with that, problem in theoretical computer science. So what&rsquo;s your</p>
+<p>The most famous, for sure.</p>
+<p>P equals NP. If you were to bet all your money, where do you put your money?</p>
+<p>That&rsquo;s an easy one. P is not equal to NP. I like to say that if we were physicists,</p>
+<p>we would have just declared that to be a law of nature, you know, just like thermodynamics.</p>
+<p>That&rsquo;s hilarious.</p>
+<p>Given ourselves Nobel Prizes for its discovery. Yeah, you know, and look, if later it turned out</p>
+<p>that we were wrong, we just give ourselves more Nobel Prizes.</p>
+<p>So harsh, but so true.</p>
+<p>I mean, no, I mean, I mean, it&rsquo;s really just because we are mathematicians or descended</p>
+<p>from mathematicians, you know, we have to call things conjectures that other people</p>
+<p>would just call empirical facts or discoveries, right?</p>
+<p>But one shouldn&rsquo;t read more into that difference in language, you know,</p>
+<p>about the underlying truth.</p>
+<p>So, okay, so you&rsquo;re a good investor and good spender of money. So then let me ask another</p>
+<p>way. Is it possible at all? And what would that look like if P indeed equals NP?</p>
+<p>Well, I do think that it&rsquo;s possible. I mean, in fact, you know, when people really pressed</p>
+<p>me on my blog for what odds would I put, I put, you know, two or three percent odds.</p>
+<p>Wow, that&rsquo;s pretty good.</p>
+<p>That P equals NP. Yeah. Well, because, you know, when P, I mean, you really have to think</p>
+<p>about, like, if there were 50, you know, mysteries like P versus NP, and if I made a guess about</p>
+<p>every single one of them, would I expect to be right 50 times? Right? And the truthful</p>
+<p>answer is no. Okay.</p>
+<p>Yeah.</p>
+<p>So, you know, and that&rsquo;s what you really mean in saying that, you know, you have, you know,</p>
+<p>better than 98% odds for something. Okay. But so, yeah, you know, I mean, there could</p>
+<p>certainly be surprises. And look, if P equals NP, well, then there would be the further</p>
+<p>question of, you know, is the algorithm actually efficient in practice? Right? I mean, Don</p>
+<p>Knuth, who I know that you&rsquo;ve interviewed as well, right, he likes to conjecture that</p>
+<p>P equals NP, but that the algorithm is so inefficient that it doesn&rsquo;t matter anyway.</p>
+<p>Right?</p>
+<p>No, I don&rsquo;t know. I&rsquo;ve listened to him say that. I don&rsquo;t know whether he says that just</p>
+<p>because he has an actual reason for thinking it&rsquo;s true or just because it sounds cool.</p>
+<p>Yeah.</p>
+<p>Okay. But, you know, that&rsquo;s a logical possibility, right, that the algorithm could be n to the</p>
+<p>10,000 time, or it could even just be n squared time, but with a leading constant of, it could</p>
+<p>be a Google times n squared or something like that. And in that case, the fact that P equals</p>
+<p>NP, well, it would ravage the whole theory of complexity. We would have to rebuild from</p>
+<p>the ground up. But in practical terms, it might mean very little, right, if the algorithm</p>
+<p>was too inefficient to run. If the algorithm could actually be run in practice, like if</p>
+<p>it had small enough constants, or if you could improve it to where it had small enough constants</p>
+<p>that was efficient in practice, then that would change the world. Okay?</p>
+<p>You think it would have, like, what kind of impact would it have?</p>
+<p>Well, okay, I mean, here&rsquo;s an example. I mean, you could, well, okay, just for starters,</p>
+<p>you could break basically all of the encryption that people use to protect the internet.</p>
+<p>That&rsquo;s just for starters.</p>
+<p>You could break Bitcoin and every other cryptocurrency, or, you know,</p>
+<p>mine as much Bitcoin as you wanted, right? You know, become a super duper billionaire,</p>
+<p>right? And then plot your next move.</p>
+<p>Right. That&rsquo;s just for starters. That&rsquo;s a good point.</p>
+<p>Now, your next move might be something like, you know, you now have, like, a theoretically</p>
+<p>optimal way to train any neural network, to find parameters for any neural network, right?</p>
+<p>So you could now say, like, is there any small neural network that generates the entire content</p>
+<p>of Wikipedia, right? If, you know, and now the question is not, can you find it? The</p>
+<p>question has been reduced to, does that exist or not? If it does exist, then the answer would be,</p>
+<p>yes, you can find it, okay? If you had this algorithm in your hands, okay?</p>
+<p>You could ask your computer, you know, I mean, P versus NP is one of these seven problems that</p>
+<p>carries this million dollar prize from the Clay Foundation. You know, if you solve it,</p>
+<p>you know, and others are the Riemann hypothesis, the Poincare conjecture, which was solved,</p>
+<p>although the solver turned down the prize, right, and four others. But what I like to say,</p>
+<p>the way that we can see that P versus NP is the biggest of all of these questions</p>
+<p>is that if you had this fast algorithm, then you could solve all seven of them,</p>
+<p>okay? You just ask your computer, you know, is there a short proof of the Riemann hypothesis,</p>
+<p>right? You know, that a machine could, in a language where a machine could verify it,</p>
+<p>and provided that such a proof exists, then your computer finds it</p>
+<p>in a short amount of time without having to do a brute force search, okay? So, I mean,</p>
+<p>those are the stakes of what we&rsquo;re talking about. But I hope that also helps to give your listeners</p>
+<p>some intuition of why I and most of my colleagues would put our money on P not equaling NP.</p>
+<p>Is it possible, I apologize this is a really dumb question, but is it possible to,</p>
+<p>that a proof will come out that P equals NP, but an algorithm that makes P equals NP</p>
+<p>is impossible to find? Is that like crazy? Okay, well, if P equals NP, it would mean</p>
+<p>that there is such an algorithm. That it exists, yeah.</p>
+<p>But, you know, it would mean that it exists. Now, you know, in practice, normally the way that we</p>
+<p>would prove anything like that would be by finding the algorithm. But there is such a thing as a</p>
+<p>nonconstructive proof that an algorithm exists. You know, this has really only reared its head,</p>
+<p>I think, a few times in the history of our field, right? But, you know, it is theoretically possible</p>
+<p>that such a thing could happen. But, you know, there are, even here, there are some amusing</p>
+<p>observations that one could make. So there is this famous observation of Leonid Levin, who was,</p>
+<p>you know, one of the original discoverers of NP completeness, right? And he said,</p>
+<p>we&rsquo;ll consider the following algorithm that I guarantee will solve the NP problems efficiently,</p>
+<p>just as provided that P equals NP, okay? Here is what it does. It just runs, you know,</p>
+<p>it enumerates every possible algorithm in a gigantic infinite list, right? From like in</p>
+<p>like alphabetical order, right? You know, and many of them maybe won&rsquo;t even compile,</p>
+<p>so we just ignore those, okay? But now, we just, you know, run the first algorithm,</p>
+<p>then we run the second algorithm, we run the first one a little bit more,</p>
+<p>then we run the first three algorithms for a while, we run the first four for a while.</p>
+<p>This is called dovetailing, by the way. This is a known trick in theoretical computer science,</p>
+<p>okay? But we do it in such a way that, you know, whatever is the algorithm out there in our list</p>
+<p>that solves NP complete, you know, the NP problems efficiently, will eventually hit that one,</p>
+<p>right? And now, the key is that whenever we hit that one, you know, by assumption,</p>
+<p>it has to solve the problem, it has to find the solution, and once it claims to find a solution,</p>
+<p>then we can check that ourselves, right? Because these are NP problems, then we can check it.</p>
+<p>Now, this is utterly impractical, right? You know, you&rsquo;d have to do this enormous exhaustive search</p>
+<p>among all the algorithms, but from a certain theoretical standpoint, that is merely a constant</p>
+<p>prefactor, right? That&rsquo;s merely a multiplier of your running time. So, there are tricks like that</p>
+<p>one can do to say that, in some sense, the algorithm would have to be constructive. But,</p>
+<p>you know, in the human sense, you know, it is possible that to, you know, it&rsquo;s conceivable</p>
+<p>that one could prove such a thing via a nonconstructive method. Is that likely? I don&rsquo;t</p>
+<p>think so. Not personally. So, that&rsquo;s P and NP, but the complexity zoo is full of wonderful</p>
+<p>creatures. Well, it&rsquo;s got about 500 of them. 500. So, how do you get, yeah, how do you get more?</p>
+<p>I mean, just for starters, there is everything that we could do with a conventional computer</p>
+<p>with a polynomial amount of memory, okay, but possibly an exponential amount of time,</p>
+<p>because we get to reuse the same memory over and over again. Okay, that is called P space,</p>
+<p>okay? And that&rsquo;s actually, we think, an even larger class than NP. Okay, well, P is contained</p>
+<p>in NP, which is contained in P space. And we think that those containments are strict.</p>
+<p>And the constraint there is on the memory. The memory has to grow</p>
+<p>polynomially with the size of the process. That&rsquo;s right. That&rsquo;s right. But in P space,</p>
+<p>we now have interesting things that were not in NP, like as a famous example, you know,</p>
+<p>from a given position in chess, you know, does white or black have the win? Let&rsquo;s say,</p>
+<p>assuming provided that the game lasts only for a reasonable number of moves, okay? Or likewise,</p>
+<p>for go, okay? And, you know, even for the generalizations of these games to arbitrary</p>
+<p>size boards, because with an eight by eight board, you could say that&rsquo;s just a constant</p>
+<p>size problem. You just, you know, in principle, you just solve it in O of one time, right?</p>
+<p>But so we really mean the generalizations of, you know, games to arbitrary size boards here.</p>
+<p>Or another thing in P space would be, like, I give you some really hard constraint satisfaction</p>
+<p>problem, like, you know, a traveling salesperson or, you know, packing boxes into the trunk of</p>
+<p>your car or something like that. And I ask, not just is there a solution, which would be an NP</p>
+<p>problem, but I ask how many solutions are there, okay? That, you know, count the number of valid</p>
+<p>solutions. That actually gives, those problems lie in a complexity class called sharp P, or like,</p>
+<p>it looks like hashtag, like hashtag P, okay, which sits between NP and P space.</p>
+<p>There&rsquo;s all the problems that you can do in exponential time, okay? That&rsquo;s called exp. So,</p>
+<p>and by the way, it was proven in the 60s that exp is larger than P, okay? So we know that much.</p>
+<p>We know that there are problems that are solvable in exponential time that are not solvable in</p>
+<p>polynomial time, okay? In fact, we even know, we know that there are problems that are solvable in</p>
+<p>n cubed time that are not solvable in n squared time. And that, those don&rsquo;t help us with a</p>
+<p>controversy between P and NP at all. Unfortunately, it seems not, or certainly not yet, right?</p>
+<p>The techniques that we use to establish those things, they&rsquo;re very, very related to how Turing</p>
+<p>proved the unsolvability of the halting problem, but they seem to break down when we&rsquo;re comparing</p>
+<p>two different resources, like time versus space, or like, you know, P versus NP, okay? But, you know,</p>
+<p>I mean, there&rsquo;s what you can do with a randomized algorithm, right? That can be done with a</p>
+<p>random algorithm, right? That can sometimes, you know, has some probability of making a mistake.</p>
+<p>That&rsquo;s called BPP, bounded error probabilistic polynomial time. And then, of course, there&rsquo;s</p>
+<p>one that&rsquo;s very close to my own heart, what you can efficiently do in polynomial time using a</p>
+<p>quantum computer, okay? And that&rsquo;s called BQP, right? And so, you know, what&rsquo;s understood about</p>
+<p>it? Okay, so P is contained in BPP, which is contained in BQP, which is contained in P space,</p>
+<p>okay? So anything you can, in fact, in something very similar to sharp P. BQP is basically,</p>
+<p>you know, well, it&rsquo;s contained in like P with the magic power to solve sharp P problems, okay?</p>
+<p>Why is BQP contained in P space?</p>
+<p>Oh, that&rsquo;s an excellent question. So there is, well, I mean, one has to prove that, okay? But</p>
+<p>the proof, you could think of it as using Richard Feynman&rsquo;s picture of quantum mechanics,</p>
+<p>which is that you can always, you know, we haven&rsquo;t really talked about quantum mechanics in this</p>
+<p>conversation. We did in our previous one.</p>
+<p>Yeah, we did last time.</p>
+<p>But yeah, we did last time, okay? But basically, you could always think of a quantum computation</p>
+<p>as like a branching tree of possibilities where each possible path that you could take</p>
+<p>through, you know, the space has a complex number attached to it called an amplitude, okay? And now</p>
+<p>the rule is, you know, when you make a measurement at the end, well, you see a random answer,</p>
+<p>okay? But quantum mechanics is all about calculating the probability that you&rsquo;re</p>
+<p>going to see one potential answer versus another one, right? And the rule for calculating the</p>
+<p>probability that you&rsquo;ll see some answer is that you have to add up the amplitudes for all of the</p>
+<p>paths that could have led to that answer. And then, you know, that&rsquo;s a complex number, so that,</p>
+<p>you know, how could that be a probability? Then you take the squared absolute value of the result.</p>
+<p>That gives you a number between zero and one, okay? So yeah, I just summarized quantum mechanics</p>
+<p>in like 30 seconds, okay? But now, you know, what this already tells us is that anything I can do</p>
+<p>with a quantum computer, I could simulate with a classical computer if I only have exponentially</p>
+<p>more time, okay? And why is that? Because if I have exponential time, I could just write down this</p>
+<p>entire branching tree and just explicitly calculate each of these amplitudes, right? You know, that</p>
+<p>will be very inefficient, but it will work, right? It&rsquo;s enough to show that quantum computers could</p>
+<p>not solve the halting problem or, you know, they could never do anything that is literally</p>
+<p>uncomputable in Turing&rsquo;s sense, okay? But now, as I said, there&rsquo;s even a stronger result which says</p>
+<p>that BQP is contained in PSPACE. The way that we prove that is that we say, if all I want is to</p>
+<p>calculate the probability of some particular output happening, you know, which is all I need to</p>
+<p>simulate a quantum computer, really, then I don&rsquo;t need to write down the entire quantum state,</p>
+<p>which is an exponentially large object. All I need to do is just calculate what is the amplitude for</p>
+<p>that final state. And to do that, I just have to sum up all the amplitudes that lead to that state.</p>
+<p>Okay, so that&rsquo;s an exponentially large sum, but I can calculate it just reusing the same memory over</p>
+<p>and over for each term in the sum. And hence the p, in the PSPACE? Hence the PSPACE. Yeah.</p>
+<p>So what, out of that whole complexity zoo, and it could be BQP, what do you find is the most,</p>
+<p>the class that captured your heart the most, the most beautiful class that&rsquo;s just, yeah.</p>
+<p>I used, as my email address, bqpqpoly at gmail.com. Yes, because BQP slash Qpoly,</p>
+<p>well, you know, amazingly no one had taken it.</p>
+<p>Amazing, amazing.</p>
+<p>But, you know, this is a class that I was involved in sort of defining,</p>
+<p>proving the first theorems about in 2003 or so. So it was kind of close to my heart.</p>
+<p>But this is like, if we extended BQP, which is the class of everything we can do efficiently</p>
+<p>with a quantum computer, to allow quantum advice, which means imagine that you had some</p>
+<p>special initial state, okay, that could somehow help you do computation. And maybe</p>
+<p>such a state would be exponentially hard to prepare, okay, but maybe somehow these states</p>
+<p>were formed in the Big Bang or something, and they&rsquo;ve just been sitting around ever since,</p>
+<p>right? If you found one, and if this state could be like ultra power, there are no limits on how</p>
+<p>powerful it could be, except that this state doesn&rsquo;t know in advance which input you&rsquo;ve got,</p>
+<p>right? It only knows the size of your input. You know, and that&rsquo;s BQP slash Qpoly. So that&rsquo;s</p>
+<p>one that I just personally happen to love, okay? But, you know, if you&rsquo;re asking like what&rsquo;s the,</p>
+<p>you know, there&rsquo;s a class that I think is way more beautiful or fundamental than a lot of people</p>
+<p>even within this field realize that it is. That class is called SZK, or Statistical Zero Knowledge.</p>
+<p>And, you know, there&rsquo;s a very, very easy way to define this class, which is to say, suppose that</p>
+<p>I have two algorithms that each sample from probability distributions, right? So each one</p>
+<p>just outputs random samples according to, you know, possibly different distributions. And now</p>
+<p>the question I ask is, you know, let&rsquo;s say distributions over strings of n bits, you know,</p>
+<p>so over an exponentially large space. Now I ask, are these two distributions close or far as</p>
+<p>close or far as probability distributions? Okay. Any problem that can be reduced to that,</p>
+<p>you know, that can be put into that form is an SZK problem. And the way that this class was</p>
+<p>originally discovered was completely different from that and was kind of more complicated. It</p>
+<p>was discovered as the class of all of the problems that have a certain kind of what&rsquo;s called zero</p>
+<p>knowledge proof. Zero knowledge proofs are one of the central ideas in cryptography. You know,</p>
+<p>Shafi Goldwasser and Silvio McCauley won the Turing Award for, you know, inventing them.</p>
+<p>And they&rsquo;re at the core of even some cryptocurrencies that, you know, people use</p>
+<p>nowadays. But zero knowledge proofs are ways of proving to someone that something is true,</p>
+<p>like, you know, that there is a solution to this, you know, optimization problem or that these two</p>
+<p>graphs are isomorphic to each other or something, but without revealing why it&rsquo;s true, without</p>
+<p>revealing anything about why it&rsquo;s true. Okay. SZK is all of the problems for which there is such a</p>
+<p>proof that doesn&rsquo;t rely on any cryptography. Okay. And if you wonder, like, how could such a thing</p>
+<p>possibly exist, right? Well, like, imagine that I had two graphs and I wanted to convince you</p>
+<p>that these two graphs are not isomorphic, meaning, you know, I cannot permute one of them so that</p>
+<p>it&rsquo;s the same as the other one, right? You know, that might be a very hard statement to prove,</p>
+<p>right? I might need, you know, you might have to do a very exhaustive enumeration of, you know,</p>
+<p>all the different permutations before you were convinced that it was true. But what if there were</p>
+<p>some all knowing wizard that said to you, look, I&rsquo;ll tell you what, just pick one of the graphs</p>
+<p>randomly, then randomly permute it, then send it to me and I will tell you which graph you started</p>
+<p>with. Okay. And I will do that every single time. Right. And let&rsquo;s say that that wizard did that a</p>
+<p>hundred times and it was right every time. Yeah. Right. Now, if the graphs were isomorphic, then,</p>
+<p>you know, it would have been flipping a coin each time, right? It would have had only a one and two</p>
+<p>to the 100 power chance of, you know, of guessing right each time. But, you know, so, so if it&rsquo;s</p>
+<p>right every time, then now you&rsquo;re statistically convinced that these graphs are not isomorphic,</p>
+<p>even though you&rsquo;ve learned nothing new about why they aren&rsquo;t. So fascinating. So yeah. So,</p>
+<p>so SDK is all of the problems that have protocols like that one, but it has this beautiful other</p>
+<p>characterization. It&rsquo;s shown up again and again in my, in my own work and, you know, a lot of</p>
+<p>people&rsquo;s work. And I think that it really is one of the most fundamental classes. It&rsquo;s just that</p>
+<p>people didn&rsquo;t realize that when it was first discovered. So we&rsquo;re living in the middle of</p>
+<p>a pandemic currently. Yeah. How has your life been changed or no better to ask, like, how has your</p>
+<p>perspective of the world change with this world changing event of a pandemic overtaking the entire</p>
+<p>world? Yeah. Well, I mean, I mean, all of our lives have changed, you know, like, I guess,</p>
+<p>as with no other event since I was born, you know, you would have to go back to world war II</p>
+<p>for something, I think of this magnitude, you know, on, you know, the way that we live our lives</p>
+<p>as for how it has changed my worldview. I think that the, the failure of institutions,</p>
+<p>you know, like, like, like the CDC, like, you know, other institutions that we sort of thought</p>
+<p>were, were trustworthy, like a lot of the media was staggering, was, was absolutely breathtaking.</p>
+<p>It is something that I would not have predicted. Right. I think I, I wrote on my blog that, you</p>
+<p>know, the, you know, it&rsquo;s, it&rsquo;s, it&rsquo;s fascinating to like rewatch the movie Contagion from a decade</p>
+<p>ago, right. That correctly foresaw so many aspects of, you know, what was going on, you know, an</p>
+<p>airborne, you know, virus originates in China, spreads to, you know, much of the world, you know,</p>
+<p>shuts everything down until a vaccine can be developed. You know, everyone has to stay at home,</p>
+<p>you know, you know, it gets, you know, an enormous number of things, right. Okay. But the one thing</p>
+<p>that they could not imagine, you know, is that like in this movie, everyone from the government</p>
+<p>is like hyper competent, hyper, you know, dedicated to the public good, right. And you</p>
+<p>know, yeah, they&rsquo;re the, they&rsquo;re the best of the best, you know, they could, you know, and, and</p>
+<p>there are these conspiracy theorists, right. Who think, you know, you know, this is all fake news.</p>
+<p>There&rsquo;s no, there&rsquo;s not really a pandemic. And those are some random people on the internet who</p>
+<p>the hyper competent government people have to, you know, oppose, right. They, you know, in, in trying</p>
+<p>to envision the worst thing that could happen, like, you know, the, the, there was a failure of</p>
+<p>imagination. The movie makers did not imagine that the conspiracy theorists and the, you know,</p>
+<p>and the incompetence and the nutcases would have captured our institutions and be the ones actually</p>
+<p>running things. So you had a certain, I love competence in all walks of life. I love, I get</p>
+<p>so much energy. I&rsquo;m so excited by people who do amazing job. And I like you, or maybe you can</p>
+<p>clarify, but I had maybe not intuition, but I hope that government at its best could be ultra</p>
+<p>competent. What, first of all, two questions, like how do you explain the lack of confidence</p>
+<p>and the other, maybe on the positive side, how can we build a more competent government?</p>
+<p>Well, there&rsquo;s an election in two months. I mean, you have a faith that the election,</p>
+<p>I, you know, it&rsquo;s not going to fix everything, but you know, it&rsquo;s like,</p>
+<p>I feel like there is a ship that is sinking and you could at least stop the sinking.</p>
+<p>But, you know, I think that there are much, much deeper problems. I mean, I think that,</p>
+<p>you know, it is plausible to me that, you know, a lot of the failures, you know, with the CDC,</p>
+<p>with some of the other health agencies, even, you know, predate Trump, you know, predate the,</p>
+<p>you know, right wing populism that has sort of taken over much of the world now. And, you know,</p>
+<p>I think that, you know, it is, you know, it is very, I&rsquo;m actually, you know, I&rsquo;ve actually been</p>
+<p>strongly in favor of, you know, rushing vaccines of, you know, I thought that we could have done,</p>
+<p>you know, human challenge trials, you know, which were not done, right? We could have, you know,</p>
+<p>like had, you know, volunteers, you know, to actually, you know, be, you know, get vaccines,</p>
+<p>get, you know, exposed to COVID. So innovative ways of accelerating what we&rsquo;ve done previously</p>
+<p>over a long time. I thought that, you know, each month that a vaccine is closer is like trillions</p>
+<p>of dollars. Are you surprised? And of course, lives, you know, at least, you know, hundreds</p>
+<p>of thousands of lives. Are you surprised that it&rsquo;s taking this long? We still don&rsquo;t have a plan.</p>
+<p>There&rsquo;s still not a feeling like anyone is actually doing anything in terms of alleviating,</p>
+<p>like any kind of plan. So there&rsquo;s a bunch of stuff, there&rsquo;s vaccine, but you could also do</p>
+<p>a testing infrastructure where everybody&rsquo;s tested nonstop with contact tracing, all that kind of.</p>
+<p>Well, I mean, I&rsquo;m as surprised as almost everyone else. I mean, this is a historic failure. It is</p>
+<p>one of the biggest failures in the 240 year history of the United States, right? And we should</p>
+<p>be, you know, crystal clear about that. And, you know, one thing that I think has been missing,</p>
+<p>you know, even from the more competent side is like, you know, is sort of the World War II</p>
+<p>mentality, right? The, you know, the mentality of, you know, let&rsquo;s just, you know, you know,</p>
+<p>if we can, by breaking a whole bunch of rules, you know, get a vaccine and, you know, and even</p>
+<p>half the amount of time as we thought, then let&rsquo;s just do that because, you know, like we have to</p>
+<p>weigh all of the moral qualms that we have about doing that against the moral qualms of not doing.</p>
+<p>And one key little aspect to that that&rsquo;s deeply important to me, and we&rsquo;ll go into that topic</p>
+<p>next, is the World War II mentality wasn&rsquo;t just about, you know, breaking all the rules to get</p>
+<p>the job done. There was a togetherness to it. So I would, if I were president right now, it seems</p>
+<p>quite elementary to unite the country because we&rsquo;re facing a crisis. It&rsquo;s easy to make the</p>
+<p>virus the enemy. And it&rsquo;s very surprising to me that the division has increased as opposed to</p>
+<p>decrease. That&rsquo;s heartbreaking. Yeah. Well, look, I mean, it&rsquo;s been said by others that this is the</p>
+<p>first time in the country&rsquo;s history that we have a president who does not even pretend to, you know,</p>
+<p>want to unite the country. I mean, Lincoln, who fought a civil war, said he wanted to unite the</p>
+<p>country. And I do worry enormously about what happens if the results of this election are</p>
+<p>contested. And will there be violence as a result of that? And will we have a clear path of succession?</p>
+<p>And, you know, look, I mean, you know, this is all we&rsquo;re going to find out the answers to this in</p>
+<p>two months. And if none of that happens, maybe I&rsquo;ll look foolish. But I am willing to go on the</p>
+<p>record and say, I am terrified about that. Yeah, I&rsquo;ve been reading The Rise and Fall of the Third</p>
+<p>Reich. So if I can, this is like one little voice just to put out there that I think November will</p>
+<p>be a really critical month for people to breathe and put love out there. Do not, you know, anger in</p>
+<p>those in that context, no matter who wins, no matter what is said, will destroy our country,</p>
+<p>may destroy our country, may destroy the world because of the power of the country. So it&rsquo;s</p>
+<p>really important to be patient, loving, empathetic. Like one of the things that troubles me is that</p>
+<p>even people on the left are unable to have a love and respect for people who voted for Trump. They</p>
+<p>can&rsquo;t imagine that there&rsquo;s good people that could vote for the opposite side. Oh, I know there are</p>
+<p>because I know some of them, right? I mean, you know, it&rsquo;s still, you know, maybe it baffles me,</p>
+<p>but, you know, I know such people. Let me ask you this. It&rsquo;s also heartbreaking to me</p>
+<p>on the topic of cancel culture. So in the machine learning community, I&rsquo;ve seen it a little bit</p>
+<p>that there&rsquo;s aggressive attacking of people who are trying to have a nuanced conversation about</p>
+<p>things. And it&rsquo;s troubling because it feels like nuanced conversation is the only way to talk about</p>
+<p>difficult topics. And when there&rsquo;s a thought police and speech police on any nuanced conversation</p>
+<p>that everybody has to like in a animal farm chant that racism is bad and sexism is bad, which is</p>
+<p>things that everybody believes and they can&rsquo;t possibly say anything nuanced. It feels like it</p>
+<p>goes against any kind of progress from my kind of shallow perspective. But you&rsquo;ve written a little</p>
+<p>bit about cancel culture. Do you have thoughts there? Well, I mean, to say that I am opposed to,</p>
+<p>you know, this trend of cancellations or of shouting people down rather than engaging them,</p>
+<p>that would be a massive understatement, right? And I feel like, you know, I have put my money</p>
+<p>where my mouth is, you know, not as much as some people have, but, you know, I&rsquo;ve tried to do</p>
+<p>something. I mean, I have defended, you know, some unpopular people and unpopular, you know, ideas</p>
+<p>on my blog. I&rsquo;ve, you know, tried to defend, you know, norms of open discourse, of, you know,</p>
+<p>reasoning with our opponents, even when I&rsquo;ve been shouted down for that on social media,</p>
+<p>you know, called a racist, called a sexist, all of those things. And which, by the way,</p>
+<p>I should say, you know, I would be perfectly happy to, you know, if we had time to say, you know,</p>
+<p>you know, 10,000 times, you know, my hatred of racism, of sexism, of homophobia, right?</p>
+<p>But what I don&rsquo;t want to do is to cede to some particular political faction the right to define</p>
+<p>exactly what is meant by those terms to say, well, then you have to agree with all of these other</p>
+<p>extremely contentious positions or else you are a misogynist or else you are a racist, right?</p>
+<p>I say that, well, no, you know, don&rsquo;t I or, you know, don&rsquo;t people like me also get a say in the</p>
+<p>discussion about, you know, what is racism, about what is going to be the most effective to combat</p>
+<p>racism, right? And, you know, this cancellation mentality, I think, is spectacularly ineffective</p>
+<p>at its own professed gall of, you know, combating racism and sexism.</p>
+<p>What&rsquo;s a positive way out? So I, I try to, I don&rsquo;t know if you see what I do on Twitter,</p>
+<p>but I, on Twitter, I mostly, in my whole, in my life, I&rsquo;ve actually, it&rsquo;s who I am to the core is</p>
+<p>like, I really focus on the positive and I try to put love out there in the world. And still,</p>
+<p>I get attacked. And I look at that and I wonder like,</p>
+<p>You too? I didn&rsquo;t know.</p>
+<p>Like, I haven&rsquo;t actually said anything difficult and nuanced. You talk about somebody like</p>
+<p>Steven Pinker, who I&rsquo;m actually don&rsquo;t know the full range of things that he&rsquo;s attacked for,</p>
+<p>but he tries to say difficult. He tries to be thoughtful about difficult topics.</p>
+<p>He does.</p>
+<p>And obviously he just gets slaughtered by.</p>
+<p>Well, I mean, yes, but it&rsquo;s also amazing how well Steve has withstood it. I mean,</p>
+<p>he just survived that attempt to cancel him just a couple of months ago, right?</p>
+<p>Psychologically, he survives it too, which worries me because I don&rsquo;t think I can.</p>
+<p>Yeah, I&rsquo;ve gotten to know Steve a bit. He is incredibly unperturbed by this stuff.</p>
+<p>And I admire that and I envy it. I wish that I could be like that. I mean, my impulse when I&rsquo;m</p>
+<p>getting attacked is I just want to engage every single like anonymous person on Twitter and Reddit</p>
+<p>who is saying mean stuff about me. And I want to just say, well, look, can we just talk this over</p>
+<p>for an hour? And then you&rsquo;ll see that I&rsquo;m not that bad. And sometimes that even works. The</p>
+<p>problem is then there&rsquo;s the 20,000 other ones.</p>
+<p>That&rsquo;s not, but psychologically, does that wear on you?</p>
+<p>It does. It does. But yeah, I mean, in terms of what is the solution, I mean, I wish I knew,</p>
+<p>right? And so in a certain way, these problems are maybe harder than P versus NP, right?</p>
+<p>I mean, but I think that part of it has to be that I think that there&rsquo;s a lot of sort of silent</p>
+<p>support for what I&rsquo;ll call the open discourse side, the reasonable enlightenment side.</p>
+<p>And I think that that support has to become less silent, right? I think that a lot of people</p>
+<p>just sort of agree that a lot of these cancellations and attacks are ridiculous,</p>
+<p>but are just afraid to say so, right? Or else they&rsquo;ll get shouted down as well, right? That&rsquo;s</p>
+<p>just the standard witch hunt dynamic, which, of course, this faction understands and exploits to</p>
+<p>its great advantage. But more people just said, we&rsquo;re not going to stand for this, right? This</p>
+<p>is, guess what? We&rsquo;re against racism too. But what you&rsquo;re doing is ridiculous, right? And the</p>
+<p>hard part is it takes a lot of mental energy. It takes a lot of time. Even if you feel like</p>
+<p>you&rsquo;re not going to be canceled or you&rsquo;re staying on the safe side, it takes a lot of time to</p>
+<p>phrase things in exactly the right way and to respond to everything people say.</p>
+<p>So, but I think that the more people speak up from all political persuasions, from all walks</p>
+<p>of life, then the easier it is to move forward. Since we&rsquo;ve been talking about love, can you,</p>
+<p>last time I talked to you about meaning of life a little bit, but here has, it&rsquo;s a weird question</p>
+<p>to ask a computer scientist, but has love for other human beings, for things, for the world</p>
+<p>around you played an important role in your life? Have you, it&rsquo;s easy for a world class</p>
+<p>computer scientist, you could even call yourself like a physicist, everything to be lost in the</p>
+<p>books. Is the connection to other humans, love for other humans played an important role?</p>
+<p>I love my kids. I love my wife. I love my parents. I&rsquo;m probably not different from most people in</p>
+<p>loving their families and in that being very important in my life. Now, I should remind you</p>
+<p>that I am a theoretical computer scientist. If you&rsquo;re looking for deep insight about the nature</p>
+<p>of love, you&rsquo;re probably looking in the wrong place to ask me, but sure, it&rsquo;s been important.</p>
+<p>But is there something from a computer science perspective to be said about love? Is that even</p>
+<p>beyond into the realm of consciousness? There was this great cartoon, I think it</p>
+<p>was one of the classic XKCDs where it shows a heart and it&rsquo;s squaring the heart, taking the</p>
+<p>four year transform of the heart, integrating the heart, each thing and then it says my normal</p>
+<p>approach is useless here. I&rsquo;m so glad I asked this question. I think there&rsquo;s no better way to</p>
+<p>end this. I hope we get a chance to talk again. This has been an amazing, cool experiment to do</p>
+<p>it outside. I&rsquo;m really glad you made it out. Yeah. Well, I appreciate it a lot. It&rsquo;s been a</p>
+<p>pleasure and I&rsquo;m glad you were able to come out to Austin. Thanks. Thanks for listening to this</p>
+<p>conversation with Scott Aaronson. And thank you to our sponsors, 8sleep, SimpliSafe, ExpressVPN,</p>
+<p>and BetterHelp. Please check out these sponsors in the description to get a discount and to</p>
+<p>support this podcast. If you enjoy this thing, subscribe on YouTube, review it with five stars</p>
+<p>on Apple Podcast, follow on Spotify, support on Patreon, or connect with me on Twitter</p>
+<p>at Lex Friedman. And now let me leave you with some words from Scott Aaronson that I also gave</p>
+<p>to you in the introduction, which is, if you always win, then you&rsquo;re probably doing something</p>
+<p>wrong. Thank you for listening and for putting up with the intro and outro in this strange room in</p>
+<p>the middle of nowhere. And I very much hope to see you next time in many more ways than one.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

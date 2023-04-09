@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The following is a conversation with Jitendra Malik, a professor at Berkeley and one of
+the seminal figures in the field of computer vision, the kind before the deep learning
+revolution and the kind after.
+He has been cited over 180,000 times and has mentored many world class researchers in computer
+science.
+Quick summary of the ads.
+Two sponsors, one new one which is BetterHelp and an old goodie ExpressVPN.'>
+<title>Lex Fridman Podcast - #110 – Jitendra Malik: Computer Vision | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/1310500110/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='Lex Fridman Podcast - #110 – Jitendra Malik: Computer Vision'>
+<meta property='og:description' content='The following is a conversation with Jitendra Malik, a professor at Berkeley and one of
+the seminal figures in the field of computer vision, the kind before the deep learning
+revolution and the kind after.
+He has been cited over 180,000 times and has mentored many world class researchers in computer
+science.
+Quick summary of the ads.
+Two sponsors, one new one which is BetterHelp and an old goodie ExpressVPN.'>
+<meta property='og:url' content='https://swiest.com/en/1310500110/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Podcast' /><meta property='article:tag' content='Lex Fridman Podcast' /><meta property='article:published_time' content='2022-06-18T17:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-06-18T17:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Lex Fridman Podcast - #110 – Jitendra Malik: Computer Vision">
+<meta name="twitter:description" content="The following is a conversation with Jitendra Malik, a professor at Berkeley and one of
+the seminal figures in the field of computer vision, the kind before the deep learning
+revolution and the kind after.
+He has been cited over 180,000 times and has mentored many world class researchers in computer
+science.
+Quick summary of the ads.
+Two sponsors, one new one which is BetterHelp and an old goodie ExpressVPN.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/podcast/" >
+                Podcast
+            </a>
+        
+            <a href="/categories/lex-fridman-podcast/" >
+                Lex Fridman Podcast
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/1310500110/">Lex Fridman Podcast - #110 – Jitendra Malik: Computer Vision</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-18</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    67 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The following is a conversation with Jitendra Malik, a professor at Berkeley and one of</p>
+<p>the seminal figures in the field of computer vision, the kind before the deep learning</p>
+<p>revolution and the kind after.</p>
+<p>He has been cited over 180,000 times and has mentored many world class researchers in computer</p>
+<p>science.</p>
+<p>Quick summary of the ads.</p>
+<p>Two sponsors, one new one which is BetterHelp and an old goodie ExpressVPN.</p>
+<p>Please consider supporting this podcast by going to betterhelp.com slash lex and signing</p>
+<p>up at expressvpn.com slash lexpod.</p>
+<p>Click the links, buy the stuff, it really is the best way to support this podcast and</p>
+<p>the journey I&rsquo;m on.</p>
+<p>If you enjoy this thing, subscribe on YouTube, review it with 5 stars on Apple Podcast, support</p>
+<p>it on Patreon, or connect with me on Twitter at Lex Friedman, however the heck you spell</p>
+<p>that.</p>
+<p>As usual, I&rsquo;ll do a few minutes of ads now and never any ads in the middle that can break</p>
+<p>the flow of the conversation.</p>
+<p>This show is sponsored by BetterHelp, spelled H E L P help.</p>
+<p>Check it out at betterhelp.com slash lex.</p>
+<p>They figure out what you need and match you with a licensed professional therapist in</p>
+<p>under 48 hours.</p>
+<p>It&rsquo;s not a crisis line, it&rsquo;s not self help, it&rsquo;s professional counseling done securely</p>
+<p>online.</p>
+<p>I&rsquo;m a bit from the David Goggins line of creatures, as you may know, and so have some</p>
+<p>demons to contend with, usually on long runs or all nights working, forever and possibly</p>
+<p>full of self doubt.</p>
+<p>It may be because I&rsquo;m Russian, but I think suffering is essential for creation.</p>
+<p>But I also think you can suffer beautifully, in a way that doesn&rsquo;t destroy you.</p>
+<p>For most people, I think a good therapist can help in this, so it&rsquo;s at least worth a</p>
+<p>try.</p>
+<p>Check out their reviews, they&rsquo;re good, it&rsquo;s easy, private, affordable, available worldwide.</p>
+<p>You can communicate by text, any time, and schedule weekly audio and video sessions.</p>
+<p>I highly recommend that you check them out at betterhelp.com slash lex.</p>
+<p>This show is also sponsored by ExpressVPN.</p>
+<p>Get it at expressvpn.com slash lexpod to support this podcast and to get an extra three months</p>
+<p>free on a one year package.</p>
+<p>I&rsquo;ve been using ExpressVPN for many years, I love it.</p>
+<p>I think ExpressVPN is the best VPN out there.</p>
+<p>They told me to say it, but it happens to be true.</p>
+<p>It doesn&rsquo;t log your data, it&rsquo;s crazy fast, and is easy to use, literally just one big,</p>
+<p>sexy power on button.</p>
+<p>Again, for obvious reasons, it&rsquo;s really important that they don&rsquo;t log your data.</p>
+<p>It works on Linux and everywhere else too, but really, why use anything else?</p>
+<p>Shout out to my favorite flavor of Linux, Ubuntu Mate 2004.</p>
+<p>Once again, get it at expressvpn.com slash lexpod to support this podcast and to get</p>
+<p>an extra three months free on a one year package.</p>
+<p>And now, here&rsquo;s my conversation with Jitendra Malik.</p>
+<p>In 1966, Seymour Papert at MIT wrote up a proposal called the Summer Vision Project</p>
+<p>to be given, as far as we know, to 10 students to work on and solve that summer.</p>
+<p>So that proposal outlined many of the computer vision tasks we still work on today.</p>
+<p>Why do you think we underestimate, and perhaps we did underestimate and perhaps still underestimate</p>
+<p>how hard computer vision is?</p>
+<p>Because most of what we do in vision, we do unconsciously or subconsciously.</p>
+<p>In human vision.</p>
+<p>So that gives us this, that effortlessness gives us the sense that, oh, this must be</p>
+<p>very easy to implement on a computer.</p>
+<p>Now, this is why the early researchers in AI got it so wrong.</p>
+<p>However, if you go into neuroscience or psychology of human vision, then the complexity becomes</p>
+<p>very clear.</p>
+<p>The fact is that a very large part of the cerebral cortex is devoted to visual processing.</p>
+<p>And this is true in other primates as well.</p>
+<p>So once we looked at it from a neuroscience or psychology perspective, it becomes quite</p>
+<p>clear that the problem is very challenging and it will take some time.</p>
+<p>You said the higher level parts are the harder parts?</p>
+<p>I think vision appears to be easy because most of what visual processing is subconscious</p>
+<p>or unconscious.</p>
+<p>So we underestimate the difficulty, whereas when you are like proving a mathematical theorem</p>
+<p>or playing chess, the difficulty is much more evident.</p>
+<p>So because it is your conscious brain, which is processing various aspects of the problem</p>
+<p>solving behavior, whereas in vision, all this is happening, but it&rsquo;s not in your awareness,</p>
+<p>it&rsquo;s in your, it&rsquo;s operating below that.</p>
+<p>But it&rsquo;s, it still seems strange.</p>
+<p>Yes, that&rsquo;s true, but it seems strange that as computer vision researchers, for example,</p>
+<p>the community broadly is time and time again makes the mistake of thinking the problem</p>
+<p>is easier than it is, or maybe it&rsquo;s not a mistake.</p>
+<p>We&rsquo;ll talk a little bit about autonomous driving, for example, how hard of a vision task that</p>
+<p>is, it, do you think, I mean, what, is it just human nature or is there something fundamental</p>
+<p>to the vision problem that we, we underestimate?</p>
+<p>We&rsquo;re still not able to be cognizant of how hard the problem is.</p>
+<p>Yeah, I think in the early days it could have been excused because in the early days, all</p>
+<p>aspects of AI were regarded as too easy.</p>
+<p>But I think today it is much less excusable.</p>
+<p>And I think why people fall for this is because of what I call the fallacy of the successful</p>
+<p>first step.</p>
+<p>There are many problems in vision where getting 50% of the solution you can get in one minute,</p>
+<p>getting to 90% can take you a day, getting to 99% may take you five years, and 99.99%</p>
+<p>may be not in your lifetime.</p>
+<p>I wonder if that&rsquo;s a unique division.</p>
+<p>It seems that language, people are not so confident about, so natural language processing,</p>
+<p>people are a little bit more cautious about our ability to, to solve that problem.</p>
+<p>I think for language, people intuit that we have to be able to do natural language understanding.</p>
+<p>For vision, it seems that we&rsquo;re not cognizant or we don&rsquo;t think about how much understanding</p>
+<p>is required.</p>
+<p>It&rsquo;s probably still an open problem.</p>
+<p>But in your sense, how much understanding is required to solve vision?</p>
+<p>Like this, put another way, how much something called common sense reasoning is required</p>
+<p>to really be able to interpret even static scenes?</p>
+<p>Yeah.</p>
+<p>So vision operates at all levels and there are parts which can be solved with what we</p>
+<p>could call maybe peripheral processing.</p>
+<p>So in the human vision literature, there used to be these terms, sensation, perception and</p>
+<p>cognition, which roughly speaking referred to like the front end of processing, middle</p>
+<p>stages of processing and higher level of processing.</p>
+<p>And I think they made a big deal out of, out of this and they wanted to study only perception</p>
+<p>and then dismiss certain, certain problems as being quote cognitive.</p>
+<p>But really I think these are artificial divides.</p>
+<p>The problem is continuous at all levels and there are challenges at all levels.</p>
+<p>The techniques that we have today, they work better at the lower and mid levels of the</p>
+<p>problem.</p>
+<p>I think the higher levels of the problem, quote the cognitive levels of the problem</p>
+<p>are there and we, in many real applications, we have to confront them.</p>
+<p>Now how much that is necessary will depend on the application.</p>
+<p>For some problems it doesn&rsquo;t matter, for some problems it matters a lot.</p>
+<p>So I am, for example, a pessimist on fully autonomous driving in the near future.</p>
+<p>And the reason is because I think there will be that 0.01% of the cases where quite sophisticated</p>
+<p>cognitive reasoning is called for.</p>
+<p>However, there are tasks where you can, first of all, they are much more, they are robust.</p>
+<p>So in the sense that error rates, error is not so much of a problem.</p>
+<p>For example, let&rsquo;s say we are, you&rsquo;re doing image search, you&rsquo;re trying to get images</p>
+<p>based on some, some, some description, some visual description.</p>
+<p>We are very tolerant of errors there, right?</p>
+<p>I mean, when Google image search gives you some images back and a few of them are wrong,</p>
+<p>it&rsquo;s okay.</p>
+<p>It doesn&rsquo;t hurt anybody.</p>
+<p>There is no, there&rsquo;s not a matter of life and death.</p>
+<p>But making mistakes when you are driving at 60 miles per hour and you could potentially</p>
+<p>kill somebody is much more important.</p>
+<p>So just for the, for the fun of it, since you mentioned, let&rsquo;s go there briefly about</p>
+<p>autonomous vehicles.</p>
+<p>So one of the companies in the space, Tesla, is with Andre Karpathy and Elon Musk are working</p>
+<p>on a system called Autopilot, which is primarily a vision based system with eight cameras and</p>
+<p>basically a single neural network, a multitask neural network.</p>
+<p>They call it HydroNet, multiple heads, so it does multiple tasks, but is forming the</p>
+<p>same representation at the core.</p>
+<p>Do you think driving can be converted in this way to purely a vision problem and then solved</p>
+<p>with learning or even more specifically in the current approach, what do you think about</p>
+<p>what Tesla Autopilot team is doing?</p>
+<p>So the way I think about it is that there are certainly subsets of the visual based</p>
+<p>driving problem, which are quite solvable.</p>
+<p>So for example, driving in freeway conditions is quite a solvable problem.</p>
+<p>I think there were demonstrations of that going back to the 1980s by someone called</p>
+<p>Ernst Tickmans in Munich.</p>
+<p>In the 90s, there were approaches from Carnegie Mellon, there were approaches from our team</p>
+<p>at Berkeley.</p>
+<p>In the 2000s, there were approaches from Stanford and so on.</p>
+<p>So autonomous driving in certain settings is very doable.</p>
+<p>The challenge is to have an autopilot work under all kinds of driving conditions.</p>
+<p>At that point, it&rsquo;s not just a question of vision or perception, but really also of control</p>
+<p>and dealing with all the edge cases.</p>
+<p>So where do you think most of the difficult cases, to me, even the highway driving is</p>
+<p>an open problem because it applies the same 50, 90, 95, 99 rule where the first step,</p>
+<p>the fallacy of the first step, I forget how you put it, we fall victim to.</p>
+<p>I think even highway driving has a lot of elements because to solve autonomous driving,</p>
+<p>you have to completely relinquish the help of a human being.</p>
+<p>You&rsquo;re always in control so that you&rsquo;re really going to feel the edge cases.</p>
+<p>So I think even highway driving is really difficult.</p>
+<p>But in terms of the general driving task, do you think vision is the fundamental problem</p>
+<p>or is it also your action, the interaction with the environment, the ability to&hellip;</p>
+<p>And then the middle ground, I don&rsquo;t know if you put that under vision, which is trying</p>
+<p>to predict the behavior of others, which is a little bit in the world of understanding</p>
+<p>the scene, but it&rsquo;s also trying to form a model of the actors in the scene and predict</p>
+<p>their behavior.</p>
+<p>Yeah.</p>
+<p>I include that in vision because to me, perception blends into cognition and building predictive</p>
+<p>models of other agents in the world, which could be other agents, could be people, other</p>
+<p>agents could be other cars.</p>
+<p>That is part of the task of perception because perception always has to not tell us what</p>
+<p>is now, but what will happen because what&rsquo;s now is boring.</p>
+<p>It&rsquo;s done.</p>
+<p>It&rsquo;s over with.</p>
+<p>Okay?</p>
+<p>Yeah.</p>
+<p>We care about the future because we act in the future.</p>
+<p>And we care about the past in as much as it informs what&rsquo;s going to happen in the future.</p>
+<p>So I think we have to build predictive models of behaviors of people and those can get quite</p>
+<p>complicated.</p>
+<p>So I mean, I&rsquo;ve seen examples of this in actually, I mean, I own a Tesla and it has various safety</p>
+<p>features built in.</p>
+<p>And what I see are these examples where let&rsquo;s say there is some a skateboarder, I mean,</p>
+<p>and I don&rsquo;t want to be too critical because obviously these systems are always being improved</p>
+<p>and any specific criticism I have, maybe the system six months from now will not have that</p>
+<p>particular failure mode.</p>
+<p>So it had the wrong response and it&rsquo;s because it couldn&rsquo;t predict what this skateboarder</p>
+<p>was going to do.</p>
+<p>Okay?</p>
+<p>And because it really required that higher level cognitive understanding of what skateboarders</p>
+<p>typically do as opposed to a normal pedestrian.</p>
+<p>So what might have been the correct behavior for a pedestrian, a typical behavior for pedestrian</p>
+<p>was not the typical behavior for a skateboarder, right?</p>
+<p>Yeah.</p>
+<p>And so therefore to do a good job there, you need to have enough data where you have pedestrians,</p>
+<p>you also have skateboarders, you&rsquo;ve seen enough skateboarders to see what kinds of patterns</p>
+<p>of behavior they have.</p>
+<p>So it is in principle with enough data, that problem could be solved.</p>
+<p>But I think our current systems, computer vision systems, they need far, far more data</p>
+<p>than humans do for learning those same capabilities.</p>
+<p>So say that there is going to be a system that solves autonomous driving.</p>
+<p>Do you think it will look similar to what we have today, but have a lot more data, perhaps</p>
+<p>more compute, but the fundamental architecture is involved, like neural, well, in the case</p>
+<p>of Tesla autopilot is neural networks.</p>
+<p>Do you think it will look similar in that regard and we&rsquo;ll just have more data?</p>
+<p>That&rsquo;s a scientific hypothesis as to which way is it going to go.</p>
+<p>I will tell you what I would bet on.</p>
+<p>So and this is my general philosophical position on how these learning systems have been.</p>
+<p>What we have found currently very effective in computer vision in the deep learning paradigm</p>
+<p>is sort of tabula rasa learning and tabula rasa learning in a supervised way with lots</p>
+<p>and lots of&hellip;</p>
+<p>What&rsquo;s tabula rasa learning?</p>
+<p>Tabula rasa in the sense that blank slate, we just have the system, which is given a</p>
+<p>series of experiences in this setting and then it learns there.</p>
+<p>Now if let&rsquo;s think about human driving, it is not tabula rasa learning.</p>
+<p>So at the age of 16 in high school, a teenager goes into driver ed class, right?</p>
+<p>And now at that point they learn, but at the age of 16, they are already visual geniuses</p>
+<p>because from zero to 16, they have built a certain repertoire of vision.</p>
+<p>In fact, most of it has probably been achieved by age two, right?</p>
+<p>In this period of age up to age two, they know that the world is three dimensional.</p>
+<p>They know how objects look like from different perspectives.</p>
+<p>They know about occlusion.</p>
+<p>They know about common dynamics of humans and other bodies.</p>
+<p>They have some notion of intuitive physics.</p>
+<p>So they built that up from their observations and interactions in early childhood and of</p>
+<p>course reinforced through their growing up to age 16.</p>
+<p>So then at age 16, when they go into driver ed, what are they learning?</p>
+<p>They&rsquo;re not learning afresh the visual world.</p>
+<p>They have a mastery of the visual world.</p>
+<p>What they are learning is control, okay?</p>
+<p>They&rsquo;re learning how to be smooth about control, about steering and brakes and so forth.</p>
+<p>They&rsquo;re learning a sense of typical traffic situations.</p>
+<p>Now that education process can be quite short because they are coming in as visual geniuses.</p>
+<p>And of course in their future, they&rsquo;re going to encounter situations which are very novel,</p>
+<p>right?</p>
+<p>So during my driver ed class, I may not have had to deal with a skateboarder.</p>
+<p>I may not have had to deal with a truck driving in front of me where the back opens up and</p>
+<p>some junk gets dropped from the truck and I have to deal with it, right?</p>
+<p>But I can deal with this as a driver even though I did not encounter this in my driver</p>
+<p>ed class.</p>
+<p>And the reason I can deal with it is because I have all this general visual knowledge and</p>
+<p>expertise.</p>
+<p>And do you think the learning mechanisms we have today can do that kind of long term accumulation</p>
+<p>of knowledge?</p>
+<p>Or do we have to do some kind of, you know, the work that led up to expert systems with</p>
+<p>knowledge representation, you know, the broader field of artificial intelligence worked on</p>
+<p>this kind of accumulation of knowledge.</p>
+<p>Do you think neural networks can do the same?</p>
+<p>I think I don&rsquo;t see any in principle problem with neural networks doing it, but I think</p>
+<p>the learning techniques would need to evolve significantly.</p>
+<p>So the current learning techniques that we have are supervised learning.</p>
+<p>You&rsquo;re given lots of examples, x, y, y pairs and you learn the functional mapping between</p>
+<p>them.</p>
+<p>I think that human learning is far richer than that.</p>
+<p>It includes many different components.</p>
+<p>There is a child explores the world and sees, for example, a child takes an object and manipulates</p>
+<p>it in his hand and therefore gets to see the object from different points of view.</p>
+<p>And the child has commanded the movement.</p>
+<p>So that&rsquo;s a kind of learning data, but the learning data has been arranged by the child.</p>
+<p>And this is a very rich kind of data.</p>
+<p>The child can do various experiments with the world.</p>
+<p>So there are many aspects of sort of human learning, and these have been studied in child</p>
+<p>development by psychologists.</p>
+<p>And what they tell us is that supervised learning is a very small part of it.</p>
+<p>There are many different aspects of learning.</p>
+<p>And what we would need to do is to develop models of all of these and then train our</p>
+<p>systems with that kind of a protocol.</p>
+<p>So new methods of learning, some of which might imitate the human brain, but you also</p>
+<p>in your talks have mentioned sort of the compute side of things, in terms of the difference</p>
+<p>in the human brain or referencing Moravec, Hans Moravec.</p>
+<p>So do you think there&rsquo;s something interesting, valuable to consider about the difference</p>
+<p>in the computational power of the human brain versus the computers of today in terms of</p>
+<p>instructions per second?</p>
+<p>Yes, so if we go back, so this is a point I&rsquo;ve been making for 20 years now.</p>
+<p>And I think once upon a time, the way I used to argue this was that we just didn&rsquo;t have</p>
+<p>the computing power of the human brain.</p>
+<p>Our computers were not quite there.</p>
+<p>And I mean, there is a well known trade off, which we know that neurons are slow compared</p>
+<p>to transistors, but we have a lot of them and they have a very high connectivity.</p>
+<p>Whereas in silicon, you have much faster devices, transistors switch at the order of nanoseconds,</p>
+<p>but the connectivity is usually smaller.</p>
+<p>At this point in time, I mean, we are now talking about 2020, we do have, if you consider</p>
+<p>the latest GPUs and so on, amazing computing power.</p>
+<p>And if we look back at Hans Moravec type of calculations, which he did in the 1990s, we</p>
+<p>may be there today in terms of computing power comparable to the brain, but it&rsquo;s not in the</p>
+<p>of the same style, it&rsquo;s of a very different style.</p>
+<p>So I mean, for example, the style of computing that we have in our GPUs is far, far more</p>
+<p>power hungry than the style of computing that is there in the human brain or other biological</p>
+<p>entities.</p>
+<p>Yeah.</p>
+<p>And that the efficiency part is, we&rsquo;re going to have to solve that in order to build actual</p>
+<p>real world systems of large scale.</p>
+<p>Let me ask sort of the high level question, taking a step back.</p>
+<p>How would you articulate the general problem of computer vision?</p>
+<p>Does such a thing exist?</p>
+<p>So if you look at the computer vision conferences and the work that&rsquo;s been going on, it&rsquo;s often</p>
+<p>separated into different little segments, breaking the problem of vision apart into</p>
+<p>whether segmentation, 3D reconstruction, object detection, I don&rsquo;t know, image capturing,</p>
+<p>whatever.</p>
+<p>There&rsquo;s benchmarks for each.</p>
+<p>But if you were to sort of philosophically say, what is the big problem of computer vision?</p>
+<p>Does such a thing exist?</p>
+<p>Yes, but it&rsquo;s not in isolation.</p>
+<p>So for all intelligence tasks, I always go back to sort of biology or humans.</p>
+<p>And if we think about vision or perception in that setting, we realize that perception</p>
+<p>is always to guide action.</p>
+<p>Action for a biological system does not give any benefits unless it is coupled with action.</p>
+<p>So we can go back and think about the first multicellular animals, which arose in the</p>
+<p>Cambrian era, you know, 500 million years ago.</p>
+<p>And these animals could move and they could see in some way.</p>
+<p>And the two activities helped each other.</p>
+<p>Because how does movement help?</p>
+<p>Movement helps that because you can get food in different places.</p>
+<p>But you need to know where to go.</p>
+<p>And that&rsquo;s really about perception or seeing, I mean, vision is perhaps the single most</p>
+<p>perception sense.</p>
+<p>But all the others are equally are also important.</p>
+<p>So perception and action kind of go together.</p>
+<p>So earlier, it was in these very simple feedback loops, which were about finding food or avoid</p>
+<p>avoiding becoming food if there&rsquo;s a predator running, trying to, you know, eat you up,</p>
+<p>and so forth.</p>
+<p>So we must, at the fundamental level, connect perception to action.</p>
+<p>Then as we evolved, perception became more and more sophisticated because it served many</p>
+<p>more purposes.</p>
+<p>And so today we have what seems like a fairly general purpose capability, which can look</p>
+<p>at the external world and build a model of the external world inside the head.</p>
+<p>We do have that capability.</p>
+<p>That model is not perfect.</p>
+<p>And psychologists have great fun in pointing out the ways in which the model in your head</p>
+<p>is not a perfect model of the external world.</p>
+<p>They create various illusions to show the ways in which it is imperfect.</p>
+<p>But it&rsquo;s amazing how far it has come from a very simple perception action loop that</p>
+<p>you exist in, you know, an animal 500 million years ago.</p>
+<p>Once we have this, these very sophisticated visual systems, we can then impose a structure</p>
+<p>on them.</p>
+<p>It&rsquo;s we as scientists who are imposing that structure, where we have chosen to characterize</p>
+<p>this part of the system as this quote, module of object detection or quote, this module</p>
+<p>of 3D reconstruction.</p>
+<p>What&rsquo;s going on is really all of these processes are running simultaneously and they are running</p>
+<p>simultaneously because originally their purpose was in fact to help guide action.</p>
+<p>So as a guiding general statement of a problem, do you think we can say that the general problem</p>
+<p>of computer vision, you said in humans, it was tied to action.</p>
+<p>Do you think we should also say that ultimately the goal, the problem of computer vision is</p>
+<p>to sense the world in a way that helps you act in the world?</p>
+<p>Yes.</p>
+<p>I think that&rsquo;s the most fundamental, that&rsquo;s the most fundamental purpose.</p>
+<p>We have by now hyper evolved.</p>
+<p>So we have this visual system which can be used for other things.</p>
+<p>For example, judging the aesthetic value of a painting.</p>
+<p>And this is not guiding action.</p>
+<p>Maybe it&rsquo;s guiding action in terms of how much money you will put in your auction bid,</p>
+<p>but that&rsquo;s a bit stretched.</p>
+<p>But the basics are in fact in terms of action, but we evolved really this hyper, we have</p>
+<p>hyper evolved our visual system.</p>
+<p>Actually just to, sorry to interrupt, but perhaps it is fundamentally about action.</p>
+<p>You kind of jokingly said about spending, but perhaps the capitalistic drive that drives</p>
+<p>a lot of the development in this world is about the exchange of money and the fundamental</p>
+<p>action is money.</p>
+<p>If you watch Netflix, if you enjoy watching movies, you&rsquo;re using your perception system</p>
+<p>to interpret the movie, ultimately your enjoyment of that movie means you&rsquo;ll subscribe to Netflix.</p>
+<p>So the action is this extra layer that we&rsquo;ve developed in modern society perhaps is fundamentally</p>
+<p>tied to the action of spending money.</p>
+<p>Well certainly with respect to interactions with firms.</p>
+<p>So in this homo economicus role, when you&rsquo;re interacting with firms, it does become that.</p>
+<p>What else is there?</p>
+<p>And that was a rhetorical question.</p>
+<p>So to linger on the division between the static and the dynamic, so much of the work in computer</p>
+<p>vision, so many of the breakthroughs that you&rsquo;ve been a part of have been in the static</p>
+<p>world and looking at static images.</p>
+<p>And then you&rsquo;ve also worked on starting, but it&rsquo;s a much smaller degree, the community</p>
+<p>is looking at dynamic, at video, at dynamic scenes.</p>
+<p>And then there is robotic vision, which is dynamic, but also where you actually have</p>
+<p>a robot in the physical world interacting based on that vision.</p>
+<p>Which problem is harder?</p>
+<p>The trivial first answer is, well, of course one image is harder.</p>
+<p>But if you look at a deeper question there, are we, what&rsquo;s the term, cutting ourselves</p>
+<p>at the knees or like making the problem harder by focusing on images?</p>
+<p>That&rsquo;s a fair question.</p>
+<p>I think sometimes we can simplify a problem so much that we essentially lose part of the</p>
+<p>juice that could enable us to solve the problem.</p>
+<p>And one could reasonably argue that to some extent this happens when we go from video</p>
+<p>to single images.</p>
+<p>Now historically you have to consider the limits imposed by the computation capabilities</p>
+<p>we had.</p>
+<p>So many of the choices made in the computer vision community through the 70s, 80s, 90s</p>
+<p>can be understood as choices which were forced upon us by the fact that we just didn&rsquo;t have</p>
+<p>enough access to enough compute.</p>
+<p>Not enough memory, not enough hardware.</p>
+<p>Exactly.</p>
+<p>Not enough compute, not enough storage.</p>
+<p>So think of these choices.</p>
+<p>So one of the choices is focusing on single images rather than video.</p>
+<p>Okay.</p>
+<p>Clear question.</p>
+<p>Storage and compute.</p>
+<p>We had to focus on, we used to detect edges and throw away the image.</p>
+<p>Right?</p>
+<p>So we would have an image which I say 256 by 256 pixels and instead of keeping around</p>
+<p>the grayscale value, what we did was we detected edges, find the places where the brightness</p>
+<p>changes a lot and then throw away the rest.</p>
+<p>So this was a major compression device and the hope was that this makes it that you can</p>
+<p>still work with it and the logic was humans can interpret a line drawing.</p>
+<p>And yes, and this will save us computation.</p>
+<p>So many of the choices were dictated by that.</p>
+<p>I think today we are no longer detecting edges, right?</p>
+<p>We process images with ConvNets because we don&rsquo;t need to.</p>
+<p>We don&rsquo;t have those computer restrictions anymore.</p>
+<p>Now video is still understudied because video compute is still quite challenging if you</p>
+<p>are a university researcher.</p>
+<p>I think video computing is not so challenging if you are at Google or Facebook or Amazon.</p>
+<p>Still super challenging.</p>
+<p>I just spoke with the VP of engineering at Google, head of the YouTube search and discovery</p>
+<p>and they still struggle doing stuff on video.</p>
+<p>It&rsquo;s very difficult except using techniques that are essentially the techniques you used</p>
+<p>in the 90s.</p>
+<p>Some very basic computer vision techniques.</p>
+<p>No, that&rsquo;s when you want to do things at scale.</p>
+<p>So if you want to operate at the scale of all the content of YouTube, it&rsquo;s very challenging</p>
+<p>and there are similar issues with Facebook.</p>
+<p>But as a researcher, you have more opportunities.</p>
+<p>You can train large networks with relatively large video data sets.</p>
+<p>So I think that this is part of the reason why we have so emphasized static images.</p>
+<p>I think that this is changing and over the next few years, I see a lot more progress</p>
+<p>happening in video.</p>
+<p>So I have this generic statement that to me, video recognition feels like 10 years behind</p>
+<p>object recognition and you can quantify that because you can take some of the challenging</p>
+<p>video data sets and their performance on action classification is like say 30%, which is kind</p>
+<p>of what we used to have around 2009 in object detection.</p>
+<p>It&rsquo;s like about 10 years behind and whether it&rsquo;ll take 10 years to catch up is a different</p>
+<p>question.</p>
+<p>Hopefully, it will take less than that.</p>
+<p>Let me ask a similar question I&rsquo;ve already asked, but once again, so for dynamic scenes,</p>
+<p>do you think some kind of injection of knowledge bases and reasoning is required to help improve</p>
+<p>like action recognition?</p>
+<p>Like if we saw the general action recognition problem, what do you think the solution would</p>
+<p>look like as another way to put it?</p>
+<p>So I completely agree that knowledge is called for and that knowledge can be quite sophisticated.</p>
+<p>So the way I would say it is that perception blends into cognition and cognition brings</p>
+<p>in issues of memory and this notion of a schema from psychology, which is, let me use the</p>
+<p>classic example, which is you go to a restaurant, right?</p>
+<p>Now there are things that happen in a certain order, you walk in, somebody takes you to</p>
+<p>a table, waiter comes, gives you a menu, takes the order, food arrives, eventually bill arrives,</p>
+<p>et cetera, et cetera.</p>
+<p>This is a classic example of AI from the 1970s.</p>
+<p>It was called, there was the term frames and scripts and schemas, these are all quite similar</p>
+<p>ideas.</p>
+<p>Okay, and in the 70s, the way the AI of the time dealt with it was by hand coding this.</p>
+<p>So they hand coded in this notion of a script and the various stages and the actors and</p>
+<p>so on and so forth, and use that to interpret, for example, language.</p>
+<p>I mean, if there&rsquo;s a description of a story involving some people eating at a restaurant,</p>
+<p>there are all these inferences you can make because you know what happens typically at</p>
+<p>a restaurant.</p>
+<p>So I think this kind of knowledge is absolutely essential.</p>
+<p>So I think that when we are going to do long form video understanding, we are going to</p>
+<p>need to do this.</p>
+<p>I think the kinds of technology that we have right now with 3D convolutions over a couple</p>
+<p>of seconds of clip or video, it&rsquo;s very much tailored towards short term video understanding,</p>
+<p>not that long term understanding.</p>
+<p>Long term understanding requires this notion of schemas that I talked about, perhaps some</p>
+<p>notions of goals, intentionality, functionality, and so on and so forth.</p>
+<p>Now, how will we bring that in?</p>
+<p>So we could either revert back to the 70s and say, OK, I&rsquo;m going to hand code in a script</p>
+<p>or we might try to learn it.</p>
+<p>So I tend to believe that we have to find learning ways of doing this because I think</p>
+<p>learning ways land up being more robust.</p>
+<p>And there must be a learning version of the story because children acquire a lot of this</p>
+<p>knowledge by sort of just observation.</p>
+<p>So at no moment in a child&rsquo;s life does it&rsquo;s possible, but I think it&rsquo;s not so typical</p>
+<p>that somebody that a mother coaches a child through all the stages of what happens in</p>
+<p>a restaurant.</p>
+<p>They just go as a family, they go to the restaurant, they eat, come back, and the child goes through</p>
+<p>ten such experiences and the child has got a schema of what happens when you go to a</p>
+<p>restaurant.</p>
+<p>So we somehow need to provide that capability to our systems.</p>
+<p>You mentioned the following line from the end of the Alan Turing paper, Computing Machinery</p>
+<p>and Intelligence, that many people, like you said, many people know and very few have read</p>
+<p>where he proposes the Turing test.</p>
+<p>This is how you know because it&rsquo;s towards the end of the paper.</p>
+<p>Instead of trying to produce a program to simulate the adult mind, why not rather try</p>
+<p>to produce one which simulates the child&rsquo;s?</p>
+<p>So that&rsquo;s a really interesting point.</p>
+<p>If I think about the benchmarks we have before us, the tests of our computer vision systems,</p>
+<p>they&rsquo;re often kind of trying to get to the adult.</p>
+<p>So what kind of benchmarks should we have?</p>
+<p>What kind of tests for computer vision do you think we should have that mimic the child&rsquo;s</p>
+<p>in computer vision?</p>
+<p>I think we should have those and we don&rsquo;t have those today.</p>
+<p>And I think the part of the challenge is that we should really be collecting data of the</p>
+<p>type that the child experiences.</p>
+<p>So that gets into issues of privacy and so on and so forth.</p>
+<p>But there are attempts in this direction to sort of try to collect the kind of data that</p>
+<p>a child encounters growing up.</p>
+<p>So what&rsquo;s the child&rsquo;s linguistic environment?</p>
+<p>What&rsquo;s the child&rsquo;s visual environment?</p>
+<p>So if we could collect that kind of data and then develop learning schemes based on that</p>
+<p>data, that would be one way to do it.</p>
+<p>I think that&rsquo;s a very promising direction myself.</p>
+<p>There might be people who would argue that we could just short circuit this in some way</p>
+<p>and sometimes we have imitated, we have had success by not imitating nature in detail.</p>
+<p>So the usual example is airplanes, right?</p>
+<p>We don&rsquo;t build flapping wings.</p>
+<p>So yes, that&rsquo;s one of the points of debate.</p>
+<p>In my mind, I would bet on this learning like a child approach.</p>
+<p>So one of the fundamental aspects of learning like a child is the interactivity.</p>
+<p>So the child gets to play with the data set it&rsquo;s learning from.</p>
+<p>Yes.</p>
+<p>So it gets to select.</p>
+<p>I mean, you can call that active learning.</p>
+<p>In the machine learning world, you can call it a lot of terms.</p>
+<p>What are your thoughts about this whole space of being able to play with the data set or</p>
+<p>select what you&rsquo;re learning?</p>
+<p>Yeah.</p>
+<p>So I think that I believe in that and I think that we could achieve it in two ways and I</p>
+<p>think we should use both.</p>
+<p>So one is actually real robotics, right?</p>
+<p>So real physical embodiments of agents who are interacting with the world and they have</p>
+<p>a physical body with dynamics and mass and moment of inertia and friction and all the</p>
+<p>rest and you learn your body, the robot learns its body by doing a series of actions.</p>
+<p>The second is that simulation environments.</p>
+<p>So I think simulation environments are getting much, much better.</p>
+<p>In my life in Facebook AI research, our group has worked on something called Habitat, which</p>
+<p>is a simulation environment, which is a visually photorealistic environment of places like</p>
+<p>houses or interiors of various urban spaces and so forth.</p>
+<p>And as you move, you get a picture, which is a pretty accurate picture.</p>
+<p>So now you can imagine that subsequent generations of these simulators will be accurate, not</p>
+<p>just visually, but with respect to forces and masses and haptic interactions and so</p>
+<p>on.</p>
+<p>And then we have that environment to play with.</p>
+<p>I think, let me state one reason why I think being able to act in the world is important.</p>
+<p>I think that this is one way to break the correlation versus causation barrier.</p>
+<p>So this is something which is of a great deal of interest these days.</p>
+<p>I mean, people like Judea Pearl have talked a lot about that we are neglecting causality</p>
+<p>and he describes the entire set of successes of deep learning as just curve fitting, right?</p>
+<p>But I don&rsquo;t quite agree about it.</p>
+<p>He&rsquo;s a troublemaker.</p>
+<p>He is.</p>
+<p>But causality is important, but causality is not like a single silver bullet.</p>
+<p>It&rsquo;s not like one single principle.</p>
+<p>There are many different aspects here.</p>
+<p>And one of the ways in which, one of our most reliable ways of establishing causal links</p>
+<p>and this is the way, for example, the medical community does this is randomized control</p>
+<p>trials.</p>
+<p>So you have, you pick some situation and now in some situation you perform an action and</p>
+<p>for certain others you don&rsquo;t, right?</p>
+<p>So you have a controlled experiment.</p>
+<p>Well, the child is in fact performing controlled experiments all the time, right?</p>
+<p>Right.</p>
+<p>Okay.</p>
+<p>Small scale.</p>
+<p>In a small scale.</p>
+<p>But that is a way that the child gets to build and refine its causal models of the world.</p>
+<p>And my colleague Alison Gopnik has, together with a couple of authors, coauthors, has this</p>
+<p>book called The Scientist in the Crib, referring to the children.</p>
+<p>So I like, the part that I like about that is the scientist wants to do, wants to build</p>
+<p>causal models and the scientist does control experiments.</p>
+<p>And I think the child is doing that.</p>
+<p>So to enable that, we will need to have these active experiments.</p>
+<p>And I think this could be done, some in the real world and some in simulation.</p>
+<p>So you have hope for simulation.</p>
+<p>I have hope for simulation.</p>
+<p>That&rsquo;s an exciting possibility if we can get to not just photorealistic, but what&rsquo;s that</p>
+<p>called life realistic simulation.</p>
+<p>So you don&rsquo;t see any fundamental blocks to why we can&rsquo;t eventually simulate the principles</p>
+<p>of what it means to exist in the world as a physical scientist.</p>
+<p>I don&rsquo;t see any fundamental problems that, I mean, and look, the computer graphics community</p>
+<p>has come a long way.</p>
+<p>So in the early days, back going back to the eighties and nineties, they were focusing</p>
+<p>on visual realism, right?</p>
+<p>And then they could do the easy stuff, but they couldn&rsquo;t do stuff like hair or fur and</p>
+<p>so on.</p>
+<p>Okay, well, they managed to do that.</p>
+<p>Then they couldn&rsquo;t do physical actions, right?</p>
+<p>Like there&rsquo;s a bowl of glass and it falls down and it shatters, but then they could</p>
+<p>start to do pretty realistic models of that and so on and so forth.</p>
+<p>So the graphics people have shown that they can do this forward direction, not just for</p>
+<p>optical interactions, but also for physical interactions.</p>
+<p>So I think, of course, some of that is very compute intensive, but I think by and by we</p>
+<p>will find ways of making our models ever more realistic.</p>
+<p>You break vision apart into, in one of your presentations, early vision, static scene</p>
+<p>understanding, dynamic scene understanding, and raise a few interesting questions.</p>
+<p>I thought I could just throw some at you to see if you want to talk about them.</p>
+<p>So early vision, so it&rsquo;s, what is it that you said, sensation, perception and cognition.</p>
+<p>So is this a sensation?</p>
+<p>Yes.</p>
+<p>What can we learn from image statistics that we don&rsquo;t already know?</p>
+<p>So at the lowest level, what can we make from just the statistics, the basics, or the variations</p>
+<p>in the rock pixels, the textures and so on?</p>
+<p>Yeah.</p>
+<p>So what we seem to have learned is that there&rsquo;s a lot of redundancy in these images and as</p>
+<p>a result, we are able to do a lot of compression and this compression is very important in</p>
+<p>biological settings, right?</p>
+<p>So you might have 10 to the 8 photoreceptors and only 10 to the 6 fibers in the optic nerve.</p>
+<p>So you have to do this compression by a factor of 100 is to 1.</p>
+<p>And so there are analogs of that which are happening in our neural net, artificial neural</p>
+<p>network.</p>
+<p>That&rsquo;s the early layers.</p>
+<p>So you think there&rsquo;s a lot of compression that can be done in the beginning.</p>
+<p>Just the statistics.</p>
+<p>Yeah.</p>
+<p>So how successful is image compression?</p>
+<p>How much?</p>
+<p>Well, I mean, the way to think about it is just how successful is image compression,</p>
+<p>right?</p>
+<p>And that&rsquo;s been done with older technologies, but it can be done with, there are several</p>
+<p>companies which are trying to use sort of these more advanced neural network type techniques</p>
+<p>for compression, both for static images as well as for video.</p>
+<p>One of my former students has a company which is trying to do stuff like this.</p>
+<p>And I think that they are showing quite interesting results.</p>
+<p>And I think that that&rsquo;s all the success of, that&rsquo;s really about image statistics and</p>
+<p>video statistics.</p>
+<p>But that&rsquo;s still not doing compression of the kind, when I see a picture of a cat, all</p>
+<p>I have to say is it&rsquo;s a cat, that&rsquo;s another semantic kind of compression.</p>
+<p>Yeah.</p>
+<p>So this is at the lower level, right?</p>
+<p>So we are, as I said, yeah, that&rsquo;s focusing on low level statistics.</p>
+<p>So to linger on that for a little bit, you mentioned how far can bottom up image segmentation</p>
+<p>go.</p>
+<p>You know, what you mentioned that the central question for scene understanding is the interplay</p>
+<p>of bottom up and top down information.</p>
+<p>Maybe this is a good time to elaborate on that.</p>
+<p>Maybe define what is bottom up, what is top down in the context of computer vision.</p>
+<p>Right.</p>
+<p>So today what we have are very interesting systems because they work completely bottom</p>
+<p>up.</p>
+<p>What does bottom up mean, sorry?</p>
+<p>So bottom up means, in this case means a feed forward neural network.</p>
+<p>So starting from the raw pixels, yeah, they start from the raw pixels and they end up</p>
+<p>with some, something like cat or not a cat, right?</p>
+<p>So our systems are running totally feed forward.</p>
+<p>They&rsquo;re trained in a very top down way.</p>
+<p>So they&rsquo;re trained by saying, okay, this is a cat, there&rsquo;s a cat, there&rsquo;s a dog, there&rsquo;s</p>
+<p>a zebra, et cetera.</p>
+<p>And I&rsquo;m not happy with either of these choices fully.</p>
+<p>We have gone into, because we have completely separated these processes, right?</p>
+<p>So there&rsquo;s a, so I would like the process, so what do we know compared to biology?</p>
+<p>So in biology, what we know is that the processes in at test time, at runtime, those processes</p>
+<p>are not purely feed forward, but they involve feedback.</p>
+<p>So and they involve much shallower neural networks.</p>
+<p>So the kinds of neural networks we are using in computer vision, say a ResNet 50 has 50</p>
+<p>layers.</p>
+<p>Well in the brain, in the visual cortex going from the retina to IT, maybe we have like</p>
+<p>seven, right?</p>
+<p>So they&rsquo;re far shallower, but we have the possibility of feedback.</p>
+<p>So there are backward connections.</p>
+<p>And this might enable us to deal with the more ambiguous stimuli, for example.</p>
+<p>So the biological solution seems to involve feedback, the solution in artificial vision</p>
+<p>seems to be just feed forward, but with a much deeper network.</p>
+<p>And the two are functionally equivalent because if you have a feedback network, which just</p>
+<p>has like three rounds of feedback, you can just unroll it and make it three times the</p>
+<p>depth and create it in a totally feed forward way.</p>
+<p>So this is something which, I mean, we have written some papers on this theme, but I really</p>
+<p>feel that this should, this theme should be pursued further.</p>
+<p>Some kind of occurrence mechanism.</p>
+<p>Yeah.</p>
+<p>Okay.</p>
+<p>The other, so that&rsquo;s, so I want to have a little bit more top down in the, at test time.</p>
+<p>Okay.</p>
+<p>And then at training time, we make use of a lot of top down knowledge right now.</p>
+<p>So basically to learn to segment an object, we have to have all these examples of this</p>
+<p>is the boundary of a cat, and this is the boundary of a chair, and this is the boundary</p>
+<p>of a horse and so on.</p>
+<p>And this is too much top down knowledge.</p>
+<p>How do humans do this?</p>
+<p>We manage to, we manage with far less supervision and we do it in a sort of bottom up way because</p>
+<p>for example, we are looking at a video stream and the horse moves and that enables me to</p>
+<p>say that all these pixels are together.</p>
+<p>So the Gestalt psychologist used to call this the principle of common fate.</p>
+<p>So there was a bottom up process by which we were able to segment out these objects</p>
+<p>and we have totally focused on this top down training signal.</p>
+<p>So in my view, we have currently solved it in machine vision, this top down bottom up</p>
+<p>interaction, but I don&rsquo;t find the solution fully satisfactory and I would rather have</p>
+<p>a bit of both at both stages.</p>
+<p>For all computer vision problems, not just segmentation.</p>
+<p>And the question that you can ask is, so for me, I&rsquo;m inspired a lot by human vision and</p>
+<p>I care about that.</p>
+<p>You could be just a hard boiled engineer and not give a damn.</p>
+<p>So to you, I would then argue that you would need far less training data if you could make</p>
+<p>my research agenda fruitful.</p>
+<p>Okay, so then maybe taking a step into segmentation, static scene understanding.</p>
+<p>What is the interaction between segmentation and recognition?</p>
+<p>You mentioned the movement of objects.</p>
+<p>So for people who don&rsquo;t know computer vision, segmentation is this weird activity that computer</p>
+<p>vision folks have all agreed is very important of drawing outlines around objects versus</p>
+<p>a bounding box and then classifying that object.</p>
+<p>What&rsquo;s the value of segmentation?</p>
+<p>What is it as a problem in computer vision?</p>
+<p>How is it fundamentally different from detection recognition and the other problems?</p>
+<p>Yeah, so I think, so segmentation enables us to say that some set of pixels are an object</p>
+<p>without necessarily even being able to name that object or knowing properties of that</p>
+<p>object.</p>
+<p>Oh, so you mean segmentation purely as the act of separating an object.</p>
+<p>From its background.</p>
+<p>It&rsquo;s a job that&rsquo;s united in some way from its background.</p>
+<p>Yeah, so entitification, if you will, making an entity out of it.</p>
+<p>Entitification, beautifully termed.</p>
+<p>So I think that we have that capability and that enables us to, as we are growing up,</p>
+<p>to acquire names of objects with very little supervision.</p>
+<p>So suppose the child, let&rsquo;s posit that the child has this ability to separate out objects</p>
+<p>in the world.</p>
+<p>Then when the mother says, pick up your bottle or the cat&rsquo;s behaving funny today, the word</p>
+<p>cat suggests some object and then the child sort of does the mapping, right?</p>
+<p>The mother doesn&rsquo;t have to teach specific object labels by pointing to them.</p>
+<p>Weak supervision works in the context that you have the ability to create objects.</p>
+<p>So I think that, so to me, that&rsquo;s a very fundamental capability.</p>
+<p>There are applications where this is very important, for example, medical diagnosis.</p>
+<p>So in medical diagnosis, you have some brain scan, I mean, this is some work that we did</p>
+<p>in my group where you have CT scans of people who have had traumatic brain injury and what</p>
+<p>the radiologist needs to do is to precisely delineate various places where there might</p>
+<p>be bleeds, for example, and there are clear needs like that.</p>
+<p>So there are certainly very practical applications of computer vision where segmentation is necessary,</p>
+<p>but philosophically segmentation enables the task of recognition to proceed with much weaker</p>
+<p>supervision than we require today.</p>
+<p>And you think of segmentation as this kind of task that takes on a visual scene and breaks</p>
+<p>it apart into interesting entities that might be useful for whatever the task is.</p>
+<p>Yeah.</p>
+<p>And it is not semantics free.</p>
+<p>So I think, I mean, it blends into, it involves perception and cognition.</p>
+<p>It is not, I think the mistake that we used to make in the early days of computer vision</p>
+<p>was to treat it as a purely bottom up perceptual task.</p>
+<p>It is not just that because we do revise our notion of segmentation with more experience,</p>
+<p>right?</p>
+<p>Because for example, there are objects which are nonrigid like animals or humans.</p>
+<p>And I think understanding that all the pixels of a human are one entity is actually quite</p>
+<p>a challenge because the parts of the human, they can move independently and the human</p>
+<p>wears clothes, so they might be differently colored.</p>
+<p>So it&rsquo;s all sort of a challenge.</p>
+<p>You mentioned the three R&rsquo;s of computer vision are recognition, reconstruction and reorganization.</p>
+<p>Can you describe these three R&rsquo;s and how they interact?</p>
+<p>Yeah.</p>
+<p>So recognition is the easiest one because that&rsquo;s what I think people generally think</p>
+<p>of as computer vision achieving these days, which is labels.</p>
+<p>So is this a cat?</p>
+<p>Is this a dog?</p>
+<p>Is this a chihuahua?</p>
+<p>I mean, you know, it could be very fine grained like, you know, specific breed of a dog or</p>
+<p>a specific species of bird, or it could be very abstract like animal.</p>
+<p>But given a part of an image or a whole image, say put a label on it.</p>
+<p>Yeah.</p>
+<p>That&rsquo;s recognition.</p>
+<p>Reconstruction is essentially, you can think of it as inverse graphics.</p>
+<p>I mean, that&rsquo;s one way to think about it.</p>
+<p>So graphics is you have some internal computer representation and you have a computer representation</p>
+<p>of some objects arranged in a scene.</p>
+<p>And what you do is you produce a picture, you produce the pixels corresponding to a</p>
+<p>rendering of that scene.</p>
+<p>So let&rsquo;s do the inverse of this.</p>
+<p>We are given an image and we try to, we say, oh, this image arises from some objects in</p>
+<p>a scene looked at with a camera from this viewpoint.</p>
+<p>And we might have more information about the objects like their shape, maybe their textures,</p>
+<p>maybe, you know, color, et cetera, et cetera.</p>
+<p>So that&rsquo;s the reconstruction problem.</p>
+<p>In a way, you are in your head creating a model of the external world.</p>
+<p>Right.</p>
+<p>Okay.</p>
+<p>Reorganization is to do with essentially finding these entities.</p>
+<p>So it&rsquo;s organization, the word organization implies structure.</p>
+<p>So that in perception, in psychology, we use the term perceptual organization.</p>
+<p>That the world is not just, an image is not just seen as, is not internally represented</p>
+<p>as just a collection of pixels, but we make these entities.</p>
+<p>We create these entities, objects, whatever you want to call it.</p>
+<p>And the relationship between the entities as well, or is it purely about the entities?</p>
+<p>It could be about the relationships, but mainly we focus on the fact that there are entities.</p>
+<p>Okay.</p>
+<p>So I&rsquo;m trying to pinpoint what the organization means.</p>
+<p>So organization is that instead of like a uniform grid, we have this structure of objects.</p>
+<p>So the segmentation is the small part of that.</p>
+<p>So segmentation gets us going towards that.</p>
+<p>Yeah.</p>
+<p>And you kind of have this triangle where they all interact together.</p>
+<p>Yes.</p>
+<p>So how do you see that interaction in sort of reorganization is yes, finding the entities</p>
+<p>in the world.</p>
+<p>The recognition is labeling those entities and then reconstruction is what filling in</p>
+<p>the gaps.</p>
+<p>Well, for example, see, impute some 3D objects corresponding to each of these entities.</p>
+<p>That would be part of it.</p>
+<p>So adding more information that&rsquo;s not there in the raw data.</p>
+<p>Correct.</p>
+<p>I mean, I started pushing this kind of a view in the, around 2010 or something like that.</p>
+<p>Because at that time in computer vision, the distinction that people were just working</p>
+<p>on many different problems, but they treated each of them as a separate isolated problem</p>
+<p>with each with its own data set.</p>
+<p>And then you try to solve that and get good numbers on it.</p>
+<p>So I wasn&rsquo;t, I didn&rsquo;t like that approach because I wanted to see the connection between these.</p>
+<p>And if people divided up vision into, into various modules, the way they would do it</p>
+<p>is as low level, mid level and high level vision corresponding roughly to the psychologist&rsquo;s</p>
+<p>notion of sensation, perception and cognition.</p>
+<p>And I didn&rsquo;t, that didn&rsquo;t map to tasks that people cared about.</p>
+<p>Okay.</p>
+<p>So therefore I tried to promote this particular framework as a way of considering the problems</p>
+<p>that people in computer vision were actually working on and trying to be more explicit</p>
+<p>about the fact that they actually are connected to each other.</p>
+<p>And I was at that time just doing this on the basis of information flow.</p>
+<p>Now it turns out in the last five years or so in the post, the deep learning revolution</p>
+<p>that this, this architecture has turned out to be very conducive to that.</p>
+<p>Because basically in these neural networks, we are trying to build multiple representations.</p>
+<p>They can be multiple output heads sharing common representations.</p>
+<p>So in a certain sense today, given the reality of what solutions people have to this, I do</p>
+<p>not need to preach this anymore.</p>
+<p>It is, it is just there.</p>
+<p>It&rsquo;s part of the sedation space.</p>
+<p>So speaking of neural networks, how much of this problem of computer vision of reorganization</p>
+<p>recognition can be reconstruction?</p>
+<p>How much of it can be learned end to end, do you think?</p>
+<p>Sort of set it and forget it.</p>
+<p>Just plug and play, have a giant data set, multiple, perhaps multimodal, and then just</p>
+<p>learn the entirety of it.</p>
+<p>Well, so I think that currently what that end to end learning means nowadays is end</p>
+<p>to end supervised learning.</p>
+<p>And that I would argue is too narrow a view of the problem.</p>
+<p>I like this child development view, this lifelong learning view, one where there are certain</p>
+<p>capabilities that are built up and then there are certain capabilities which are built up</p>
+<p>on top of that.</p>
+<p>So that&rsquo;s what I believe in.</p>
+<p>So I think end to end learning in the supervised setting for a very precise task to me is kind</p>
+<p>of is sort of a limited view of the learning process.</p>
+<p>Got it.</p>
+<p>So if we think about beyond purely supervised, looking back to children, you mentioned six</p>
+<p>lessons that we can learn from children of be multimodal, be incremental, be physical,</p>
+<p>explore, be social, use language.</p>
+<p>Can you speak to these, perhaps picking one that you find most fundamental to our time</p>
+<p>today?</p>
+<p>Yeah.</p>
+<p>So I mean, I should say to give a due credit, this is from a paper by Smith and Gasser.</p>
+<p>And it reflects essentially, I would say common wisdom among child development people.</p>
+<p>It&rsquo;s just that this is not common wisdom among people in computer vision and AI and machine</p>
+<p>learning.</p>
+<p>So I view my role as trying to bridge the two worlds.</p>
+<p>So let&rsquo;s take an example of a multimodal.</p>
+<p>I like that.</p>
+<p>So multimodal, a canonical example is a child interacting with an object.</p>
+<p>So then the child holds a ball and plays with it.</p>
+<p>So at that point, it&rsquo;s getting a touch signal.</p>
+<p>So the touch signal is getting the notion of 3D shape, but it is sparse.</p>
+<p>And then the child is also seeing a visual signal.</p>
+<p>And these two, so imagine these are two in totally different spaces.</p>
+<p>So one is the space of receptors on the skin of the fingers and the thumb and the palm.</p>
+<p>And then these map onto these neuronal fibers are getting activated somewhere.</p>
+<p>These lead to some activation in somatosensory cortex.</p>
+<p>I mean, a similar thing will happen if we have a robot hand.</p>
+<p>And then we have the pixels corresponding to the visual view, but we know that they</p>
+<p>correspond to the same object.</p>
+<p>So that&rsquo;s a very, very strong cross calibration signal.</p>
+<p>And it is self supervisory, which is beautiful.</p>
+<p>There&rsquo;s nobody assigning a label.</p>
+<p>The mother doesn&rsquo;t have to come and assign a label.</p>
+<p>The child doesn&rsquo;t even have to know that this object is called a ball.</p>
+<p>That the child is learning something about the three dimensional world from this signal.</p>
+<p>I think tactile and visual, there is some work on, there is a lot of work currently</p>
+<p>on audio and visual.</p>
+<p>And audio visual, so there is some event that happens in the world and that event has a</p>
+<p>visual signature and it has a auditory signature.</p>
+<p>So there is this glass bowl on the table and it falls and breaks and I hear the smashing</p>
+<p>sound and I see the pieces of glass.</p>
+<p>Okay, I&rsquo;ve built that connection between the two, right?</p>
+<p>We have people, I mean, this has become a hot topic in computer vision in the last couple</p>
+<p>of years.</p>
+<p>There are problems like separating out multiple speakers, right?</p>
+<p>Which was a classic problem in auditions.</p>
+<p>They call this the problem of source separation or the cocktail party effect and so on.</p>
+<p>But just try to do it visually when you also have, it becomes so much easier and so much</p>
+<p>more useful.</p>
+<p>So the multimodal, I mean, there&rsquo;s so much more signal with multimodal and you can use</p>
+<p>that for some kind of weak supervision as well.</p>
+<p>Yes, because they are occurring at the same time in time.</p>
+<p>So you have time which links the two, right?</p>
+<p>So at a certain moment, T1, you&rsquo;ve got a certain signal in the auditory domain and a certain</p>
+<p>signal in the visual domain, but they must be causally related.</p>
+<p>Yeah, that&rsquo;s an exciting area.</p>
+<p>Not well studied yet.</p>
+<p>Yeah, I mean, we have a little bit of work at this, but so much more needs to be done.</p>
+<p>So this is a good example.</p>
+<p>Be physical, that&rsquo;s to do with like the one thing we talked about earlier that there&rsquo;s</p>
+<p>a embodied world.</p>
+<p>To mention language, use language.</p>
+<p>So Noam Chomsky believes that language may be at the core of cognition, at the core of</p>
+<p>everything in the human mind.</p>
+<p>What is the connection between language and vision to you?</p>
+<p>What&rsquo;s more fundamental?</p>
+<p>Are they neighbors?</p>
+<p>Is one the parent and the child, the chicken and the egg?</p>
+<p>Oh, it&rsquo;s very clear.</p>
+<p>It is vision, which is the parent.</p>
+<p>Which is the fundamental ability, okay.</p>
+<p>It comes before you think vision is more fundamental than language.</p>
+<p>Correct.</p>
+<p>And you can think of it either in phylogeny or in ontogeny.</p>
+<p>So phylogeny means if you look at evolutionary time, right?</p>
+<p>So we have vision that developed 500 million years ago, okay.</p>
+<p>Then something like when we get to maybe like five million years ago, you have the first</p>
+<p>bipedal primate.</p>
+<p>So when we started to walk, then the hands became free.</p>
+<p>And so then manipulation, the ability to manipulate objects and build tools and so on and so forth.</p>
+<p>So you said 500,000 years ago?</p>
+<p>No, sorry.</p>
+<p>The first multicellular animals, which you can say had some intelligence arose 500 million</p>
+<p>years ago.</p>
+<p>Million.</p>
+<p>Okay.</p>
+<p>And now let&rsquo;s fast forward to say the last seven million years, which is the development</p>
+<p>of the hominid line, right, where from the other primates, we have the branch which leads</p>
+<p>on to modern humans.</p>
+<p>Now there are many of these hominids, but the ones which, you know, people talk about</p>
+<p>Lucy because that&rsquo;s like a skeleton from three million years ago.</p>
+<p>And we know that Lucy walked, okay.</p>
+<p>So at this stage you have that the hand is free for manipulating objects and then the</p>
+<p>ability to manipulate objects, build tools and the brain size grew in this era.</p>
+<p>So okay, so now you have manipulation.</p>
+<p>Now we don&rsquo;t know exactly when language arose.</p>
+<p>But after that.</p>
+<p>Because no apes have, I mean, so I mean Chomsky is correct in that, that it is a uniquely</p>
+<p>human capability and we primates, other primates don&rsquo;t have that.</p>
+<p>But so it developed somewhere in this era, but it developed, I would, I mean, argue that</p>
+<p>it probably developed after we had this stage of humans, I mean, the human species already</p>
+<p>able to manipulate and hands free much bigger brain size.</p>
+<p>And for that, there&rsquo;s a lot of vision has already had, had to have developed.</p>
+<p>So the sensation and the perception may be some of the cognition.</p>
+<p>Yeah.</p>
+<p>So we, we, we, so those, so, so that vision, so the world, so there, so, so these ancestors</p>
+<p>of ours, you know, three, four million years ago, they had, they had special intelligence.</p>
+<p>So they knew that the world consists of objects.</p>
+<p>They knew that the objects were in certain relationships to each other.</p>
+<p>They had observed causal interactions among objects.</p>
+<p>They could move in space.</p>
+<p>So they had space and time and all of that.</p>
+<p>So language builds on that substrate.</p>
+<p>So language has a lot of, I mean, I mean, the none, all human languages have constructs</p>
+<p>which depend on a notion of space and time.</p>
+<p>Where did that notion of space and time come from?</p>
+<p>It had to come from perception and action in the world we live in.</p>
+<p>Yeah.</p>
+<p>Well, you&rsquo;ve referred to the spatial intelligence.</p>
+<p>Yeah.</p>
+<p>So to linger a little bit, we&rsquo;ll mention Turing and his mention of, we should learn from</p>
+<p>children.</p>
+<p>Nevertheless, language is the fundamental piece of the test of intelligence that Turing</p>
+<p>proposed.</p>
+<p>Yes.</p>
+<p>What do you think is a good test of intelligence?</p>
+<p>Are you, what would impress the heck out of you?</p>
+<p>Is it fundamentally natural language or is there something in vision?</p>
+<p>I think, I wouldn&rsquo;t, I don&rsquo;t think we should have created a single test of intelligence.</p>
+<p>So just like I don&rsquo;t believe in IQ as a single number, I think generally there can be many</p>
+<p>capabilities which are correlated perhaps.</p>
+<p>So I think that there will be, there will be accomplishments which are visual accomplishments,</p>
+<p>accomplishments which are accomplishments in manipulation or robotics, and then accomplishments</p>
+<p>in language.</p>
+<p>But I do believe that language will be the hardest nut to crack.</p>
+<p>Really?</p>
+<p>Yeah.</p>
+<p>So what&rsquo;s harder, to pass the spirit of the Turing test or like whatever formulation will</p>
+<p>make it natural language, convincingly a natural language, like somebody you would want to</p>
+<p>have a beer with, hang out and have a chat with, or the general natural scene understanding?</p>
+<p>You think language is the tougher problem?</p>
+<p>I think, I&rsquo;m not a fan of the, I think, I think Turing test, that Turing as he proposed</p>
+<p>the test in 1950 was trying to solve a certain problem.</p>
+<p>Yeah, imitation.</p>
+<p>Yeah.</p>
+<p>And, and I think it made a lot of sense then.</p>
+<p>Where we are today, 70 years later, I think, I think we should not worry about that.</p>
+<p>I think the Turing test is no longer the right way to channel research in AI, because that,</p>
+<p>it takes us down this path of this chat bot, which can fool us for five minutes or whatever.</p>
+<p>Okay.</p>
+<p>I think I would rather have a list of 10 different tasks.</p>
+<p>I mean, I think there are tasks which, there are tasks in the manipulation domain, tasks</p>
+<p>in navigation, tasks in visual scene understanding, tasks in reading a story and answering questions</p>
+<p>based on that.</p>
+<p>I mean, so my favorite language understanding task would be, you know, reading a novel and</p>
+<p>being able to answer arbitrary questions from it.</p>
+<p>Okay.</p>
+<p>Right.</p>
+<p>I think that to me, and this is not an exhaustive list by any means.</p>
+<p>So I would, I think that that&rsquo;s what we, where we need to be going to.</p>
+<p>And each of these, on each of these axes, there&rsquo;s a fair amount of work to be done.</p>
+<p>So on the visual understanding side, in this intelligence Olympics that we&rsquo;ve set up, what&rsquo;s</p>
+<p>a good test for one of many of visual scene understanding?</p>
+<p>Do you think such benchmarks exist?</p>
+<p>Sorry to interrupt.</p>
+<p>No, there aren&rsquo;t any.</p>
+<p>I think, I think essentially to me, a really good aid to the blind.</p>
+<p>So suppose there was a blind person and I needed to assist the blind person.</p>
+<p>So ultimately, like we said, vision that aids in the action in a survival in this world,</p>
+<p>maybe in the simulated world.</p>
+<p>Maybe easier to measure performance in a simulated world, what we are ultimately after is performance</p>
+<p>in the real world.</p>
+<p>So David Hilbert in 1900 proposed 23 open problems in mathematics, some of which are</p>
+<p>still unsolved, most important, famous of which is probably the Riemann hypothesis.</p>
+<p>You&rsquo;ve thought about and presented about the Hilbert problems of computer vision.</p>
+<p>So let me ask, what do you today, I don&rsquo;t know when the last year you presented that</p>
+<p>in 2015, but versions of it, you&rsquo;re kind of the face and the spokesperson for computer</p>
+<p>vision.</p>
+<p>It&rsquo;s your job to state what the open problems are for the field.</p>
+<p>So what today are the Hilbert problems of computer vision, do you think?</p>
+<p>Let me pick one which I regard as clearly unsolved, which is what I would call long</p>
+<p>form video understanding.</p>
+<p>So we have a video clip and we want to understand the behavior in there in terms of agents,</p>
+<p>their goals, intentionality and make predictions about what might happen.</p>
+<p>So that kind of understanding which goes away from atomic visual action.</p>
+<p>So in the short range, the question is, are you sitting, are you standing, are you catching</p>
+<p>a ball?</p>
+<p>That we can do now, or even if we can&rsquo;t do it fully accurately, if we can do it at 50%,</p>
+<p>maybe next year we&rsquo;ll do it at 65% and so forth.</p>
+<p>But I think the long range video understanding, I don&rsquo;t think we can do today.</p>
+<p>And it blends into cognition, that&rsquo;s the reason why it&rsquo;s challenging.</p>
+<p>So you have to track, you have to understand the entities, you have to understand the entities,</p>
+<p>you have to track them and you have to have some kind of model of their behavior.</p>
+<p>Correct.</p>
+<p>And their behavior might be, these are agents, so they are not just like passive objects,</p>
+<p>but they&rsquo;re agents, so therefore they would exhibit goal directed behavior.</p>
+<p>Okay, so this is one area.</p>
+<p>Then I will talk about understanding the world in 3D.</p>
+<p>This may seem paradoxical because in a way we have been able to do 3D understanding even</p>
+<p>like 30 years ago, right?</p>
+<p>But I don&rsquo;t think we currently have the richness of 3D understanding in our computer vision</p>
+<p>system that we would like.</p>
+<p>So let me elaborate on that a bit.</p>
+<p>So currently we have two kinds of techniques which are not fully unified.</p>
+<p>So they are the kinds of techniques from multi view geometry that you have multiple pictures</p>
+<p>of a scene and you do a reconstruction using stereoscopic vision or structure from motion.</p>
+<p>But these techniques do not, they totally fail if you just have a single view because</p>
+<p>they are relying on this multiple view geometry.</p>
+<p>Okay, then we have some techniques that we have developed in the computer vision community</p>
+<p>which try to guess 3D from single views.</p>
+<p>And these techniques are based on supervised learning and they are based on having a training</p>
+<p>time 3D models of objects available.</p>
+<p>And this is completely unnatural supervision, right?</p>
+<p>That&rsquo;s not, CAD models are not injected into your brain.</p>
+<p>Okay, so what would I like?</p>
+<p>What I would like would be a kind of learning as you move around the world notion of 3D.</p>
+<p>So we have our succession of visual experiences and from those we, so as part of that I might</p>
+<p>see a chair from different viewpoints or a table from different viewpoints and so on.</p>
+<p>Now as part that enables me to build some internal representation.</p>
+<p>And then next time I just see a single photograph and it may not even be of that chair, it&rsquo;s</p>
+<p>of some other chair.</p>
+<p>And I have a guess of what it&rsquo;s 3D shape is like.</p>
+<p>So you&rsquo;re almost learning the CAD model, kind of.</p>
+<p>Yeah, implicitly.</p>
+<p>Implicitly.</p>
+<p>I mean, the CAD model need not be in the same form as used by computer graphics programs.</p>
+<p>Hidden in the representation.</p>
+<p>It&rsquo;s hidden in the representation, the ability to predict new views.</p>
+<p>And what I would see if I went to such and such position.</p>
+<p>By the way, on a small tangent on that, are you okay or comfortable with neural networks</p>
+<p>that do achieve visual understanding that do, for example, achieve this kind of 3D understanding</p>
+<p>and you don&rsquo;t know how they, you&rsquo;re not able to interest, you&rsquo;re not able to visualize</p>
+<p>or understand or interact with the representation.</p>
+<p>So the fact that they&rsquo;re not or may not be explainable.</p>
+<p>Yeah, I think that&rsquo;s fine.</p>
+<p>To me that is, so let me put some caveats on that.</p>
+<p>So it depends on the setting.</p>
+<p>So first of all, I think the humans are not explainable.</p>
+<p>So that&rsquo;s a really good point.</p>
+<p>So we, one human to another human is not fully explainable.</p>
+<p>I think there are settings where explainability matters and these might be, for example, questions</p>
+<p>on medical diagnosis.</p>
+<p>So I&rsquo;m in a setting where maybe the doctor, maybe a computer program has made a certain</p>
+<p>diagnosis and then depending on the diagnosis, perhaps I should have treatment A or treatment</p>
+<p>B, right?</p>
+<p>So now is the computer program&rsquo;s diagnosis based on data, which was data collected off</p>
+<p>for American males who are in their 30s and 40s and maybe not so relevant to me.</p>
+<p>Maybe it is relevant, you know, et cetera, et cetera.</p>
+<p>I mean, in medical diagnosis, we have major issues to do with the reference class.</p>
+<p>So we may have acquired statistics from one group of people and applying it to a different</p>
+<p>group of people who may not share all the same characteristics.</p>
+<p>The data might have, there might be error bars in the prediction.</p>
+<p>So that prediction should really be taken with a huge grain of salt.</p>
+<p>But this has an impact on what treatments should be picked, right?</p>
+<p>So there are settings where I want to know more than just, this is the answer.</p>
+<p>But what I acknowledge is that, so in that sense, explainability and interpretability</p>
+<p>may matter.</p>
+<p>It&rsquo;s about giving error bounds and a better sense of the quality of the decision.</p>
+<p>Where I&rsquo;m willing to sacrifice interpretability is that I believe that there can be systems</p>
+<p>which can be highly performant, but which are internally black boxes.</p>
+<p>And that seems to be where it&rsquo;s headed.</p>
+<p>Some of the best performing systems are essentially black boxes, fundamentally by their construction.</p>
+<p>You and I are black boxes to each other.</p>
+<p>Yeah.</p>
+<p>So the nice thing about the black boxes we are is, so we ourselves are black boxes, but</p>
+<p>we&rsquo;re also, those of us who are charming are able to convince others, like explain the</p>
+<p>black, what&rsquo;s going on inside the black box with narratives of stories.</p>
+<p>So in some sense, neural networks don&rsquo;t have to actually explain what&rsquo;s going on inside.</p>
+<p>They just have to come up with stories, real or fake that convince you that they know what&rsquo;s</p>
+<p>going on.</p>
+<p>And I&rsquo;m sure we can do that.</p>
+<p>We can create those stories, neural networks can create those stories.</p>
+<p>Yeah.</p>
+<p>And the transformer will be involved.</p>
+<p>Do you think we will ever build a system of human level or superhuman level intelligence?</p>
+<p>We&rsquo;ve kind of defined what it takes to try to approach that, but do you think that&rsquo;s</p>
+<p>within our reach?</p>
+<p>The thing that we thought we could do, what Turing thought actually we could do by year</p>
+<p>2000, right?</p>
+<p>What do you think we&rsquo;ll ever be able to do?</p>
+<p>So I think there are two answers here.</p>
+<p>One question, one answer is in principle, can we do this at some time?</p>
+<p>And my answer is yes.</p>
+<p>The second answer is a pragmatic one.</p>
+<p>Do you think we will be able to do it in the next 20 years or whatever?</p>
+<p>And to that my answer is no.</p>
+<p>So of course that&rsquo;s a wild guess.</p>
+<p>I think that, you know, Donald Rumsfeld is not a favorite person of mine, but one of</p>
+<p>his lines was very good, which is about known unknowns and unknown unknowns.</p>
+<p>So in the business we are in, there are known unknowns and we have unknown unknowns.</p>
+<p>So I think with respect to a lot of what&rsquo;s the case in vision and robotics, I feel like</p>
+<p>we have known unknowns.</p>
+<p>So I have a sense of where we need to go and what the problems that need to be solved are.</p>
+<p>I feel with respect to natural language, understanding and high level cognition, it&rsquo;s not just known</p>
+<p>unknowns, but also unknown unknowns.</p>
+<p>So it is very difficult to put any kind of a timeframe to that.</p>
+<p>Do you think some of the unknown unknowns might be positive in that they&rsquo;ll surprise</p>
+<p>us and make the job much easier?</p>
+<p>So fundamental breakthroughs?</p>
+<p>I think that is possible because certainly I have been very positively surprised by how</p>
+<p>effective these deep learning systems have been because I certainly would not have believed</p>
+<p>that in 2010.</p>
+<p>I think what we knew from the mathematical theory was that convex optimization works.</p>
+<p>When there&rsquo;s a single global optima, then these gradient descent techniques would work.</p>
+<p>Now these are nonlinear systems with non convex systems.</p>
+<p>Huge number of variables, so over parametrized.</p>
+<p>And the people who used to play with them a lot, the ones who are totally immersed in</p>
+<p>the lore and the black magic, they knew that they worked well, even though they were&hellip;</p>
+<p>Really?</p>
+<p>I thought like everybody&hellip;</p>
+<p>No, the claim that I hear from my friends like Yann LeCun and so forth is that they</p>
+<p>feel that they were comfortable with them.</p>
+<p>But the community as a whole was certainly not.</p>
+<p>And I think to me that was the surprise that they actually worked robustly for a wide range</p>
+<p>of problems from a wide range of initializations and so on.</p>
+<p>And so that was certainly more rapid progress than we expected.</p>
+<p>But then there are certainly lots of times, in fact, most of the history of AI is when</p>
+<p>we have made less progress at a slower rate than we expected.</p>
+<p>So we just keep going.</p>
+<p>I think what I regard as really unwarranted are these fears of AGI in 10 years and 20</p>
+<p>years and that kind of stuff, because that&rsquo;s based on completely unrealistic models of</p>
+<p>how rapidly we will make progress in this field.</p>
+<p>So I agree with you, but I&rsquo;ve also gotten the chance to interact with very smart people</p>
+<p>who really worry about existential threats of AI.</p>
+<p>And I, as an open minded person, am sort of taking it in.</p>
+<p>Do you think if AI systems in some way, the unknown unknowns, not super intelligent AI,</p>
+<p>but in ways we don&rsquo;t quite understand the nature of super intelligence, will have a</p>
+<p>detrimental effect on society?</p>
+<p>Do you think this is something we should be worried about or we need to first allow the</p>
+<p>unknown unknowns to become known unknowns?</p>
+<p>I think we need to be worried about AI today.</p>
+<p>I think that it is not just a worry we need to have when we get that AGI.</p>
+<p>I think that AI is being used in many systems today.</p>
+<p>And there might be settings, for example, when it causes biases or decisions which could</p>
+<p>be harmful.</p>
+<p>I mean, decisions which could be unfair to some people or it could be a self driving</p>
+<p>cars which kills a pedestrian.</p>
+<p>So AI systems are being deployed today, right?</p>
+<p>And they&rsquo;re being deployed in many different settings, maybe in medical diagnosis, maybe</p>
+<p>in a self driving car, maybe in selecting applicants for an interview.</p>
+<p>So I would argue that when these systems make mistakes, there are consequences.</p>
+<p>And we are in a certain sense responsible for those consequences.</p>
+<p>So I would argue that this is a continuous effort.</p>
+<p>It is we and this is something that in a way is not so surprising.</p>
+<p>It&rsquo;s about all engineering and scientific progress which great power comes great responsibility.</p>
+<p>So as these systems are deployed, we have to worry about them and it&rsquo;s a continuous</p>
+<p>problem.</p>
+<p>I don&rsquo;t think of it as something which will suddenly happen on some day in 2079 for which</p>
+<p>I need to design some clever trick.</p>
+<p>I&rsquo;m saying that these problems exist today and we need to be continuously on the lookout</p>
+<p>for worrying about safety, biases, risks, right?</p>
+<p>I mean, the self driving car kills a pedestrian and they have, right?</p>
+<p>I mean, this Uber incident in Arizona, right?</p>
+<p>It has happened, right?</p>
+<p>This is not about AGI.</p>
+<p>In fact, it&rsquo;s about a very dumb intelligence which is still killing people.</p>
+<p>The worry people have with AGI is the scale.</p>
+<p>But I think you&rsquo;re 100% right is like the thing that worries me about AI today and it&rsquo;s</p>
+<p>happening in a huge scale is recommender systems, recommendation systems.</p>
+<p>So if you look at Twitter or Facebook or YouTube, they&rsquo;re controlling the ideas that we have</p>
+<p>access to, the news and so on.</p>
+<p>And that&rsquo;s a fundamental machine learning algorithm behind each of these recommendations.</p>
+<p>And they, I mean, my life would not be the same without these sources of information.</p>
+<p>I&rsquo;m a totally new human being and the ideas that I know are very much because of the internet,</p>
+<p>because of the algorithm that recommend those ideas.</p>
+<p>And so as they get smarter and smarter, I mean, that is the AGI is that&rsquo;s the algorithm</p>
+<p>that&rsquo;s recommending the next YouTube video you should watch has control of millions of</p>
+<p>billions of people that that algorithm is already super intelligent and has complete</p>
+<p>control of the population, not a complete, but very strong control.</p>
+<p>For now we can turn off YouTube, we can just go have a normal life outside of that.</p>
+<p>But the more and more that gets into our life, it&rsquo;s that algorithm we start depending on</p>
+<p>it in the different companies that are working on the algorithm.</p>
+<p>So I think it&rsquo;s, you&rsquo;re right, it&rsquo;s already there.</p>
+<p>And YouTube in particular is using computer vision, doing their hardest to try to understand</p>
+<p>the content of videos so they could be able to connect videos with the people who would</p>
+<p>benefit from those videos the most.</p>
+<p>And so that development could go in a bunch of different directions, some of which might</p>
+<p>be harmful.</p>
+<p>So yeah, you&rsquo;re right, the threats of AI are here already and we should be thinking about</p>
+<p>them.</p>
+<p>On a philosophical notion, if you could, personal perhaps, if you could relive a moment in</p>
+<p>your life outside of family because it made you truly happy or it was a profound moment</p>
+<p>that impacted the direction of your life, what moment would you go to?</p>
+<p>I don&rsquo;t think of single moments, but I look over the long haul.</p>
+<p>I feel that I&rsquo;ve been very lucky because I feel that, I think that in scientific research,</p>
+<p>a lot of it is about being at the right place at the right time.</p>
+<p>And you can work on problems at a time when they&rsquo;re just too premature.</p>
+<p>You butt your head against them and nothing happens because the prerequisites for success</p>
+<p>are not there.</p>
+<p>And then there are times when you are in a field which is all pretty mature and you can</p>
+<p>only solve curlicues upon curlicues.</p>
+<p>I&rsquo;ve been lucky to have been in this field which for 34 years, well actually 34 years</p>
+<p>as a professor at Berkeley, so longer than that, which when I started in it was just</p>
+<p>like some little crazy, absolutely useless field which couldn&rsquo;t really do anything to</p>
+<p>a time when it&rsquo;s really, really solving a lot of practical problems, has offered a lot</p>
+<p>of tools for scientific research because computer vision is impactful for images in biology</p>
+<p>or astronomy and so on and so forth.</p>
+<p>And we have, so we have made great scientific progress which has had real practical impact</p>
+<p>in the world.</p>
+<p>And I feel lucky that I got in at a time when the field was very young and at a time when</p>
+<p>it is, it&rsquo;s now mature but not fully mature.</p>
+<p>It&rsquo;s mature but not done.</p>
+<p>I mean, it&rsquo;s really still in a productive phase.</p>
+<p>Yeah, I think people 500 years from now would laugh at you calling this field mature.</p>
+<p>That is very possible.</p>
+<p>Yeah.</p>
+<p>So, but you&rsquo;re also, lest I forget to mention, you&rsquo;ve also mentored some of the biggest names</p>
+<p>of computer vision, computer science and AI today.</p>
+<p>So many questions I could ask, but really is what, what is it, how did you do it?</p>
+<p>What does it take to be a good mentor?</p>
+<p>What does it take to be a good guide?</p>
+<p>Yeah, I think what I feel, I&rsquo;ve been lucky to have had very, very smart and hardworking</p>
+<p>and creative students.</p>
+<p>I think some part of the credit just belongs to being at Berkeley.</p>
+<p>Those of us who are at top universities are blessed because we have very, very smart and</p>
+<p>capable students coming on, knocking on our door.</p>
+<p>So I have to be humble enough to acknowledge that.</p>
+<p>But what have I added?</p>
+<p>I think I have added something.</p>
+<p>What I have added is, I think what I&rsquo;ve always tried to teach them is a sense of picking</p>
+<p>the right problems.</p>
+<p>So I think that in science, in the short run, success is always based on technical competence.</p>
+<p>You&rsquo;re, you know, you&rsquo;re quick with math or you are whatever.</p>
+<p>I mean, there&rsquo;s certain technical capabilities which make for short range progress.</p>
+<p>Long range progress is really determined by asking the right questions and focusing on</p>
+<p>the right problems.</p>
+<p>And I feel that what I&rsquo;ve been able to bring to the table in terms of advising these students</p>
+<p>is some sense of taste of what are good problems, what are problems that are worth attacking</p>
+<p>now as opposed to waiting 10 years.</p>
+<p>What&rsquo;s a good problem?</p>
+<p>If you could summarize, is that possible to even summarize, like what&rsquo;s your sense of</p>
+<p>a good problem?</p>
+<p>I think, I think I have a sense of what is a good problem, which is there is a British</p>
+<p>scientist, in fact, he won a Nobel Prize, Peter Medover, who has a book on this.</p>
+<p>And basically he calls it, research is the art of the soluble.</p>
+<p>So we need to sort of find problems which are not yet solved, but which are approachable.</p>
+<p>And he sort of refers to this sense that there is this problem which isn&rsquo;t quite solved yet,</p>
+<p>but it has a soft underbelly.</p>
+<p>There is some place where you can, you know, spear the beast.</p>
+<p>And having that intuition that this problem is ripe is a good thing because otherwise</p>
+<p>you can just beat your head and not make progress.</p>
+<p>So I think that is important.</p>
+<p>So if I have that and if I can convey that to students, it&rsquo;s not just that they do great</p>
+<p>research while they&rsquo;re working with me, but that they continue to do great research.</p>
+<p>So in a sense, I&rsquo;m proud of my students and their achievements and their great research</p>
+<p>even 20 years after they&rsquo;ve ceased being my student.</p>
+<p>So it&rsquo;s in part developing, helping them develop that sense that a problem is not yet solved,</p>
+<p>but it&rsquo;s solvable.</p>
+<p>Correct.</p>
+<p>The other thing which I have, which I think I bring to the table, is a certain intellectual</p>
+<p>breadth.</p>
+<p>I&rsquo;ve spent a fair amount of time studying psychology, neuroscience, relevant areas of</p>
+<p>applied math and so forth.</p>
+<p>So I can probably help them see some connections to disparate things, which they might not</p>
+<p>have otherwise.</p>
+<p>So the smart students coming into Berkeley can be very deep, they can think very deeply,</p>
+<p>meaning very hard down one particular path, but where I could help them is the shallow</p>
+<p>breadth, but they would have the narrow depth, but that&rsquo;s of some value.</p>
+<p>Well, it was beautifully refreshing just to hear you naturally jump to psychology back</p>
+<p>to computer science in this conversation back and forth.</p>
+<p>That&rsquo;s actually a rare quality and I think it&rsquo;s certainly for students empowering to</p>
+<p>think about problems in a new way.</p>
+<p>So for that and for many other reasons, I really enjoyed this conversation.</p>
+<p>Thank you so much.</p>
+<p>It was a huge honor.</p>
+<p>Thanks for talking to me.</p>
+<p>It&rsquo;s been my pleasure.</p>
+<p>Thanks for listening to this conversation with Jitendra Malik and thank you to our sponsors,</p>
+<p>BetterHelp and ExpressVPN.</p>
+<p>Please consider supporting this podcast by going to betterhelp.com slash Lex and signing</p>
+<p>up at expressvpn.com slash LexPod.</p>
+<p>Click the links, buy the stuff.</p>
+<p>That&rsquo;s how they know I sent you and it really is the best way to support this podcast and</p>
+<p>the journey I&rsquo;m on.</p>
+<p>If you enjoy this thing, subscribe on YouTube, review it with five stars on Apple podcast,</p>
+<p>support it on Patreon or connect with me on Twitter at Lex Friedman.</p>
+<p>Don&rsquo;t ask me how to spell that.</p>
+<p>I don&rsquo;t remember it myself.</p>
+<p>And now let me leave you with some words from Prince Mishkin in The Idiot by Dostoevsky.</p>
+<p>Beauty will save the world.</p>
+<p>Thank you for listening and hope to see you next time.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/podcast/">Podcast</a>
+        
+            <a href="/tags/lex-fridman-podcast/">Lex Fridman Podcast</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/1310500372/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500372" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #368 - Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 30, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500371/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500371" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #367 - Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 26, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500370/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500370" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #366 - Shannon Curry: Johnny Depp &amp; Amber Heard Trial, Marriage, Dating &amp; Love</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 22, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500369/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500369" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #365 - Sam Harris: Trump, Pandemic, Twitter, Elon, Bret, IDW, Kanye, AI &amp; UFOs</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 15, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/1310500368/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/1310500368" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">Lex Fridman Podcast - #364 - Chris Voss: FBI Hostage Negotiator</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Mar 11, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>
