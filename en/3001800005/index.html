@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='This next video is on inferring. I like to think
+of these tasks where the model takes a text as input and
+performs some kind of analysis. So this could be extracting labels,
+extracting names, kind of understanding the
+sentiment of a text, that kind of thing.
+So if you want to extract a sentiment, positive or negative,
+with a piece of text, in the traditional
+machine learning workflow, you&amp;rsquo;d have to collect the label data set, train'>
+<title>DeepLearningAI - ChatGPT Prompt Engineering for Developers - Inferring | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/3001800005/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='DeepLearningAI - ChatGPT Prompt Engineering for Developers - Inferring'>
+<meta property='og:description' content='This next video is on inferring. I like to think
+of these tasks where the model takes a text as input and
+performs some kind of analysis. So this could be extracting labels,
+extracting names, kind of understanding the
+sentiment of a text, that kind of thing.
+So if you want to extract a sentiment, positive or negative,
+with a piece of text, in the traditional
+machine learning workflow, you&amp;rsquo;d have to collect the label data set, train'>
+<meta property='og:url' content='https://swiest.com/en/3001800005/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Video Transcripts' /><meta property='article:tag' content='DeepLearningAI' /><meta property='article:published_time' content='2023-04-27T13:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-04-27T13:00:00&#43;00:00'/>
+<meta name="twitter:title" content="DeepLearningAI - ChatGPT Prompt Engineering for Developers - Inferring">
+<meta name="twitter:description" content="This next video is on inferring. I like to think
+of these tasks where the model takes a text as input and
+performs some kind of analysis. So this could be extracting labels,
+extracting names, kind of understanding the
+sentiment of a text, that kind of thing.
+So if you want to extract a sentiment, positive or negative,
+with a piece of text, in the traditional
+machine learning workflow, you&amp;rsquo;d have to collect the label data set, train">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/video-transcripts/" >
+                Video Transcripts
+            </a>
+        
+            <a href="/categories/deeplearningai/" >
+                DeepLearningAI
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/3001800005/">DeepLearningAI - ChatGPT Prompt Engineering for Developers - Inferring</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-04-27</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    9 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>This next video is on inferring.
+I like to think</p>
+<p>of these tasks where
+the model takes a text as input and</p>
+<p>performs some kind of analysis.
+So this could be extracting labels,</p>
+<p>extracting names,
+kind of understanding the</p>
+<p>sentiment of a text,
+that kind of thing.</p>
+<p>So if you want to extract a sentiment,
+positive or negative,</p>
+<p>with a piece of text,
+in the traditional</p>
+<p>machine learning workflow, you&rsquo;d
+have to collect the label data set, train</p>
+<p>the model, figure out how to deploy
+the model somewhere in</p>
+<p>the cloud and make inferences. And
+that can work pretty well, but</p>
+<p>it was just a lot of
+work to go through that process. And</p>
+<p>also for every task, such
+as sentiment versus</p>
+<p>extracting names versus
+something else, you</p>
+<p>have to train and
+deploy a separate model. One</p>
+<p>of the really nice
+things about a large</p>
+<p>language model is that
+for many tasks like these, you</p>
+<p>can just write a
+prompt and have it</p>
+<p>start generating results pretty
+much right away. And</p>
+<p>that gives tremendous speed in terms
+of application development. And</p>
+<p>you can also just use one model, one
+API, to do many different tasks</p>
+<p>rather than needing to
+figure out how to</p>
+<p>train and deploy a
+lot of different models. And</p>
+<p>so with that, let&rsquo;s jump
+into the code to see how you can</p>
+<p>take advantage of this. So here&rsquo;s
+a usual starter code. I&rsquo;ll just run that.</p>
+<p>And the most important example I&rsquo;m
+going to use is a review for a lamp. So</p>
+<p>need a nice lamp for the bedroom, and
+this one additional storage, and</p>
+<p>so on.</p>
+<p>So</p>
+<p>let me write a prompt
+to classify the sentiment of this.</p>
+<p>And if I want the system to tell me,
+you know, what is the sentiment,</p>
+<p>I can just write what is the sentiment</p>
+<p>of the following</p>
+<p>product review,</p>
+<p>with the usual delimiter and
+the review text and so on. And let&rsquo;s</p>
+<p>run that.</p>
+<p>And this says the sentiment of
+the product review is positive,</p>
+<p>which is actually seems pretty right.
+This lamp isn&rsquo;t perfect, but</p>
+<p>this customer seems pretty happy. Seems
+to be a great</p>
+<p>company that cares about
+the customers and products. I</p>
+<p>think positive sentiment seems
+like the right answer. Now</p>
+<p>this prints out the entire sentence,
+the sentiment of the product</p>
+<p>review is positive. If
+you wanted to give a</p>
+<p>more concise response to make
+it easier for post-processing, I can</p>
+<p>take this prompt and
+add another instruction to</p>
+<p>give you answers in
+a single word, either positive</p>
+<p>or negative. So it
+just prints out positive</p>
+<p>like this, which makes
+it easier for a</p>
+<p>piece of text to take this output and
+process it and do</p>
+<p>something with it. Let&rsquo;s look at
+another prompt, again still using</p>
+<p>the lamp review.</p>
+<p>Here, I have it identify
+a list of emotions</p>
+<p>that the writer of
+the following review is expressing,</p>
+<p>including no more than
+five items in this list.</p>
+<p>So, large language models are
+pretty good at extracting</p>
+<p>specific things out of
+a piece of text. In this case, we&rsquo;re</p>
+<p>expressing the emotions. And
+this could be useful for understanding</p>
+<p>how your customers
+think about a</p>
+<p>particular product.</p>
+<p>For a lot of customer support
+organizations, it&rsquo;s important to understand</p>
+<p>if a particular user is extremely
+upset. So you might have</p>
+<p>a different classification
+problem like this. Is</p>
+<p>the writer of the
+following review expressing anger?</p>
+<p>Because
+if someone is really angry, it</p>
+<p>might merit paying extra attention</p>
+<p>to have a customer review,
+to have customer</p>
+<p>support or customer success,
+reach out to figure what&rsquo;s</p>
+<p>going on and make things
+right for the customer. In</p>
+<p>this case, the
+customer is not angry. And</p>
+<p>notice that with
+supervised learning, if</p>
+<p>I had wanted to build
+all of these classifiers, there&rsquo;s</p>
+<p>no way I would have
+been able to do</p>
+<p>this with supervised learning
+in just a few</p>
+<p>minutes that you saw me do so in
+this video. I&rsquo;d encourage you</p>
+<p>to pause this video
+and try changing some</p>
+<p>of these prompts. Maybe ask if
+the customer is expressing</p>
+<p>delight or ask if
+there are any missing</p>
+<p>parts and see if
+you can get a prompt to make different</p>
+<p>inferences about this lamp
+review.</p>
+<p>Let me show some
+more things that you</p>
+<p>can do with this system, uhm,
+specifically extracting</p>
+<p>richer information from a
+customer review.</p>
+<p>So, information extraction is
+the part of NLP,</p>
+<p>of natural language processing,
+that relates to taking</p>
+<p>a piece of text
+and extracting certain things</p>
+<p>that you want to know from the text.
+So, in this prompt, I&rsquo;m asking it, identify</p>
+<p>the following items, the
+item purchase, and</p>
+<p>the name of the company
+that made the item. Again, if</p>
+<p>you are trying to
+summarize many reviews from</p>
+<p>an online shopping e-commerce website,
+it might be useful for your</p>
+<p>large collection of reviews
+to figure out what</p>
+<p>were the items, who made
+the item, figure out</p>
+<p>positive and negative
+sentiment, to track</p>
+<p>trends about positive or negative sentiment
+for specific items</p>
+<p>or for specific
+manufacturers. And in</p>
+<p>this example, I&rsquo;m going to
+ask it to format your</p>
+<p>response as a JSON object
+with item and brand as</p>
+<p>the keys. And so, if I do
+that, it says the</p>
+<p>item is a lamp, the brand is
+Luminar, and you can easily load this</p>
+<p>into the Python dictionary to then
+do additional processing</p>
+<p>on this output.
+In the examples we&rsquo;ve gone through, you</p>
+<p>saw how to
+write a prompt to recognize</p>
+<p>the sentiment, figure out if someone
+is angry, and then also extract</p>
+<p>the item and the
+brand.</p>
+<p>One way to extract
+all of this information,</p>
+<p>would be to use 3
+or 4 prompts and call getCompletion,</p>
+<p>you know, 3 times or 4 times,
+extract these different fields</p>
+<p>one at a time, but it turns out
+you can actually write</p>
+<p>a single prompt to
+extract all of this</p>
+<p>information at the same time. So,
+let&rsquo;s say, identify the fine items, extract</p>
+<p>sentiment, uhm, as
+a reviewer, expressing anger, item</p>
+<p>purchase, completely made it, uhm,
+and then here, I&rsquo;m also</p>
+<p>going to tell it to format
+the anger value as a, as a</p>
+<p>boolean value, and let
+me run that, and this</p>
+<p>outputs a, uhm, JSON,</p>
+<p>where sentiment is positive, anger,
+and there are no quotes around false,</p>
+<p>because it asks it to just
+output it as a boolean value, uhm,</p>
+<p>it extracted the item
+as a lamp with</p>
+<p>additional storage instead of lamp,
+seems okay,</p>
+<p>but this way,
+you can extract multiple</p>
+<p>fields out of a piece of text with
+just a single prompt.</p>
+<p>And as usual, please feel free
+to pause the video and play</p>
+<p>with different variations
+on this yourself, or maybe even try</p>
+<p>typing in a totally
+different review to see</p>
+<p>if you can still
+extract these things accurately.</p>
+<p>Now, one of the cool applications I&rsquo;ve
+seen of large language</p>
+<p>models is inferring topics. Given
+a long piece of text, you</p>
+<p>know, what
+is this piece of text about? What</p>
+<p>are the topics? Here&rsquo;s a
+fictitious newspaper article about</p>
+<p>how government workers feel
+about the agency they</p>
+<p>work for. So, the recent
+survey conducted by</p>
+<p>government, you know, and so
+on, uh, results reviewed at NASA was</p>
+<p>a popular department with high satisfaction
+rating. I am</p>
+<p>a fan of NASA, I love
+the work they do, but this</p>
+<p>is a fictitious article. And so,
+given an article like this, we can</p>
+<p>ask it,</p>
+<p>with this prompt,
+determine five topics</p>
+<p>that are being discussed in the
+following text. Let&rsquo;s</p>
+<p>make each item one or two words long, format
+your response in a comma-separated list,</p>
+<p>and so
+if we run that, you know, we get</p>
+<p>out this article is about
+a government survey, it&rsquo;s about job</p>
+<p>satisfaction, it&rsquo;s about NASA, and
+so on. So, overall, I think pretty</p>
+<p>nice, um, extraction of a list
+of topics, and of course, you</p>
+<p>can also, you know, split it
+so you get, uh, pie to the list</p>
+<p>with the five topics
+that, uh, this article was about.</p>
+<p>And if you have a
+collection of articles and extract</p>
+<p>topics, you can then also
+use a large language</p>
+<p>model to help you
+index into different topics. So,</p>
+<p>let me use a
+slightly different topic list. Let&rsquo;s</p>
+<p>say that, um, we&rsquo;re a
+news website or something, and, you know,</p>
+<p>these are
+the topics we track, NASA, local government,</p>
+<p>engineering, employee satisfaction,
+federal government.</p>
+<p>And let&rsquo;s say you
+want to figure out, given a news</p>
+<p>article, which of these
+topics are covered in that</p>
+<p>news article.</p>
+<p>So, here&rsquo;s a prompt that I can use.</p>
+<p>I&rsquo;m going to say, determine
+whether each item in</p>
+<p>the following list of
+topics is a topic in the text below.</p>
+<p>Um, give
+your answer as a list of</p>
+<p>zero one for each topic.</p>
+<p>And so,</p>
+<p>great. So,
+this is the same story text as before.</p>
+<p>So, this thing&rsquo;s a story. It
+is about NASA. It&rsquo;s not</p>
+<p>about local governments, not about
+engineering. It is</p>
+<p>about employee satisfaction, and it
+is about federal government. So, with</p>
+<p>this, in machine learning, this is
+sometimes called a zero</p>
+<p>shot learning</p>
+<p>algorithm because we didn&rsquo;t
+give it any training</p>
+<p>data that was labeled. So, that&rsquo;s
+zero shot. And with</p>
+<p>just a prompt, it was able to determine
+which of these topics are covered</p>
+<p>in that news article. And so,
+if you</p>
+<p>want to generate a news alert, say, so
+that process news, and you</p>
+<p>know, I really like a lot of work
+that NASA does. So, if you</p>
+<p>want to build a system
+that can take this, you know,</p>
+<p>put this
+information into a dictionary, and whenever</p>
+<p>NASA news pops up, print alert,
+new NASA story, they can</p>
+<p>use this to very quickly
+take any article, figure out</p>
+<p>what topics it is about, and if
+the topic includes NASA, have it</p>
+<p>print out alert, new NASA
+story. Just one thing, I use</p>
+<p>this topic dictionary down here. This prompt
+that I use up here isn&rsquo;t very robust.</p>
+<p>If I went
+to the production system, I would probably</p>
+<p>have it output the
+answer</p>
+<p>in JSON format rather
+than as a list</p>
+<p>because the output of
+the large language model</p>
+<p>can be a little bit inconsistent.
+So, this is actually a</p>
+<p>pretty brittle piece of code.
+But if you want, when you&rsquo;re</p>
+<p>done watching this video, feel
+free to see if you can figure out</p>
+<p>how to modify this
+prompt to have it</p>
+<p>output JSON instead of
+a list like this and then have a</p>
+<p>more robust way to tell if a bigger
+article is a story</p>
+<p>about NASA.</p>
+<p>So, that&rsquo;s it for inferring, and
+in just a few minutes, you</p>
+<p>can build multiple systems for making
+inferences about text</p>
+<p>that previously this
+would have taken days or even</p>
+<p>weeks for a skilled machine learning
+developer. And so, I</p>
+<p>find this very exciting that both
+for skilled machine</p>
+<p>learning developers as
+well as for people that are</p>
+<p>newer to machine learning, you
+can now use prompting to very</p>
+<p>quickly build and start making inferences
+on pretty complicated</p>
+<p>natural language processing
+tasks like these. In</p>
+<p>the next video, we&rsquo;ll continue
+to talk about exciting</p>
+<p>things you can do
+with large language models</p>
+<p>and we&rsquo;ll go on
+to transforming. How can you</p>
+<p>take one piece of text and transform it
+into a different piece</p>
+<p>of text such as
+translated to a different</p>
+<p>language? Let&rsquo;s go on to
+the next video.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/video-transcripts/">Video Transcripts</a>
+        
+            <a href="/tags/deeplearningai/">DeepLearningAI</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/3001800009/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/3001800009" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">DeepLearningAI - ChatGPT Prompt Engineering for Developers - Conclusion</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Apr 27, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/3001800008/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/3001800008" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">DeepLearningAI - ChatGPT Prompt Engineering for Developers - Chatbot</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Apr 27, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/3001800007/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/3001800007" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">DeepLearningAI - ChatGPT Prompt Engineering for Developers - Expanding</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Apr 27, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/3001800006/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/3001800006" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">DeepLearningAI - ChatGPT Prompt Engineering for Developers - Transforming</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Apr 27, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/3001800004/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/3001800004" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">DeepLearningAI - ChatGPT Prompt Engineering for Developers - Summarizing</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Apr 27, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>

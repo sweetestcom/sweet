@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Welcome to this course on ChatGPT prompt engineering
+for developers. I&amp;rsquo;m thrilled to have with
+me Isa Fulford to teach this along with me. She
+is a member of the technical staff of
+OpenAI and had built the popular ChatGPT
+retrieval plugin and a large part of the work has been teaching
+people how to use LLM or large language
+model technology in products. She&amp;rsquo;s also contributed to the
+OpenAI cookbook that teaches people prompting.'>
+<title>DeepLearningAI - ChatGPT Prompt Engineering for Developers - Introduction | SWIEST</title>
+
+<link rel='canonical' href='https://swiest.com/en/3001800001/'>
+
+<link rel="stylesheet" href="/scss/style.min.4ffcfae6a1365c9cb08c7d92945853ca2d001748b4041f74c40301b1c2a09287.css"><script>
+    document.oncontextmenu = function(){ return false; };
+    document.onselectstart = function(){ return false; };
+    document.oncopy = function(){ return false; };
+    document.oncut = function(){ return false; };
+</script><meta property='og:title' content='DeepLearningAI - ChatGPT Prompt Engineering for Developers - Introduction'>
+<meta property='og:description' content='Welcome to this course on ChatGPT prompt engineering
+for developers. I&amp;rsquo;m thrilled to have with
+me Isa Fulford to teach this along with me. She
+is a member of the technical staff of
+OpenAI and had built the popular ChatGPT
+retrieval plugin and a large part of the work has been teaching
+people how to use LLM or large language
+model technology in products. She&amp;rsquo;s also contributed to the
+OpenAI cookbook that teaches people prompting.'>
+<meta property='og:url' content='https://swiest.com/en/3001800001/'>
+<meta property='og:site_name' content='SWIEST - Transcripts · Screenplays · Lyrics'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='English' /><meta property='article:tag' content='Video Transcripts' /><meta property='article:tag' content='DeepLearningAI' /><meta property='article:published_time' content='2023-04-27T09:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-04-27T09:00:00&#43;00:00'/>
+<meta name="twitter:title" content="DeepLearningAI - ChatGPT Prompt Engineering for Developers - Introduction">
+<meta name="twitter:description" content="Welcome to this course on ChatGPT prompt engineering
+for developers. I&amp;rsquo;m thrilled to have with
+me Isa Fulford to teach this along with me. She
+is a member of the technical staff of
+OpenAI and had built the popular ChatGPT
+retrieval plugin and a large part of the work has been teaching
+people how to use LLM or large language
+model technology in products. She&amp;rsquo;s also contributed to the
+OpenAI cookbook that teaches people prompting.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+<script type="text/javascript">amzn_assoc_ad_type = "link_enhancement_widget"; amzn_assoc_tracking_id = "swiest09-20"; amzn_assoc_linkid = "b23ec73a5940fb1b05f3fe55b046a26f"; amzn_assoc_placement = ""; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "US";</script><script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu50a90395ee466aab210c1019489b5a11_223737_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SWIEST - Transcripts · Screenplays · Lyrics</a></h1>
+            <h2 class="site-description">🌍🌏🌎</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://swiest.com/" selected>English</option>
+                        
+                            <option value="https://swiest.com/af/" >Afrikaans</option>
+                        
+                            <option value="https://swiest.com/ar/" >العربية</option>
+                        
+                            <option value="https://swiest.com/az/" >Azərbaycan</option>
+                        
+                            <option value="https://swiest.com/be/" >беларускі</option>
+                        
+                            <option value="https://swiest.com/bg/" >български</option>
+                        
+                            <option value="https://swiest.com/bn/" >বাংলা</option>
+                        
+                            <option value="https://swiest.com/ca/" >Català</option>
+                        
+                            <option value="https://swiest.com/zh-hans/" >简体中文</option>
+                        
+                            <option value="https://swiest.com/zh-hant/" >繁體中文</option>
+                        
+                            <option value="https://swiest.com/cs/" >Čeština</option>
+                        
+                            <option value="https://swiest.com/da/" >Dansk</option>
+                        
+                            <option value="https://swiest.com/de/" >Deutsch</option>
+                        
+                            <option value="https://swiest.com/el/" >ελληνικά</option>
+                        
+                            <option value="https://swiest.com/es/" >Español</option>
+                        
+                            <option value="https://swiest.com/et/" >Eesti</option>
+                        
+                            <option value="https://swiest.com/fa/" >فارسی</option>
+                        
+                            <option value="https://swiest.com/fi/" >Suomi</option>
+                        
+                            <option value="https://swiest.com/fr/" >Français</option>
+                        
+                            <option value="https://swiest.com/gu/" >ગુજરાતી</option>
+                        
+                            <option value="https://swiest.com/he/" >עִברִית</option>
+                        
+                            <option value="https://swiest.com/hi/" >हिन्दी</option>
+                        
+                            <option value="https://swiest.com/hr/" >Hrvatski</option>
+                        
+                            <option value="https://swiest.com/hu/" >Magyar</option>
+                        
+                            <option value="https://swiest.com/hy/" >Հայերեն</option>
+                        
+                            <option value="https://swiest.com/id/" >Bahasa Indonesia</option>
+                        
+                            <option value="https://swiest.com/is/" >Íslenska</option>
+                        
+                            <option value="https://swiest.com/it/" >Italiano</option>
+                        
+                            <option value="https://swiest.com/ja/" >日本語</option>
+                        
+                            <option value="https://swiest.com/km/" >កម្ពុជា។</option>
+                        
+                            <option value="https://swiest.com/kn/" >ಕನ್ನಡ</option>
+                        
+                            <option value="https://swiest.com/ko/" >한국어</option>
+                        
+                            <option value="https://swiest.com/ku/" >کوردی</option>
+                        
+                            <option value="https://swiest.com/lo/" >ພາສາລາວ</option>
+                        
+                            <option value="https://swiest.com/lt/" >Lietuvių</option>
+                        
+                            <option value="https://swiest.com/lv/" >Latviešu</option>
+                        
+                            <option value="https://swiest.com/ml/" >മലയാളം</option>
+                        
+                            <option value="https://swiest.com/mn/" >Монгол</option>
+                        
+                            <option value="https://swiest.com/mr/" >मराठी</option>
+                        
+                            <option value="https://swiest.com/ms/" >Bahasa Melayu</option>
+                        
+                            <option value="https://swiest.com/my/" >မြန်မာ</option>
+                        
+                            <option value="https://swiest.com/ne/" >नेपाली</option>
+                        
+                            <option value="https://swiest.com/nl/" >Nederlands</option>
+                        
+                            <option value="https://swiest.com/no/" >Norsk</option>
+                        
+                            <option value="https://swiest.com/pa/" >ਪੰਜਾਬੀ</option>
+                        
+                            <option value="https://swiest.com/pl/" >Polski</option>
+                        
+                            <option value="https://swiest.com/pt-br/" >Português Brasil</option>
+                        
+                            <option value="https://swiest.com/pt-pt/" >Português</option>
+                        
+                            <option value="https://swiest.com/ro/" >Română</option>
+                        
+                            <option value="https://swiest.com/ru/" >Русский</option>
+                        
+                            <option value="https://swiest.com/sk/" >Slovenčina</option>
+                        
+                            <option value="https://swiest.com/sl/" >Slovenščina</option>
+                        
+                            <option value="https://swiest.com/sq/" >Shqip</option>
+                        
+                            <option value="https://swiest.com/sr/" >Српски</option>
+                        
+                            <option value="https://swiest.com/sv/" >Svenska</option>
+                        
+                            <option value="https://swiest.com/sw/" >Kiswahili</option>
+                        
+                            <option value="https://swiest.com/ta/" >தமிழ்</option>
+                        
+                            <option value="https://swiest.com/te/" >తెలుగు</option>
+                        
+                            <option value="https://swiest.com/th/" >ไทย</option>
+                        
+                            <option value="https://swiest.com/tl/" >Filipino</option>
+                        
+                            <option value="https://swiest.com/tr/" >Türkçe</option>
+                        
+                            <option value="https://swiest.com/uk/" >Українська</option>
+                        
+                            <option value="https://swiest.com/ur/" >اردو</option>
+                        
+                            <option value="https://swiest.com/uz/" >O&#39;zbekcha</option>
+                        
+                            <option value="https://swiest.com/vi/" >Tiếng Việt</option>
+                        
+                            <option value="https://swiest.com/zh-hk/" >粵語</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/video-transcripts/" >
+                Video Transcripts
+            </a>
+        
+            <a href="/categories/deeplearningai/" >
+                DeepLearningAI
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/3001800001/">DeepLearningAI - ChatGPT Prompt Engineering for Developers - Introduction</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-04-27</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    6 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Welcome to this course on
+ChatGPT prompt engineering</p>
+<p>for developers. I&rsquo;m
+thrilled to have with</p>
+<p>me Isa Fulford to
+teach this along with me. She</p>
+<p>is a member of
+the technical staff of</p>
+<p>OpenAI and had built
+the popular ChatGPT</p>
+<p>retrieval plugin and a
+large part of the work has been teaching</p>
+<p>people how to use
+LLM or large language</p>
+<p>model technology in products.
+She&rsquo;s also contributed to the</p>
+<p>OpenAI cookbook that teaches people prompting.
+So thrilled</p>
+<p>to have you with you. And I&rsquo;m
+thrilled to be here and share</p>
+<p>some prompting best practices
+with you all.</p>
+<p>So there&rsquo;s been a lot of
+material on the internet</p>
+<p>for prompting with articles
+like 30 prompts everyone</p>
+<p>has to know A lot of that has
+been focused on the</p>
+<p>ChatGPT web user
+interface Which many people</p>
+<p>are using to do
+specific and often one-off tasks</p>
+<p>But I think the power of LLM large
+language models as a</p>
+<p>developer to that is using API calls to
+LLM To quickly build</p>
+<p>software applications. I think
+that is still very</p>
+<p>underappreciated In fact, my team
+at AI Fund, which is a sister company</p>
+<p>to DeepLearning.AI Has been
+working with many startups on applying</p>
+<p>these technologies to
+many different applications</p>
+<p>And it&rsquo;s been exciting to
+see what LLM APIs</p>
+<p>can enable developers to
+very quickly build So</p>
+<p>in this course, we&rsquo;ll
+share with you some</p>
+<p>of the possibilities for what
+you can do As well</p>
+<p>as best practices for how
+you can do them There&rsquo;s</p>
+<p>a lot of material to
+cover. First you&rsquo;ll learn some prompting best</p>
+<p>practices for software development Then
+we&rsquo;ll cover some</p>
+<p>common use cases, summarizing, inferring,
+transforming, expanding And then you&rsquo;ll build</p>
+<p>a chatbot
+using</p>
+<p>an LLM We hope
+that this will spark your imagination about new</p>
+<p>applications that you can
+build So in the</p>
+<p>development of large language
+models or LLMs, there</p>
+<p>have been broadly two
+types of LLMs Which</p>
+<p>I&rsquo;m going to refer to
+as base LLMs and instruction</p>
+<p>tuned LLMs So base OMS has been trained
+to predict the next</p>
+<p>word based on text
+training data Often trained</p>
+<p>on a large amount
+of data from the</p>
+<p>internet and other sources
+To figure out what&rsquo;s</p>
+<p>the next most likely
+word to follow So for example,</p>
+<p>if you were to prompt
+this once upon a time there</p>
+<p>was a unicorn It
+may complete this, that</p>
+<p>is it may predict the next several words
+are That live in a magical</p>
+<p>forest with all unicorn
+friends</p>
+<p>But if you were to prompt this with
+what is the capital</p>
+<p>of France Then based
+on what articles on</p>
+<p>the internet might have It&rsquo;s
+quite possible that a</p>
+<p>base LLMs will complete
+this with What is France&rsquo;s largest</p>
+<p>city, what is France&rsquo;s population and
+so on Because articles on the</p>
+<p>internet could quite
+plausibly be lists</p>
+<p>of quiz questions
+about the country of France</p>
+<p>In contrast,
+an instruction tuned LLMs,</p>
+<p>which is where a lot of momentum of
+LLMs research and practice</p>
+<p>has been going An
+instruction tuned LLMs has</p>
+<p>been trained to follow
+instructions So if you</p>
+<p>were to ask it, what is the
+capital of France is much more</p>
+<p>likely to output something like the
+capital of France is Paris So</p>
+<p>the way that instruction tuned LLMs
+are typically trained is You start</p>
+<p>off with a base LLMs that&rsquo;s
+been trained on a huge amount</p>
+<p>of text data And further train
+it for the fine tune it</p>
+<p>with inputs and outputs that are
+instructions and good</p>
+<p>attempts to follow
+those instructions And</p>
+<p>then often further refine using a
+technique called RLHF</p>
+<p>reinforcement learning from
+human feedback To make the system</p>
+<p>better able to be helpful and
+follow instructions Because</p>
+<p>instruction tuned LLMs
+have been trained to be helpful, honest</p>
+<p>and harmless So for example, they&rsquo;re
+less likely to output</p>
+<p>problematic text such as toxic outputs
+compared to base LLMs A lot</p>
+<p>of the practical usage scenarios have
+been shifting toward</p>
+<p>instruction tuned LLMs
+Some of the best practices you</p>
+<p>find on the internet may be
+more suited for a base LLMs</p>
+<p>But for most practical applications today,
+we would</p>
+<p>recommend most people
+instead focus on</p>
+<p>instruction tuned LLMs
+Which are easier to use and</p>
+<p>also because of the work of
+OpenAI and other LLM companies becoming</p>
+<p>safer and more
+aligned</p>
+<p>So this course will focus on
+best practices for</p>
+<p>instruction tuned LLMs Which is what
+we recommend you use for most</p>
+<p>of your applications
+Before moving on, I just want</p>
+<p>to acknowledge the team from OpenAI
+and DeepLearning.ai</p>
+<p>that had contributed to
+the materials That Izzy</p>
+<p>and I will be presenting. I&rsquo;m very
+grateful to Andrew Main, Joe Palermo,</p>
+<p>Boris Power, Ted Sanders,
+and Lillian Weng from OpenAI</p>
+<p>They were very involved with us
+brainstorming materials, vetting the</p>
+<p>materials to put
+together the curriculum for this short</p>
+<p>course And I&rsquo;m also grateful
+on the deep learning</p>
+<p>side for the work
+of Geoff Ladwig, Eddy Shyu, and</p>
+<p>Tommy Nelson So when you use an
+instruction tuned LLMs, think of giving</p>
+<p>instructions to another
+person Say someone</p>
+<p>that&rsquo;s smart but doesn&rsquo;t
+know the specifics of</p>
+<p>your task So when an LLMs
+doesn&rsquo;t work, sometimes it&rsquo;s because the instructions weren&rsquo;t</p>
+<p>clear enough
+For example, if you were</p>
+<p>to say, please write me
+something about Alan Turing Well,</p>
+<p>in addition to that,
+it can be helpful</p>
+<p>to be clear about
+whether you want the text to focus on</p>
+<p>his scientific work Or
+his personal life or</p>
+<p>his role in history
+or something else And</p>
+<p>if you specify what
+you want the tone</p>
+<p>of the text to
+be, should it take on the tone like a</p>
+<p>professional journalist would write? Or is it more
+of a casual note</p>
+<p>that you dash off to a friend that
+hopes the OMS generate what you want? And</p>
+<p>of course, if you
+picture yourself asking, say, a fresh</p>
+<p>college graduate to carry out this
+task for you If</p>
+<p>you can even specify what snippets of text
+they should read in</p>
+<p>advance to write this
+text about Alan Turing</p>
+<p>Then that even better
+sets up that fresh</p>
+<p>college grad for success
+to carry out this</p>
+<p>task for you So
+in the next video, you see examples of</p>
+<p>how to be clear
+and specific, which is an</p>
+<p>important principle of prompting OMS
+And you also learn</p>
+<p>from either a second
+principle of prompting that</p>
+<p>is giving LLM time
+to think So with</p>
+<p>that, let&rsquo;s go on
+to the next video</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/english/">English</a>
+        
+            <a href="/tags/video-transcripts/">Video Transcripts</a>
+        
+            <a href="/tags/deeplearningai/">DeepLearningAI</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/3001800009/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/3001800009" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">DeepLearningAI - ChatGPT Prompt Engineering for Developers - Conclusion</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Apr 27, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/3001800008/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/3001800008" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">DeepLearningAI - ChatGPT Prompt Engineering for Developers - Chatbot</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Apr 27, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/3001800007/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/3001800007" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">DeepLearningAI - ChatGPT Prompt Engineering for Developers - Expanding</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Apr 27, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/3001800006/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/3001800006" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">DeepLearningAI - ChatGPT Prompt Engineering for Developers - Transforming</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Apr 27, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/en/3001800005/">
+        
+	
+        
+        <div class="article-image">
+            
+            <img src="/img/related-content.png" loading="lazy" 
+            data-key="en/3001800005" data-hash="" 
+            style="opacity: 0.3;"/>
+        </div>
+        
+        <div class="article-details">
+            <h2 class="article-title">DeepLearningAI - ChatGPT Prompt Engineering for Developers - Inferring</h2>
+            
+            <footer class="article-time">
+                <time datetime=''>Apr 27, 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "swiest" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 SWIEST - Transcripts · Screenplays · Lyrics
+    </section>
+    
+    <section class="powerby">
+        
+
+        Built with <a href="https://swiest.com/" target="_blank" rel="noopener">(ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+
+    </body>
+</html>
