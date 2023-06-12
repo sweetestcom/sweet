@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Discover the top podcasts across a wide range of genres at The Podcast Charts. Stay updated with the latest trends, captivating storytelling, and thought-provoking discussions. Explore popular shows, uncover hidden gems, and find your next favorite podcast. From true crime to comedy, business to health, our curated charts provide a comprehensive overview of the podcasting landscape. Join the growing community of podcast enthusiasts and embark on a journey of knowledge, entertainment, and inspiration. Start listening today and elevate your podcasting experience with The Podcast Charts." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+  <title>The Podcast Charts | SWIEST</title>
+  <style>
+    body {
+      font-family: 'Noto Serif', 'Noto Serif SC', 'Noto Serif JP', 'Noto Serif KR', 'Noto Serif TC', 'Noto Sans Hebrew', 'Noto Serif Thai', 'Noto Serif Bengali', 'Noto Serif Armenian', 'Noto Serif Tamil', 'Noto Serif Telugu', 'Noto Serif Gujarati','Noto Serif Kannada', 'Noto Serif Lao', 'Noto Serif Malayalam', serif;
+      background-color: #000; color: #fff;
+      padding: 20px;
+    }
+
+    #content {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  padding: 100px;
+}
+
+#footer {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: center;
+  padding: 30px;
+}
+
+#topbg {
+  background-color: #8E37D7;
+  padding: 5px; 
+  border-radius: 50px;
+}
+
+h1 {
+      font-size: 50px;
+    }
+
+
+#podcasts-chart {
+  display: block;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.podcast-card {
+  
+  width: calc(100% / 3 - 10px);
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  
+  border-color: #555;
+  
+  transition: transform 0.3s;
+  display: flex;
+  background-color:#222327
+}
+
+.podcast-card img {
+  
+  width: auto;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.podcast-card h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.podcast-card p {
+  margin: 5px 0;
+}
+
+.podcast-card a {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+
+.podcast-card:hover {
+  transform: scale(1.05);
+}
+
+
+#back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #222327;
+  color: #fff;
+  font-size: 24px;
+  text-align: center; line-height: 50px; cursor: pointer; 
+}
+
+
+#more-button {
+  display: block;
+  margin: auto;
+  width: 116px;
+  height: 48px;
+  background-color: #222327;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 48px; 
+}
+
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  line-height: 100vh;  
+}
+
+
+#more-button.hidden {
+    display:none
+}
+
+
+.podcast-card {
+    width:auto; 
+    display:flex; 
+    align-items:center
+}
+
+.podcast-card img {
+    max-height:none
+}
+
+.podcast-card h3, .podcast-card p, .podcast-card a {
+    margin-left:auto
+}
+
+.podcast-card a {
+    margin-right:auto
+}
+
+
+.rank-number {
+    font-size:24px; 
+    font-weight:bold
+}
+
+
+select {
+    width:auto; 
+    height:auto; 
+    font-size:1.3rem; 
+    padding-left:auto; 
+    padding-right:auto;
+}
+
+
+.select-container {
+    display:flex; 
+    justify-content:center; 
+    align-items:center;
+    margin-top: 35px;
+    font-size:1.3rem; 
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+  color: #222327;
+}
+
+
+label {
+    margin-right:auto
+}
+
+
+.rank-number {
+    margin-left:20px
+}
+.podcast-card img {
+    margin-left:20px
+}
+.podcast-card h3 {
+  margin-left:20px
+}
+.podcast-card a {
+    margin-right:30px
+}
+.podcast-card p {
+    margin-left:auto
+}
+
+
+.podcast-card p {
+    display:inline-block
+}
+
+
+#podcasts-chart {
+    margin-top:35px
+}
+
+
+.podcast-card {
+    width:auto
+}
+
+
+.podcast-card {
+    justify-content:flex-start
+}
+
+
+#more-button {
+    width:100px
+}
+
+#plse {
+    margin-left:30px
+}
+
+
+@media screen and (max-width: 600px) {
+      .podcast-card {
+        width: 100%;
+}
+</style> 
+</head> 
+<body> 
+  <div id="topbg">
+  <div id="content">
+    <h1>✨The Podcast Charts✨</h1>
+  </div>
+</div>
+
+
+  <div class="select-container"> 
+    <div id="plse"> 
+      <label for="platform-select">🎙️</label> 
+      <select id="platform-select"> 
+        <option value="spotify">Spotify Podcasts</option> 
+        <option value="apple">Apple Podcasts</option> 
+      </select> 
+    </div> 
+    <div id="plse"> 
+      <label for="country-select">🌎</label> 
+      <select id="country-select">
+  <option value="af">Afghanistan</option>
+  <option value="al">Albania</option>
+  <option value="dz">Algeria</option>
+  <option value="ao">Angola</option>
+  <option value="ai">Anguilla</option>
+  <option value="ag">Antigua and Barbuda</option>
+  <option value="ar">Argentina</option>
+  <option value="am">Armenia</option>
+  <option value="au">Australia</option>
+  <option value="at">Austria</option>
+  <option value="az">Azerbaijan</option>
+  <option value="bs">Bahamas</option>
+  <option value="bh">Bahrain</option>
+  <option value="bb">Barbados</option>
+  <option value="by">Belarus</option>
+  <option value="be">Belgium</option>
+  <option value="bz">Belize</option>
+  <option value="bj">Benin</option>
+  <option value="bm">Bermuda</option>
+  <option value="bt">Bhutan</option>
+  <option value="bo">Bolivia</option>
+  <option value="ba">Bosnia and Herzegovina</option>
+  <option value="bw">Botswana</option>
+  <option value="br">Brazil</option>
+  <option value="vg">British Virgin Islands</option>
+  <option value="bn">Brunei Darussalam</option>
+  <option value="bg">Bulgaria</option>
+  <option value="bf">Burkina Faso</option>
+  <option value="kh">Cambodia</option>
+  <option value="cm">Cameroon</option>
+  <option value="ca">Canada</option>
+  <option value="cv">Cape Verde</option>
+  <option value="ky">Cayman Islands</option>
+  <option value="td">Chad</option>
+  <option value="cl">Chile</option>
+  <option value="cn">China mainland</option>
+  <option value="co">Colombia</option>
+  <option value="cr">Costa Rica</option>
+  <option value="hr">Croatia</option>
+  <option value="cy">Cyprus</option>
+  <option value="cz">Czech Republic</option>
+  <option value="ci">Côte d'Ivoire</option>
+  <option value="cd">Democratic Republic of the Congo</option>
+  <option value="dk">Denmark</option>
+  <option value="dm">Dominica</option>
+  <option value="do">Dominican Republic</option>
+  <option value="ec">Ecuador</option>
+  <option value="eg">Egypt</option>
+  <option value="sv">El Salvador</option>
+  <option value="ee">Estonia</option>
+  <option value="sz">Eswatini</option>
+  <option value="fj">Fiji</option>
+  <option value="fi">Finland</option>
+  <option value="fr">France</option>
+  <option value="ga">Gabon</option>
+  <option value="gm">Gambia</option>
+  <option value="ge">Georgia</option>
+  <option value="de">Germany</option>
+  <option value="gh">Ghana</option>
+  <option value="gr">Greece</option>
+  <option value="gd">Grenada</option>
+  <option value="gt">Guatemala</option>
+  <option value="gw">Guinea-Bissau</option>
+  <option value="gy">Guyana</option>
+  <option value="hn">Honduras</option>
+  <option value="hk">Hong Kong</option>
+  <option value="hu">Hungary</option>
+  <option value="is">Iceland</option>
+  <option value="in">India</option>
+  <option value="id">Indonesia</option>
+  <option value="iq">Iraq</option>
+  <option value="ie">Ireland</option>
+  <option value="il">Israel</option>
+  <option value="it">Italy</option>
+  <option value="jm">Jamaica</option>
+  <option value="jp">Japan</option>
+  <option value="jo">Jordan</option>
+  <option value="kz">Kazakhstan</option>
+  <option value="ke">Kenya</option>
+  <option value="kr">Korea, Republic of</option>
+  <option value="xk">Kosovo</option>
+  <option value="kw">Kuwait</option>
+  <option value="kg">Kyrgyzstan</option>
+  <option value="la">Lao People's Democratic Republic</option>
+  <option value="lv">Latvia</option>
+  <option value="lb">Lebanon</option>
+  <option value="lr">Liberia</option>
+  <option value="ly">Libya</option>
+  <option value="lt">Lithuania</option>
+  <option value="lu">Luxembourg</option>
+  <option value="mo">Macao</option>
+  <option value="mg">Madagascar</option>
+  <option value="mw">Malawi</option>
+  <option value="my">Malaysia</option>
+  <option value="mv">Maldives</option>
+  <option value="ml">Mali</option>
+  <option value="mt">Malta</option>
+  <option value="mr">Mauritania</option>
+  <option value="mu">Mauritius</option>
+  <option value="mx">Mexico</option>
+  <option value="fm">Micronesia, Federated States of</option>
+  <option value="md">Moldova</option>
+  <option value="mn">Mongolia</option>
+  <option value="me">Montenegro</option>
+  <option value="ms">Montserrat</option>
+  <option value="ma">Morocco</option>
+  <option value="mz">Mozambique</option>
+  <option value="mm">Myanmar</option>
+  <option value="na">Namibia</option>
+  <option value="nr">Nauru</option>
+  <option value="np">Nepal</option>
+  <option value="nl">Netherlands</option>
+  <option value="nz">New Zealand</option>
+  <option value="ni">Nicaragua</option>
+  <option value="ne">Niger</option>
+  <option value="ng">Nigeria</option>
+  <option value="mk">North Macedonia</option>
+  <option value="no">Norway</option>
+  <option value="om">Oman</option>
+  <option value="pk">Pakistan</option>
+  <option value="pw">Palau</option>
+  <option value="pa">Panama</option>
+  <option value="pg">Papua New Guinea</option>
+  <option value="py">Paraguay</option>
+  <option value="pe">Peru</option>
+  <option value="ph">Philippines</option>
+  <option value="pl">Poland</option>
+  <option value="pt">Portugal</option>
+  <option value="qa">Qatar</option>
+  <option value="cg">Republic of the Congo</option>
+  <option value="ro">Romania</option>
+  <option value="ru">Russia</option>
+  <option value="rw">Rwanda</option>
+  <option value="sa">Saudi Arabia</option>
+  <option value="sn">Senegal</option>
+  <option value="rs">Serbia</option>
+  <option value="sc">Seychelles</option>
+  <option value="sl">Sierra Leone</option>
+  <option value="sg">Singapore</option>
+  <option value="sk">Slovakia</option>
+  <option value="si">Slovenia</option>
+  <option value="sb">Solomon Islands</option>
+  <option value="za">South Africa</option>
+  <option value="es">Spain</option>
+  <option value="lk">Sri Lanka</option>
+  <option value="kn">St. Kitts and Nevis</option>
+  <option value="lc">St. Lucia</option>
+  <option value="vc">St. Vincent and The Grenadines</option>
+  <option value="sr">Suriname</option>
+  <option value="se">Sweden</option>
+  <option value="ch">Switzerland</option>
+  <option value="st">São Tomé and Príncipe</option>
+  <option value="tw">Taiwan</option>
+  <option value="tj">Tajikistan</option>
+  <option value="tz">Tanzania</option>
+  <option value="th">Thailand</option>
+  <option value="to">Tonga</option>
+  <option value="tt">Trinidad and Tobago</option>
+  <option value="tn">Tunisia</option>
+  <option value="tm">Turkmenistan</option>
+  <option value="tc">Turks and Caicos</option>
+  <option value="tr">Türkiye</option>
+  <option value="ae">UAE</option>
+  <option value="ug">Uganda</option>
+  <option value="ua">Ukraine</option>
+  <option value="gb">United Kingdom</option>
+  <option selected="selected" value="us">United States</option>
+  <option value="uy">Uruguay</option>
+  <option value="uz">Uzbekistan</option>
+  <option value="vu">Vanuatu</option>
+  <option value="ve">Venezuela</option>
+  <option value="vn">Vietnam</option>
+  <option value="ye">Yemen</option>
+  <option value="zm">Zambia</option>
+  <option value="zw">Zimbabwe</option>
+</select>
+    </div> 
+
+    <div id="plse">
+  <label for="language-select">🅰️</label>
+  <select id="language-select">
+    <option value="" disabled selected>👆</option>
+    <option value="af">Afrikaans</option>
+    <option value="ar">العربية</option>
+    <option value="az">Azərbaycan</option>
+    <option value="be">беларускі</option>
+    <option value="bg">български</option>
+    <option value="bn">বাংলা</option>
+    <option value="ca">Català</option>
+    <option value="cs">Čeština</option>
+    <option value="da">Dansk</option>
+    <option value="de">Deutsch</option>
+    <option value="el">ελληνικά</option>
+    <option value="en">English</option>
+    <option value="es">Español</option>
+    <option value="et">Eesti</option>
+    <option value="fa">فارسی</option>
+    <option value="fi">Suomi</option>
+    <option value="fr">Français</option>
+    <option value="gu">ગુજરાતી</option>
+    <option value="he">עִברִית</option>
+    <option value="hi">हिन्दी</option>
+    <option value="hr">Hrvatski</option>
+    <option value="hu">Magyar</option>
+    <option value="hy">Հայերեն</option>
+    <option value="id">Bahasa Indonesia</option>
+    <option value="is">Íslenska</option>
+    <option value="it">Italiano</option>
+    <option value="ja">日本語</option>
+    <option value="km">កម្ពុជា។</option>
+    <option value="kn">ಕನ್ನಡ</option>
+    <option value="ko">한국어</option>
+    <option value="ku">کوردی</option>
+    <option value="lo">ພາສາລາວ</option>
+    <option value="lt">Lietuvių</option>
+    <option value="lv">Latviešu</option>
+    <option value="ml">മലയാളം</option>
+    <option value="mn">Монгол</option>
+    <option value="mr">मराठी</option>
+    <option value="ms">Bahasa Melayu</option>
+    <option value="my">မြန်မာ</option>
+    <option value="ne">नेपाली</option>
+    <option value="nl">Nederlands</option>
+    <option value="no">Norsk</option>
+    <option value="pa">ਪੰਜਾਬੀ</option>
+    <option value="pl">Polski</option>
+    <option value="pt">Português</option>
+    <option value="ro">Română</option>
+    <option value="ru">Русский</option>
+    <option value="sk">Slovenčina</option>
+    <option value="sl">Slovenščina</option>
+    <option value="sq">Shqip</option>
+    <option value="sr">Српски</option>
+    <option value="sv">Svenska</option>
+    <option value="sw">Kiswahili</option>
+    <option value="ta">தமிழ்</option>
+    <option value="te">తెలుగు</option>
+    <option value="th">ไทย</option>
+    <option value="tl">Filipino</option>
+    <option value="tr">Türkçe</option>
+    <option value="uk">Українська</option>
+    <option value="ur">اردو</option>
+    <option value="uz">O'zbekcha</option>
+    <option value="vi">Tiếng Việt</option>
+    <option value="zh-hans">中文（简体）</option>
+    <option value="zh-hant">中文（繁體）</option>
+    <option value="zh-hk">中文（粵語）</option>
+  </select>
+</div>
+  </div> 
+
+
+  
+  <div id="loading" style="display:none;">Loading...</div>
+
+  <div id="podcasts-chart"></div>
+
+  
+  <div id="back-to-top" onclick="window.scrollTo(0,0)">🔼</div>
+  
+  
+  <div>
+  <a id="more-button" onclick="loadMore()">🎉</a>
+  </div>
+  
+  <script> 
+
+
+const platformSelect = document.getElementById('platform-select'); 
+const countrySelect = document.getElementById('country-select');
+
+platformSelect.addEventListener('change', fetchPodcastsData);
+countrySelect.addEventListener('change', fetchPodcastsData);
+
+
+window.addEventListener('load', fetchPodcastsData);
+
+
+function fetchPodcastsData() {
+
+  
+  document.getElementById('loading').style.display = 'block';
+
+  const platform = platformSelect.value;
+  const country = countrySelect.value;
+
+  let apiUrl = '';
+
+  if (platform === 'spotify') {
+    apiUrl = `https://api.allorigins.win/raw?url=https://podcastcharts.byspotify.com/api/charts/top?region=${country}`;
+  } else if (platform === 'apple') {
+    apiUrl = `https://api.allorigins.win/raw?url=https://rss.applemarketingtools.com/api/v2/${country}/podcasts/top/100/podcasts.json`;
+  }
+
+  
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      let results = [];
+
+      if (platform === 'spotify') {
+        results = data;
+      } else if (platform === 'apple') {
+        results = data.feed.results;
+      }
+
+      
+      let html = '';
+
+      
+      results.forEach((podcast, index) => {
+        let showName = '';
+        let showPublisher = '';
+        let showImageUrl = '';
+        let showUri = '';
+
+        if (platform === 'spotify') {
+          showName = podcast.showName;
+          showPublisher = podcast.showPublisher;
+          showImageUrl = podcast.showImageUrl;
+          showUri = `https://open.spotify.com/show/${podcast.showUri.split(':').pop()}`;
+        } else if (platform === 'apple') {
+          showName = podcast.name;
+          showPublisher = podcast.artistName;
+          showImageUrl = podcast.artworkUrl100;
+          showUri = podcast.url;
+        }
+
+        const rank = index + 1;
+        html += `
+          <div class="podcast-card">
+            
+            <span class="rank-number">${rank}</span>
+            <img src="${showImageUrl}" alt="${showName}" />
+            <h3>${showName}</h3>
+            
+            <!--<p>Publisher: ${showPublisher}</p>-->
+            
+            <p>${showPublisher}</p>
+            <a href="${showUri}" target="_blank">Listen</a>
+          </div>
+        `;
+      });
+
+      
+      document.getElementById('podcasts-chart').innerHTML = html;
+
+      
+      hidePodcasts(100);
+
+      
+      document.getElementById('loading').style.display = 'none';
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
+
+function hidePodcasts(limit) {
+  
+  const podcastCards = document.querySelectorAll('.podcast-card');
+
+  
+  podcastCards.forEach((card, index) => {
+    if (index >= limit) {
+      card.style.display = 'none';
+    }
+  });
+
+  
+  if (limit >= podcastCards.length) {
+    document.getElementById('more-button').classList.add('hidden');
+  } else {
+    document.getElementById('more-button').classList.remove('hidden');
+  }
+}
+
+
+
+function loadMore() {
+  
+  const visiblePodcasts = document.querySelectorAll('.podcast-card:not([style*="display: none"])').length;
+
+  
+  hidePodcasts(visiblePodcasts + 20);
+}
+</script> 
+<script>
+        window.addEventListener("DOMContentLoaded", function() {
+            var backgrounds = [
+                "linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)",
+                "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)",
+                "linear-gradient(120deg, #f6d365 0%, #fda085 100%)",
+                "linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)",
+                "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)",
+                "linear-gradient(to top, #d299c2 0%, #fef9d7 100%)",
+                "linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%)",
+                "linear-gradient(to top, #c471f5 0%, #fa71cd 100%)",
+                "linear-gradient(to top, #c1dfc4 0%, #deecdd 100%)",
+                "linear-gradient(to top, #a7a6cb 0%, #8989ba 52%, #8989ba 100%)",
+                "linear-gradient(to top, #88d3ce 0%, #6e45e2 100%)",
+                "linear-gradient(to top, #d9afd9 0%, #97d9e1 100%)",
+                "linear-gradient(to top, #7028e4 0%, #e5b2ca 100%)",
+                "linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%)",
+                "linear-gradient(45deg, #8baaaa 0%, #ae8b9c 100%)",
+                "linear-gradient(-20deg, #6e45e2 0%, #88d3ce 100%)",
+                "linear-gradient(60deg, #abecd6 0%, #fbed96 100%)",
+                "linear-gradient(to top, #c71d6f 0%, #d09693 100%)",
+                "linear-gradient(-60deg, #ff5858 0%, #f09819 100%)",
+                "linear-gradient(45deg, #874da2 0%, #c43a30 100%)",
+                "linear-gradient(to top, #df89b5 0%, #bfd9fe 100%)",
+                "linear-gradient(to right, #243949 0%, #517fa4 100%)",
+                "linear-gradient(to top, #df89b5 0%, #bfd9fe 100%)",
+                "linear-gradient(to top, #e14fad 0%, #f9d423 100%)",
+                "linear-gradient(to right, #d7d2cc 0%, #304352 100%)",
+                "linear-gradient(-225deg, #20E2D7 0%, #F9FEA5 100%)",
+                "linear-gradient(-225deg, #A8BFFF 0%, #884D80 100%)",
+                "linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%)",
+                "linear-gradient(-225deg, #CBBACC 0%, #2580B3 100%)",
+                "linear-gradient(-225deg, #FF3CAC 0%, #562B7C 52%, #2B86C5 100%)",
+            ];
+
+            var randomNumber = Math.floor(Math.random() * backgrounds.length);
+            var selectedBackground = backgrounds[randomNumber];
+            var topBgElement = document.getElementById("topbg");
+            topBgElement.style.backgroundImage = selectedBackground;
+        });
+    </script>
+    <script>
+    
+     $(document).ready(function() {
+     $('#language-select').select2();
+    });
+
+    
+    $('#language-select').on('change', function() {
+    var selectedLanguage = $(this).val();
+    var chartPage;
+
+    
+
+if (selectedLanguage === 'zh-hans') {
+  chartPage = 'podcastchartchart-zh-hans.html';
+} else if (selectedLanguage === 'ja') {
+  chartPage = 'podcastchartchart-ja.html';
+} else if (selectedLanguage === 'es') {
+  chartPage = 'podcastchartchart-es.html';
+} else if (selectedLanguage === 'pt') {
+  chartPage = 'podcastchartchart-pt.html';
+} else if (selectedLanguage === 'de') {
+  chartPage = 'podcastchartchart-de.html';
+} else if (selectedLanguage === 'ru') {
+  chartPage = 'podcastchartchart-ru.html';
+} else if (selectedLanguage === 'fr') {
+  chartPage = 'podcastchartchart-fr.html';
+} else if (selectedLanguage === 'ko') {
+  chartPage = 'podcastchartchart-ko.html';
+} else if (selectedLanguage === 'id') {
+  chartPage = 'podcastchartchart-id.html';
+} else if (selectedLanguage === 'ar') {
+  chartPage = 'podcastchartchart-ar.html';
+} else if (selectedLanguage === 'it') {
+  chartPage = 'podcastchartchart-it.html';
+} else if (selectedLanguage === 'nl') {
+  chartPage = 'podcastchartchart-nl.html';
+} else if (selectedLanguage === 'vi') {
+  chartPage = 'podcastchartchart-vi.html';
+} else if (selectedLanguage === 'fa') {
+  chartPage = 'podcastchartchart-fa.html';
+} else if (selectedLanguage === 'th') {
+  chartPage = 'podcastchartchart-th.html';
+} else if (selectedLanguage === 'da') {
+  chartPage = 'podcastchartchart-da.html';
+} else if (selectedLanguage === 'cs') {
+  chartPage = 'podcastchartchart-cs.html';
+} else if (selectedLanguage === 'fi') {
+  chartPage = 'podcastchartchart-fi.html';
+} else if (selectedLanguage === 'sv') {
+  chartPage = 'podcastchartchart-sv.html';
+} else if (selectedLanguage === 'no') {
+  chartPage = 'podcastchartchart-no.html';
+} else if (selectedLanguage === 'pl') {
+  chartPage = 'podcastchartchart-pl.html';
+} else if (selectedLanguage === 'tr') {
+  chartPage = 'podcastchartchart-tr.html';
+} else if (selectedLanguage === 'el') {
+  chartPage = 'podcastchartchart-el.html';
+} else if (selectedLanguage === 'he') {
+  chartPage = 'podcastchartchart-he.html';
+} else if (selectedLanguage === 'ro') {
+  chartPage = 'podcastchartchart-ro.html';
+} else if (selectedLanguage === 'sk') {
+  chartPage = 'podcastchartchart-sk.html';
+} else if (selectedLanguage === 'hu') {
+  chartPage = 'podcastchartchart-hu.html';
+} else if (selectedLanguage === 'uk') {
+  chartPage = 'podcastchartchart-uk.html';
+} else if (selectedLanguage === 'sr') {
+  chartPage = 'podcastchartchart-sr.html';
+} else if (selectedLanguage === 'bg') {
+  chartPage = 'podcastchartchart-bg.html';
+} else if (selectedLanguage === 'tl') {
+  chartPage = 'podcastchartchart-tl.html';
+} else if (selectedLanguage === 'lt') {
+  chartPage = 'podcastchartchart-lt.html';
+} else if (selectedLanguage === 'sl') {
+  chartPage = 'podcastchartchart-sl.html';
+} else if (selectedLanguage === 'ca') {
+  chartPage = 'podcastchartchart-ca.html';
+} else if (selectedLanguage === 'et') {
+  chartPage = 'podcastchartchart-et.html';
+} else if (selectedLanguage === 'hr') {
+  chartPage = 'podcastchartchart-hr.html';
+} else if (selectedLanguage === 'lv') {
+  chartPage = 'podcastchartchart-lv.html';
+} else if (selectedLanguage === 'bn') {
+  chartPage = 'podcastchartchart-bn.html';
+} else if (selectedLanguage === 'hi') {
+  chartPage = 'podcastchartchart-hi.html';
+} else if (selectedLanguage === 'ur') {
+  chartPage = 'podcastchartchart-ur.html';
+} else if (selectedLanguage === 'ms') {
+  chartPage = 'podcastchartchart-ms.html';
+} else if (selectedLanguage === 'sw') {
+  chartPage = 'podcastchartchart-sw.html';
+} else if (selectedLanguage === 'hy') {
+  chartPage = 'podcastchartchart-hy.html';
+} else if (selectedLanguage === 'is') {
+  chartPage = 'podcastchartchart-is.html';
+} else if (selectedLanguage === 'ku') {
+  chartPage = 'podcastchartchart-ku.html';
+} else if (selectedLanguage === 'my') {
+  chartPage = 'podcastchartchart-my.html';
+} else if (selectedLanguage === 'be') {
+  chartPage = 'podcastchartchart-be.html';
+} else if (selectedLanguage === 'mn') {
+  chartPage = 'podcastchartchart-mn.html';
+} else if (selectedLanguage === 'uz') {
+  chartPage = 'podcastchartchart-uz.html';
+} else if (selectedLanguage === 'ta') {
+  chartPage = 'podcastchartchart-ta.html';
+} else if (selectedLanguage === 'te') {
+  chartPage = 'podcastchartchart-te.html';
+} else if (selectedLanguage === 'zh-hk') {
+  chartPage = 'podcastchartchart-zh-hk.html';
+} else if (selectedLanguage === 'ml') {
+  chartPage = 'podcastchartchart-ml.html';
+} else if (selectedLanguage === 'mr') {
+  chartPage = 'podcastchartchart-mr.html';
+} else if (selectedLanguage === 'pa') {
+  chartPage = 'podcastchartchart-pa.html';
+} else if (selectedLanguage === 'gu') {
+  chartPage = 'podcastchartchart-gu.html';
+} else if (selectedLanguage === 'kn') {
+  chartPage = 'podcastchartchart-kn.html';
+} else if (selectedLanguage === 'km') {
+  chartPage = 'podcastchartchart-km.html';
+} else if (selectedLanguage === 'lo') {
+  chartPage = 'podcastchartchart-lo.html';
+} else if (selectedLanguage === 'ne') {
+  chartPage = 'podcastchartchart-ne.html';
+} else if (selectedLanguage === 'af') {
+  chartPage = 'podcastchartchart-af.html';
+} else if (selectedLanguage === 'az') {
+  chartPage = 'podcastchartchart-az.html';
+} else if (selectedLanguage === 'sq') {
+  chartPage = 'podcastchartchart-sq.html';
+} else if (selectedLanguage === 'zh-hant') {
+  chartPage = 'podcastchartchart-zh-hant.html';
+} else {
+  chartPage = 'podcastchartchart.html';
+}
+
+
+    
+    window.location.href = chartPage;
+  });
+  
+  var currentLanguage = null;
+</script>
+<script>
+  $(document).ready(function() {
+  
+  $('#language-select').select2({
+    theme: 'classic', 
+    dropdownCssClass: 'select2-dropdown-black' 
+  });
+});
+</script>
+  <div id="footer">
+    <p>Built with (ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be<p>
+    <a href="https://swiest.com">© SWIEST</a>
+  </div>
+</body> 
+</html>
