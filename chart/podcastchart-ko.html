@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="다양한 장르의 세계 최고의 팟캐스트와 에피소드를 팟캐스트 차트에서 발견하세요. 트루 크라임부터 코미디, 비즈니스부터 건강까지. 팟캐스트 차트와 함께 지식, 엔터테인먼트, 영감의 여행을 시작하세요." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+  <title>팟캐스트 차트 | SWIEST</title>
+  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Bubbles/3D/bubbles_3d.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Bubbles/3D/bubbles_3d.png">
+  <style>
+    body {
+      font-family: 'Noto Serif', 'Noto Serif SC', 'Noto Serif JP', 'Noto Serif KR', 'Noto Serif TC', 'Noto Sans Hebrew', 'Noto Serif Thai', 'Noto Serif Bengali', 'Noto Serif Armenian', 'Noto Serif Tamil', 'Noto Serif Telugu', 'Noto Serif Gujarati','Noto Serif Kannada', 'Noto Serif Lao', 'Noto Serif Malayalam', serif;
+      background-color: #000; color: #fff;
+      padding: 20px;
+    }
+
+    #content {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  padding: 100px;
+}
+
+#footer {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: center;
+  padding: 30px;
+}
+
+#topbg {
+  background-color: #8E37D7;
+  padding: 5px; 
+  border-radius: 50px;
+}
+
+h1 {
+      font-size: 50px;
+    }
+
+
+#podcasts-chart {
+  display: block;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.podcast-card {
+  
+  width: calc(100% / 3 - 10px);
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  
+  border-color: #555;
+  
+  transition: transform 0.3s;
+  display: flex;
+  background-color:#222327
+}
+
+.podcast-card img {
+  
+  width: auto;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.podcast-card h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.podcast-card p {
+  margin: 5px 0;
+}
+
+.podcast-card a {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 5px 10px;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+
+.podcast-card:hover {
+  transform: scale(1.05);
+}
+
+
+#back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #222327;
+  color: #fff;
+  font-size: 24px;
+  text-align: center; line-height: 50px; cursor: pointer; 
+}
+
+
+#more-button {
+  display: block;
+  margin: auto;
+  width: 116px;
+  height: 48px;
+  background-color: #222327;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 48px; 
+}
+
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  line-height: 100vh; 
+  font-size: 68px; 
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#more-button.hidden {
+    display:none
+}
+
+
+.podcast-card {
+    width:auto; 
+    display:flex; 
+    align-items:center
+}
+
+.podcast-card img {
+    max-height:none
+}
+
+.podcast-card h3, .podcast-card p, .podcast-card a {
+    margin-left:auto
+}
+
+.podcast-card a {
+    margin-right:auto
+}
+
+
+.rank-number {
+    font-size:24px; 
+    font-weight:bold
+}
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+select {
+    width:auto; 
+    height:auto; 
+    font-size:1.3rem; 
+    padding-left:auto; 
+    padding-right:auto;
+}
+
+
+.select-container {
+    display:flex; 
+    justify-content:center; 
+    align-items:center;
+    margin-top: 35px;
+    font-size:1.3rem; 
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+  color: #222327;
+}
+
+
+label {
+    margin-right:auto
+}
+
+
+.rank-number {
+    margin-left:20px
+}
+.podcast-card img {
+    margin-left:20px
+}
+.podcast-card h3 {
+  margin-left:20px
+}
+.podcast-card a {
+    margin-right:30px
+}
+.podcast-card p {
+    margin-left:auto
+}
+
+
+.podcast-card p {
+    display:inline-block
+}
+
+
+#podcasts-chart {
+    margin-top:35px
+}
+
+
+.podcast-card {
+    width:auto
+}
+
+
+.podcast-card {
+    justify-content:flex-start
+}
+
+
+#more-button {
+    width:100px
+}
+
+#plse {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+      .podcast-card {
+        width: 100%;
+}
+</style> 
+</head> 
+<body> 
+  <div id="topbg">
+  <div id="content">
+    <h1>✨팟캐스트 차트✨</h1>
+  </div>
+</div>
+
+
+  <div class="select-container"> 
+    <div class="menu-container">
+    <div id="plse"> 
+      <label for="platform-select">🎙️</label> 
+      <select id="platform-select"> 
+        <option value="spotify">Spotify Podcasts</option> 
+        <option value="apple">Apple Podcasts</option> 
+      </select> 
+    </div> 
+    <div id="plse">
+  <label for="type-select">🏅</label>
+  <select id="type-select">
+    <option value="top-podcasts">Top Podcasts</option>
+    <option value="top-episodes">Top Episodes</option>
+  </select>
+    </div>
+    <div id="plse"> 
+      <label for="country-select">🌎</label> 
+      <select id="country-select">
+  <option value="af">아프가니스탄</option>
+  <option value="al">알바니아</option>
+  <option value="dz">알제리</option>
+  <option value="ao">앙골라</option>
+  <option value="ai">앵귈라</option>
+  <option value="ag">앤티구아 바부다</option>
+  <option value="ar">아르헨티나</option>
+  <option value="am">아르메니아</option>
+  <option value="au">오스트레일리아</option>
+  <option value="at">오스트리아</option>
+  <option value="az">아제르바이잔</option>
+  <option value="bs">바하마</option>
+  <option value="bh">바레인</option>
+  <option value="bb">바베이도스</option>
+  <option value="by">벨라루스</option>
+  <option value="be">벨기에</option>
+  <option value="bz">벨리즈</option>
+  <option value="bj">베냉</option>
+  <option value="bm">버뮤다</option>
+  <option value="bt">부탄</option>
+  <option value="bo">볼리비아</option>
+  <option value="ba">보스니아 헤르체고비나</option>
+  <option value="bw">보츠와나</option>
+  <option value="br">브라질</option>
+  <option value="vg">영국령 버진 아일랜드</option>
+  <option value="bn">브루나이</option>
+  <option value="bg">불가리아</option>
+  <option value="bf">부르키나 파소</option>
+  <option value="kh">캄보디아</option>
+  <option value="cm">카메룬</option>
+  <option value="ca">캐나다</option>
+  <option value="cv">카보베르데</option>
+  <option value="ky">케이맨 제도</option>
+  <option value="td">차드</option>
+  <option value="cl">칠레</option>
+  <option value="cn">중국 본토</option>
+  <option value="co">콜롬비아</option>
+  <option value="cr">코스타리카</option>
+  <option value="hr">크로아티아</option>
+  <option value="cy">키프로스</option>
+  <option value="cz">체코 공화국</option>
+  <option value="ci">코트디부아르</option>
+  <option value="cd">콩고 민주 공화국</option>
+  <option value="dk">덴마크</option>
+  <option value="dm">도미니카</option>
+  <option value="do">도미니카 공화국</option>
+  <option value="ec">에콰도르</option>
+  <option value="eg">이집트</option>
+  <option value="sv">엘살바도르</option>
+  <option value="ee">에스토니아</option>
+  <option value="sz">에스와티니</option>
+  <option value="fj">피지</option>
+  <option value="fi">핀란드</option>
+  <option value="fr">프랑스</option>
+  <option value="ga">가봉</option>
+  <option value="gm">감비아</option>
+  <option value="ge">조지아</option>
+  <option value="de">독일</option>
+  <option value="gh">가나</option>
+  <option value="gr">그리스</option>
+  <option value="gd">그레나다</option>
+  <option value="gt">과테말라</option>
+  <option value="gw">기니비사우</option>
+  <option value="gy">가이아나</option>
+  <option value="hn">온두라스</option>
+  <option value="hk">홍콩</option>
+  <option value="hu">헝가리</option>
+  <option value="is">아이슬란드</option>
+  <option value="in">인도</option>
+  <option value="id">인도네시아</option>
+  <option value="iq">이라크</option>
+  <option value="ie">아일랜드</option>
+  <option value="il">이스라엘</option>
+  <option value="it">이탈리아</option>
+  <option value="jm">자메이카</option>
+  <option value="jp">일본</option>
+  <option value="jo">요르단</option>
+  <option value="kz">카자흐스탄</option>
+  <option value="ke">케냐</option>
+  <option value="kr">대한민국</option>
+  <option value="xk">코소보</option>
+  <option value="kw">쿠웨이트</option>
+  <option value="kg">키르기스스탄</option>
+  <option value="la">라오스</option>
+  <option value="lv">라트비아</option>
+  <option value="lb">레바논</option>
+<option value="lr">라이베리아</option>
+<option value="ly">리비아</option>
+<option value="lt">리투아니아</option>
+<option value="lu">룩셈부르크</option>
+<option value="mo">마카오</option>
+<option value="mg">마다가스카르</option>
+<option value="mw">말라위</option>
+<option value="my">말레이시아</option>
+<option value="mv">몰디브</option>
+<option value="ml">말리</option>
+<option value="mt">몰타</option>
+<option value="mr">모리타니</option>
+<option value="mu">모리셔스</option>
+<option value="mx">멕시코</option>
+<option value="fm">미크로네시아 연방</option>
+<option value="md">몰도바</option>
+<option value="mn">몽골</option>
+<option value="me">몬테네그로</option>
+<option value="ms">몬트세라트</option>
+<option value="ma">모로코</option>
+<option value="mz">모잠비크</option>
+<option value="mm">미얀마</option>
+<option value="na">나미비아</option>
+<option value="nr">나우루</option>
+<option value="np">네팔</option>
+<option value="nl">네덜란드</option>
+<option value="nz">뉴질랜드</option>
+<option value="ni">니카라과</option>
+<option value="ne">니제르</option>
+<option value="ng">나이지리아</option>
+<option value="mk">북마케도니아</option>
+<option value="no">노르웨이</option>
+<option value="om">오만</option>
+<option value="pk">파키스탄</option>
+<option value="pw">팔라우</option>
+<option value="pa">파나마</option>
+<option value="pg">파푸아뉴기니</option>
+<option value="py">파라과이</option>
+<option value="pe">페루</option>
+<option value="ph">필리핀</option>
+<option value="pl">폴란드</option>
+<option value="pt">포르투갈</option>
+<option value="qa">카타르</option>
+<option value="cg">콩고 공화국</option>
+<option value="ro">루마니아</option>
+<option value="ru">러시아</option>
+<option value="rw">르완다</option>
+<option value="sa">사우디 아라비아</option>
+<option value="sn">세네갈</option>
+<option value="rs">세르비아</option>
+<option value="sc">세이셸</option>
+<option value="sl">시에라리온</option>
+<option value="sg">싱가포르</option>
+<option value="sk">슬로바키아</option>
+<option value="si">슬로베니아</option>
+<option value="sb">솔로몬 제도</option>
+<option value="za">남아프리카</option>
+<option value="es">스페인</option>
+<option value="lk">스리랑카</option>
+<option value="kn">세인트키츠 네비스</option>
+<option value="lc">세인트루시아</option>
+<option value="vc">세인트빈센트 그레나딘</option>
+<option value="sr">수리남</option>
+<option value="se">스웨덴</option>
+<option value="ch">스위스</option>
+<option value="st">상투메 프린시페</option>
+<option value="tw">대만</option>
+<option value="tj">타지키스탄</option>
+<option value="tz">탄자니아</option>
+<option value="th">태국</option>
+<option value="to">통가</option>
+<option value="tt">트리니다드 토바고</option>
+<option value="tn">튀니지</option>
+<option value="tm">투르크메니스탄</option>
+<option value="tc">터크스 케이커스</option>
+<option value="tr">터키</option>
+<option value="ae">아랍 에미리트</option>
+<option value="ug">우간다</option>
+<option value="ua">우크라이나</option>
+<option value="gb">영국</option>
+<option selected="selected" value="us">미국</option>
+<option value="uy">우루과이</option>
+<option value="uz">우즈베키스탄</option>
+<option value="vu">바누아투</option>
+<option value="ve">베네수엘라</option>
+<option value="vn">베트남</option>
+<option value="ye">예멘</option>
+<option value="zm">잠비아</option>
+<option value="zw">짐바브웨</option>
+</select>
+    </div> 
+
+    <div id="plse">
+  <label for="language-select">🅰️</label>
+  <select id="language-select">
+    <option value="" disabled selected>언어</option>
+    <option value="af">Afrikaans</option>
+    <option value="ar">العربية</option>
+    <option value="az">Azərbaycan</option>
+    <option value="be">беларускі</option>
+    <option value="bg">български</option>
+    <option value="bn">বাংলা</option>
+    <option value="ca">Català</option>
+    <option value="cs">Čeština</option>
+    <option value="da">Dansk</option>
+    <option value="de">Deutsch</option>
+    <option value="el">ελληνικά</option>
+    <option value="en">English</option>
+    <option value="es">Español</option>
+    <option value="et">Eesti</option>
+    <option value="fa">فارسی</option>
+    <option value="fi">Suomi</option>
+    <option value="fr">Français</option>
+    <option value="gu">ગુજરાતી</option>
+    <option value="he">עִברִית</option>
+    <option value="hi">हिन्दी</option>
+    <option value="hr">Hrvatski</option>
+    <option value="hu">Magyar</option>
+    <option value="hy">Հայերեն</option>
+    <option value="id">Bahasa Indonesia</option>
+    <option value="is">Íslenska</option>
+    <option value="it">Italiano</option>
+    <option value="ja">日本語</option>
+    <option value="km">កម្ពុជា។</option>
+    <option value="kn">ಕನ್ನಡ</option>
+    <option value="ko">한국어</option>
+    <option value="ku">کوردی</option>
+    <option value="lo">ພາສາລາວ</option>
+    <option value="lt">Lietuvių</option>
+    <option value="lv">Latviešu</option>
+    <option value="ml">മലയാളം</option>
+    <option value="mn">Монгол</option>
+    <option value="mr">मराठी</option>
+    <option value="ms">Bahasa Melayu</option>
+    <option value="my">မြန်မာ</option>
+    <option value="ne">नेपाली</option>
+    <option value="nl">Nederlands</option>
+    <option value="no">Norsk</option>
+    <option value="pa">ਪੰਜਾਬੀ</option>
+    <option value="pl">Polski</option>
+    <option value="pt">Português</option>
+    <option value="ro">Română</option>
+    <option value="ru">Русский</option>
+    <option value="sk">Slovenčina</option>
+    <option value="sl">Slovenščina</option>
+    <option value="sq">Shqip</option>
+    <option value="sr">Српски</option>
+    <option value="sv">Svenska</option>
+    <option value="sw">Kiswahili</option>
+    <option value="ta">தமிழ்</option>
+    <option value="te">తెలుగు</option>
+    <option value="th">ไทย</option>
+    <option value="tl">Filipino</option>
+    <option value="tr">Türkçe</option>
+    <option value="uk">Українська</option>
+    <option value="ur">اردو</option>
+    <option value="uz">O'zbekcha</option>
+    <option value="vi">Tiếng Việt</option>
+    <option value="zh-hans">中文（简体）</option>
+    <option value="zh-hant">中文（繁體）</option>
+    <option value="zh-hk">中文（粵語）</option>
+  </select>
+</div>
+</div> 
+  </div> 
+
+
+  
+  <div id="loading" style="display:none;">🌟</div>
+
+  <div id="podcasts-chart"></div>
+
+  
+  <div id="back-to-top" onclick="window.scrollTo(0,0)">🔼</div>
+  
+  
+  <div>
+  <a id="more-button" onclick="loadMore()">🎉</a>
+  </div>
+  
+  <script> 
+
+
+const platformSelect = document.getElementById('platform-select'); 
+const countrySelect = document.getElementById('country-select');
+const typeSelect = document.getElementById('type-select');
+
+platformSelect.addEventListener('change', fetchPodcastsData);
+countrySelect.addEventListener('change', fetchPodcastsData);
+typeSelect.addEventListener('change', fetchPodcastsData);
+
+window.addEventListener('load', fetchPodcastsData);
+
+
+function fetchPodcastsData() {
+  document.getElementById('loading').style.display = 'block';
+
+  const platform = platformSelect.value;
+  const country = countrySelect.value;
+  const type = typeSelect.value;
+
+  let apiUrl = '';
+
+  if (type === 'top-podcasts') {
+  if (platform === 'spotify') {
+    apiUrl = `https://api.allorigins.win/raw?url=https://podcastcharts.byspotify.com/api/charts/top?region=${country}`;
+  } else if (platform === 'apple') {
+    apiUrl = `https://api.allorigins.win/raw?url=https://rss.applemarketingtools.com/api/v2/${country}/podcasts/top/100/podcasts.json`;
+  }
+} else if (type === 'top-episodes') {
+  if (platform === 'spotify') {
+    apiUrl = `https://api.allorigins.win/raw?url=https://podcastcharts.byspotify.com/api/charts/top_episodes?region=${country}`;
+  } else if (platform === 'apple') {
+    apiUrl = `https://api.allorigins.win/raw?url=https://rss.applemarketingtools.com/api/v2/${country}/podcasts/top/100/podcast-episodes.json`;
+  }
+}
+
+  
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      let results = [];
+
+      if (platform === 'spotify') {
+        results = data;
+      } else if (platform === 'apple') {
+        results = data.feed.results;
+      }
+
+      let html = '';
+
+      results.forEach((podcast, index) => {
+        let showName = '';
+        let showPublisher = '';
+        let showImageUrl = '';
+        let showUri = '';
+
+        if (platform === 'spotify') {
+        if (type === 'top-podcasts') {
+          showName = podcast.showName;
+          showUri = `https://open.spotify.com/show/${podcast.showUri.split(':').pop()}`;
+          showImageUrl = podcast.showImageUrl;
+       } else if (type === 'top-episodes') {
+          showName = podcast.episodeName;
+          showUri = `https://open.spotify.com/episode/${podcast.episodeUri.split(':').pop()}`;
+          showImageUrl = podcast.episodeImageUrl; 
+       }
+       } else if (platform === 'apple') {
+          showName = podcast.name;
+          showUri = podcast.url;
+          showImageUrl = podcast.artworkUrl100;
+       }
+
+        const rank = index + 1;
+        html += `
+          <div class="podcast-card">
+            
+            <span class="rank-number">${rank}</span>
+            <img src="${showImageUrl}" alt="${showName}" />
+            <h3>${showName}</h3>
+            
+            <!--<p>Publisher: ${showPublisher}</p>-->
+            
+            <p>${showPublisher}</p>
+            <a href="${showUri}" target="_blank">🎧</a>
+          </div>
+        `;
+      });
+
+      
+      document.getElementById('podcasts-chart').innerHTML = html;
+
+      
+      hidePodcasts(100);
+
+      
+      document.getElementById('loading').style.display = 'none';
+  })
+  .catch(error => {
+    console.error('Error:', error);
+ 
+    document.getElementById('loading').style.display = 'none';
+  });
+}
+
+
+function hidePodcasts(limit) {
+  
+  const podcastCards = document.querySelectorAll('.podcast-card');
+
+  
+  podcastCards.forEach((card, index) => {
+    if (index >= limit) {
+      card.style.display = 'none';
+    }
+  });
+
+  
+  if (limit >= podcastCards.length) {
+    document.getElementById('more-button').classList.add('hidden');
+  } else {
+    document.getElementById('more-button').classList.remove('hidden');
+  }
+}
+
+
+
+function loadMore() {
+  
+  const visiblePodcasts = document.querySelectorAll('.podcast-card:not([style*="display: none"])').length;
+
+  
+  hidePodcasts(visiblePodcasts + 20);
+}
+</script> 
+<script>
+        window.addEventListener("DOMContentLoaded", function() {
+            var backgrounds = [
+                "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)",
+                "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)",
+                "linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%)",
+                "linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)",
+                "linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%)",
+                "linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%)",
+                "linear-gradient(120deg, #f6d365 0%, #fda085 100%)",
+                "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)",
+                "linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%)",
+                "linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%)",
+                "linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%)",
+                "linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)",
+                "linear-gradient(120deg, #a6c0fe 0%, #f68084 100%)",
+                "linear-gradient(120deg, #fccb90 0%, #d57eeb 100%)",
+                "linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%)",
+                "linear-gradient(120deg, #f093fb 0%, #f5576c 100%)",
+                "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)",
+                "linear-gradient(to right, #43e97b 0%, #38f9d7 100%)",
+                "linear-gradient(to right, #fa709a 0%, #fee140 100%)",
+                "linear-gradient(to top, #30cfd0 0%, #330867 100%)",
+                "linear-gradient(to top, #a8edea 0%, #fed6e3 100%)",
+                "linear-gradient(to top, #5ee7df 0%, #b490ca 100%)",
+                "linear-gradient(to top, #d299c2 0%, #fef9d7 100%)",
+                "radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%)",
+                "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                "linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%)",
+                "linear-gradient(to top, #fddb92 0%, #d1fdff 100%)",
+                "linear-gradient(to top, #9890e3 0%, #b1f4cf 100%)",
+                "linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%)",
+                "linear-gradient(to top, #96fbc4 0%, #f9f586 100%)",
+                "linear-gradient(180deg, #2af598 0%, #009efd 100%)",
+                "linear-gradient(to top, #cd9cf2 0%, #f6f3ff 100%)",
+                "linear-gradient(to right, #e4afcb 0%, #b8cbb8 0%, #b8cbb8 0%, #e2c58b 30%, #c2ce9c 64%, #7edbdc 100%)",
+                "linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%)",
+                "linear-gradient(to right, #6a11cb 0%, #2575fc 100%)",
+                "linear-gradient(to top, #37ecba 0%, #72afd3 100%)",
+                "linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%)",
+                "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)",
+                "linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%)",
+                "linear-gradient(to top, #c471f5 0%, #fa71cd 100%)",
+                "linear-gradient(to top, #48c6ef 0%, #6f86d6 100%)",
+                "linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%)",
+                "linear-gradient(to top, #feada6 0%, #f5efef 100%)",
+                "linear-gradient(to top, #accbee 0%, #e7f0fd 100%)",
+                "linear-gradient(to top, #c1dfc4 0%, #deecdd 100%)",
+                "linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%)",
+                "linear-gradient(to top, #0ba360 0%, #3cba92 100%)",
+                "linear-gradient(to top, #00c6fb 0%, #005bea 100%)",
+                "linear-gradient(to right, #74ebd5 0%, #9face6 100%)",
+                "linear-gradient(to top, #6a85b6 0%, #bac8e0 100%)",
+                "linear-gradient(to top, #a3bded 0%, #6991c7 100%)",
+                "linear-gradient(to top, #9795f0 0%, #fbc8d4 100%)",
+                "linear-gradient(to top, #a7a6cb 0%, #8989ba 52%, #8989ba 100%)",
+                "linear-gradient(to top, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%)",
+                "linear-gradient(to top, #f43b47 0%, #453a94 100%)",
+                "linear-gradient(to top, #0250c5 0%, #d43f8d 100%)",
+                "linear-gradient(to top, #88d3ce 0%, #6e45e2 100%)",
+                "linear-gradient(to top, #d9afd9 0%, #97d9e1 100%)",
+                "linear-gradient(to top, #7028e4 0%, #e5b2ca 100%)",
+                "linear-gradient(15deg, #13547a 0%, #80d0c7 100%)",
+                "linear-gradient(to top, #505285 0%, #585e92 12%, #65689f 25%, #7474b0 37%, #7e7ebb 50%, #8389c7 62%, #9795d4 75%, #a2a1dc 87%, #b5aee4 100%)",
+                "linear-gradient(to top, #ff0844 0%, #ffb199 100%)",
+                "linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%)",
+                "linear-gradient(to right, #434343 0%, black 100%)",
+                "linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%)",
+                "linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%)",
+                "linear-gradient(to right, #92fe9d 0%, #00c9ff 100%)",
+                "linear-gradient(to right, #ff758c 0%, #ff7eb3 100%)",
+                "linear-gradient(to right, #868f96 0%, #596164 100%)",
+                "linear-gradient(to top, #c79081 0%, #dfa579 100%)",
+                "linear-gradient(45deg, #8baaaa 0%, #ae8b9c 100%)",
+                "linear-gradient(to right, #f83600 0%, #f9d423 100%)",
+                "linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%)",
+                "linear-gradient(-20deg, #6e45e2 0%, #88d3ce 100%)",
+                "linear-gradient(-20deg, #d558c8 0%, #24d292 100%)",
+                "linear-gradient(60deg, #abecd6 0%, #fbed96 100%)",
+                "linear-gradient(to top, #5f72bd 0%, #9b23ea 100%)",
+                "linear-gradient(to top, #09203f 0%, #537895 100%)",
+                "linear-gradient(-20deg, #ddd6f3 0%, #faaca8 100%, #faaca8 100%)",
+                "linear-gradient(-20deg, #dcb0ed 0%, #99c99c 100%)",
+                "linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%)",
+                "linear-gradient(to top, #c71d6f 0%, #d09693 100%)",
+                "linear-gradient(60deg, #96deda 0%, #50c9c3 100%)",
+                "linear-gradient(to top, #f77062 0%, #fe5196 100%)",
+                "linear-gradient(to right, #a8caba 0%, #5d4157 100%)",
+                "linear-gradient(60deg, #29323c 0%, #485563 100%)",
+                "linear-gradient(-60deg, #16a085 0%, #f4d03f 100%)",
+                "linear-gradient(-60deg, #ff5858 0%, #f09819 100%)",
+                "linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)",
+                "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)",
+                "linear-gradient(to top, #4481eb 0%, #04befe 100%)",
+                "linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%)",
+                "linear-gradient(45deg, #874da2 0%, #c43a30 100%)",
+                "linear-gradient(to top, #4481eb 0%, #04befe 100%)",
+                "linear-gradient(to top, #e8198b 0%, #c7eafd 100%)",
+                "linear-gradient(-20deg, #f794a4 0%, #fdd6bd 100%)",
+                "linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%)",
+                "linear-gradient(to top, #3b41c5 0%, #a981bb 49%, #ffc8a9 100%)",
+                "linear-gradient(to top, #0fd850 0%, #f9f047 100%)",
+                "linear-gradient(45deg, #ee9ca7 0%, #ffdde1 100%)",
+                "linear-gradient(to right, #3ab5b0 0%, #3d99be 31%, #56317a 100%)",
+                "linear-gradient(to top, #209cff 0%, #68e0cf 100%)",
+                "linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%)",
+                "linear-gradient(to top, #e6b980 0%, #eacda3 100%)",
+                "linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%)",
+                "linear-gradient(to top, #d5dee7 0%, #ffafbd 0%, #c9ffbf 100%)",
+                "linear-gradient(to top, #9be15d 0%, #00e3ae 100%)",
+                "linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%)",
+                "linear-gradient(to right, #ffc3a0 0%, #ffafbd 100%)",
+                "linear-gradient(to top, #cc208e 0%, #6713d2 100%)",
+                "linear-gradient(to top, #b3ffab 0%, #12fff7 100%)",
+                "linear-gradient(-45deg, #FFC796 0%, #FF6B95 100%)",
+                "linear-gradient(to right, #243949 0%, #517fa4 100%)",
+                "linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%)",
+                "linear-gradient(to right, #00dbde 0%, #fc00ff 100%)",
+                "linear-gradient(to right, #f9d423 0%, #ff4e50 100%)",
+                "linear-gradient(to top, #50cc7f 0%, #f5d100 100%)",
+                "linear-gradient(to right, #0acffe 0%, #495aff 100%)",
+                "linear-gradient(-20deg, #616161 0%, #9bc5c3 100%)",
+                "linear-gradient(to top, #df89b5 0%, #bfd9fe 100%)",
+                "linear-gradient(60deg, #3d3393 0%, #2b76b9 37%, #2cacd1 65%, #35eb93 100%)",
+                "linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%)",
+                "linear-gradient(to right, #d7d2cc 0%, #304352 100%)",
+                "linear-gradient(to top, #e14fad 0%, #f9d423 100%)",
+                "linear-gradient(to top, #b224ef 0%, #7579ff 100%)",
+                "linear-gradient(to right, #c1c161 0%, #c1c161 0%, #d4d4b1 100%)",
+                "linear-gradient(to right, #ec77ab 0%, #7873f5 100%)",
+                "linear-gradient(to top, #007adf 0%, #00ecbc 100%)",
+                "linear-gradient(-225deg, #20E2D7 0%, #F9FEA5 100%)",
+                "linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%)",
+                "linear-gradient(-225deg, #2CD8D5 0%, #6B8DD6 48%, #8E37D7 100%)",
+                "linear-gradient(-225deg, #DFFFCD 0%, #90F9C4 48%, #39F3BB 100%)",
+                "linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%)",
+                "linear-gradient(-225deg, #A8BFFF 0%, #884D80 100%)",
+                "linear-gradient(-225deg, #5271C4 0%, #B19FFF 48%, #ECA1FE 100%)",
+                "linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%)",
+                "linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%)",
+                "linear-gradient(-225deg, #B6CEE8 0%, #F578DC 100%)",
+                "linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%)",
+                "linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%)",
+                "linear-gradient(-225deg, #CBBACC 0%, #2580B3 100%)",
+                "linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%)",
+                "linear-gradient(-225deg, #7085B6 0%, #87A7D9 50%, #DEF3F8 100%)",
+                "linear-gradient(-225deg, #77FFD2 0%, #6297DB 48%, #1EECFF 100%)",
+                "linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%)",
+                "linear-gradient(-225deg, #D4FFEC 0%, #57F2CC 48%, #4596FB 100%)",
+                "linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%)",
+                "linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%)",
+                "linear-gradient(-225deg, #65379B 0%, #886AEA 53%, #6457C6 100%)",
+                "linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%)",
+                "linear-gradient(-225deg, #7742B2 0%, #F180FF 52%, #FD8BD9 100%)",
+                "linear-gradient(-225deg, #FF3CAC 0%, #562B7C 52%, #2B86C5 100%)",
+                "linear-gradient(-225deg, #FF057C 0%, #7C64D5 48%, #4CC3FF 100%)",
+                "linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%)",
+                "linear-gradient(-225deg, #69EACB 0%, #EACCF8 48%, #6654F1 100%)",
+                "linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%)",
+                "linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%)",
+                "linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%)",
+            ];
+
+            var randomNumber = Math.floor(Math.random() * backgrounds.length);
+            var selectedBackground = backgrounds[randomNumber];
+            var topBgElement = document.getElementById("topbg");
+            topBgElement.style.backgroundImage = selectedBackground;
+        });
+    </script>
+    <script>
+    
+     $(document).ready(function() {
+     $('#language-select').select2();
+    });
+
+    
+    $('#language-select').on('change', function() {
+    var selectedLanguage = $(this).val();
+    var chartPage;
+
+    
+
+if (selectedLanguage === 'zh-hans') {
+  chartPage = 'podcastchart-zh-hans.html';
+} else if (selectedLanguage === 'ja') {
+  chartPage = 'podcastchart-ja.html';
+} else if (selectedLanguage === 'es') {
+  chartPage = 'podcastchart-es.html';
+} else if (selectedLanguage === 'pt') {
+  chartPage = 'podcastchart-pt.html';
+} else if (selectedLanguage === 'de') {
+  chartPage = 'podcastchart-de.html';
+} else if (selectedLanguage === 'ru') {
+  chartPage = 'podcastchart-ru.html';
+} else if (selectedLanguage === 'fr') {
+  chartPage = 'podcastchart-fr.html';
+} else if (selectedLanguage === 'ko') {
+  chartPage = 'podcastchart-ko.html';
+} else if (selectedLanguage === 'id') {
+  chartPage = 'podcastchart-id.html';
+} else if (selectedLanguage === 'ar') {
+  chartPage = 'podcastchart-ar.html';
+} else if (selectedLanguage === 'it') {
+  chartPage = 'podcastchart-it.html';
+} else if (selectedLanguage === 'nl') {
+  chartPage = 'podcastchart-nl.html';
+} else if (selectedLanguage === 'vi') {
+  chartPage = 'podcastchart-vi.html';
+} else if (selectedLanguage === 'fa') {
+  chartPage = 'podcastchart-fa.html';
+} else if (selectedLanguage === 'th') {
+  chartPage = 'podcastchart-th.html';
+} else if (selectedLanguage === 'da') {
+  chartPage = 'podcastchart-da.html';
+} else if (selectedLanguage === 'cs') {
+  chartPage = 'podcastchart-cs.html';
+} else if (selectedLanguage === 'fi') {
+  chartPage = 'podcastchart-fi.html';
+} else if (selectedLanguage === 'sv') {
+  chartPage = 'podcastchart-sv.html';
+} else if (selectedLanguage === 'no') {
+  chartPage = 'podcastchart-no.html';
+} else if (selectedLanguage === 'pl') {
+  chartPage = 'podcastchart-pl.html';
+} else if (selectedLanguage === 'tr') {
+  chartPage = 'podcastchart-tr.html';
+} else if (selectedLanguage === 'el') {
+  chartPage = 'podcastchart-el.html';
+} else if (selectedLanguage === 'he') {
+  chartPage = 'podcastchart-he.html';
+} else if (selectedLanguage === 'ro') {
+  chartPage = 'podcastchart-ro.html';
+} else if (selectedLanguage === 'sk') {
+  chartPage = 'podcastchart-sk.html';
+} else if (selectedLanguage === 'hu') {
+  chartPage = 'podcastchart-hu.html';
+} else if (selectedLanguage === 'uk') {
+  chartPage = 'podcastchart-uk.html';
+} else if (selectedLanguage === 'sr') {
+  chartPage = 'podcastchart-sr.html';
+} else if (selectedLanguage === 'bg') {
+  chartPage = 'podcastchart-bg.html';
+} else if (selectedLanguage === 'tl') {
+  chartPage = 'podcastchart-tl.html';
+} else if (selectedLanguage === 'lt') {
+  chartPage = 'podcastchart-lt.html';
+} else if (selectedLanguage === 'sl') {
+  chartPage = 'podcastchart-sl.html';
+} else if (selectedLanguage === 'ca') {
+  chartPage = 'podcastchart-ca.html';
+} else if (selectedLanguage === 'et') {
+  chartPage = 'podcastchart-et.html';
+} else if (selectedLanguage === 'hr') {
+  chartPage = 'podcastchart-hr.html';
+} else if (selectedLanguage === 'lv') {
+  chartPage = 'podcastchart-lv.html';
+} else if (selectedLanguage === 'bn') {
+  chartPage = 'podcastchart-bn.html';
+} else if (selectedLanguage === 'hi') {
+  chartPage = 'podcastchart-hi.html';
+} else if (selectedLanguage === 'ur') {
+  chartPage = 'podcastchart-ur.html';
+} else if (selectedLanguage === 'ms') {
+  chartPage = 'podcastchart-ms.html';
+} else if (selectedLanguage === 'sw') {
+  chartPage = 'podcastchart-sw.html';
+} else if (selectedLanguage === 'hy') {
+  chartPage = 'podcastchart-hy.html';
+} else if (selectedLanguage === 'is') {
+  chartPage = 'podcastchart-is.html';
+} else if (selectedLanguage === 'ku') {
+  chartPage = 'podcastchart-ku.html';
+} else if (selectedLanguage === 'my') {
+  chartPage = 'podcastchart-my.html';
+} else if (selectedLanguage === 'be') {
+  chartPage = 'podcastchart-be.html';
+} else if (selectedLanguage === 'mn') {
+  chartPage = 'podcastchart-mn.html';
+} else if (selectedLanguage === 'uz') {
+  chartPage = 'podcastchart-uz.html';
+} else if (selectedLanguage === 'ta') {
+  chartPage = 'podcastchart-ta.html';
+} else if (selectedLanguage === 'te') {
+  chartPage = 'podcastchart-te.html';
+} else if (selectedLanguage === 'zh-hk') {
+  chartPage = 'podcastchart-zh-hk.html';
+} else if (selectedLanguage === 'ml') {
+  chartPage = 'podcastchart-ml.html';
+} else if (selectedLanguage === 'mr') {
+  chartPage = 'podcastchart-mr.html';
+} else if (selectedLanguage === 'pa') {
+  chartPage = 'podcastchart-pa.html';
+} else if (selectedLanguage === 'gu') {
+  chartPage = 'podcastchart-gu.html';
+} else if (selectedLanguage === 'kn') {
+  chartPage = 'podcastchart-kn.html';
+} else if (selectedLanguage === 'km') {
+  chartPage = 'podcastchart-km.html';
+} else if (selectedLanguage === 'lo') {
+  chartPage = 'podcastchart-lo.html';
+} else if (selectedLanguage === 'ne') {
+  chartPage = 'podcastchart-ne.html';
+} else if (selectedLanguage === 'af') {
+  chartPage = 'podcastchart-af.html';
+} else if (selectedLanguage === 'az') {
+  chartPage = 'podcastchart-az.html';
+} else if (selectedLanguage === 'sq') {
+  chartPage = 'podcastchart-sq.html';
+} else if (selectedLanguage === 'zh-hant') {
+  chartPage = 'podcastchart-zh-hant.html';
+} else {
+  chartPage = 'podcastchart.html';
+}
+
+
+    
+    window.location.href = chartPage;
+  });
+  
+  var currentLanguage = null;
+</script>
+<script>
+  $(document).ready(function() {
+  
+  $('#language-select').select2({
+    theme: 'classic', 
+    dropdownCssClass: 'select2-dropdown-black' 
+  });
+});
+</script>
+  <div id="footer">
+    <p>Built with (ﾉ◕ヮ◕)ﾉ🪄💞💖🥰 across the gl🌍🌏🌎be<p>
+    <a href="https://swiest.com">© SWIEST</a>
+  </div>
+</body> 
+</html>

@@ -2,15 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Discover the top podcasts across a wide range of genres at The Podcast Charts. Stay updated with the latest trends, captivating storytelling, and thought-provoking discussions. Explore popular shows, uncover hidden gems, and find your next favorite podcast. From true crime to comedy, business to health, our curated charts provide a comprehensive overview of the podcasting landscape. Join the growing community of podcast enthusiasts and embark on a journey of knowledge, entertainment, and inspiration. Start listening today and elevate your podcasting experience with The Podcast Charts." />
+  <meta name="description" content="Discover top podcasts and top episodes from around the world in a variety of genres on The Podcast Charts. From true crime to comedy, from business to health. Start your journey to knowledge, entertainment and inspiration with The Podcast Charts." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&family=Noto+Serif&family=Noto+Serif+Armenian&family=Noto+Serif+Bengali&family=Noto+Serif+Gujarati&family=Noto+Serif+JP&family=Noto+Serif+KR&family=Noto+Serif+Kannada&family=Noto+Serif+Lao&family=Noto+Serif+Malayalam&family=Noto+Serif+SC&family=Noto+Serif+TC&family=Noto+Serif+Tamil&family=Noto+Serif+Telugu&family=Noto+Serif+Thai&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
   <title>The Podcast Charts | SWIEST</title>
+  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Bubbles/3D/bubbles_3d.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Bubbles/3D/bubbles_3d.png">
   <style>
     body {
       font-family: 'Noto Serif', 'Noto Serif SC', 'Noto Serif JP', 'Noto Serif KR', 'Noto Serif TC', 'Noto Sans Hebrew', 'Noto Serif Thai', 'Noto Serif Bengali', 'Noto Serif Armenian', 'Noto Serif Tamil', 'Noto Serif Telugu', 'Noto Serif Gujarati','Noto Serif Kannada', 'Noto Serif Lao', 'Noto Serif Malayalam', serif;
@@ -85,7 +88,7 @@ h1 {
   display: inline-block;
   margin-top: 30px;
   padding: 5px 10px;
-  background-color: #007bff;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
@@ -132,13 +135,18 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5);
   color: #fff;
   font-size: 24px;
   text-align: center;
-  line-height: 100vh;  
+  line-height: 100vh; 
+  font-size: 68px; 
+  animation: spin 2s linear infinite;
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
 #more-button.hidden {
     display:none
@@ -167,6 +175,11 @@ h1 {
 .rank-number {
     font-size:24px; 
     font-weight:bold
+}
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 
@@ -239,8 +252,14 @@ label {
 }
 
 #plse {
-    margin-left:30px
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-top:10px;
+  margin-bottom:10px;
 }
+
+
 
 
 @media screen and (max-width: 600px) {
@@ -258,6 +277,7 @@ label {
 
 
   <div class="select-container"> 
+    <div class="menu-container">
     <div id="plse"> 
       <label for="platform-select">🎙️</label> 
       <select id="platform-select"> 
@@ -265,6 +285,13 @@ label {
         <option value="apple">Apple Podcasts</option> 
       </select> 
     </div> 
+    <div id="plse">
+  <label for="type-select">🏅</label>
+  <select id="type-select">
+    <option value="top-podcasts">Top Podcasts</option>
+    <option value="top-episodes">Top Episodes</option>
+  </select>
+    </div>
     <div id="plse"> 
       <label for="country-select">🌎</label> 
       <select id="country-select">
@@ -449,7 +476,7 @@ label {
     <div id="plse">
   <label for="language-select">🅰️</label>
   <select id="language-select">
-    <option value="" disabled selected>👆</option>
+    <option value="" disabled selected>Language</option>
     <option value="af">Afrikaans</option>
     <option value="ar">العربية</option>
     <option value="az">Azərbaycan</option>
@@ -517,11 +544,12 @@ label {
     <option value="zh-hk">中文（粵語）</option>
   </select>
 </div>
+</div> 
   </div> 
 
 
   
-  <div id="loading" style="display:none;">Loading...</div>
+  <div id="loading" style="display:none;">🌟</div>
 
   <div id="podcasts-chart"></div>
 
@@ -538,29 +566,37 @@ label {
 
 const platformSelect = document.getElementById('platform-select'); 
 const countrySelect = document.getElementById('country-select');
+const typeSelect = document.getElementById('type-select');
 
 platformSelect.addEventListener('change', fetchPodcastsData);
 countrySelect.addEventListener('change', fetchPodcastsData);
-
+typeSelect.addEventListener('change', fetchPodcastsData);
 
 window.addEventListener('load', fetchPodcastsData);
 
 
 function fetchPodcastsData() {
-
-  
   document.getElementById('loading').style.display = 'block';
 
   const platform = platformSelect.value;
   const country = countrySelect.value;
+  const type = typeSelect.value;
 
   let apiUrl = '';
 
+  if (type === 'top-podcasts') {
   if (platform === 'spotify') {
     apiUrl = `https://api.allorigins.win/raw?url=https://podcastcharts.byspotify.com/api/charts/top?region=${country}`;
   } else if (platform === 'apple') {
     apiUrl = `https://api.allorigins.win/raw?url=https://rss.applemarketingtools.com/api/v2/${country}/podcasts/top/100/podcasts.json`;
   }
+} else if (type === 'top-episodes') {
+  if (platform === 'spotify') {
+    apiUrl = `https://api.allorigins.win/raw?url=https://podcastcharts.byspotify.com/api/charts/top_episodes?region=${country}`;
+  } else if (platform === 'apple') {
+    apiUrl = `https://api.allorigins.win/raw?url=https://rss.applemarketingtools.com/api/v2/${country}/podcasts/top/100/podcast-episodes.json`;
+  }
+}
 
   
   fetch(apiUrl)
@@ -574,10 +610,8 @@ function fetchPodcastsData() {
         results = data.feed.results;
       }
 
-      
       let html = '';
 
-      
       results.forEach((podcast, index) => {
         let showName = '';
         let showPublisher = '';
@@ -585,16 +619,20 @@ function fetchPodcastsData() {
         let showUri = '';
 
         if (platform === 'spotify') {
+        if (type === 'top-podcasts') {
           showName = podcast.showName;
-          showPublisher = podcast.showPublisher;
-          showImageUrl = podcast.showImageUrl;
           showUri = `https://open.spotify.com/show/${podcast.showUri.split(':').pop()}`;
-        } else if (platform === 'apple') {
+          showImageUrl = podcast.showImageUrl;
+       } else if (type === 'top-episodes') {
+          showName = podcast.episodeName;
+          showUri = `https://open.spotify.com/episode/${podcast.episodeUri.split(':').pop()}`;
+          showImageUrl = podcast.episodeImageUrl; 
+       }
+       } else if (platform === 'apple') {
           showName = podcast.name;
-          showPublisher = podcast.artistName;
-          showImageUrl = podcast.artworkUrl100;
           showUri = podcast.url;
-        }
+          showImageUrl = podcast.artworkUrl100;
+       }
 
         const rank = index + 1;
         html += `
@@ -607,7 +645,7 @@ function fetchPodcastsData() {
             <!--<p>Publisher: ${showPublisher}</p>-->
             
             <p>${showPublisher}</p>
-            <a href="${showUri}" target="_blank">Listen</a>
+            <a href="${showUri}" target="_blank">🎧</a>
           </div>
         `;
       });
@@ -620,10 +658,12 @@ function fetchPodcastsData() {
 
       
       document.getElementById('loading').style.display = 'none';
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+  })
+  .catch(error => {
+    console.error('Error:', error);
+ 
+    document.getElementById('loading').style.display = 'none';
+  });
 }
 
 
@@ -659,36 +699,164 @@ function loadMore() {
 <script>
         window.addEventListener("DOMContentLoaded", function() {
             var backgrounds = [
-                "linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)",
+                "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)",
                 "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)",
+                "linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%)",
+                "linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)",
+                "linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%)",
+                "linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%)",
                 "linear-gradient(120deg, #f6d365 0%, #fda085 100%)",
+                "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)",
+                "linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%)",
+                "linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%)",
+                "linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%)",
                 "linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)",
+                "linear-gradient(120deg, #a6c0fe 0%, #f68084 100%)",
+                "linear-gradient(120deg, #fccb90 0%, #d57eeb 100%)",
+                "linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%)",
+                "linear-gradient(120deg, #f093fb 0%, #f5576c 100%)",
                 "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)",
+                "linear-gradient(to right, #43e97b 0%, #38f9d7 100%)",
+                "linear-gradient(to right, #fa709a 0%, #fee140 100%)",
+                "linear-gradient(to top, #30cfd0 0%, #330867 100%)",
+                "linear-gradient(to top, #a8edea 0%, #fed6e3 100%)",
+                "linear-gradient(to top, #5ee7df 0%, #b490ca 100%)",
                 "linear-gradient(to top, #d299c2 0%, #fef9d7 100%)",
+                "radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%)",
+                "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                "linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%)",
+                "linear-gradient(to top, #fddb92 0%, #d1fdff 100%)",
+                "linear-gradient(to top, #9890e3 0%, #b1f4cf 100%)",
                 "linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%)",
+                "linear-gradient(to top, #96fbc4 0%, #f9f586 100%)",
+                "linear-gradient(180deg, #2af598 0%, #009efd 100%)",
+                "linear-gradient(to top, #cd9cf2 0%, #f6f3ff 100%)",
+                "linear-gradient(to right, #e4afcb 0%, #b8cbb8 0%, #b8cbb8 0%, #e2c58b 30%, #c2ce9c 64%, #7edbdc 100%)",
+                "linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%)",
+                "linear-gradient(to right, #6a11cb 0%, #2575fc 100%)",
+                "linear-gradient(to top, #37ecba 0%, #72afd3 100%)",
+                "linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%)",
+                "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)",
+                "linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%)",
                 "linear-gradient(to top, #c471f5 0%, #fa71cd 100%)",
+                "linear-gradient(to top, #48c6ef 0%, #6f86d6 100%)",
+                "linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%)",
+                "linear-gradient(to top, #feada6 0%, #f5efef 100%)",
+                "linear-gradient(to top, #accbee 0%, #e7f0fd 100%)",
                 "linear-gradient(to top, #c1dfc4 0%, #deecdd 100%)",
+                "linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%)",
+                "linear-gradient(to top, #0ba360 0%, #3cba92 100%)",
+                "linear-gradient(to top, #00c6fb 0%, #005bea 100%)",
+                "linear-gradient(to right, #74ebd5 0%, #9face6 100%)",
+                "linear-gradient(to top, #6a85b6 0%, #bac8e0 100%)",
+                "linear-gradient(to top, #a3bded 0%, #6991c7 100%)",
+                "linear-gradient(to top, #9795f0 0%, #fbc8d4 100%)",
                 "linear-gradient(to top, #a7a6cb 0%, #8989ba 52%, #8989ba 100%)",
+                "linear-gradient(to top, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%)",
+                "linear-gradient(to top, #f43b47 0%, #453a94 100%)",
+                "linear-gradient(to top, #0250c5 0%, #d43f8d 100%)",
                 "linear-gradient(to top, #88d3ce 0%, #6e45e2 100%)",
                 "linear-gradient(to top, #d9afd9 0%, #97d9e1 100%)",
                 "linear-gradient(to top, #7028e4 0%, #e5b2ca 100%)",
+                "linear-gradient(15deg, #13547a 0%, #80d0c7 100%)",
+                "linear-gradient(to top, #505285 0%, #585e92 12%, #65689f 25%, #7474b0 37%, #7e7ebb 50%, #8389c7 62%, #9795d4 75%, #a2a1dc 87%, #b5aee4 100%)",
+                "linear-gradient(to top, #ff0844 0%, #ffb199 100%)",
                 "linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%)",
+                "linear-gradient(to right, #434343 0%, black 100%)",
+                "linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%)",
+                "linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%)",
+                "linear-gradient(to right, #92fe9d 0%, #00c9ff 100%)",
+                "linear-gradient(to right, #ff758c 0%, #ff7eb3 100%)",
+                "linear-gradient(to right, #868f96 0%, #596164 100%)",
+                "linear-gradient(to top, #c79081 0%, #dfa579 100%)",
                 "linear-gradient(45deg, #8baaaa 0%, #ae8b9c 100%)",
+                "linear-gradient(to right, #f83600 0%, #f9d423 100%)",
+                "linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%)",
                 "linear-gradient(-20deg, #6e45e2 0%, #88d3ce 100%)",
+                "linear-gradient(-20deg, #d558c8 0%, #24d292 100%)",
                 "linear-gradient(60deg, #abecd6 0%, #fbed96 100%)",
+                "linear-gradient(to top, #5f72bd 0%, #9b23ea 100%)",
+                "linear-gradient(to top, #09203f 0%, #537895 100%)",
+                "linear-gradient(-20deg, #ddd6f3 0%, #faaca8 100%, #faaca8 100%)",
+                "linear-gradient(-20deg, #dcb0ed 0%, #99c99c 100%)",
+                "linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%)",
                 "linear-gradient(to top, #c71d6f 0%, #d09693 100%)",
+                "linear-gradient(60deg, #96deda 0%, #50c9c3 100%)",
+                "linear-gradient(to top, #f77062 0%, #fe5196 100%)",
+                "linear-gradient(to right, #a8caba 0%, #5d4157 100%)",
+                "linear-gradient(60deg, #29323c 0%, #485563 100%)",
+                "linear-gradient(-60deg, #16a085 0%, #f4d03f 100%)",
                 "linear-gradient(-60deg, #ff5858 0%, #f09819 100%)",
+                "linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)",
+                "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)",
+                "linear-gradient(to top, #4481eb 0%, #04befe 100%)",
+                "linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%)",
                 "linear-gradient(45deg, #874da2 0%, #c43a30 100%)",
-                "linear-gradient(to top, #df89b5 0%, #bfd9fe 100%)",
+                "linear-gradient(to top, #4481eb 0%, #04befe 100%)",
+                "linear-gradient(to top, #e8198b 0%, #c7eafd 100%)",
+                "linear-gradient(-20deg, #f794a4 0%, #fdd6bd 100%)",
+                "linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%)",
+                "linear-gradient(to top, #3b41c5 0%, #a981bb 49%, #ffc8a9 100%)",
+                "linear-gradient(to top, #0fd850 0%, #f9f047 100%)",
+                "linear-gradient(45deg, #ee9ca7 0%, #ffdde1 100%)",
+                "linear-gradient(to right, #3ab5b0 0%, #3d99be 31%, #56317a 100%)",
+                "linear-gradient(to top, #209cff 0%, #68e0cf 100%)",
+                "linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%)",
+                "linear-gradient(to top, #e6b980 0%, #eacda3 100%)",
+                "linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%)",
+                "linear-gradient(to top, #d5dee7 0%, #ffafbd 0%, #c9ffbf 100%)",
+                "linear-gradient(to top, #9be15d 0%, #00e3ae 100%)",
+                "linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%)",
+                "linear-gradient(to right, #ffc3a0 0%, #ffafbd 100%)",
+                "linear-gradient(to top, #cc208e 0%, #6713d2 100%)",
+                "linear-gradient(to top, #b3ffab 0%, #12fff7 100%)",
+                "linear-gradient(-45deg, #FFC796 0%, #FF6B95 100%)",
                 "linear-gradient(to right, #243949 0%, #517fa4 100%)",
+                "linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%)",
+                "linear-gradient(to right, #00dbde 0%, #fc00ff 100%)",
+                "linear-gradient(to right, #f9d423 0%, #ff4e50 100%)",
+                "linear-gradient(to top, #50cc7f 0%, #f5d100 100%)",
+                "linear-gradient(to right, #0acffe 0%, #495aff 100%)",
+                "linear-gradient(-20deg, #616161 0%, #9bc5c3 100%)",
                 "linear-gradient(to top, #df89b5 0%, #bfd9fe 100%)",
-                "linear-gradient(to top, #e14fad 0%, #f9d423 100%)",
+                "linear-gradient(60deg, #3d3393 0%, #2b76b9 37%, #2cacd1 65%, #35eb93 100%)",
+                "linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%)",
                 "linear-gradient(to right, #d7d2cc 0%, #304352 100%)",
+                "linear-gradient(to top, #e14fad 0%, #f9d423 100%)",
+                "linear-gradient(to top, #b224ef 0%, #7579ff 100%)",
+                "linear-gradient(to right, #c1c161 0%, #c1c161 0%, #d4d4b1 100%)",
+                "linear-gradient(to right, #ec77ab 0%, #7873f5 100%)",
+                "linear-gradient(to top, #007adf 0%, #00ecbc 100%)",
                 "linear-gradient(-225deg, #20E2D7 0%, #F9FEA5 100%)",
+                "linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%)",
+                "linear-gradient(-225deg, #2CD8D5 0%, #6B8DD6 48%, #8E37D7 100%)",
+                "linear-gradient(-225deg, #DFFFCD 0%, #90F9C4 48%, #39F3BB 100%)",
+                "linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%)",
                 "linear-gradient(-225deg, #A8BFFF 0%, #884D80 100%)",
-                "linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%)",
+                "linear-gradient(-225deg, #5271C4 0%, #B19FFF 48%, #ECA1FE 100%)",
+                "linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%)",
+                "linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%)",
+                "linear-gradient(-225deg, #B6CEE8 0%, #F578DC 100%)",
+                "linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%)",
+                "linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%)",
                 "linear-gradient(-225deg, #CBBACC 0%, #2580B3 100%)",
+                "linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%)",
+                "linear-gradient(-225deg, #7085B6 0%, #87A7D9 50%, #DEF3F8 100%)",
+                "linear-gradient(-225deg, #77FFD2 0%, #6297DB 48%, #1EECFF 100%)",
+                "linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%)",
+                "linear-gradient(-225deg, #D4FFEC 0%, #57F2CC 48%, #4596FB 100%)",
+                "linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%)",
+                "linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%)",
+                "linear-gradient(-225deg, #65379B 0%, #886AEA 53%, #6457C6 100%)",
+                "linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%)",
+                "linear-gradient(-225deg, #7742B2 0%, #F180FF 52%, #FD8BD9 100%)",
                 "linear-gradient(-225deg, #FF3CAC 0%, #562B7C 52%, #2B86C5 100%)",
+                "linear-gradient(-225deg, #FF057C 0%, #7C64D5 48%, #4CC3FF 100%)",
+                "linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%)",
+                "linear-gradient(-225deg, #69EACB 0%, #EACCF8 48%, #6654F1 100%)",
+                "linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%)",
+                "linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%)",
+                "linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%)",
             ];
 
             var randomNumber = Math.floor(Math.random() * backgrounds.length);
@@ -711,135 +879,135 @@ function loadMore() {
     
 
 if (selectedLanguage === 'zh-hans') {
-  chartPage = 'podcastchartchart-zh-hans.html';
+  chartPage = 'podcastchart-zh-hans.html';
 } else if (selectedLanguage === 'ja') {
-  chartPage = 'podcastchartchart-ja.html';
+  chartPage = 'podcastchart-ja.html';
 } else if (selectedLanguage === 'es') {
-  chartPage = 'podcastchartchart-es.html';
+  chartPage = 'podcastchart-es.html';
 } else if (selectedLanguage === 'pt') {
-  chartPage = 'podcastchartchart-pt.html';
+  chartPage = 'podcastchart-pt.html';
 } else if (selectedLanguage === 'de') {
-  chartPage = 'podcastchartchart-de.html';
+  chartPage = 'podcastchart-de.html';
 } else if (selectedLanguage === 'ru') {
-  chartPage = 'podcastchartchart-ru.html';
+  chartPage = 'podcastchart-ru.html';
 } else if (selectedLanguage === 'fr') {
-  chartPage = 'podcastchartchart-fr.html';
+  chartPage = 'podcastchart-fr.html';
 } else if (selectedLanguage === 'ko') {
-  chartPage = 'podcastchartchart-ko.html';
+  chartPage = 'podcastchart-ko.html';
 } else if (selectedLanguage === 'id') {
-  chartPage = 'podcastchartchart-id.html';
+  chartPage = 'podcastchart-id.html';
 } else if (selectedLanguage === 'ar') {
-  chartPage = 'podcastchartchart-ar.html';
+  chartPage = 'podcastchart-ar.html';
 } else if (selectedLanguage === 'it') {
-  chartPage = 'podcastchartchart-it.html';
+  chartPage = 'podcastchart-it.html';
 } else if (selectedLanguage === 'nl') {
-  chartPage = 'podcastchartchart-nl.html';
+  chartPage = 'podcastchart-nl.html';
 } else if (selectedLanguage === 'vi') {
-  chartPage = 'podcastchartchart-vi.html';
+  chartPage = 'podcastchart-vi.html';
 } else if (selectedLanguage === 'fa') {
-  chartPage = 'podcastchartchart-fa.html';
+  chartPage = 'podcastchart-fa.html';
 } else if (selectedLanguage === 'th') {
-  chartPage = 'podcastchartchart-th.html';
+  chartPage = 'podcastchart-th.html';
 } else if (selectedLanguage === 'da') {
-  chartPage = 'podcastchartchart-da.html';
+  chartPage = 'podcastchart-da.html';
 } else if (selectedLanguage === 'cs') {
-  chartPage = 'podcastchartchart-cs.html';
+  chartPage = 'podcastchart-cs.html';
 } else if (selectedLanguage === 'fi') {
-  chartPage = 'podcastchartchart-fi.html';
+  chartPage = 'podcastchart-fi.html';
 } else if (selectedLanguage === 'sv') {
-  chartPage = 'podcastchartchart-sv.html';
+  chartPage = 'podcastchart-sv.html';
 } else if (selectedLanguage === 'no') {
-  chartPage = 'podcastchartchart-no.html';
+  chartPage = 'podcastchart-no.html';
 } else if (selectedLanguage === 'pl') {
-  chartPage = 'podcastchartchart-pl.html';
+  chartPage = 'podcastchart-pl.html';
 } else if (selectedLanguage === 'tr') {
-  chartPage = 'podcastchartchart-tr.html';
+  chartPage = 'podcastchart-tr.html';
 } else if (selectedLanguage === 'el') {
-  chartPage = 'podcastchartchart-el.html';
+  chartPage = 'podcastchart-el.html';
 } else if (selectedLanguage === 'he') {
-  chartPage = 'podcastchartchart-he.html';
+  chartPage = 'podcastchart-he.html';
 } else if (selectedLanguage === 'ro') {
-  chartPage = 'podcastchartchart-ro.html';
+  chartPage = 'podcastchart-ro.html';
 } else if (selectedLanguage === 'sk') {
-  chartPage = 'podcastchartchart-sk.html';
+  chartPage = 'podcastchart-sk.html';
 } else if (selectedLanguage === 'hu') {
-  chartPage = 'podcastchartchart-hu.html';
+  chartPage = 'podcastchart-hu.html';
 } else if (selectedLanguage === 'uk') {
-  chartPage = 'podcastchartchart-uk.html';
+  chartPage = 'podcastchart-uk.html';
 } else if (selectedLanguage === 'sr') {
-  chartPage = 'podcastchartchart-sr.html';
+  chartPage = 'podcastchart-sr.html';
 } else if (selectedLanguage === 'bg') {
-  chartPage = 'podcastchartchart-bg.html';
+  chartPage = 'podcastchart-bg.html';
 } else if (selectedLanguage === 'tl') {
-  chartPage = 'podcastchartchart-tl.html';
+  chartPage = 'podcastchart-tl.html';
 } else if (selectedLanguage === 'lt') {
-  chartPage = 'podcastchartchart-lt.html';
+  chartPage = 'podcastchart-lt.html';
 } else if (selectedLanguage === 'sl') {
-  chartPage = 'podcastchartchart-sl.html';
+  chartPage = 'podcastchart-sl.html';
 } else if (selectedLanguage === 'ca') {
-  chartPage = 'podcastchartchart-ca.html';
+  chartPage = 'podcastchart-ca.html';
 } else if (selectedLanguage === 'et') {
-  chartPage = 'podcastchartchart-et.html';
+  chartPage = 'podcastchart-et.html';
 } else if (selectedLanguage === 'hr') {
-  chartPage = 'podcastchartchart-hr.html';
+  chartPage = 'podcastchart-hr.html';
 } else if (selectedLanguage === 'lv') {
-  chartPage = 'podcastchartchart-lv.html';
+  chartPage = 'podcastchart-lv.html';
 } else if (selectedLanguage === 'bn') {
-  chartPage = 'podcastchartchart-bn.html';
+  chartPage = 'podcastchart-bn.html';
 } else if (selectedLanguage === 'hi') {
-  chartPage = 'podcastchartchart-hi.html';
+  chartPage = 'podcastchart-hi.html';
 } else if (selectedLanguage === 'ur') {
-  chartPage = 'podcastchartchart-ur.html';
+  chartPage = 'podcastchart-ur.html';
 } else if (selectedLanguage === 'ms') {
-  chartPage = 'podcastchartchart-ms.html';
+  chartPage = 'podcastchart-ms.html';
 } else if (selectedLanguage === 'sw') {
-  chartPage = 'podcastchartchart-sw.html';
+  chartPage = 'podcastchart-sw.html';
 } else if (selectedLanguage === 'hy') {
-  chartPage = 'podcastchartchart-hy.html';
+  chartPage = 'podcastchart-hy.html';
 } else if (selectedLanguage === 'is') {
-  chartPage = 'podcastchartchart-is.html';
+  chartPage = 'podcastchart-is.html';
 } else if (selectedLanguage === 'ku') {
-  chartPage = 'podcastchartchart-ku.html';
+  chartPage = 'podcastchart-ku.html';
 } else if (selectedLanguage === 'my') {
-  chartPage = 'podcastchartchart-my.html';
+  chartPage = 'podcastchart-my.html';
 } else if (selectedLanguage === 'be') {
-  chartPage = 'podcastchartchart-be.html';
+  chartPage = 'podcastchart-be.html';
 } else if (selectedLanguage === 'mn') {
-  chartPage = 'podcastchartchart-mn.html';
+  chartPage = 'podcastchart-mn.html';
 } else if (selectedLanguage === 'uz') {
-  chartPage = 'podcastchartchart-uz.html';
+  chartPage = 'podcastchart-uz.html';
 } else if (selectedLanguage === 'ta') {
-  chartPage = 'podcastchartchart-ta.html';
+  chartPage = 'podcastchart-ta.html';
 } else if (selectedLanguage === 'te') {
-  chartPage = 'podcastchartchart-te.html';
+  chartPage = 'podcastchart-te.html';
 } else if (selectedLanguage === 'zh-hk') {
-  chartPage = 'podcastchartchart-zh-hk.html';
+  chartPage = 'podcastchart-zh-hk.html';
 } else if (selectedLanguage === 'ml') {
-  chartPage = 'podcastchartchart-ml.html';
+  chartPage = 'podcastchart-ml.html';
 } else if (selectedLanguage === 'mr') {
-  chartPage = 'podcastchartchart-mr.html';
+  chartPage = 'podcastchart-mr.html';
 } else if (selectedLanguage === 'pa') {
-  chartPage = 'podcastchartchart-pa.html';
+  chartPage = 'podcastchart-pa.html';
 } else if (selectedLanguage === 'gu') {
-  chartPage = 'podcastchartchart-gu.html';
+  chartPage = 'podcastchart-gu.html';
 } else if (selectedLanguage === 'kn') {
-  chartPage = 'podcastchartchart-kn.html';
+  chartPage = 'podcastchart-kn.html';
 } else if (selectedLanguage === 'km') {
-  chartPage = 'podcastchartchart-km.html';
+  chartPage = 'podcastchart-km.html';
 } else if (selectedLanguage === 'lo') {
-  chartPage = 'podcastchartchart-lo.html';
+  chartPage = 'podcastchart-lo.html';
 } else if (selectedLanguage === 'ne') {
-  chartPage = 'podcastchartchart-ne.html';
+  chartPage = 'podcastchart-ne.html';
 } else if (selectedLanguage === 'af') {
-  chartPage = 'podcastchartchart-af.html';
+  chartPage = 'podcastchart-af.html';
 } else if (selectedLanguage === 'az') {
-  chartPage = 'podcastchartchart-az.html';
+  chartPage = 'podcastchart-az.html';
 } else if (selectedLanguage === 'sq') {
-  chartPage = 'podcastchartchart-sq.html';
+  chartPage = 'podcastchart-sq.html';
 } else if (selectedLanguage === 'zh-hant') {
-  chartPage = 'podcastchartchart-zh-hant.html';
+  chartPage = 'podcastchart-zh-hant.html';
 } else {
-  chartPage = 'podcastchartchart.html';
+  chartPage = 'podcastchart.html';
 }
 
 
