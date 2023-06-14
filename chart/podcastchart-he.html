@@ -19,6 +19,7 @@
       font-family: 'Noto Serif', 'Noto Serif SC', 'Noto Serif JP', 'Noto Serif KR', 'Noto Serif TC', 'Noto Sans Hebrew', 'Noto Serif Thai', 'Noto Serif Bengali', 'Noto Serif Armenian', 'Noto Serif Tamil', 'Noto Serif Telugu', 'Noto Serif Gujarati','Noto Serif Kannada', 'Noto Serif Lao', 'Noto Serif Malayalam', serif;
       background-color: #000; color: #fff;
       padding: 20px;
+      direction: rtl;
     }
 
     #content {
@@ -78,6 +79,7 @@ h1 {
 .podcast-card h3 {
   margin-top: 10px;
   margin-bottom: 5px;
+  font-size: 1.6rem;
 }
 
 .podcast-card p {
@@ -103,13 +105,13 @@ h1 {
 #back-to-top {
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  bottom: 120px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   background-color: #222327;
   color: #fff;
-  font-size: 24px;
+  font-size: 50px;
   text-align: center; line-height: 50px; cursor: pointer; 
 }
 
@@ -140,7 +142,8 @@ h1 {
   text-align: center;
   line-height: 100vh; 
   font-size: 68px; 
-  animation: spin 2s linear infinite;
+  animation: spin 1s linear infinite;
+  transform-origin: center center;
 }
 
 @keyframes spin {
@@ -367,7 +370,7 @@ label {
   <option value="id">אינדונזיה</option>
   <option value="iq">עיראק</option>
   <option value="ie">אירלנד</option>
-  <option value="il">ישראל</option>
+  <option selected="selected" value="il">ישראל</option>
   <option value="it">איטליה</option>
   <option value="jm">ג'מייקה</option>
   <option value="jp">יפן</option>
@@ -461,7 +464,7 @@ label {
 <option value="ug">אוגנדה</option>
 <option value="ua">אוקראינה</option>
 <option value="gb">הממלכה המאוחדת</option>
-<option selected="selected" value="us">ארצות הברית</option>
+<option value="us">ארצות הברית</option>
 <option value="uy">אורוגוואי</option>
 <option value="uz">אוזבקיסטן</option>
 <option value="vu">ונואטו</option>
@@ -489,7 +492,8 @@ label {
     <option value="de">Deutsch</option>
     <option value="el">ελληνικά</option>
     <option value="en">English</option>
-    <option value="es">Español</option>
+    <option value="es-es">Español</option>
+    <option value="es-419">Español Latinoamericano</option>
     <option value="et">Eesti</option>
     <option value="fa">فارسی</option>
     <option value="fi">Suomi</option>
@@ -521,7 +525,8 @@ label {
     <option value="no">Norsk</option>
     <option value="pa">ਪੰਜਾਬੀ</option>
     <option value="pl">Polski</option>
-    <option value="pt">Português</option>
+    <option value="pt-br">Português Brasileiro</option>
+    <option value="pt-pt">Português</option>
     <option value="ro">Română</option>
     <option value="ru">Русский</option>
     <option value="sk">Slovenčina</option>
@@ -882,10 +887,14 @@ if (selectedLanguage === 'zh-hans') {
   chartPage = 'podcastchart-zh-hans.html';
 } else if (selectedLanguage === 'ja') {
   chartPage = 'podcastchart-ja.html';
-} else if (selectedLanguage === 'es') {
-  chartPage = 'podcastchart-es.html';
-} else if (selectedLanguage === 'pt') {
-  chartPage = 'podcastchart-pt.html';
+} else if (selectedLanguage === 'es-es') {
+  chartPage = 'podcastchart-es-es.html';
+} else if (selectedLanguage === 'es-419') {
+  chartPage = 'podcastchart-es-419.html';
+} else if (selectedLanguage === 'pt-br') {
+  chartPage = 'podcastchart-pt-br.html';
+} else if (selectedLanguage === 'pt-pt') {
+  chartPage = 'podcastchart-pt-pt.html';
 } else if (selectedLanguage === 'de') {
   chartPage = 'podcastchart-de.html';
 } else if (selectedLanguage === 'ru') {
