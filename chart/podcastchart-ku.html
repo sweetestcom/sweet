@@ -707,6 +707,42 @@ async function processTranslations() {
     }
 }
 
+async function processAds() {
+  const podcastCards = document.querySelectorAll('.podcast-card:not(.ad-card)');
+  
+  document.querySelectorAll('.ad-card').forEach(ad => ad.remove());
+  
+  await new Promise(resolve => setTimeout(resolve, 100));
+  
+  for(let i = 9; i < Math.min(99, podcastCards.length); i += 10) {
+    const adDiv = document.createElement('div');
+    adDiv.className = 'podcast-card ad-card';
+    adDiv.id = `ad-container-${i}`;
+    adDiv.style.width = '100%'; 
+    adDiv.style.minHeight = '100px';
+    adDiv.style.display = 'block';
+    
+    const adIns = document.createElement('ins');
+    adIns.className = 'adsbygoogle';
+    adIns.style.display = 'block';
+    adIns.dataset.adClient = 'ca-pub-9206135835124064';
+    adIns.dataset.adSlot = '8754979142';
+    adIns.dataset.adFormat = 'auto';
+    adIns.dataset.fullWidthResponsive = 'true';
+    
+    adDiv.appendChild(adIns);
+    podcastCards[i].after(adDiv);
+    
+    await new Promise(resolve => setTimeout(resolve, 50));
+    
+    try {
+      await (adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.error('Ad initialization error:', e);
+    }
+  }
+}
+
 function fetchPodcastsData() {
   document.getElementById('loading').style.display = 'block';
 
@@ -770,38 +806,7 @@ function fetchPodcastsData() {
 
     document.getElementById('podcasts-chart').innerHTML = html;
     processTranslations();
-    const podcastCards = document.querySelectorAll('.podcast-card');
-    for(let i = 9; i < Math.min(99, podcastCards.length); i += 10) {
-      const adDiv = document.createElement('div');
-      adDiv.className = 'podcast-card ad-card';
-      adDiv.id = `ad-container-${i}`;
-      adDiv.style.width = '100%'; 
-      adDiv.style.minHeight = '100px';
-      adDiv.style.display = 'block';
-      podcastCards[i].after(adDiv);
-    }
-    processTranslations();
-
-    document.querySelectorAll('[id^="ad-container-"]').forEach(container => {
-      const adScript = document.createElement('script');
-      adScript.async = true;
-      adScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206135835124064";
-      adScript.crossOrigin = "anonymous";
-      container.appendChild(adScript);
-
-      const adIns = document.createElement('ins');
-      adIns.className = 'adsbygoogle';
-      adIns.style.display = 'block';
-      adIns.dataset.adClient = 'ca-pub-9206135835124064';
-      adIns.dataset.adSlot = '8754979142';
-      adIns.dataset.adFormat = 'auto';
-      adIns.dataset.fullWidthResponsive = 'true';
-      container.appendChild(adIns);
-
-      const initScript = document.createElement('script');
-      initScript.text = '(adsbygoogle = window.adsbygoogle || []).push({});';
-      container.appendChild(initScript);
-    });
+    processAds();
     hidePodcasts(100);
     document.getElementById('loading').style.display = 'none';
     return;
@@ -880,6 +885,7 @@ function fetchPodcastsData() {
 
       document.getElementById('podcasts-chart').innerHTML = html;
       processTranslations();
+      processAds();
       hidePodcasts(100);
       document.getElementById('loading').style.display = 'none';
     })
