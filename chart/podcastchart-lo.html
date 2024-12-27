@@ -315,6 +315,13 @@ label {
 }
 
 
+[data-platform="youtube"] .podcast-card img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+
 
 
 @media screen and (max-width: 600px) {
@@ -327,7 +334,7 @@ label {
   <div id="topbg">
   <div id="content">
     <div class="logo-title">
-      <img src="logo.png" 
+      <img src="logo.webp" 
            alt="ຕາຕະລາງພອດແຄສ Logo" 
            style="width: 120px; height: 120px; margin-bottom: 20px;">
       <h1>✨ຕາຕະລາງພອດແຄສ✨</h1>
@@ -357,6 +364,7 @@ label {
       <select id="platform-select"> 
         <option value="spotify">Spotify Podcasts</option> 
         <option selected="selected" value="apple">Apple Podcasts</option>
+        <option value="youtube">YouTube Podcasts</option>
       </select> 
     </div> 
     <div id="plse">
@@ -650,6 +658,12 @@ typeSelect.addEventListener('change', fetchPodcastsData);
 
 window.addEventListener('load', fetchPodcastsData);
 
+platformSelect.addEventListener('change', function() {
+  const platform = this.value;
+  document.getElementById('podcasts-chart').setAttribute('data-platform', platform);
+  fetchPodcastsData();
+});
+
 async function translateText(text) {
     try {
         const targetLang = document.documentElement.lang;
@@ -701,7 +715,7 @@ async function processAds() {
   
   await new Promise(resolve => setTimeout(resolve, 100));
   
-  for(let i = 9; i < Math.min(99, podcastCards.length); i += 10) {
+  for(let i = 19; i < Math.min(99, podcastCards.length); i += 20) {
     const adDiv = document.createElement('div');
     adDiv.className = 'podcast-card ad-card';
     adDiv.id = `ad-container-${i}`;
@@ -731,8 +745,6 @@ async function processAds() {
 }
 
 function fetchPodcastsData() {
-  document.getElementById('loading').style.display = 'block';
-
   const platform = platformSelect.value;
   const country = countrySelect.value;
   const type = typeSelect.value;
@@ -746,10 +758,12 @@ function fetchPodcastsData() {
   const shouldRefreshData = !cachedData || !cachedTime || 
                           (Date.now() - parseInt(cachedTime) >= 600000); 
 
-  if (!shouldRefreshData) {
+  if (cachedData) {
     const data = JSON.parse(cachedData);
     let results = [];
-    if (platform === 'spotify') {
+    if (platform === 'youtube') {
+      results = data.podcasts;
+    } else if (platform === 'spotify') {
       results = data;
     } else if (platform === 'apple') {
       results = data.feed.results;
@@ -762,7 +776,11 @@ function fetchPodcastsData() {
       let showImageUrl = '';
       let showUri = '';
 
-      if (platform === 'spotify') {
+      if (platform === 'youtube') {
+        showName = podcast.name;
+        showUri = podcast.link;
+        showImageUrl = podcast.image;
+      } else if (platform === 'spotify') {
         if (type === 'top-podcasts') {
           showName = podcast.showName;
           showUri = `https://open.spotify.com/show/${podcast.showUri.split(':').pop()}`;
@@ -777,7 +795,6 @@ function fetchPodcastsData() {
         showUri = podcast.url;
         showImageUrl = podcast.artworkUrl100.replace('/100x100bb.', '/300x300bb.');
       }
-
 
       const rank = index + 1;
       html += `
@@ -795,91 +812,99 @@ function fetchPodcastsData() {
     processTranslations();
     processAds();
     hidePodcasts(100);
-    document.getElementById('loading').style.display = 'none';
-    return;
   }
 
-  let apiUrl = '';
+  if (shouldRefreshData) {
+    document.getElementById('loading').style.display = 'block';
 
-  if (type === 'top-podcasts') {
-    if (platform === 'spotify') {
-      apiUrl = `https://api.allorigins.win/raw?url=https://podcastcharts.byspotify.com/api/charts/top?region=${country}`;
-    } else if (platform === 'apple') {
-      apiUrl = `https://api.allorigins.win/raw?url=https://rss.applemarketingtools.com/api/v2/${country}/podcasts/top/100/podcasts.json`;
-    }
-  } else if (type === 'top-episodes') {
-    if (platform === 'spotify') {
-      apiUrl = `https://api.allorigins.win/raw?url=https://podcastcharts.byspotify.com/api/charts/top_episodes?region=${country}`;
-    } else if (platform === 'apple') {
-      apiUrl = `https://api.allorigins.win/raw?url=https://rss.applemarketingtools.com/api/v2/${country}/podcasts/top/100/podcast-episodes.json`;
-    }
-  }
-
-  fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-
-      try {
-        localStorage.setItem(cacheKey, JSON.stringify(data));
-        localStorage.setItem(cacheTime, Date.now().toString());
-      } catch (e) {
-        console.warn('localStorage is full or disabled');
-      }
-
-      let results = [];
-
+    let apiUrl = '';
+    if (platform === 'youtube') {
+      apiUrl = 'https://ytpds.swiestapp.workers.dev/';
+    } else if (type === 'top-podcasts') {
       if (platform === 'spotify') {
-        results = data;
+        apiUrl = `https://api.allorigins.win/raw?url=https://podcastcharts.byspotify.com/api/charts/top?region=${country}`;
       } else if (platform === 'apple') {
-        results = data.feed.results;
+        apiUrl = `https://api.allorigins.win/raw?url=https://rss.applemarketingtools.com/api/v2/${country}/podcasts/top/100/podcasts.json`;
       }
+    } else if (type === 'top-episodes') {
+      if (platform === 'spotify') {
+        apiUrl = `https://api.allorigins.win/raw?url=https://podcastcharts.byspotify.com/api/charts/top_episodes?region=${country}`;
+      } else if (platform === 'apple') {
+        apiUrl = `https://api.allorigins.win/raw?url=https://rss.applemarketingtools.com/api/v2/${country}/podcasts/top/100/podcast-episodes.json`;
+      }
+    }
 
-      let html = '';
-
-      results.forEach((podcast, index) => {
-        let showName = '';
-        let showPublisher = '';
-        let showImageUrl = '';
-        let showUri = '';
-
-        if (platform === 'spotify') {
-          if (type === 'top-podcasts') {
-            showName = podcast.showName;
-            showUri = `https://open.spotify.com/show/${podcast.showUri.split(':').pop()}`;
-            showImageUrl = podcast.showImageUrl;
-          } else if (type === 'top-episodes') {
-            showName = podcast.episodeName;
-            showUri = `https://open.spotify.com/episode/${podcast.episodeUri.split(':').pop()}`;
-            showImageUrl = podcast.episodeImageUrl;
-          }
-        } else if (platform === 'apple') {
-          showName = podcast.name;
-          showUri = podcast.url;
-          showImageUrl = podcast.artworkUrl100.replace('/100x100bb.', '/300x300bb.');
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        try {
+          localStorage.setItem(cacheKey, JSON.stringify(data));
+          localStorage.setItem(cacheTime, Date.now().toString());
+        } catch (e) {
+          console.warn('localStorage is full or disabled');
         }
 
-        const rank = index + 1;
-        html += `
-          <div class="podcast-card">
-            <span class="rank-number">${rank}</span>
-            <img src="${showImageUrl}" alt="${showName}" />
-            <h3>${showName}</h3>
-            <p>${showPublisher}</p>
-            <a href="${showUri}" target="_blank">🎧</a>
-          </div>
-        `;
-      });
+        let results = [];
+        if (platform === 'youtube') {
+          results = data.podcasts;
+        } else if (platform === 'spotify') {
+          results = data;
+        } else if (platform === 'apple') {
+          results = data.feed.results;
+        }
 
-      document.getElementById('podcasts-chart').innerHTML = html;
-      processTranslations();
-      processAds();
-      hidePodcasts(100);
-      document.getElementById('loading').style.display = 'none';
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      document.getElementById('loading').style.display = 'none';
-    });
+        let html = '';
+        results.forEach((podcast, index) => {
+          let showName = '';
+          let showPublisher = '';
+          let showImageUrl = '';
+          let showUri = '';
+
+          if (platform === 'youtube') {
+            showName = podcast.name;
+            showUri = podcast.link;
+            showImageUrl = podcast.image;
+          } else if (platform === 'spotify') {
+            if (type === 'top-podcasts') {
+              showName = podcast.showName;
+              showUri = `https://open.spotify.com/show/${podcast.showUri.split(':').pop()}`;
+              showImageUrl = podcast.showImageUrl;
+            } else if (type === 'top-episodes') {
+              showName = podcast.episodeName;
+              showUri = `https://open.spotify.com/episode/${podcast.episodeUri.split(':').pop()}`;
+              showImageUrl = podcast.episodeImageUrl;
+            }
+          } else if (platform === 'apple') {
+            showName = podcast.name;
+            showUri = podcast.url;
+            showImageUrl = podcast.artworkUrl100.replace('/100x100bb.', '/300x300bb.');
+          }
+
+          const rank = index + 1;
+          html += `
+            <div class="podcast-card">
+              <span class="rank-number">${rank}</span>
+              <img src="${showImageUrl}" alt="${showName}" />
+              <h3>${showName}</h3>
+              <p>${showPublisher}</p>
+              <a href="${showUri}" target="_blank">🎧</a>
+            </div>
+          `;
+        });
+
+        document.getElementById('podcasts-chart').innerHTML = html;
+        processTranslations();
+        processAds();
+        hidePodcasts(100);
+        document.getElementById('loading').style.display = 'none';
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('loading').style.display = 'none';
+      });
+  } else {
+    document.getElementById('loading').style.display = 'none';
+  }
 }
 
 
