@@ -19,7 +19,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Are you sure you want to delete this chat history?",
             welcomeMessage: "Hi 👋",
             iSpeak: "🌍 I speak",
-            iWantToLearn: "📚 I want to learn"
+            iWantToLearn: "✨ I want to learn"
         }
     },
     'ar': {
@@ -42,7 +42,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "هل أنت متأكد من أنك تريد حذف سجل المحادثة هذا؟",
             welcomeMessage: "مرحباً 👋",
             iSpeak: "🌍 أتحدث",
-            iWantToLearn: "📚 أريد أن أتعلم"
+            iWantToLearn: "✨ أريد أن أتعلم"
         }
     },
     'bn': {
@@ -65,7 +65,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "আপনি কি নিশ্চিত যে আপনি এই চ্যাট ইতিহাস মুছে ফেলতে চান?",
             welcomeMessage: "হ্যালো 👋",
             iSpeak: "🌍 আমি বলি",
-            iWantToLearn: "📚 আমি শিখতে চাই"
+            iWantToLearn: "✨ আমি শিখতে চাই"
         }
     },
     'bg': {
@@ -88,7 +88,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Сигурни ли сте, че искате да изтриете тази история на разговора?",
             welcomeMessage: "Здравейте 👋",
             iSpeak: "🌍 Говоря",
-            iWantToLearn: "📚 Искам да науча"
+            iWantToLearn: "✨ Искам да науча"
         }
     },
     'hr': {
@@ -111,7 +111,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Jeste li sigurni da želite izbrisati ovu povijest razgovora?",
             welcomeMessage: "Pozdrav 👋",
             iSpeak: "🌍 Govorim",
-            iWantToLearn: "📚 Želim naučiti"
+            iWantToLearn: "✨ Želim naučiti"
         }
     },
     'cs': {
@@ -134,7 +134,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Opravdu chcete smazat tuto historii chatu?",
             welcomeMessage: "Ahoj 👋",
             iSpeak: "🌍 Mluvím",
-            iWantToLearn: "📚 Chci se naučit"
+            iWantToLearn: "✨ Chci se naučit"
         }
     },
     'da': {
@@ -157,7 +157,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Er du sikker på, at du vil slette denne chathistorik?",
             welcomeMessage: "Hej 👋",
             iSpeak: "🌍 Jeg taler",
-            iWantToLearn: "📚 Jeg vil lære"
+            iWantToLearn: "✨ Jeg vil lære"
         }
     },
     'nl': {
@@ -180,7 +180,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Weet je zeker dat je deze chatgeschiedenis wilt verwijderen?",
             welcomeMessage: "Hallo 👋",
             iSpeak: "🌍 Ik spreek",
-            iWantToLearn: "📚 Ik wil leren"
+            iWantToLearn: "✨ Ik wil leren"
         }
     },
     'et': {
@@ -203,7 +203,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Kas olete kindel, et soovite selle vestluse ajaloo kustutada?",
             welcomeMessage: "Tere 👋",
             iSpeak: "🌍 Ma räägin",
-            iWantToLearn: "📚 Ma tahan õppida"
+            iWantToLearn: "✨ Ma tahan õppida"
         }
     },
     'fi': {
@@ -226,7 +226,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Haluatko varmasti poistaa tämän keskusteluhistorian?",
             welcomeMessage: "Hei 👋",
             iSpeak: "🌍 Puhun",
-            iWantToLearn: "📚 Haluan oppia"
+            iWantToLearn: "✨ Haluan oppia"
         }
     },
         'fr': {
@@ -249,7 +249,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Êtes-vous sûr de vouloir supprimer cet historique de conversation ?",
             welcomeMessage: "Bonjour 👋",
             iSpeak: "🌍 Je parle",
-            iWantToLearn: "📚 Je veux apprendre"
+            iWantToLearn: "✨ Je veux apprendre"
         }
     },
     'de': {
@@ -272,7 +272,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Möchten Sie diesen Chatverlauf wirklich löschen?",
             welcomeMessage: "Hallo 👋",
             iSpeak: "🌍 Ich spreche",
-            iWantToLearn: "📚 Ich möchte lernen"
+            iWantToLearn: "✨ Ich möchte lernen"
         }
     },
     'el': {
@@ -295,7 +295,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το ιστορικό συνομιλίας;",
             welcomeMessage: "Γεια σας 👋",
             iSpeak: "🌍 Μιλάω",
-            iWantToLearn: "📚 Θέλω να μάθω"
+            iWantToLearn: "✨ Θέλω να μάθω"
         }
     },
     'he': {
@@ -318,7 +318,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "האם אתה בטוח שברצונך למחוק את היסטוריית השיחה הזו?",
             welcomeMessage: "שלום 👋",
             iSpeak: "🌍 אני מדבר",
-            iWantToLearn: "📚 אני רוצה ללמוד"
+            iWantToLearn: "✨ אני רוצה ללמוד"
         }
     },
     'hi': {
@@ -341,7 +341,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "क्या आप वाकई इस चैट इतिहास को मिटाना चाहते हैं?",
             welcomeMessage: "नमस्ते 👋",
             iSpeak: "🌍 मैं बोलता हूं",
-            iWantToLearn: "📚 मैं सीखना चाहता हूं"
+            iWantToLearn: "✨ मैं सीखना चाहता हूं"
         }
     },
     'hu': {
@@ -364,7 +364,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Biztosan törölni szeretné ezt a csevegési előzményt?",
             welcomeMessage: "Szia 👋",
             iSpeak: "🌍 Beszélek",
-            iWantToLearn: "📚 Tanulni szeretnék"
+            iWantToLearn: "✨ Tanulni szeretnék"
         }
     },
     'id': {
@@ -387,7 +387,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Apakah Anda yakin ingin menghapus riwayat obrolan ini?",
             welcomeMessage: "Halo 👋",
             iSpeak: "🌍 Saya berbicara",
-            iWantToLearn: "📚 Saya ingin belajar"
+            iWantToLearn: "✨ Saya ingin belajar"
         }
     },
     'it': {
@@ -410,7 +410,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Sei sicuro di voler eliminare questa cronologia chat?",
             welcomeMessage: "Ciao 👋",
             iSpeak: "🌍 Parlo",
-            iWantToLearn: "📚 Voglio imparare"
+            iWantToLearn: "✨ Voglio imparare"
         }
     },
     'ja': {
@@ -433,7 +433,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "このチャット履歴を削除してもよろしいですか？",
             welcomeMessage: "こんにちは 👋",
             iSpeak: "🌍 私が話す言語",
-            iWantToLearn: "📚 学びたい言語"
+            iWantToLearn: "✨ 学びたい言語"
         }
     },
     'ko': {
@@ -456,7 +456,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "이 대화 기록을 삭제하시겠습니까?",
             welcomeMessage: "안녕하세요 👋",
             iSpeak: "🌍 저는 말합니다",
-            iWantToLearn: "📚 배우고 싶습니다"
+            iWantToLearn: "✨ 배우고 싶습니다"
         }
     },
     'lv': {
@@ -479,7 +479,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Vai tiešām vēlaties dzēst šo tērzēšanas vēsturi?",
             welcomeMessage: "Sveiki 👋",
             iSpeak: "🌍 Es runāju",
-            iWantToLearn: "📚 Es vēlos mācīties"
+            iWantToLearn: "✨ Es vēlos mācīties"
         }
     },
     'lt': {
@@ -502,7 +502,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Ar tikrai norite ištrinti šią pokalbių istoriją?",
             welcomeMessage: "Labas 👋",
             iSpeak: "🌍 Aš kalbu",
-            iWantToLearn: "📚 Noriu išmokti"
+            iWantToLearn: "✨ Noriu išmokti"
         }
     },
     'no': {
@@ -525,7 +525,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Er du sikker på at du vil slette denne chattehistorikken?",
             welcomeMessage: "Hei 👋",
             iSpeak: "🌍 Jeg snakker",
-            iWantToLearn: "📚 Jeg vil lære"
+            iWantToLearn: "✨ Jeg vil lære"
         }
     },
     'pl': {
@@ -548,7 +548,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Czy na pewno chcesz usunąć tę historię czatu?",
             welcomeMessage: "Cześć 👋",
             iSpeak: "🌍 Mówię",
-            iWantToLearn: "📚 Chcę się nauczyć"
+            iWantToLearn: "✨ Chcę się nauczyć"
         }
     },
     'pt-pt': {
@@ -571,7 +571,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Tem a certeza que pretende eliminar este histórico de conversa?",
             welcomeMessage: "Olá 👋",
             iSpeak: "🌍 Eu falo",
-            iWantToLearn: "📚 Quero aprender"
+            iWantToLearn: "✨ Quero aprender"
         }
     },
     'pt-br': {
@@ -594,7 +594,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Você tem certeza que deseja excluir este histórico de conversa?",
             welcomeMessage: "Olá 👋",
             iSpeak: "🌍 Eu falo",
-            iWantToLearn: "📚 Quero aprender"
+            iWantToLearn: "✨ Quero aprender"
         }
     },
     'ro': {
@@ -617,7 +617,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Sunteți sigur că doriți să ștergeți acest istoric al conversației?",
             welcomeMessage: "Bună 👋",
             iSpeak: "🌍 Eu vorbesc",
-            iWantToLearn: "📚 Vreau să învăț"
+            iWantToLearn: "✨ Vreau să învăț"
         }
     },
     'ru': {
@@ -640,7 +640,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Вы уверены, что хотите удалить эту историю чата?",
             welcomeMessage: "Привет 👋",
             iSpeak: "🌍 Я говорю на",
-            iWantToLearn: "📚 Я хочу выучить"
+            iWantToLearn: "✨ Я хочу выучить"
         }
     },
     'sr': {
@@ -663,7 +663,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Да ли сте сигурни да желите да обришете ову историју разговора?",
             welcomeMessage: "Здраво 👋",
             iSpeak: "🌍 Ја говорим",
-            iWantToLearn: "📚 Желим да научим"
+            iWantToLearn: "✨ Желим да научим"
         }
     },
     'sk': {
@@ -686,7 +686,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Naozaj chcete vymazať túto históriu chatu?",
             welcomeMessage: "Ahoj 👋",
             iSpeak: "🌍 Hovorím",
-            iWantToLearn: "📚 Chcem sa naučiť"
+            iWantToLearn: "✨ Chcem sa naučiť"
         }
     },
     'sl': {
@@ -709,7 +709,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Ali ste prepričani, da želite izbrisati to zgodovino pogovora?",
             welcomeMessage: "Živjo 👋",
             iSpeak: "🌍 Govorim",
-            iWantToLearn: "📚 Želim se naučiti"
+            iWantToLearn: "✨ Želim se naučiti"
         }
     },
     'es-es': {
@@ -732,7 +732,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "¿Está seguro de que desea eliminar este historial de chat?",
             welcomeMessage: "¡Hola 👋",
             iSpeak: "🌍 Hablo",
-            iWantToLearn: "📚 Quiero aprender"
+            iWantToLearn: "✨ Quiero aprender"
         }
     },
     'es-419': {
@@ -755,7 +755,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "¿Estás seguro de que querés borrar este historial de chat?",
             welcomeMessage: "¡Hola 👋",
             iSpeak: "🌍 Hablo",
-            iWantToLearn: "📚 Quiero aprender"
+            iWantToLearn: "✨ Quiero aprender"
         }
     },
     'sw': {
@@ -778,7 +778,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Una uhakika unataka kufuta historia hii ya mazungumzo?",
             welcomeMessage: "Habari 👋",
             iSpeak: "🌍 Ninazungumza",
-            iWantToLearn: "📚 Nataka kujifunza"
+            iWantToLearn: "✨ Nataka kujifunza"
         }
     },
     'sv': {
@@ -801,7 +801,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Är du säker på att du vill radera denna chatthistorik?",
             welcomeMessage: "Hej 👋",
             iSpeak: "🌍 Jag talar",
-            iWantToLearn: "📚 Jag vill lära mig"
+            iWantToLearn: "✨ Jag vill lära mig"
         }
     },
     'th': {
@@ -824,7 +824,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "คุณแน่ใจหรือไม่ว่าต้องการลบประวัติการแชทนี้?",
             welcomeMessage: "สวัสดี 👋",
             iSpeak: "🌍 ฉันพูด",
-            iWantToLearn: "📚 ฉันต้องการเรียนรู้"
+            iWantToLearn: "✨ ฉันต้องการเรียนรู้"
         }
     },
     'tr': {
@@ -847,7 +847,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Bu sohbet geçmişini silmek istediğinizden emin misiniz?",
             welcomeMessage: "Merhaba 👋",
             iSpeak: "🌍 Konuştuğum dil",
-            iWantToLearn: "📚 Öğrenmek istiyorum"
+            iWantToLearn: "✨ Öğrenmek istiyorum"
         }
     },
     'uk': {
@@ -870,7 +870,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Ви впевнені, що хочете видалити цю історію чату?",
             welcomeMessage: "Привіт 👋",
             iSpeak: "🌍 Я розмовляю",
-            iWantToLearn: "📚 Я хочу вивчити"
+            iWantToLearn: "✨ Я хочу вивчити"
         }
     },
     'vi': {
@@ -893,7 +893,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Bạn có chắc chắn muốn xóa lịch sử trò chuyện này không?",
             welcomeMessage: "Xin chào 👋",
             iSpeak: "🌍 Tôi nói",
-            iWantToLearn: "📚 Tôi muốn học"
+            iWantToLearn: "✨ Tôi muốn học"
         }
     },
     'zh-Hans': {
@@ -916,7 +916,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "确定要删除这条聊天记录吗？",
             welcomeMessage: "你好 👋",
             iSpeak: "🌍 我说",
-            iWantToLearn: "📚 我想学习"
+            iWantToLearn: "✨ 我想学习"
         }
     },
     'zh-Hant': {
@@ -939,7 +939,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "確定要刪除這條聊天記錄嗎？",
             welcomeMessage: "你好 👋",
             iSpeak: "🌍 我說",
-            iWantToLearn: "📚 我想學習"
+            iWantToLearn: "✨ 我想學習"
         }
     },
     'zh-hk': {
@@ -962,7 +962,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "確定要刪除呢個對話記錄？",
             welcomeMessage: "你好 👋",
             iSpeak: "🌍 我講",
-            iWantToLearn: "📚 我想學習"
+            iWantToLearn: "✨ 我想學習"
         }
     },
     'af': {
@@ -985,7 +985,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Is jy seker jy wil hierdie kletsgeskiedenis uitvee?",
             welcomeMessage: "Hallo 👋",
             iSpeak: "🌍 Ek praat",
-            iWantToLearn: "📚 Ek wil leer"
+            iWantToLearn: "✨ Ek wil leer"
         }
     },
     'sq': {
@@ -1008,7 +1008,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "A jeni të sigurt që dëshironi ta fshini këtë historik bisede?",
             welcomeMessage: "Përshëndetje 👋",
             iSpeak: "🌍 Unë flas",
-            iWantToLearn: "📚 Dua të mësoj"
+            iWantToLearn: "✨ Dua të mësoj"
         }
     },
     'am': {
@@ -1031,7 +1031,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "የዚህን ውይይት ታሪክ መሰረዝ እንደሚፈልጉ እርግጠኛ ነዎት?",
             welcomeMessage: "ሰላም 👋",
             iSpeak: "🌍 እኔ እናገራለሁ",
-            iWantToLearn: "📚 መማር እፈልጋለሁ"
+            iWantToLearn: "✨ መማር እፈልጋለሁ"
         }
     },
     'hy': {
@@ -1054,7 +1054,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Համոզվա՞ծ եք, որ ցանկանում եք ջնջել այս զրույցի պատմությունը:",
             welcomeMessage: "Բարև 👋",
             iSpeak: "🌍 Ես խոսում եմ",
-            iWantToLearn: "📚 Ուզում եմ սովորել"
+            iWantToLearn: "✨ Ուզում եմ սովորել"
         }
     },
     'az': {
@@ -1077,7 +1077,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Bu söhbət tarixçəsini silmək istədiyinizə əminsiniz?",
             welcomeMessage: "Salam 👋",
             iSpeak: "🌍 Mən danışıram",
-            iWantToLearn: "📚 Öyrənmək istəyirəm"
+            iWantToLearn: "✨ Öyrənmək istəyirəm"
         }
     },
     'be': {
@@ -1100,7 +1100,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Вы ўпэўнены, што хочаце выдаліць гэтую гісторыю чату?",
             welcomeMessage: "Прывітанне 👋",
             iSpeak: "🌍 Я размаўляю",
-            iWantToLearn: "📚 Я хачу вывучыць"
+            iWantToLearn: "✨ Я хачу вывучыць"
         }
     },
     'bo': {
@@ -1123,7 +1123,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "ཁྱེད་རང་གླེང་མོལ་ལོ་རྒྱུས་འདི་སུབ་རྒྱུ་གཏན་འཁེལ་ལམ།",
             welcomeMessage: "བཀྲ་ཤིས་བདེ་ལེགས། 👋",
             iSpeak: "🌍 ང་སྐད་ཆ་བཤད་ཀྱི་ཡོད།",
-            iWantToLearn: "📚 ང་སློབ་སྦྱོང་བྱེད་འདོད་ཡོད།"
+            iWantToLearn: "✨ ང་སློབ་སྦྱོང་བྱེད་འདོད་ཡོད།"
         }
     },
     'bs': {
@@ -1146,7 +1146,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Jeste li sigurni da želite izbrisati ovu historiju razgovora?",
             welcomeMessage: "Zdravo 👋",
             iSpeak: "🌍 Ja govorim",
-            iWantToLearn: "📚 Želim naučiti"
+            iWantToLearn: "✨ Želim naučiti"
         }
     },
     'ca': {
@@ -1169,7 +1169,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Esteu segur que voleu eliminar aquest historial de xat?",
             welcomeMessage: "Hola 👋",
             iSpeak: "🌍 Parlo",
-            iWantToLearn: "📚 Vull aprendre"
+            iWantToLearn: "✨ Vull aprendre"
         }
     },
     'ckb': {
@@ -1192,7 +1192,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "دڵنیای کە دەتەوێت ئەم مێژووی گفتوگۆیە بسڕیتەوە؟",
             welcomeMessage: "سڵاو 👋",
             iSpeak: "🌍 من قسە دەکەم بە",
-            iWantToLearn: "📚 دەمەوێت فێر ببم"
+            iWantToLearn: "✨ دەمەوێت فێر ببم"
         }
     },
     'cy': {
@@ -1215,7 +1215,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Ydych chi'n siŵr eich bod am ddileu'r hanes sgwrs hwn?",
             welcomeMessage: "Helo 👋",
             iSpeak: "🌍 Rwy'n siarad",
-            iWantToLearn: "📚 Rwy'n awyddus i ddysgu"
+            iWantToLearn: "✨ Rwy'n awyddus i ddysgu"
         }
     },
     'eo': {
@@ -1238,7 +1238,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Ĉu vi certas, ke vi volas forigi ĉi tiun babilan historion?",
             welcomeMessage: "Saluton 👋",
             iSpeak: "🌍 Mi parolas",
-            iWantToLearn: "📚 Mi volas lerni"
+            iWantToLearn: "✨ Mi volas lerni"
         }
     },
     'eu': {
@@ -1261,7 +1261,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Ziur zaude txat-historia hau ezabatu nahi duzula?",
             welcomeMessage: "Kaixo 👋",
             iSpeak: "🌍 Hitz egiten dut",
-            iWantToLearn: "📚 Ikasi nahi dut"
+            iWantToLearn: "✨ Ikasi nahi dut"
         }
     },
     'fa': {
@@ -1284,7 +1284,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "آیا مطمئن هستید که می‌خواهید این تاریخچه گفتگو را حذف کنید؟",
             welcomeMessage: "سلام 👋",
             iSpeak: "🌍 من صحبت می‌کنم",
-            iWantToLearn: "📚 می‌خواهم یاد بگیرم"
+            iWantToLearn: "✨ می‌خواهم یاد بگیرم"
         }
     },
     'fo': {
@@ -1307,7 +1307,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Ert tú vísur í, at tú vilt strika hesa prátssøguna?",
             welcomeMessage: "Hey 👋",
             iSpeak: "🌍 Eg tosi",
-            iWantToLearn: "📚 Eg vil læra"
+            iWantToLearn: "✨ Eg vil læra"
         }
     },
     'fy': {
@@ -1330,7 +1330,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Binne jo wis dat jo dizze chatskiednis fuortsmite wolle?",
             welcomeMessage: "Hoi 👋",
             iSpeak: "🌍 Ik praat",
-            iWantToLearn: "📚 Ik wol leare"
+            iWantToLearn: "✨ Ik wol leare"
         }
     },
     'ga': {
@@ -1353,7 +1353,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "An bhfuil tú cinnte gur mian leat an stair comhrá seo a scriosadh?",
             welcomeMessage: "Dia duit 👋",
             iSpeak: "🌍 Labhraím",
-            iWantToLearn: "📚 Ba mhaith liom foghlaim"
+            iWantToLearn: "✨ Ba mhaith liom foghlaim"
         }
     },
     'gl': {
@@ -1376,7 +1376,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Está seguro de que quere eliminar este historial de conversa?",
             welcomeMessage: "Ola 👋",
             iSpeak: "🌍 Eu falo",
-            iWantToLearn: "📚 Quero aprender"
+            iWantToLearn: "✨ Quero aprender"
         }
     },
     'gu': {
@@ -1399,7 +1399,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "શું તમે ખરેખર આ ચેટ ઇતિહાસ કાઢી નાખવા માંગો છો?",
             welcomeMessage: "નમસ્તે 👋",
             iSpeak: "🌍 હું બોલું છું",
-            iWantToLearn: "📚 હું શીખવા માંગું છું"
+            iWantToLearn: "✨ હું શીખવા માંગું છું"
         }
     },
     'haw': {
@@ -1422,7 +1422,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Makemake maoli ʻoe e holoi i kēia mōʻaukala kamaʻilio?",
             welcomeMessage: "Aloha 👋",
             iSpeak: "🌍 ʻŌlelo wau",
-            iWantToLearn: "📚 Makemake wau e aʻo"
+            iWantToLearn: "✨ Makemake wau e aʻo"
         }
     },
     'ht': {
@@ -1445,7 +1445,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Èske ou sèten ou vle efase istwa chat sa a?",
             welcomeMessage: "Bonjou 👋",
             iSpeak: "🌍 Mwen pale",
-            iWantToLearn: "📚 Mwen vle aprann"
+            iWantToLearn: "✨ Mwen vle aprann"
         }
     },
     'ig': {
@@ -1468,7 +1468,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Ị na-ewe anya na ị chọrọ ihichapụ akụkọ mkparịta ụka a?",
             welcomeMessage: "Ndewo 👋",
             iSpeak: "🌍 M na-asụ",
-            iWantToLearn: "📚 Achọrọ m ịmụta"
+            iWantToLearn: "✨ Achọrọ m ịmụta"
         }
     },
     'is': {
@@ -1491,7 +1491,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Ertu viss um að þú viljir eyða þessari spjallsögu?",
             welcomeMessage: "Halló 👋",
             iSpeak: "🌍 Ég tala",
-            iWantToLearn: "📚 Ég vil læra"
+            iWantToLearn: "✨ Ég vil læra"
         }
     },
     'jv': {
@@ -1514,7 +1514,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Apa sampeyan yakin arep mbusak riwayat obrolan iki?",
             welcomeMessage: "Sugeng rawuh 👋",
             iSpeak: "🌍 Aku ngomong",
-            iWantToLearn: "📚 Aku pengin sinau"
+            iWantToLearn: "✨ Aku pengin sinau"
         }
     },
     'ka': {
@@ -1537,7 +1537,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "დარწმუნებული ხართ, რომ გსურთ ამ ჩატის ისტორიის წაშლა?",
             welcomeMessage: "გამარჯობა 👋",
             iSpeak: "🌍 მე ვსაუბრობ",
-            iWantToLearn: "📚 მსურს ვისწავლო"
+            iWantToLearn: "✨ მსურს ვისწავლო"
         }
     },
     'kk': {
@@ -1560,7 +1560,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Бұл чат тарихын шынымен жойғыңыз келе ме?",
             welcomeMessage: "Сәлем 👋",
             iSpeak: "🌍 Мен сөйлеймін",
-            iWantToLearn: "📚 Үйренгім келеді"
+            iWantToLearn: "✨ Үйренгім келеді"
         }
     },
     'km': {
@@ -1583,7 +1583,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "តើអ្នកប្រាកដជាចង់លុបប្រវត្តិជជែកនេះមែនទេ?",
             welcomeMessage: "សួស្តី 👋",
             iSpeak: "🌍 ខ្ញុំនិយាយ",
-            iWantToLearn: "📚 ខ្ញុំចង់រៀន"
+            iWantToLearn: "✨ ខ្ញុំចង់រៀន"
         }
     },
     'kn': {
@@ -1606,7 +1606,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "ಈ ಚಾಟ್ ಇತಿಹಾಸವನ್ನು ಅಳಿಸಲು ನೀವು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ?",
             welcomeMessage: "ನಮಸ್ಕಾರ 👋",
             iSpeak: "🌍 ನಾನು ಮಾತನಾಡುತ್ತೇನೆ",
-            iWantToLearn: "📚 ನಾನು ಕಲಿಯಲು ಬಯಸುತ್ತೇನೆ"
+            iWantToLearn: "✨ ನಾನು ಕಲಿಯಲು ಬಯಸುತ್ತೇನೆ"
         }
     },
     'ky': {
@@ -1629,7 +1629,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Бул маектин тарыхын чын эле өчүргүңүз келеби?",
             welcomeMessage: "Салам 👋",
             iSpeak: "🌍 Мен сүйлөйм",
-            iWantToLearn: "📚 Үйрөнгүм келет"
+            iWantToLearn: "✨ Үйрөнгүм келет"
         }
     },
     'la': {
@@ -1652,7 +1652,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Visne vere hanc colloquii historiam delere?",
             welcomeMessage: "Salve 👋",
             iSpeak: "🌍 Loquor",
-            iWantToLearn: "📚 Discere volo"
+            iWantToLearn: "✨ Discere volo"
         }
     },
     'lb': {
@@ -1675,7 +1675,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Sidd Dir sécher, dass Dir dëse Chat-Verlaf läsche wëllt?",
             welcomeMessage: "Moien 👋",
             iSpeak: "🌍 Ech schwätzen",
-            iWantToLearn: "📚 Ech wëll léieren"
+            iWantToLearn: "✨ Ech wëll léieren"
         }
     },
     'lo': {
@@ -1698,7 +1698,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບປະຫວັດການສົນທະນານີ້?",
             welcomeMessage: "ສະບາຍດີ 👋",
             iSpeak: "🌍 ຂ້ອຍເວົ້າ",
-            iWantToLearn: "📚 ຂ້ອຍຕ້ອງການຮຽນ"
+            iWantToLearn: "✨ ຂ້ອຍຕ້ອງການຮຽນ"
         }
     },
     'mk': {
@@ -1721,7 +1721,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Дали сте сигурни дека сакате да ја избришете оваа историја на разговор?",
             welcomeMessage: "Здраво 👋",
             iSpeak: "🌍 Јас зборувам",
-            iWantToLearn: "📚 Сакам да научам"
+            iWantToLearn: "✨ Сакам да научам"
         }
     },
     'ml': {
@@ -1744,7 +1744,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "ഈ ചാറ്റ് ചരിത്രം ഇല്ലാതാക്കണമെന്ന് തീർച്ചയാണോ?",
             welcomeMessage: "നമസ്കാരം 👋",
             iSpeak: "🌍 ഞാൻ സംസാരിക്കുന്നു",
-            iWantToLearn: "📚 എനിക്ക് പഠിക്കണം"
+            iWantToLearn: "✨ എനിക്ക് പഠിക്കണം"
         }
     },
     'mn': {
@@ -1767,7 +1767,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Та энэ чатын түүхийг устгахдаа итгэлтэй байна уу?",
             welcomeMessage: "Сайн байна уу 👋",
             iSpeak: "🌍 Би ярьдаг",
-            iWantToLearn: "📚 Би сурахыг хүсч байна"
+            iWantToLearn: "✨ Би сурахыг хүсч байна"
         }
     },
     'mr': {
@@ -1790,7 +1790,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "तुम्हाला खरंच हा चॅट इतिहास हटवायचा आहे का?",
             welcomeMessage: "नमस्कार 👋",
             iSpeak: "🌍 मी बोलतो",
-            iWantToLearn: "📚 मला शिकायचे आहे"
+            iWantToLearn: "✨ मला शिकायचे आहे"
         }
     },
     'ms': {
@@ -1813,7 +1813,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Adakah anda pasti mahu memadamkan sejarah perbualan ini?",
             welcomeMessage: "Hai 👋",
             iSpeak: "🌍 Saya bercakap",
-            iWantToLearn: "📚 Saya ingin belajar"
+            iWantToLearn: "✨ Saya ingin belajar"
         }
     },
     'my': {
@@ -1836,7 +1836,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "ဒီချတ်မှတ်တမ်းကို ဖျက်ချင်တာ သေချာပါသလား?",
             welcomeMessage: "မင်္ဂလာပါ 👋",
             iSpeak: "🌍 ကျွန်ုပ်ပြောဆိုသည်",
-            iWantToLearn: "📚 ကျွန်ုပ်သင်ယူလိုသည်"
+            iWantToLearn: "✨ ကျွန်ုပ်သင်ယူလိုသည်"
         }
     },
     'ne': {
@@ -1859,7 +1859,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "के तपाईं साँच्चै यो च्याट इतिहास मेट्न चाहनुहुन्छ?",
             welcomeMessage: "नमस्कार 👋",
             iSpeak: "🌍 म बोल्छु",
-            iWantToLearn: "📚 म सिक्न चाहन्छु"
+            iWantToLearn: "✨ म सिक्न चाहन्छु"
         }
     },
     'or': {
@@ -1882,7 +1882,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "ଆପଣ ନିଶ୍ଚିତ ଭାବରେ ଏହି ଚାଟ୍ ଇତିହାସ ଡିଲିଟ୍ କରିବାକୁ ଚାହୁଁଛନ୍ତି?",
             welcomeMessage: "ନମସ୍କାର 👋",
             iSpeak: "🌍 ମୁଁ କଥା କହେ",
-            iWantToLearn: "📚 ମୁଁ ଶିଖିବାକୁ ଚାହେଁ"
+            iWantToLearn: "✨ ମୁଁ ଶିଖିବାକୁ ଚାହେଁ"
         }
     },
     'pa': {
@@ -1905,7 +1905,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "ਕੀ ਤੁਸੀਂ ਪੱਕਾ ਇਸ ਚੈਟ ਇਤਿਹਾਸ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?",
             welcomeMessage: "ਸਤਿ ਸ਼੍ਰੀ ਅਕਾਲ 👋",
             iSpeak: "🌍 ਮੈਂ ਬੋਲਦਾ ਹਾਂ",
-            iWantToLearn: "📚 ਮੈਂ ਸਿੱਖਣਾ ਚਾਹੁੰਦਾ ਹਾਂ"
+            iWantToLearn: "✨ ਮੈਂ ਸਿੱਖਣਾ ਚਾਹੁੰਦਾ ਹਾਂ"
         }
     },
     'rw': {
@@ -1928,7 +1928,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Uzi neza ko ushaka gusiba iyi nyandiko y'ibiganiro?",
             welcomeMessage: "Muraho 👋",
             iSpeak: "🌍 Mvuga",
-            iWantToLearn: "📚 Ndashaka kwiga"
+            iWantToLearn: "✨ Ndashaka kwiga"
         }
     },
     'si': {
@@ -1951,7 +1951,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "ඔබට මෙම කතාබහ ඉතිහාසය මකා දැමීමට අවශ්‍ය බව විශ්වාසද?",
             welcomeMessage: "ආයුබෝවන් 👋",
             iSpeak: "🌍 මම කතා කරනවා",
-            iWantToLearn: "📚 මට ඉගෙන ගන්න ඕනෑ"
+            iWantToLearn: "✨ මට ඉගෙන ගන්න ඕනෑ"
         }
     },
     'su': {
@@ -1974,7 +1974,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Anjeun yakin rék mupus riwayat obrolan ieu?",
             welcomeMessage: "Wilujeng sumping 👋",
             iSpeak: "🌍 Abdi nyarita",
-            iWantToLearn: "📚 Abdi hoyong diajar"
+            iWantToLearn: "✨ Abdi hoyong diajar"
         }
     },
     'ta': {
@@ -1997,7 +1997,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "இந்த அரட்டை வரலாற்றை நீக்க விரும்புகிறீர்களா?",
             welcomeMessage: "வணக்கம் 👋",
             iSpeak: "🌍 நான் பேசுகிறேன்",
-            iWantToLearn: "📚 நான் கற்க விரும்புகிறேன்"
+            iWantToLearn: "✨ நான் கற்க விரும்புகிறேன்"
         }
     },
     'te': {
@@ -2020,7 +2020,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "మీరు ఖచ్చితంగా ఈ చాట్ చరిత్రను తొలగించాలనుకుంటున్నారా?",
             welcomeMessage: "నమస్కారం 👋",
             iSpeak: "🌍 నేను మాట్లాడతాను",
-            iWantToLearn: "📚 నేను నేర్చుకోవాలనుకుంటున్నాను"
+            iWantToLearn: "✨ నేను నేర్చుకోవాలనుకుంటున్నాను"
         }
     },
     'tg': {
@@ -2043,7 +2043,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Шумо дар ҳақиқат мехоҳед таърихи ин суҳбатро нест кунед?",
             welcomeMessage: "Салом 👋",
             iSpeak: "🌍 Ман ҳарф мезанам",
-            iWantToLearn: "📚 Ман мехоҳам омӯзам"
+            iWantToLearn: "✨ Ман мехоҳам омӯзам"
         }
     },
     'tk': {
@@ -2066,7 +2066,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Bu söhbet geçmişini pozmak isleýändigiňize ynanýarsyňyzmy?",
             welcomeMessage: "Salam 👋",
             iSpeak: "🌍 Men gepleýärin",
-            iWantToLearn: "📚 Men öwrenmek isleýärin"
+            iWantToLearn: "✨ Men öwrenmek isleýärin"
         }
     },
     'tl': {
@@ -2089,7 +2089,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Sigurado ka bang gusto mong tanggalin ang chat history na ito?",
             welcomeMessage: "Kumusta 👋",
             iSpeak: "🌍 Nagsasalita ako ng",
-            iWantToLearn: "📚 Gusto kong matuto ng"
+            iWantToLearn: "✨ Gusto kong matuto ng"
         }
     },
     'ur': {
@@ -2112,7 +2112,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "کیا آپ واقعی اس چیٹ کی سرگزشت کو حذف کرنا چاہتے ہیں؟",
             welcomeMessage: "السلام علیکم 👋",
             iSpeak: "🌍 میں بولتا/بولتی ہوں",
-            iWantToLearn: "📚 میں سیکھنا چاہتا/چاہتی ہوں"
+            iWantToLearn: "✨ میں سیکھنا چاہتا/چاہتی ہوں"
         }
     },
     'uz': {
@@ -2135,7 +2135,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Haqiqatan ham bu suhbat tarixini o'chirmoqchimisiz?",
             welcomeMessage: "Salom 👋",
             iSpeak: "🌍 Men gaplashaman",
-            iWantToLearn: "📚 Men o'rganmoqchiman"
+            iWantToLearn: "✨ Men o'rganmoqchiman"
         }
     },
     'yi': {
@@ -2158,7 +2158,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "זענט איר זיכער אז איר ווילט אויסמעקן די שמועס היסטאריע?",
             welcomeMessage: "שלום עליכם 👋",
             iSpeak: "🌍 איך רעד",
-            iWantToLearn: "📚 איך וויל לערנען"
+            iWantToLearn: "✨ איך וויל לערנען"
         }
     },
     'zu': {
@@ -2181,7 +2181,7 @@ const LANGUAGE_CONFIG = {
             confirmDelete: "Uqinisekile ukuthi ufuna ukususa lolu mlando wengxoxo?",
             welcomeMessage: "Sawubona 👋",
             iSpeak: "🌍 Ngikhuluma",
-            iWantToLearn: "📚 Ngifuna ukufunda"
+            iWantToLearn: "✨ Ngifuna ukufunda"
         }
     }
 };
@@ -23457,11 +23457,39 @@ class AudioChat {
         this.setupHistoryHandlers();
     }
 
-    updatePromptDisplay() {
+    async typeWriter(element, text, speed = 50) {
+        return new Promise(resolve => {
+            let i = 0;
+            element.innerHTML = '';
+            const originalText = [];
+            
+            function type() {
+                if (i < text.length) {
+                    originalText.push(text.charAt(i));
+                    
+                    const highlight = `<span class="text-blue-400">`;
+                    
+                    const html = originalText.slice(0, -1).join('') + 
+                                `${highlight}${originalText[originalText.length-1]}</span>`;
+                    element.innerHTML = html;
+                    
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    element.textContent = text;
+                    resolve();
+                }
+            }
+            
+            type();
+        });
+    }
+    
+    async updatePromptDisplay() {
         const targetLang = document.getElementById('targetLanguageSelect').value || 'en';
-        const examples = PROMPT_EXAMPLES[targetLang] || PROMPT_EXAMPLES['en'];  // 如果没有该语言的例句就用英语
+        const examples = PROMPT_EXAMPLES[targetLang] || PROMPT_EXAMPLES['en'];
         const randomPrompt = examples[Math.floor(Math.random() * examples.length)];
-        this.promptDisplay.textContent = `🌟 ${randomPrompt}`;
+        await this.typeWriter(this.promptDisplay, `🌟 ${randomPrompt}`, 30);
     }
     
     startPromptRotation() {
@@ -23951,12 +23979,59 @@ class AudioChat {
         const ctx = this.volumeCtx;
         const width = this.volumeCanvas.width;
         const height = this.volumeCanvas.height;
-
+    
         ctx.clearRect(0, 0, width, height);
-        ctx.fillStyle = volume > this.volumeThreshold ? '#4CAF50' : '#E0E0E0';
         
-        const barWidth = width * (Math.min(volume / 32768, 1));  
-        ctx.fillRect(0, 0, barWidth, height);
+        const barWidth = width * (Math.min(volume / 32768, 1));
+        
+        const gradient = ctx.createLinearGradient(0, 0, width, 0);
+        
+        if (volume > this.volumeThreshold) {
+            gradient.addColorStop(0, '#4CAF50');    
+            gradient.addColorStop(0.5, '#2196F3');  
+            gradient.addColorStop(1, '#9C27B0');   
+        } else {
+            gradient.addColorStop(0, '#E0E0E0');
+            gradient.addColorStop(1, '#BDBDBD');
+        }
+        
+        ctx.fillStyle = gradient;
+        
+        ctx.beginPath();
+        ctx.roundRect(0, 0, barWidth, height, 10);
+        ctx.fill();
+        
+        if (volume > this.volumeThreshold) {
+            const ballSize = height / 2;
+            const ballX = barWidth - ballSize;
+            
+            ctx.beginPath();
+            const glow = ctx.createRadialGradient(
+                ballX, height/2, 0,
+                ballX, height/2, ballSize * 2
+            );
+            glow.addColorStop(0, 'rgba(255, 255, 255, 0.3)');
+            glow.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            ctx.fillStyle = glow;
+            ctx.arc(ballX, height/2, ballSize * 2, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.fillStyle = 'white';
+            ctx.arc(ballX, height/2, ballSize/2, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.lineWidth = 1;
+        const gridSize = width / 20;
+        
+        for (let x = gridSize; x < width; x += gridSize) {
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, height);
+            ctx.stroke();
+        }
     }
 
     handleLanguageChange(newLanguage) {
