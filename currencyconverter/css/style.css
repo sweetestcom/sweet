@@ -1,0 +1,460 @@
+:root {
+    --primary-color: #2196f3;
+    --secondary-color: #1976d2;
+    --background-color: #f8f9fa;
+    --surface-color: #ffffff;
+    --text-primary: #2c3e50;
+    --text-secondary: #606060;
+    --border-color: #e0e0e0;
+    --card-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+[data-theme="dark"] {
+    --background-color: #1a1a1a;
+    --surface-color: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --border-color: #404040;
+    --card-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand h1 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.logo {
+    height: 32px;
+    width: auto;
+}
+
+.nav-group {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.select-styled {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--surface-color);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.select-styled:hover {
+    border-color: var(--primary-color);
+}
+
+.icon-button {
+    padding: 8px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-button:hover {
+    color: var(--primary-color);
+    background-color: var(--background-color);
+}
+
+.header-content {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.site-description {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.update-info {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.converter-panel {
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.input-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.amount-input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    resize: vertical;
+    min-height: 100px;
+    background-color: var(--surface-color);
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.amount-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+}
+
+#currency-search {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    background-color: var(--surface-color);
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+#currency-search:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.currency-section {
+    margin-bottom: 2rem;
+}
+
+.currency-section h2 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.currency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.currency-card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    position: relative;
+    transition: var(--transition);
+}
+
+.currency-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.currency-code {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.currency-name {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: normal;
+    margin-left: 4px;
+}
+
+.currency-emoji {
+    font-size: 1.2rem;
+}
+
+.star-button {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #ccc; 
+    transition: transform 0.2s ease;
+}
+
+.star-button:hover {
+    transform: scale(1.1);
+}
+
+.star-button.starred {
+    color: #ffd700; 
+}
+
+.currency-values {
+    margin-top: 0.5rem;
+}
+
+.converted-amount {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.rate-change {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.rate-change.positive {
+    color: #4caf50;
+}
+
+.rate-change.negative {
+    color: #f44336;
+}
+
+.sortable-ghost {
+    opacity: 0.5;
+    background-color: var(--border-color);
+}
+
+#footer {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+    padding: 30px;
+    }
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.back-to-top.visible {
+    display: flex;
+}
+
+.input-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center; 
+}
+
+.amount-input {
+    flex: 1;
+    min-height: 80px;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--surface-color);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    resize: vertical;
+}
+
+.history-panel {
+    display: none;
+    margin-bottom: 1rem;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.history-panel.visible {
+    display: block;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.history-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.text-button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.text-button:hover {
+    color: var(--text-primary);
+}
+
+.history-list {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 0.5rem;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-item:hover {
+    background-color: var(--background-color);
+}
+
+.history-content {
+    flex: 1;
+}
+
+.history-date {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+.delete-history {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.history-item:hover .delete-history {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        padding: 10px;
+    }
+
+    .converter-panel {
+        padding: 1rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .currency-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .brand h1 {
+        font-size: 1.2rem;
+    }
+
+    .site-description {
+        font-size: 1.2rem;
+    }
+}

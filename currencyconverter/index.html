@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ExchangeWise - Real-time currency converter with support for 150+ currencies. Calculate exchange rates, track changes, and customize your currency preferences.">
+    <meta name="description" lang="zh" content="ExchangeWise - 支持150多种货币的实时货币转换器。计算汇率、追踪变化、自定义货币偏好。">
+    <meta name="keywords" content="currency converter, exchange rate, currency calculator, real-time exchange, 货币转换器, 汇率计算器, 实时汇率">
+    <title>Currency Converter | Currency Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="top-nav">
+            <div class="brand">
+                <img src="images/logo.webp" alt="Logo" class="logo">
+                <h1>ExchangeWise</h1>
+            </div>
+            <div class="nav-group">
+                <select id="language-select" class="select-styled">
+                    <option value="en">English</option>
+                    <option value="ar">العربية</option>
+                    <option value="bn">বাংলা</option>
+                    <option value="bg">Български</option>
+                    <option value="hr">Hrvatski</option>
+                    <option value="cs">Čeština</option>
+                    <option value="da">Dansk</option>
+                    <option value="nl">Nederlands</option>
+                    <option value="et">Eesti</option>
+                    <option value="fi">Suomi</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="el">Ελληνικά</option>
+                    <option value="he">עברית</option>
+                    <option value="hi">हिंदी</option>
+                    <option value="hu">Magyar</option>
+                    <option value="id">Bahasa Indonesia</option>
+                    <option value="it">Italiano</option>
+                    <option value="ja">日本語</option>
+                    <option value="ko">한국어</option>
+                    <option value="lv">Latviešu</option>
+                    <option value="lt">Lietuvių</option>
+                    <option value="no">Norsk</option>
+                    <option value="pl">Polski</option>
+                    <option value="pt-pt">Português</option>
+                    <option value="pt-br">Português Brasileiro</option>
+                    <option value="ro">Română</option>
+                    <option value="ru">Русский</option>
+                    <option value="sr">Српски</option>
+                    <option value="sk">Slovenčina</option>
+                    <option value="sl">Slovenščina</option>
+                    <option value="es-es">Español</option>
+                    <option value="es-419">Español Latinoamericano</option>
+                    <option value="sw">Kiswahili</option>
+                    <option value="sv">Svenska</option>
+                    <option value="th">ไทย</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="uk">Українська</option>
+                    <option value="vi">Tiếng Việt</option>
+                    <option value="zh-Hans">简体中文</option>
+                    <option value="zh-Hant">繁體中文</option>
+                    <option value="zh-hk">粵語</option>
+                    <option value="af">Afrikaans</option>
+                    <option value="sq">Shqip</option>
+                    <option value="am">አማርኛ</option>
+                    <option value="hy">Հայերեն</option>
+                    <option value="az">Azərbaycan</option>
+                    <option value="be">Беларуская</option>
+                    <option value="bo">བོད་སྐད་</option>
+                    <option value="bs">Bosanski</option>
+                    <option value="ca">Català</option>
+                    <option value="ckb">کوردیی ناوەندی</option>
+                    <option value="cy">Cymraeg</option>
+                    <option value="eo">Esperanto</option>
+                    <option value="eu">Euskara</option>
+                    <option value="fa">فارسی</option>
+                    <option value="fo">Føroyskt</option>
+                    <option value="fy">Frysk</option>
+                    <option value="ga">Gaeilge</option>
+                    <option value="gl">Galego</option>
+                    <option value="gu">ગુજરાતી</option>
+                    <option value="haw">ʻŌlelo Hawaiʻi</option>
+                    <option value="ht">Kreyòl Ayisyen</option>
+                    <option value="ig">Igbo</option>
+                    <option value="is">Íslenska</option>
+                    <option value="jv">Basa Jawa</option>
+                    <option value="ka">ქართული</option>
+                    <option value="kk">Қазақ</option>
+                    <option value="km">ខ្មែរ</option>
+                    <option value="kn">ಕನ್ನಡ</option>
+                    <option value="ky">Кыргызча</option>
+                    <option value="la">Latina</option>
+                    <option value="lb">Lëtzebuergesch</option>
+                    <option value="lo">ລາວ</option>
+                    <option value="mk">Македонски</option>
+                    <option value="ml">മലയാളം</option>
+                    <option value="mn">Монгол</option>
+                    <option value="mr">मराठी</option>
+                    <option value="ms">Bahasa Melayu</option>
+                    <option value="my">မြန်မာစာ</option>
+                    <option value="ne">नेपाली</option>
+                    <option value="or">ଓଡ଼ିଆ</option>
+                    <option value="pa">ਪੰਜਾਬੀ</option>
+                    <option value="rw">Kinyarwanda</option>
+                    <option value="si">සිංහල</option>
+                    <option value="su">Basa Sunda</option>
+                    <option value="ta">தமிழ்</option>
+                    <option value="te">తెలుగు</option>
+                    <option value="tg">Тоҷикӣ</option>
+                    <option value="tk">Türkmen</option>
+                    <option value="tl">Filipino</option>
+                    <option value="ur">اردو</option>
+                    <option value="uz">O'zbek</option>
+                    <option value="yi">ייִדיש</option>
+                    <option value="zu">isiZulu</option>
+                </select>
+                <button id="theme-toggle" class="icon-button">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+
+        <header class="app-header">
+            <div class="header-content">
+                <h2 class="site-description">Smart Currency Converter</h2>
+                <p class="update-info">
+                    <span id="update-time"></span>
+                </p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="converter-panel">
+                <div class="input-group">
+                    <select id="base-currency" class="select-styled"></select>
+                    <div class="input-wrapper">
+                        <textarea 
+                            id="amount-input" 
+                            class="amount-input" 
+                            placeholder="Enter amounts (e.g., 100;200;300)&#10;Support calculations (e.g., 100*2)"
+                        ></textarea>
+                        <button id="history-button" class="icon-button" title="Conversion History">
+                            <i class="fas fa-history"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="history-panel" class="history-panel">
+                    <div class="history-header">
+                        <h3>Conversion History</h3>
+                        <button id="clear-history" class="text-button">
+                            <i class="fas fa-trash-alt"></i>
+                            Clear All
+                        </button>
+                    </div>
+                    <div class="history-list"></div>
+                </div>
+
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="currency-search" placeholder="Search currencies...">
+                </div>
+
+                <div id="starred-currencies" class="currency-section">
+                    <h2>⭐ Starred Currencies</h2>
+                    <div id="starred-list" class="currency-grid"></div>
+                </div>
+
+                <div id="all-currencies" class="currency-section">
+                    <h2>All Currencies</h2>
+                    <div id="currency-grid" class="currency-grid"></div>
+                </div>
+            </div>
+            <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
+    <div id="footer">
+        <a href="https://swiest.com">© SWIEST🍭</a>
+    </div>
+</body>
+</html>

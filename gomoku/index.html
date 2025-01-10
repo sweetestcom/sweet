@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Gomoku</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-section">
+                <h1 class="game-title">AI Gomoku</h1>
+                <span class="subtitle">Play against advanced AI</span>
+            </div>
+            <div class="settings">
+                <select id="language-select" class="setting-control">
+                    <option value="en">English</option>
+                    <option value="zh">中文</option>
+                    <option value="ja">日本語</option>
+                </select>
+                <button id="theme-toggle" class="setting-control">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="sound-toggle" class="setting-control">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <div class="game-container">
+                <div class="game-panel settings-panel">
+                    <h2 class="panel-title" data-i18n="gameSettings">Game Settings</h2>
+                    <div class="mode-select">
+                        <button class="mode-btn active" data-mode="player-ai" data-i18n="playerVsAI">
+                            <i class="fas fa-user"></i> vs <i class="fas fa-robot"></i>
+                        </button>
+                        <button class="mode-btn" data-mode="ai-ai" data-i18n="aiVsAi">
+                            <i class="fas fa-robot"></i> vs <i class="fas fa-robot"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="ai-settings">
+                        <div class="ai-select">
+                            <label for="ai-1" data-i18n="selectAI1">First AI:</label>
+                            <select id="ai-1" class="setting-control">
+                                <option value="openai">OpenAI</option>
+                                <option value="gemini">Gemini</option>
+                                <option value="claude">Claude</option>
+                            </select>
+                            <input type="password" id="api-key-1" class="setting-control" data-i18n-placeholder="apiKeyPlaceholder">
+                        </div>
+                        
+                        <div class="ai-select ai-2-settings" style="display: none;">
+                            <label for="ai-2" data-i18n="selectAI2">Second AI:</label>
+                            <select id="ai-2" class="setting-control">
+                                <option value="openai">OpenAI</option>
+                                <option value="gemini">Gemini</option>
+                                <option value="claude">Claude</option>
+                            </select>
+                            <input type="password" id="api-key-2" class="setting-control" data-i18n-placeholder="apiKeyPlaceholder">
+                        </div>
+
+                        <div class="difficulty-select">
+                            <label for="difficulty" data-i18n="difficulty">Difficulty:</label>
+                            <select id="difficulty" class="setting-control">
+                                <option value="easy" data-i18n="easy">Easy</option>
+                                <option value="medium" data-i18n="medium">Medium</option>
+                                <option value="hard" data-i18n="hard">Hard</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="board-container">
+                    <div class="game-status">
+                        <div id="status" class="status-text"></div>
+                        <div class="player-info">
+                            <div class="player black">
+                                <div class="stone-sample black"></div>
+                                <span class="player-name" data-i18n="blackPlayer">Black</span>
+                                <span class="timer">00:00</span>
+                            </div>
+                            <div class="player white">
+                                <div class="stone-sample white"></div>
+                                <span class="player-name" data-i18n="whitePlayer">White</span>
+                                <span class="timer">00:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="game-board"></div>
+
+                    <div class="game-controls">
+                        <button id="undo" class="control-button" disabled>
+                            <i class="fas fa-undo"></i>
+                            <span data-i18n="undo">Undo</span>
+                        </button>
+                        <button id="new-game" class="control-button primary">
+                            <i class="fas fa-play"></i>
+                            <span data-i18n="newGame">New Game</span>
+                        </button>
+                        <button id="auto-play" class="control-button">
+                            <i class="fas fa-forward"></i>
+                            <span data-i18n="autoPlay">Auto Play</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-panel history-panel">
+                    <h2 class="panel-title" data-i18n="gameHistory">Game History</h2>
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <span class="stat-label" data-i18n="totalGames">Total Games:</span>
+                            <span class="stat-value" id="total-games">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label" data-i18n="winRate">Win Rate:</span>
+                            <span class="stat-value" id="win-rate">0%</span>
+                        </div>
+                    </div>
+                    <div id="moves-list" class="moves-list"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 胜利动画容器 -->
+    <div id="victory-animation" class="victory-animation">
+        <div class="victory-content">
+            <h2 class="victory-text"></h2>
+            <div class="confetti"></div>
+        </div>
+    </div>
+
+    <!-- 音效预加载 -->
+    <audio id="stone-sound" preload="auto">
+        <source src="assets/sounds/stone.mp3" type="audio/mp3">
+    </audio>
+    <audio id="win-sound" preload="auto">
+        <source src="assets/sounds/win.mp3" type="audio/mp3">
+    </audio>
+    <audio id="error-sound" preload="auto">
+        <source src="assets/sounds/error.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="js/utils.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
